@@ -1,0 +1,48 @@
+name: Fetch Lipsync Papers
+
+on:
+  # Run every Monday at 06:00 UTC
+  schedule:
+    - cron: "0 6 * * 1"
+
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Run a full historical fetch (since wav2lip / 2020)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch papers (incremental)
+        if: ${{ github.event.inputs.full != 'true' }}
+        run: python scripts/fetch_papers.py --days 8
+
+      - name: Fetch papers (full historical)
+        if: ${{ github.event.inputs.full == 'true' }}
+        run: python scripts/fetch_papers.py --full
+
+      - name: Commit updated paper list
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update papers list [skip ci]"
+          file_pattern: "papers.csv README.md"
