@@ -254,8 +254,8 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
         section_lines = [
             f"### {year}",
             "",
-            "| Date | Title | Authors |",
-            "|------|-------|---------|",
+            "| Date | Title | Authors | Abstract |",
+            "|------|-------|---------|----------|",
         ]
         for row in by_year[year]:
             title_link = f"[{row['title']}]({row['url']})"
@@ -264,10 +264,12 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
             if authors.count(",") > 4:
                 authors = ", ".join(authors.split(", ")[:4]) + " et al."
             date_str = row.get("submitted", "")[:10]
+            abstract = row.get("abstract", "")
             # Escape pipe characters inside cells
             title_link = title_link.replace("|", "\\|")
             authors = authors.replace("|", "\\|")
-            section_lines.append(f"| {date_str} | {title_link} | {authors} |")
+            abstract = abstract.replace("|", "\\|")
+            section_lines.append(f"| {date_str} | {title_link} | {authors} | {abstract} |")
         sections.append("\n".join(section_lines))
 
     return "\n\n".join(sections)
@@ -288,7 +290,7 @@ def update_readme(papers_by_id: dict[str, dict]) -> None:
             re.escape(_TABLE_START) + r".*?" + re.escape(_TABLE_END),
             re.DOTALL,
         )
-        content = pattern.sub(new_section, content)
+        content = pattern.sub(lambda _: new_section, content)
     else:
         # Append after the first paragraph
         content = content.rstrip() + "\n\n" + new_section + "\n"
