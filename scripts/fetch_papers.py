@@ -34,6 +34,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -241,22 +242,35 @@ _TABLE_END = "<!-- PAPERS_TABLE_END -->"
 
 def _build_table(papers_by_id: dict[str, dict]) -> str:
     rows = sorted(papers_by_id.values(), key=lambda r: r.get("submitted", ""), reverse=True)
-    lines = [
-        "| Date | Title | Authors |",
-        "|------|-------|---------|",
-    ]
+
+    # Group by year (newest first).
+    by_year: dict[str, list] = defaultdict(list)
     for row in rows:
-        title_link = f"[{row['title']}]({row['url']})"
-        # Truncate long author lists for readability
-        authors = row.get("authors", "")
-        if authors.count(",") > 4:
-            authors = ", ".join(authors.split(", ")[:4]) + " et al."
-        date_str = row.get("submitted", "")[:10]
-        # Escape pipe characters inside cells
-        title_link = title_link.replace("|", "\\|")
-        authors = authors.replace("|", "\\|")
-        lines.append(f"| {date_str} | {title_link} | {authors} |")
-    return "\n".join(lines)
+        year = row.get("submitted", "")[:4] or "Unknown"
+        by_year[year].append(row)
+
+    sections: list[str] = []
+    for year in sorted(by_year.keys(), reverse=True):
+        section_lines = [
+            f"### {year}",
+            "",
+            "| Date | Title | Authors |",
+            "|------|-------|---------|",
+        ]
+        for row in by_year[year]:
+            title_link = f"[{row['title']}]({row['url']})"
+            # Truncate long author lists for readability
+            authors = row.get("authors", "")
+            if authors.count(",") > 4:
+                authors = ", ".join(authors.split(", ")[:4]) + " et al."
+            date_str = row.get("submitted", "")[:10]
+            # Escape pipe characters inside cells
+            title_link = title_link.replace("|", "\\|")
+            authors = authors.replace("|", "\\|")
+            section_lines.append(f"| {date_str} | {title_link} | {authors} |")
+        sections.append("\n".join(section_lines))
+
+    return "\n\n".join(sections)
 
 
 def update_readme(papers_by_id: dict[str, dict]) -> None:

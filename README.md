@@ -37,6 +37,8 @@ The following keyword queries are used against arXiv title and abstract fields:
 ## Papers
 
 <!-- PAPERS_TABLE_START -->
+### 2026
+
 | Date | Title | Authors |
 |------|-------|---------|
 | 2026-03-09 | [Talking Together: Synthesizing Co-Located 3D Conversations from Audio](https://arxiv.org/abs/2603.08674) | Mengyi Shan, Shouchieh Chang, Ziqian Bai, Shichen Liu et al. |
@@ -78,6 +80,11 @@ The following keyword queries are used against arXiv title and abstract fields:
 | 2026-01-05 | [MANGO:Natural Multi-speaker 3D Talking Head Generation via 2D-Lifted Enhancement](https://arxiv.org/abs/2601.01749) | Lei Zhu, Lijian Lin, Ye Zhu, Jiahao Wu et al. |
 | 2026-01-04 | [MM-Sonate: Multimodal Controllable Audio-Video Generation with Zero-Shot Voice Cloning](https://arxiv.org/abs/2601.01568) | Chunyu Qiang, Jun Wang, Xiaopeng Wang, Kang Yin, Yuxin Guo |
 | 2026-01-02 | [Avatar Forcing: Real-Time Interactive Head Avatar Generation for Natural Conversation](https://arxiv.org/abs/2601.00664) | Taekyung Ki, Sangwon Jang, Jaehyeong Jo, Jaehong Yoon, Sung Ju Hwang |
+
+### 2025
+
+| Date | Title | Authors |
+|------|-------|---------|
 | 2025-12-31 | [From Inpainting to Editing: A Self-Bootstrapping Framework for Context-Rich Visual Dubbing](https://arxiv.org/abs/2512.25066) | Xu He, Haoxian Zhang, Hejia Chen, Changyuan Zheng et al. |
 | 2025-12-30 | [DyStream: Streaming Dyadic Talking Heads Generation via Flow Matching-based Autoregressive Model](https://arxiv.org/abs/2512.24408) | Bohong Chen, Haiyang Liu |
 | 2025-12-27 | [PTalker: Personalized Speech-Driven 3D Talking Head Animation via Style Disentanglement and Modality Alignment](https://arxiv.org/abs/2512.22602) | Bin Wang, Yang Xu, Huan Zhao, Hao Zhang, Zixing Zhang |
@@ -303,6 +310,11 @@ The following keyword queries are used against arXiv title and abstract fields:
 | 2025-01-03 | [MoEE: Mixture of Emotion Experts for Audio-Driven Portrait Animation](https://arxiv.org/abs/2501.01808) | Huaize Liu, Wenzhang Sun, Donglin Di, Shibo Sun et al. |
 | 2025-01-03 | [JoyGen: Audio-Driven 3D Depth-Aware Talking-Face Video Editing](https://arxiv.org/abs/2501.01798) | Qili Wang, Dajiang Wu, Zihang Xu, Junshi Huang, Jun Lv |
 | 2025-01-02 | [VideoAnydoor: High-fidelity Video Object Insertion with Precise Motion Control](https://arxiv.org/abs/2501.01427) | Yuanpeng Tu, Hao Luo, Xi Chen, Sihui Ji et al. |
+
+### 2024
+
+| Date | Title | Authors |
+|------|-------|---------|
 | 2024-12-28 | [DEGSTalk: Decomposed Per-Embedding Gaussian Fields for Hair-Preserving Talking Face Synthesis](https://arxiv.org/abs/2412.20148) | Kaijun Deng, Dezhi Zheng, Jindong Xie, Jinbao Wang et al. |
 | 2024-12-26 | [UniAvatar: Taming Lifelike Audio-Driven Talking Head Generation with Comprehensive Motion and Lighting Control](https://arxiv.org/abs/2412.19860) | Wenzhang Sun, Xiang Li, Donglin Di, Zhuding Liang et al. |
 | 2024-12-21 | [Improving Lip-synchrony in Direct Audio-Visual Speech-to-Speech Translation](https://arxiv.org/abs/2412.16530) | Lucas Goncalves, Prashant Mathur, Xing Niu, Brady Houston et al. |
@@ -463,6 +475,11 @@ The following keyword queries are used against arXiv title and abstract fields:
 | 2024-01-16 | [EmoTalker: Emotionally Editable Talking Face Generation via Diffusion Model](https://arxiv.org/abs/2401.08049) | Bingyuan Zhang, Xulong Zhang, Ning Cheng, Jun Yu et al. |
 | 2024-01-09 | [Jump Cut Smoothing for Talking Heads](https://arxiv.org/abs/2401.04718) | Xiaojuan Wang, Taesung Park, Yang Zhou, Eli Shechtman, Richard Zhang |
 | 2024-01-02 | [Towards a Simultaneous and Granular Identity-Expression Control in Personalized Face Generation](https://arxiv.org/abs/2401.01207) | Renshuai Liu, Bowen Ma, Wei Zhang, Zhipeng Hu et al. |
+
+### 2023
+
+| Date | Title | Authors |
+|------|-------|---------|
 | 2023-12-28 | [EFHQ: Multi-purpose ExtremePose-Face-HQ dataset](https://arxiv.org/abs/2312.17205) | Trung Tuan Dao, Duc Hong Vu, Cuong Pham, Anh Tran |
 | 2023-12-25 | [SAiD: Speech-driven Blendshape Facial Animation with Diffusion](https://arxiv.org/abs/2401.08655) | Inkyu Park, Jaewoong Cho |
 | 2023-12-23 | [TransFace: Unit-Based Audio-Visual Speech Synthesizer for Talking Head Translation](https://arxiv.org/abs/2312.15197) | Xize Cheng, Rongjie Huang, Linjun Li, Tao Jin et al. |
@@ -606,6 +623,11 @@ The following keyword queries are used against arXiv title and abstract fields:
 | 2023-01-06 | [Diffused Heads: Diffusion Models Beat GANs on Talking-Face Generation](https://arxiv.org/abs/2301.03396) | Michał Stypułkowski, Konstantinos Vougioukas, Sen He, Maciej Zięba et al. |
 | 2023-01-05 | [Expressive Speech-driven Facial Animation with controllable emotions](https://arxiv.org/abs/2301.02008) | Yutong Chen, Junhong Zhao, Wei-Qiang Zhang |
 | 2023-01-03 | [StyleTalk: One-shot Talking Head Generation with Controllable Speaking Styles](https://arxiv.org/abs/2301.01081) | Yifeng Ma, Suzhen Wang, Zhipeng Hu, Changjie Fan et al. |
+
+### 2022
+
+| Date | Title | Authors |
+|------|-------|---------|
 | 2022-12-28 | [All's well that FID's well? Result quality and metric scores in GAN models for lip-sychronization tasks](https://arxiv.org/abs/2212.13810) | Carina Geldhauser, Johan Liljegren, Pontus Nordqvist |
 | 2022-12-23 | [Dubbing in Practice: A Large Scale Study of Human Localization With Insights for Automatic Dubbing](https://arxiv.org/abs/2212.12137) | William Brannon, Yogesh Virkar, Brian Thompson |
 | 2022-12-21 | [An Audio-Visual Speech Separation Model Inspired by Cortico-Thalamo-Cortical Circuits](https://arxiv.org/abs/2212.10744) | Kai Li, Fenghua Xie, Hang Chen, Kexin Yuan, Xiaolin Hu |
@@ -687,6 +709,11 @@ The following keyword queries are used against arXiv title and abstract fields:
 | 2022-01-17 | [Towards Realistic Visual Dubbing with Heterogeneous Sources](https://arxiv.org/abs/2201.06260) | Tianyi Xie, Liucheng Liao, Cheng Bi, Benlai Tang et al. |
 | 2022-01-16 | [Audio-Driven Talking Face Video Generation with Dynamic Convolution Kernels](https://arxiv.org/abs/2201.05986) | Zipeng Ye, Mengfei Xia, Ran Yi, Juyong Zhang et al. |
 | 2022-01-03 | [DFA-NeRF: Personalized Talking Head Generation via Disentangled Face Attributes Neural Rendering](https://arxiv.org/abs/2201.00791) | Shunyu Yao, RuiZhe Zhong, Yichao Yan, Guangtao Zhai, Xiaokang Yang |
+
+### 2021
+
+| Date | Title | Authors |
+|------|-------|---------|
 | 2021-12-27 | [Responsive Listening Head Generation: A Benchmark Dataset and Baseline](https://arxiv.org/abs/2112.13548) | Mohan Zhou, Yalong Bai, Wei Zhang, Ting Yao et al. |
 | 2021-12-19 | [Initiative Defense against Facial Manipulation](https://arxiv.org/abs/2112.10098) | Qidong Huang, Jie Zhang, Wenbo Zhou, WeimingZhang, Nenghai Yu |
 | 2021-12-16 | [Towards Robust Real-time Audio-Visual Speech Enhancement](https://arxiv.org/abs/2112.09060) | Mandar Gogate, Kia Dashtipour, Amir Hussain |
@@ -741,6 +768,11 @@ The following keyword queries are used against arXiv title and abstract fields:
 | 2021-01-15 | [Multi-layer Feature Fusion Convolution Network for Audio-visual Speech Enhancement](https://arxiv.org/abs/2101.05975) | Xinmeng Xu, Jianjun Hao |
 | 2021-01-12 | [Fast Facial Landmark Detection and Applications: A Survey](https://arxiv.org/abs/2101.10808) | Kostiantyn Khabarlak, Larysa Koriashkina |
 | 2021-01-08 | [VisualVoice: Audio-Visual Speech Separation with Cross-Modal Consistency](https://arxiv.org/abs/2101.03149) | Ruohan Gao, Kristen Grauman |
+
+### 2020
+
+| Date | Title | Authors |
+|------|-------|---------|
 | 2020-12-14 | [Multi Modal Adaptive Normalization for Audio to Video Generation](https://arxiv.org/abs/2012.07304) | Neeraj Kumar, Srishti Goel, Ankur Narang, Brejesh Lall |
 | 2020-12-14 | [Robust One Shot Audio to Video Generation](https://arxiv.org/abs/2012.07842) | Neeraj Kumar, Srishti Goel, Ankur Narang, Mujtaba Hasan |
 | 2020-11-30 | [One-Shot Free-View Neural Talking-Head Synthesis for Video Conferencing](https://arxiv.org/abs/2011.15126) | Ting-Chun Wang, Arun Mallya, Ming-Yu Liu |
