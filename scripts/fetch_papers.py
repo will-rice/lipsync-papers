@@ -34,6 +34,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -72,6 +73,12 @@ NS = {
 }
 
 CSV_FIELDNAMES = ["arxiv_id", "title", "authors", "submitted", "categories", "url", "abstract"]
+
+# Negative keywords – papers whose title or abstract contain any of these
+# phrases (case-insensitive) are excluded from results.
+NEGATIVE_KEYWORDS = [
+    "speech recognition",
+]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
 API_DELAY_SECONDS = 3
@@ -163,6 +170,15 @@ def _parse_entry(entry: ET.Element) -> dict | None:
     }
 
 
+_NEGATIVE_KEYWORDS_LOWER = [kw.lower() for kw in NEGATIVE_KEYWORDS]
+
+
+def _is_excluded(paper: dict) -> bool:
+    """Return True if the paper matches any negative keyword."""
+    haystack = f"{paper.get('title', '')} {paper.get('abstract', '')}".lower()
+    return any(kw in haystack for kw in _NEGATIVE_KEYWORDS_LOWER)
+
+
 def fetch_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
     """Return all papers matching *keywords* within [start_date, end_date]."""
     query = _build_query(keywords, start_date, end_date)
@@ -226,22 +242,35 @@ _TABLE_END = "<!-- PAPERS_TABLE_END -->"
 
 def _build_table(papers_by_id: dict[str, dict]) -> str:
     rows = sorted(papers_by_id.values(), key=lambda r: r.get("submitted", ""), reverse=True)
-    lines = [
-        "| Date | Title | Authors |",
-        "|------|-------|---------|",
-    ]
+
+    # Group by year (newest first).
+    by_year: dict[str, list] = defaultdict(list)
     for row in rows:
-        title_link = f"[{row['title']}]({row['url']})"
-        # Truncate long author lists for readability
-        authors = row.get("authors", "")
-        if authors.count(",") > 4:
-            authors = ", ".join(authors.split(", ")[:4]) + " et al."
-        date_str = row.get("submitted", "")[:10]
-        # Escape pipe characters inside cells
-        title_link = title_link.replace("|", "\\|")
-        authors = authors.replace("|", "\\|")
-        lines.append(f"| {date_str} | {title_link} | {authors} |")
-    return "\n".join(lines)
+        year = row.get("submitted", "")[:4] or "Unknown"
+        by_year[year].append(row)
+
+    sections: list[str] = []
+    for year in sorted(by_year.keys(), reverse=True):
+        section_lines = [
+            f"### {year}",
+            "",
+            "| Date | Title | Authors |",
+            "|------|-------|---------|",
+        ]
+        for row in by_year[year]:
+            title_link = f"[{row['title']}]({row['url']})"
+            # Truncate long author lists for readability
+            authors = row.get("authors", "")
+            if authors.count(",") > 4:
+                authors = ", ".join(authors.split(", ")[:4]) + " et al."
+            date_str = row.get("submitted", "")[:10]
+            # Escape pipe characters inside cells
+            title_link = title_link.replace("|", "\\|")
+            authors = authors.replace("|", "\\|")
+            section_lines.append(f"| {date_str} | {title_link} | {authors} |")
+        sections.append("\n".join(section_lines))
+
+    return "\n\n".join(sections)
 
 
 def update_readme(papers_by_id: dict[str, dict]) -> None:
@@ -308,6 +337,13 @@ def main() -> None:
     existing = load_existing_papers()
     print(f"Loaded {len(existing)} existing papers from {PAPERS_CSV.name}.")
 
+    # Remove any previously saved papers that match negative keywords.
+    before = len(existing)
+    existing = {pid: p for pid, p in existing.items() if not _is_excluded(p)}
+    removed = before - len(existing)
+    if removed:
+        print(f"Removed {removed} existing paper(s) matching negative keywords.")
+
     new_count = 0
     for keywords in SEARCH_QUERIES:
         print(f"\nQuerying arXiv for: {keywords!r} …")
@@ -319,7 +355,7 @@ def main() -> None:
 
         for paper in papers:
             pid = paper["arxiv_id"]
-            if pid not in existing:
+            if pid not in existing and not _is_excluded(paper):
                 existing[pid] = paper
                 new_count += 1
                 print(f"  + {pid}: {paper['title'][:70]}")
@@ -328,7 +364,7 @@ def main() -> None:
 
     print(f"\nFound {new_count} new papers. Total: {len(existing)}.")
 
-    if new_count > 0 or not PAPERS_CSV.exists():
+    if new_count > 0 or removed > 0 or not PAPERS_CSV.exists():
         save_papers(existing)
         print(f"Saved to {PAPERS_CSV}.")
 
