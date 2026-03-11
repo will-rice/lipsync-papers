@@ -73,6 +73,12 @@ NS = {
 
 CSV_FIELDNAMES = ["arxiv_id", "title", "authors", "submitted", "categories", "url", "abstract"]
 
+# Negative keywords – papers whose title or abstract contain any of these
+# phrases (case-insensitive) are excluded from results.
+NEGATIVE_KEYWORDS = [
+    "speech recognition",
+]
+
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
 API_DELAY_SECONDS = 3
 
@@ -161,6 +167,15 @@ def _parse_entry(entry: ET.Element) -> dict | None:
         "url": url,
         "abstract": abstract,
     }
+
+
+_NEGATIVE_KEYWORDS_LOWER = [kw.lower() for kw in NEGATIVE_KEYWORDS]
+
+
+def _is_excluded(paper: dict) -> bool:
+    """Return True if the paper matches any negative keyword."""
+    haystack = f"{paper.get('title', '')} {paper.get('abstract', '')}".lower()
+    return any(kw in haystack for kw in _NEGATIVE_KEYWORDS_LOWER)
 
 
 def fetch_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
@@ -308,6 +323,13 @@ def main() -> None:
     existing = load_existing_papers()
     print(f"Loaded {len(existing)} existing papers from {PAPERS_CSV.name}.")
 
+    # Remove any previously saved papers that match negative keywords.
+    before = len(existing)
+    existing = {pid: p for pid, p in existing.items() if not _is_excluded(p)}
+    removed = before - len(existing)
+    if removed:
+        print(f"Removed {removed} existing paper(s) matching negative keywords.")
+
     new_count = 0
     for keywords in SEARCH_QUERIES:
         print(f"\nQuerying arXiv for: {keywords!r} …")
@@ -319,7 +341,7 @@ def main() -> None:
 
         for paper in papers:
             pid = paper["arxiv_id"]
-            if pid not in existing:
+            if pid not in existing and not _is_excluded(paper):
                 existing[pid] = paper
                 new_count += 1
                 print(f"  + {pid}: {paper['title'][:70]}")
@@ -328,7 +350,7 @@ def main() -> None:
 
     print(f"\nFound {new_count} new papers. Total: {len(existing)}.")
 
-    if new_count > 0 or not PAPERS_CSV.exists():
+    if new_count > 0 or removed > 0 or not PAPERS_CSV.exists():
         save_papers(existing)
         print(f"Saved to {PAPERS_CSV}.")
 
