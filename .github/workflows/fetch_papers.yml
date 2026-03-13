@@ -1,9 +1,9 @@
 name: Fetch Lipsync Papers
 
 on:
-  # Run every Monday at 06:00 UTC
+  # Run every day at 06:00 UTC
   schedule:
-    - cron: "0 6 * * 1"
+    - cron: "0 6 * * *"
 
   # Allow manual trigger from the Actions tab
   workflow_dispatch:
