@@ -1,0 +1,8 @@
+# Dependencies for the text-to-speech script (scripts/tts_papers.py).
+#
+# Install with:
+#   pip install -r requirements-tts.txt
+#
+# The main fetch script (scripts/fetch_papers.py) has no extra dependencies
+# and uses only the Python standard library.
+gTTS>=2.5

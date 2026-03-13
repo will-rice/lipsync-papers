@@ -28,6 +28,42 @@ No third-party dependencies are required — the script uses only the Python sta
 Open the **Actions** tab → **Fetch Lipsync Papers** → **Run workflow**.  
 Select *full = true* to back-fill from 2020, or leave it as *false* for an incremental update.
 
+## Text-to-speech
+
+`scripts/tts_papers.py` converts paper titles and abstracts to MP3 audio using
+[gTTS](https://pypi.org/project/gTTS/) (Google Text-to-Speech).
+
+### Installation
+
+```bash
+pip install -r requirements-tts.txt
+```
+
+### Usage
+
+```bash
+# Read the most recent paper (saves to ./audio/)
+python scripts/tts_papers.py
+
+# Read the 3 most recent papers
+python scripts/tts_papers.py --latest 3
+
+# Read a specific paper by arXiv ID
+python scripts/tts_papers.py --paper 2008.10010
+
+# Search and read papers matching a keyword
+python scripts/tts_papers.py --search "talking head" --latest 2
+
+# Save to a custom directory
+python scripts/tts_papers.py --latest 5 --output /path/to/audio
+
+# Use a different language
+python scripts/tts_papers.py --latest 1 --lang fr
+```
+
+MP3 files are named `<arxiv_id>_<title_slug>.mp3` and written to the output
+directory (default: `audio/` in the repository root).
+
 ## Search terms
 
 The following keyword queries are used against arXiv title and abstract fields:
