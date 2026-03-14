@@ -251,29 +251,31 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
 
     sections: list[str] = []
     for year in sorted(by_year.keys(), reverse=True):
-        section_lines = [f"## {year}", ""]
+        section_lines = [f"### {year}", ""]
         for row in by_year[year]:
-            title_link = f"[{row['title']}]({row['url']})"
             # Truncate long author lists for readability
             authors = row.get("authors", "")
-            if authors.count(",") > 4:
+            if authors.count(",") >= 4:
                 authors = ", ".join(authors.split(", ")[:4]) + " et al."
             date_str = row.get("submitted", "")[:10]
-            abstract = row.get("abstract", "")
-            section_lines += [
-                f"### {title_link}",
-                "",
-                f"**Authors:** {authors}",
-                "",
-                "#### Abstract",
-                "",
-                abstract,
-                "",
-                "#### Date",
-                "",
-                date_str,
-                "",
-            ]
+            abstract = row.get("abstract", "").strip()
+            title = row["title"]
+            url = row["url"]
+
+            section_lines.append(f"#### [{title}]({url})")
+            section_lines.append(f"**{authors}** · {date_str}")
+            section_lines.append("")
+            if abstract:
+                section_lines.append("<details>")
+                section_lines.append("<summary>Abstract</summary>")
+                section_lines.append("")
+                section_lines.append(abstract)
+                section_lines.append("")
+                section_lines.append("</details>")
+                section_lines.append("")
+            else:
+                section_lines.append("")
+
         sections.append("\n".join(section_lines))
 
     return "\n\n".join(sections)
