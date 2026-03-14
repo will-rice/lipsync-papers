@@ -251,12 +251,7 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
 
     sections: list[str] = []
     for year in sorted(by_year.keys(), reverse=True):
-        section_lines = [
-            f"### {year}",
-            "",
-            "| Date | Title | Authors | Abstract |",
-            "|------|-------|---------|----------|",
-        ]
+        section_lines = [f"## {year}", ""]
         for row in by_year[year]:
             title_link = f"[{row['title']}]({row['url']})"
             # Truncate long author lists for readability
@@ -265,11 +260,20 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
                 authors = ", ".join(authors.split(", ")[:4]) + " et al."
             date_str = row.get("submitted", "")[:10]
             abstract = row.get("abstract", "")
-            # Escape pipe characters inside cells
-            title_link = title_link.replace("|", "\\|")
-            authors = authors.replace("|", "\\|")
-            abstract = abstract.replace("|", "\\|")
-            section_lines.append(f"| {date_str} | {title_link} | {authors} | {abstract} |")
+            section_lines += [
+                f"### {title_link}",
+                "",
+                f"**Authors:** {authors}",
+                "",
+                "#### Abstract",
+                "",
+                abstract,
+                "",
+                "#### Date",
+                "",
+                date_str,
+                "",
+            ]
         sections.append("\n".join(section_lines))
 
     return "\n\n".join(sections)
