@@ -21,6 +21,9 @@ Usage::
 
     # Incremental fetch for the last N days:
     python scripts/fetch_papers.py --days 30
+
+    # Back-fill author keywords for all existing papers that are missing them:
+    python scripts/fetch_papers.py --backfill-keywords
 """
 
 from __future__ import annotations
@@ -72,7 +75,7 @@ NS = {
     "arxiv": "http://arxiv.org/schemas/atom",
 }
 
-CSV_FIELDNAMES = ["arxiv_id", "title", "authors", "submitted", "categories", "url", "abstract"]
+CSV_FIELDNAMES = ["arxiv_id", "title", "authors", "submitted", "categories", "url", "abstract", "keywords"]
 
 # Negative keywords – papers whose title or abstract contain any of these
 # phrases (case-insensitive) are excluded from results.
@@ -128,6 +131,29 @@ def _fetch_page(query: str, start: int, max_results: int) -> ET.Element:
     raise RuntimeError(f"Failed to fetch arXiv page after 5 attempts: {url}")
 
 
+_KEYWORDS_PATTERN = re.compile(
+    # Match "Keywords:" / "Key Words:" / "keyword:" at a word boundary,
+    # capture everything up to either a sentence boundary (". " followed by
+    # an uppercase letter, signalling the next sentence) or end-of-string.
+    r"(?:^|\b)[Kk]ey\s*[Ww]ords?\s*[:\-–]\s*(.+?)(?:\.\s*(?=[A-Z])|$)",
+    re.DOTALL,
+)
+
+
+def _extract_keywords(text: str) -> str:
+    """Extract a 'Keywords: ...' block from *text*, returning a normalised,
+    semicolon-separated string, or an empty string if nothing is found."""
+    if not text:
+        return ""
+    m = _KEYWORDS_PATTERN.search(text)
+    if not m:
+        return ""
+    raw = re.sub(r"\s+", " ", m.group(1)).strip().rstrip(".")
+    # Normalise separators to "; " for consistent display
+    raw = re.sub(r"\s*[,;]\s*", "; ", raw)
+    return raw
+
+
 def _parse_entry(entry: ET.Element) -> dict | None:
     """Parse a single <entry> element into a paper dict."""
     arxiv_id_raw = entry.findtext("atom:id", namespaces=NS) or ""
@@ -159,6 +185,15 @@ def _parse_entry(entry: ET.Element) -> dict | None:
         entry.findtext("atom:summary", namespaces=NS) or "",
     ).strip()
 
+    # Extract author-provided keywords from the arXiv comment field first,
+    # then fall back to scanning the abstract for a "Keywords: ..." line.
+    comment = re.sub(
+        r"\s+",
+        " ",
+        entry.findtext("arxiv:comment", namespaces=NS) or "",
+    ).strip()
+    keywords = _extract_keywords(comment) or _extract_keywords(abstract)
+
     return {
         "arxiv_id": arxiv_id,
         "title": title,
@@ -167,6 +202,7 @@ def _parse_entry(entry: ET.Element) -> dict | None:
         "categories": categories,
         "url": url,
         "abstract": abstract,
+        "keywords": keywords,
     }
 
 
@@ -220,7 +256,44 @@ def load_existing_papers() -> dict[str, dict]:
         return {}
     with PAPERS_CSV.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        return {row["arxiv_id"]: row for row in reader}
+        rows = {}
+        for row in reader:
+            # Ensure the keywords field is present even in older CSV files
+            row.setdefault("keywords", "")
+            rows[row["arxiv_id"]] = row
+        return rows
+
+
+def fetch_keywords_for_paper(arxiv_id: str) -> str:
+    """Fetch the arXiv API entry for a single paper and extract keywords.
+
+    Returns the extracted keyword string (may be empty).
+    """
+    url = f"{ARXIV_API_BASE}?id_list={urllib.parse.quote(arxiv_id)}&max_results=1"
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as resp:
+                data = resp.read()
+            root = ET.fromstring(data)
+            entry = root.find("atom:entry", namespaces=NS)
+            if entry is None:
+                return ""
+            comment = re.sub(
+                r"\s+",
+                " ",
+                entry.findtext("arxiv:comment", namespaces=NS) or "",
+            ).strip()
+            abstract = re.sub(
+                r"\s+",
+                " ",
+                entry.findtext("atom:summary", namespaces=NS) or "",
+            ).strip()
+            return _extract_keywords(comment) or _extract_keywords(abstract)
+        except Exception as exc:  # noqa: BLE001
+            wait = min(2 ** attempt * API_DELAY_SECONDS, 30)
+            print(f"  [warn] keyword fetch failed ({exc}); retrying in {wait}s …", file=sys.stderr)
+            time.sleep(wait)
+    return ""
 
 
 def save_papers(papers_by_id: dict[str, dict]) -> None:
@@ -259,12 +332,16 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
                 authors = ", ".join(authors.split(", ")[:4]) + " et al."
             date_str = row.get("submitted", "")[:10]
             abstract = row.get("abstract", "").strip()
+            keywords = row.get("keywords", "").strip()
             title = row["title"]
             url = row["url"]
 
             section_lines.append(f"#### [{title}]({url})")
             section_lines.append(f"**{authors}** · {date_str}")
             section_lines.append("")
+            if keywords:
+                section_lines.append(f"**Keywords:** {keywords}")
+                section_lines.append("")
             if abstract:
                 section_lines.append("<details>")
                 section_lines.append("<summary>Abstract</summary>")
@@ -325,6 +402,11 @@ def parse_args() -> argparse.Namespace:
         metavar="N",
         help="Fetch papers from the last N days (default: 8, for weekly cron).",
     )
+    parser.add_argument(
+        "--backfill-keywords",
+        action="store_true",
+        help="Fetch missing keywords for all existing papers that lack them.",
+    )
     return parser.parse_args()
 
 
@@ -372,7 +454,25 @@ def main() -> None:
 
     print(f"\nFound {new_count} new papers. Total: {len(existing)}.")
 
-    if new_count > 0 or removed > 0 or not PAPERS_CSV.exists():
+    # Backfill keywords for papers that are missing them.  This runs only when
+    # --backfill-keywords is explicitly requested to avoid unexpected API calls
+    # during normal incremental/full fetches.
+    kw_filled = 0
+    if args.backfill_keywords:
+        missing_kw = [pid for pid, p in existing.items() if not p.get("keywords", "").strip()]
+        if missing_kw:
+            print(f"\nBackfilling keywords for {len(missing_kw)} paper(s) …")
+            for pid in missing_kw:
+                kw = fetch_keywords_for_paper(pid)
+                if kw:
+                    existing[pid]["keywords"] = kw
+                    kw_filled += 1
+                    print(f"  keywords for {pid}: {kw[:80]}")
+                time.sleep(API_DELAY_SECONDS)
+            if kw_filled:
+                print(f"Filled keywords for {kw_filled} paper(s).")
+
+    if new_count > 0 or removed > 0 or kw_filled > 0 or not PAPERS_CSV.exists():
         save_papers(existing)
         print(f"Saved to {PAPERS_CSV}.")
 

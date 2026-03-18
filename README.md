@@ -19,6 +19,9 @@ python scripts/fetch_papers.py --full
 
 # Custom window
 python scripts/fetch_papers.py --days 30
+
+# Back-fill author keywords for all existing papers that are missing them
+python scripts/fetch_papers.py --backfill-keywords
 ```
 
 No third-party dependencies are required — the script uses only the Python standard library.
