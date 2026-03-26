@@ -3,8 +3,7 @@
 This script queries the arXiv API for papers related to lipsync, talking-head
 synthesis, and related topics.  It is designed to be run in two modes:
 
-* **Historical (first run)**: pulls everything submitted since wav2lip
-  (2020-01-01 onwards).
+* **Historical (first run)**: pulls everything submitted since 2017-01-01.
 * **Incremental (scheduled)**: pulls only papers submitted in the last N days
   (default 8, so a weekly cron with a one-day overlap never misses anything).
 
@@ -63,8 +62,8 @@ SEARCH_QUERIES = [
     "neural dubbing",
 ]
 
-# Earliest date to consider (wav2lip: ACM MM 2020, submitted April 2020).
-HISTORY_START = date(2020, 1, 1)
+# Earliest date to consider (going back to 2017 to capture pre-wav2lip work).
+HISTORY_START = date(2017, 1, 1)
 
 # arXiv namespaces
 NS = {
