@@ -4,7 +4,7 @@ A curated, automatically-updated collection of papers on **lip sync**, talking-h
 
 ## How it works
 
-* Papers are sourced from [arXiv](https://arxiv.org/) via its public API.
+* Papers are sourced from [arXiv](https://arxiv.org/), [Semantic Scholar](https://www.semanticscholar.org/), and [Papers With Code](https://paperswithcode.com/) via their public APIs.
 * A [GitHub Actions workflow](.github/workflows/fetch_papers.yml) runs every **Monday at 06:00 UTC** to pull papers submitted in the previous week.
 * The full paper list is stored in [`papers.csv`](papers.csv) and the table below is regenerated automatically on every update.
 
@@ -30,7 +30,7 @@ Select *full = true* to back-fill from 2020, or leave it as *false* for an incre
 
 ## Search terms
 
-The following keyword queries are used against arXiv title and abstract fields:
+The following keyword queries are used against arXiv, Semantic Scholar, and Papers With Code title and abstract fields:
 
 `lip sync` · `lip synchronization` · `wav2lip` · `talking head` · `talking face` · `audio-driven face` · `speech-driven face` · `audio visual speech` · `face reenactment` · `neural dubbing`
 
