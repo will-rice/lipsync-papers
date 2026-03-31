@@ -39,6 +39,54 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Data fusion-based two-stage cascade framework for multi-modality face anti spoofing](https://www.semanticscholar.org/paper/641a46a9ab63cb83dabc10bdbf70b0453d9d684e)
+**Kavitha Soppari, Jale Krishna Teja, Mamidi Sai Krishna, Neela Aravind Kumar** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Face anti-spoofing is an essential component in modern biometric authentication systems, ensuring that recognition technologies are not deceived by fraudulent attempts such as printed photographs, video replays, or 3D masks. This project proposes a Data Fusion-Based Two Stage Cascade Framework that integrates multiple modalities—RGB (Red, Green, Blue), Depth, and Infrared (IR)—to improve robustness and accuracy in detecting spoofing. In the first stage, deep learning models like 3D Convolutional Neural Networks (3D CNNs), CNN LSTM (Convolutional Neural Network with Long Short-Term Memory), and attention mechanisms are applied for feature extraction. In the second stage, their outputs are combined through decision fusion in a multi-stream network. The framework is evaluated on benchmark datasets like CASIA-SURF and Replay-Attack. Results show significant improvements over traditional single-modality systems, making the proposed framework suitable for real-world applications in banking, airport security, and access control systems.
+
+</details>
+
+#### [Barriers in accessing treatments for cleft lip and cleft palate in Bangladesh](https://www.semanticscholar.org/paper/b803151ec5f2ee4970da2970e9cfe07ce7923d17)
+**T. Rafique, R. Ishra, Sharlin Akter, S. Shams et al.** · 2026-03-28
+
+<details>
+<summary>Abstract</summary>
+
+Background: Cleft lip and cleft palate are common congenital craniofacial anomalies requiring timely multidisciplinary care, yet access to treatment remains limited in many low- and middle-income settings due to social and structural barriers. Methods: This study employed a mixed-method services study purposively selected 105 treated and untreated adult patients with a craniofacial anomaly. Data were collected from September 2019 to June 2023. Socio-demographic data were collected utilizing the world health Study on global ageing and adult health (SAGE) survey. A questionnaire was used to assess the socio-cultural, economic, and healthcare barriers including stigmas. The qualitative component included in-depth interviews with 16 patients and 7 key informants involved in cleft services. Samples were obtained from the Department of Orthodontics, Faculty of Dentistry at Bangladesh Medical University, National Institute of Burn and Plastic Surgery, and Bangladesh Specialised Hospital, Dhaka, Bangladesh. Results: Fear of unnecessary tests (67.6%), inability to visit the doctor regularly (65.7%), long waiting times (62.0%) and fear of not getting treatment from the same physician (61%) were the most commonly reported barriers. Social and familial stigma (70.3%) and financial hardships (50.6%) were the commonly found socio-cultural and socio-economic barriers. The major personal factors for receiving healthcare were work responsibilities and transportation (96.2% each) and fear for personal safety (53.3%). The qualitative findings support the above results. Conclusion: Perceived fear of caring out undergoing unnecessary investigation by the patients, socio-cultural stigma, economic constraints, and health system limitations continue to hinder access to cleft lip and palate treatment in Bangladesh. Overcoming these barriers is therefore essential to promote equitable access and improve health outcomes for affected individuals.
+
+</details>
+
+#### [Herbal Lip Balm Containing Guava Leaf (Psidium Guajava) Extract With SPF: A Review](https://www.semanticscholar.org/paper/494fd4d8d15ba30b08addc7355a13b899f62a298)
+**Dr. Gyanesh Kumar Sahu, Sanjna Sahare, Charu Tamrakar, Dr. Chanchal Deep Kaur** · 2026-03-28
+
+<details>
+<summary>Abstract</summary>
+
+Abstract The increasing demand for herbal cosmetic products has encouraged the development of plant-based lip care formulations. Lips are highly sensitive anatomical structures that lack sebaceous glands and possess minimal melanin content, making them more susceptible to dryness, cracking, and ultraviolet (UV) radiation-induced damage. Conventional lip balms often contain synthetic chemicals and artificial sunscreens that may cause irritation or allergic reactions. Therefore, herbal lip balms enriched with natural extracts have gained popularity due to their safety and therapeutic benefits. Psidium guajava leaves are rich in flavonoids, tannins, phenolic compounds, and antioxidants that exhibit antimicrobial, anti-inflammatory, wound-healing, and photoprotective properties. These phytoconstituents may enhance the sun protection potential when incorporated into topical formulations. The present review discusses the phytochemical profile of guava leaves, methods of extraction, formulation strategies for herbal lip balm preparation, evaluation parameters, SPF determination methods, stability studies, advantages, limitations, and future scope. The integration of guava leaf extract into lip balm formulations may provide a safe, cost-effective, and multifunctional natural cosmetic product. (1,3) “This review highlights the potential of guava leaf extract as a safe and effective natural ingredient in lip balm formulation with SPF.” Keywords: Herbal lip balm, Psidium guajava, SPF, phytoconstituents, natural cosmetics.
+
+</details>
+
+#### [Quantitative analysis of transversal dentofacial asymmetries using combined 3D jaw and face-scans: a prospective analytical cross-sectional study](https://www.semanticscholar.org/paper/f4017747e8f81c060ac599be7791b11e25f1a2d9)
+**J. Radeke, Franziska Brand, F. Kılıç, Rudolf Jäger et al.** · 2026-03-28
+
+
+#### [Cinematic Audio Source Separation Using Visual Cues](https://arxiv.org/abs/2603.26113)
+**Kang Zhang, Suyeon Lee, Arda Senocak, Joon Son Chung** · 2026-03-27
+
+<details>
+<summary>Abstract</summary>
+
+Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into speech, music, and sound effects, enabling applications like dubbing and remastering. Existing CASS approaches are audio-only, overlooking the inherent audio-visual nature of films, where sounds often align with visual cues. We present the first framework for audio-visual CASS (AV-CASS), leveraging visual context to enhance separation quality. Our method formulates CASS as a conditional generative modeling problem using conditional flow matching, enabling multimodal audio source separation. To address the lack of cinematic datasets with isolated sound tracks, we introduce a training data synthesis pipeline that pairs in-the-wild audio and video streams (e.g., facial videos for speech, scene videos for effects) and design a dedicated visual encoder for this dual-stream setup. Trained entirely on synthetic data, our model generalizes effectively to real-world cinematic content and achieves strong performance on synthetic, real-world, and audio-only CASS benchmarks. Code and demo are available at \url{https://cass-flowmatching.github.io}.
+
+</details>
+
+#### [Embodying Sexual Abuse in Voice: Babbitt’s Philomel](https://www.semanticscholar.org/paper/d04a217c1c8e55f85f3d5b028f068e357ddf7cbc)
+**J. Sommer** · 2026-03-27
+
+
 #### [Assessing the effects of group perinatal compassion focused therapy in a National Health Service Talking Therapies service in England](https://www.semanticscholar.org/paper/842e53dbcf66182c735e088e169ada85c1030578)
 **Leah A. Millard-Brewer, A. Wittkowski** · 2026-03-26
 
@@ -66,6 +114,50 @@ Safety net hospitals (SNHs)—institutions committed to providing care regardles
 <summary>Abstract</summary>
 
 There is a critical lack of exploration into the firsthand experiences of autistic children in the psychological literature. We sought to address this using baseline data from a wider mixed-methods study. A total of 136 autistic children (mean age = 10.35) completed an online questionnaire. Questions explored children’s understanding of autism, their feelings about being autistic in different contexts and challenges experienced. Quantitative data revealed limited autism knowledge and understanding for some. Challenges included talking about being autistic and self-advocating for needs, especially with non-family members. Children generally recognised both strengths and challenges of being autistic, although concerns about feeling/being different were widespread, and masking common. Strikingly, although most children felt positive about being autistic at home, significantly fewer felt this to be true when around peers or teachers. Using reflexive thematic analysis, four main themes were developed: (1) overwhelming experiences, (2) unsafe people, (3) sanctuary and (4) autistic identity. Overall, the children felt safest at home with family and/or with autistic/neurodivergent/understanding friends, but most unsafe at school with their teachers and neurotypical peers, where victimisation was rife. These findings offer valuable insights into the lives of autistic children, and demand we explore how places of education can be transformed into safe spaces for autistic children. Autistic children are rarely asked directly about their own experiences. In this study, 136 autistic children (ages 8–14) shared their views through an online questionnaire. They were asked what being autistic means to them, how they feel about it and what challenges they face in different environments. Many said they knew little about autism, and most did not have the words to talk about being autistic or feel safe doing so. Talking was especially difficult outside the family; while over 60% felt comfortable with family, only 16.5% felt this way with other people. Children also told us how overwhelming everyday life can be. Noisy, crowded or unpredictable environments often caused distress or shutdown. Many described how strong emotions, especially anxiety, build up in these moments. Some lost the ability to speak, and tasks like decision-making or emotional regulation became especially hard and exhausting. School was often named as a major source of overwhelm. Children showed deep insight into the people around them. They were highly attuned to whether others, for example, friends, family, teachers or professionals, felt safe or unsafe. Feeling unsafe often meant being misunderstood, ignored or bullied. School peers were commonly described as sources of victimisation, and teachers as making children feel unsafe by not listening or misunderstanding their needs. When children did not trust those around them, they masked their autistic traits to avoid judgement. This came at a cost: many described exhaustion, loneliness or feeling like they had to hide who they really are. By contrast, home and trusted relationships, especially with neurodivergent family or friends, offered sanctuary. Children felt freer to be themselves, ask for what they need and talk about autism. Emergent positive autistic identities were evident in some children. These findings show autistic children are thoughtful, perceptive and deeply affected by their environments while simultaneously shining a bright light on the challenges growing up autistic in a neurotypical world. Their voices offer vital insights and a call to make schools and services safer, more respectful spaces.
+
+</details>
+
+#### [SAVe: Self-Supervised Audio-visual Deepfake Detection Exploiting Visual Artifacts and Audio-visual Misalignment](https://arxiv.org/abs/2603.25140)
+**Sahibzada Adil Shahzad, Ammarah Hashmi, Junichi Yamagishi, Yusuke Yasuda et al.** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+Multimodal deepfakes can exhibit subtle visual artifacts and cross-modal inconsistencies, which remain challenging to detect, especially when detectors are trained primarily on curated synthetic forgeries. Such synthetic dependence can introduce dataset and generator bias, limiting scalability and robustness to unseen manipulations. We propose SAVe, a self-supervised audio-visual deepfake detection framework that learns entirely on authentic videos. SAVe generates on-the-fly, identity-preserving, region-aware self-blended pseudo-manipulations to emulate tampering artifacts, enabling the model to learn complementary visual cues across multiple facial granularities. To capture cross-modal evidence, SAVe also models lip-speech synchronization via an audio-visual alignment component that detects temporal misalignment patterns characteristic of audio-visual forgeries. Experiments on FakeAVCeleb and AV-LipSync-TIMIT demonstrate competitive in-domain performance and strong cross-dataset generalization, highlighting self-supervised learning as a scalable paradigm for multimodal deepfake detection.
+
+</details>
+
+#### [No Pain, All Gain: A Literature Review of Anesthetic Options for Alveolar Bone Grafting in Children With Cleft Lip and Palate](https://www.semanticscholar.org/paper/a42b5cb10884d6d4fb021814ef4ca62946ed78da)
+**Anthony V. Basta, Maame A. Effirim, T. Do, Amy Graham-Carlson et al.** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+Cleft lip and palate affect 6000 to 8000 children annually in the United States. Alveolar bone grafting (ABG) restores maxillary continuity, facilitates tooth eruption, and closes oronasal fistulae, yet donor-site pain often exceeds graft-site pain. Although multimodal, opioid-sparing analgesia is increasingly used, optimal perioperative pain management remains undefined. This review evaluates current evidence on analgesic strategies for pediatric ABG. A literature review of PubMed, ScienceDirect, and Google Scholar (2010–2025) identified studies addressing perioperative pain management in pediatric ABG. Two independent reviewers screened studies and extracted data on study design, analgesic interventions, and pain-related outcomes. Of 407 records identified, 14 studies met the inclusion criteria. Study designs included retrospective cohorts (57%), systematic reviews (14%), randomized prospective studies (14%), randomized controlled trials (7%), and quasi-experimental studies (7%). Pediatric cohorts ranged from 3 to 18 years. Over 90% used local or regional analgesia. Continuous bupivacaine or ropivacaine infusions (43%) produced the lowest pain scores, the longest analgesic duration (8–12 h), and 60% to 80% reductions in opioid use. Liposomal bupivacaine, regional nerve blocks, and ERAS pathways consistently outperformed single-dose infiltration. Continuous infusions and ERAS protocols reduced length of stay from 0.5 to 1.0 days, enabled up to 80% same-day discharge, and lowered costs by ∼40% to 45%. Adverse events were infrequent and self-limited. Multimodal analgesic strategies—particularly regional anesthesia and continuous local anesthetic delivery—effectively improve pain control, reduce opioid use, and enhance perioperative outcomes in pediatric ABG. However, heterogeneity in pain assessment and limited comparative data underscore the need for standardized outcomes and targeted subgroup analyses.
+
+</details>
+
+#### [Experimental mismatch in benchmarking PELSA and LiP-MS](https://www.semanticscholar.org/paper/24b22fb6662f7fa1446585476781ac20b02b2bd0)
+**Chloé Van Leene, E. Araftpoor, K. Gevaert** · 2026-03-26
+
+
+#### [Rethinking dubbing workflows: The tentative role of pre-editing in machine-translated content](https://www.semanticscholar.org/paper/967cdcde592b63f6ab8880236e09ddddfa67652b)
+**L. Mejías-Climent, Alejandro-José Romero-Muñoz** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+The DubTA project investigates the integration of neural machine translation into dubbing workflows. Given that audiovisual translation has historically been less permeable to machine translation due to its inherently creative and multimodal nature, this article first reviews the recent increase in automation technologies within audiovisual translation. This context motivated the DubTA project, whose methodology and preliminary findings are presented here. The primary goal of DubTA is to evaluate the feasibility of incorporating machine translation into dubbing processes. To this end, raw output generated by two machine translation engines was analyzed, with errors systematically categorized using a custom taxonomy to identify areas suitable for potential pre-editing in fictional dubbing scripts. Based on these findings, the project explores the possibility of developing pre-editing guidelines that could help enhance machine translation output and facilitate dubbing workflows by reducing the need for extensive post-editing. While promising, these results highlight the need for further research to refine these preliminary guidelines and assess their impact on diverse dubbing scenarios.
+
+</details>
+
+#### [Probabilistic Abstract Interpretation on Neural Networks via Grids Approximation](https://arxiv.org/abs/2603.25266)
+**Zhuofan Zhang, H. Wiklicky** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+Probabilistic abstract interpretation is a theory used to extract particular properties of a computer program when it is infeasible to test every single inputs. In this paper we apply the theory on neural networks for the same purpose: to analyse density distribution flow of all possible inputs of a neural network when a network has uncountably many or countable but infinitely many inputs. We show how this theoretical framework works in neural networks and then discuss different abstract domains and corresponding Moore-Penrose pseudo-inverses together with abstract transformers used in the framework. We also present experimental examples to show how this framework helps to analyse real world problems.
 
 </details>
 
@@ -123,6 +215,16 @@ The proliferation of AIGC-driven face manipulation and deepfakes poses severe th
 **Jordi Martorell, Giovanni M. Di Liberto, Nicola Molinaro, Lars Meyer** · 2026-03-25
 
 
+#### [Congenital Heart Diseases and Associated Malformations in Children with Cleft Lip and Palate: A Single-Center Study](https://www.semanticscholar.org/paper/e057b136d1a800592b2519c422a5c9ccde0e676d)
+**F. Rehman, Faisal Ali, Yusra Balouch, Zil e Huma et al.** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+palate (CLP) represents one of the most frequent craniofacial malformations. Several international studies have reported an increased frequency of CHD and other associated anomalies among children with CLP, suggesting shared genetic and environmental mechanisms. The objective of this study was to determine the frequency and pattern of congenital heart disease and associated malformations in children with cleft lip and/or palate compared with children without orofacial clefts.Methods: This retrospective case-control study was conducted at a tertiary care cardiac center from September 2021 to September 2024. A total of 646 infants aged less than one year were included, comprising 323 children with CLP (study group) and 323 age- and sex-matched children without orofacial clefts (control group). All participants underwent echocardiographic evaluation. Congenital heart diseases were classified as cyanotic or non-cyanotic, while patent foramen ovale was recorded separately. Demographic variables, risk factors, and associated non-cardiac anomalies were analyzed using Chi-square and Fisher’s exact tests.Results: Congenital heart disease was significantly more frequent in children with CLP compared to controls (27% vs. 5%, p-value<0.001). Non-cyanotic CHDs, particularly septal defects, were the most common. Associated non-cardiac anomalies were observed in 36% of the study group versus 7% of controls (p-value <0.001). Parental consanguinity and maternal smoking were significantly associated with CLP and CHD.Conclusion: Children with cleft lip and/or palate have a significantly increased risk of congenital heart disease and associated malformations. Early echocardiographic screening and comprehensive evaluation are recommended to improve clinical outcomes in this high-risk population
+
+</details>
+
 #### [InterDyad: Interactive Dyadic Speech-to-Video Generation by Querying Intermediate Visual Guidance](https://arxiv.org/abs/2603.23132)
 **Dongwei Pan, Longwei Guo, Jiazhi Guan, Luying Huang et al.** · 2026-03-24
 
@@ -160,6 +262,36 @@ Speech is one of the most natural and effective forms of human communication, ca
 <summary>Abstract</summary>
 
 AI companion chatbots are increasingly used for emotional support, with prior work in the domain predominantly documenting their mixed psychosocial impacts, including both increased emotional expression and heightened loneliness. However, most existing research primarily focuses on outcome-level effects, offering limited insight into how emotional support is produced through interaction. In this paper, we examine emotional support as an interactional and socially situated process. Drawing on qualitative analysis of Reddit discussions, we analyze how users engage with AI companions and how these interactions are interpreted and contested within online communities. We show that emotional support is coconstructed through conversational mechanisms such as validation, reflective prompting, and companionship, while also giving rise to tensions including support versus dependency, validation versus delusion, and accessibility versus harm. Importantly, support extends beyond human AI interaction and is shaped by community responses that legitimize or challenge AI-mediated care. Hence, we reconceptualize AI emotional support as a negotiated socio-technical process and derive implications for the design of responsible, context-sensitive AI systems.
+
+</details>
+
+#### [Three-Dimensional Warp-Knitted Spacer Fabrics Functionalized with Conductive Shear-Stiffening Gel for Impact Buffering and Intelligent Sensing.](https://www.semanticscholar.org/paper/e3272656e3f774fe3cb6e646ea2247075298e76f)
+**Shuyu Lai, Liping Gong, Shuai Liu, Junjie Yang et al.** · 2026-03-23
+
+<details>
+<summary>Abstract</summary>
+
+Warp-knitted spacer fabrics (WKSFs) possess a three-dimensional porous architecture that makes them promising for impact protection and airdrop buffering, yet their lack of intrinsic conductivity and limited cyclic stability restrict intelligent monitoring applications. Here, a structure-function synergistic strategy is proposed by integrating WKSF with carbon-nanotube-modified shear-stiffening gel (cSSG) to construct a conductive, impact-adaptive composite. As a benefit from strain-rate-dependent stiffening and hierarchical energy dissipation, the WKSF-cSSG composite exhibits enhanced impact resistance while forming a stable three-dimensional conductive network. After cyclic preconditioning to suppress the Mullins effect, the composite delivers stable sensing outputs over 3200 cycles with a response time of 18 ms. Under drop-hammer impact, the electrical response shows rapid synchronization with mechanical dynamics, enabling quantitative discrimination of impact intensities. Furthermore, an intelligent airdrop buffering prototype integrating a nine-channel sensing array and deep-learning-assisted classification achieves accurate recognition of five landing postures, demonstrating a material-to-system solution for intelligent protection applications.
+
+</details>
+
+#### [Cleft Lip Repair: Trends of Nasoalveolar Molding, Concomitant Tip Rhinoplasty and/or Septoplasty, and Revisions Using a National Database Study.](https://www.semanticscholar.org/paper/86892af87becc1c75f841c445809fd58374b7c82)
+**Anna D. Lee, Skyler K. Palmer, Diego A. Gomez, Molly Murphy et al.** · 2026-03-23
+
+<details>
+<summary>Abstract</summary>
+
+BACKGROUND The literature is limited regarding the prevalence of nasoalveolar molding (NAM), primary tip rhinoplasty and/or septoplasty, and revision surgery. Our study aims to evaluate national utilization rates of NAM, primary tip rhinoplasty or septoplasty, and lip revisions using an international database. METHODS A retrospective review was performed on TriNetX, a de-identified claims database. Patients younger than 1 year with a primary unilateral or bilateral cleft lip repair from 2000 to 2023 were included. Procedures, including NAM, initial repair, primary tip rhinoplasty, and/or septo-rhinoplasty, and any subsequent cleft lip revision surgery, were identified by billed Current Procedural Terminology (CPT) codes and date of occurrence. Patient demographic data were extracted and analyzed through TriNetX. RESULTS From 2000 to 2023, 5642 patients underwent cleft lip repair; 78% had unilateral cleft lip repair, 22% had bilateral cleft lip repair, and 48% concurrent tip rhinoplasty and/or septoplasty. A minority of patients (2.3%) underwent preoperative NAM. There was a high rate of cleft lip revisions at 9.7%. Prevalence of concomitant primary tip rhinoplasty and/or septoplasty increased from 14% to 59% from 2000 to 2023 (R2=0.86, P<0.001). NAM utilization progressively increased in the second decade of the study, reaching 2.2% by 2023. CONCLUSION This study highlights the dynamic evolution of cleft care. Advancing surgical techniques may contribute to increased correction of cleft lip nasal deformity at the time of primary cleft lip repair, improved initial repair, and subsequent decrease in revision rates. Over the time period of the study, we have seen increased utilization of NAM.
+
+</details>
+
+#### [TaigiSpeech: A Low-Resource Real-World Speech Intent Dataset and Preliminary Results with Scalable Data Mining In-the-Wild](https://arxiv.org/abs/2603.21478)
+**Kai-Wei Chang, Yi-Cheng Lin, Huang-Cheng Chou, Wenze Ren et al.** · 2026-03-23
+
+<details>
+<summary>Abstract</summary>
+
+Speech technologies have advanced rapidly and serve diverse populations worldwide. However, many languages remain underrepresented due to limited resources. In this paper, we introduce \textbf{TaigiSpeech}, a real-world speech intent dataset in Taiwanese Taigi (aka Taiwanese Hokkien/Southern Min), which is a low-resource and primarily spoken language. The dataset is collected from older adults, comprising 21 speakers with a total of 3k utterances. It is designed for practical intent detection scenarios, including healthcare and home assistant applications. To address the scarcity of labeled data, we explore two data mining strategies with two levels of supervision: keyword match data mining with LLM pseudo labeling via an intermediate language and an audio-visual framework that leverages multimodal cues with minimal textual supervision. This design enables scalable dataset construction for low-resource and unwritten spoken languages. TaigiSpeech will be released under the CC BY 4.0 license to facilitate broad adoption and research on low-resource and unwritten languages. The project website and the dataset can be found on https://kwchang.org/taigispeech.
 
 </details>
 
@@ -910,6 +1042,286 @@ In low-altitude communication scenarios, voice transmission imposes stringent re
 <summary>Abstract</summary>
 
 Efficient resource allocation in hardware-impaired cell-free systems is critical for achieving the stringent requirements of ultra-reliable low-latency communication (URLLC) while maintaining energy efficiency (EE). Traditional optimization-based approaches face scalability issues, while existing learning-based methods struggle to adapt to varying network structures and the complexities of hardware impairments. In this work, we address these challenges by incorporating rate-splitting multiple access (RSMA) into cell-free systems and designing a graph neural network (GNN)-based framework. First, we propose a method leveraging explicit channel state information to optimize precoding for both common and private streams under rate, power, and latency constraints. Next, we further develop an end-to-end approach that bypasses channel estimation by directly using raw pilot signals for joint feature extraction and optimization. Finally, we introduce a pilot-free method that processes distorted message-passing information from real channels, reducing communications overhead while enhancing adaptability to practical conditions. Through extensive simulations, we validate the proposed methods, demonstrating significant improvements in EE, along with insights into their computational complexity and scalability in diverse system configurations.
+
+</details>
+
+#### [Digital Network Twin-Enabled Synchronization and Localization](https://www.semanticscholar.org/paper/863de5f1caf2a79caaa3291f4ec2c5663603eeda)
+**Niccolò Paglierani, F. Linsalata, Omer Altug Sevimay, Lorenzo Cazzella et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This paper addresses the challenge of achieving simultaneous synchronization and localization of all the active terminals within a cellular network from only one Base Station (BS). We propose a novel approach leveraging Digital Network Twins (DNT), which integrates these two critical tasks within a unified framework. We begin by analyzing User Equipment (UE)-to-network time synchronization, both theoretically and through experimental validation using a 5th generation (5G) testbed, identifying it as the primary obstacle to accurate localization. Then, to address this challenge, we introduce a DNT-based framework that leverages high-fidelity ray-tracing simulations on a 3D digital replica of the environment. This enables precise UE-to-network alignment, dynamic environmental mapping, and accurate real-time localization starting from one Next Generation Node Base (gNB). The proposed method integrates Angle Delay Channel Power Matrix (ADCPM) characterization and Time of Flight (ToF) data with the DNT prior knowledge of the environment, eliminating the need for network cooperation or prior on-field channel measurements for precise localization. We first validate the proposed approach through an outdoor measurement campaign and then demonstrate its effectiveness via numerical simulations, compared to existing localization techniques in scenarios where only a single gNB is available. The method achieves on average a positioning accuracy of less than <inline-formula> <tex-math notation="LaTeX">$6{\,}$ </tex-math></inline-formula>m in the static case and <inline-formula> <tex-math notation="LaTeX">$8{\,}$ </tex-math></inline-formula>m in the dynamic scenario, using a ray-tracing granularity that is not excessively fine (<inline-formula> <tex-math notation="LaTeX">$4 \times 4{\,}$ </tex-math></inline-formula>m), even under worst-case synchronization and Non-Line of Sight (NLoS) conditions.
+
+</details>
+
+#### [GaussMask-DSSS: Enhancing Covert Spread Spectrum Communication With Gaussian Cloaking and Deep Learning-Aided Synchronization](https://www.semanticscholar.org/paper/a5f223d8f621a3576850cc33de07a3ee2eade05c)
+**Shuai Wang, Zhe Song, Zizheng Hua, Xuanhe Yang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Achieving secure communication with a low probability of detection (covertness) is critical yet challenging, particularly when employing practical digital modulations that can compromise the statistical indistinguishability assumed in theoretical models. This paper introduces a novel end-to-end framework leveraging digitally modulated covert signal modeling, obfuscation, and deep learning to attain simultaneous covertness and reliability. Firstly, we propose a novel approach to covert performance evaluation for modulated covert signals against detection. To address the deteriorated covertness considering modulation schemes, we further propose generating Gaussianized camouflage signals via a multi-stage transmitter pipeline encompassing spreading, jitter, filtering, and non-linear transformations, designed to mimic noise statistics effectively. At the receiver, a specialized deep learning architecture, CovertSyncNet, performs robust joint dynamic synchronization and symbol recovery. This receiver incorporates dedicated components to precisely estimate time-varying chip offsets and invert the complex, nonlinear distortions inherent in the camouflaged signal, enabling accurate demodulation. Extensive simulations rigorously validate our approach, demonstrating that high reliability is maintained despite the heavy camouflage. Concurrently, enhanced covertness is confirmed through metrics indicating low statistical distinguishability from Gaussian noise. This work highlights the significant potential of deep learning to bridge the gap between theory and practice, realizing communication systems that are simultaneously reliable, secure, and highly covert, even under realistic operational conditions.
+
+</details>
+
+#### [Impact of Quality of Life on Oral Health in Brazilian Young People with and without Cleft Lip/Palate](https://www.semanticscholar.org/paper/46f9bcd4e506b020df6f6578160a0c5608783138)
+**T. Verdi, Flavine Seltenreich, Rafaela Munz Belarmino, Lilian Rigo** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+ABSTRACT Objective: To identify the most common clefts in patients at a craniofacial deformity rehabilitation center, to evaluate the impact on oral health-related quality of life in different cleft types, and to compare it between children and adolescents with cleft lip and palate (CL/P) and a control group without clefts. Material and Methods: A quantitative cross-sectional design was used, involving 150 patients with CL/P from the center and 150 individuals in the control group from a public school, all aged between 8 and 18 years old. Data were collected using the Child Oral Health Impact Profile (COHIP) questionnaire and information on the orofacial cleft type. Bivariate analyses (Pearson's chi-squared test) examined the relationship between cleft types and COHIP domains and between the two groups, with a significance level of α=5%. Results: Cleft lip and palate were the most prevalent (61.3%). However, there was no significant difference in oral health-related quality of life between cleft types (p>0.05). General oral quality of life scores did not differ between the groups, but the control group showed higher scores in the 'functional well-being' and 'personal image' domains. Conclusion: There are no differences in the impact of oral health-related quality of life between children and young people with cleft lip and palate and the control group.
+
+</details>
+
+#### [LIP-Calib: Automatic Targetless Extrinsic Calibration of LiDAR-Camera System Based on Low Intensity Perception](https://www.semanticscholar.org/paper/a8c0563c81a8c41ff49ae25453b80fe27968ea7a)
+**Weijie Zhu, Shuo Shan, Sheng Zhu, Kanjian Zhang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Robust and accurate LiDAR–Camera calibration (LCC) is a fundamental prerequisite for environmental perception in multisensor fusion systems. Targetless LCC has recently emerged as a practical alternative to target-based approaches, as it eliminates the need for fabricating controlled targets while achieving comparable accuracy. However, the reliance on dense point clouds not only increases computational overhead but also amplifies noise due to laser beam divergence, further degrading edge quality and hindering the generalization of targetless methods to natural scenes. In addition, variations in camera intrinsics significantly affect the density distribution of LiDAR projection maps, while most existing methods are tailored to fixed sensor setups, limiting their adaptability to diverse hardware configurations in real-world deployments. To address these issues, low intensity perception calibration (LIP-Calib) is proposed. A LiDAR intensity perception strategy is devised to selectively retain low-intensity perception (LIP) that effectively capture structural contours in natural scenes, thereby enhancing the quality of edge extraction. In parallel, an energy-aware binarization (EAB) scheme mitigates the impact of laser projection density variations induced by camera intrinsics, ensuring strong adaptability across diverse hardware configurations. Experimental results demonstrate that the proposed method achieves superior calibration accuracy compared to state-of-the-art targetless approaches, with performance comparable to or exceeding that of target-based methods. In addition to high accuracy, the proposed method demonstrates strong robustness to variations in camera intrinsics and point cloud distributions, as validated through extensive tests across five types of cameras and two types of LiDAR sensors.
+
+</details>
+
+#### [Enhanced Audio-Visual Speech Synthesis via Multi-Discriminative Learning](https://www.semanticscholar.org/paper/aad984cc65c272b2610d4f852fe05062a71bfa30)
+**Subhayu Ghosh, Frank Zalkow, N. D. Jana** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual speech synthesis (AVSS) aims to produce an audio-visual stream that conveys a target speaker’s speech. In this study, the AVSS system takes the input speech of a source speaker and generates the audio-visual stream of the target speaker while preserving the linguistic content of the source speech. The process involves two main components: voice conversion (VC), which adapts the vocal features from the source to the target speaker, and audio-visual synthesis (AVS), which generates the synchronized audio-visual stream from the transformed speech. This paper presents a novel generative framework based on multi-discriminative learning to enhance the realism and quality of AVSS outputs. The proposed approach integrates multiple discriminators, including capsule networks, co-occurrence neural networks, and vision transformers (ViTs), within the VC model to leverage their unique strengths in capturing diverse speech features. Additionally, the AVS model incorporates a co-occurrence neural network to improve video quality and achieve better temporal alignment between audio and visual data. Experimental evaluations on standard benchmarks demonstrate that the proposed method achieves significant improvements in both audio and video quality, offering a substantial advancement in AVSS technology.
+
+</details>
+
+#### [Enhanced audio-visual speech enhancement with posterior sampling methods in recurrent variational autoencoders](https://www.semanticscholar.org/paper/d02f0a1f0e782d969252396ffe561050d75ee05b)
+**Z. Foroushi, R. M. Dansereau** · 2026-01-01
+
+
+#### [Contribution-aware Dynamic Multi-modal Balance for Audio-Visual Speech Separation](https://www.semanticscholar.org/paper/1900bac415080ea788a2ac7fa93961f99f582113)
+**Xinmeng Xu, Weiping Tu, Yuhong Yang, Jizhen Li et al.** · 2026-01-01
+
+
+#### [Noise Aware Audio-Visual Speech Denoising](https://www.semanticscholar.org/paper/dbcded4bcf7c4268ff42855798170765cec7767e)
+**Kranti K. Parida, Siddharth Srivastava, Gaurav Sharma** · 2026-01-01
+
+
+#### [Semantic Modulated Prompting for Few-Shot Audio-Visual Classification](https://www.semanticscholar.org/paper/b549e79f5d9943c9644151c66be758be5e7983d3)
+**Guanjie Huang, Yawen Cui, Danny Hin Kwok Tsang, Wenwu Wang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+<bold>F</bold>ew-<bold>S</bold>hot <bold>A</bold>udio-<bold>V</bold>isual <bold>C</bold>lassification (FS-AVC) trains models using a limited number of labeled audio and visual sample pairs to capture the classification capability. Deep learning-based audio-visual learning methods often construct complicated frameworks with numerous parameters trained on large labeled datasets, rendering them impractical for FS-AVC. The key challenges for FS-AVC are model overfitting, multimodal fusion under temporal asynchrony, and modality imbalance. To address these challenges, we propose a novel method called Semantic Modulated Prompting (SMP) to improve the learning process of FS-AVC. This framework implants text as prompting tokens via two components: <bold>P</bold>rompt-refined <bold>A</bold>udio-<bold>V</bold>isual <bold>e</bold>fficient <bold>L</bold>earner (P-AVeL) and <bold>P</bold>rompt-tuned <bold>P</bold>rototypical <bold>R</bold>egularization (P-PR). By integrating semantic prompts, adapter-based P-AVeLs conduct the prompt-guided latent attention to alleviate the overfitting and achieve effective alignment and fusion. Concurrently, P-PR, the first rebalancing method designed for few-shot scenarios, uses these semantic prompts to accurately evaluate and dynamically adjust the imbalance of two modalities. Extensive experiments demonstrate that the SMP framework consistently outperforms state-of-the-art multimodal methods by a large margin.
+
+</details>
+
+#### [A Multimodal Privacy Filtering System Using Deep Learning for Visual-Audio Input Streams](https://www.semanticscholar.org/paper/52ee3a3357504bf36dab8a41f175759561b8480b)
+**Kunwoo Kim, S. Park, Hyeon-Ju Lee, Hoyong Choi et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Protecting personally identifiable information (PII) in visual and audio data streams that are continuously being captured by sensing systems remains a critical challenge. Devices such as IoT cameras and smart microphones routinely capture sensitive elements such as faces, voices, and behavioral or contextual cues, often without the subject’s awareness or consent. To address this issue, we propose a multimodal PII filtering system designed for privacy protection in environments where visual and auditory data are persistently recorded. The proposed system detects and irreversibly anonymizes PII at the point of capture, before the data is transmitted or stored in vulnerable infrastructure. It incorporates a visual object detection module based on YOLOv12 and a sentence-level classifier based on BERT, applied to speech transcriptions generated by a speech-to-text module. These modules operate within a unit-based processing framework that segments incoming data into short temporal units, enabling low-latency operation while maintaining semantic consistency across modalities. Although each modality is processed independently, the system maintains temporal synchronization to ensure coherent filtering decisions. We evaluate the system using both in-house and public datasets across diverse conditions including variable lighting and background noise. The system achieves a unified false negative rate of about 3%, showing reliable performance for real-world multimodal privacy protection. Furthermore, the system employs parallel unit-based processing to maximize computational efficiency, and its modular design supports flexible component combinations, confirming suitability for edge or cloud deployment. These findings demonstrate that the proposed system provides an efficient and scalable solution for real-world multimodal privacy protection.
+
+</details>
+
+#### [Parametric Sound Field Interpolation for Scene-Based Navigable Immersive Audio](https://www.semanticscholar.org/paper/fc6d508e9c771710724d651d8033bf4a0d0839a8)
+**Orhun Olgun, Ibrahim Ethem Deveci, Hüseyin Hacıhabiboğlu** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Modern eXtended Reality (XR) systems are capable of tracking their users’ positions within a navigable volume. This opens up the possibility of more realistic interactions with the content not only via head rotations, but also via locomotion. Such capability necessitates the design of audio systems that can generate a perceptually veridical rendering of the sound field at every position which the user can navigate to. While such interactivity can be provided by object-based audio (OBA) renderers such as in 3D computer games and VR applications, the new generation of volumetric visual content requires volumetric capture and rendering of the entire captured scenes, without explicitly identifying/extracting the audio objects therein. This article presents a parametric sound field interpolation method via multi-point sparse plane wave decomposition (SPWD) in the spherical harmonic domain. The proposed approach relies on higher-order Ambisonics (HOA) recordings of sound fields captured at multiple positions. The sound field is separated into direct and diffuse components that are interpolated parametrically and linearly, respectively. The proposed approach is compared with linear interpolation objectively and subjectively to demonstrate its utility.
+
+</details>
+
+#### [Viseme-Gated Multilayer Cross-Attentional Feature Fusion for Cognitively-Inspired Multimodal Speech Enhancement](https://www.semanticscholar.org/paper/c2772c139c0efc437de2fe000580c6d0a0519a2b)
+**Nasir Saleem, Adeel Hussain, K. Dashtipour, Eamon Sheikh et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Human speech perception naturally integrates visual and auditory cues, with lip movements providing critical disambiguation in noisy environments where audio signals are degraded (SNR $\leq$ −5 dB). While existing audio-visual speech enhancement (AVSE) models use this multimodal synergy, they often fail to exploit phoneme-specific viseme correlations. We propose VG-MCA-AVSENet, a cognitively inspired architecture that introduces a viseme-gated multilayer cross-attention mechanism within a convolutional encoder-decoder framework. The model dynamically weights visual features using auditory context and learned viseme importance (prioritizing lip closures for plosives), while maintaining efficiency through depthwise separable convolutions and MobileNetV3-based visual encoding. Our AVSE system comprises an audio encoder, visual encoder with temporal modeling, separation module with 3-layer viseme-aware attention, and neural vocoder decoder. Evaluated on GRID-CHiME, NTCD-TIMIT, and LRS3 datasets, the model achieves 72.58% STOI (+12.28% over baseline), 2.56 PESQ, and 7.80 dB SI-SDR in extreme noise conditions (SNR$\leq$ -6 dB). The viseme gating specifically improves plosive intelligibility by 7% with a few additional parameters, showing that explicit phoneme-viseme modeling significantly outperforms conventional approaches.
+
+</details>
+
+#### [Visual Knowledge-Enhanced LLaVA for Fine-Grained Multimodal Named Entity Recognition and Grounding](https://www.semanticscholar.org/paper/121e8b6defee8ce60eeb145e45c4eac05270d5b8)
+**Li Yuan, Yi Cai, Bingshan Zhu, Zhenghao Liu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The rapid growth of multimodal data has highlighted the significance of Fine-Grained Multimodal Named Entity Recognition and Grounding (FMNERG), which focuses on extracting entities and their corresponding groundings from image-text pairs. Existing approaches typically extract entities and then associate them with entity groundings using object detection methods. However, these approaches face challenges, including the use of diverse multimodal feature representations and insufficient visual knowledge, which hinder their ability to effectively link entities to images and limit overall performance. To address these limitations, we propose the visual knowledge-enhanced LLaVA (VKEL) framework, a two-stage model designed to integrate visual knowledge with multimodal learning. In the first stage, VKEL improves entity recognition by augmenting datasets with synthetic image-text pairs and optimizing alignment through lightweight fine-tuning. In the second stage, VKEL overcomes grounding limitations by incorporating consistent and accurate visual knowledge from large language models and utilizing object annotations to guide entity identification within images. This stage enhances the model’s ability to disambiguate similar entities and improve the precision of entity grounding. Extensive experiments on the FMNERG benchmark demonstrate that VKEL surpasses the SOTA by 10.24% in F1 score, with significant improvements in both fine-grained entity recognition and entity grounding performance.
+
+</details>
+
+#### [AnyoneCue: Gloss-Prompted Fine-Grained and Personalized Cued Speech Video Generation](https://www.semanticscholar.org/paper/9addc87004ca9d4d5f2d5392eecd0232ca3d7602)
+**Li Liu, Wen-Ling Lei, Jun Wang, Wenwu Wang** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Cued Speech (CS) is a visual coding system, which combines lip-reading with several specific hand codings to help hearing-impaired people to communicate effectively. Generating CS videos from audio speech and text can significantly improve accessibility and communication for individuals with hearing impairments. However, existing video generation methods primarily concentrate on general gestures, such as human walking, and hence are not directly suitable for generating CS videos. Moreover, current approaches struggle to produce realistic, fine-grained, personalized videos adhering to specific CS coding rules. To address these challenges, firstly, we propose a Gloss-based Diffusion Pose Generation Model (GlossDiff), where the gloss is a novel CS motion parsing prompt to integrate additional linguistic rules knowledge into the CS pose generation model. The glosses are automatically generated descriptive texts based on Large Language Models (LLMs) to establish a direct and delicate semantic connection between CS gestures and spoken language. Secondly, a Pose-Refined Video Diffusion Model (PRV-DM) is proposed to leverage the generated pose sequences to produce fine-grained and personalized CS videos. Specifically, to address the critical challenges of pose scale mismatches with personalized references, ambiguous lip shape, and hand deformations in generated videos, we introduce a Multi-faceted Pose-Refined Module (MFPR) that contains pose alignment, lip enhancement and hand refinement stages. Furthermore, we record and publish the largest Mandarin Chinese CS dataset (named MCCS-2024), containing seven Chinese CS cuers. Extensive experiments and user studies demonstrate the effectiveness of our method, making it the first diffusion model based approach for generating fine-grained and personalized CS videos.
+
+</details>
+
+#### [Change of the aromatic nature through face-to-face stacking](https://www.semanticscholar.org/paper/0cf41b96de3a2f6bd3774ef333442a1c14b3bd22)
+**Qian Wang, R. Nasibullin, D. Sundholm** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+We have computationally studied the aromatic nature of molecules built from tetraoxa-isophlorin (TOI) and Ni(II)-norcorrole (NiNc) moieties. Calculations of the magnetically induced current density (MICD) susceptibility and magnetically induced ring...
+
+</details>
+
+#### [Cooperative Sensing for ISAC: Challenges, System Design, Beam Management, and Performance Validation](https://www.semanticscholar.org/paper/468f95518c9681f3e10fcae455be8eacf2cd5aed)
+**Guangyi Liu, Rongyan Xi, Xiaoqian Wang, Lincong Han et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Integrated sensing and communication (ISAC) is a key enabling technology for sixth-generation (6G) mobile communication systems, achieving seamless integration of communication and sensing functions. Cooperative sensing, where the transmitter and receiver are not co-located, serves as a key enabler for ISAC, significantly enhancing the sensing performance while reducing the implementation complexity of the receiver. However, practical deployments of cooperative sensing still face numerous challenges, such as synchronization and interference. This paper presents a set of advanced beam management methods specifically designed for the cooperative sensing system, offering a comprehensive framework to address these challenges. Specifically, we first analyze the strong/weak path effect (SWPE), a critical phenomenon caused by diverse target reflectivities and propagation paths, which severely degrades both synchronization accuracy and target detection. To counteract this, we propose an adaptive path power allocation method compatible with both all-digital and hybrid beamforming architectures. This method intelligently allocates power across different paths to mitigate the SWPE, thereby ensuring reliable synchronization via the direct path while enhancing the detectability of weak targets. As a result, the proposed method improves the target detection probability by over 30%. Furthermore, an adaptive interference suppression method is designed to reduce interference while maintaining sensing/communication quality, which obtains the SINR gain of around 5 dB, compared to the traditional full nulling method. Experimental results validate the effectiveness of robust synchronization and our proposed power allocation. This study lays a solid foundation for beamforming optimization in cooperative sensing systems, facilitating high-accuracy sensing and communication in complex environments.
+
+</details>
+
+#### [Multi-shell Nanostructures Minimize Diffusion Pathways and Dual Active Sites Decouple Activation for Efficient Ammonia Borane Hydrolysis](https://www.semanticscholar.org/paper/9afb7b3c1bee83f804285d0b6af91edc4da23851)
+**Lei Liu, Zijian Zhou, Ying Liu, Xin Yu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The development of efficient non-noble metal catalysts for low-energy, high-safety hydrolysis of ammonia borane (AB) is critical to advancing hydrogen generation technologies. Current catalysts face two main challenges: sluggish diffusion...
+
+</details>
+
+#### [Neural Rendering and Flow-Assisted Unsupervised Multi-View Stereo for Real-Time Monocular Tracking and Scene Perception](https://www.semanticscholar.org/paper/0313d20f3a4e445e78a86f54b58e23d1d301d0a0)
+**Wei Tong, Yandong Cai, Yu-Wen Jie, Ya Duan et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The existing camera tracking and perception methods mainly rely on sparse SLAM, which limits the dense perception ability of the scene and affects the reliability of auxiliary decision-making. Different from this, this work proposes a real-time tracking and unsupervised dense sensing framework. Firstly, the dense depth value of the scene is predicted by unsupervised multi-view stereo to remove the dependence on labeled data. Then, the quality of synthetic pseudo-reference image is quantified according to the predicted depth map and used as a weighted guidance to train the unsupervised model, thus reducing the ambiguity of feature matching in areas such as specular reflection. Moreover, the sparse optical flow of the keyframes is solved by real-time and robust ORB feature matching operator, which assists the high-precision training of unsupervised depth inference model. To increase the prediction accuracy of occluded area, a novel rendering consistency loss via neural radiance fields is designed to constrain the geometric characteristics of object surface. Finally, dense direct image alignment is performed from a global model to improve the tracking robustness, which is incrementally constructed from dense depth prediction. Extensive experiments on synthetic datasets and real datasets validate the effectiveness and practicability of the proposed work, which is an effective supplement to the existing SLAM work. Note to Practitioners—Learning-based SLAM system can accurately recognize the surrounding environment and realize the autonomous positioning in the unknown environment, which has been widely concerned and applied in the military and civilian fields. To achieve real-time monocular positioning and unsupervised dense reconstruction, this work proposes a SLAM framework based on neural radiance fields and unsupervised multi-view stereo. Comprehensive experiments verify the feasibility of the proposed framework, which has good potential in the field of aviation intelligent cockpit.
+
+</details>
+
+#### [Evolving Multi-Branch Attention Convolutional Neural Networks for Online RIS Configuration](https://www.semanticscholar.org/paper/b1e7944e9fa0e721210ce9d26913ce9dae6df293)
+**George Stamatelis, Kyriakos Stylianopoulos, G. C. Alexandropoulos** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In this paper, we consider the problem of jointly controlling the configuration of a Reconfigurable Intelligent Surface (RIS) with unit elements of discrete responses and a codebook-based transmit precoder in RIS-empowered Multiple-Input Single-Output (MISO) communication systems. The adjustable elements of the RIS and the precoding vector need to be jointly modified in real time to account for rapid changes in the wireless channels, making the application of complicated discrete optimization algorithms impractical. We present a novel Multi-Branch Attention Convolutional Neural Network (MBACNN) architecture for this design objective which is optimized using NeuroEvolution (NE), leveraging its capability to effectively tackle the non-differentiable problem arising from the discrete phase states of the RIS elements. The channel matrices of all involved links are first passed to separate self-attention layers to obtain initial embeddings, which are then concatenated and passed to a convolutional network for spatial feature extraction, before being fed to a per-element multi-layered perceptron for the final RIS phase configuration calculation. Our MBACNN architecture is then extended to multi-RIS-empowered MISO communication systems, and a novel NE-based optimization approach for the online distributed configuration of multiple RISs is presented. The superiority of the proposed single-RIS approach over both learning-based and classical discrete optimization benchmarks is showcased via extensive numerical evaluations over both stochastic and geometrical channel models. It is also demonstrated that the proposed distributed multi-RIS approach outperforms both distributed controllers with feedforward neural networks and fully centralized ones.
+
+</details>
+
+#### [RBF Neural Network-Based Cooperative Electromagnetic Takeover Control for Large-Scale Failed Spacecraft](https://www.semanticscholar.org/paper/e1cf8fa1008dac5a530b27be4393f10633f0ba31)
+**Chuang Liu, Jiayi Xu, Xiaokui Yue** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+To achieve precise and smooth docking, this paper proposes a sliding mode control strategy for cooperative electromagnetic takeover involving multiple servicing spacecraft. First, a relative motion dynamics model for electromagnetic takeover between servicing and failed spacecraft is established based on a far-field electromagnetic force model. Next, an intelligent sliding mode controller is developed based on a radial basis function (RBF) neural network. The controller ensures fixed-time convergence and prescribed-time stability, with system stability rigorously proven using Lyapunov theory. Finally, an appropriate communication topology and control parameters are selected to conduct numerical simulations of multiservicing spacecraft for cooperative electromagnetic takeover. Simulation results demonstrate that the proposed RBF neural network-based sliding mode control approach enables high-precision and smooth electromagnetic takeover under strong disturbance conditions, while maintaining the stability of the system’s center of mass throughout the takeover process.
+
+</details>
+
+#### [Neural Representation for Wireless Radiation Field Reconstruction: A 3D Gaussian Splatting Approach](https://www.semanticscholar.org/paper/ee3f08f8b7537fc3841682cc5709b1fb46c51ca3)
+**Chaozheng Wen, Jingwen Tong, Yingdong Hu, Zehong Lin et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Wireless channel modeling plays a pivotal role in designing, analyzing, and optimizing wireless communication systems. Nevertheless, developing an effective channel modeling approach has been a long-standing challenge. This issue has been escalated due to denser network deployment, larger antenna arrays, and broader bandwidth in next-generation networks. To address this challenge, we put forth WRF-GS, a novel framework for channel modeling based on wireless radiation field (WRF) reconstruction using 3D Gaussian splatting (3D-GS). WRF-GS employs 3D Gaussian primitives and neural networks to capture the interactions between the environment and radio signals, enabling efficient WRF reconstruction and visualization of the propagation characteristics. The reconstructed WRF can then be used to synthesize the spatial spectrum for comprehensive wireless channel characterization. While WRF-GS demonstrates remarkable effectiveness, it faces limitations in capturing high-frequency signal variations caused by complex multipath effects. To overcome these limitations, we propose WRF-GS+, an enhanced framework that integrates electromagnetic wave physics into the neural network design. WRF-GS+ leverages deformable 3D Gaussians to model both static and dynamic components of the WRF, significantly improving its ability to characterize signal variations. In addition, WRF-GS+ accelerates the splatting process by simplifying the 3D-GS modeling operation and reducing sample complexity. Experimental results demonstrate that both WRF-GS and WRF-GS+ outperform baselines for spatial spectrum synthesis, including ray tracing and other deep-learning approaches. Notably, WRF-GS+ achieves state-of-the-art performance in the received signal strength indication (RSSI) and channel state information (CSI) prediction tasks, surpassing existing methods by more than 0.7 dB and 3.36 dB, respectively. The code is available at https://github.com/wenchaozheng/WRF-GSplus
+
+</details>
+
+#### [RPHF-GNN: Recurrent Perception of History-Future Graph Neural Networks for Temporal Knowledge Graph Reasoning](https://www.semanticscholar.org/paper/922521e35fbd1b141ed421f2fc3047f4f7a235eb)
+**Siling Feng, Zimin Ye, Qian Liu, Mengxing Huang** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+TKG (Temporal Knowledge Graph) reasoning has become a hot research topic in recent years. its purpose is to predict the future by modeling historical information. However, existing research has primarily focused on comprehending the patterns and rules of historical facts, often overlooking the evolving trends in fact evolution driven by the emergence of new entities. This oversight poses challenges for models that learn entity and relation embeddings based on extensive historical information, ultimately resulting in a decrease in prediction accuracy. To address this challenge, we propose a graph-based neural network model, named RPHF-GNN (Recurrent Perception of History-future Graph Neural Networks). Specifically, RPHF-GNN divides the sequence into subgraph sequences of ‘historical past’ and ‘historical future’ at each timestep, and employs Hi-GRU (Historical-Future Information Gated Recurrent Unit) to recursively model both sequences in parallel. This allows the model to continuously perceive changes in the evolution patterns brought by unseen entities, thereby better adapting to the trends of future evolution pattern changes and enhancing the impact of Hi-GRU during the evolution process through improved Time-gate Integration Components. Additionally, in the process of constraining entity embeddings with static properties, SP-Cell (Static Perception Cell) integrates historical information from entity embeddings into the static properties to enhance the memory of the model regarding the past. It also aligns static embeddings with entity embeddings at each timestamp to optimize the static loss. We evaluate the RPHF-GNN model using six benchmark datasets, and the experimental results demonstrate significant improvement in various evaluation metrics, with the most notable enhancement reaching 1.71%.
+
+</details>
+
+#### [Time Series Focused Neural Network for Accurate Wireless Human Gesture Recognition](https://www.semanticscholar.org/paper/268038c1392716f59013454aa3af6413a8c4a692)
+**Huakun Huang, Liang Lin, Lingjun Zhao, Shuxue Ding et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Wireless human gesture recognition has spawned many emerging applications, e.g., intelligent control and sign language communications based on WiFi. By treating wireless signals as images, existing WiFi-based gesture recognition methods adopt 2-Dimensional Convolutional Neural Networks (2D CNNs) to capture the feature of transitions on channels. Although 2D CNNs are practical, such approaches need to pay more attention to the information in the temporal dimension, i.e., the channel of time-series features. To better exploit the information in the temporal dimension, we propose a time-series focused gesture recognition approach using WiFi signals named T-SignFi. Our proposed T-SignFi consists of a preprocessing AdaNorm normalization and a CNN-based 3D sign language recognition model to pay sufficient attention to the features in both temporal and channel dimensions. Experiment results based on the real-world dataset show that, compared to the four Sota methods, our method has significant advantages on all three datasets. Improvements of 4.84%, 3.31%, 3.42%, and 2.73% were achieved on the home and lab data, respectively. Our proposed T-SignFi could also effectively improve recognition performance with high generalization ability. In addition, for a challenging case, i.e., actions combining some body parts, including finger, arm, hand, and head movements, the proposed T-SignFi can also recognize them with high accuracy.
+
+</details>
+
+#### [Spec-GNN: Spectrum Enforcement Through Graph Neural Networks in Dynamic Spectrum Access Systems](https://www.semanticscholar.org/paper/3aa501a160b040a7fd4c8a29e5d1eacedee1fb0e)
+**Chibuikem Ezemaduka, A. Abouzeid** · 2026-01-01
+
+
+#### [φ-FEM-FNO: A new approach to train a Neural Operator as a fast PDE solver for variable geometries](https://www.semanticscholar.org/paper/6ca53308b938dc3ef26be90e2443cbe929b67e6d)
+**Michel Duprez, V. Lleras, A. Lozinski, Vincent Vigon et al.** · 2026-01-01
+
+
+#### [Bio-Inspired Dendritic Liquid Neural Network for Robust Near-Field Positioning in B5G/6G](https://www.semanticscholar.org/paper/466623e193169c0cc18ec4d03e4bc93be06f3baf)
+**Qihao Zhu, Yu Wang, Tomoaki Ohtsuki, Shiwen Mao et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In B5G and 6G wireless networks, large-scale antenna arrays introduce spherical wavefronts in the near-field region, presenting both opportunities and challenges for communication and positioning. To address this, we propose a novel near-field positioning method using a bio-inspired dendritic liquid neural network (DLNN). The DLNN features a multi-branch dendritic structure, with each neuron processing signals through multiple parallel dendrites and a dynamic gating mechanism to adapt the weighting and fusion of outputs. This enhances its ability to capture complex spatiotemporal features. Additionally, the liquid layer with leaky integration processes time-series data, enabling strong adaptability and robust temporal memory. Simulation results show that DLNN outperforms other deep learning models in localization accuracy and robustness, with RMSE values of 0.1706 meters at 40 dBm and 0.2642 meters at 10 dBm, compared to 0.2836 meters and 0.2986 meters from other models. Its inference latency of 0.0580 seconds demonstrates excellent accuracy, speed, and energy efficiency, making DLNN highly suitable for real-time positioning in resource-constrained environments.
+
+</details>
+
+#### [PosGNN: A Graph Neural Network Based Multimodal Data Fusion for Indoor Positioning in Industrial Non-Line-of-Sight Scenarios](https://www.semanticscholar.org/paper/98bc4ea8fa8a6ab0f591f271ec9fdb68438e7a7b)
+**Karthik Muthineni, Alexander Artemenko, Daniel Abode, Josep Vidal et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In industrial environments, the wireless infrastructure is functional for offering services such as communication and positioning of industrial assets. However, the frequently occurring Non-Line-of-Sight (NLoS) conditions in industrial scenarios cause the wireless receiver to have positional information from a limited and varying number of wireless transmitters between consecutive time steps, leading to ambiguities in wireless infrastructure-based positioning. In this paper, we propose PosGNN, a novel data fusion solution based on the Graph Neural Network (GNN) approach that allows us to estimate the position of the User Equipment (UE) by fusing the positional information from the available wireless transmitters at each time step with the UE sensor technology. The performance of the proposed method is assessed using an experimental setup of Ultra-Wideband (UWB) technology as wireless infrastructure at $3.7 - \text{4.2}\,\text{GHz}$ frequency band, the Inertial Measurement Unit (IMU) as UE-side sensor, and the Automated Guided Vehicle (AGV) as the target UE to be positioned. The experimental results demonstrate the exceptional performance of our approach over the conventional model-based approach, Extended Kalman Filter (EKF), and the data-driven approach, Deep Neural Network (DNN), achieving an average positioning error of less than $\text{15}\,\text{cm}$ in harsh industrial environments.
+
+</details>
+
+#### [A Physics-Regularized Neural Surrogate Framework for Printed Memristors](https://www.semanticscholar.org/paper/580c231197be0cc2db8d0627dc07d204acd465ab)
+**Sorin Liviu Jurj** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Printed memristors offer a pathway to low-cost, flexible neuromorphic hardware, but their variability and filamentary switching pose challenges for fast, accurate device modeling. We introduce a Physics-Regularized Neural Surrogate (PRNS) for printed memristors, combining data-driven learning with physics-based regularization terms (masked Ohmic/Space-Charge Limited Current (SCLC) constraints and Ordinary Differential Equation (ODE) consistency). While classical Physics-Informed Neural Networks (PINNs) enforce governing equations through differentiable Partial Differential Equation (PDE)/ODE residuals, here physical relations act as regularization rather than hard constraints. The model embeds Ohmic conduction, SCLC, and interfacial transport equations into network training while explicitly handling device-to-device variability via parameter perturbation and noise injection. We validate the approach on a literature-calibrated synthetic dataset representative of flexographically printed Ag/PMMA:PVA/ITO devices, achieving relative Root Mean Square Error (RRMSE) of 0.0633 versus 0.2730 for the Voltage-ThrEshold Adaptive Memristor (VTEAM) model ( $4.31\times $ improvement). Cross-validation across eight seeds yields median RRMSE 0.065 (IQR 0.046–0.106), with stability under 10% added noise. Extended validation across digitized I-V curves from three printed memristor technologies (inkjet-printed IGZO, aerosol-jet MoS2, paper-based MoS2/graphene) demonstrates competitive or superior accuracy versus VTEAM, Yakopcic, Stanford-PKU, and MMS models. Supplementary experiments (15 tests) confirm comprehensive reliability modeling including temperature-dependent retention (activation energy E ${}_{\mathrm {a}} =0.379$ eV), endurance degradation (660-cycle lifetime), and electro-thermal coupling effects. Circuit integration via one-transistor-one-resistor (1T1R) memory cell simulation shows 29% lower write energy (94.2 pJ vs. 133.6 pJ) with gradual analog switching. The formulation supports SPICE-compatible lookup table (LUT)/behavioral export; all code and datasets are released openly for reproducibility.
+
+</details>
+
+#### [Finetuning the Sample Points in Gaussian Filters via Neural Networks](https://www.semanticscholar.org/paper/b5c5d07d6052a5b87b2df289d8243d914990bd22)
+**Hanyu Liu, Yuran Chen, Xiucong Sun, Yukai Zhu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Gaussian filters with deterministic sample points, such as the Unscented Kalman Filter (UKF), Cubature Kalman Filter (CKF), Gauss–Hermite Quadrature Filter (GHQF), etc., have been widely employed for nonlinear state estimation. However, these filters utilize a fixed set of sample points irrespective of the system's nonlinearity. While various studies have explored data-driven approaches to optimize the three parameters of the UKF, these methods do not generalize well to other Gaussian filters with a greater number of sample points. In this letter, we propose a novel neural network-based unified framework for finetuning sample points across all Gaussian filters with deterministic sample points. Specifically, we first pretrain a Multi-Layer Perceptron (MLP) to approximate the mapping from the state's mean and covariance to the sample points of the original Gaussian filter. The MLP then replaces the sample points generation strategy in the Gaussian filter and is further refined by maximizing the marginal likelihood of the observed measurement data. Simulation results demonstrate that the Gaussian filters leveraging the well-trained MLP as the sample point generation strategy achieve higher filtering accuracy compared to their original counterparts.
+
+</details>
+
+#### [Design, Implementation, and Deployment of Multi-Task Neural Networks in Programmable Data-Planes](https://www.semanticscholar.org/paper/809c53265c452b5f6760ce13c3b92829c417be06)
+**Kaiyi Zhang, Changgang Zheng, N. Samaan, Ahmed Karmouch et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The increasing demand for real-time inference on high-volume network traffic has led to the rise of in-network machine learning, where programmable switches execute various models directly in the data-plane at line rate. Effective network management often involves multiple prediction tasks, such as predicting bit rate, flow size, or traffic class; however, existing solutions deploy separate models for each task, placing a significant burden on the data-plane and leading to substantial resource consumption when deploying multiple tasks. To address this limitation, we introduce MUTA, a novel in-network multi-task learning framework that enables concurrent inference of multiple tasks in the data-plane, without exhausting available resources. MUTA builds a multi-task neural network to share feature representations across tasks and introduces a data-plane mapping methodology to fit it within network switches. Additionally, MUTA enhances scalability by supporting distributed deployment, where different layers of a multi-task model can be offloaded across multiple switches. An orchestrator employs multi-objective optimization to determine optimal model placement in multi-path networks. MUTA is deployed on P4 hardware switches, and is shown to reduce memory requirements by $\times 10.5$ , while at the same time improving accuracy by up to 9.14% using limited training data, compared with state-of-the-art single-task learning solutions.
+
+</details>
+
+#### [Relative Entropy-Based Training of Quantum Neural Networks](https://www.semanticscholar.org/paper/28ff866e8c28690ba71eda84fcee55f3c3858e8e)
+**Subhadeep Mondal, Amit Kumar Dutta** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Quantum neural networks (QNNs) are gaining attention as versatile models for quantum machine learning, but training them effectively remains a challenge. Most existing approaches, such as quantum multilayer perceptrons, use fidelity-based cost functions. While well-suited for pure states, these measures are less reliable when inputs and outputs are mixed states—a situation common in learning quantum channels. In this work, we introduce a training framework built on a relative entropy-inspired cost function. By quantifying the directional divergence between learned and target states, relative entropy provides a more informative and principled measure than linear fidelity, naturally capturing both spectral and eigenvector differences in mixed states. This approach preserves the completely positive structure of the network, supports efficient backpropagation in layered QNN configurations, and achieves improved accuracy and convergence over fidelity-based training. These results highlight entropy-based optimization as a promising path toward scalable, robust, and noise-resilient quantum learning.
 
 </details>
 
