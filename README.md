@@ -87,6 +87,16 @@ Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into
 **J. Sommer** · 2026-03-27
 
 
+#### [Leveraging Avatar Fingerprinting: A Multi-Generator Photorealistic Talking-Head Public Database and Benchmark](https://arxiv.org/abs/2603.26934)
+**Laura Pedrouzo-Rodriguez, Luis F. Gomez, Ruben Tolosana, Ruben Vera-Rodriguez et al.** · 2026-03-27
+
+<details>
+<summary>Abstract</summary>
+
+Recent advances in photorealistic avatar generation have enabled highly realistic talking-head avatars, raising security concerns regarding identity impersonation in AI-mediated communication. To advance in this challenging problem, the task of avatar fingerprinting aims to determine whether two avatar videos are driven by the same human operator or not. However, current public databases in the literature are scarce and based solely on old-fashioned talking-head avatar generators, not representing realistic scenarios for the current task of avatar fingerprinting. To overcome this situation, the present article introduces AVAPrintDB, a new publicly available multi-generator talking-head avatar database for avatar fingerprinting. AVAPrintDB is constructed from two audiovisual corpora and three state-of-the-art avatar generators (GAGAvatar, LivePortrait, HunyuanPortrait), representing different synthesis paradigms, and includes both self- and cross-reenactments to simulate legitimate usage and impersonation scenarios. Building on this database, we also define a standardized and reproducible benchmark for avatar fingerprinting, considering public state-of-the-art avatar fingerprinting systems and exploring novel methods based on Foundation Models (DINOv2 and CLIP). Also, we conduct a comprehensive analysis under generator and dataset shift. Our results show that, while identity-related motion cues persist across synthetic avatars, current avatar fingerprinting systems remain highly sensitive to changes in the synthesis pipeline and source domain. The AVAPrintDB, benchmark protocols, and avatar fingerprinting systems are publicly available to facilitate reproducible research.
+
+</details>
+
 #### [Assessing the effects of group perinatal compassion focused therapy in a National Health Service Talking Therapies service in England](https://www.semanticscholar.org/paper/842e53dbcf66182c735e088e169ada85c1030578)
 **Leah A. Millard-Brewer, A. Wittkowski** · 2026-03-26
 
