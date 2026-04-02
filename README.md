@@ -39,6 +39,50 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Impacts of Terminal Voltage Control on Stability of Power Synchronization Control in Grid-Forming Converter Connected to Low-Impedance Grid](https://www.semanticscholar.org/paper/c1f1531f4d8c5f97b2ea8896ff63e3b81e643f9b)
+**Zheng Fang, Zongwu Huang, Yu Xue, Jirong Fu et al.** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+The grid-forming coupling effect between low-impedance grid and grid-forming converter intensifies the interactions among multitime scale control loops, leading to instability in power synchronization control (PSC). This article contributes to giving physical insights into PSC stability affected by terminal voltage control (TVC) in grid-forming converter connected to low-impedance grid. Small-signal model and dynamic model for analysis of the impact of TVC on PSC stability are developed. Modal analysis is employed to quantitatively evaluate the influence of TVC on PSC by studying the changes in PSC modal characteristic roots and participation factors under varied grid-connected impedance and control loop bandwidths. Besides, dynamic analysis characterizes PSC stability through damping and synchronizing power, and further introduces self-stabilizing and enstabilizing components to assess the impacts of TVC on PSC stability. By analyzing the evolution of en-stabilizing component, the dynamic mechanism of TVC affecting PSC stability is revealed. It is indicated that in the case of low grid-connected impedance, low TVC bandwidth, and high PSC bandwidth, the adverse impact of TVC on PSC stability is exacerbated. Finally, the theoretical analysis is validated through simulations and experiments involving the grid-forming converter connected to low-impedance grid.
+
+</details>
+
+#### [Quaternion-Oriented Multistructure Attractor: Generation and Audio Encryption Application With Hardware Implementation](https://www.semanticscholar.org/paper/d1d93264c3b471019721b1676b3a13c94a4d74ab)
+**Xinyu Bao, Mengkai Cui, Quan Xu, Han Bao et al.** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+With the widespread application of audio communication in the Internet of Things (IoT), secure and efficient audio data transmission has become increasingly critical. However, existing chaos-based encryption schemes often face challenges in flexibly generating complex chaotic attractors and achieving a practical balance between security, flexibility, and efficiency. To address these limitations, this article proposes a novel universal method for generating multistructure chaotic attractors based on a quaternion rotation matrix (QRM) transformation. This method enables flexible control over the position, scale, and number of wing units in attractors by configuring quaternion parameters and a multilevel pulse function. Building upon this, we design a high-performance chaos-based audio encryption algorithm, and implement an encryption system for wireless transmission using a microcontroller and long-range radio (LoRa) module. The system integrates audio recording, encryption, wireless transmission, and decryption. Comprehensive security analyses demonstrate the proposed algorithm achieves robust performance. The successful integration of flexible chaotic attractor design, robust cryptographic security, and hardware realization confirms the practical viability of our scheme for information transmission in resource-constrained environments.
+
+</details>
+
+#### [AVFSNet: Audio-visual speech separation for flexible number of speakers with multi-scale and multi-task learning](https://www.semanticscholar.org/paper/6ce2088d73fbc6b8a37ffab6436ded1cd08ac855)
+**Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
+
+
+#### [A Spatiotemporal Graph Neural Network Based Deep Reinforcement Learning Method for Online Distributed Job-Shop Scheduling Problem](https://www.semanticscholar.org/paper/b4ba7c587709b12277110dbe131883bba5ab9c9b)
+**Jiangping Huang, Liang Gao, Xinyu Li** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+The distributed shop scheduling problem is a hotspot in the shop scheduling field. Online scheduling requires making prompt decisions in response to environmental changes during ongoing production. This paper studies an Online Distributed Job-shop Scheduling Problem (ODJSP) with random job arrivals and machine breakdowns. The spatiotemporal Graph Neural Network (GNN) and Deep Reinforcement Learning (DRL) method are integrated, introducing a novel framework for efficiently solving online scheduling problems. First, a dynamic disjunctive graph with an adaptable topology is introduced. Building upon this foundation, a Markov Decision Process model is developed to formulate the ODJSP. A novel time-window-based state observation mechanism is designed, enhancing the agent's decision efficiency by curtailing redundant input information. Additionally, the Graph Convolutional Recurrent Network is employed to extract features during decision process, enabling effective feature capture across both spatial and temporal domains. The features across the temporal domain are crucial for online scheduling problems but have rarely been considered in existing research. Moreover, Proximal Policy Optimization is integrated with an actor-critic framework to train the decision agent. Comparative experiments are conducted across 972 simulation environments with different configurations. The comparison among 29 composite Priority Dispatch Rules, 3 GNN-based and Multi-Layer Perceptron-based DRL methods, and Deep Q-learning Network-based and Gene Expression Programming-based online scheduling methods demonstrates the effectiveness, stability, generalization, and real-time performance of the proposed method. The case study from a marine opto-mechanical structural component manufacturing company validates its practical value.
+
+</details>
+
+#### [LightMix: Multi-Objective Search for Lightweight Mixed-Scale Convolutional Neural Networks](https://www.semanticscholar.org/paper/a575c1caf582b052ddf60bad91374943e1e6ec92)
+**Junhao Huang, Bing Xue, Yanan Sun, Mengjie Zhang et al.** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+Lightweight convolutional neural network (CNN) design has been a research focus for recent years, justified by the popularity of deploying deep models on resource-constrained devices. Notably, depthwise separable (DW-Sep) convolutions have been extensively adopted in constructing CNNs to reduce computational complexity. However, the improved efficiency of DW-Sep convolutions usually brings a degradation in model expressivity/performance. To overcome this issue, this paper presents a lightweight mixed-scale convolution block, dubbed LightMix, for improving the model representation capability via multi-scale feature extraction and fusion while reducing the computational complexity through channel divisions. A multi-objective neural architecture search framework integrating the LightMix block is developed to automate the LightMix-based CNN architecture design. Furthermore, we propose a population grouping strategy to balance the difficulty between optimizing predictive accuracy and model complexity during the search process. This strategy is capable of retaining potentially promising architectures, contributing to an enhanced population diversity. The proposed method only takes 0.02 GPU days to discover excellent architectures that achieve 2.52% test error with 1.78 M parameters, and 17.19% test error with 1.81 M parameters on CIFAR-10 and CIFAR-100, respectively. On ImageNet, the architecture searched with 0.3 GPU days achieves a 22.1% Top-1 error rate with merely 4.8 M parameters and 488 M MAdds.
+
+</details>
+
 #### [Data fusion-based two-stage cascade framework for multi-modality face anti spoofing](https://www.semanticscholar.org/paper/641a46a9ab63cb83dabc10bdbf70b0453d9d684e)
 **Kavitha Soppari, Jale Krishna Teja, Mamidi Sai Krishna, Neela Aravind Kumar** · 2026-03-31
 
@@ -46,6 +90,150 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 <summary>Abstract</summary>
 
 Face anti-spoofing is an essential component in modern biometric authentication systems, ensuring that recognition technologies are not deceived by fraudulent attempts such as printed photographs, video replays, or 3D masks. This project proposes a Data Fusion-Based Two Stage Cascade Framework that integrates multiple modalities—RGB (Red, Green, Blue), Depth, and Infrared (IR)—to improve robustness and accuracy in detecting spoofing. In the first stage, deep learning models like 3D Convolutional Neural Networks (3D CNNs), CNN LSTM (Convolutional Neural Network with Long Short-Term Memory), and attention mechanisms are applied for feature extraction. In the second stage, their outputs are combined through decision fusion in a multi-stream network. The framework is evaluated on benchmark datasets like CASIA-SURF and Replay-Attack. Results show significant improvements over traditional single-modality systems, making the proposed framework suitable for real-world applications in banking, airport security, and access control systems.
+
+</details>
+
+#### [SIREN: Spatially-Informed Reconstruction of Binaural Audio with Vision](https://arxiv.org/abs/2603.29820)
+**Mingyeong Song, Seoyeon Ko, Junhyug Noh** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Binaural audio delivers spatial cues essential for immersion, yet most consumer videos are monaural due to capture constraints. We introduce SIREN, a visually guided mono to binaural framework that explicitly predicts left and right channels. A ViT-based encoder learns dual-head self-attention to produce a shared scene map and end-to-end L/R attention, replacing hand-crafted masks. A soft, annealed spatial prior gently biases early L/R grounding, and a two-stage, confidence-weighted waveform-domain fusion (guided by mono reconstruction and interaural phase consistency) suppresses crosstalk when aggregating multi-crop and overlapping windows. Evaluated on FAIR-Play and MUSIC-Stereo, SIREN yields consistent gains on time-frequency and phase-sensitive metrics with competitive SNR. The design is modular and generic, requires no task-specific annotations, and integrates with standard audio-visual pipelines.
+
+</details>
+
+#### [Audio Hallucination Attacks: Probing the Reliability of Large Audio Language Models](https://arxiv.org/abs/2603.29263)
+**Ashish Seth, Sonal Kumar, Ramaneswaran Selvakumar, Nishit Anand et al.** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Large Audio Language Models (LALMs) achieve strong performance on audio-language tasks; however, their reliability in real-world settings remains underexplored. We introduce Audio Hallucination Attacks (AHA), an attack suite called AHA-Eval, comprising 6.5K QA pairs designed to test whether LALMs genuinely ground their responses in the audio input. AHA targets two attack surfaces: (i) query-based attacks, which exploit question structure to induce hallucinations about absent sounds, and (ii) audio-based attacks, which inject synthetic speech describing non-existent events into the audio stream. Evaluating state-of-the-art LALMs, including Audio Flamingo 3 and Gemini 3 Pro, we observe high attack success rates of 95.35% and 79.65%, respectively, revealing a reliability gap that is hidden by standard benchmark performance. To mitigate this, we propose a 120K QA post-alignment dataset, AHA-Guard, which successfully reduces attack success rates by up to 49%.
+
+</details>
+
+#### [Comparative Analysis of Wavelet-FFT-ANN and ResNet-Based Models for Real-Time Audio Deepfake Detection Using the In-the-Wild Dataset](https://www.semanticscholar.org/paper/1eec1cdf5cf9b71018f742842e9aca16c736c2cc)
+**Sumedha Arya** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Nowadays, AI-generated content is in a high trend because of advancement in technology. Deepfake audio clips looks highly realistic, posing serious concern to ethics, privacy, and security. Although, there are so many techniques has been built to classify fake from real speech, but still there exists issues. This is due to noise, compression, and speaker variations. In this study, we evaluate four different models on the “In-the-Wild” audio deepfake dataset using a balanced subset of 20,000 samples standardized to 16 kHz and 2-second clips. Two models use hand-crafted features (Wavelet + ANN and FFT + ANN), while two models apply deep transfer learning using ResNet18 and fully fine-tuned ResNet50 on log-Mel spectrograms. Experimental results show that traditional ANN models achieve moderate performance, from 58%–75% in accuracy with higher false claims. In contrast to them, deep learning models shown better generalization, with ResNet18 reaching to 97% accuracy and ResNet50 achieving the best performance at 98.9% accuracy with near-perfect F1-scores. These findings highlight that spectrogram-based representations combined with powerful pre-trained CNN architectures provide a more robust and reliable solution for realworld audio deepfake detection.
+
+</details>
+
+#### [Multi-Modal Sentiment Analysis Using Text, Audio, And Facial Expressions for Human Emotion Detection - A Survey](https://www.semanticscholar.org/paper/3912635ce3e07816c7bb92c61c32f9fff57ba8c1)
+**Anshika Saxena, Dr. Shweta Singh** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Human emotion recognition has become a significant research focus within artificial intelligence due to its growing importance in human–computer interaction, affective computing, and intelligent decision-support systems. Conventional emotion recognition methods have largely relied on unimodal data sources, such as text, speech, or facial expressions. Although effective in controlled settings, unimodal approaches often provide an incomplete and ambiguous understanding of emotional expression, as human emotions are inherently multimodal. This review paper critically examines a dissertation that proposes a deep learning-based multimodal sentiment analysis framework for human emotion detection by integrating textual, acoustic, and facial expression modalities. The reviewed framework employs a Long Short-Term Memory (LSTM)-based architecture to effectively model temporal and contextual dependencies present in multimodal data. Textual information is encoded using embedded word sequences, audio data captures emotional prosody through acoustic features, and visual inputs represent facial expression patterns. These modality-specific features are fused within a unified deep learning framework to perform binary emotion classification. Experimental evaluation using standard performance metrics, including accuracy, precision, recall, F1- score, confusion matrix analysis, and training–validation curves, demonstrates an overall classification accuracy of 82.22 percent, along with balanced precision and recall values. The review highlights the robustness, methodological soundness, and practical relevance of multimodal sentiment analysis, emphasizing its advantages over unimodal approaches and its contribution to the advancement of affective computing research.
+
+</details>
+
+#### [Secondary Rhinoplasty in Unilateral Cleft Lip Nasal Deformity: A Longitudinal Assessment of Patient-Reported Satisfaction, Nasal Patency, and Olfactory Function](https://www.semanticscholar.org/paper/c1b50bbab15cdda91f1845647dcee0c8c30b072f)
+**Jiaqi Zhao, Zhichao Zhai, Songtao Tan, Xin Xin et al.** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+Patients with unilateral cleft lip nasal deformities (UCLND) suffer from both cosmetic deformities and functional impairments. While secondary rhinoplasty primarily targets aesthetic enhancement, its long-term effects on patient-reported function, particularly airway patency and olfactory function, are not well-documented. The primary purpose of this study is to conduct a longitudinal assessment of patient-reported satisfaction, nasal patency, and olfactory function following secondary rhinoplasty in patients with UCLND. This study included 144 patients who underwent secondary rhinoplasty of UCLND between February 2022 and November 2023. Nasal morphology and function were assessed using the Rhinoplasty Outcome Evaluation (ROE) scale, Nasal Obstruction Symptom Evaluation (NOSE) scale, and the Visual Analog Scale (VAS) for olfactory function. A total of 144 patients were followed for 6 months postoperatively, of whom 100 completed an additional follow-up at 12 months. Comparison between preoperative and 6-month postoperative outcomes revealed significant improvements in both ROE and olfactory VAS scores (both P <0.001), whereas the NOSE score showed no statistically significant change ( P =0.83). At 12 months postoperatively, ROE and olfactory VAS scores remained significantly elevated compared with preoperative levels, and the NOSE score demonstrated a significant reduction ( P <0.001, P <0.001, and P =0.003, respectively). Secondary rhinoplasty for unilateral cleft lip nasal deformity has been shown to improve nasal satisfaction and subjective perception of nasal airway patency and olfactory sense. Notably, the improvement in patient-reported nasal patency appears to be a progressive and sustained process over time.
+
+</details>
+
+#### [Development of NFC-Integrated Clothing Prototypes for People With Visual Impairments](https://www.semanticscholar.org/paper/9b95d352c4d8502f74fc80fdaace8411ea6fffe6)
+**J. Shin, Sunhyung Cho** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+This study utilized a User-Centered Design (UCD) approach, viewed through the lens of the Technology Acceptance Model, to address challenges individuals with visual impairments (VI) face in perceiving clothing information. Affecting over 2.2 billion people globally, VI's onset diminishes self-image, social engagement, and quality of life (QOL). Twenty participants (9 females, 11 males) with VI were interviewed via purposive sampling. Incorporating UCD to explore VI clothing context, research was initiated with interviews and literature review, guiding design objectives to integrate Near Field Communication (NFC) technology into garment prototypes. The study determined optimal NFC sticker size/placement and evaluated usability. Results showed NFC stickers enabled independent access to detailed audio information (color, material, care), enhancing garment care and outfit coordination. Participants favored intuitive solutions, suggesting permanent NFC tags and adjustable speech speed. This study demonstrates NFC's potential to promote autonomy and enhance QOL for people with VI.
+
+</details>
+
+#### [SonoWorld: From One Image to a 3D Audio-Visual Scene](https://arxiv.org/abs/2603.28757)
+**Derong Jin, Xiyi Chen, Ming C. Lin, Ruohan Gao** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+Tremendous progress in visual scene generation now turns a single image into an explorable 3D world, yet immersion remains incomplete without sound. We introduce Image2AVScene, the task of generating a 3D audio-visual scene from a single image, and present SonoWorld, the first framework to tackle this challenge. From one image, our pipeline outpaints a 360{\deg} panorama, lifts it into a navigable 3D scene, places language-guided sound anchors, and renders ambisonics for point, areal, and ambient sources, yielding spatial audio aligned with scene geometry and semantics. Quantitative evaluations on a newly curated real-world dataset and a controlled user study confirm the effectiveness of our approach. Beyond free-viewpoint audio-visual rendering, we also demonstrate applications to one-shot acoustic learning and audio-visual spatial source separation. Project website: https://humathe.github.io/sonoworld/
+
+</details>
+
+#### [ParaSpeechCLAP: A Dual-Encoder Speech-Text Model for Rich Stylistic Language-Audio Pretraining](https://arxiv.org/abs/2603.28737)
+**Anuj Diwan, Eunsol Choi, David F. Harwath** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+We introduce ParaSpeechCLAP, a dual-encoder contrastive model that maps speech and text style captions into a common embedding space, supporting a wide range of intrinsic (speaker-level) and situational (utterance-level) descriptors (such as pitch, texture and emotion) far beyond the narrow set handled by existing models. We train specialized ParaSpeechCLAP-Intrinsic and ParaSpeechCLAP-Situational models alongside a unified ParaSpeechCLAP-Combined model, finding that specialization yields stronger performance on individual style dimensions while the unified model excels on compositional evaluation. We further show that ParaSpeechCLAP-Intrinsic benefits from an additional classification loss and class-balanced training. We demonstrate our models'performance on style caption retrieval, speech attribute classification and as an inference-time reward model that improves style-prompted TTS without additional training. ParaSpeechCLAP outperforms baselines on most metrics across all three applications. Our models and code are released at https://github.com/ajd12342/paraspeechclap .
+
+</details>
+
+#### [Membership Inference Attacks against Large Audio Language Models](https://arxiv.org/abs/2603.28378)
+**Jiatang Dong, Yu-Xiang Lin, Hung-yi Lee** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+We present the first systematic Membership Inference Attack (MIA) evaluation of Large Audio Language Models (LALMs). As audio encodes non-semantic information, it induces severe train and test distribution shifts and can lead to spurious MIA performance. Using a multi-modal blind baseline based on textual, spectral, and prosodic features, we demonstrate that common speech datasets exhibit near-perfect train/test separability (AUC approximately 1.0) even without model inference, and the standard MIA scores strongly correlate with these blind acoustic artifacts (correlation greater than 0.7). Using this blind baseline, we identify that distribution-matched datasets enable reliable MIA evaluation without distribution shift confounds. We benchmark multiple MIA methods and conduct modality disentanglement experiments on these datasets. The results reveal that LALM memorization is cross-modal, arising only from binding a speaker's vocal identity with its text. These findings establish a principled standard for auditing LALMs beyond spurious correlations.
+
+</details>
+
+#### [Audio Language Model for Deepfake Detection Grounded in Acoustic Chain-of-Thought](https://arxiv.org/abs/2603.28021)
+**Run Chen, Yixiong Fang, Peng Chang, Yuante Li et al.** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+Deepfake speech detection systems are often limited to binary classification tasks and struggle to generate interpretable reasoning or provide context-rich explanations for their decisions. These models primarily extract latent embeddings for authenticity detection but fail to leverage structured acoustic evidence such as prosodic, spectral, and physiological attributes in a meaningful manner. This paper introduces CoLMbo-DF, a Feature-Guided Audio Language Model that addresses these limitations by integrating robust deepfake detection with explicit acoustic chain-of-thought reasoning. By injecting structured textual representations of low-level acoustic features directly into the model prompt, our approach grounds the model's reasoning in interpretable evidence and improves detection accuracy. To support this framework, we introduce a novel dataset of audio pairs paired with chain-of-thought annotations. Experiments show that our method, trained on a lightweight open-source language model, significantly outperforms existing audio language model baselines despite its smaller scale, marking a significant advancement in explainable deepfake speech detection.
+
+</details>
+
+#### [Spiking Feature-Driven Event Simulation with Movement-Aware Polarity Integration](https://www.semanticscholar.org/paper/4e6404ba50ff039737a369e9e1c3bbf7d8b76a9d)
+**Jiwoong Oh, Byeongju Kang, Hyungsik Shin, Dongwoo Kang** · 2026-03-29
+
+<details>
+<summary>Abstract</summary>
+
+Event-based face detection has attracted significant interest due to the unique advantages of event cameras, including high temporal resolution, high dynamic range, and low power consumption. However, the lack of annotated public datasets remains a major challenge for training effective event-based face detection models. In this paper, we propose a spiking feature-driven synthetic event generation framework that utilizes a spiking neural network (SNN) in conjunction with a pretrained convolutional backbone to generate synthetic event representations from a single RGB image. To incorporate motion-induced ON/OFF polarity information, we introduce a movement-aware polarity integration (MPI) module that assumes four directional facial movements. An event-similarity score is further employed to select representations most consistent with real event data for training. Unlike conventional approaches relying on video-based simulators, our method enables efficient synthetic event dataset construction without requiring video inputs or additional simulation training. Experimental results on the N-Caltech101 dataset demonstrate a face detection accuracy of 99.91%, outperforming existing event-based face detection methods.
+
+</details>
+
+#### [VoxAnchor: Grounding Speech Authenticity in Throat Vibration via mmWave Radar](https://arxiv.org/abs/2603.27562)
+**Mingda Han, Huanqi Yang, Chaoqun Li, Wenhao Li et al.** · 2026-03-29
+
+<details>
+<summary>Abstract</summary>
+
+Rapid advances in speech synthesis and audio editing have made realistic forgeries increasingly accessible, yet existing detection methods remain vulnerable to tampering or depend on visual/wearable sensors. In this paper, we present VoxAnchor, a system that physically grounds audio authentication in vocal dynamics by leveraging the inherent coherence between speech acoustics and radar-sensed throat vibrations. VoxAnchor uses contactless millimeter-wave radar to capture fine-grained throat vibrations that are tightly coupled with human speech production, establishing a hard-to-forge anchor rooted in human physiology. The design comprises three main components: (1) a cross-modal frame-work that uses modality-specific encoders and contrastive learning to detect subtle mismatches at word granularity; (2) a phase-aware pipeline that extracts physically consistent, temporally faithful throat vibrations; and (3) a dual-stage strategy that combines signal-level onset detection and semantic-level coherence to align asynchronous radar and audio streams. Unlike liveness detection, which only confirms whether speech occurred, VoxAnchor verifies what was spoken through word-level content consistency, exposing localized edits that preserve identity and global authenticity cues. Extensive evaluations show that VoxAnchor achieves robust, fine-grained detection across diverse forgeries (editing, splicing, replay, deepfake) and conditions, with an overall EER of 0.017, low latency, and modest computational cost.
+
+</details>
+
+#### [MAR3: Multi-Agent Recognition, Reasoning, and Reflection for Reference Audio-Visual Segmentation](https://arxiv.org/abs/2603.27706)
+**Yuan Zhao, Zhenqi Jia, Yongqiang Zhang** · 2026-03-29
+
+<details>
+<summary>Abstract</summary>
+
+Reference Audio-Visual Segmentation (Ref-AVS) aims to segment objects in audible videos based on multimodal cues in reference expressions. Previous methods overlook the explicit recognition of expression difficulty and dominant modality in multimodal cues, over-rely on the quality of the instruction-tuning dataset for object reasoning, and lack reflective validation of segmentation results, leading to erroneous mask predictions. To address these issues, in this paper, we propose a novel training-free Multi-Agent Recognition, Reasoning, and Reflection framework to achieve high-quality Reference Audio-Visual Segmentation, termed MAR3. Incorporating the sociological Delphi theory to achieve robust analysis, a Consensus Multimodal Recognition mechanism is proposed that enables LLM agents to explicitly recognize the difficulty of reference expressions and the dominant modality of multimodal cues. Based on our modality-dominant difficulty rule, we propose an adaptive Collaborative Object Reasoning strategy to reliably reason about the referred object. To further ensure precise mask prediction, we develop a Reflective Learning Segmentation mechanism, in which a check agent examines intermediate segmentation results and iteratively corrects the object text prompt of the segment agent. Experiments demonstrate that MAR3 achieves superior performance (69.2% in J&F) on the Ref-AVSBench dataset, outperforming SOTA by 3.4% absolutely.
+
+</details>
+
+#### [Directed neural interactions in whole-brain resting-state fMRI: a comparison between Granger Causality and Effective Connectivity](https://www.semanticscholar.org/paper/3da5e5a025b9c9300174db5856bf34a0a46a1f95)
+**Michele Allegra, Matthieu Gilson, A. Brovelli** · 2026-03-29
+
+
+#### [Prediction of Electric Load for Users Based on BP Neural Network](https://www.semanticscholar.org/paper/e4d8687371527731b60fe7327172939a0ed3f652)
+**Siyi Liu, R. Wang, Yudong Fang** · 2026-03-29
+
+<details>
+<summary>Abstract</summary>
+
+Rock masses in underground engineering are generally subjected to complex three-dimensional stress conditions rather than uniaxial loading. Therefore, triaxial compression testing has become a fundamental approach for investigating the strength, deformation, and failure behavior of rocks. In recent decades, extensive studies have been conducted on rock failure laws under triaxial compression, with particular attention to the effects of confining pressure, crack initiation and propagation, damage evolution, and macroscopic failure modes. Existing studies indicate that confining pressure not only increases the peak strength and residual bearing capacity of rocks, but also suppresses tensile crack growth, promotes shear localization, and drives the transition from brittle failure to ductile failure. In addition, the full failure process of rocks under triaxial compression is characterized by distinct stages, including crack closure, elastic deformation, stable crack propagation, unstable crack propagation, and post-peak failure. Acoustic emission monitoring, ultrasonic wave velocity analysis, and energy-based methods have further improved the understanding of progressive rock damage and failure mechanisms. This paper systematically reviews the current research on the strength evolution, deformation characteristics, failure modes, and major controlling factors of rocks under triaxial compression. On this basis, the limitations of existing studies are discussed, especially with respect to fractured rock masses, layered composite rocks, and complex stress paths. Future research directions are also proposed, including multi-method characterization, multi-field coupling analysis, and the integration of laboratory results with engineering-scale applications. This review may provide a useful reference for the study of rock mechanics and the stability evaluation of deep underground engineering.
 
 </details>
 
@@ -73,6 +261,26 @@ Abstract The increasing demand for herbal cosmetic products has encouraged the d
 **J. Radeke, Franziska Brand, F. Kılıç, Rudolf Jäger et al.** · 2026-03-28
 
 
+#### [Respondent-Driven Sampling Model Evaluation for Sampling without Replacement in Estimating Hidden Populations](https://www.semanticscholar.org/paper/df3559484acefea9e75ffc4d6ae63c7a9feac44b)
+**Anjikwi Yakubu, D. Jibasen, Ikeme John, E. Torsen** · 2026-03-28
+
+<details>
+<summary>Abstract</summary>
+
+This study evaluates respondent-driven sampling (RDS) models that use sampling without replacement to estimate characteristics of hidden populations. Traditional RDS estimators, such as Salganik and Heckathorn (SH-RDS) and Volz and Heckathorn (VH-RDS), assume sampling with replacement and require many recruitment waves to reach statistical equilibrium, which is rarely achieved in practice. Most real-world RDS studies are conducted without replacement and use fewer waves, leading to biases like overrepresentation of highly connected individuals. Recent estimators, such as Gile’s Successive Sampling (G-SS), address some limitations but still face challenges, including instability with large samples, broad confidence intervals, and inadequate handling of non-random recruitment and seed selection. To address these issues, a new estimator is proposed that incorporates sampling without replacement and strategic multiple-seed selection. Simulations and real-world data analysis (using the Project 90 dataset) demonstrate that estimator performance varies by sample size. For small samples SH-RDS and VH-RDS are most accurate for gender estimation. For larger samples (, the proposed estimator is most efficient, with minimal variance. G-SS shows moderate, reliable performance, while the Naïve estimator becomes less reliable as the sample size increases. Analysis also reveals that the proposed estimator performs well for groups with higher connectivity, though variance remains high for the “Unemployed” group. Overall, the proposed estimator was recommended for large samples and complex networks, especially among hard-to-reach populations.
+
+</details>
+
+#### [Beyond Descriptions: A Generative Scene2Audio Framework for Blind and Low-Vision Users to Experience Vista Landscapes](https://arxiv.org/abs/2603.27295)
+**Chitralekha Gupta, Jing Peng, Ashwin Ram, Shreyas Sridhar et al.** · 2026-03-28
+
+<details>
+<summary>Abstract</summary>
+
+Current scene perception tools for Blind and Low Vision (BLV) individuals rely on spoken descriptions but lack engaging representations of visually pleasing distant environmental landscapes (Vista spaces). Our proposed Scene2Audio framework generates comprehensible and enjoyable nonverbal audio using generative models informed by psychoacoustics, and principles of scene audio composition. Through a user study with 11 BLV participants, we found that combining the Scene2Audio sounds with speech creates a better experience than speech alone, as the sound effects complement the speech making the scene easier to imagine. A mobile app"in-the-wild"study with 7 BLV users for more than a week further showed the potential of Scene2Audio in enhancing outdoor scene experiences. Our work bridges the gap between visual and auditory scene perception by moving beyond purely descriptive aids, addressing the aesthetic needs of BLV users.
+
+</details>
+
 #### [Cinematic Audio Source Separation Using Visual Cues](https://arxiv.org/abs/2603.26113)
 **Kang Zhang, Suyeon Lee, Arda Senocak, Joon Son Chung** · 2026-03-27
 
@@ -94,6 +302,26 @@ Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into
 <summary>Abstract</summary>
 
 Recent advances in photorealistic avatar generation have enabled highly realistic talking-head avatars, raising security concerns regarding identity impersonation in AI-mediated communication. To advance in this challenging problem, the task of avatar fingerprinting aims to determine whether two avatar videos are driven by the same human operator or not. However, current public databases in the literature are scarce and based solely on old-fashioned talking-head avatar generators, not representing realistic scenarios for the current task of avatar fingerprinting. To overcome this situation, the present article introduces AVAPrintDB, a new publicly available multi-generator talking-head avatar database for avatar fingerprinting. AVAPrintDB is constructed from two audiovisual corpora and three state-of-the-art avatar generators (GAGAvatar, LivePortrait, HunyuanPortrait), representing different synthesis paradigms, and includes both self- and cross-reenactments to simulate legitimate usage and impersonation scenarios. Building on this database, we also define a standardized and reproducible benchmark for avatar fingerprinting, considering public state-of-the-art avatar fingerprinting systems and exploring novel methods based on Foundation Models (DINOv2 and CLIP). Also, we conduct a comprehensive analysis under generator and dataset shift. Our results show that, while identity-related motion cues persist across synthetic avatars, current avatar fingerprinting systems remain highly sensitive to changes in the synthesis pipeline and source domain. The AVAPrintDB, benchmark protocols, and avatar fingerprinting systems are publicly available to facilitate reproducible research.
+
+</details>
+
+#### [A Controllability-Based Reliability Framework for Mechanical Systems with Scenario-Driven Performance Evaluation](https://www.semanticscholar.org/paper/84396d220094f0b2054250309bd111c5da686942)
+**D. Aikhuele, S. Sorooshian** · 2026-03-27
+
+<details>
+<summary>Abstract</summary>
+
+In classical reliability engineering, failure is a probabilistic structural failure based on lifetime distributions of Weibull models. However, in the control-critical mechanical systems, it is possible that functional failure of the system happens before material failure occurs as a result of control power loss. This paper proposes a Controllability–Reliability Coupling (CRC) model, which redefines the concept of reliability as the stabilizability in the face of progressive degradation. The actuators’ deterioration is modeled using the time-varying input effectiveness factor α(t), and the actuator is said to be in failure when the minimum singular value of the finite-horizon controllability Gramian becomes less than a stabilizability threshold ε. The performance of the simulation indicates that the functional failure is a precursor of structural failure in several degradation conditions. A baseline comparison shows that the CRC metric forecasts loss of controllability at TCRC=17.0 s, but the classical Weibull reliability never attains the structural failure threshold even in the time horizon of 20 s. The system retains margins of Lyapunov stability and H infinity robustness are not lost, and it is still stable and attenuates disturbances even when control authority is lost. In practical degradation scenarios, the forecasted CRC failure times are 21.5 s (linear wear), 13.1 s (accelerated fatigue), 23.7 s (intermittent faults), and 24.4 s (shock damage), whereas maintenance recovery abated functional failure completely. In a case study of an industrial robotic joint, at 27.0 s, functional collapse occurred, and at the same time, structural reliability was still above the failure threshold. The findings support the hypothesis that structural survival and functional controllability are distinct concepts. The proposed CRC framework is an approach to control-conscious reliability measure, which can detect early failures and offer proactive maintenance advice in the context of a cyber–physical system.
+
+</details>
+
+#### [Closed-loop transcranial ultrasound stimulation based on NREM and REM sleep for bidirectional modulation of sleep neural oscillation and memory](https://www.semanticscholar.org/paper/a7ea780627c1e6d5ab31c18a878b5df95a907e34)
+**Teng Wang, Mengran Wang, Yi Yuan** · 2026-03-27
+
+<details>
+<summary>Abstract</summary>
+
+Objective: Sleep plays an important role in memory integration. Closed-loop physical stimulation during rapid eye movement (REM) or non-rapid eye movement (NREM) sleep can modulate neural oscillations and associated memory functions. However, the impact of closed-loop transcranial ultrasound stimulation (CLTUS), a non-invasive technique with high spatial resolution and deep penetration, on sleep-specific oscillations and memory remains unclear. Approach: In this study, we developed a CLTUS system using deep learning to target NREM and REM sleep oscillations and evaluated sleep neural oscillations and memory ability. Main results: Our findings revealed that CLTUS of the slow oscillation up-state during NREM sleep reduced NREM-specific neural activity and significantly weakened spatial and fear memory abilities. These changes were positively correlated with the induced neural dynamics. Conversely, during REM sleep, CLTUS delivered at the theta peak enhanced REM-specific neural activity in both healthy and Alzheimer's disease model mice. Consequently, spatial memory was significantly improved in both groups, and this improvement was closely related to ultrasound-induced neural activity. Significance: CLTUS based on NREM and REM sleep exerts a bidirectional modulation effect on sleep neural oscillations and memory ability, providing important guidance for selecting and optimizing stimulation protocols for modulating sleep and memory.
 
 </details>
 
@@ -171,6 +399,36 @@ Probabilistic abstract interpretation is a theory used to extract particular pro
 
 </details>
 
+#### [AI-Driven FinOps for Multi-Cloud Cost Optimization](https://www.semanticscholar.org/paper/ffa55d53743ae4723bb3f7e6635c613e3880c9bc)
+**Shailaja Beeram** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+As cloud adoption accelerates, organizations increasingly face challenges in managing and optimizing operational costs across multiple providers such as Microsoft Azure, AWS, and Google Cloud. Traditional FinOps (Financial Operations) practices rely heavily on manual analysis and static thresholds, often leading to inefficiencies and reactive decision-making. This paper presents an AI-driven FinOps model that integrates predictive analytics, automation, and intelligent workload optimization to manage costs across heterogeneous cloud environments. Leveraging tools such as Azure Cost Management, Machine Learning, and cross-cloud APIs, the proposed architecture enables real-time visibility, anomaly detection, and automated budget governance. Experimental analysis demonstrates that AI-driven FinOps reduces cloud cost variance and improves forecasting accuracy, providing a foundation for sustainable, data-driven financial governance.
+
+</details>
+
+#### [How Class Ontology and Data Scale Affect Audio Transfer Learning](https://arxiv.org/abs/2603.25476)
+**M. Milling, Andreas Triantafyllopoulos, Alexander Gebhard, S. Rampp et al.** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+Transfer learning is a crucial concept within deep learning that allows artificial neural networks to benefit from a large pre-training data basis when confronted with a task of limited data. Despite its ubiquitous use and clear benefits, there are still many open questions regarding the inner workings of transfer learning and, in particular, regarding the understanding of when and how well it works. To that extent, we perform a rigorous study focusing on audio-to-audio transfer learning, in which we pre-train various model states on (ontology-based) subsets of AudioSet and fine-tune them on three computer audition tasks, namely acoustic scene recognition, bird activity recognition, and speech command recognition. We report that increasing the number of samples and classes in the pre-training data both have a positive impact on transfer learning. This is, however, generally surpassed by similarity between pre-training and the downstream task, which can lead the model to learn comparable features.
+
+</details>
+
+#### [Unlocking Strong Supervision: A Data-Centric Study of General-Purpose Audio Pre-Training Methods](https://arxiv.org/abs/2603.25767)
+**Xuanru Zhou, Yiwen Shao, Wei-Cheng Tseng, Dong Yu** · 2026-03-26
+
+<details>
+<summary>Abstract</summary>
+
+Current audio pre-training seeks to learn unified representations for broad audio understanding tasks, but it remains fragmented and is fundamentally bottlenecked by its reliance on weak, noisy, and scale-limited labels. Drawing lessons from vision's foundational pre-training blueprint, we argue that the audio field must first establish its own large-scale, strong supervision framework. We introduce a new data-centric pipeline that leverages a high-fidelity captioner to create SOTA-quality captions and the first Unified Tag System (UTS) that bridges speech, music, and environmental sounds. We then conduct a systematic comparative study of different pre-training objectives on these strong source data. Our experiments suggest that data quality and coverage are the primary drivers of performance, while the choice of objective dictates downstream task specialization.
+
+</details>
+
 #### [Tapping out, talking in: what drives users to ditch menu-based navigation and switch to voice and text AI-based chatbots in mobile banking?](https://www.semanticscholar.org/paper/d10463e1abeafc28eea9d7832e7a9bddb8012fb0)
 **H.M. Dawood, C. Y. Liew, M. Rajan** · 2026-03-25
 
@@ -234,6 +492,80 @@ The proliferation of AIGC-driven face manipulation and deepfakes poses severe th
 palate (CLP) represents one of the most frequent craniofacial malformations. Several international studies have reported an increased frequency of CHD and other associated anomalies among children with CLP, suggesting shared genetic and environmental mechanisms. The objective of this study was to determine the frequency and pattern of congenital heart disease and associated malformations in children with cleft lip and/or palate compared with children without orofacial clefts.Methods: This retrospective case-control study was conducted at a tertiary care cardiac center from September 2021 to September 2024. A total of 646 infants aged less than one year were included, comprising 323 children with CLP (study group) and 323 age- and sex-matched children without orofacial clefts (control group). All participants underwent echocardiographic evaluation. Congenital heart diseases were classified as cyanotic or non-cyanotic, while patent foramen ovale was recorded separately. Demographic variables, risk factors, and associated non-cardiac anomalies were analyzed using Chi-square and Fisher’s exact tests.Results: Congenital heart disease was significantly more frequent in children with CLP compared to controls (27% vs. 5%, p-value<0.001). Non-cyanotic CHDs, particularly septal defects, were the most common. Associated non-cardiac anomalies were observed in 36% of the study group versus 7% of controls (p-value <0.001). Parental consanguinity and maternal smoking were significantly associated with CLP and CHD.Conclusion: Children with cleft lip and/or palate have a significantly increased risk of congenital heart disease and associated malformations. Early echocardiographic screening and comprehensive evaluation are recommended to improve clinical outcomes in this high-risk population
 
 </details>
+
+#### [AN ADVANCED OPTIMIZATION STRATEGY FOR ENHANCED DIABETES MELLITUS PREDICTION UTILIZING DATA-DRIVEN ADAPTIVE ENSEMBLE SERIAL CASCADED DEEP LEARNING TECHNIQUES](https://www.semanticscholar.org/paper/30b28e40c0ed4de2741020f8f2151010814a6bb5)
+**G. Kulkarni, Pavan Kumar Pagadala** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+Diabetes is a kind of metabolic disease caused due to insulin breakdown in the human body. Lifestyle choices, food choices, an unfavorable environment, and hormonal changes have resulted in an increase in new cases of diabetes in recent days. Diabetics need to be treated in the initial stage else it turns into a lifelong disease that may lead to failures in the internal organs like eyes, heart, kidneys and so on. Identifying the diabetics in the initial stages effectively reduces the danger among the individuals. A variety of techniques were employed by researchers to predict diabetes mellitus. Classical techniques face more issues due to the huge training period and also executing the training in large datasets takes more time and is complex. To overcome these difficulties, an effective ensemble learning strategy is developed. In this study, a new ensemble learning-based framework is proposed for the early prediction of diabetes mellitus. The input data are collected from the three standard data sources namely, Dataset 1 (Diabetes), Dataset 2 (Diabetes Dataset), and Dataset 3 (Gestational Diabetes Mellitus (GDM Data Set)). The collected data are fed to Adaptive Ensemble Serial Cascaded Deep Learning Network (AESC-DLNet)-based diabetes prediction. This is a method where multiple models like Recurrent Autoencoder with Sparse Attention (RAE-SA), Deep Belief Network (DBN), and Dense Bi-Directional Gated Recurrent Unit (D-Bi-GRU) are combined to improve the overall efficiency and robustness of predictions. By using a serial cascade, the output of one model is fed as input to the next model in the sequence. The reliability of the proposed AESC-DLNet is enhanced through Modified Random Variable-based Lyrebird Optimization (MRV-LO). Finally, the performance of the proposed model for diabetes prediction is compared using a comprehensive suite of evaluation metrics and benchmarked datasets.
+
+</details>
+
+#### [Leave No Stone Unturned: Uncovering Holistic Audio-Visual Intrinsic Coherence for Deepfake Detection](https://arxiv.org/abs/2603.23960)
+**Jie Peng, Yabin Wang, Yaqi Li, Long Kong et al.** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+The rapid progress of generative AI has enabled hyper-realistic audio-visual deepfakes, intensifying threats to personal security and social trust. Most existing deepfake detectors rely either on uni-modal artifacts or audio-visual discrepancies, failing to jointly leverage both sources of information. Moreover, detectors that rely on generator-specific artifacts tend to exhibit degraded generalization when confronted with unseen forgeries. We argue that robust and generalizable detection should be grounded in intrinsic audio-visual coherence within and across modalities. Accordingly, we propose HAVIC, a Holistic Audio-Visual Intrinsic Coherence-based deepfake detector. HAVIC first learns priors of modality-specific structural coherence, inter-modal micro- and macro-coherence by pre-training on authentic videos. Based on the learned priors, HAVIC further performs holistic adaptive aggregation to dynamically fuse audio-visual features for deepfake detection. Additionally, we introduce HiFi-AVDF, a high-fidelity audio-visual deepfake dataset featuring both text-to-video and image-to-video forgeries from state-of-the-art commercial generators. Extensive experiments across several benchmarks demonstrate that HAVIC significantly outperforms existing state-of-the-art methods, achieving improvements of 9.39% AP and 9.37% AUC on the most challenging cross-dataset scenario. Our code and dataset are available at https://github.com/tuffy-studio/HAVIC.
+
+</details>
+
+#### [Pengaruh Media Audio Visual Terhadap Tingkat Pengetahuan Remaja Putri Tentang Sadari Di SMA Negeri 10 Palangka Raya](https://www.semanticscholar.org/paper/68802951b628c3332cf5a511c25d4d1734411ee3)
+**Febriola Wulandari, Stefanicia Stefanicia, Ana Paramita Prastiwi** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+Kanker payudara adalah jenis tumor ganas yang tumbuh di dalam jaringan payudara. Salah satu cara untuk mencegah kanker payudara adalah dengan melakukan pemeriksaan SADARI sejak dini, yaitu di masa remaja. SADARI adalah cara untuk meningkatkan perhatian wanita terhadap kondisi payudaranya sendiri, terutama dalam mendeteksi adanya benjolan yang tidak wajar. mengetahui pengaruh media audio visual terhadap tingkat pengetahuan remaja putri tentang SADARI di SMA Negeri 10 Palangka Raya. Penelitian ini menggunakan desain pra-eksperimen dengan pendekatan pretest-posttest satu kelompok. Sampel sebanyak 64 remaja perempuan dipilih menggunakan teknik purposive sampling. Instrumen yang digunakan adalah kuesioner pretest dan posttest. Analisis data menggunakan uji normalitas (Kolmogorov-Smirnov) dan uji non-parametrik Wilcoxon Signed Rank Test. Tingkat pengetahuan remaja perempuan pada pretest cukup (50%), sedangkan pada posttest meningkat menjadi baik (96,8%). Hasil uji Wilcoxon menunjukkan perbedaan signifikan antara pretest dan posttest (p = 0,000), yang mengindikasikan bahwa Media Audio Visual berpengaruh dalam meningkatkan pengetahuan.
+
+</details>
+
+#### [PENGGUNAAN MEDIA AUDIO VISUAL MELATIH PENDENGARAN DAN DAYA INGAT ANAK USIA DINI DI TK ADE IRMA SURYANI SCHOOL](https://www.semanticscholar.org/paper/8cb0646ccd9e286e24a6f4dba40f0923088cc4d9)
+**Nurhayati, N. Friska, A. Handayani, J. Harahap** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+The problem in this study is that the listening and memory abilities of early childhood students are still relatively low. This is caused by the learning activities conducted by teachers, which still rely on manual teaching materials, picture books, and storytelling. In addition, educational and interactive learning methods have not yet been applied, causing children to become bored and less focused on the learning material. The purpose of this study is to describe the improvement in learning at TK Ade Irma Suryani School through the use of audio (sound) and visual (image) media. The method used in this study is classroom action research (CAR), which was carried out in two cycles. Each cycle consisted of four stages: planning, implementation, observation, and reflection. The subjects of this study were 15 children from TK Ade Irma Suryani School. Observation sheets were used to collect the necessary data. The results of this study show that the use of audio-visual media in early childhood learning can improve listening and memory skills, especially at TK Ade Irma Suryani School. Through the use of audio-visual media, children became more focused and active during learning activities. Moreover, they were more motivated and enthusiastic in participating in the lessons. Therefore, it can be concluded that the use of audio-visual media is more effective in enhancing the listening and memory skills of early childhood students.
+
+</details>
+
+#### [AVControl: Efficient Framework for Training Audio-Visual Controls](https://arxiv.org/abs/2603.24793)
+**Matan Ben-Yosef, Tavi Halperin, Naomi Korem, Mohammad Salama et al.** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+Controlling video and audio generation requires diverse modalities, from depth and pose to camera trajectories and audio transformations, yet existing approaches either train a single monolithic model for a fixed set of controls or introduce costly architectural changes for each new modality. We introduce AVControl, a lightweight, extendable framework built on LTX-2, a joint audio-visual foundation model, where each control modality is trained as a separate LoRA on a parallel canvas that provides the reference signal as additional tokens in the attention layers, requiring no architectural changes beyond the LoRA adapters themselves. We show that simply extending image-based in-context methods to video fails for structural control, and that our parallel canvas approach resolves this. On the VACE Benchmark, we outperform all evaluated baselines on depth- and pose-guided generation, inpainting, and outpainting, and show competitive results on camera control and audio-visual benchmarks. Our framework supports a diverse set of independently trained modalities: spatially-aligned controls such as depth, pose, and edges, camera trajectory with intrinsics, sparse motion control, video editing, and, to our knowledge, the first modular audio-visual controls for a joint generation model. Our method is both compute- and data-efficient: each modality requires only a small dataset and converges within a few hundred to a few thousand training steps, a fraction of the budget of monolithic alternatives. We publicly release our code and trained LoRA checkpoints.
+
+</details>
+
+#### [ACAVCaps: Enabling large-scale training for fine-grained and diverse audio understanding](https://arxiv.org/abs/2603.24038)
+**Yadong Niu, Tianzi Wang, Heinrich Dinkel, Xingwei Sun et al.** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+General audio understanding is a fundamental goal for large audio-language models, with audio captioning serving as a cornerstone task for their development. However, progress in this domain is hindered by existing datasets, which lack the scale and descriptive granularity required to train truly versatile models. To address this gap, we introduce ACAVCaps, a new large-scale, fine-grained, and multi-faceted audio captioning dataset. Derived from the ACAV100M collection, ACAVCaps is constructed using a multi-expert pipeline that analyzes audio from diverse perspectives-including speech, music, and acoustic properties-which are then synthesized into rich, detailed descriptions by a large language model. Experimental results demonstrate that models pre-trained on ACAVCaps exhibit substantially stronger generalization capabilities on various downstream tasks compared to those trained on other leading captioning datasets. The dataset is available at https://github.com/xiaomi-research/acavcaps.
+
+</details>
+
+#### [Clarifying the neural circuit mechanisms of spontaneous social behavior in macaques](https://www.semanticscholar.org/paper/e301b4afd5e3e437b5b58aea3474a80969ee4d2f)
+**Taihei Ninomiya, Takaaki Kaneko, Yuzuha Ono, Kenta Kobayashi et al.** · 2026-03-25
+
+<details>
+<summary>Abstract</summary>
+
+Research using nonhuman primates has investigated how the brain processes and represents a wide range of socially relevant information, such as others’ faces, actions and rewards. While our understanding has expanded considerably in recent years, much of the research has been conducted under highly controlled task conditions, leaving the neural underpinnings of naturally occurring social behaviors largely unexplored. In this Perspective, we first highlight recent efforts utilizing freely behaving primates to overcome these challenges. We then detail our own experiments, demonstrating how the combined use of behavioral analysis and neural manipulation techniques in freely moving macaques enabled us to identify a specific neural circuit critical for the spontaneous expression of mounting behavior. These strategies offer novel opportunities to validate and extend established knowledge concerning the neural basis of social behavior in experimental settings that more closely resemble those occurring in a real world.
+
+</details>
+
+#### [Supervised split federated learning for Alzheimer’s disease classification: an evaluation of deep neural networks](https://www.semanticscholar.org/paper/e2aa71fd72d7c354814ad4808c0aee0c180fd355)
+**Luan Mantegazine, C. Geyer** · 2026-03-25
+
 
 #### [InterDyad: Interactive Dyadic Speech-to-Video Generation by Querying Intermediate Visual Guidance](https://arxiv.org/abs/2603.23132)
 **Dongwei Pan, Longwei Guo, Jiazhi Guan, Luying Huang et al.** · 2026-03-24
@@ -1332,6 +1664,308 @@ The increasing demand for real-time inference on high-volume network traffic has
 <summary>Abstract</summary>
 
 Quantum neural networks (QNNs) are gaining attention as versatile models for quantum machine learning, but training them effectively remains a challenge. Most existing approaches, such as quantum multilayer perceptrons, use fidelity-based cost functions. While well-suited for pure states, these measures are less reliable when inputs and outputs are mixed states—a situation common in learning quantum channels. In this work, we introduce a training framework built on a relative entropy-inspired cost function. By quantifying the directional divergence between learned and target states, relative entropy provides a more informative and principled measure than linear fidelity, naturally capturing both spectral and eigenvector differences in mixed states. This approach preserves the completely positive structure of the network, supports efficient backpropagation in layered QNN configurations, and achieves improved accuracy and convergence over fidelity-based training. These results highlight entropy-based optimization as a promising path toward scalable, robust, and noise-resilient quantum learning.
+
+</details>
+
+#### [Reliable Multimodal Semantic Communication for Audio-Visual Event Localization](https://www.semanticscholar.org/paper/ab0b266b1ac359380df94348c1acc75891855af3)
+**Yuandi Li, Zhe Xiang, Fei Yu, Zhuoran Zhang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The widespread adoption of smart mobile devices and applications has driven an exponential growth in wireless data traffic, posing significant challenges to modern communication systems. Ensuring reliable task-oriented multimodal semantic communication has become increasingly critical. In this letter, we propose RMMSC, a novel framework designed to enhance the effectiveness and reliability of Audio-Visual Event (AVE) localization-driven multimodal semantic communication. Specifically, RMMSC improves the accuracy of multimodal semantic information through advanced semantic encoding and cross-modal feature integration. It employs a two-level coding scheme that combines error-correcting codes with semantic encoders to enhance the reliability of multimodal semantic transmission. As an optional design choice, RMMSC supports a hybrid encryption mechanism to protect transmitted data if required by the application context. Simulation results validate the effectiveness of RMMSC, demonstrating significant improvements in accuracy and reliability for the AVE task.
+
+</details>
+
+#### [TASDF-Stega: High Capacity Secure Text-Audio Joint Steganography Using Diffusion Latent Space](https://www.semanticscholar.org/paper/89ae54265e26c043884958bb5e3203fdb3da9593)
+**Zhen Yang, Yelei Wang, Yufei Luo, Xin Xu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Provably secure steganography ensures indistinguishability between stego and cover carrier through mathematical proofs. However, existing methods face limited embedding capacity and distribution synchronization challenges, especially at high embedding rates. To address these issues, we propose TASDF-Stega, a text-audio joint steganography method based on the latent space of diffusion models, which achieves high capacity and provable security. First, we design an encrypted steganographic mapping module with adaptive arithmetic decoding, which efficiently embeds secret information into the latent space while preserving the distribution. Second, a reversible secret diffusion mechanism enables high-capacity embedding and precise extraction. Moreover, to resolve the problem of distribution parameter synchronization in practical communication, we introduce an audio-assisted joint encode module. This design ensures accurate reconstruction of the diffusion inverse process and avoids cumulative extraction errors. Experimental results on multiple datasets demonstrate that TASDF-Stega achieves provable security, the outperforms state-of-the-art methods in embedding capacity and imperceptibility.
+
+</details>
+
+#### [Enhancing Speaker Naming through Multimodal Fusion of Text and Audio Cues](https://www.semanticscholar.org/paper/a8bffe4f22f91875d37f33c16953f262b32920d2)
+**M. Bellagha, Mounir Zrigui** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: This study addresses the problem of automatic speaker naming, which involves the identification of speakers based on their true identities. Conventional methods that rely on textual information and linguistic rules to link names with adjacent speaker segments face significant limitations, particularly when applied to spoken text. In this paper, we propose a speaker identification approach that leverages both the audio signal and its transcription to name the speakers. Our approach consists of two modules. The first module, named ”Names assignment”, analyzes the lexical and semantic context when a name is mentioned, determining whether it corresponds to the current speaker segment, the next speaker segment, or the previous speaker segment. To achieve this, we introduce an attention-over-attention (AOA) neural network for names assignment. This model employs an attention mechanism to assess the relevance of each word with respect to a given name. During the evaluation phase, our model yields satisfactory results, achieving an F1 rate of 87.92% and an accuracy rate of 88.69%. The second module, ”Names Propagation”, propagates names to other segments based on acoustic similarity while integrating speaker role information into the naming process. Incorporating this information reduces the identification error rate from 28% to 15.3%.
+
+</details>
+
+#### [AI-Driven Intrusion Detection With Seismic-Acoustic Fusion on Embedded Devices](https://www.semanticscholar.org/paper/f97dfd228f82db7fea0bc17766aacd6e5cf026e2)
+**Duy-Tan Ngo, Ngoc-Minh Pham, M. Nguyen, K. Tran et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Modern security systems require robust, real-time solutions to detect anomalies in complex environments. This paper presents a novel multimodal framework integrating the SM-24 geophone and a condenser microphone, leveraging artificial intelligence (AI) to enhance detection performance. By combining seismic vibrations captured by the SM-24 geophone, digitized via the ADS1115 16-bit Analog-to-Digital Converter (ADC), with high-fidelity acoustic signals from the condenser microphone, our approach achieves superior accuracy and robustness compared to single-sensor systems. We propose a novel early-fusion framework that integrates standardized seismic PSD (64-D) and acoustic MFCC statistics (78-D) into a single 142-D input vector for a compact dense neural network (LDNN) optimized for resource-constrained embedded platforms, such as the Raspberry Pi 4, enabling efficient real-time processing. Advanced feature extraction techniques, including Mel frequency cepstral coefficients (MFCC) for audio and spectral analysis for seismic data, ensure computational efficiency while maintaining high accuracy. Experimental results demonstrate a detection accuracy of 93.8%, surpassing traditional single-sensor methods by at least 15% in noisy conditions. Evaluated across diverse scenarios, including perimeter surveillance and unauthorized activity detection, the system exhibits exceptional reliability. This work highlights the transformative potential of AI-driven multimodal sensing, offering a scalable, cost-effective solution for next-generation security applications on embedded devices.
+
+</details>
+
+#### [HFSM: A Hierarchical Feature Structure-Driven Method for Multisource Sonar Image Registration of Subsea Pipelines](https://www.semanticscholar.org/paper/1ca6db3d5a7bef05e93b1a8875112dc7afaf05da)
+**Jingyao Zhang, Xuerong Cui, Juan Li, Song Dai et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Subsea pipelines are prone to exposure due to natural factors such as earthquakes and vortices, which necessitates regular condition monitoring. Multibeam echo sounders (MBESs) can provide high-precision seabed topographic information, while side-scan sonar (SSS) excels at capturing high-resolution seabed texture features. The integration of these two data sources can complement each other, thereby improving the detection accuracy of subsea pipelines. To achieve effective fusion, high-precision spatial registration is required. However, existing registration algorithms still face challenges such as uneven feature point distribution, dependence on prior knowledge, and unstable matching. This letter proposes a multisource sonar image registration algorithm for subsea pipelines, named a hierarchical feature structure-driven method for multisource sonar image registration of subsea pipelines (HFSM). First, the method designs a grid-based multiscale corner detection (MS-CD), which effectively enhances the spatial distribution balance of feature points. Next, a multiwindow geometric–texture joint feature descriptor (MW-GTD) is proposed, which combines direction-sensitive curvature and spatial shadow distribution features within different scale windows. Finally, a multilayer coarse-to-fine guided matching (ML-CFGM) strategy is introduced to enhance the matching stability of images in feature-sparse regions and realize multilayer feature matching. The superiority of the proposed method is validated with real-world data, providing technical support for the efficient registration of MBES and SSS images and subsea pipeline detection.
+
+</details>
+
+#### [Deep learning-driven multi-layer intrusion detection and prevention framework for resilient defense against adaptive evasion techniques in modern networks](https://www.semanticscholar.org/paper/87dccfe1949f54d8a709ed0c47ad4e757f7c1535)
+**Dena Abu Laila, Ibrahim Mohd Obeidat, Mohammed Amin, Amer Alqutaish et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Current network security technologies face new threats from determined attackers employing advanced evasion techniques such as IP spoofing, tiny fragment attacks, tunneling, and HTML smuggling. Conventional intrusion detection and prevention systems (IDS/IPS) have significant limitations in detecting zero-day attacks and sophisticated threats that can continuously alter their attack vectors. This paper presents a novel deep learning-driven, multilayer intrusion detection and prevention framework that integrates network-based IDS/IPS, host-based intrusion detection systems (HIDS), and honeypot technologies with advanced machine learning models, including graph neural networks (GNNs), autoencoders, and transformers. The framework employs adaptive learning mechanisms to enhance resilience against evasion techniques while maintaining low false positive rates. Experimental evaluation using diverse attack datasets demonstrates superior performance, achieving 97.3% detection accuracy for zero-day attacks and 94.8% resilience against advanced evasion techniques, significantly outperforming existing state-of-the-art solutions. The proposed framework contributes to cybersecurity research by introducing innovative multilayer correlation mechanisms, adaptive threat modeling, and evasion-resilient detection algorithms.
+
+</details>
+
+#### [REWEAVING THE SOCIAL FABRIC OF BUSINESS: AI-DRIVEN COLLABORATIVE INNOVATION FOR SUSTAINABLE REVIVAL](https://www.semanticscholar.org/paper/d4f09ec84c97efaf7c097c0decfccdd725bce3bd)
+**A. Rani, F. A. Pradeep, D. S. Mary** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In an era of pervasive digital transformation and deepening sustainability imperatives, organisations face the dual challenge of renewing their social fabric namely, stakeholder collaboration, trust networks and shared innovation ecosystems while leveraging the power of artificial intelligence (AI). This paper examines how AI-driven collaborative innovation can serve as a catalyst for sustainable business revival by reweaving social capital, fostering cross-organisational networks, and enabling socially responsible, value-creating innovations. Drawing on a systematic review of extant literature on AI, collaborative innovation, sustainable business models and open innovation ecosystems that develops an integrative theoretical framework linking AI-enabled capabilities, social-network renewal, stakeholder co-creation, and sustainability outcomes from selected firms. We propose a mixed-methods research design of collaborating qualitative interview and secondary data. The findings are expected to reveal how AI can enhance knowledge integration, network trust, and shared value creation and the key moderating factors (such as organisational culture, governance, and stakeholder engagement) and the boundary conditions. The study contributes to theory by illuminating the socio-technical mechanisms of AI-enabled collaborative innovation for sustainable business and to practice by offering guidelines for managers and policymakers to foster networked, sustainable business renewal.
+
+</details>
+
+#### [A Unified Pipeline for 2D Face Synthesis, Restoration, and Mask‑Guided Editing with Generative Image Models](https://www.semanticscholar.org/paper/68df6a498e21059d3ecbeeddfdc55efeff02f77a)
+**A. Abdulkareem, Marwa Jabberi, Islem Jarraya, T. Hamdani et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: Text-to-image models can synthesize photorealistic faces from natural language, yet their outputs often exhibit local artifacts, limited effective resolution, and fragile control over fine-grained attributes. We propose a modular, model-agnostic pipeline for text-driven 2D face synthesis that integrates state-of-the-art face generators (DALL·E 2, Imagen, Stable Diffusion XL) with a face-aware restoration stage (CodeFormer) and optional mask-guided refinement for region-selective edits. The proposed cascade improves perceptual naturalness, stabilizes facial geometry, and preserves identity while enabling targeted corrections such as eyewear, teeth, and jewelry. We introduce a unified evaluation protocol spanning geometric stability (normalized landmark error), no-reference perceptual quality (BRISQUE, NIQE, PIQE), fidelity–diversity balance (PRDC), and perceptual and identity consistency (LPIPS change and ArcFace similarity). Experimental results show that restoration consistently improves no-reference perceptual quality and local fidelity for DALL·E 2 and Imagen, while exhibiting generator-dependent effects for SDXL that motivate per-model tuning. Across all generators, facial geometry and identity are largely preserved. Under our configuration, Imagen achieves a 22.9% improvement in BRISQUE, a 7.7% reduction in NIQE, geometric drift below 0.0039 NRMSE, and post-restoration ArcFace similarity of ≥ 0.828. These findings establish a practical and extensible pipeline for high-quality text-driven face synthesis and provide actionable guidance for integrating restoration and localized refinement with modern generative image models.
+
+</details>
+
+#### [We Want the Truth: Fan-Driven Branding and Organizational Response in Professional Wrestling](https://www.semanticscholar.org/paper/29a8db8a583868b38e2b5520ff235d37a829394a)
+**Jason Lee, N. Davidson, Tim Wilson, Dylan Williams** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This teaching case study details a monumental moment in the history of World Wrestling Entertainment (WWE) involving the announcement of the abrupt release of a long-tenured, beloved performer, Ron "R-Truth" Killings. The release came as a major surprise to WWE fans, as the performer had recently been featured in a high-profile, nationally televised "main event" match against the WWE icon and crossover pop culture star John Cena. After the news broke that the beloved performer would not be returning to the company, an instantaneous sentiment of shock and subsequent consumer backlash went viral. Ultimately, the WWE did an about-face, bringing back the beloved performer and showing the power of fan co-creation and consumer activism tied to the popular media form of professional wrestling. Accordingly, this case uses professional wrestling's popularity and this uniquely impactful dilemma to address key points about personal branding, stakeholder engagement, and organizational communication strategies.
+
+</details>
+
+#### [Secure Audio Steganography using Vectorized LSB and Chaos-Based Encryption](https://www.semanticscholar.org/paper/7d492dafa2275a737ece0d9547509f25678c39eb)
+**Zeynel Ümit Korkmaz, F. Horasan, Zeynep Çetinkaya** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In the era of digital transformation, the protection of sensitive multimedia data against growing cyber threats has become increasingly critical. Traditional cryptographic and steganographic techniques, while effective individually, often fall short when faced with advanced detection and attack methods, making hybrid security approaches a necessity. In this study, a hybrid security approach combining chaotic algorithms and the Least Significant Bit (LSB) embedding method is proposed. The method is enhanced through key-dependent parameter assignment, as well as additional steps such as transient periods and square matrix transformation. Furthermore, vectorization after square matrix transformation simplified indexing in embedding and extraction steps, thereby improving computational efficiency. As a result, high security and integrity were achieved for both visual and audio data. In the encryption process, seven different chaotic structures (Logistic Map, Lorenz System, Piecewise Linear Chaotic Map, Tent Map, Hénon Map, Chua Circuit, Chebyshev Map) were supported, and the method was tested on these algorithms. The original content was encrypted using XOR and then embedded into the audio signal via the LSB method. The proposed method was evaluated using the EBU SQAM audio dataset and standard test images with Peak Signal-to-Noise Ratio (PSNR), Signal-to-Noise Ratio (SNR), Mean Squared Error (MSE), Structural Similarity Index Measure (SSIM), and Bit Error Rate (BER) metrics. Experimental results demonstrated that for all tests, the extracted images achieved Visual_PSNR = ∞, Visual_SSIM = 1, and Visual_BER = 0. For audio data, PSNR values ranged between 102–107 dB and SNR values approximately 53–99 dB depending on the content type. These findings reveal that the proposed method ensures both the integrity of the content and the reliable preservation of the hidden data.
+
+</details>
+
+#### [Multimodal Multi-Scale Temporal Enhancement Network for Audio-Visual Scene Classification](https://www.semanticscholar.org/paper/5efa25c0c32d673ac8baaae65b93bf4d1238d37c)
+**Ming Yin, T. Liang, Xianxian Zeng, Daming Shi** · 2026-01-01
+
+
+#### [TB-MEN: Text-Centric Bidirectional Modality Enhancement Network for Multimodal Sentiment Analysis](https://www.semanticscholar.org/paper/320b9913d745508f103ea687a95ce667ef7b8dbd)
+**Jieqiang Zhang, Ming Yin, Geng Wei, Daming Shi et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Multimodal sentiment analysis (MSA) aims to accurately predict the user’s emotional tendency by integrating multimodal data such as text, audio and visual information posted by users. However, in most prior studies, the information differences between modalities are not fully considered as these modalities are treated equally. In fact, text modality usually contains more richer semantics to exhibit emotion, while audio and visual ones cover more redundant and even noisy information. Though some works have highlighted the key role of text modality, they still fail to fully utilize the non-text modalities, leading to sub-optimal performance for MSA. To this end, we propose a novel Text-centric Bidirectional Modality Enhancement Network (TB-MEN) in this paper, which recognizes the core role of text and fully exploits the audio and visual modalities at the same time. First, in light of the text features extracted by BERT and non-text features extracted by LSTM respectively, we develop a trimodal multi-scale bottleneck fusion (TMBF) module to capture semantically enhanced text features. Specifically, this is achieved by bottleneck fusion mechanism and transferring the audio and visual modalities to text one. Furthermore, for non-text modalities enhancement, a sparse subspace alignment strategy is employed in text-dominant subspace alignment (TDSA) module, which sparsely maps non-text features into the text subspace to aggregate semantic information. Experimental results show that on several public datasets, including CMU-MOSI, CMU-MOSEI and CH-SIMS, our model has achieved significant gains over the state-of-the-arts. For example, on the CMU-MOSI dataset, TB-MEN improves Acc-2, Acc-5, Acc-7, and F1 by 0.45<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, 2.04<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, 2.62<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, and 0.4<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, respectively, compared to the second-best one.
+
+</details>
+
+#### [Run-Sketch: Interactive real-time code visualization and AI narration for DSA learning](https://www.semanticscholar.org/paper/7aab358b06771d0662422a3bf294787883dfb17b)
+**Renushree H S, Mahan J. Shetty, H. Kumar, Ankita B R et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Learning Data Structures and Algorithms (DSA) can often be noted to be an important challenge, primarily due to the abstract nature of program execution. To address this pedagogical challenge, the current paper presents RunSketch, an interactive educational application that will help with visualizing code in real-time, highlighting syntax, tracking variables, and providing AI-based narration. RunSketch uses code execution to provide feedback on the code to users, and provides explanatory information in the form of written text and spoken output using Google Text to Speech API. Its front-end architecture is based on React.js, D3.js and Monaco Editor, the back-end is written in Python using Flask and uses the sys.settrace() method to trace execution. RunSketch significantly enhances understanding and interaction of learners, due to the combination of visual and audio feedback systems, thus, becoming an important innovation in the sphere of teaching programming.
+
+</details>
+
+#### [IoT Based Sign Language Detection and Voice Conversion with Image Processing](https://www.semanticscholar.org/paper/1ef67eeb616c9b04ebf64bbd0423cec9e4e58280)
+**Ashutosh Marathe, Prathmesh Kalaskar, Yash Kathoke, T. Joshi et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The paper introduces an IoT-enabled system for real-time sign language recognition and voice conversion to improve communication for people with hearing or speech impairments. Using deep learning with TensorFlow, the model accurately detects hand gestures from American and Chinese Sign Language through a standard webcam, with OpenCV handling image processing and pyttsx3 converting recognized signs into speech. An ESP32 microcontroller transmits the interpreted data over Wi-Fi and hosts a mobile-friendly web page, eliminating the need for extra hardware or dedicated apps. This low-cost, efficient solution achieves high real-time accuracy, offering both audio and visual feedback, and showcases the effective integration of AI and IoT in bridging communication gaps.
+
+</details>
+
+#### [Cross-Modal Diffusion on Pretrained Alignment Codebook for Multimodal Machine Translation](https://www.semanticscholar.org/paper/005587b60e6eb1a7df8eaa96e44c3b4f216e9c49)
+**Guojing Liu, Xiangqian Ding, Xiangyu Qu, Zhenyu Yang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Multimodal machine translation aims to integrate auxiliary information, such as images, to enhance the quality of text translation. While existing methods deliver promising performance through various cross-modal fusion techniques, they all ignore the urgent need for decoding speed during inference, which limits their applicability in real-world scenarios. In this paper, we propose a novel multimodal diffusion translation framework called MDT, which balances performance and efficiency to generate high-quality target translation in parallel. Specifically, we design an alignment codebook with shared semantics, which facilitates efficient correlation between image and text inputs through latent alignment and multimodal alignment pretraining tasks. A cross-modal diffusion model is built on the codebook to recover latent text codewords efficiently using visual features. We also develop a Bézier noise schedule, which allows the denoising difficulty measured by KL-divergence to grow robustly with the time step. Experimental results on two datasets with five bilingual language pairs demonstrate the effectiveness of MDT over advanced methods, achieving superior inference speedup.
+
+</details>
+
+#### [A Study on the Integrated Learning Model of Business English Audio-Visual-Speaking Course in the Context of New Liberal Arts](https://www.semanticscholar.org/paper/3cbe68aff4e825c419bcf32dfda1ef78a9d237dd)
+**Xue Yan** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: The concept of New Liberal Arts emphasizes interdisciplinary integration and the ability to respond to complex situations, providing clear direction for the reform of Business English Audio-Visual-Speaking courses. To address the disconnection between skill training and authentic contexts in traditional teaching, this study aims to construct an integrated learning model. Through theoretical reconstruction, the study elucidates how New Liberal Arts expands the paradigm of language competency. Based on the multimodal characteristics and higher-order cognitive demands of business audio-visual discourse, it demonstrates the appropriateness of integrated learning. Furthermore, the study systematically constructs a core model encompassing a multidimensional content framework, an immersive iterative process, and a competency-oriented evaluation system. It also explores implementation pathways such as the support of a digital learning ecosystem and the transformation of teacher roles. This research provides a systematic theoretical framework and practical solutions for the teaching of related courses, contributing to the cultivation of integrated communication talents who can adapt to the global business environment.
+
+</details>
+
+#### [A Reconfigurable Fuzzy-Logic Audio-Visual Fusion Implementation for Area Threat Identification](https://www.semanticscholar.org/paper/d1718bcad1c128a13e0968286935d2f37d0962b1)
+**Tanishq Srivastava, S. Bhuvana, Prathvi Shenoy, R. Ratnakumar** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The rapidly developing threat due to misuse or mishaps from low-flying aerial vehicles in the last few years is extremely concerning. The threat may even extend beyond military and can threaten the lives of ordinary civilians in a bid to create chaos and confusion. Therefore, there is a need for a cost-effective system that can be deployed in mass at a variety of civilian and military settings. This study addresses this concern and proposes a novel, reconfigurable audio-visual area detection system using fuzzy logic-based sensor fusion, tailored for both static and mobile detection scenarios. The architecture fuses image and sound data to identify threats by integrating a YOLO11(You Only Look Once) based visual detection model with a lightweight CNN (Convolutional Neural Network) for audio classification. This detection technique leverages FPGA (Field Programmable Gate Array) based hardware for efficient real-time deployment in edge environments. The Audio-Visual (Multimodal) inputs are merged through a fuzzy inference model for better robustness, accuracy, mainly for adverse environmental, competitive, and noisy conditions. The system demonstrates over 97% accuracy on test data and maintains competitive performance on unseen datasets. The study looks into the comparison of YOLOv5 with YOLO11 and the advantage of using YOLOv5 for the deployment of CNN on Kria KV260, including limitations of using it. Furthermore, an FPGA-based fuzzy motor controller for movable drone detection shows substantial improvements in response time, energy efficiency, and adaptability over traditional PID (Proportional-Integral-Derivative) controllers. This work presents a scalable and low-power drone detection solution applicable to both defense and civilian airspace safety.
+
+</details>
+
+#### [Contextual Attention for Robust Audio-Visual Emotion Recognition](https://www.semanticscholar.org/paper/0ec410ae88b5de120278b86043744db6e5b39b68)
+**Lucas Goncalves, Huang-Cheng Chou, Ali N. Salman, Chi-Chun Lee et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual emotion recognition (AVER) often performs well under ideal conditions but faces significant challenges in scenarios with missing modalities (e.g., missing frames of audio and/or video). Addressing these challenges is crucial for the effective deployment of AVER systems in human-computer interaction (HCI) applications, where robustness can significantly impact user experience. This study introduces a novel approach that enhances AVER robustness by leveraging a decoder-like summarizer structure. This structure processes audio and visual content and generates contextual summaries that effectively capture emotional cues even when modalities are degraded. To enhance system resilience against missing modalities, we integrate modality dropout during training, enabling the summarizer to adaptively handle these scenarios. We define the context summary length as the number of learnable query tokens used in the summarizer, a fixed hyperparameter in our model. We analyze how varying context summary lengths affect performance, identifying an optimal balance between compression and expressiveness. In addition to improving robustness, we systematically evaluate model calibration across emotions in current state-of-the-art (SOTA) AVER methods. Our experiments on the MSP-IMPROV and CREMA-D databases demonstrate that our model achieves superior performance across macro-, micro-, and weighted-F1 scores, both under ideal conditions and in scenarios with modality losses. Additionally, we conduct ablation studies to assess the impact of different context lengths on our summarizer structure in terms of overall AVER performance.
+
+</details>
+
+#### [Modality-Aware Gated Attention Network for Audio-Visual Event Localization](https://www.semanticscholar.org/paper/1ad994d9a5394ef8240f336fa432cc5c1d9250d6)
+**Liang Liu, Shuaiyong Li, Yongqiang Zhu, Zhengxu Dai** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual event localization (AVEL) refers to the identification of the category and the corresponding temporal boundaries of an event that is both visually and audibly discernible in unconstrained videos. However, the event-irrelevant background (e.g., ambient noise or visual occlusion) and event-specific modal biases often lead to audio-visual semantic inconsistency. Existing methods utilize modality-guided attention to suppress background interference, but they neglect this attention inevitably introduces redundant or irrelevant information from the other modality. To alleviate this problem, we propose a novel Modality-Aware Gated Attention Network (MAGAN) that focuses on event-relevant visual regions, consolidates informative audio frequencies, and captures event-specific modality biases. Specifically, a cross-modal gated co-attention (CMGCA) scheme is presented for modeling the correspondence between the potential (self-guided) localization maps and the modality-guided localization maps through two gated components, i.e., audio-to-visual attention and visual-to-audio attention. Furthermore, a cross-modal gated co-interaction (CMGCI) mechanism that incorporates both unimodal gated interaction and multimodal gated interaction is introduced to capture event-specific modality biases by considering unimodal independence and multimodal synergy simultaneously. Extensive experiments on the AVE dataset demonstrate the superiority and effectiveness of our model over state-of-the-art approaches in both fully- and weakly-supervised AVE settings.
+
+</details>
+
+#### [Improving deepfake detection with predictive inter-modal alignment and feature reconstruction in audio-visual asynchrony scenarios](https://www.semanticscholar.org/paper/dc4877f5c7808d9844f5758db3bf64c1519058d1)
+**Yan Wang, Qindong Sun, Jingpeng Zhang, Dongzhu Rong et al.** · 2026-01-01
+
+
+#### [Strategi Konten Audio Visual dalam Meningkatkan Branding: Studi Kasus Instagram @agromaritim.ipb](https://www.semanticscholar.org/paper/ee09399819356cd6a9bfa1b34c5ca457d24a1f05)
+**Fatimah Azzahra Citra Adila, A. Saleh** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The development of digital technology has encouraged changes in improving institutional image, particularly through social media. Instagram has become an effective platform for institutional branding. This study aims to analyze the audiovisual content strategy used by the Instagram account @agromaritim.ipb and the challenges faced in strengthening its branding. This research employs a descriptive qualitative method through observation, active participation, interviews, and literature review. Primary data were obtained from internship activities at the Directorate of Agro-Maritime Community Development (DPMA IPB), while secondary data came from literature and official media. The findings show that the audiovisual content strategy is carried out through planning, production, and publication stages, following Regina Luttrell’s Circular Model of SOME (sharing, optimizing, managing, engaging), which helps enhance brand awareness and institutional image. The main challenges include limited human resources, editing equipment, and Instagram algorithm changes. Recommendations include improving team capacity, updating equipment, and conducting regular evaluations of content performance.
+
+</details>
+
+#### [Audiovisual speech enhancement and voice activity detection using generative and regressive visual features](https://www.semanticscholar.org/paper/39f39c0552dada9cc7cef73426ef4adde6a9a344)
+**Cheng Yu, Vahid Ahmadi Kalkhorani, Buye Xu, DeLiang Wang** · 2026-01-01
+
+
+#### [ForenVoice-Secure: Robust and Privacy-Aware Audio Data Mining for Forensic Speaker Identification](https://www.semanticscholar.org/paper/bb8d99b6a6fc7671a3b0db400d55e0869fdee2f3)
+**Mubarak Albathan** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Speech is now routine evidence in criminal investigations, but forensic audio rarely matches the clean assumptions of standard speaker recognition. Clips are short, noisy, codec-compressed, and channel-mismatched, and they are increasingly exposed to replay and synthetic speech manipulation. Therefore, the cast criminal voice identification is forensic audio data mining, aiming to extract a stable identity structure from heterogeneous and potentially adversarial evidence, while respecting operational and privacy constraints. In this study, a novel ForenVoice-Secure system is proposed, a unified pipeline that combines robust representation learning, spoof-aware decisioning, and privacy-preserving training. Audio is mapped to log-Mel spectrograms and encoded with a CNN, while an LSTM aggregates temporal identity cues from irregular utterances. Robustness is improved through multi-task learning (identity + spoof), adversarial training, and spectro-temporal consistency checks for replay/deepfake artifacts. Privacy is addressed using federated learning, keeping raw recordings local and sharing only model updates. Experiments on VoxCeleb2, ASVspoof 2021, and a forensic-style speaker comparison corpus achieve statistically significant performance gains, 98.43% mean identification accuracy with strong class-balanced performance (macro F1 = 98.10%, precision = 98.22%, recall = 98.01%) and statistically significant gains over strong baselines across repeated folds (F1: p=8.0×〖10〗^(-4); precision: p=1.1×〖10〗^(-3); recall: p=9.0×〖10〗^(-4)). The model remains lightweight (≈4.3M parameters, ≈1.2 GFLOPs per 3 s), enabling near real-time inference with modest overhead from consistency checks (<6%). Overall, ForenVoice-Secure provides a compact and reproducible forensic audio data mining framework for scalable, spoof-resilient, privacy-aware law-enforcement identification.
+
+</details>
+
+#### [ATSTA: Efficient Audio Backdoor Attack Based on Alternating Training With Limited Knowledge](https://www.semanticscholar.org/paper/f755d63600be75e165133cbc85b5ca6bc29de879)
+**Bo Wang, Yiming Yan, Maozhen Zhang, Wei Wang** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+As Deep Neural Networks (DNNs) have matured within audio recognition systems, the popularity of these systems has raised concerns about their security. Recently, several works revealed that these models are vulnerable to backdoor attacks. However, there are relatively few existing clean-label audio backdoor attack methods, and all of them require high poisoning rates to achieve high performance. In addition, most of the audio backdoor attacks require the attacker to have sufficient knowledge, limiting the scope of their real-world applications. To address these issues, in this paper, we propose a stealthy and efficient backdoor attack method called Alternating Training and Speech Transfer Attack (ATSTA). ATSTA enhances the attacker's knowledge by constructing a surrogate dataset and a surrogate model, then generates stealthy and efficient triggers by alternately training the surrogate model and optimizing the triggers. ATSTA has an average attack success rate of more than 99% on three victim datasets, which demonstrates the effectiveness of our approach and its robustness against State-of-the-Art (SOTA) defenses.
+
+</details>
+
+#### [FPO: Fine-Grained Preference Optimization Improves Zero-Shot Text-to-Speech](https://www.semanticscholar.org/paper/e885f540c70f856444802bfb8ab44928421efe43)
+**Jixun Yao, Yuguang Yang, Yuan Feng, Yu Pan et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Integrating reinforcement learning to align generated speech with human preferences has proven effective in improving the robustness of modern text-to-speech (TTS) systems. Current approaches primarily rely on preference data annotated at the utterance level. However, frequent issues affecting the listening experience often arise only in specific segments of audio, while other segments may be well-generated and require no correction. This mismatch between coarse-grained supervision and fine-grained quality variation limits the effectiveness of preferencebased optimization. In this study, we propose a fine-grained preference optimization approach (FPO) to enhance the robustness of TTS systems. FPO shifts the optimization paradigm from global utterance-level tuning to targeted local refinement, focusing on addressing localized issues in generated samples rather than uniformly optimizing the entire utterance. We begin by analyzing the types of common generation issues and categorizing them into temporal modeling errors and semanticphonetic alignment errors, which frequently degrade intelligibility and naturalness. To tackle these problems, we introduce a selective training loss strategy that leverages fine-grained labels for each issue type, allowing the model to focus on learning signals where they are most needed. Experimental results demonstrate that FPO substantially improves the robustness of zero-shot TTS systems by effectively correcting problematic regions in the output. This leads to a significant reduction in the bad case ratio, improved intelligibility, and overall perceptual quality. Moreover, FPO exhibits strong data efficiency, achieving comparable or superior performance to baseline methods while requiring notably fewer training samples.
+
+</details>
+
+#### [Deep convolutional neural network architectures for stuttering classification using spectrograms and audio features](https://www.semanticscholar.org/paper/88f690e1bde9223eb0a75baf51647be5ea3fd451)
+**Ibrahim I. M. Manhrawy, Katrina Sundus, Hanaa Fathi, Arar Al Tawil et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Speaking disorders such as stuttering or stammering cause sounds, syllables, or phrases to be repeated or delayed, impairing natural speaking patterns. A person's quality of life may suffer as a result, and communication with others may become challenging. Over 70 million individuals globally experience stuttering. Many people with this illness struggle to fit in and lose confidence while speaking in front of others. Because of this, this research aims to create a thoroughly annotated dataset and, in the end, provide an extensive empirical comparison of deep convolutional neural network (CNN) architectures on the classification of stuttering or Stammering. Short-time fast Fourier transformation (STFT) is used in this study to convert audio data into a visual representation (spectrogram), and Mel Frequency Cepstral Coefficients (MFCC) are then used to extract many audio features to use CNNs to create a workable classification system. Matthew's correlation coefficient (MCC), time to build, and accuracy score are used to evaluate the classifiers' performance. The final findings showed that AlexNet, Le-Net5, ResNet50, LSTM-CNN, and VGG are the top five CNN classifiers that have been investigated. The four designs that are being used have an exceptionally high degree of accuracy, ranging from 90% to 97%.
+
+</details>
+
+#### [SPECIFICITY OF INFORMATION representation IN AUDIO DESCRIPTION TEXTS FOR PAINTINGS](https://www.semanticscholar.org/paper/032c584dd7d75371b32e957deb08f730e8f556b0)
+**M.N. Latu** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Creating an accessible media environment through verbal descriptions of visually transmitted information for individuals with visual impairments remains a pressing issue. This article examines the specifics of updating the substantive block of reference and encyclopedic information in audio descriptions of works of art. The study utilized audio descriptions of works of art posted on the specialized online resource “Describe Me.rf.” The study analyzed the frequency of nine identified types of reference data (genre, style, technique, material, orientation, etc.), which provide meaningful context for subsequent image descriptions, and six types of encyclopedic data. It was found that reference information is predominantly the most representative. The set, quantity, and sequence of implementation of these types of data vary significantly across texts, which may be due to the lack of a unified approach to their updating and other factors. Through quantitative analysis, the author established certain patterns of their contextual use and differences in localization relative to the substantive block of descriptive information. The author identified criteria for updating the information in question when creating audio description texts for works of art. These include the implementation of desired and optional data; the sufficiency of the types of information provided; the localization of different types of information in the overall composition of the audio description; the sequence of reference information of different types, taking into account the linguopragmatic tactics of “from general to specific” data representation; brevity of reference information representation and the choice of typical linguistic means for the actualization of reference information of different types.
+
+</details>
+
+#### [Bad Designs by Good Talkers: Chatbots Failing to Architect Audio Encoders for Image Synthesis](https://www.semanticscholar.org/paper/75cb6997f85d5f2bb0b0ae230415550408935393)
+**Jorge E. León, Miguel Carrasco, Andres Alejandro Peters** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+On one hand, recent advances in chatbots have led to a rising popularity in using these models for coding tasks. On the other hand, modern generative image models primarily rely on text encoders to translate semantic concepts into visual representations, even when there is clear evidence that audio can be employed as input as well. Given the previous, in this work, we explore whether state-of-the-art conversational agents can design effective audio encoders to replace the CLIP text encoder from Stable Diffusion 1.5, enabling image synthesis directly from sound. We prompted five publicly available chatbots (namely, ChatGPT o3-mini, Claude 3.7 Sonnet, DeepSeek-R1, Gemini 2.5 Pro Preview 03-25, and Grok 3) to propose neural architectures to work as these audio encoders, with a set of well-explained shared conditions. Each valid suggested encoder was trained on over two million context-related audio–image–text observations, and evaluated on held-out validation and test sets using various metrics, together with a qualitative analysis of their generated images. Although almost all chatbots generated valid model designs, none achieved satisfactory results, indicating that their audio embeddings failed to align reliably with those of the original text encoder. Among the proposals, the Gemini audio encoder showed the best quantitative metrics, while the Grok audio encoder produced more coherent images (particularly, when paired with the text encoder). Our findings reveal a shared architectural bias across chatbots and underscore the remaining coding gap that needs to be bridged in future versions of these models. We also created a public demo so everyone could study and try out these audio encoders. Finally, we propose research questions that should be tackled in the future, and encourage other researchers to perform more focused and highly specialized tasks like this one, so the respective chatbots cannot make use of well-known solutions and their creativity/reasoning is fully put to the test.
+
+</details>
+
+#### [Study on an Intelligent Screening Method for Polycystic Ovary Syndrome Based on Deep PhysicsInformed Neural Network](https://www.semanticscholar.org/paper/02cb8be3ce59b171e94957c4d2f5c0bc62b52c58)
+**Y. Gong, Danji Wang, Chao Wu, Man Ni et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Polycystic ovary syndrome (PCOS) not only causes anovulation in women but also severely affects their physical and mental health. Clinically, diagnostic delays often cause patients to miss optimal treatment windows. As a non-invasive detection technique, Raman spectroscopy has been used for screening this disease. In this letter, the Raman spectra of follicular fluid and plasma from women which PCOS are examined using a deep physics-informed neural network. The results demonstrate that by incorporating physical priors and integrating multi-domain spectral information, the proposed method achieves accuracies of 96.25<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula> in detecting PCOS from plasma samples and 90.00<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula> from follicular fluid samples.
+
+</details>
+
+#### [Use of neural networks in the technical operation of self-propelled machinery](https://www.semanticscholar.org/paper/02b2949771d264d1241289cdf65e916ae727b9c6)
+**T. Alushkin** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The actual service life of tractor engines of traction class 1.4 in the Tomsk region falls significantly short of the warranty period and exhibits high dispersion. Statistical analysis reveals that the mean operating time until the first overhaul does not exceed 7,000 engine hours, with a standard deviation of 1,707 hours and a coefficient of variation of 0.24. The service life of new engines until the first overhaul varies by more than a factor of 2.8. To address the challenge of predicting failure modes based on cumulative operating time, this study employs artificial neural networks (ANNs). The research objective was to train an ANN to identify the most likely cause of engine failures using durability data collected under routine operating conditions of traction class 1.4 tractor engines. The authors developed an intelligent failure diagnostics system using Python and the PyTorch framework. The Matplotlib module was used for visualization, NumPy for matrix operations, and sklearn for input data normalization. The ANN uses a fully connected (dense) architecture consisting of an input layer (one neuron), a hidden layer (10 neurons), and an output layer (four neurons). The model was trained on a dataset from 25 Minsk Motor Plant engines (type 4Ch(N) 11/12.5). Based on the “operating time” input parameter, the model generates a probability distribution across four failure categories: the crank mechanism, the lubrication system, the fuel system, and the cooling system. Initial testing yielded a prediction accuracy of 60%. Future research will focus on fine-tuning the artificial neural network by expanding the training dataset to achieve a target accuracy of 80%.
+
+</details>
+
+#### [Automated Design for Hardware-Aware Graph Neural Networks on Edge Devices](https://www.semanticscholar.org/paper/902258426db524fe1d9b0560651af42a8752704c)
+**Xiuwen Li, Weiwei Fang, Liang Qian, Haoyuan Li et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Graph neural networks (GNNs) have demonstrated significant advantages in handling data from non-Euclidean domains. Given the successful application of neural architecture search (NAS) in designing convolutional and recurrent neural networks, this technique has also been extended to the design of GNNs to reduce the complexity of designing task-specific models. However, existing graph NAS approaches often overlook hardware-related metrics, which are crucial for deploying GNNs on resource-constrained edge devices. This paper proposes HWGNAS, a novel reinforcement learning-based framework for simultaneously optimizing hardware-dependent latency and hardware-independent accuracy for GNNs. The search space of HWGNAS builds upon existing graph NAS methods, with careful design choices and constraints specifically aimed at optimizing inference performance. To improve search efficiency, we propose two surrogate models to effectively predict the accuracy and latency of candidate GNN architectures, respectively. By extensive evaluations on representative edge devices, experimental results show that HWGNAS significantly outperforms the baselines in terms of model size (by up to 99.5%) and inference speed (by up to 73.4×), while maintaining competitive accuracy. Moreover, HWGNAS reduces search time by 16.5% to 75.3% compared to existing graph NAS solutions.
+
+</details>
+
+#### [Decision Boundary-Aware Counterfactual Learning Against Model Extraction Attacks on Graph Neural Networks](https://www.semanticscholar.org/paper/885ed8406b5d014634d636ac77feb4b5ae11a56c)
+**Xiuwen Liu, Yanjiao Chen, Shanchen Pang** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+When it comes to the marriage of graph neural networks (GNNs) and model extraction attacks, the deployment of GNNs within Machine Learning as a Service (MLaaS) through a publicly pay-per-query API has opened up new attack surfaces. Existing defenses either sacrifice prediction accuracy or fail to thwart more advanced attacks. We investigate this dilemma and discover that fortified models with complex and narrow decision regions are difficult to be reproduced. Nevertheless, complex and narrow decision boundaries are prone to violate the subspaces of neighbor classes under the intrinsic coupling property of graph structure. Furthermore, class-wise representative features within the interior of class-wise subspaces endow the attackers with the capability of functionality replication. Here, we propose a novel model extraction defense, dubbed Decision Boundary-aware Counterfactual Learning (DBCL). DBCL proactively launches counterattacks on potential model extraction attacks, from the very beginning of sensitivity measurement that implicitly detect the malicious queries, such that class-wise representative features embodied in the highly sensitive query batch trigger the demand of worsening their query results unconsciously. Moreover, DBCL draws inspiration from counterfactual learning, aiming at finding the decision boundary-aware adversarial topology perturbations for ambiguously classified query samples, i.e., hard samples, to cross the decision boundary exactly, which introduces the tractive behaviour w.r.t. the inter-connected sensitive samples for class-wise ambiguous topology features. From the graph-structured actionable insights, DBCL innovatively finds the minimum perturbation sufficient for counterfactual learning, without jeopardizing the victim model’s predictive capacity by including confidently classified query samples, i.e., easy samples including sensitive and non-sensitive samples, into their correct classes. Empirically, DBCL shows its effectiveness in reducing the extraction accuracy of the SOTA model extraction attempt with different GNN backbone encoders in evaluating node classification performance. Moreover, we show that DBCL is robust to adaptive model extraction attacks.
 
 </details>
 
