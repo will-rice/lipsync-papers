@@ -83,8 +83,13 @@ NEGATIVE_KEYWORDS = [
     # Power / electrical engineering
     "power synchronization",
     "grid-forming",
+    "electric load",
+    # Aerospace / mechanical
+    "spacecraft",
+    "tractor engine",
     # Cryptography / security (non-face)
     "audio encryption",
+    "audio steganography",
     # Operations research / scheduling
     "job-shop scheduling",
     # Mechanical engineering
@@ -97,11 +102,53 @@ NEGATIVE_KEYWORDS = [
     "reconfigurable intelligent surface",
     "spread spectrum",
     "spectrum access",
+    "radiation field reconstruction",
+    "wireless human gesture",
+    "programmable data-plane",
     # Positioning / localization (non-face)
     "indoor positioning",
     "near-field positioning",
+    "human-drone",
     # Knowledge graphs
     "temporal knowledge graph",
+    # Audio-visual tasks unrelated to lipsync
+    "event localization",
+    "audio backdoor",
+    "forensic speaker",
+    "intrusion detection",
+    # Mathematics / physics / chemistry
+    "nanostructure",
+    "quantum neural",
+    "pde solver",
+    "printed memristor",
+    "sonar",
+    # Medical / clinical (matched via "lip" or "head" search terms)
+    "cleft lip",
+    "rhinoplasty",
+    "head and neck cancer",
+    "alveolar bone",
+    "lip balm",
+    "lip-ms",
+    "transcranial",
+    "alzheimer",
+    "polycystic ovary",
+    "diabetes mellitus",
+    "perinatal",
+    "dentofacial",
+    "stuttering",
+    # Social science / humanities / business
+    "talking therapies",
+    "talking therapy",
+    "autocratic leadership",
+    "cloud cost",
+    "professional wrestling",
+    "respondent-driven",
+    "partisan",
+    "macaque",
+    # Data analytics (non-face speech interfaces)
+    "immersive analytics",
+    # Accessibility (non-lipsync)
+    "audio description text",
 ]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
