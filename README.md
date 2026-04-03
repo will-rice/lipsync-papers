@@ -34,44 +34,20 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 
 `lip sync` · `lip synchronization` · `wav2lip` · `talking head` · `talking face` · `audio-driven face` · `speech-driven face` · `audio visual speech` · `face reenactment` · `neural dubbing`
 
+## Negative keywords
+
+Papers whose title or abstract contain any of the following phrases (case-insensitive) are excluded:
+
+`speech recognition` · `power synchronization` · `grid-forming` · `audio encryption` · `job-shop scheduling` · `mechanical system` · `warp-knitted` · `integrated sensing and communication` · `rate-splitting` · `reconfigurable intelligent surface` · `spread spectrum` · `spectrum access` · `indoor positioning` · `near-field positioning` · `temporal knowledge graph`
+
 ## Papers
 
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
-#### [Impacts of Terminal Voltage Control on Stability of Power Synchronization Control in Grid-Forming Converter Connected to Low-Impedance Grid](https://www.semanticscholar.org/paper/c1f1531f4d8c5f97b2ea8896ff63e3b81e643f9b)
-**Zheng Fang, Zongwu Huang, Yu Xue, Jirong Fu et al.** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-The grid-forming coupling effect between low-impedance grid and grid-forming converter intensifies the interactions among multitime scale control loops, leading to instability in power synchronization control (PSC). This article contributes to giving physical insights into PSC stability affected by terminal voltage control (TVC) in grid-forming converter connected to low-impedance grid. Small-signal model and dynamic model for analysis of the impact of TVC on PSC stability are developed. Modal analysis is employed to quantitatively evaluate the influence of TVC on PSC by studying the changes in PSC modal characteristic roots and participation factors under varied grid-connected impedance and control loop bandwidths. Besides, dynamic analysis characterizes PSC stability through damping and synchronizing power, and further introduces self-stabilizing and enstabilizing components to assess the impacts of TVC on PSC stability. By analyzing the evolution of en-stabilizing component, the dynamic mechanism of TVC affecting PSC stability is revealed. It is indicated that in the case of low grid-connected impedance, low TVC bandwidth, and high PSC bandwidth, the adverse impact of TVC on PSC stability is exacerbated. Finally, the theoretical analysis is validated through simulations and experiments involving the grid-forming converter connected to low-impedance grid.
-
-</details>
-
-#### [Quaternion-Oriented Multistructure Attractor: Generation and Audio Encryption Application With Hardware Implementation](https://www.semanticscholar.org/paper/d1d93264c3b471019721b1676b3a13c94a4d74ab)
-**Xinyu Bao, Mengkai Cui, Quan Xu, Han Bao et al.** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-With the widespread application of audio communication in the Internet of Things (IoT), secure and efficient audio data transmission has become increasingly critical. However, existing chaos-based encryption schemes often face challenges in flexibly generating complex chaotic attractors and achieving a practical balance between security, flexibility, and efficiency. To address these limitations, this article proposes a novel universal method for generating multistructure chaotic attractors based on a quaternion rotation matrix (QRM) transformation. This method enables flexible control over the position, scale, and number of wing units in attractors by configuring quaternion parameters and a multilevel pulse function. Building upon this, we design a high-performance chaos-based audio encryption algorithm, and implement an encryption system for wireless transmission using a microcontroller and long-range radio (LoRa) module. The system integrates audio recording, encryption, wireless transmission, and decryption. Comprehensive security analyses demonstrate the proposed algorithm achieves robust performance. The successful integration of flexible chaotic attractor design, robust cryptographic security, and hardware realization confirms the practical viability of our scheme for information transmission in resource-constrained environments.
-
-</details>
-
 #### [AVFSNet: Audio-visual speech separation for flexible number of speakers with multi-scale and multi-task learning](https://www.semanticscholar.org/paper/6ce2088d73fbc6b8a37ffab6436ded1cd08ac855)
 **Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
 
-
-#### [A Spatiotemporal Graph Neural Network Based Deep Reinforcement Learning Method for Online Distributed Job-Shop Scheduling Problem](https://www.semanticscholar.org/paper/b4ba7c587709b12277110dbe131883bba5ab9c9b)
-**Jiangping Huang, Liang Gao, Xinyu Li** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-The distributed shop scheduling problem is a hotspot in the shop scheduling field. Online scheduling requires making prompt decisions in response to environmental changes during ongoing production. This paper studies an Online Distributed Job-shop Scheduling Problem (ODJSP) with random job arrivals and machine breakdowns. The spatiotemporal Graph Neural Network (GNN) and Deep Reinforcement Learning (DRL) method are integrated, introducing a novel framework for efficiently solving online scheduling problems. First, a dynamic disjunctive graph with an adaptable topology is introduced. Building upon this foundation, a Markov Decision Process model is developed to formulate the ODJSP. A novel time-window-based state observation mechanism is designed, enhancing the agent's decision efficiency by curtailing redundant input information. Additionally, the Graph Convolutional Recurrent Network is employed to extract features during decision process, enabling effective feature capture across both spatial and temporal domains. The features across the temporal domain are crucial for online scheduling problems but have rarely been considered in existing research. Moreover, Proximal Policy Optimization is integrated with an actor-critic framework to train the decision agent. Comparative experiments are conducted across 972 simulation environments with different configurations. The comparison among 29 composite Priority Dispatch Rules, 3 GNN-based and Multi-Layer Perceptron-based DRL methods, and Deep Q-learning Network-based and Gene Expression Programming-based online scheduling methods demonstrates the effectiveness, stability, generalization, and real-time performance of the proposed method. The case study from a marine opto-mechanical structural component manufacturing company validates its practical value.
-
-</details>
 
 #### [LightMix: Multi-Objective Search for Lightweight Mixed-Scale Convolutional Neural Networks](https://www.semanticscholar.org/paper/a575c1caf582b052ddf60bad91374943e1e6ec92)
 **Junhao Huang, Bing Xue, Yanan Sun, Mengjie Zhang et al.** · 2026-04-01
@@ -302,16 +278,6 @@ Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into
 <summary>Abstract</summary>
 
 Recent advances in photorealistic avatar generation have enabled highly realistic talking-head avatars, raising security concerns regarding identity impersonation in AI-mediated communication. To advance in this challenging problem, the task of avatar fingerprinting aims to determine whether two avatar videos are driven by the same human operator or not. However, current public databases in the literature are scarce and based solely on old-fashioned talking-head avatar generators, not representing realistic scenarios for the current task of avatar fingerprinting. To overcome this situation, the present article introduces AVAPrintDB, a new publicly available multi-generator talking-head avatar database for avatar fingerprinting. AVAPrintDB is constructed from two audiovisual corpora and three state-of-the-art avatar generators (GAGAvatar, LivePortrait, HunyuanPortrait), representing different synthesis paradigms, and includes both self- and cross-reenactments to simulate legitimate usage and impersonation scenarios. Building on this database, we also define a standardized and reproducible benchmark for avatar fingerprinting, considering public state-of-the-art avatar fingerprinting systems and exploring novel methods based on Foundation Models (DINOv2 and CLIP). Also, we conduct a comprehensive analysis under generator and dataset shift. Our results show that, while identity-related motion cues persist across synthetic avatars, current avatar fingerprinting systems remain highly sensitive to changes in the synthesis pipeline and source domain. The AVAPrintDB, benchmark protocols, and avatar fingerprinting systems are publicly available to facilitate reproducible research.
-
-</details>
-
-#### [A Controllability-Based Reliability Framework for Mechanical Systems with Scenario-Driven Performance Evaluation](https://www.semanticscholar.org/paper/84396d220094f0b2054250309bd111c5da686942)
-**D. Aikhuele, S. Sorooshian** · 2026-03-27
-
-<details>
-<summary>Abstract</summary>
-
-In classical reliability engineering, failure is a probabilistic structural failure based on lifetime distributions of Weibull models. However, in the control-critical mechanical systems, it is possible that functional failure of the system happens before material failure occurs as a result of control power loss. This paper proposes a Controllability–Reliability Coupling (CRC) model, which redefines the concept of reliability as the stabilizability in the face of progressive degradation. The actuators’ deterioration is modeled using the time-varying input effectiveness factor α(t), and the actuator is said to be in failure when the minimum singular value of the finite-horizon controllability Gramian becomes less than a stabilizability threshold ε. The performance of the simulation indicates that the functional failure is a precursor of structural failure in several degradation conditions. A baseline comparison shows that the CRC metric forecasts loss of controllability at TCRC=17.0 s, but the classical Weibull reliability never attains the structural failure threshold even in the time horizon of 20 s. The system retains margins of Lyapunov stability and H infinity robustness are not lost, and it is still stable and attenuates disturbances even when control authority is lost. In practical degradation scenarios, the forecasted CRC failure times are 21.5 s (linear wear), 13.1 s (accelerated fatigue), 23.7 s (intermittent faults), and 24.4 s (shock damage), whereas maintenance recovery abated functional failure completely. In a case study of an industrial robotic joint, at 27.0 s, functional collapse occurred, and at the same time, structural reliability was still above the failure threshold. The findings support the hypothesis that structural survival and functional controllability are distinct concepts. The proposed CRC framework is an approach to control-conscious reliability measure, which can detect early failures and offer proactive maintenance advice in the context of a cyber–physical system.
 
 </details>
 
@@ -604,16 +570,6 @@ Speech is one of the most natural and effective forms of human communication, ca
 <summary>Abstract</summary>
 
 AI companion chatbots are increasingly used for emotional support, with prior work in the domain predominantly documenting their mixed psychosocial impacts, including both increased emotional expression and heightened loneliness. However, most existing research primarily focuses on outcome-level effects, offering limited insight into how emotional support is produced through interaction. In this paper, we examine emotional support as an interactional and socially situated process. Drawing on qualitative analysis of Reddit discussions, we analyze how users engage with AI companions and how these interactions are interpreted and contested within online communities. We show that emotional support is coconstructed through conversational mechanisms such as validation, reflective prompting, and companionship, while also giving rise to tensions including support versus dependency, validation versus delusion, and accessibility versus harm. Importantly, support extends beyond human AI interaction and is shaped by community responses that legitimize or challenge AI-mediated care. Hence, we reconceptualize AI emotional support as a negotiated socio-technical process and derive implications for the design of responsible, context-sensitive AI systems.
-
-</details>
-
-#### [Three-Dimensional Warp-Knitted Spacer Fabrics Functionalized with Conductive Shear-Stiffening Gel for Impact Buffering and Intelligent Sensing.](https://www.semanticscholar.org/paper/e3272656e3f774fe3cb6e646ea2247075298e76f)
-**Shuyu Lai, Liping Gong, Shuai Liu, Junjie Yang et al.** · 2026-03-23
-
-<details>
-<summary>Abstract</summary>
-
-Warp-knitted spacer fabrics (WKSFs) possess a three-dimensional porous architecture that makes them promising for impact protection and airdrop buffering, yet their lack of intrinsic conductivity and limited cyclic stability restrict intelligent monitoring applications. Here, a structure-function synergistic strategy is proposed by integrating WKSF with carbon-nanotube-modified shear-stiffening gel (cSSG) to construct a conductive, impact-adaptive composite. As a benefit from strain-rate-dependent stiffening and hierarchical energy dissipation, the WKSF-cSSG composite exhibits enhanced impact resistance while forming a stable three-dimensional conductive network. After cyclic preconditioning to suppress the Mullins effect, the composite delivers stable sensing outputs over 3200 cycles with a response time of 18 ms. Under drop-hammer impact, the electrical response shows rapid synchronization with mechanical dynamics, enabling quantitative discrimination of impact intensities. Furthermore, an intelligent airdrop buffering prototype integrating a nine-channel sensing array and deep-learning-assisted classification achieves accurate recognition of five landing postures, demonstrating a material-to-system solution for intelligent protection applications.
 
 </details>
 
@@ -1317,16 +1273,6 @@ Les législations mises en œuvre dans les parcs nationaux évoluent au gré de 
 
 </details>
 
-#### [Advanced Learning Algorithms for Integrated Sensing and Communication (ISAC) Systems in 6G and Beyond: A Comprehensive Survey](https://www.semanticscholar.org/paper/c8286ce8e1ad55449ad692ccd97513f1e42b187f)
-**Nguyen Cong Luong, Thien Huynh-The, Thai-Hoc Vu, Duc Van Le et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Integrated sensing and communication (ISAC) allows the same hardware platform and resources to function sensing and communication simultaneously, which reduces the hardware size and addresses the spectrum congestion concerns. However, the sharing of the hardware and resources of the sensing and communication functions raises resource managements. Traditional optimization approaches are developed based on rigid mathematical models in ISAC systems. However, they face computation complexity and may not achieve the desired performance under the dynamics of the ISAC system environments. Machine learning with ability in learning features/patterns of data as well as approximating mathematical models has recently proposed to effectively solve the complicated ISAC problems. In this survey, we thus provide a comprehensive literature review on applications of learning algorithms for ISAC systems. Particularly, we review learning approaches proposed for emerging issues in ISAC systems, including beamforming designing/tracking, waveform design, spectrum allocation, time allocation, and power allocation, angle of arrival (AoA)/angle of departure (AoD) estimation, signal classification, and security issues. Moreover, we present applications of advanced learning methods for wireless sensing, which is considered to be an emerging sensing service of the next-generation networks. We conclude the survey with highlighting technical issues of learning algorithms and discussing future research directions.
-
-</details>
-
 #### [U3D: Unified Landmark-Displacement Framework for Real-Time Multi-Modal Emotion-Controllable 3D Facial Animation](https://www.semanticscholar.org/paper/579cd5a1deac974a6ed8069f3961188bd78d45b4)
 **Laxmi Narayen Nagarajan Venkatesan, Rittik Panda, Rahulraj B. R., D. Jayagopi et al.** · 2026-01-01
 
@@ -1377,16 +1323,6 @@ In low-altitude communication scenarios, voice transmission imposes stringent re
 
 </details>
 
-#### [Learning-Driven Rate-Splitting for Energy-Efficient Hardware-Impaired Cell-Free URLLC Systems](https://www.semanticscholar.org/paper/3ae051639aa77c8e4f1f171b124093a96d626934)
-**Yige Huang, Yanxiang Jiang, Fu-Chun Zheng, X. You** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Efficient resource allocation in hardware-impaired cell-free systems is critical for achieving the stringent requirements of ultra-reliable low-latency communication (URLLC) while maintaining energy efficiency (EE). Traditional optimization-based approaches face scalability issues, while existing learning-based methods struggle to adapt to varying network structures and the complexities of hardware impairments. In this work, we address these challenges by incorporating rate-splitting multiple access (RSMA) into cell-free systems and designing a graph neural network (GNN)-based framework. First, we propose a method leveraging explicit channel state information to optimize precoding for both common and private streams under rate, power, and latency constraints. Next, we further develop an end-to-end approach that bypasses channel estimation by directly using raw pilot signals for joint feature extraction and optimization. Finally, we introduce a pilot-free method that processes distorted message-passing information from real channels, reducing communications overhead while enhancing adaptability to practical conditions. Through extensive simulations, we validate the proposed methods, demonstrating significant improvements in EE, along with insights into their computational complexity and scalability in diverse system configurations.
-
-</details>
-
 #### [Digital Network Twin-Enabled Synchronization and Localization](https://www.semanticscholar.org/paper/863de5f1caf2a79caaa3291f4ec2c5663603eeda)
 **Niccolò Paglierani, F. Linsalata, Omer Altug Sevimay, Lorenzo Cazzella et al.** · 2026-01-01
 
@@ -1394,16 +1330,6 @@ Efficient resource allocation in hardware-impaired cell-free systems is critical
 <summary>Abstract</summary>
 
 This paper addresses the challenge of achieving simultaneous synchronization and localization of all the active terminals within a cellular network from only one Base Station (BS). We propose a novel approach leveraging Digital Network Twins (DNT), which integrates these two critical tasks within a unified framework. We begin by analyzing User Equipment (UE)-to-network time synchronization, both theoretically and through experimental validation using a 5th generation (5G) testbed, identifying it as the primary obstacle to accurate localization. Then, to address this challenge, we introduce a DNT-based framework that leverages high-fidelity ray-tracing simulations on a 3D digital replica of the environment. This enables precise UE-to-network alignment, dynamic environmental mapping, and accurate real-time localization starting from one Next Generation Node Base (gNB). The proposed method integrates Angle Delay Channel Power Matrix (ADCPM) characterization and Time of Flight (ToF) data with the DNT prior knowledge of the environment, eliminating the need for network cooperation or prior on-field channel measurements for precise localization. We first validate the proposed approach through an outdoor measurement campaign and then demonstrate its effectiveness via numerical simulations, compared to existing localization techniques in scenarios where only a single gNB is available. The method achieves on average a positioning accuracy of less than <inline-formula> <tex-math notation="LaTeX">$6{\,}$ </tex-math></inline-formula>m in the static case and <inline-formula> <tex-math notation="LaTeX">$8{\,}$ </tex-math></inline-formula>m in the dynamic scenario, using a ray-tracing granularity that is not excessively fine (<inline-formula> <tex-math notation="LaTeX">$4 \times 4{\,}$ </tex-math></inline-formula>m), even under worst-case synchronization and Non-Line of Sight (NLoS) conditions.
-
-</details>
-
-#### [GaussMask-DSSS: Enhancing Covert Spread Spectrum Communication With Gaussian Cloaking and Deep Learning-Aided Synchronization](https://www.semanticscholar.org/paper/a5f223d8f621a3576850cc33de07a3ee2eade05c)
-**Shuai Wang, Zhe Song, Zizheng Hua, Xuanhe Yang et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Achieving secure communication with a low probability of detection (covertness) is critical yet challenging, particularly when employing practical digital modulations that can compromise the statistical indistinguishability assumed in theoretical models. This paper introduces a novel end-to-end framework leveraging digitally modulated covert signal modeling, obfuscation, and deep learning to attain simultaneous covertness and reliability. Firstly, we propose a novel approach to covert performance evaluation for modulated covert signals against detection. To address the deteriorated covertness considering modulation schemes, we further propose generating Gaussianized camouflage signals via a multi-stage transmitter pipeline encompassing spreading, jitter, filtering, and non-linear transformations, designed to mimic noise statistics effectively. At the receiver, a specialized deep learning architecture, CovertSyncNet, performs robust joint dynamic synchronization and symbol recovery. This receiver incorporates dedicated components to precisely estimate time-varying chip offsets and invert the complex, nonlinear distortions inherent in the camouflaged signal, enabling accurate demodulation. Extensive simulations rigorously validate our approach, demonstrating that high reliability is maintained despite the heavy camouflage. Concurrently, enhanced covertness is confirmed through metrics indicating low statistical distinguishability from Gaussian noise. This work highlights the significant potential of deep learning to bridge the gap between theory and practice, realizing communication systems that are simultaneously reliable, secure, and highly covert, even under realistic operational conditions.
 
 </details>
 
@@ -1519,16 +1445,6 @@ We have computationally studied the aromatic nature of molecules built from tetr
 
 </details>
 
-#### [Cooperative Sensing for ISAC: Challenges, System Design, Beam Management, and Performance Validation](https://www.semanticscholar.org/paper/468f95518c9681f3e10fcae455be8eacf2cd5aed)
-**Guangyi Liu, Rongyan Xi, Xiaoqian Wang, Lincong Han et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Integrated sensing and communication (ISAC) is a key enabling technology for sixth-generation (6G) mobile communication systems, achieving seamless integration of communication and sensing functions. Cooperative sensing, where the transmitter and receiver are not co-located, serves as a key enabler for ISAC, significantly enhancing the sensing performance while reducing the implementation complexity of the receiver. However, practical deployments of cooperative sensing still face numerous challenges, such as synchronization and interference. This paper presents a set of advanced beam management methods specifically designed for the cooperative sensing system, offering a comprehensive framework to address these challenges. Specifically, we first analyze the strong/weak path effect (SWPE), a critical phenomenon caused by diverse target reflectivities and propagation paths, which severely degrades both synchronization accuracy and target detection. To counteract this, we propose an adaptive path power allocation method compatible with both all-digital and hybrid beamforming architectures. This method intelligently allocates power across different paths to mitigate the SWPE, thereby ensuring reliable synchronization via the direct path while enhancing the detectability of weak targets. As a result, the proposed method improves the target detection probability by over 30%. Furthermore, an adaptive interference suppression method is designed to reduce interference while maintaining sensing/communication quality, which obtains the SINR gain of around 5 dB, compared to the traditional full nulling method. Experimental results validate the effectiveness of robust synchronization and our proposed power allocation. This study lays a solid foundation for beamforming optimization in cooperative sensing systems, facilitating high-accuracy sensing and communication in complex environments.
-
-</details>
-
 #### [Multi-shell Nanostructures Minimize Diffusion Pathways and Dual Active Sites Decouple Activation for Efficient Ammonia Borane Hydrolysis](https://www.semanticscholar.org/paper/9afb7b3c1bee83f804285d0b6af91edc4da23851)
 **Lei Liu, Zijian Zhou, Ying Liu, Xin Yu et al.** · 2026-01-01
 
@@ -1546,16 +1462,6 @@ The development of efficient non-noble metal catalysts for low-energy, high-safe
 <summary>Abstract</summary>
 
 The existing camera tracking and perception methods mainly rely on sparse SLAM, which limits the dense perception ability of the scene and affects the reliability of auxiliary decision-making. Different from this, this work proposes a real-time tracking and unsupervised dense sensing framework. Firstly, the dense depth value of the scene is predicted by unsupervised multi-view stereo to remove the dependence on labeled data. Then, the quality of synthetic pseudo-reference image is quantified according to the predicted depth map and used as a weighted guidance to train the unsupervised model, thus reducing the ambiguity of feature matching in areas such as specular reflection. Moreover, the sparse optical flow of the keyframes is solved by real-time and robust ORB feature matching operator, which assists the high-precision training of unsupervised depth inference model. To increase the prediction accuracy of occluded area, a novel rendering consistency loss via neural radiance fields is designed to constrain the geometric characteristics of object surface. Finally, dense direct image alignment is performed from a global model to improve the tracking robustness, which is incrementally constructed from dense depth prediction. Extensive experiments on synthetic datasets and real datasets validate the effectiveness and practicability of the proposed work, which is an effective supplement to the existing SLAM work. Note to Practitioners—Learning-based SLAM system can accurately recognize the surrounding environment and realize the autonomous positioning in the unknown environment, which has been widely concerned and applied in the military and civilian fields. To achieve real-time monocular positioning and unsupervised dense reconstruction, this work proposes a SLAM framework based on neural radiance fields and unsupervised multi-view stereo. Comprehensive experiments verify the feasibility of the proposed framework, which has good potential in the field of aviation intelligent cockpit.
-
-</details>
-
-#### [Evolving Multi-Branch Attention Convolutional Neural Networks for Online RIS Configuration](https://www.semanticscholar.org/paper/b1e7944e9fa0e721210ce9d26913ce9dae6df293)
-**George Stamatelis, Kyriakos Stylianopoulos, G. C. Alexandropoulos** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In this paper, we consider the problem of jointly controlling the configuration of a Reconfigurable Intelligent Surface (RIS) with unit elements of discrete responses and a codebook-based transmit precoder in RIS-empowered Multiple-Input Single-Output (MISO) communication systems. The adjustable elements of the RIS and the precoding vector need to be jointly modified in real time to account for rapid changes in the wireless channels, making the application of complicated discrete optimization algorithms impractical. We present a novel Multi-Branch Attention Convolutional Neural Network (MBACNN) architecture for this design objective which is optimized using NeuroEvolution (NE), leveraging its capability to effectively tackle the non-differentiable problem arising from the discrete phase states of the RIS elements. The channel matrices of all involved links are first passed to separate self-attention layers to obtain initial embeddings, which are then concatenated and passed to a convolutional network for spatial feature extraction, before being fed to a per-element multi-layered perceptron for the final RIS phase configuration calculation. Our MBACNN architecture is then extended to multi-RIS-empowered MISO communication systems, and a novel NE-based optimization approach for the online distributed configuration of multiple RISs is presented. The superiority of the proposed single-RIS approach over both learning-based and classical discrete optimization benchmarks is showcased via extensive numerical evaluations over both stochastic and geometrical channel models. It is also demonstrated that the proposed distributed multi-RIS approach outperforms both distributed controllers with feedforward neural networks and fully centralized ones.
 
 </details>
 
@@ -1579,16 +1485,6 @@ Wireless channel modeling plays a pivotal role in designing, analyzing, and opti
 
 </details>
 
-#### [RPHF-GNN: Recurrent Perception of History-Future Graph Neural Networks for Temporal Knowledge Graph Reasoning](https://www.semanticscholar.org/paper/922521e35fbd1b141ed421f2fc3047f4f7a235eb)
-**Siling Feng, Zimin Ye, Qian Liu, Mengxing Huang** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-TKG (Temporal Knowledge Graph) reasoning has become a hot research topic in recent years. its purpose is to predict the future by modeling historical information. However, existing research has primarily focused on comprehending the patterns and rules of historical facts, often overlooking the evolving trends in fact evolution driven by the emergence of new entities. This oversight poses challenges for models that learn entity and relation embeddings based on extensive historical information, ultimately resulting in a decrease in prediction accuracy. To address this challenge, we propose a graph-based neural network model, named RPHF-GNN (Recurrent Perception of History-future Graph Neural Networks). Specifically, RPHF-GNN divides the sequence into subgraph sequences of ‘historical past’ and ‘historical future’ at each timestep, and employs Hi-GRU (Historical-Future Information Gated Recurrent Unit) to recursively model both sequences in parallel. This allows the model to continuously perceive changes in the evolution patterns brought by unseen entities, thereby better adapting to the trends of future evolution pattern changes and enhancing the impact of Hi-GRU during the evolution process through improved Time-gate Integration Components. Additionally, in the process of constraining entity embeddings with static properties, SP-Cell (Static Perception Cell) integrates historical information from entity embeddings into the static properties to enhance the memory of the model regarding the past. It also aligns static embeddings with entity embeddings at each timestamp to optimize the static loss. We evaluate the RPHF-GNN model using six benchmark datasets, and the experimental results demonstrate significant improvement in various evaluation metrics, with the most notable enhancement reaching 1.71%.
-
-</details>
-
 #### [Time Series Focused Neural Network for Accurate Wireless Human Gesture Recognition](https://www.semanticscholar.org/paper/268038c1392716f59013454aa3af6413a8c4a692)
 **Huakun Huang, Liang Lin, Lingjun Zhao, Shuxue Ding et al.** · 2026-01-01
 
@@ -1599,33 +1495,9 @@ Wireless human gesture recognition has spawned many emerging applications, e.g.,
 
 </details>
 
-#### [Spec-GNN: Spectrum Enforcement Through Graph Neural Networks in Dynamic Spectrum Access Systems](https://www.semanticscholar.org/paper/3aa501a160b040a7fd4c8a29e5d1eacedee1fb0e)
-**Chibuikem Ezemaduka, A. Abouzeid** · 2026-01-01
-
-
 #### [φ-FEM-FNO: A new approach to train a Neural Operator as a fast PDE solver for variable geometries](https://www.semanticscholar.org/paper/6ca53308b938dc3ef26be90e2443cbe929b67e6d)
 **Michel Duprez, V. Lleras, A. Lozinski, Vincent Vigon et al.** · 2026-01-01
 
-
-#### [Bio-Inspired Dendritic Liquid Neural Network for Robust Near-Field Positioning in B5G/6G](https://www.semanticscholar.org/paper/466623e193169c0cc18ec4d03e4bc93be06f3baf)
-**Qihao Zhu, Yu Wang, Tomoaki Ohtsuki, Shiwen Mao et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In B5G and 6G wireless networks, large-scale antenna arrays introduce spherical wavefronts in the near-field region, presenting both opportunities and challenges for communication and positioning. To address this, we propose a novel near-field positioning method using a bio-inspired dendritic liquid neural network (DLNN). The DLNN features a multi-branch dendritic structure, with each neuron processing signals through multiple parallel dendrites and a dynamic gating mechanism to adapt the weighting and fusion of outputs. This enhances its ability to capture complex spatiotemporal features. Additionally, the liquid layer with leaky integration processes time-series data, enabling strong adaptability and robust temporal memory. Simulation results show that DLNN outperforms other deep learning models in localization accuracy and robustness, with RMSE values of 0.1706 meters at 40 dBm and 0.2642 meters at 10 dBm, compared to 0.2836 meters and 0.2986 meters from other models. Its inference latency of 0.0580 seconds demonstrates excellent accuracy, speed, and energy efficiency, making DLNN highly suitable for real-time positioning in resource-constrained environments.
-
-</details>
-
-#### [PosGNN: A Graph Neural Network Based Multimodal Data Fusion for Indoor Positioning in Industrial Non-Line-of-Sight Scenarios](https://www.semanticscholar.org/paper/98bc4ea8fa8a6ab0f591f271ec9fdb68438e7a7b)
-**Karthik Muthineni, Alexander Artemenko, Daniel Abode, Josep Vidal et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In industrial environments, the wireless infrastructure is functional for offering services such as communication and positioning of industrial assets. However, the frequently occurring Non-Line-of-Sight (NLoS) conditions in industrial scenarios cause the wireless receiver to have positional information from a limited and varying number of wireless transmitters between consecutive time steps, leading to ambiguities in wireless infrastructure-based positioning. In this paper, we propose PosGNN, a novel data fusion solution based on the Graph Neural Network (GNN) approach that allows us to estimate the position of the User Equipment (UE) by fusing the positional information from the available wireless transmitters at each time step with the UE sensor technology. The performance of the proposed method is assessed using an experimental setup of Ultra-Wideband (UWB) technology as wireless infrastructure at $3.7 - \text{4.2}\,\text{GHz}$ frequency band, the Inertial Measurement Unit (IMU) as UE-side sensor, and the Automated Guided Vehicle (AGV) as the target UE to be positioned. The experimental results demonstrate the exceptional performance of our approach over the conventional model-based approach, Extended Kalman Filter (EKF), and the data-driven approach, Deep Neural Network (DNN), achieving an average positioning error of less than $\text{15}\,\text{cm}$ in harsh industrial environments.
-
-</details>
 
 #### [A Physics-Regularized Neural Surrogate Framework for Printed Memristors](https://www.semanticscholar.org/paper/580c231197be0cc2db8d0627dc07d204acd465ab)
 **Sorin Liviu Jurj** · 2026-01-01

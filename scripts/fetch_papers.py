@@ -80,6 +80,28 @@ CSV_FIELDNAMES = ["arxiv_id", "title", "authors", "submitted", "categories", "ur
 # phrases (case-insensitive) are excluded from results.
 NEGATIVE_KEYWORDS = [
     "speech recognition",
+    # Power / electrical engineering
+    "power synchronization",
+    "grid-forming",
+    # Cryptography / security (non-face)
+    "audio encryption",
+    # Operations research / scheduling
+    "job-shop scheduling",
+    # Mechanical engineering
+    "mechanical system",
+    # Textiles / materials
+    "warp-knitted",
+    # Wireless communications & signal processing
+    "integrated sensing and communication",
+    "rate-splitting",
+    "reconfigurable intelligent surface",
+    "spread spectrum",
+    "spectrum access",
+    # Positioning / localization (non-face)
+    "indoor positioning",
+    "near-field positioning",
+    # Knowledge graphs
+    "temporal knowledge graph",
 ]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
