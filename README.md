@@ -45,9 +45,29 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Realistic Lip Motion Generation Based on 3D Dynamic Viseme and Coarticulation Modeling for Human-Robot Interaction](https://arxiv.org/abs/2604.01756)
+**Sheng Li, Jingcheng Huang, Min Li** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+Realistic lip synchronization is essential for the natural human-robot non-verbal interaction of humanoid robots. Motivated by this need, this paper presents a lip motion generation framework based on 3D dynamic viseme and coarticulation modeling. By analyzing Chinese pronunciation theory, a 3D dynamic viseme library is constructed based on the ARKit standard, which offers coherent prior trajectories of lips. To resolve motion conflicts within continuous speech streams, a coarticulation mechanism is developed by incorporating initial-final (Shengmu-Yunmu) decoupling and energy modulation. After developing a strategy to retarget high-dimensional spatial lip motion to a 14-DOF lip actuation system of a humanoid head platform, the efficiency and accuracy of the proposed architecture is experimentally validated and demonstrated with quantitative ablation experiments using the metrics of the Pearson Correlation Coefficient (PCC) and the Mean Absolute Jerk (MAJ). This research offers a lightweight, efficient, and highly practical paradigm for the speech-driven lip motion generation of humanoid robots. The 3D dynamic viseme library and real-world deployment videos are available at {https://github.com/yuesheng21/Phoneme-to-Lip-14DOF}
+
+</details>
+
 #### [AVFSNet: Audio-visual speech separation for flexible number of speakers with multi-scale and multi-task learning](https://www.semanticscholar.org/paper/6ce2088d73fbc6b8a37ffab6436ded1cd08ac855)
 **Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
 
+
+#### [MSadTalker: Modified Stylized Audio-Driven Single Image Talking Face Animation Based on Head Motion Generation and Visual Silence Detection](https://www.semanticscholar.org/paper/d4f1e76680a3ef646691654da034bcc674b4d532)
+**Yuanlin Wang, Wen He, Qijun Yao, Jichen Yang** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+In order to address two critical issues in stylized audio-driven single-image talking face animation (SadTalker)—namely unnatural head motion in cross-lingual speech and unsynchronized lip movement during silent periods—this paper presents a modified version SadTalker called MSadTalker. The proposed method integrates head motion generation and lip motion-based silence detection into the original SadTalker framework. Specifically, a cosine function is employed to generate natural head motion, while lip movement analysis is applied to detect visual silence. The head motion generation module produces stable, human-like head rotations using preset amplitude and frequency parameters, effectively suppressing unnatural jitter in cross-lingual scenarios. The silence detection mechanism identifies silent intervals by computing derivatives of lip keypoint motion and applying threshold-based judgment, thereby directly suppressing unnecessary head and lip movements during silence to enhance end-to-end synchronization and realism. Experiments demonstrate that MSadTalker achieves higher stability and robustness across multiple language environments, including Chinese and English. It exhibits smoother and more natural head motion trajectories, along with more stable posture maintenance during silent periods.
+
+</details>
 
 #### [Data fusion-based two-stage cascade framework for multi-modality face anti spoofing](https://www.semanticscholar.org/paper/641a46a9ab63cb83dabc10bdbf70b0453d9d684e)
 **Kavitha Soppari, Jale Krishna Teja, Mamidi Sai Krishna, Neela Aravind Kumar** · 2026-03-31
