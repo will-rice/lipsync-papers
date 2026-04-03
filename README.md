@@ -38,7 +38,7 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 
 Papers whose title or abstract contain any of the following phrases (case-insensitive) are excluded:
 
-`speech recognition` · `power synchronization` · `grid-forming` · `electric load` · `spacecraft` · `tractor engine` · `audio encryption` · `audio steganography` · `job-shop scheduling` · `mechanical system` · `warp-knitted` · `integrated sensing and communication` · `rate-splitting` · `reconfigurable intelligent surface` · `spread spectrum` · `spectrum access` · `radiation field reconstruction` · `wireless human gesture` · `programmable data-plane` · `indoor positioning` · `near-field positioning` · `human-drone` · `temporal knowledge graph` · `event localization` · `audio backdoor` · `forensic speaker` · `intrusion detection` · `nanostructure` · `quantum neural` · `pde solver` · `printed memristor` · `sonar` · `cleft lip` · `rhinoplasty` · `head and neck cancer` · `alveolar bone` · `lip balm` · `lip-ms` · `transcranial` · `alzheimer` · `polycystic ovary` · `diabetes mellitus` · `perinatal` · `dentofacial` · `stuttering` · `talking therapies` · `talking therapy` · `autocratic leadership` · `cloud cost` · `professional wrestling` · `respondent-driven` · `partisan` · `macaque` · `immersive analytics` · `audio description text`
+`speech recognition` · `power synchronization` · `grid-forming` · `electric load` · `spacecraft` · `tractor engine` · `audio encryption` · `audio steganography` · `job-shop scheduling` · `mechanical system` · `warp-knitted` · `integrated sensing and communication` · `rate-splitting` · `reconfigurable intelligent surface` · `spread spectrum` · `spectrum access` · `radiation field reconstruction` · `wireless human gesture` · `programmable data-plane` · `indoor positioning` · `near-field positioning` · `human-drone` · `temporal knowledge graph` · `event localization` · `audio backdoor` · `forensic speaker` · `intrusion detection` · `nanostructure` · `quantum neural` · `pde solver` · `printed memristor` · `sonar` · `cleft lip` · `rhinoplasty` · `head and neck cancer` · `alveolar bone` · `lip balm` · `lip-ms` · `transcranial` · `alzheimer` · `polycystic ovary` · `diabetes mellitus` · `perinatal` · `dentofacial` · `stuttering` · `oral health` · `face-to-face stacking` · `talking therapies` · `talking therapy` · `autocratic leadership` · `cloud cost` · `professional wrestling` · `respondent-driven` · `partisan` · `macaque` · `ai companion chatbot` · `immersive analytics` · `audio description text`
 
 ## Papers
 
@@ -418,16 +418,6 @@ Children from low socioeconomic (SES) households have a higher-than-average rate
 <summary>Abstract</summary>
 
 Speech is one of the most natural and effective forms of human communication, carrying both linguistic and non-linguistic information. It plays a crucial role in many applications such as gender classification, biometric authentication, and personalized human-computer interaction. This study aims to investigate the contribution of a hybrid deep learning model based on Neural Circuit Policies (NCP), inspired by biological neural systems, for gender classification on Turkish speech data, by evaluating its performance in terms of accuracy and computational efficiency in comparison with conventional recurrent models. Mel-Frequency Cepstral Coefficients (MFCC) and log-Mel spectrogram features are combined to simultaneously capture the spectral and temporal properties of speech signals. These features are learned as low-level acoustic patterns via Conv1D layers. Long-term temporal dependencies are modeled using Liquid Time Constant (LTC) cells defined within the NCP architecture. To evaluate the generalizability of the model, the experiments were conducted under a speaker-independent setup, and ablation studies were performed by removing different components of the architecture to clearly assess the contribution of the NCP component. Cross-validation was applied on the Mozilla Common Voice 12.0 Turkish dataset during the experiments. The Conv1D+NCP model achieved 99.29% accuracy and 99.28% F1-score, while the LSTM-based model yielded slightly lower results. The NCP-based model offers high performance and computational efficiency with fewer parameters, making it a powerful alternative for real-time applications
-
-</details>
-
-#### [Emotional Support with Conversational AI: Talking to Machines About Life](https://arxiv.org/abs/2603.22618)
-**Olivia Huang, M. Stodolska, Sharifa Sultana** · 2026-03-23
-
-<details>
-<summary>Abstract</summary>
-
-AI companion chatbots are increasingly used for emotional support, with prior work in the domain predominantly documenting their mixed psychosocial impacts, including both increased emotional expression and heightened loneliness. However, most existing research primarily focuses on outcome-level effects, offering limited insight into how emotional support is produced through interaction. In this paper, we examine emotional support as an interactional and socially situated process. Drawing on qualitative analysis of Reddit discussions, we analyze how users engage with AI companions and how these interactions are interpreted and contested within online communities. We show that emotional support is coconstructed through conversational mechanisms such as validation, reflective prompting, and companionship, while also giving rise to tensions including support versus dependency, validation versus delusion, and accessibility versus harm. Importantly, support extends beyond human AI interaction and is shaped by community responses that legitimize or challenge AI-mediated care. Hence, we reconceptualize AI emotional support as a negotiated socio-technical process and derive implications for the design of responsible, context-sensitive AI systems.
 
 </details>
 
@@ -1190,16 +1180,6 @@ The rapid growth of multimodal data has highlighted the significance of Fine-Gra
 <summary>Abstract</summary>
 
 Cued Speech (CS) is a visual coding system, which combines lip-reading with several specific hand codings to help hearing-impaired people to communicate effectively. Generating CS videos from audio speech and text can significantly improve accessibility and communication for individuals with hearing impairments. However, existing video generation methods primarily concentrate on general gestures, such as human walking, and hence are not directly suitable for generating CS videos. Moreover, current approaches struggle to produce realistic, fine-grained, personalized videos adhering to specific CS coding rules. To address these challenges, firstly, we propose a Gloss-based Diffusion Pose Generation Model (GlossDiff), where the gloss is a novel CS motion parsing prompt to integrate additional linguistic rules knowledge into the CS pose generation model. The glosses are automatically generated descriptive texts based on Large Language Models (LLMs) to establish a direct and delicate semantic connection between CS gestures and spoken language. Secondly, a Pose-Refined Video Diffusion Model (PRV-DM) is proposed to leverage the generated pose sequences to produce fine-grained and personalized CS videos. Specifically, to address the critical challenges of pose scale mismatches with personalized references, ambiguous lip shape, and hand deformations in generated videos, we introduce a Multi-faceted Pose-Refined Module (MFPR) that contains pose alignment, lip enhancement and hand refinement stages. Furthermore, we record and publish the largest Mandarin Chinese CS dataset (named MCCS-2024), containing seven Chinese CS cuers. Extensive experiments and user studies demonstrate the effectiveness of our method, making it the first diffusion model based approach for generating fine-grained and personalized CS videos.
-
-</details>
-
-#### [Change of the aromatic nature through face-to-face stacking](https://www.semanticscholar.org/paper/0cf41b96de3a2f6bd3774ef333442a1c14b3bd22)
-**Qian Wang, R. Nasibullin, D. Sundholm** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-We have computationally studied the aromatic nature of molecules built from tetraoxa-isophlorin (TOI) and Ni(II)-norcorrole (NiNc) moieties. Calculations of the magnetically induced current density (MICD) susceptibility and magnetically induced ring...
 
 </details>
 

@@ -136,6 +136,9 @@ NEGATIVE_KEYWORDS = [
     "perinatal",
     "dentofacial",
     "stuttering",
+    "oral health",
+    # Chemistry / materials science
+    "face-to-face stacking",
     # Social science / humanities / business
     "talking therapies",
     "talking therapy",
@@ -145,6 +148,7 @@ NEGATIVE_KEYWORDS = [
     "respondent-driven",
     "partisan",
     "macaque",
+    "ai companion chatbot",
     # Data analytics (non-face speech interfaces)
     "immersive analytics",
     # Accessibility (non-lipsync)
