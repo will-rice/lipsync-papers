@@ -39,6 +39,16 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Realistic Lip Motion Generation Based on 3D Dynamic Viseme and Coarticulation Modeling for Human-Robot Interaction](https://arxiv.org/abs/2604.01756)
+**Sheng Li, Jingcheng Huang, Min Li** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+Realistic lip synchronization is essential for the natural human-robot non-verbal interaction of humanoid robots. Motivated by this need, this paper presents a lip motion generation framework based on 3D dynamic viseme and coarticulation modeling. By analyzing Chinese pronunciation theory, a 3D dynamic viseme library is constructed based on the ARKit standard, which offers coherent prior trajectories of lips. To resolve motion conflicts within continuous speech streams, a coarticulation mechanism is developed by incorporating initial-final (Shengmu-Yunmu) decoupling and energy modulation. After developing a strategy to retarget high-dimensional spatial lip motion to a 14-DOF lip actuation system of a humanoid head platform, the efficiency and accuracy of the proposed architecture is experimentally validated and demonstrated with quantitative ablation experiments using the metrics of the Pearson Correlation Coefficient (PCC) and the Mean Absolute Jerk (MAJ). This research offers a lightweight, efficient, and highly practical paradigm for the speech-driven lip motion generation of humanoid robots. The 3D dynamic viseme library and real-world deployment videos are available at {https://github.com/yuesheng21/Phoneme-to-Lip-14DOF}
+
+</details>
+
 #### [Impacts of Terminal Voltage Control on Stability of Power Synchronization Control in Grid-Forming Converter Connected to Low-Impedance Grid](https://www.semanticscholar.org/paper/c1f1531f4d8c5f97b2ea8896ff63e3b81e643f9b)
 **Zheng Fang, Zongwu Huang, Yu Xue, Jirong Fu et al.** · 2026-04-01
 
@@ -133,6 +143,30 @@ Human emotion recognition has become a significant research focus within artific
 
 </details>
 
+#### [MSadTalker: Modified Stylized Audio-Driven Single Image Talking Face Animation Based on Head Motion Generation and Visual Silence Detection](https://www.semanticscholar.org/paper/d4f1e76680a3ef646691654da034bcc674b4d532)
+**Yuanlin Wang, Wen He, Qijun Yao, Jichen Yang** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+In order to address two critical issues in stylized audio-driven single-image talking face animation (SadTalker)—namely unnatural head motion in cross-lingual speech and unsynchronized lip movement during silent periods—this paper presents a modified version SadTalker called MSadTalker. The proposed method integrates head motion generation and lip motion-based silence detection into the original SadTalker framework. Specifically, a cosine function is employed to generate natural head motion, while lip movement analysis is applied to detect visual silence. The head motion generation module produces stable, human-like head rotations using preset amplitude and frequency parameters, effectively suppressing unnatural jitter in cross-lingual scenarios. The silence detection mechanism identifies silent intervals by computing derivatives of lip keypoint motion and applying threshold-based judgment, thereby directly suppressing unnecessary head and lip movements during silence to enhance end-to-end synchronization and realism. Experiments demonstrate that MSadTalker achieves higher stability and robustness across multiple language environments, including Chinese and English. It exhibits smoother and more natural head motion trajectories, along with more stable posture maintenance during silent periods.
+
+</details>
+
+#### [Protracted development in children of perceptual segregation of competing talking faces in the multisensory cocktail party problem](https://www.semanticscholar.org/paper/ee2c2f7a6d0326247f351d79bf6801ce81ca78f6)
+**Kátia Steinfeld, Micah M. Murray, David J. Lewkowicz** · 2026-03-31
+
+
+#### [HASCom: A Heterogeneous Affective-Semantic Communication Framework for Speech Transmission](https://www.semanticscholar.org/paper/0d1213622a4447408652e25dc029bc06f4eeb387)
+**Zhenjia Yu, Taojie Zhu, Md Arman Hossain, Zineb Zbarna et al.** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Driven by the development of next-generation wireless networks and the widespread adoption of sensing, communication is shifting from traditional bit-level transmission to intelligent, rich interactions within our digital social system. However, existing speech semantic communication frameworks predominantly focus on textual accuracy, neglecting the critical affective information (e.g., tone and emotion) that is essential for natural human-centric interactions in the real world. To address this limitation, we propose the Heterogeneous Affective Speech Semantic Communication (HASCom) framework, designed for the robust transmission of highly expressive speech over complex wireless channels. Specifically, we design a heterogeneous dual-stream transmission architecture that decouples discrete phoneme-level linguistic content from continuous emotional embeddings. For discrete semantic information, we use reliable digital coding protected by Low-Density Parity-Check (LDPC) to guarantee strict recoverability. Conversely, for emotional features, we employ Deep Joint Source-Channel Coding (JSCC) analog transmission to prevent irreversible quantization errors and the cliff effect. Additionally, we develop a prior-guided diffusion reconstruction module at the receiving end. This module leverages a structural prior network to align the decoded semantics, which then steers the reverse diffusion process conditioned on the recovered affective features. Extensive experiments under both AWGN and Rayleigh fading channels demonstrate that HASCom significantly outperforms state-of-the-art baselines. Specifically, it achieves superior objective semantic similarity and subjective Mean Opinion Score (MOS) at low Signal-to-Noise Ratios (SNRs), while the JSCC transmission modules maintain an ultra-low inference latency of less than 0.1 ms, validating its high efficiency and robustness for practical deployments.
+
+</details>
+
 #### [Secondary Rhinoplasty in Unilateral Cleft Lip Nasal Deformity: A Longitudinal Assessment of Patient-Reported Satisfaction, Nasal Patency, and Olfactory Function](https://www.semanticscholar.org/paper/c1b50bbab15cdda91f1845647dcee0c8c30b072f)
 **Jiaqi Zhao, Zhichao Zhai, Songtao Tan, Xin Xin et al.** · 2026-03-30
 
@@ -190,6 +224,16 @@ We present the first systematic Membership Inference Attack (MIA) evaluation of 
 <summary>Abstract</summary>
 
 Deepfake speech detection systems are often limited to binary classification tasks and struggle to generate interpretable reasoning or provide context-rich explanations for their decisions. These models primarily extract latent embeddings for authenticity detection but fail to leverage structured acoustic evidence such as prosodic, spectral, and physiological attributes in a meaningful manner. This paper introduces CoLMbo-DF, a Feature-Guided Audio Language Model that addresses these limitations by integrating robust deepfake detection with explicit acoustic chain-of-thought reasoning. By injecting structured textual representations of low-level acoustic features directly into the model prompt, our approach grounds the model's reasoning in interpretable evidence and improves detection accuracy. To support this framework, we introduce a novel dataset of audio pairs paired with chain-of-thought annotations. Experiments show that our method, trained on a lightweight open-source language model, significantly outperforms existing audio language model baselines despite its smaller scale, marking a significant advancement in explainable deepfake speech detection.
+
+</details>
+
+#### [Vocal Biomarkers of Childhood Trauma: A Machine-Learning Approach to Speech Analysis](https://www.semanticscholar.org/paper/ec0b56ed9554b3c6f4e457bb0d57d9185e68d5ce)
+**Hicham Adem** · 2026-03-30
+
+<details>
+<summary>Abstract</summary>
+
+Childhood trauma can disrupt communication, yet early signs often go unrecognized in regions affected by ongoing war, where immediate physical needs take precedence. Vocal biomarkers—acoustic features linked to emotional and motor regulation—offer a promising, noninvasive means of detecting trauma-linked speech disruptions. This study applied a hybrid framework to distinguish trauma exposure in Arabic-speaking children living amid active conflict. The aim was to support scalable, speech-based tools for early trauma identification in low-resource, humanitarian settings. We analyzed 200 publicly available recordings of spontaneous speech from Arabic-speaking girls (ages 8–12 years): 100 trauma-exposed participants from Gaza (Palestinian) and 100 non-exposed controls from Jordan. Core acoustic features (fundamental frequency [ F 0], jitter, shimmer, harmonics-to-noise ratio [HNR], voice onset time [VOT], first formant, second formant) informed statistical testing and theory-driven composite indices. Exploratory features—including Mel-frequency cepstral coefficients and eGeMAPSv02 descriptors—were used to train binary classification models. Three classifiers (random forest, ridge regression, and logistic regression) were evaluated using nested cross-validation and bootstrap resampling. Composite indices were combined into a 0–10 Trauma Risk Score. Generalizability was assessed using an independent Lebanese cohort ( n = 80), with the trained classifier applied using fixed exploratory features and preprocessing parameters . Core features were tested post hoc for cross-cohort stability. Trauma-exposed children showed reduced F 0 and HNR, elevated shimmer and jitter, and prolonged VOT (Cohen's d > 1.2). Binary classification models achieved strong performance (area under the curve [AUC] = .89–.92); logistic regression reached AUC = .996 under cross-validation. Composite indices (AUCs > .90) stratified 68% into Moderate/High Trauma Risk. Lebanese validation confirmed generalizability, with theory-driven features showing stable predictive patterns. Vocal biomarkers reliably distinguished trauma exposure in Arabic-speaking children using a simple logistic regression model. This strong performance highlights the potential of speech-based tools as scalable, noninvasive methods for early trauma detection. Further validation is needed to support their use in diverse humanitarian and conflict-affected settings.
 
 </details>
 
