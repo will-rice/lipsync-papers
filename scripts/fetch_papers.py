@@ -153,6 +153,79 @@ NEGATIVE_KEYWORDS = [
     "immersive analytics",
     # Accessibility (non-lipsync)
     "audio description text",
+    # General audio ML (no face/lip component)
+    "audio hallucination",
+    "audio language model",
+    "membership inference attack",
+    "binaural audio",
+    "spatial audio",
+    "sound field interpolation",
+    "audio transfer learning",
+    "audio pre-training",
+    "audio captioning",
+    # Neuroscience / brain / neuroprosthetics
+    "resting-state fmri",
+    "granger causality",
+    "speech neuroprosthesis",
+    "neural speech tracking",
+    "cochlear implant",
+    # Networking / radar / sensing hardware
+    "mmwave radar",
+    "lidar-camera",
+    "network twin",
+    # NLP / translation
+    "machine translation",
+    "grammar error correction",
+    "named entity recognition",
+    # Video quality / compression (non-face)
+    "video quality assessment",
+    "scene dynamics compression",
+    # Non-face video editing / motion
+    "video object insertion",
+    "hand object interaction",
+    "road damage",
+    # Dance / food / physical sensing
+    "music-driven dance",
+    "dietary action",
+    "active acoustic sensing",
+    # Transformer attention mechanism (not face)
+    "talking-heads attention",
+    "inter-layer communication",
+    # Audio-visual classification / scene understanding (not talking face)
+    "audio-visual scene classification",
+    "area threat identification",
+    # Education tech / chatbots
+    "pedagogical agent",
+    "empathetic chatbot",
+    # Biometrics (non-face-synthesis)
+    "multimodal biometric database",
+    # Satellite / satellite communications
+    "tiktok",
+    "street video",
+    # Sign language (non-lipsync)
+    "sign language detection",
+    "chinese sign language",
+    # Sentiment analysis
+    "sentiment analysis",
+    # General video motion transfer (non-face)
+    "video motion transfer",
+    # Pruning (non-talking-face specific)
+    "structured pruning u-net",
+    # Scene audio generation
+    "scene2audio",
+    # Face attribute editing (not talking face)
+    "image and layout editing",
+    # Body pose (non-face)
+    "body pose estimation",
+    # Robot (physical)
+    "android robot head",
+    "embodied conversational agent",
+    # Steganography
+    "text-audio steganography",
+    "joint steganography",
+    # Audio-visual segmentation of general objects
+    "reference audio-visual segmentation",
+    "multi-view stereo",
 ]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).

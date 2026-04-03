@@ -38,7 +38,7 @@ The following keyword queries are used against arXiv, Semantic Scholar, and Pape
 
 Papers whose title or abstract contain any of the following phrases (case-insensitive) are excluded:
 
-`speech recognition` · `power synchronization` · `grid-forming` · `electric load` · `spacecraft` · `tractor engine` · `audio encryption` · `audio steganography` · `job-shop scheduling` · `mechanical system` · `warp-knitted` · `integrated sensing and communication` · `rate-splitting` · `reconfigurable intelligent surface` · `spread spectrum` · `spectrum access` · `radiation field reconstruction` · `wireless human gesture` · `programmable data-plane` · `indoor positioning` · `near-field positioning` · `human-drone` · `temporal knowledge graph` · `event localization` · `audio backdoor` · `forensic speaker` · `intrusion detection` · `nanostructure` · `quantum neural` · `pde solver` · `printed memristor` · `sonar` · `cleft lip` · `rhinoplasty` · `head and neck cancer` · `alveolar bone` · `lip balm` · `lip-ms` · `transcranial` · `alzheimer` · `polycystic ovary` · `diabetes mellitus` · `perinatal` · `dentofacial` · `stuttering` · `oral health` · `face-to-face stacking` · `talking therapies` · `talking therapy` · `autocratic leadership` · `cloud cost` · `professional wrestling` · `respondent-driven` · `partisan` · `macaque` · `ai companion chatbot` · `immersive analytics` · `audio description text`
+`speech recognition` · `power synchronization` · `grid-forming` · `electric load` · `spacecraft` · `tractor engine` · `audio encryption` · `audio steganography` · `job-shop scheduling` · `mechanical system` · `warp-knitted` · `integrated sensing and communication` · `rate-splitting` · `reconfigurable intelligent surface` · `spread spectrum` · `spectrum access` · `radiation field reconstruction` · `wireless human gesture` · `programmable data-plane` · `indoor positioning` · `near-field positioning` · `human-drone` · `temporal knowledge graph` · `event localization` · `audio backdoor` · `forensic speaker` · `intrusion detection` · `nanostructure` · `quantum neural` · `pde solver` · `printed memristor` · `sonar` · `cleft lip` · `rhinoplasty` · `head and neck cancer` · `alveolar bone` · `lip balm` · `lip-ms` · `transcranial` · `alzheimer` · `polycystic ovary` · `diabetes mellitus` · `perinatal` · `dentofacial` · `stuttering` · `oral health` · `face-to-face stacking` · `talking therapies` · `talking therapy` · `autocratic leadership` · `cloud cost` · `professional wrestling` · `respondent-driven` · `partisan` · `macaque` · `ai companion chatbot` · `immersive analytics` · `audio description text` · `audio hallucination` · `audio language model` · `membership inference attack` · `binaural audio` · `spatial audio` · `sound field interpolation` · `audio transfer learning` · `audio pre-training` · `audio captioning` · `resting-state fmri` · `granger causality` · `speech neuroprosthesis` · `neural speech tracking` · `cochlear implant` · `mmwave radar` · `lidar-camera` · `network twin` · `machine translation` · `grammar error correction` · `named entity recognition` · `video quality assessment` · `scene dynamics compression` · `video object insertion` · `hand object interaction` · `road damage` · `music-driven dance` · `dietary action` · `active acoustic sensing` · `talking-heads attention` · `inter-layer communication` · `audio-visual scene classification` · `area threat identification` · `pedagogical agent` · `empathetic chatbot` · `multimodal biometric database` · `tiktok` · `street video` · `sign language detection` · `chinese sign language` · `sentiment analysis` · `video motion transfer` · `structured pruning u-net` · `scene2audio` · `image and layout editing` · `body pose estimation` · `android robot head` · `embodied conversational agent` · `text-audio steganography` · `joint steganography` · `reference audio-visual segmentation` · `multi-view stereo`
 
 ## Papers
 
@@ -49,16 +49,6 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 **Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
 
 
-#### [LightMix: Multi-Objective Search for Lightweight Mixed-Scale Convolutional Neural Networks](https://www.semanticscholar.org/paper/a575c1caf582b052ddf60bad91374943e1e6ec92)
-**Junhao Huang, Bing Xue, Yanan Sun, Mengjie Zhang et al.** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-Lightweight convolutional neural network (CNN) design has been a research focus for recent years, justified by the popularity of deploying deep models on resource-constrained devices. Notably, depthwise separable (DW-Sep) convolutions have been extensively adopted in constructing CNNs to reduce computational complexity. However, the improved efficiency of DW-Sep convolutions usually brings a degradation in model expressivity/performance. To overcome this issue, this paper presents a lightweight mixed-scale convolution block, dubbed LightMix, for improving the model representation capability via multi-scale feature extraction and fusion while reducing the computational complexity through channel divisions. A multi-objective neural architecture search framework integrating the LightMix block is developed to automate the LightMix-based CNN architecture design. Furthermore, we propose a population grouping strategy to balance the difficulty between optimizing predictive accuracy and model complexity during the search process. This strategy is capable of retaining potentially promising architectures, contributing to an enhanced population diversity. The proposed method only takes 0.02 GPU days to discover excellent architectures that achieve 2.52% test error with 1.78 M parameters, and 17.19% test error with 1.81 M parameters on CIFAR-10 and CIFAR-100, respectively. On ImageNet, the architecture searched with 0.3 GPU days achieves a 22.1% Top-1 error rate with merely 4.8 M parameters and 488 M MAdds.
-
-</details>
-
 #### [Data fusion-based two-stage cascade framework for multi-modality face anti spoofing](https://www.semanticscholar.org/paper/641a46a9ab63cb83dabc10bdbf70b0453d9d684e)
 **Kavitha Soppari, Jale Krishna Teja, Mamidi Sai Krishna, Neela Aravind Kumar** · 2026-03-31
 
@@ -66,140 +56,6 @@ Lightweight convolutional neural network (CNN) design has been a research focus 
 <summary>Abstract</summary>
 
 Face anti-spoofing is an essential component in modern biometric authentication systems, ensuring that recognition technologies are not deceived by fraudulent attempts such as printed photographs, video replays, or 3D masks. This project proposes a Data Fusion-Based Two Stage Cascade Framework that integrates multiple modalities—RGB (Red, Green, Blue), Depth, and Infrared (IR)—to improve robustness and accuracy in detecting spoofing. In the first stage, deep learning models like 3D Convolutional Neural Networks (3D CNNs), CNN LSTM (Convolutional Neural Network with Long Short-Term Memory), and attention mechanisms are applied for feature extraction. In the second stage, their outputs are combined through decision fusion in a multi-stream network. The framework is evaluated on benchmark datasets like CASIA-SURF and Replay-Attack. Results show significant improvements over traditional single-modality systems, making the proposed framework suitable for real-world applications in banking, airport security, and access control systems.
-
-</details>
-
-#### [SIREN: Spatially-Informed Reconstruction of Binaural Audio with Vision](https://arxiv.org/abs/2603.29820)
-**Mingyeong Song, Seoyeon Ko, Junhyug Noh** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Binaural audio delivers spatial cues essential for immersion, yet most consumer videos are monaural due to capture constraints. We introduce SIREN, a visually guided mono to binaural framework that explicitly predicts left and right channels. A ViT-based encoder learns dual-head self-attention to produce a shared scene map and end-to-end L/R attention, replacing hand-crafted masks. A soft, annealed spatial prior gently biases early L/R grounding, and a two-stage, confidence-weighted waveform-domain fusion (guided by mono reconstruction and interaural phase consistency) suppresses crosstalk when aggregating multi-crop and overlapping windows. Evaluated on FAIR-Play and MUSIC-Stereo, SIREN yields consistent gains on time-frequency and phase-sensitive metrics with competitive SNR. The design is modular and generic, requires no task-specific annotations, and integrates with standard audio-visual pipelines.
-
-</details>
-
-#### [Audio Hallucination Attacks: Probing the Reliability of Large Audio Language Models](https://arxiv.org/abs/2603.29263)
-**Ashish Seth, Sonal Kumar, Ramaneswaran Selvakumar, Nishit Anand et al.** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Large Audio Language Models (LALMs) achieve strong performance on audio-language tasks; however, their reliability in real-world settings remains underexplored. We introduce Audio Hallucination Attacks (AHA), an attack suite called AHA-Eval, comprising 6.5K QA pairs designed to test whether LALMs genuinely ground their responses in the audio input. AHA targets two attack surfaces: (i) query-based attacks, which exploit question structure to induce hallucinations about absent sounds, and (ii) audio-based attacks, which inject synthetic speech describing non-existent events into the audio stream. Evaluating state-of-the-art LALMs, including Audio Flamingo 3 and Gemini 3 Pro, we observe high attack success rates of 95.35% and 79.65%, respectively, revealing a reliability gap that is hidden by standard benchmark performance. To mitigate this, we propose a 120K QA post-alignment dataset, AHA-Guard, which successfully reduces attack success rates by up to 49%.
-
-</details>
-
-#### [Comparative Analysis of Wavelet-FFT-ANN and ResNet-Based Models for Real-Time Audio Deepfake Detection Using the In-the-Wild Dataset](https://www.semanticscholar.org/paper/1eec1cdf5cf9b71018f742842e9aca16c736c2cc)
-**Sumedha Arya** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Nowadays, AI-generated content is in a high trend because of advancement in technology. Deepfake audio clips looks highly realistic, posing serious concern to ethics, privacy, and security. Although, there are so many techniques has been built to classify fake from real speech, but still there exists issues. This is due to noise, compression, and speaker variations. In this study, we evaluate four different models on the “In-the-Wild” audio deepfake dataset using a balanced subset of 20,000 samples standardized to 16 kHz and 2-second clips. Two models use hand-crafted features (Wavelet + ANN and FFT + ANN), while two models apply deep transfer learning using ResNet18 and fully fine-tuned ResNet50 on log-Mel spectrograms. Experimental results show that traditional ANN models achieve moderate performance, from 58%–75% in accuracy with higher false claims. In contrast to them, deep learning models shown better generalization, with ResNet18 reaching to 97% accuracy and ResNet50 achieving the best performance at 98.9% accuracy with near-perfect F1-scores. These findings highlight that spectrogram-based representations combined with powerful pre-trained CNN architectures provide a more robust and reliable solution for realworld audio deepfake detection.
-
-</details>
-
-#### [Multi-Modal Sentiment Analysis Using Text, Audio, And Facial Expressions for Human Emotion Detection - A Survey](https://www.semanticscholar.org/paper/3912635ce3e07816c7bb92c61c32f9fff57ba8c1)
-**Anshika Saxena, Dr. Shweta Singh** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Human emotion recognition has become a significant research focus within artificial intelligence due to its growing importance in human–computer interaction, affective computing, and intelligent decision-support systems. Conventional emotion recognition methods have largely relied on unimodal data sources, such as text, speech, or facial expressions. Although effective in controlled settings, unimodal approaches often provide an incomplete and ambiguous understanding of emotional expression, as human emotions are inherently multimodal. This review paper critically examines a dissertation that proposes a deep learning-based multimodal sentiment analysis framework for human emotion detection by integrating textual, acoustic, and facial expression modalities. The reviewed framework employs a Long Short-Term Memory (LSTM)-based architecture to effectively model temporal and contextual dependencies present in multimodal data. Textual information is encoded using embedded word sequences, audio data captures emotional prosody through acoustic features, and visual inputs represent facial expression patterns. These modality-specific features are fused within a unified deep learning framework to perform binary emotion classification. Experimental evaluation using standard performance metrics, including accuracy, precision, recall, F1- score, confusion matrix analysis, and training–validation curves, demonstrates an overall classification accuracy of 82.22 percent, along with balanced precision and recall values. The review highlights the robustness, methodological soundness, and practical relevance of multimodal sentiment analysis, emphasizing its advantages over unimodal approaches and its contribution to the advancement of affective computing research.
-
-</details>
-
-#### [Development of NFC-Integrated Clothing Prototypes for People With Visual Impairments](https://www.semanticscholar.org/paper/9b95d352c4d8502f74fc80fdaace8411ea6fffe6)
-**J. Shin, Sunhyung Cho** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-This study utilized a User-Centered Design (UCD) approach, viewed through the lens of the Technology Acceptance Model, to address challenges individuals with visual impairments (VI) face in perceiving clothing information. Affecting over 2.2 billion people globally, VI's onset diminishes self-image, social engagement, and quality of life (QOL). Twenty participants (9 females, 11 males) with VI were interviewed via purposive sampling. Incorporating UCD to explore VI clothing context, research was initiated with interviews and literature review, guiding design objectives to integrate Near Field Communication (NFC) technology into garment prototypes. The study determined optimal NFC sticker size/placement and evaluated usability. Results showed NFC stickers enabled independent access to detailed audio information (color, material, care), enhancing garment care and outfit coordination. Participants favored intuitive solutions, suggesting permanent NFC tags and adjustable speech speed. This study demonstrates NFC's potential to promote autonomy and enhance QOL for people with VI.
-
-</details>
-
-#### [SonoWorld: From One Image to a 3D Audio-Visual Scene](https://arxiv.org/abs/2603.28757)
-**Derong Jin, Xiyi Chen, Ming C. Lin, Ruohan Gao** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-Tremendous progress in visual scene generation now turns a single image into an explorable 3D world, yet immersion remains incomplete without sound. We introduce Image2AVScene, the task of generating a 3D audio-visual scene from a single image, and present SonoWorld, the first framework to tackle this challenge. From one image, our pipeline outpaints a 360{\deg} panorama, lifts it into a navigable 3D scene, places language-guided sound anchors, and renders ambisonics for point, areal, and ambient sources, yielding spatial audio aligned with scene geometry and semantics. Quantitative evaluations on a newly curated real-world dataset and a controlled user study confirm the effectiveness of our approach. Beyond free-viewpoint audio-visual rendering, we also demonstrate applications to one-shot acoustic learning and audio-visual spatial source separation. Project website: https://humathe.github.io/sonoworld/
-
-</details>
-
-#### [ParaSpeechCLAP: A Dual-Encoder Speech-Text Model for Rich Stylistic Language-Audio Pretraining](https://arxiv.org/abs/2603.28737)
-**Anuj Diwan, Eunsol Choi, David F. Harwath** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-We introduce ParaSpeechCLAP, a dual-encoder contrastive model that maps speech and text style captions into a common embedding space, supporting a wide range of intrinsic (speaker-level) and situational (utterance-level) descriptors (such as pitch, texture and emotion) far beyond the narrow set handled by existing models. We train specialized ParaSpeechCLAP-Intrinsic and ParaSpeechCLAP-Situational models alongside a unified ParaSpeechCLAP-Combined model, finding that specialization yields stronger performance on individual style dimensions while the unified model excels on compositional evaluation. We further show that ParaSpeechCLAP-Intrinsic benefits from an additional classification loss and class-balanced training. We demonstrate our models'performance on style caption retrieval, speech attribute classification and as an inference-time reward model that improves style-prompted TTS without additional training. ParaSpeechCLAP outperforms baselines on most metrics across all three applications. Our models and code are released at https://github.com/ajd12342/paraspeechclap .
-
-</details>
-
-#### [Membership Inference Attacks against Large Audio Language Models](https://arxiv.org/abs/2603.28378)
-**Jiatang Dong, Yu-Xiang Lin, Hung-yi Lee** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-We present the first systematic Membership Inference Attack (MIA) evaluation of Large Audio Language Models (LALMs). As audio encodes non-semantic information, it induces severe train and test distribution shifts and can lead to spurious MIA performance. Using a multi-modal blind baseline based on textual, spectral, and prosodic features, we demonstrate that common speech datasets exhibit near-perfect train/test separability (AUC approximately 1.0) even without model inference, and the standard MIA scores strongly correlate with these blind acoustic artifacts (correlation greater than 0.7). Using this blind baseline, we identify that distribution-matched datasets enable reliable MIA evaluation without distribution shift confounds. We benchmark multiple MIA methods and conduct modality disentanglement experiments on these datasets. The results reveal that LALM memorization is cross-modal, arising only from binding a speaker's vocal identity with its text. These findings establish a principled standard for auditing LALMs beyond spurious correlations.
-
-</details>
-
-#### [Audio Language Model for Deepfake Detection Grounded in Acoustic Chain-of-Thought](https://arxiv.org/abs/2603.28021)
-**Run Chen, Yixiong Fang, Peng Chang, Yuante Li et al.** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-Deepfake speech detection systems are often limited to binary classification tasks and struggle to generate interpretable reasoning or provide context-rich explanations for their decisions. These models primarily extract latent embeddings for authenticity detection but fail to leverage structured acoustic evidence such as prosodic, spectral, and physiological attributes in a meaningful manner. This paper introduces CoLMbo-DF, a Feature-Guided Audio Language Model that addresses these limitations by integrating robust deepfake detection with explicit acoustic chain-of-thought reasoning. By injecting structured textual representations of low-level acoustic features directly into the model prompt, our approach grounds the model's reasoning in interpretable evidence and improves detection accuracy. To support this framework, we introduce a novel dataset of audio pairs paired with chain-of-thought annotations. Experiments show that our method, trained on a lightweight open-source language model, significantly outperforms existing audio language model baselines despite its smaller scale, marking a significant advancement in explainable deepfake speech detection.
-
-</details>
-
-#### [Spiking Feature-Driven Event Simulation with Movement-Aware Polarity Integration](https://www.semanticscholar.org/paper/4e6404ba50ff039737a369e9e1c3bbf7d8b76a9d)
-**Jiwoong Oh, Byeongju Kang, Hyungsik Shin, Dongwoo Kang** · 2026-03-29
-
-<details>
-<summary>Abstract</summary>
-
-Event-based face detection has attracted significant interest due to the unique advantages of event cameras, including high temporal resolution, high dynamic range, and low power consumption. However, the lack of annotated public datasets remains a major challenge for training effective event-based face detection models. In this paper, we propose a spiking feature-driven synthetic event generation framework that utilizes a spiking neural network (SNN) in conjunction with a pretrained convolutional backbone to generate synthetic event representations from a single RGB image. To incorporate motion-induced ON/OFF polarity information, we introduce a movement-aware polarity integration (MPI) module that assumes four directional facial movements. An event-similarity score is further employed to select representations most consistent with real event data for training. Unlike conventional approaches relying on video-based simulators, our method enables efficient synthetic event dataset construction without requiring video inputs or additional simulation training. Experimental results on the N-Caltech101 dataset demonstrate a face detection accuracy of 99.91%, outperforming existing event-based face detection methods.
-
-</details>
-
-#### [VoxAnchor: Grounding Speech Authenticity in Throat Vibration via mmWave Radar](https://arxiv.org/abs/2603.27562)
-**Mingda Han, Huanqi Yang, Chaoqun Li, Wenhao Li et al.** · 2026-03-29
-
-<details>
-<summary>Abstract</summary>
-
-Rapid advances in speech synthesis and audio editing have made realistic forgeries increasingly accessible, yet existing detection methods remain vulnerable to tampering or depend on visual/wearable sensors. In this paper, we present VoxAnchor, a system that physically grounds audio authentication in vocal dynamics by leveraging the inherent coherence between speech acoustics and radar-sensed throat vibrations. VoxAnchor uses contactless millimeter-wave radar to capture fine-grained throat vibrations that are tightly coupled with human speech production, establishing a hard-to-forge anchor rooted in human physiology. The design comprises three main components: (1) a cross-modal frame-work that uses modality-specific encoders and contrastive learning to detect subtle mismatches at word granularity; (2) a phase-aware pipeline that extracts physically consistent, temporally faithful throat vibrations; and (3) a dual-stage strategy that combines signal-level onset detection and semantic-level coherence to align asynchronous radar and audio streams. Unlike liveness detection, which only confirms whether speech occurred, VoxAnchor verifies what was spoken through word-level content consistency, exposing localized edits that preserve identity and global authenticity cues. Extensive evaluations show that VoxAnchor achieves robust, fine-grained detection across diverse forgeries (editing, splicing, replay, deepfake) and conditions, with an overall EER of 0.017, low latency, and modest computational cost.
-
-</details>
-
-#### [MAR3: Multi-Agent Recognition, Reasoning, and Reflection for Reference Audio-Visual Segmentation](https://arxiv.org/abs/2603.27706)
-**Yuan Zhao, Zhenqi Jia, Yongqiang Zhang** · 2026-03-29
-
-<details>
-<summary>Abstract</summary>
-
-Reference Audio-Visual Segmentation (Ref-AVS) aims to segment objects in audible videos based on multimodal cues in reference expressions. Previous methods overlook the explicit recognition of expression difficulty and dominant modality in multimodal cues, over-rely on the quality of the instruction-tuning dataset for object reasoning, and lack reflective validation of segmentation results, leading to erroneous mask predictions. To address these issues, in this paper, we propose a novel training-free Multi-Agent Recognition, Reasoning, and Reflection framework to achieve high-quality Reference Audio-Visual Segmentation, termed MAR3. Incorporating the sociological Delphi theory to achieve robust analysis, a Consensus Multimodal Recognition mechanism is proposed that enables LLM agents to explicitly recognize the difficulty of reference expressions and the dominant modality of multimodal cues. Based on our modality-dominant difficulty rule, we propose an adaptive Collaborative Object Reasoning strategy to reliably reason about the referred object. To further ensure precise mask prediction, we develop a Reflective Learning Segmentation mechanism, in which a check agent examines intermediate segmentation results and iteratively corrects the object text prompt of the segment agent. Experiments demonstrate that MAR3 achieves superior performance (69.2% in J&F) on the Ref-AVSBench dataset, outperforming SOTA by 3.4% absolutely.
-
-</details>
-
-#### [Directed neural interactions in whole-brain resting-state fMRI: a comparison between Granger Causality and Effective Connectivity](https://www.semanticscholar.org/paper/3da5e5a025b9c9300174db5856bf34a0a46a1f95)
-**Michele Allegra, Matthieu Gilson, A. Brovelli** · 2026-03-29
-
-
-#### [Beyond Descriptions: A Generative Scene2Audio Framework for Blind and Low-Vision Users to Experience Vista Landscapes](https://arxiv.org/abs/2603.27295)
-**Chitralekha Gupta, Jing Peng, Ashwin Ram, Shreyas Sridhar et al.** · 2026-03-28
-
-<details>
-<summary>Abstract</summary>
-
-Current scene perception tools for Blind and Low Vision (BLV) individuals rely on spoken descriptions but lack engaging representations of visually pleasing distant environmental landscapes (Vista spaces). Our proposed Scene2Audio framework generates comprehensible and enjoyable nonverbal audio using generative models informed by psychoacoustics, and principles of scene audio composition. Through a user study with 11 BLV participants, we found that combining the Scene2Audio sounds with speech creates a better experience than speech alone, as the sound effects complement the speech making the scene easier to imagine. A mobile app"in-the-wild"study with 7 BLV users for more than a week further showed the potential of Scene2Audio in enhancing outdoor scene experiences. Our work bridges the gap between visual and auditory scene perception by moving beyond purely descriptive aids, addressing the aesthetic needs of BLV users.
 
 </details>
 
@@ -213,10 +69,6 @@ Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into
 
 </details>
 
-#### [Embodying Sexual Abuse in Voice: Babbitt’s Philomel](https://www.semanticscholar.org/paper/d04a217c1c8e55f85f3d5b028f068e357ddf7cbc)
-**J. Sommer** · 2026-03-27
-
-
 #### [Leveraging Avatar Fingerprinting: A Multi-Generator Photorealistic Talking-Head Public Database and Benchmark](https://arxiv.org/abs/2603.26934)
 **Laura Pedrouzo-Rodriguez, Luis F. Gomez, Ruben Tolosana, Ruben Vera-Rodriguez et al.** · 2026-03-27
 
@@ -224,16 +76,6 @@ Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into
 <summary>Abstract</summary>
 
 Recent advances in photorealistic avatar generation have enabled highly realistic talking-head avatars, raising security concerns regarding identity impersonation in AI-mediated communication. To advance in this challenging problem, the task of avatar fingerprinting aims to determine whether two avatar videos are driven by the same human operator or not. However, current public databases in the literature are scarce and based solely on old-fashioned talking-head avatar generators, not representing realistic scenarios for the current task of avatar fingerprinting. To overcome this situation, the present article introduces AVAPrintDB, a new publicly available multi-generator talking-head avatar database for avatar fingerprinting. AVAPrintDB is constructed from two audiovisual corpora and three state-of-the-art avatar generators (GAGAvatar, LivePortrait, HunyuanPortrait), representing different synthesis paradigms, and includes both self- and cross-reenactments to simulate legitimate usage and impersonation scenarios. Building on this database, we also define a standardized and reproducible benchmark for avatar fingerprinting, considering public state-of-the-art avatar fingerprinting systems and exploring novel methods based on Foundation Models (DINOv2 and CLIP). Also, we conduct a comprehensive analysis under generator and dataset shift. Our results show that, while identity-related motion cues persist across synthetic avatars, current avatar fingerprinting systems remain highly sensitive to changes in the synthesis pipeline and source domain. The AVAPrintDB, benchmark protocols, and avatar fingerprinting systems are publicly available to facilitate reproducible research.
-
-</details>
-
-#### [Growing-up autistic: Sharing autistic children’s experiences and insights](https://www.semanticscholar.org/paper/ce8e67f7f5b4ef4bb51d3757953eaf22e6958dcd)
-**S. Mullally, Alice Wood, C. C. Edwards, Sophie E Connolly et al.** · 2026-03-26
-
-<details>
-<summary>Abstract</summary>
-
-There is a critical lack of exploration into the firsthand experiences of autistic children in the psychological literature. We sought to address this using baseline data from a wider mixed-methods study. A total of 136 autistic children (mean age = 10.35) completed an online questionnaire. Questions explored children’s understanding of autism, their feelings about being autistic in different contexts and challenges experienced. Quantitative data revealed limited autism knowledge and understanding for some. Challenges included talking about being autistic and self-advocating for needs, especially with non-family members. Children generally recognised both strengths and challenges of being autistic, although concerns about feeling/being different were widespread, and masking common. Strikingly, although most children felt positive about being autistic at home, significantly fewer felt this to be true when around peers or teachers. Using reflexive thematic analysis, four main themes were developed: (1) overwhelming experiences, (2) unsafe people, (3) sanctuary and (4) autistic identity. Overall, the children felt safest at home with family and/or with autistic/neurodivergent/understanding friends, but most unsafe at school with their teachers and neurotypical peers, where victimisation was rife. These findings offer valuable insights into the lives of autistic children, and demand we explore how places of education can be transformed into safe spaces for autistic children. Autistic children are rarely asked directly about their own experiences. In this study, 136 autistic children (ages 8–14) shared their views through an online questionnaire. They were asked what being autistic means to them, how they feel about it and what challenges they face in different environments. Many said they knew little about autism, and most did not have the words to talk about being autistic or feel safe doing so. Talking was especially difficult outside the family; while over 60% felt comfortable with family, only 16.5% felt this way with other people. Children also told us how overwhelming everyday life can be. Noisy, crowded or unpredictable environments often caused distress or shutdown. Many described how strong emotions, especially anxiety, build up in these moments. Some lost the ability to speak, and tasks like decision-making or emotional regulation became especially hard and exhausting. School was often named as a major source of overwhelm. Children showed deep insight into the people around them. They were highly attuned to whether others, for example, friends, family, teachers or professionals, felt safe or unsafe. Feeling unsafe often meant being misunderstood, ignored or bullied. School peers were commonly described as sources of victimisation, and teachers as making children feel unsafe by not listening or misunderstanding their needs. When children did not trust those around them, they masked their autistic traits to avoid judgement. This came at a cost: many described exhaustion, loneliness or feeling like they had to hide who they really are. By contrast, home and trusted relationships, especially with neurodivergent family or friends, offered sanctuary. Children felt freer to be themselves, ask for what they need and talk about autism. Emergent positive autistic identities were evident in some children. These findings show autistic children are thoughtful, perceptive and deeply affected by their environments while simultaneously shining a bright light on the challenges growing up autistic in a neurotypical world. Their voices offer vital insights and a call to make schools and services safer, more respectful spaces.
 
 </details>
 
@@ -257,76 +99,6 @@ The DubTA project investigates the integration of neural machine translation int
 
 </details>
 
-#### [Probabilistic Abstract Interpretation on Neural Networks via Grids Approximation](https://arxiv.org/abs/2603.25266)
-**Zhuofan Zhang, H. Wiklicky** · 2026-03-26
-
-<details>
-<summary>Abstract</summary>
-
-Probabilistic abstract interpretation is a theory used to extract particular properties of a computer program when it is infeasible to test every single inputs. In this paper we apply the theory on neural networks for the same purpose: to analyse density distribution flow of all possible inputs of a neural network when a network has uncountably many or countable but infinitely many inputs. We show how this theoretical framework works in neural networks and then discuss different abstract domains and corresponding Moore-Penrose pseudo-inverses together with abstract transformers used in the framework. We also present experimental examples to show how this framework helps to analyse real world problems.
-
-</details>
-
-#### [How Class Ontology and Data Scale Affect Audio Transfer Learning](https://arxiv.org/abs/2603.25476)
-**M. Milling, Andreas Triantafyllopoulos, Alexander Gebhard, S. Rampp et al.** · 2026-03-26
-
-<details>
-<summary>Abstract</summary>
-
-Transfer learning is a crucial concept within deep learning that allows artificial neural networks to benefit from a large pre-training data basis when confronted with a task of limited data. Despite its ubiquitous use and clear benefits, there are still many open questions regarding the inner workings of transfer learning and, in particular, regarding the understanding of when and how well it works. To that extent, we perform a rigorous study focusing on audio-to-audio transfer learning, in which we pre-train various model states on (ontology-based) subsets of AudioSet and fine-tune them on three computer audition tasks, namely acoustic scene recognition, bird activity recognition, and speech command recognition. We report that increasing the number of samples and classes in the pre-training data both have a positive impact on transfer learning. This is, however, generally surpassed by similarity between pre-training and the downstream task, which can lead the model to learn comparable features.
-
-</details>
-
-#### [Unlocking Strong Supervision: A Data-Centric Study of General-Purpose Audio Pre-Training Methods](https://arxiv.org/abs/2603.25767)
-**Xuanru Zhou, Yiwen Shao, Wei-Cheng Tseng, Dong Yu** · 2026-03-26
-
-<details>
-<summary>Abstract</summary>
-
-Current audio pre-training seeks to learn unified representations for broad audio understanding tasks, but it remains fragmented and is fundamentally bottlenecked by its reliance on weak, noisy, and scale-limited labels. Drawing lessons from vision's foundational pre-training blueprint, we argue that the audio field must first establish its own large-scale, strong supervision framework. We introduce a new data-centric pipeline that leverages a high-fidelity captioner to create SOTA-quality captions and the first Unified Tag System (UTS) that bridges speech, music, and environmental sounds. We then conduct a systematic comparative study of different pre-training objectives on these strong source data. Our experiments suggest that data quality and coverage are the primary drivers of performance, while the choice of objective dictates downstream task specialization.
-
-</details>
-
-#### [Tapping out, talking in: what drives users to ditch menu-based navigation and switch to voice and text AI-based chatbots in mobile banking?](https://www.semanticscholar.org/paper/d10463e1abeafc28eea9d7832e7a9bddb8012fb0)
-**H.M. Dawood, C. Y. Liew, M. Rajan** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-This study explores the external and inherent drivers which motivate mobile banking users to change from menu-based navigation to AI-powered voice and text command chatbots for financial transactions. The research employs partial least squares structural equation modelling, complemented by Importance–Performance Map Analysis and Necessary Condition Analysis as the main analyses to examine survey data from 230 mobile banking users across the Gulf Cooperation Council region. The model employed explains 77.8% of the variance in intentions to change to AI-based Chatbots. It was found that the most powerful motivators were hedonic motivation, habit formation and trust. Hedonic motivation and habit directly affected intentions to change and also influenced ideas about the potential effects of performance and effort expectancies. Expectation of improved performance was an underlying assumption, but could not be used to anticipate changed behaviours, while the prospects of improved workload and security were present, but were not primary determinants, suggesting their role as bottlenecks in adoption. Findings also identified a connection between banking security, hedonic motivation, and habit, and indicated that the perceived banking security reinforced the association between hedonic motivation and habit, thereby increasing the possibility of long-term adoption. Together, the findings clarify that all factors are key and necessary in enabling more user preferences from menu-based mobile banking interfaces to voice and text-enabled AI Chatbots in performing banking chores. The results provide useful guidelines for banks and financial institutions who want to motivate customers to adopt AI-based Chatbots. The findings of the study show that banks’ actions cannot only focus on performance potential, but also primacy must be given to ensuring trust, providing a pleasurable experience and cultivating habit formation, assuring that the latter two aspects are underpinned by a commitment to security. By fostering digital transformation in banking, these strategies align with the United Nations’ Sustainable Development Goal 8. This study both builds on and addresses gaps in the existing scholarship by considering the important, but still undeveloped topic of why users decide to change their digital banking behaviours to the use of AI Chatbots. Previous studies have tended to focus on intrinsic factors which motivate this change; this research evaluates how these inherent factors mediate the impact of external factors on intentions to make the change to AI Chatbots. Furthermore, this research draws attention to the role of trust and banking security in this decision-making process. This is an area which is not fully addressed in the existing literature. Methodologically, the study extends UTAUT2 by integrating necessity logic and importance–performance perspectives. It is among the first to employ advanced Partial Least Squares Structural Equation Modelling analyses in this setting, thereby contributing novel theoretical and practical insights into mobile banking transformation.
-
-</details>
-
-#### [Cadavre Exquis: What happened down there? Don’t you know? I’m talking about a revolution](https://www.semanticscholar.org/paper/47a4fac72e6e3d5aab3c3d4379c7c5f49042da4d)
-**Davina Vencatasamy, S. Wood, Julie A. Hoggarth, Michaela de Cruz et al.** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-This article explores the work of an anti-racist book group, whose genesis stems from the 2021 British Association of Music Therapy Race Awareness Panel. The group, initially formed by white music therapists grappling with white supremacy, expanded to include Black and Brown activists, including other arts therapies. They utilised the art technique of the cadavre exquis (exquisite corpse) to examine racial tensions and belonging. Inspired by Layla F. Saad’s work in challenging understandings of whiteness, this article employs the cadavre exquis to express both differences and shared experiences, demonstrating that belonging is cultivated, not assumed. This Surrealist technique involving collaborative, unseen artistic contributions reflects the group’s process. Participants contribute written pieces and musical offerings in response to a central theme (Examining emergent cultural content from within and without: What’s in the room and where do I belong?), highlighting the impact of events like the murder of George Floyd and the pervasive nature of systemic racism from the viewpoints of Brown, Black, and white bodies. This collaborative approach seeks to create a space for open, honest, and sometimes painful dialogue, aiming to deepen understanding, foster connections, and promote action against racial injustice.
-
-</details>
-
-#### [“You’re still online…who are you talking to, love?”: the Affective-Sexual Violence Scale in young couples](https://www.semanticscholar.org/paper/0ecfaa360c0c1bba4d2df41bcce849cdc5267455)
-**Tomás Cámara-Pastor, J. Ortuño-Sierra, Andrea Gutiérrez-García, R. Falcó** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-Violence in affective-sexual relationships constitutes a growing psychosocial challenge during adolescence and youth, exacerbated by persistent gender inequalities and the digitalization of intimacy. Despite the relevance of this phenomenon, its assessment still relies on instruments with psychometric limitations and insufficient coverage of its technological perpetuation. In response to this need, the present study developed and validated the Affective-Sexual Violence Scale (EVAS), a brief, multidimensional, psychometrically valid and reliable self-report instrument designed to comprehensively map affective-sexual violence among Spanish youth, in line with international quality standards. The study was structured in three sequential phases: (1) review of instruments and development of an item bank; (2) a pilot study aimed at refining and selecting items with the strongest conceptual and statistical support ( n = 534); and (3) psychometric validation in a large and heterogeneous sample, examining factorial structure, internal consistency, multigroup equivalence, and victimization profiles according to sociodemographic factors ( n = 1,142). Findings suggest that the EVAS is organized around a bifactor model, comprising a general violence factor and four specific dimensions (physical, psychological-emotional, controlling, and sexual), which makes it possible to capture the complexity of in-person and digital victimization. Its multidimensional nature facilitates the identification of differential profiles, provides both global and specific assessment, and proves to be an agile, reliable, and culturally appropriate tool for research, screening, evaluation, and monitoring of preventive programs. It is thus proposed as an innovative tool for understanding how affective-sexual violence manifests in youth and for guiding strategies to prevent it and to promote healthier relationships, with clear potential for use in educational, community, and clinical settings.
-
-</details>
-
-#### [У ЗМІСТОВНИХ КООРДИНАТАХ ВІЙНИ ТА РЕЛІГІЇ: ТЕРМІНОЛОГІЧНІПОШУКИ АДЕКВАТНОГО ОПИСУ СУЧАСНОЇ УКРАЇНСЬКОЇ ДІЙСНОСТІ](https://www.semanticscholar.org/paper/ea798811679f7d8dfc36afb4b32e1a223fdff754)
-**Оксана Василівна Горкуша, Людмила Олександрівна Филипович** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-The theoretical and methodological article is devoted to a complex problem – an adequate terminological description of the Russian-Ukrainian war in the optics of religious studies. The authors offer their terminological thesaurus, which partially covers Ukrainian reality. Here we are talking about already known terms and concepts developed by academic religious studies in previous years, they are given an updated interpretation, new accents (war, religion, religious war). But those are also highlighted that meaningfully enrich our understanding of the relationship and interaction of religion and war in the modern era. Unlike classical approaches in term creation, when theory influenced the practice of using certain terms, today’s real living reality offers new terms. Responding to verification requests of a specific era and circumstances, academic religious studies is faced with the problem of dynamic development of the terminological sphere.
-
-</details>
-
 #### [High-Fidelity Face Content Recovery via Tamper-Resilient Versatile Watermarking](https://arxiv.org/abs/2603.23940)
 **Peipeng Yu, Jinfeng Xie, Chengfu Ou, Xiaoyu Zhou et al.** · 2026-03-25
 
@@ -337,10 +109,6 @@ The proliferation of AIGC-driven face manipulation and deepfakes poses severe th
 
 </details>
 
-#### [Bridging the neural synchronization to linguistic structures and natural speech comprehension](https://www.semanticscholar.org/paper/87a11414d298e7c4740e7bb817d92e21db996ab8)
-**Jordi Martorell, Giovanni M. Di Liberto, Nicola Molinaro, Lars Meyer** · 2026-03-25
-
-
 #### [Leave No Stone Unturned: Uncovering Holistic Audio-Visual Intrinsic Coherence for Deepfake Detection](https://arxiv.org/abs/2603.23960)
 **Jie Peng, Yabin Wang, Yaqi Li, Long Kong et al.** · 2026-03-25
 
@@ -348,26 +116,6 @@ The proliferation of AIGC-driven face manipulation and deepfakes poses severe th
 <summary>Abstract</summary>
 
 The rapid progress of generative AI has enabled hyper-realistic audio-visual deepfakes, intensifying threats to personal security and social trust. Most existing deepfake detectors rely either on uni-modal artifacts or audio-visual discrepancies, failing to jointly leverage both sources of information. Moreover, detectors that rely on generator-specific artifacts tend to exhibit degraded generalization when confronted with unseen forgeries. We argue that robust and generalizable detection should be grounded in intrinsic audio-visual coherence within and across modalities. Accordingly, we propose HAVIC, a Holistic Audio-Visual Intrinsic Coherence-based deepfake detector. HAVIC first learns priors of modality-specific structural coherence, inter-modal micro- and macro-coherence by pre-training on authentic videos. Based on the learned priors, HAVIC further performs holistic adaptive aggregation to dynamically fuse audio-visual features for deepfake detection. Additionally, we introduce HiFi-AVDF, a high-fidelity audio-visual deepfake dataset featuring both text-to-video and image-to-video forgeries from state-of-the-art commercial generators. Extensive experiments across several benchmarks demonstrate that HAVIC significantly outperforms existing state-of-the-art methods, achieving improvements of 9.39% AP and 9.37% AUC on the most challenging cross-dataset scenario. Our code and dataset are available at https://github.com/tuffy-studio/HAVIC.
-
-</details>
-
-#### [Pengaruh Media Audio Visual Terhadap Tingkat Pengetahuan Remaja Putri Tentang Sadari Di SMA Negeri 10 Palangka Raya](https://www.semanticscholar.org/paper/68802951b628c3332cf5a511c25d4d1734411ee3)
-**Febriola Wulandari, Stefanicia Stefanicia, Ana Paramita Prastiwi** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-Kanker payudara adalah jenis tumor ganas yang tumbuh di dalam jaringan payudara. Salah satu cara untuk mencegah kanker payudara adalah dengan melakukan pemeriksaan SADARI sejak dini, yaitu di masa remaja. SADARI adalah cara untuk meningkatkan perhatian wanita terhadap kondisi payudaranya sendiri, terutama dalam mendeteksi adanya benjolan yang tidak wajar. mengetahui pengaruh media audio visual terhadap tingkat pengetahuan remaja putri tentang SADARI di SMA Negeri 10 Palangka Raya. Penelitian ini menggunakan desain pra-eksperimen dengan pendekatan pretest-posttest satu kelompok. Sampel sebanyak 64 remaja perempuan dipilih menggunakan teknik purposive sampling. Instrumen yang digunakan adalah kuesioner pretest dan posttest. Analisis data menggunakan uji normalitas (Kolmogorov-Smirnov) dan uji non-parametrik Wilcoxon Signed Rank Test. Tingkat pengetahuan remaja perempuan pada pretest cukup (50%), sedangkan pada posttest meningkat menjadi baik (96,8%). Hasil uji Wilcoxon menunjukkan perbedaan signifikan antara pretest dan posttest (p = 0,000), yang mengindikasikan bahwa Media Audio Visual berpengaruh dalam meningkatkan pengetahuan.
-
-</details>
-
-#### [PENGGUNAAN MEDIA AUDIO VISUAL MELATIH PENDENGARAN DAN DAYA INGAT ANAK USIA DINI DI TK ADE IRMA SURYANI SCHOOL](https://www.semanticscholar.org/paper/8cb0646ccd9e286e24a6f4dba40f0923088cc4d9)
-**Nurhayati, N. Friska, A. Handayani, J. Harahap** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-The problem in this study is that the listening and memory abilities of early childhood students are still relatively low. This is caused by the learning activities conducted by teachers, which still rely on manual teaching materials, picture books, and storytelling. In addition, educational and interactive learning methods have not yet been applied, causing children to become bored and less focused on the learning material. The purpose of this study is to describe the improvement in learning at TK Ade Irma Suryani School through the use of audio (sound) and visual (image) media. The method used in this study is classroom action research (CAR), which was carried out in two cycles. Each cycle consisted of four stages: planning, implementation, observation, and reflection. The subjects of this study were 15 children from TK Ade Irma Suryani School. Observation sheets were used to collect the necessary data. The results of this study show that the use of audio-visual media in early childhood learning can improve listening and memory skills, especially at TK Ade Irma Suryani School. Through the use of audio-visual media, children became more focused and active during learning activities. Moreover, they were more motivated and enthusiastic in participating in the lessons. Therefore, it can be concluded that the use of audio-visual media is more effective in enhancing the listening and memory skills of early childhood students.
 
 </details>
 
@@ -381,16 +129,6 @@ Controlling video and audio generation requires diverse modalities, from depth a
 
 </details>
 
-#### [ACAVCaps: Enabling large-scale training for fine-grained and diverse audio understanding](https://arxiv.org/abs/2603.24038)
-**Yadong Niu, Tianzi Wang, Heinrich Dinkel, Xingwei Sun et al.** · 2026-03-25
-
-<details>
-<summary>Abstract</summary>
-
-General audio understanding is a fundamental goal for large audio-language models, with audio captioning serving as a cornerstone task for their development. However, progress in this domain is hindered by existing datasets, which lack the scale and descriptive granularity required to train truly versatile models. To address this gap, we introduce ACAVCaps, a new large-scale, fine-grained, and multi-faceted audio captioning dataset. Derived from the ACAV100M collection, ACAVCaps is constructed using a multi-expert pipeline that analyzes audio from diverse perspectives-including speech, music, and acoustic properties-which are then synthesized into rich, detailed descriptions by a large language model. Experimental results demonstrate that models pre-trained on ACAVCaps exhibit substantially stronger generalization capabilities on various downstream tasks compared to those trained on other leading captioning datasets. The dataset is available at https://github.com/xiaomi-research/acavcaps.
-
-</details>
-
 #### [InterDyad: Interactive Dyadic Speech-to-Video Generation by Querying Intermediate Visual Guidance](https://arxiv.org/abs/2603.23132)
 **Dongwei Pan, Longwei Guo, Jiazhi Guan, Luying Huang et al.** · 2026-03-24
 
@@ -398,36 +136,6 @@ General audio understanding is a fundamental goal for large audio-language model
 <summary>Abstract</summary>
 
 Despite progress in speech-to-video synthesis, existing methods often struggle to capture cross-individual dependencies and provide fine-grained control over reactive behaviors in dyadic settings. To address these challenges, we propose InterDyad, a framework that enables naturalistic interactive dynamics synthesis via querying structural motion guidance. Specifically, we first design an Interactivity Injector that achieves video reenactment based on identity-agnostic motion priors extracted from reference videos. Building upon this, we introduce a MetaQuery-based modality alignment mechanism to bridge the gap between conversational audio and these motion priors. By leveraging a Multimodal Large Language Model (MLLM), our framework is able to distill linguistic intent from audio to dictate the precise timing and appropriateness of reactions. To further improve lip-sync quality under extreme head poses, we propose Role-aware Dyadic Gaussian Guidance (RoDG) for enhanced lip-synchronization and spatial consistency. Finally, we introduce a dedicated evaluation suite with novelly designed metrics to quantify dyadic interaction. Comprehensive experiments demonstrate that InterDyad significantly outperforms state-of-the-art methods in producing natural and contextually grounded two-person interactions. Please refer to our project page for demo videos: https://interdyad.github.io/.
-
-</details>
-
-#### [Late talking in a low-income sample: Child care as a protective factor](https://www.semanticscholar.org/paper/5ea314adceb1f42179e6819ac12642a0260d78c6)
-**Daniela Avelar, Britt Singletary, Philip S Dale, Laura M. Justice** · 2026-03-24
-
-<details>
-<summary>Abstract</summary>
-
-Children from low socioeconomic (SES) households have a higher-than-average rate of exhibiting late talking (LT). Population-based studies have identified risk and protective factors for LT, yet low-SES families are underrepresented. This study examined LT and household characteristics among low-SES families. Mothers (n = 199; 42% Black, 42% White, 17% Other; Mean age = 31.62) completed sociodemographic questionnaires and the MacArthur-Bates Communicative Development Inventory when their children (46% female) were 22–30 months. Using logistic regression, the probability of LT based on household characteristics was examined. Children not attending child care had 4.71 times higher odds of LT than attendees. Researchers should examine whether participation in child care may increase language input and interaction, facilitative of learning, reducing LT risk. Implications for research and policy are discussed.
-
-</details>
-
-#### [A CNN–NCP Based Hybrid Deep Learning Model for Speech-Driven Gender Classification](https://www.semanticscholar.org/paper/7212d5e9d685a528a9c4f257ffed8d2b9326843a)
-**Sevda Olgun, C. Balım, Nevzat Olgun** · 2026-03-24
-
-<details>
-<summary>Abstract</summary>
-
-Speech is one of the most natural and effective forms of human communication, carrying both linguistic and non-linguistic information. It plays a crucial role in many applications such as gender classification, biometric authentication, and personalized human-computer interaction. This study aims to investigate the contribution of a hybrid deep learning model based on Neural Circuit Policies (NCP), inspired by biological neural systems, for gender classification on Turkish speech data, by evaluating its performance in terms of accuracy and computational efficiency in comparison with conventional recurrent models. Mel-Frequency Cepstral Coefficients (MFCC) and log-Mel spectrogram features are combined to simultaneously capture the spectral and temporal properties of speech signals. These features are learned as low-level acoustic patterns via Conv1D layers. Long-term temporal dependencies are modeled using Liquid Time Constant (LTC) cells defined within the NCP architecture. To evaluate the generalizability of the model, the experiments were conducted under a speaker-independent setup, and ablation studies were performed by removing different components of the architecture to clearly assess the contribution of the NCP component. Cross-validation was applied on the Mozilla Common Voice 12.0 Turkish dataset during the experiments. The Conv1D+NCP model achieved 99.29% accuracy and 99.28% F1-score, while the LSTM-based model yielded slightly lower results. The NCP-based model offers high performance and computational efficiency with fewer parameters, making it a powerful alternative for real-time applications
-
-</details>
-
-#### [TaigiSpeech: A Low-Resource Real-World Speech Intent Dataset and Preliminary Results with Scalable Data Mining In-the-Wild](https://arxiv.org/abs/2603.21478)
-**Kai-Wei Chang, Yi-Cheng Lin, Huang-Cheng Chou, Wenze Ren et al.** · 2026-03-23
-
-<details>
-<summary>Abstract</summary>
-
-Speech technologies have advanced rapidly and serve diverse populations worldwide. However, many languages remain underrepresented due to limited resources. In this paper, we introduce \textbf{TaigiSpeech}, a real-world speech intent dataset in Taiwanese Taigi (aka Taiwanese Hokkien/Southern Min), which is a low-resource and primarily spoken language. The dataset is collected from older adults, comprising 21 speakers with a total of 3k utterances. It is designed for practical intent detection scenarios, including healthcare and home assistant applications. To address the scarcity of labeled data, we explore two data mining strategies with two levels of supervision: keyword match data mining with LLM pseudo labeling via an intermediate language and an audio-visual framework that leverages multimodal cues with minimal textual supervision. This design enables scalable dataset construction for low-resource and unwritten spoken languages. TaigiSpeech will be released under the CC BY 4.0 license to facilitate broad adoption and research on low-resource and unwritten languages. The project website and the dataset can be found on https://kwchang.org/taigispeech.
 
 </details>
 
@@ -618,16 +326,6 @@ Generating realistic talking-head videos remains challenging due to persistent i
 <summary>Abstract</summary>
 
 We present a novel approach for generating realistic speaking and talking faces by synthesizing a person's voice and facial movements from a static image, a voice profile, and a target text. The model encodes the prompt/driving text, the driving image, and the voice profile of an individual and then combines them to pass them to the multi-entangled latent space to foster key-value pairs and queries for the audio and video modality generation pipeline. The multi-entangled latent space is responsible for establishing the spatiotemporal person-specific features between the modalities. Further, entangled features are passed to the respective decoder of each modality for output audio and video generation.
-
-</details>
-
-#### [EchoTorrent: Towards Swift, Sustained, and Streaming Multi-Modal Video Generation](https://arxiv.org/abs/2602.13669)
-**Rang Meng, Yingjie Yin, Yuming Li, Chenguang Ma** · 2026-02-14
-
-<details>
-<summary>Abstract</summary>
-
-Recent multi-modal video generation models have achieved high visual quality, but their prohibitive latency and limited temporal stability hinder real-time deployment. Streaming inference exacerbates these issues, leading to pronounced multimodal degradation, such as spatial blurring, temporal drift, and lip desynchronization, which creates an unresolved efficiency-performance trade-off. To this end, we propose EchoTorrent, a novel schema with a fourfold design: (1) Multi-Teacher Training fine-tunes a pre-trained model on distinct preference domains to obtain specialized domain experts, which sequentially transfer domain-specific knowledge to a student model; (2) Adaptive CFG Calibration (ACC-DMD), which calibrates the audio CFG augmentation errors in DMD via a phased spatiotemporal schedule, eliminating redundant CFG computations and enabling single-pass inference per step; (3) Hybrid Long Tail Forcing, which enforces alignment exclusively on tail frames during long-horizon self-rollout training via a causal-bidirectional hybrid architecture, effectively mitigates spatiotemporal degradation in streaming mode while enhancing fidelity to reference frames; and (4) VAE Decoder Refiner through pixel-domain optimization of the VAE decoder to recover high-frequency details while circumventing latent-space ambiguities. Extensive experiments and analysis demonstrate that EchoTorrent achieves few-pass autoregressive generation with substantially extended temporal consistency, identity preservation, and audio-lip synchronization.
 
 </details>
 
@@ -983,16 +681,6 @@ We propose WildTalker<inline-formula><tex-math notation="LaTeX">$^{\infty }$</te
 
 </details>
 
-#### [Collective Conversations: Talking About and Beyond Our Institutional Positions](https://www.semanticscholar.org/paper/a9007af7184c1eead4a7bdd2da25ce3994ded9ec)
-**Azlan Guttenberg Smith** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-How can communities on campus support scholars in developing specific, situated practices for ethical, accountable, impactful collaborations beyond campus? What opportunities can we open by being communally, radically present in our work? In considering these questions, I draw on three-plus years of organizing and facilitating two scholarly Collectives. These Collectives sustain lived community for scholars bending university systems toward liberatory work. From inside these Collectives, I trace seven guiding principles, including 1) learning alongside situated stories (as opposed to abstracted “advice”), 2) analyzing the specific institutional mechanisms we work through, 3) centering joy, 4) reimagining what we call possible, and 5) naming the places where we refuse educational systems’ dangerous expectations. I ground these principles in lived stories with fellow Collective members, celebrating how living alongside one another can open relational scholarships that are respectful, inspiring, undisciplined, and growing into what we need them to be.
-
-</details>
-
 #### [High-fidelity and Lip-synced Talking Face Synthesis via Landmark-based Diffusion Model](https://www.semanticscholar.org/paper/d3e3159653a29ff817335f8db6da5ef03409a191)
 **Wei‐Tao Zhong, Junfan Lin, Peixin Chen, Feng Gao et al.** · 2026-01-01
 
@@ -1001,36 +689,6 @@ How can communities on campus support scholars in developing specific, situated 
 **Guanwen Feng, Haoran Cheng, Yunan Li, Zhiyuan Ma et al.** · 2026-01-01
 
 
-#### [Face Sketch Recognition: Ethnic Groups Classification and Recognition Via a VGG16 Model Approach](https://www.semanticscholar.org/paper/6003cc61b7c64863c78f39c80fac00bf6c8975e9)
-**Khalid Ounachad, Mohamed El Ghmary** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In the law enforcement investigation, the police use sketching techniques to identify suspects from an eyewitness's memory. Many automatic face sketch recognition systems that determine the perpetrator’s appearance from the face image datasets have been proposed. The aim is to conduct the arrest of the right offender. We propose this work to carry out a search based on the ethnicity criterion to speed up this automatic identification and to help authorities execute fast responses by launching the retrieval process only in a part of the dataset of face images. The goal of this study is to enhance the accuracy of ethnic face sketch classification by using the convolutional neural network built on the VGG16 architecture. The FairFace dataset, which includes seven ethnic face images: White, Black, Indian, East Asian, Southeast Asian, Middle Eastern, and Latino|Hispanic, was employed in the study. We convert the face images dataset to face sketch images, and we optimize the VGG16 model for seven classification outputs. This work shows that the VGG16 deep learning model offers a reliable, automated approach for ethnic face sketch classification and recognition. The used model achieved an accuracy reaching above 94% and produced a low false negative rate, which is crucial for minimizing undetected cases.
-
-</details>
-
-#### [Complex Valued Linear Discriminant Analysis on mmWave Radar Face Signatures for Task-Oriented Semantic Communication](https://www.semanticscholar.org/paper/4c74ba79180c1da422532387cf5c8a11512dba9d)
-**Simy M. Baby, E. S. Gopi** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Semantic communication for classification as the intended task at the receiver involves encoding the message signal to maximize the classifier’s performance in terms of accuracy at the receiver. Most existing techniques rely on end-to-end learning, which couples data representation with the channel model, and may result in high training overhead and reduced interpretability. While decoupled pretraining separates encoder and classifier design, it often faces limitations in adapting to varying tasks and channel conditions. We propose a complex valued Linear Discriminant Analysis (CLDA) based encoding method that enhances class discrimination and feature interpretability. This method maintains decoupling and enhances robustness to channel variations by using traditional detectors like Minimum Mean Square Error (MMSE) to recover transmitted features, enabling seamless integration into existing communication systems. It is observed that the mutual information associated with classification inference using the encoded data in the proposed technique is higher than that obtained with the original feature data before encoding. This confirms the improvement of the inference in terms of accuracy. The proposed technique is first evaluated on synthetic data and then validated on the mmWave Radar Face Signatures dataset (206 classes) under a Rayleigh channel model for real-time applicability. At the receiver, we represent CLDA coefficients as Complex valued Chromatic Images (CI) to improve the performance of the Convolutional Neural Network (CNN) based classifier. Experimental results demonstrate the effectiveness of the proposed CLDA+CI framework, achieving a classification accuracy of 96.3%. The performance of the proposed method with Kernel-LDA (KLDA) is also reported for comparison.
-
-</details>
-
-#### [Dossier « Les professionnels de la montagne face aux changements socio-environnementaux » – Les agents d’espaces naturels face aux changements socio-environnementaux et institutionnels : le cas des génépis dans le parc national du Mercantour](https://www.semanticscholar.org/paper/0ded420ce30b58b5efb7aa793e8d5c533a59e6d3)
-**Ninon Fontaine, Isabelle Boulangeat, P. Gauthier, Sophie Caillon** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Les législations mises en œuvre dans les parcs nationaux évoluent au gré de changements institutionnels et socio-environnementaux. Ces territoires, en interaction avec les acteurs qui les utilisent ou les gèrent, peuvent être considérés comme des socio-écosystèmes. Les agents des parcs nationaux jouent un rôle central dans ces systèmes, en tant que sentinelles des dynamiques écologiques et sociales du parc, tout en ayant pour mission d’appliquer des réglementations peu dynamiques et parfois décalées. La gestion d’une plante patrimoniale comme le génépi attise des visions contradictoires entre utilisateurs et gestionnaires. Nous nous intéressons ici plus spécifiquement à la manière dont les agents du parc national du Mercantour vivent les changements affectant le socio-écosystème de « cueillette des génépis », que ce soit l’évolution des populations de génépi, des pratiques de cueillette, de leur métier ou de l’institution « parc national ». Les entretiens soulignent la diversité de vécus au sein de ce territoire, reflétée par les dysfonctionnements de la réglementation de cueillette que chaque agent identifie.
-
-</details>
-
 #### [U3D: Unified Landmark-Displacement Framework for Real-Time Multi-Modal Emotion-Controllable 3D Facial Animation](https://www.semanticscholar.org/paper/579cd5a1deac974a6ed8069f3961188bd78d45b4)
 **Laxmi Narayen Nagarajan Venkatesan, Rittik Panda, Rahulraj B. R., D. Jayagopi et al.** · 2026-01-01
 
@@ -1038,66 +696,6 @@ Les législations mises en œuvre dans les parcs nationaux évoluent au gré de 
 <summary>Abstract</summary>
 
 : Audio-driven 3D facial animation enables natural communication for virtual avatars, digital assistants, and immersive media. However, existing systems are often limited to a single modality-either meshes, blend shapes, or rigs-making them difficult to deploy across heterogeneous platforms such as VR, AR, and game engines. We present U3D , a real-time and emotion-controllable framework that unifies these modalities within a single representation. The core component, a Landmark-Displacement Variational Autoencoder (LD-VAE) , learns to model motion as relative displacements from a neutral face, producing an identity-invariant stochastic latent space that captures both speech and emotion dynamics. From this shared latent space, U3D can generate consistent, expressive outputs across meshes, blendshapes, and rigs using lightweight decoders. Since standard landmarks cannot capture complex surface deformations, we introduce barycentric landmark embeddings with tunable densities (68-468 points) and analyze the density-modality optima. Experiments on multiple datasets demonstrate improved lip synchronization, expressiveness, realism, and generalization compared to existing approaches, while maintaining real-time performance (approximately 30 FPS on a single RTX 2080 Ti). U3D thus offers a unified and scalable solution for expressive 3D facial animation across multiple platforms and representation formats.
-
-</details>
-
-#### [AI-Driven Text-to-Speech for Non-Playable Characters in XR Educational Environments](https://www.semanticscholar.org/paper/2a1b52730b4b4542283943272bf9071eea9485f9)
-**S. Silva, Isabelly Oliveira, R. Costa** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-This case study explores the implementation of a text-to-speech (TTS) engine integrated with conversational artificial intelligence (AI) to create interactive non-playable characters (NPCs) for Virtual and Mixed Reality (VR/XR) educational environments. The primary objective was to design a course that introduces students to three transformative technologies—AI, Virtual Reality (VR), and Extended Reality (XR)—while encouraging them to develop AI-driven, voice-acted NPCs as educational tools. These NPCs serve as interactive agents to support the students' learning experience within immersive environments. Throughout the study, various state-of-the-art AI tools were evaluated in combination with leading game engines to determine the most effective and accessible development environment for educational purposes. The project was conducted at Ocean Center, an initiative of the Amazonas State University in Brazil, which offers free technology-focused courses to the population of the western Amazon region. Among the Center's offerings are AR, VR, and XR courses, now enhanced with AI integration to broaden students' technological skillsets. By combining conversational AI with TTS capabilities in immersive VR/XR settings, the project provides a comprehensive framework that empowers students to create engaging, intelligent virtual characters. This approach not only enhances their technical competencies but also fosters creativity and innovation. The results suggest a promising model for integrating emerging technologies into education and may serve as inspiration for educators and institutions seeking to adopt immersive, AI-enhanced learning methodologies worldwide.
-
-</details>
-
-#### [Pseudo-Reference Driven Non-Intrusive Speech Quality Assessment via Multi-Task Learning](https://www.semanticscholar.org/paper/af31b462d1b68f7972325135a1d24d315363b09b)
-**Kailai Shen, Diqun Yan, Li Dong, Rangding Wang et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Non-intrusive speech quality assessment (NISQA) is a foundational yet challenging task within the domain of speech processing, particularly when confronted with limited information and the absence of comparative references. Although there are various feature extraction mechanisms, from natural scene statistics to deep neural networks, performance bottlenecks still exist. To address these challenges, this study proposes an auditory hallucination-guided quality regression network. First, an auditory hallucination reference is generated from the degraded speech to compensate for the lack of real reference. Then, the auditory hallucination reference information is paired with the degraded speech information and used as input to the regression model to learn the perceptual difference to realize accurate quality prediction. In addition, this study implements a multi-task learning strategy, predicting four critical quality dimensions: noisiness, coloration, discontinuity, and loudness. This approach enables service providers to identify and understand the specific causes of speech quality degradation rapidly. The effectiveness of the proposed method is verified by experiments. The experimental results indicate that the proposed method can enhance the performance of baseline models by generating pseudo-auditory speech and can also accurately predict the Mean Opinion Score and scores across the four quality dimensions. The proposed method can provide valuable guidance to online conference service providers in downstream tasks. Further, the experimental results demonstrate the proposed method’s superior performance regarding multiple assessment metrics. Particularly, on datasets containing real-world scenarios, the proposed method achieved a 19.9% reduction in the Root Mean Square Error (RMSE) compared to the state-of-the-art speech quality assessment benchmark, demonstrating its effectiveness in enhancing the accuracy of speech quality assessment.
-
-</details>
-
-#### [RESEARCH ON THE AUTOMATION OF ENGLISH GRAMMAR ERROR CORRECTION DRIVEN BY AI SPEECH SYNTHESIS](https://www.semanticscholar.org/paper/91c6b96c3732fd0dde869d1a35076a7217bd5855)
-**Minghao Zhou, Jingbo Li, Zou Jie** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-With the continuous breakthrough of artificial intelligence (AI) technology, its penetration into educational and teaching scenarios is increasingly widespread. Automatic English grammar error correction, as a core application combining AI technology with language learning, can enhance learning outcomes through multimodal auxiliary means. This paper takes English grammar error correction as the core goal, and deeply combines AI speech synthesis technology with English translation learning and grammar learning: on the one hand, AI speech synthesis technology is used to generate supporting audio for "The translation section of the College English Test Band 4 and Band 6 (CET-4 and CET-6)" to help learners comprehend correct grammatical usage through auditory input; On the other hand, through preprocessing steps such as grammatical error correction and annotation, the closed loop of "grammar error correction-speech verificationauditory consolidation" is realized. This approach provides efficient and convenient learning support for English learners, especially those preparing for the College English Test Band 4 and Band 6, and ultimately enhances their grammar application and translation skills.
-
-</details>
-
-#### [High Quality and Secure Speech Transmission at Low Bitrate via Semantic-Acoustic Hybrid Coding for Low-Altitude Intelligent Systems](https://www.semanticscholar.org/paper/193dd9aa3736eca8ebdcd97ff20fd02d91fcfdc3)
-**Bo Chen, Jianping An, Bowen Gui, Liang Zeng** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In low-altitude communication scenarios, voice transmission imposes stringent requirements on encoding methods in terms of quality, efficiency, and security. Maintaining speech clarity and naturalness at low bit rates is essential for reliable task execution, while bandwidth limitations and the risk of voiceprint leakage further complicate system design. Recent neural-network-based codecs have demonstrated remarkable performance in compressing speech into discrete semantic representations with reduced bandwidth consumption. However, these approaches still face challenges in preserving perceptual quality, achieving flexible bandwidth utilization, and preventing speaker identity leakage. To address these limitations, this paper presents a semantic-acoustic hybrid coding framework that integrates pre-trained semantic modeling with lightweight acoustic representations within an end-to-end encoder-decoder architecture. The framework introduces a semantic-guided dynamic masking mechanism that adaptively selects acoustic feature dimensions based on semantic feature density, enabling intelligent, content-aware bit allocation. Moreover, by substituting voiceprint-related attributes while preserving semantic consistency, it achieves effective speaker anonymization. Experimental results demonstrate that the proposed method provides high-fidelity reconstruction with semantic enhancement, achieving 88 MUSHRA score and outperforming conventional single-channel low-bitrate codecs with near-perceptually lossless speech reconstruction. The framework further enables semantic-driven adaptive bitrate control, offering flexible trade-offs between speech quality and bandwidth through hyperparameter tuning during training. In addition, it exhibits strong speaker anonymization capability by generating non-original voice characteristics while preserving semantic coherence. The training scripts and audio demos can be found at https://github.com/az1mus/Hybrid-Semantic-acoustic-Voice-Codec
-
-</details>
-
-#### [Digital Network Twin-Enabled Synchronization and Localization](https://www.semanticscholar.org/paper/863de5f1caf2a79caaa3291f4ec2c5663603eeda)
-**Niccolò Paglierani, F. Linsalata, Omer Altug Sevimay, Lorenzo Cazzella et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-This paper addresses the challenge of achieving simultaneous synchronization and localization of all the active terminals within a cellular network from only one Base Station (BS). We propose a novel approach leveraging Digital Network Twins (DNT), which integrates these two critical tasks within a unified framework. We begin by analyzing User Equipment (UE)-to-network time synchronization, both theoretically and through experimental validation using a 5th generation (5G) testbed, identifying it as the primary obstacle to accurate localization. Then, to address this challenge, we introduce a DNT-based framework that leverages high-fidelity ray-tracing simulations on a 3D digital replica of the environment. This enables precise UE-to-network alignment, dynamic environmental mapping, and accurate real-time localization starting from one Next Generation Node Base (gNB). The proposed method integrates Angle Delay Channel Power Matrix (ADCPM) characterization and Time of Flight (ToF) data with the DNT prior knowledge of the environment, eliminating the need for network cooperation or prior on-field channel measurements for precise localization. We first validate the proposed approach through an outdoor measurement campaign and then demonstrate its effectiveness via numerical simulations, compared to existing localization techniques in scenarios where only a single gNB is available. The method achieves on average a positioning accuracy of less than <inline-formula> <tex-math notation="LaTeX">$6{\,}$ </tex-math></inline-formula>m in the static case and <inline-formula> <tex-math notation="LaTeX">$8{\,}$ </tex-math></inline-formula>m in the dynamic scenario, using a ray-tracing granularity that is not excessively fine (<inline-formula> <tex-math notation="LaTeX">$4 \times 4{\,}$ </tex-math></inline-formula>m), even under worst-case synchronization and Non-Line of Sight (NLoS) conditions.
-
-</details>
-
-#### [LIP-Calib: Automatic Targetless Extrinsic Calibration of LiDAR-Camera System Based on Low Intensity Perception](https://www.semanticscholar.org/paper/a8c0563c81a8c41ff49ae25453b80fe27968ea7a)
-**Weijie Zhu, Shuo Shan, Sheng Zhu, Kanjian Zhang et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Robust and accurate LiDAR–Camera calibration (LCC) is a fundamental prerequisite for environmental perception in multisensor fusion systems. Targetless LCC has recently emerged as a practical alternative to target-based approaches, as it eliminates the need for fabricating controlled targets while achieving comparable accuracy. However, the reliance on dense point clouds not only increases computational overhead but also amplifies noise due to laser beam divergence, further degrading edge quality and hindering the generalization of targetless methods to natural scenes. In addition, variations in camera intrinsics significantly affect the density distribution of LiDAR projection maps, while most existing methods are tailored to fixed sensor setups, limiting their adaptability to diverse hardware configurations in real-world deployments. To address these issues, low intensity perception calibration (LIP-Calib) is proposed. A LiDAR intensity perception strategy is devised to selectively retain low-intensity perception (LIP) that effectively capture structural contours in natural scenes, thereby enhancing the quality of edge extraction. In parallel, an energy-aware binarization (EAB) scheme mitigates the impact of laser projection density variations induced by camera intrinsics, ensuring strong adaptability across diverse hardware configurations. Experimental results demonstrate that the proposed method achieves superior calibration accuracy compared to state-of-the-art targetless approaches, with performance comparable to or exceeding that of target-based methods. In addition to high accuracy, the proposed method demonstrates strong robustness to variations in camera intrinsics and point cloud distributions, as validated through extensive tests across five types of cameras and two types of LiDAR sensors.
 
 </details>
 
@@ -1123,36 +721,6 @@ Audio-visual speech synthesis (AVSS) aims to produce an audio-visual stream that
 **Kranti K. Parida, Siddharth Srivastava, Gaurav Sharma** · 2026-01-01
 
 
-#### [Semantic Modulated Prompting for Few-Shot Audio-Visual Classification](https://www.semanticscholar.org/paper/b549e79f5d9943c9644151c66be758be5e7983d3)
-**Guanjie Huang, Yawen Cui, Danny Hin Kwok Tsang, Wenwu Wang et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-<bold>F</bold>ew-<bold>S</bold>hot <bold>A</bold>udio-<bold>V</bold>isual <bold>C</bold>lassification (FS-AVC) trains models using a limited number of labeled audio and visual sample pairs to capture the classification capability. Deep learning-based audio-visual learning methods often construct complicated frameworks with numerous parameters trained on large labeled datasets, rendering them impractical for FS-AVC. The key challenges for FS-AVC are model overfitting, multimodal fusion under temporal asynchrony, and modality imbalance. To address these challenges, we propose a novel method called Semantic Modulated Prompting (SMP) to improve the learning process of FS-AVC. This framework implants text as prompting tokens via two components: <bold>P</bold>rompt-refined <bold>A</bold>udio-<bold>V</bold>isual <bold>e</bold>fficient <bold>L</bold>earner (P-AVeL) and <bold>P</bold>rompt-tuned <bold>P</bold>rototypical <bold>R</bold>egularization (P-PR). By integrating semantic prompts, adapter-based P-AVeLs conduct the prompt-guided latent attention to alleviate the overfitting and achieve effective alignment and fusion. Concurrently, P-PR, the first rebalancing method designed for few-shot scenarios, uses these semantic prompts to accurately evaluate and dynamically adjust the imbalance of two modalities. Extensive experiments demonstrate that the SMP framework consistently outperforms state-of-the-art multimodal methods by a large margin.
-
-</details>
-
-#### [A Multimodal Privacy Filtering System Using Deep Learning for Visual-Audio Input Streams](https://www.semanticscholar.org/paper/52ee3a3357504bf36dab8a41f175759561b8480b)
-**Kunwoo Kim, S. Park, Hyeon-Ju Lee, Hoyong Choi et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Protecting personally identifiable information (PII) in visual and audio data streams that are continuously being captured by sensing systems remains a critical challenge. Devices such as IoT cameras and smart microphones routinely capture sensitive elements such as faces, voices, and behavioral or contextual cues, often without the subject’s awareness or consent. To address this issue, we propose a multimodal PII filtering system designed for privacy protection in environments where visual and auditory data are persistently recorded. The proposed system detects and irreversibly anonymizes PII at the point of capture, before the data is transmitted or stored in vulnerable infrastructure. It incorporates a visual object detection module based on YOLOv12 and a sentence-level classifier based on BERT, applied to speech transcriptions generated by a speech-to-text module. These modules operate within a unit-based processing framework that segments incoming data into short temporal units, enabling low-latency operation while maintaining semantic consistency across modalities. Although each modality is processed independently, the system maintains temporal synchronization to ensure coherent filtering decisions. We evaluate the system using both in-house and public datasets across diverse conditions including variable lighting and background noise. The system achieves a unified false negative rate of about 3%, showing reliable performance for real-world multimodal privacy protection. Furthermore, the system employs parallel unit-based processing to maximize computational efficiency, and its modular design supports flexible component combinations, confirming suitability for edge or cloud deployment. These findings demonstrate that the proposed system provides an efficient and scalable solution for real-world multimodal privacy protection.
-
-</details>
-
-#### [Parametric Sound Field Interpolation for Scene-Based Navigable Immersive Audio](https://www.semanticscholar.org/paper/fc6d508e9c771710724d651d8033bf4a0d0839a8)
-**Orhun Olgun, Ibrahim Ethem Deveci, Hüseyin Hacıhabiboğlu** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Modern eXtended Reality (XR) systems are capable of tracking their users’ positions within a navigable volume. This opens up the possibility of more realistic interactions with the content not only via head rotations, but also via locomotion. Such capability necessitates the design of audio systems that can generate a perceptually veridical rendering of the sound field at every position which the user can navigate to. While such interactivity can be provided by object-based audio (OBA) renderers such as in 3D computer games and VR applications, the new generation of volumetric visual content requires volumetric capture and rendering of the entire captured scenes, without explicitly identifying/extracting the audio objects therein. This article presents a parametric sound field interpolation method via multi-point sparse plane wave decomposition (SPWD) in the spherical harmonic domain. The proposed approach relies on higher-order Ambisonics (HOA) recordings of sound fields captured at multiple positions. The sound field is separated into direct and diffuse components that are interpolated parametrically and linearly, respectively. The proposed approach is compared with linear interpolation objectively and subjectively to demonstrate its utility.
-
-</details>
-
 #### [Viseme-Gated Multilayer Cross-Attentional Feature Fusion for Cognitively-Inspired Multimodal Speech Enhancement](https://www.semanticscholar.org/paper/c2772c139c0efc437de2fe000580c6d0a0519a2b)
 **Nasir Saleem, Adeel Hussain, K. Dashtipour, Eamon Sheikh et al.** · 2026-01-01
 
@@ -1160,16 +728,6 @@ Modern eXtended Reality (XR) systems are capable of tracking their users’ posi
 <summary>Abstract</summary>
 
 Human speech perception naturally integrates visual and auditory cues, with lip movements providing critical disambiguation in noisy environments where audio signals are degraded (SNR $\leq$ −5 dB). While existing audio-visual speech enhancement (AVSE) models use this multimodal synergy, they often fail to exploit phoneme-specific viseme correlations. We propose VG-MCA-AVSENet, a cognitively inspired architecture that introduces a viseme-gated multilayer cross-attention mechanism within a convolutional encoder-decoder framework. The model dynamically weights visual features using auditory context and learned viseme importance (prioritizing lip closures for plosives), while maintaining efficiency through depthwise separable convolutions and MobileNetV3-based visual encoding. Our AVSE system comprises an audio encoder, visual encoder with temporal modeling, separation module with 3-layer viseme-aware attention, and neural vocoder decoder. Evaluated on GRID-CHiME, NTCD-TIMIT, and LRS3 datasets, the model achieves 72.58% STOI (+12.28% over baseline), 2.56 PESQ, and 7.80 dB SI-SDR in extreme noise conditions (SNR$\leq$ -6 dB). The viseme gating specifically improves plosive intelligibility by 7% with a few additional parameters, showing that explicit phoneme-viseme modeling significantly outperforms conventional approaches.
-
-</details>
-
-#### [Visual Knowledge-Enhanced LLaVA for Fine-Grained Multimodal Named Entity Recognition and Grounding](https://www.semanticscholar.org/paper/121e8b6defee8ce60eeb145e45c4eac05270d5b8)
-**Li Yuan, Yi Cai, Bingshan Zhu, Zhenghao Liu et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-The rapid growth of multimodal data has highlighted the significance of Fine-Grained Multimodal Named Entity Recognition and Grounding (FMNERG), which focuses on extracting entities and their corresponding groundings from image-text pairs. Existing approaches typically extract entities and then associate them with entity groundings using object detection methods. However, these approaches face challenges, including the use of diverse multimodal feature representations and insufficient visual knowledge, which hinder their ability to effectively link entities to images and limit overall performance. To address these limitations, we propose the visual knowledge-enhanced LLaVA (VKEL) framework, a two-stage model designed to integrate visual knowledge with multimodal learning. In the first stage, VKEL improves entity recognition by augmenting datasets with synthetic image-text pairs and optimizing alignment through lightweight fine-tuning. In the second stage, VKEL overcomes grounding limitations by incorporating consistent and accurate visual knowledge from large language models and utilizing object annotations to guide entity identification within images. This stage enhances the model’s ability to disambiguate similar entities and improve the precision of entity grounding. Extensive experiments on the FMNERG benchmark demonstrate that VKEL surpasses the SOTA by 10.24% in F1 score, with significant improvements in both fine-grained entity recognition and entity grounding performance.
 
 </details>
 
@@ -1183,56 +741,6 @@ Cued Speech (CS) is a visual coding system, which combines lip-reading with seve
 
 </details>
 
-#### [Neural Rendering and Flow-Assisted Unsupervised Multi-View Stereo for Real-Time Monocular Tracking and Scene Perception](https://www.semanticscholar.org/paper/0313d20f3a4e445e78a86f54b58e23d1d301d0a0)
-**Wei Tong, Yandong Cai, Yu-Wen Jie, Ya Duan et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-The existing camera tracking and perception methods mainly rely on sparse SLAM, which limits the dense perception ability of the scene and affects the reliability of auxiliary decision-making. Different from this, this work proposes a real-time tracking and unsupervised dense sensing framework. Firstly, the dense depth value of the scene is predicted by unsupervised multi-view stereo to remove the dependence on labeled data. Then, the quality of synthetic pseudo-reference image is quantified according to the predicted depth map and used as a weighted guidance to train the unsupervised model, thus reducing the ambiguity of feature matching in areas such as specular reflection. Moreover, the sparse optical flow of the keyframes is solved by real-time and robust ORB feature matching operator, which assists the high-precision training of unsupervised depth inference model. To increase the prediction accuracy of occluded area, a novel rendering consistency loss via neural radiance fields is designed to constrain the geometric characteristics of object surface. Finally, dense direct image alignment is performed from a global model to improve the tracking robustness, which is incrementally constructed from dense depth prediction. Extensive experiments on synthetic datasets and real datasets validate the effectiveness and practicability of the proposed work, which is an effective supplement to the existing SLAM work. Note to Practitioners—Learning-based SLAM system can accurately recognize the surrounding environment and realize the autonomous positioning in the unknown environment, which has been widely concerned and applied in the military and civilian fields. To achieve real-time monocular positioning and unsupervised dense reconstruction, this work proposes a SLAM framework based on neural radiance fields and unsupervised multi-view stereo. Comprehensive experiments verify the feasibility of the proposed framework, which has good potential in the field of aviation intelligent cockpit.
-
-</details>
-
-#### [Finetuning the Sample Points in Gaussian Filters via Neural Networks](https://www.semanticscholar.org/paper/b5c5d07d6052a5b87b2df289d8243d914990bd22)
-**Hanyu Liu, Yuran Chen, Xiucong Sun, Yukai Zhu et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Gaussian filters with deterministic sample points, such as the Unscented Kalman Filter (UKF), Cubature Kalman Filter (CKF), Gauss–Hermite Quadrature Filter (GHQF), etc., have been widely employed for nonlinear state estimation. However, these filters utilize a fixed set of sample points irrespective of the system's nonlinearity. While various studies have explored data-driven approaches to optimize the three parameters of the UKF, these methods do not generalize well to other Gaussian filters with a greater number of sample points. In this letter, we propose a novel neural network-based unified framework for finetuning sample points across all Gaussian filters with deterministic sample points. Specifically, we first pretrain a Multi-Layer Perceptron (MLP) to approximate the mapping from the state's mean and covariance to the sample points of the original Gaussian filter. The MLP then replaces the sample points generation strategy in the Gaussian filter and is further refined by maximizing the marginal likelihood of the observed measurement data. Simulation results demonstrate that the Gaussian filters leveraging the well-trained MLP as the sample point generation strategy achieve higher filtering accuracy compared to their original counterparts.
-
-</details>
-
-#### [TASDF-Stega: High Capacity Secure Text-Audio Joint Steganography Using Diffusion Latent Space](https://www.semanticscholar.org/paper/89ae54265e26c043884958bb5e3203fdb3da9593)
-**Zhen Yang, Yelei Wang, Yufei Luo, Xin Xu et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Provably secure steganography ensures indistinguishability between stego and cover carrier through mathematical proofs. However, existing methods face limited embedding capacity and distribution synchronization challenges, especially at high embedding rates. To address these issues, we propose TASDF-Stega, a text-audio joint steganography method based on the latent space of diffusion models, which achieves high capacity and provable security. First, we design an encrypted steganographic mapping module with adaptive arithmetic decoding, which efficiently embeds secret information into the latent space while preserving the distribution. Second, a reversible secret diffusion mechanism enables high-capacity embedding and precise extraction. Moreover, to resolve the problem of distribution parameter synchronization in practical communication, we introduce an audio-assisted joint encode module. This design ensures accurate reconstruction of the diffusion inverse process and avoids cumulative extraction errors. Experimental results on multiple datasets demonstrate that TASDF-Stega achieves provable security, the outperforms state-of-the-art methods in embedding capacity and imperceptibility.
-
-</details>
-
-#### [Enhancing Speaker Naming through Multimodal Fusion of Text and Audio Cues](https://www.semanticscholar.org/paper/a8bffe4f22f91875d37f33c16953f262b32920d2)
-**M. Bellagha, Mounir Zrigui** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-: This study addresses the problem of automatic speaker naming, which involves the identification of speakers based on their true identities. Conventional methods that rely on textual information and linguistic rules to link names with adjacent speaker segments face significant limitations, particularly when applied to spoken text. In this paper, we propose a speaker identification approach that leverages both the audio signal and its transcription to name the speakers. Our approach consists of two modules. The first module, named ”Names assignment”, analyzes the lexical and semantic context when a name is mentioned, determining whether it corresponds to the current speaker segment, the next speaker segment, or the previous speaker segment. To achieve this, we introduce an attention-over-attention (AOA) neural network for names assignment. This model employs an attention mechanism to assess the relevance of each word with respect to a given name. During the evaluation phase, our model yields satisfactory results, achieving an F1 rate of 87.92% and an accuracy rate of 88.69%. The second module, ”Names Propagation”, propagates names to other segments based on acoustic similarity while integrating speaker role information into the naming process. Incorporating this information reduces the identification error rate from 28% to 15.3%.
-
-</details>
-
-#### [REWEAVING THE SOCIAL FABRIC OF BUSINESS: AI-DRIVEN COLLABORATIVE INNOVATION FOR SUSTAINABLE REVIVAL](https://www.semanticscholar.org/paper/d4f09ec84c97efaf7c097c0decfccdd725bce3bd)
-**A. Rani, F. A. Pradeep, D. S. Mary** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In an era of pervasive digital transformation and deepening sustainability imperatives, organisations face the dual challenge of renewing their social fabric namely, stakeholder collaboration, trust networks and shared innovation ecosystems while leveraging the power of artificial intelligence (AI). This paper examines how AI-driven collaborative innovation can serve as a catalyst for sustainable business revival by reweaving social capital, fostering cross-organisational networks, and enabling socially responsible, value-creating innovations. Drawing on a systematic review of extant literature on AI, collaborative innovation, sustainable business models and open innovation ecosystems that develops an integrative theoretical framework linking AI-enabled capabilities, social-network renewal, stakeholder co-creation, and sustainability outcomes from selected firms. We propose a mixed-methods research design of collaborating qualitative interview and secondary data. The findings are expected to reveal how AI can enhance knowledge integration, network trust, and shared value creation and the key moderating factors (such as organisational culture, governance, and stakeholder engagement) and the boundary conditions. The study contributes to theory by illuminating the socio-technical mechanisms of AI-enabled collaborative innovation for sustainable business and to practice by offering guidelines for managers and policymakers to foster networked, sustainable business renewal.
-
-</details>
-
 #### [A Unified Pipeline for 2D Face Synthesis, Restoration, and Mask‑Guided Editing with Generative Image Models](https://www.semanticscholar.org/paper/68df6a498e21059d3ecbeeddfdc55efeff02f77a)
 **A. Abdulkareem, Marwa Jabberi, Islem Jarraya, T. Hamdani et al.** · 2026-01-01
 
@@ -1240,70 +748,6 @@ In an era of pervasive digital transformation and deepening sustainability imper
 <summary>Abstract</summary>
 
 : Text-to-image models can synthesize photorealistic faces from natural language, yet their outputs often exhibit local artifacts, limited effective resolution, and fragile control over fine-grained attributes. We propose a modular, model-agnostic pipeline for text-driven 2D face synthesis that integrates state-of-the-art face generators (DALL·E 2, Imagen, Stable Diffusion XL) with a face-aware restoration stage (CodeFormer) and optional mask-guided refinement for region-selective edits. The proposed cascade improves perceptual naturalness, stabilizes facial geometry, and preserves identity while enabling targeted corrections such as eyewear, teeth, and jewelry. We introduce a unified evaluation protocol spanning geometric stability (normalized landmark error), no-reference perceptual quality (BRISQUE, NIQE, PIQE), fidelity–diversity balance (PRDC), and perceptual and identity consistency (LPIPS change and ArcFace similarity). Experimental results show that restoration consistently improves no-reference perceptual quality and local fidelity for DALL·E 2 and Imagen, while exhibiting generator-dependent effects for SDXL that motivate per-model tuning. Across all generators, facial geometry and identity are largely preserved. Under our configuration, Imagen achieves a 22.9% improvement in BRISQUE, a 7.7% reduction in NIQE, geometric drift below 0.0039 NRMSE, and post-restoration ArcFace similarity of ≥ 0.828. These findings establish a practical and extensible pipeline for high-quality text-driven face synthesis and provide actionable guidance for integrating restoration and localized refinement with modern generative image models.
-
-</details>
-
-#### [Multimodal Multi-Scale Temporal Enhancement Network for Audio-Visual Scene Classification](https://www.semanticscholar.org/paper/5efa25c0c32d673ac8baaae65b93bf4d1238d37c)
-**Ming Yin, T. Liang, Xianxian Zeng, Daming Shi** · 2026-01-01
-
-
-#### [TB-MEN: Text-Centric Bidirectional Modality Enhancement Network for Multimodal Sentiment Analysis](https://www.semanticscholar.org/paper/320b9913d745508f103ea687a95ce667ef7b8dbd)
-**Jieqiang Zhang, Ming Yin, Geng Wei, Daming Shi et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Multimodal sentiment analysis (MSA) aims to accurately predict the user’s emotional tendency by integrating multimodal data such as text, audio and visual information posted by users. However, in most prior studies, the information differences between modalities are not fully considered as these modalities are treated equally. In fact, text modality usually contains more richer semantics to exhibit emotion, while audio and visual ones cover more redundant and even noisy information. Though some works have highlighted the key role of text modality, they still fail to fully utilize the non-text modalities, leading to sub-optimal performance for MSA. To this end, we propose a novel Text-centric Bidirectional Modality Enhancement Network (TB-MEN) in this paper, which recognizes the core role of text and fully exploits the audio and visual modalities at the same time. First, in light of the text features extracted by BERT and non-text features extracted by LSTM respectively, we develop a trimodal multi-scale bottleneck fusion (TMBF) module to capture semantically enhanced text features. Specifically, this is achieved by bottleneck fusion mechanism and transferring the audio and visual modalities to text one. Furthermore, for non-text modalities enhancement, a sparse subspace alignment strategy is employed in text-dominant subspace alignment (TDSA) module, which sparsely maps non-text features into the text subspace to aggregate semantic information. Experimental results show that on several public datasets, including CMU-MOSI, CMU-MOSEI and CH-SIMS, our model has achieved significant gains over the state-of-the-arts. For example, on the CMU-MOSI dataset, TB-MEN improves Acc-2, Acc-5, Acc-7, and F1 by 0.45<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, 2.04<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, 2.62<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, and 0.4<inline-formula><tex-math notation="LaTeX">$\%$</tex-math></inline-formula>, respectively, compared to the second-best one.
-
-</details>
-
-#### [Run-Sketch: Interactive real-time code visualization and AI narration for DSA learning](https://www.semanticscholar.org/paper/7aab358b06771d0662422a3bf294787883dfb17b)
-**Renushree H S, Mahan J. Shetty, H. Kumar, Ankita B R et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Learning Data Structures and Algorithms (DSA) can often be noted to be an important challenge, primarily due to the abstract nature of program execution. To address this pedagogical challenge, the current paper presents RunSketch, an interactive educational application that will help with visualizing code in real-time, highlighting syntax, tracking variables, and providing AI-based narration. RunSketch uses code execution to provide feedback on the code to users, and provides explanatory information in the form of written text and spoken output using Google Text to Speech API. Its front-end architecture is based on React.js, D3.js and Monaco Editor, the back-end is written in Python using Flask and uses the sys.settrace() method to trace execution. RunSketch significantly enhances understanding and interaction of learners, due to the combination of visual and audio feedback systems, thus, becoming an important innovation in the sphere of teaching programming.
-
-</details>
-
-#### [IoT Based Sign Language Detection and Voice Conversion with Image Processing](https://www.semanticscholar.org/paper/1ef67eeb616c9b04ebf64bbd0423cec9e4e58280)
-**Ashutosh Marathe, Prathmesh Kalaskar, Yash Kathoke, T. Joshi et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-The paper introduces an IoT-enabled system for real-time sign language recognition and voice conversion to improve communication for people with hearing or speech impairments. Using deep learning with TensorFlow, the model accurately detects hand gestures from American and Chinese Sign Language through a standard webcam, with OpenCV handling image processing and pyttsx3 converting recognized signs into speech. An ESP32 microcontroller transmits the interpreted data over Wi-Fi and hosts a mobile-friendly web page, eliminating the need for extra hardware or dedicated apps. This low-cost, efficient solution achieves high real-time accuracy, offering both audio and visual feedback, and showcases the effective integration of AI and IoT in bridging communication gaps.
-
-</details>
-
-#### [Cross-Modal Diffusion on Pretrained Alignment Codebook for Multimodal Machine Translation](https://www.semanticscholar.org/paper/005587b60e6eb1a7df8eaa96e44c3b4f216e9c49)
-**Guojing Liu, Xiangqian Ding, Xiangyu Qu, Zhenyu Yang et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Multimodal machine translation aims to integrate auxiliary information, such as images, to enhance the quality of text translation. While existing methods deliver promising performance through various cross-modal fusion techniques, they all ignore the urgent need for decoding speed during inference, which limits their applicability in real-world scenarios. In this paper, we propose a novel multimodal diffusion translation framework called MDT, which balances performance and efficiency to generate high-quality target translation in parallel. Specifically, we design an alignment codebook with shared semantics, which facilitates efficient correlation between image and text inputs through latent alignment and multimodal alignment pretraining tasks. A cross-modal diffusion model is built on the codebook to recover latent text codewords efficiently using visual features. We also develop a Bézier noise schedule, which allows the denoising difficulty measured by KL-divergence to grow robustly with the time step. Experimental results on two datasets with five bilingual language pairs demonstrate the effectiveness of MDT over advanced methods, achieving superior inference speedup.
-
-</details>
-
-#### [A Study on the Integrated Learning Model of Business English Audio-Visual-Speaking Course in the Context of New Liberal Arts](https://www.semanticscholar.org/paper/3cbe68aff4e825c419bcf32dfda1ef78a9d237dd)
-**Xue Yan** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-: The concept of New Liberal Arts emphasizes interdisciplinary integration and the ability to respond to complex situations, providing clear direction for the reform of Business English Audio-Visual-Speaking courses. To address the disconnection between skill training and authentic contexts in traditional teaching, this study aims to construct an integrated learning model. Through theoretical reconstruction, the study elucidates how New Liberal Arts expands the paradigm of language competency. Based on the multimodal characteristics and higher-order cognitive demands of business audio-visual discourse, it demonstrates the appropriateness of integrated learning. Furthermore, the study systematically constructs a core model encompassing a multidimensional content framework, an immersive iterative process, and a competency-oriented evaluation system. It also explores implementation pathways such as the support of a digital learning ecosystem and the transformation of teacher roles. This research provides a systematic theoretical framework and practical solutions for the teaching of related courses, contributing to the cultivation of integrated communication talents who can adapt to the global business environment.
-
-</details>
-
-#### [A Reconfigurable Fuzzy-Logic Audio-Visual Fusion Implementation for Area Threat Identification](https://www.semanticscholar.org/paper/d1718bcad1c128a13e0968286935d2f37d0962b1)
-**Tanishq Srivastava, S. Bhuvana, Prathvi Shenoy, R. Ratnakumar** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-The rapidly developing threat due to misuse or mishaps from low-flying aerial vehicles in the last few years is extremely concerning. The threat may even extend beyond military and can threaten the lives of ordinary civilians in a bid to create chaos and confusion. Therefore, there is a need for a cost-effective system that can be deployed in mass at a variety of civilian and military settings. This study addresses this concern and proposes a novel, reconfigurable audio-visual area detection system using fuzzy logic-based sensor fusion, tailored for both static and mobile detection scenarios. The architecture fuses image and sound data to identify threats by integrating a YOLO11(You Only Look Once) based visual detection model with a lightweight CNN (Convolutional Neural Network) for audio classification. This detection technique leverages FPGA (Field Programmable Gate Array) based hardware for efficient real-time deployment in edge environments. The Audio-Visual (Multimodal) inputs are merged through a fuzzy inference model for better robustness, accuracy, mainly for adverse environmental, competitive, and noisy conditions. The system demonstrates over 97% accuracy on test data and maintains competitive performance on unseen datasets. The study looks into the comparison of YOLOv5 with YOLO11 and the advantage of using YOLOv5 for the deployment of CNN on Kria KV260, including limitations of using it. Furthermore, an FPGA-based fuzzy motor controller for movable drone detection shows substantial improvements in response time, energy efficiency, and adaptability over traditional PID (Proportional-Integral-Derivative) controllers. This work presents a scalable and low-power drone detection solution applicable to both defense and civilian airspace safety.
 
 </details>
 
@@ -1321,59 +765,9 @@ Audio-visual emotion recognition (AVER) often performs well under ideal conditio
 **Yan Wang, Qindong Sun, Jingpeng Zhang, Dongzhu Rong et al.** · 2026-01-01
 
 
-#### [Strategi Konten Audio Visual dalam Meningkatkan Branding: Studi Kasus Instagram @agromaritim.ipb](https://www.semanticscholar.org/paper/ee09399819356cd6a9bfa1b34c5ca457d24a1f05)
-**Fatimah Azzahra Citra Adila, A. Saleh** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-The development of digital technology has encouraged changes in improving institutional image, particularly through social media. Instagram has become an effective platform for institutional branding. This study aims to analyze the audiovisual content strategy used by the Instagram account @agromaritim.ipb and the challenges faced in strengthening its branding. This research employs a descriptive qualitative method through observation, active participation, interviews, and literature review. Primary data were obtained from internship activities at the Directorate of Agro-Maritime Community Development (DPMA IPB), while secondary data came from literature and official media. The findings show that the audiovisual content strategy is carried out through planning, production, and publication stages, following Regina Luttrell’s Circular Model of SOME (sharing, optimizing, managing, engaging), which helps enhance brand awareness and institutional image. The main challenges include limited human resources, editing equipment, and Instagram algorithm changes. Recommendations include improving team capacity, updating equipment, and conducting regular evaluations of content performance.
-
-</details>
-
 #### [Audiovisual speech enhancement and voice activity detection using generative and regressive visual features](https://www.semanticscholar.org/paper/39f39c0552dada9cc7cef73426ef4adde6a9a344)
 **Cheng Yu, Vahid Ahmadi Kalkhorani, Buye Xu, DeLiang Wang** · 2026-01-01
 
-
-#### [FPO: Fine-Grained Preference Optimization Improves Zero-Shot Text-to-Speech](https://www.semanticscholar.org/paper/e885f540c70f856444802bfb8ab44928421efe43)
-**Jixun Yao, Yuguang Yang, Yuan Feng, Yu Pan et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Integrating reinforcement learning to align generated speech with human preferences has proven effective in improving the robustness of modern text-to-speech (TTS) systems. Current approaches primarily rely on preference data annotated at the utterance level. However, frequent issues affecting the listening experience often arise only in specific segments of audio, while other segments may be well-generated and require no correction. This mismatch between coarse-grained supervision and fine-grained quality variation limits the effectiveness of preferencebased optimization. In this study, we propose a fine-grained preference optimization approach (FPO) to enhance the robustness of TTS systems. FPO shifts the optimization paradigm from global utterance-level tuning to targeted local refinement, focusing on addressing localized issues in generated samples rather than uniformly optimizing the entire utterance. We begin by analyzing the types of common generation issues and categorizing them into temporal modeling errors and semanticphonetic alignment errors, which frequently degrade intelligibility and naturalness. To tackle these problems, we introduce a selective training loss strategy that leverages fine-grained labels for each issue type, allowing the model to focus on learning signals where they are most needed. Experimental results demonstrate that FPO substantially improves the robustness of zero-shot TTS systems by effectively correcting problematic regions in the output. This leads to a significant reduction in the bad case ratio, improved intelligibility, and overall perceptual quality. Moreover, FPO exhibits strong data efficiency, achieving comparable or superior performance to baseline methods while requiring notably fewer training samples.
-
-</details>
-
-#### [Bad Designs by Good Talkers: Chatbots Failing to Architect Audio Encoders for Image Synthesis](https://www.semanticscholar.org/paper/75cb6997f85d5f2bb0b0ae230415550408935393)
-**Jorge E. León, Miguel Carrasco, Andres Alejandro Peters** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-On one hand, recent advances in chatbots have led to a rising popularity in using these models for coding tasks. On the other hand, modern generative image models primarily rely on text encoders to translate semantic concepts into visual representations, even when there is clear evidence that audio can be employed as input as well. Given the previous, in this work, we explore whether state-of-the-art conversational agents can design effective audio encoders to replace the CLIP text encoder from Stable Diffusion 1.5, enabling image synthesis directly from sound. We prompted five publicly available chatbots (namely, ChatGPT o3-mini, Claude 3.7 Sonnet, DeepSeek-R1, Gemini 2.5 Pro Preview 03-25, and Grok 3) to propose neural architectures to work as these audio encoders, with a set of well-explained shared conditions. Each valid suggested encoder was trained on over two million context-related audio–image–text observations, and evaluated on held-out validation and test sets using various metrics, together with a qualitative analysis of their generated images. Although almost all chatbots generated valid model designs, none achieved satisfactory results, indicating that their audio embeddings failed to align reliably with those of the original text encoder. Among the proposals, the Gemini audio encoder showed the best quantitative metrics, while the Grok audio encoder produced more coherent images (particularly, when paired with the text encoder). Our findings reveal a shared architectural bias across chatbots and underscore the remaining coding gap that needs to be bridged in future versions of these models. We also created a public demo so everyone could study and try out these audio encoders. Finally, we propose research questions that should be tackled in the future, and encourage other researchers to perform more focused and highly specialized tasks like this one, so the respective chatbots cannot make use of well-known solutions and their creativity/reasoning is fully put to the test.
-
-</details>
-
-#### [Automated Design for Hardware-Aware Graph Neural Networks on Edge Devices](https://www.semanticscholar.org/paper/902258426db524fe1d9b0560651af42a8752704c)
-**Xiuwen Li, Weiwei Fang, Liang Qian, Haoyuan Li et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Graph neural networks (GNNs) have demonstrated significant advantages in handling data from non-Euclidean domains. Given the successful application of neural architecture search (NAS) in designing convolutional and recurrent neural networks, this technique has also been extended to the design of GNNs to reduce the complexity of designing task-specific models. However, existing graph NAS approaches often overlook hardware-related metrics, which are crucial for deploying GNNs on resource-constrained edge devices. This paper proposes HWGNAS, a novel reinforcement learning-based framework for simultaneously optimizing hardware-dependent latency and hardware-independent accuracy for GNNs. The search space of HWGNAS builds upon existing graph NAS methods, with careful design choices and constraints specifically aimed at optimizing inference performance. To improve search efficiency, we propose two surrogate models to effectively predict the accuracy and latency of candidate GNN architectures, respectively. By extensive evaluations on representative edge devices, experimental results show that HWGNAS significantly outperforms the baselines in terms of model size (by up to 99.5%) and inference speed (by up to 73.4×), while maintaining competitive accuracy. Moreover, HWGNAS reduces search time by 16.5% to 75.3% compared to existing graph NAS solutions.
-
-</details>
-
-#### [Decision Boundary-Aware Counterfactual Learning Against Model Extraction Attacks on Graph Neural Networks](https://www.semanticscholar.org/paper/885ed8406b5d014634d636ac77feb4b5ae11a56c)
-**Xiuwen Liu, Yanjiao Chen, Shanchen Pang** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-When it comes to the marriage of graph neural networks (GNNs) and model extraction attacks, the deployment of GNNs within Machine Learning as a Service (MLaaS) through a publicly pay-per-query API has opened up new attack surfaces. Existing defenses either sacrifice prediction accuracy or fail to thwart more advanced attacks. We investigate this dilemma and discover that fortified models with complex and narrow decision regions are difficult to be reproduced. Nevertheless, complex and narrow decision boundaries are prone to violate the subspaces of neighbor classes under the intrinsic coupling property of graph structure. Furthermore, class-wise representative features within the interior of class-wise subspaces endow the attackers with the capability of functionality replication. Here, we propose a novel model extraction defense, dubbed Decision Boundary-aware Counterfactual Learning (DBCL). DBCL proactively launches counterattacks on potential model extraction attacks, from the very beginning of sensitivity measurement that implicitly detect the malicious queries, such that class-wise representative features embodied in the highly sensitive query batch trigger the demand of worsening their query results unconsciously. Moreover, DBCL draws inspiration from counterfactual learning, aiming at finding the decision boundary-aware adversarial topology perturbations for ambiguously classified query samples, i.e., hard samples, to cross the decision boundary exactly, which introduces the tractive behaviour w.r.t. the inter-connected sensitive samples for class-wise ambiguous topology features. From the graph-structured actionable insights, DBCL innovatively finds the minimum perturbation sufficient for counterfactual learning, without jeopardizing the victim model’s predictive capacity by including confidently classified query samples, i.e., easy samples including sensitive and non-sensitive samples, into their correct classes. Empirically, DBCL shows its effectiveness in reducing the extraction accuracy of the SOTA model extraction attempt with different GNN backbone encoders in evaluating node classification performance. Moreover, we show that DBCL is robust to adaptive model extraction attacks.
-
-</details>
 
 
 ### 2025
@@ -1458,16 +852,6 @@ The objective of this paper is to jointly synthesize interactive videos and conv
 
 </details>
 
-#### [In-Context Audio Control of Video Diffusion Transformers](https://arxiv.org/abs/2512.18772)
-**Wenze Liu, Weicai Ye, Minghong Cai, Quande Liu et al.** · 2025-12-21
-
-<details>
-<summary>Abstract</summary>
-
-Recent advancements in video generation have seen a shift towards unified, transformer-based foundation models that can handle multiple conditional inputs in-context. However, these models have primarily focused on modalities like text, images, and depth maps, while strictly time-synchronous signals like audio have been underexplored. This paper introduces In-Context Audio Control of video diffusion transformers (ICAC), a framework that investigates the integration of audio signals for speech-driven video generation within a unified full-attention architecture, akin to FullDiT. We systematically explore three distinct mechanisms for injecting audio conditions: standard cross-attention, 2D self-attention, and unified 3D self-attention. Our findings reveal that while 3D attention offers the highest potential for capturing spatio-temporal audio-visual correlations, it presents significant training challenges. To overcome this, we propose a Masked 3D Attention mechanism that constrains the attention pattern to enforce temporal alignment, enabling stable training and superior performance. Our experiments demonstrate that this approach achieves strong lip synchronization and video quality, conditioned on an audio stream and reference images.
-
-</details>
-
 #### [Asynchronous Pipeline Parallelism for Real-Time Multilingual Lip Synchronization in Video Communication Systems](https://arxiv.org/abs/2512.18318)
 **Eren Caglar, Amirkia Rafiei Oskooei, Mehmet Kutanoglu, Mustafa Keles et al.** · 2025-12-20
 
@@ -1475,16 +859,6 @@ Recent advancements in video generation have seen a shift towards unified, trans
 <summary>Abstract</summary>
 
 This paper introduces a parallel and asynchronous Transformer framework designed for efficient and accurate multilingual lip synchronization in real-time video conferencing systems. The proposed architecture integrates translation, speech processing, and lip-synchronization modules within a pipeline-parallel design that enables concurrent module execution through message-queue-based decoupling, reducing end-to-end latency by up to 3.1 times compared to sequential approaches. To enhance computational efficiency and throughput, the inference workflow of each module is optimized through low-level graph compilation, mixed-precision quantization, and hardware-accelerated kernel fusion. These optimizations provide substantial gains in efficiency while preserving model accuracy and visual quality. In addition, a context-adaptive silence-detection component segments the input speech stream at semantically coherent boundaries, improving translation consistency and temporal alignment across languages. Experimental results demonstrate that the proposed parallel architecture outperforms conventional sequential pipelines in processing speed, synchronization stability, and resource utilization. The modular, message-oriented design makes this work applicable to resource-constrained IoT communication scenarios including telemedicine, multilingual kiosks, and remote assistance systems. Overall, this work advances the development of low-latency, resource-efficient multimodal communication frameworks for next-generation AIoT systems.
-
-</details>
-
-#### [MACE-Dance: Motion-Appearance Cascaded Experts for Music-Driven Dance Video Generation](https://arxiv.org/abs/2512.18181)
-**Kaixing Yang, Jiashu Zhu, Xulong Tang, Ziqiao Peng et al.** · 2025-12-20
-
-<details>
-<summary>Abstract</summary>
-
-With the rise of online dance-video platforms and rapid advances in AI-generated content (AIGC), music-driven dance generation has emerged as a compelling research direction. Despite substantial progress in related domains such as music-driven 3D dance generation, pose-driven image animation, and audio-driven talking-head synthesis, existing methods cannot be directly adapted to this task. Moreover, the limited studies in this area still struggle to jointly achieve high-quality visual appearance and realistic human motion. Accordingly, we present MACE-Dance, a music-driven dance video generation framework with cascaded Mixture-of-Experts (MoE). The Motion Expert performs music-to-3D motion generation while enforcing kinematic plausibility and artistic expressiveness, whereas the Appearance Expert carries out motion- and reference-conditioned video synthesis, preserving visual identity with spatiotemporal coherence. Specifically, the Motion Expert adopts a diffusion model with a BiMamba-Transformer hybrid architecture and a Guidance-Free Training (GFT) strategy, achieving state-of-the-art (SOTA) performance in 3D dance generation. The Appearance Expert employs a decoupled kinematic-aesthetic fine-tuning strategy, achieving state-of-the-art (SOTA) performance in pose-driven image animation. To better benchmark this task, we curate a large-scale and diverse dataset and design a motion-appearance evaluation protocol. Based on this protocol, MACE-Dance also achieves state-of-the-art performance. Project page: https://macedance.github.io/
 
 </details>
 
@@ -1665,16 +1039,6 @@ We propose Dimitra++, a novel framework for audio-driven talking head generation
 <summary>Abstract</summary>
 
 With the rapid advancement of sophisticated synthetic audio-visual content, e.g., for subtle malicious manipulations, ensuring the integrity of digital media has become paramount. This work presents a novel approach to temporal localization of deepfakes by leveraging Audio-Visual Speech Representation Reconstruction (AuViRe). Specifically, our approach reconstructs speech representations from one modality (e.g., lip movements) based on the other (e.g., audio waveform). Cross-modal reconstruction is significantly more challenging in manipulated video segments, leading to amplified discrepancies, thereby providing robust discriminative cues for precise temporal forgery localization. AuViRe outperforms the state of the art by +8.9 AP@0.95 on LAV-DF, +9.6 AP@0.5 on AV-Deepfake1M, and +5.1 AUC on an in-the-wild experiment. Code available at https://github.com/mever-team/auvire.
-
-</details>
-
-#### [A superpersuasive autonomous policy debating system](https://arxiv.org/abs/2511.17854)
-**Allen Roush, Devin Gonier, John Hines, Judah Goldfeder et al.** · 2025-11-22
-
-<details>
-<summary>Abstract</summary>
-
-The capacity for highly complex, evidence-based, and strategically adaptive persuasion remains a formidable great challenge for artificial intelligence. Previous work, like IBM Project Debater, focused on generating persuasive speeches in simplified and shortened debate formats intended for relatively lay audiences. We introduce DeepDebater, a novel autonomous system capable of participating in and winning a full, unmodified, two-team competitive policy debate. Our system employs a hierarchical architecture of specialized multi-agent workflows, where teams of LLM-powered agents collaborate and critique one another to perform discrete argumentative tasks. Each workflow utilizes iterative retrieval, synthesis, and self-correction using a massive corpus of policy debate evidence (OpenDebateEvidence) and produces complete speech transcripts, cross-examinations, and rebuttals. We introduce a live, interactive end-to-end presentation pipeline that renders debates with AI speech and animation: transcripts are surface-realized and synthesized to audio with OpenAI TTS, and then displayed as talking-head portrait videos with EchoMimic V1. Beyond fully autonomous matches (AI vs AI), DeepDebater supports hybrid human-AI operation: human debaters can intervene at any stage, and humans can optionally serve as opponents against AI in any speech, allowing AI-human and AI-AI rounds. In preliminary evaluations against human-authored cases, DeepDebater produces qualitatively superior argumentative components and consistently wins simulated rounds as adjudicated by an independent autonomous judge. Expert human debate coaches also prefer the arguments, evidence, and cases constructed by DeepDebater. We open source all code, generated speech transcripts, audio and talking head video here: https://github.com/Hellisotherpeople/DeepDebater/tree/main
 
 </details>
 
@@ -1898,16 +1262,6 @@ Speech-driven talking face synthesis (TFS) focuses on generating lifelike facial
 
 </details>
 
-#### [Paper2Video: Automatic Video Generation from Scientific Papers](https://arxiv.org/abs/2510.05096)
-**Zeyu Zhu, Kevin Qinghong Lin, Mike Zheng Shou** · 2025-10-06
-
-<details>
-<summary>Abstract</summary>
-
-Academic presentation videos have become an essential medium for research communication, yet producing them remains highly labor-intensive, often requiring hours of slide design, recording, and editing for a short 2 to 10 minutes video. Unlike natural video, presentation video generation involves distinctive challenges: inputs from research papers, dense multi-modal information (text, figures, tables), and the need to coordinate multiple aligned channels such as slides, subtitles, speech, and human talker. To address these challenges, we introduce Paper2Video, the first benchmark of 101 research papers paired with author-created presentation videos, slides, and speaker metadata. We further design four tailored evaluation metrics--Meta Similarity, PresentArena, PresentQuiz, and IP Memory--to measure how videos convey the paper's information to the audience. Building on this foundation, we propose PaperTalker, the first multi-agent framework for academic presentation video generation. It integrates slide generation with effective layout refinement by a novel effective tree search visual choice, cursor grounding, subtitling, speech synthesis, and talking-head rendering, while parallelizing slide-wise generation for efficiency. Experiments on Paper2Video demonstrate that the presentation videos produced by our approach are more faithful and informative than existing baselines, establishing a practical step toward automated and ready-to-use academic video generation. Our dataset, agent, and code are available at https://github.com/showlab/Paper2Video.
-
-</details>
-
 #### [AUREXA-SE: Audio-Visual Unified Representation Exchange Architecture with Cross-Attention and Squeezeformer for Speech Enhancement](https://arxiv.org/abs/2510.05295)
 **M. Sajid, Deepanshu Gupta, Yash Modi, Sanskriti Jain et al.** · 2025-10-06
 
@@ -1998,16 +1352,6 @@ Audio-driven talking face generation has received growing interest, particularly
 
 </details>
 
-#### [Comparative Study of Subjective Video Quality Assessment Test Methods in Crowdsourcing for Varied Use Cases](https://arxiv.org/abs/2509.20118)
-**Babak Naderi, Ross Cutler** · 2025-09-24
-
-<details>
-<summary>Abstract</summary>
-
-In crowdsourced subjective video quality assessment, practitioners often face a choice between Absolute Category Rating (ACR), ACR with Hidden Reference (ACR-HR), and Comparison Category Rating (CCR). We conducted a P.910-compliant, side-by-side comparison across six studies using 15 talking-head sources of good and fair quality, processed with realistic degradations (blur, scaling, compression, freezing, and their combinations), as well as a practical bitrate-ladder task at 720p and 1080p resolutions. We evaluated statistical efficiency (standard deviations), economic efficiency, and decision agreement. Our results show that ACR-HR and ACR correlate strongly at the condition level, while CCR is more sensitive-capturing improvements beyond the reference. ACR-HR, however, exhibits compressed scale use, particularly for videos with fair source quality. ACR-HR is approximately twice as fast and cost-effective, with lower normalized variability, yet the choice of quality measurement method shifts saturation points and bitrate-ladder recommendations. Finally, we provide practical guidance on when to use each test method.
-
-</details>
-
 #### [Audio-Driven Universal Gaussian Head Avatars](https://arxiv.org/abs/2509.18924)
 **Kartik Teotia, Helge Rhodin, Mohit Mendiratta, Hyeongwoo Kim et al.** · 2025-09-23
 
@@ -2075,16 +1419,6 @@ Talking-head animation focuses on generating realistic facial videos from audio 
 <summary>Abstract</summary>
 
 Recent advances in audio-driven avatar video generation have significantly enhanced audio-visual realism. However, existing methods treat instruction conditioning merely as low-level tracking driven by acoustic or visual cues, without modeling the communicative purpose conveyed by the instructions. This limitation compromises their narrative coherence and character expressiveness. To bridge this gap, we introduce Kling-Avatar, a novel cascaded framework that unifies multimodal instruction understanding with photorealistic portrait generation. Our approach adopts a two-stage pipeline. In the first stage, we design a multimodal large language model (MLLM) director that produces a blueprint video conditioned on diverse instruction signals, thereby governing high-level semantics such as character motion and emotions. In the second stage, guided by blueprint keyframes, we generate multiple sub-clips in parallel using a first-last frame strategy. This global-to-local framework preserves fine-grained details while faithfully encoding the high-level intent behind multimodal instructions. Our parallel architecture also enables fast and stable generation of long-duration videos, making it suitable for real-world applications such as digital human livestreaming and vlogging. To comprehensively evaluate our method, we construct a benchmark of 375 curated samples covering diverse instructions and challenging scenarios. Extensive experiments demonstrate that Kling-Avatar is capable of generating vivid, fluent, long-duration videos at up to 1080p and 48 fps, achieving superior performance in lip synchronization accuracy, emotion and dynamic expressiveness, instruction controllability, identity preservation, and cross-domain generalization. These results establish Kling-Avatar as a new benchmark for semantically grounded, high-fidelity audio-driven avatar synthesis.
-
-</details>
-
-#### [Bitrate-Controlled Diffusion for Disentangling Motion and Content in Video](https://arxiv.org/abs/2509.08376)
-**Xiao Li, Qi Chen, Xiulian Peng, Kai Yu et al.** · 2025-09-10
-
-<details>
-<summary>Abstract</summary>
-
-We propose a novel and general framework to disentangle video data into its dynamic motion and static content components. Our proposed method is a self-supervised pipeline with less assumptions and inductive biases than previous works: it utilizes a transformer-based architecture to jointly generate flexible implicit features for frame-wise motion and clip-wise content, and incorporates a low-bitrate vector quantization as an information bottleneck to promote disentanglement and form a meaningful discrete motion space. The bitrate-controlled latent motion and content are used as conditional inputs to a denoising diffusion model to facilitate self-supervised representation learning. We validate our disentangled representation learning framework on real-world talking head videos with motion transfer and auto-regressive motion generation tasks. Furthermore, we also show that our method can generalize to other types of video data, such as pixel sprites of 2D cartoon characters. Our work presents a new perspective on self-supervised learning of disentangled video representations, contributing to the broader field of video analysis and generation.
 
 </details>
 
@@ -2205,16 +1539,6 @@ Achieving disentangled control over multiple facial motions and accommodating di
 <summary>Abstract</summary>
 
 Recent Mamba-based models have shown promise in speech enhancement by efficiently modeling long-range temporal dependencies. However, models like Speech Enhancement Mamba (SEMamba) remain limited to single-speaker scenarios and struggle in complex multi-speaker environments such as the cocktail party problem. To overcome this, we introduce AVSEMamba, an audio-visual speech enhancement model that integrates full-face visual cues with a Mamba-based temporal backbone. By leveraging spatiotemporal visual information, AVSEMamba enables more accurate extraction of target speech in challenging conditions. Evaluated on the AVSEC-4 Challenge development and blind test sets, AVSEMamba outperforms other monaural baselines in speech intelligibility (STOI), perceptual quality (PESQ), and non-intrusive quality (UTMOS), and achieves \textbf{1st place} on the monaural leaderboard.
-
-</details>
-
-#### [End-to-end audio-visual learning for cochlear implant sound coding simulations in noisy environments](https://arxiv.org/abs/2508.13576)
-**Meng-Ping Lin, Enoch Hsin-Ho Huang, Shao-Yi Chien, Yu Tsao** · 2025-08-19
-
-<details>
-<summary>Abstract</summary>
-
-The cochlear implant (CI) is a successful biomedical device that enables individuals with severe-to-profound hearing loss to perceive sound through electrical stimulation, yet listening in noise remains challenging. Recent deep learning advances offer promising potential for CI sound coding by integrating visual cues. In this study, an audio-visual speech enhancement (AVSE) module is integrated with the ElectrodeNet-CS (ECS) model to form the end-to-end CI system, AVSE-ECS. Simulations show that the AVSE-ECS system with joint training achieves high objective speech intelligibility and improves the signal-to-error ratio (SER) by 7.4666 dB compared to the advanced combination encoder (ACE) strategy. These findings underscore the potential of AVSE-based CI sound coding.
 
 </details>
 
@@ -2418,16 +1742,6 @@ Audio-Driven Talking Face Generation aims at generating realistic videos of talk
 
 </details>
 
-#### [MagicAnime: A Hierarchically Annotated, Multimodal and Multitasking Dataset with Benchmarks for Cartoon Animation Generation](https://arxiv.org/abs/2507.20368)
-**Shuolin Xu, Bingyuan Wang, Zeyu Cai, Fangteng Fu et al.** · 2025-07-27
-
-<details>
-<summary>Abstract</summary>
-
-Generating high-quality cartoon animations multimodal control is challenging due to the complexity of non-human characters, stylistically diverse motions and fine-grained emotions. There is a huge domain gap between real-world videos and cartoon animation, as cartoon animation is usually abstract and has exaggerated motion. Meanwhile, public multimodal cartoon data are extremely scarce due to the difficulty of large-scale automatic annotation processes compared with real-life scenarios. To bridge this gap, We propose the MagicAnime dataset, a large-scale, hierarchically annotated, and multimodal dataset designed to support multiple video generation tasks, along with the benchmarks it includes. Containing 400k video clips for image-to-video generation, 50k pairs of video clips and keypoints for whole-body annotation, 12k pairs of video clips for video-to-video face animation, and 2.9k pairs of video and audio clips for audio-driven face animation. Meanwhile, we also build a set of multi-modal cartoon animation benchmarks, called MagicAnime-Bench, to support the comparisons of different methods in the tasks above. Comprehensive experiments on four tasks, including video-driven face animation, audio-driven face animation, image-to-video animation, and pose-driven character animation, validate its effectiveness in supporting high-fidelity, fine-grained, and controllable generation.
-
-</details>
-
 #### [Face2VoiceSync: Lightweight Face-Voice Consistency for Text-Driven Talking Face Generation](https://arxiv.org/abs/2507.19225)
 **Fang Kang, Yin Cao, Haoyu Chen** · 2025-07-25
 
@@ -2615,16 +1929,6 @@ Audio-driven portrait animation, which synthesizes realistic videos from referen
 <summary>Abstract</summary>
 
 Reconstruction and rendering-based talking head synthesis methods achieve high-quality results with strong identity preservation but are limited by their dependence on identity-specific models. Each new identity requires training from scratch, incurring high computational costs and reduced scalability compared to generative model-based approaches. To overcome this limitation, we propose FIAG, a novel 3D speaking head synthesis framework that enables efficient identity-specific adaptation using only a few training footage. FIAG incorporates Global Gaussian Field, which supports the representation of multiple identities within a shared field, and Universal Motion Field, which captures the common motion dynamics across diverse identities. Benefiting from the shared facial structure information encoded in the Global Gaussian Field and the general motion priors learned in the motion field, our framework enables rapid adaptation from canonical identity representations to specific ones with minimal data. Extensive comparative and ablation experiments demonstrate that our method outperforms existing state-of-the-art approaches, validating both the effectiveness and generalizability of the proposed framework. Code is available at: \textit{https://github.com/gme-hong/FIAG}.
-
-</details>
-
-#### [RiverEcho: Real-Time Interactive Digital System for Ancient Yellow River Culture](https://arxiv.org/abs/2506.21865)
-**Haofeng Wang, Yilin Guo, Zehao Li, Tong Yue et al.** · 2025-06-27
-
-<details>
-<summary>Abstract</summary>
-
-The Yellow River is China's mother river and a cradle of human civilization. The ancient Yellow River culture is, moreover, an indispensable part of human art history. To conserve and inherit the ancient Yellow River culture, we designed RiverEcho, a real-time interactive system that responds to voice queries using a large language model and a cultural knowledge dataset, delivering explanations through a talking-head digital human. Specifically, we built a knowledge database focused on the ancient Yellow River culture, including the collection of historical texts and the processing pipeline. Experimental results demonstrate that leveraging Retrieval-Augmented Generation (RAG) on the proposed dataset enhances the response quality of the Large Language Model(LLM), enabling the system to generate more professional and informative responses. Our work not only diversifies the means of promoting Yellow River culture but also provides users with deeper cultural insights.
 
 </details>
 
@@ -2898,16 +2202,6 @@ Humans naturally understand moments in a video by integrating visual and auditor
 
 </details>
 
-#### [VTutor: An Animated Pedagogical Agent SDK that Provide Real Time Multi-Model Feedback](https://arxiv.org/abs/2505.06676)
-**Eason Chen, Chenyu Lin, Yu-Kai Huang, Xinyi Tang et al.** · 2025-05-10
-
-<details>
-<summary>Abstract</summary>
-
-Pedagogical Agents (PAs) show significant potential for boosting student engagement and learning outcomes by providing adaptive, on-demand support in educational contexts. However, existing PA solutions are often hampered by pre-scripted dialogue, unnatural animations, uncanny visual realism, and high development costs. To address these gaps, we introduce VTutor, an open-source SDK leveraging lightweight WebGL, Unity, and JavaScript frameworks. VTutor receives text outputs from a large language model (LLM), converts them into audio via text-to-speech, and then renders a real-time, lip-synced pedagogical agent (PA) for immediate, large-scale deployment on web-based learning platforms. By providing on-demand, personalized feedback, VTutor strengthens students' motivation and deepens their engagement with instructional material. Using an anime-like aesthetic, VTutor alleviates the uncanny valley effect, allowing learners to engage with expressive yet comfortably stylized characters. Our evaluation with 50 participants revealed that VTutor significantly outperforms the existing talking-head approaches (e.g., SadTalker) on perceived synchronization accuracy, naturalness, emotional expressiveness, and overall preference. As an open-source project, VTutor welcomes community-driven contributions - from novel character designs to specialized showcases of pedagogical agent applications - that fuel ongoing innovation in AI-enhanced education. By providing an accessible, customizable, and learner-centered PA solution, VTutor aims to elevate human-AI interaction experience in education fields, ultimately broadening the impact of AI in learning contexts. The demo link to VTutor is at https://vtutor-aied25.vercel.app.
-
-</details>
-
 #### [OXSeg: Multidimensional attention UNet-based lip segmentation using semi-supervised lip contours](https://arxiv.org/abs/2505.05531)
 **Hanie Moghaddasi, Christina Chambers, Sarah N. Mattson, Jeffrey R. Wozniak et al.** · 2025-05-08
 
@@ -3035,16 +2329,6 @@ Recent talking head synthesis works typically adopt speech features extracted fr
 <summary>Abstract</summary>
 
 Speech-preserving facial expression manipulation (SPFEM) aims to modify a talking head to display a specific reference emotion while preserving the mouth animation of source spoken contents. Thus, emotion and content information existing in reference and source inputs can provide direct and accurate supervision signals for SPFEM models. However, the intrinsic intertwining of these elements during the talking process poses challenges to their effectiveness as supervisory signals. In this work, we propose to learn content and emotion priors as guidance augmented with contrastive learning to learn decoupled content and emotion representation via an innovative Contrastive Decoupled Representation Learning (CDRL) algorithm. Specifically, a Contrastive Content Representation Learning (CCRL) module is designed to learn audio feature, which primarily contains content information, as content priors to guide learning content representation from the source input. Meanwhile, a Contrastive Emotion Representation Learning (CERL) module is proposed to make use of a pre-trained visual-language model to learn emotion prior, which is then used to guide learning emotion representation from the reference input. We further introduce emotion-aware and emotion-augmented contrastive learning to train CCRL and CERL modules, respectively, ensuring learning emotion-independent content representation and content-independent emotion representation. During SPFEM model training, the decoupled content and emotion representations are used to supervise the generation process, ensuring more accurate emotion manipulation together with audio-lip synchronization. Extensive experiments and evaluations on various benchmarks show the effectiveness of the proposed algorithm.
-
-</details>
-
-#### [VideoSPatS: Video SPatiotemporal Splines for Disentangled Occlusion, Appearance and Motion Modeling and Editing](https://arxiv.org/abs/2504.07146)
-**Juan Luis Gonzalez Bello, Xu Yao, Alex Whelan, Kyle Olszewski et al.** · 2025-04-08
-
-<details>
-<summary>Abstract</summary>
-
-We present an implicit video representation for occlusions, appearance, and motion disentanglement from monocular videos, which we call Video SPatiotemporal Splines (VideoSPatS). Unlike previous methods that map time and coordinates to deformation and canonical colors, our VideoSPatS maps input coordinates into Spatial and Color Spline deformation fields $D_s$ and $D_c$, which disentangle motion and appearance in videos. With spline-based parametrization, our method naturally generates temporally consistent flow and guarantees long-term temporal consistency, which is crucial for convincing video editing. Using multiple prediction branches, our VideoSPatS model also performs layer separation between the latent video and the selected occluder. By disentangling occlusions, appearance, and motion, our method enables better spatiotemporal modeling and editing of diverse videos, including in-the-wild talking head videos with challenging occlusions, shadows, and specularities while maintaining an appropriate canonical space for editing. We also present general video modeling results on the DAVIS and CoDeF datasets, as well as our own talking head video dataset collected from open-source web videos. Extensive ablations show the combination of $D_s$ and $D_c$ under neural splines can overcome motion and appearance ambiguities, paving the way for more advanced video editing models.
 
 </details>
 
@@ -3238,16 +2522,6 @@ Real-time speech-driven 3D facial animation has been attractive in academia and 
 
 </details>
 
-#### [Re-HOLD: Video Hand Object Interaction Reenactment via adaptive Layout-instructed Diffusion Model](https://arxiv.org/abs/2503.16942)
-**Yingying Fan, Quanwei Yang, Kaisiyuan Wang, Hang Zhou et al.** · 2025-03-21
-
-<details>
-<summary>Abstract</summary>
-
-Current digital human studies focusing on lip-syncing and body movement are no longer sufficient to meet the growing industrial demand, while human video generation techniques that support interacting with real-world environments (e.g., objects) have not been well investigated. Despite human hand synthesis already being an intricate problem, generating objects in contact with hands and their interactions presents an even more challenging task, especially when the objects exhibit obvious variations in size and shape. To tackle these issues, we present a novel video Reenactment framework focusing on Human-Object Interaction (HOI) via an adaptive Layout-instructed Diffusion model (Re-HOLD). Our key insight is to employ specialized layout representation for hands and objects, respectively. Such representations enable effective disentanglement of hand modeling and object adaptation to diverse motion sequences. To further improve the generation quality of HOI, we design an interactive textural enhancement module for both hands and objects by introducing two independent memory banks. We also propose a layout adjustment strategy for the cross-object reenactment scenario to adaptively adjust unreasonable layouts caused by diverse object sizes during inference. Comprehensive qualitative and quantitative evaluations demonstrate that our proposed framework significantly outperforms existing methods. Project page: https://fyycs.github.io/Re-HOLD.
-
-</details>
-
 #### [From Faces to Voices: Learning Hierarchical Representations for High-quality Video-to-Speech](https://arxiv.org/abs/2503.16956)
 **Ji-Hoon Kim, Jeongsoo Choi, Jaehun Kim, Chaeyoung Jung et al.** · 2025-03-21
 
@@ -3378,16 +2652,6 @@ Current audio-driven facial animation methods achieve impressive results for sho
 
 </details>
 
-#### [Two-Stream Spatial-Temporal Transformer Framework for Person Identification via Natural Conversational Keypoints](https://arxiv.org/abs/2502.20803)
-**Masoumeh Chapariniya, Hossein Ranjbar, Teodora Vukovic, Sarah Ebling et al.** · 2025-02-28
-
-<details>
-<summary>Abstract</summary>
-
-In the age of AI-driven generative technologies, traditional biometric recognition systems face unprecedented challenges, particularly from sophisticated deepfake and face reenactment techniques. In this study, we propose a Two-Stream Spatial-Temporal Transformer Framework for person identification using upper body keypoints visible during online conversations, which we term conversational keypoints. Our framework processes both spatial relationships between keypoints and their temporal evolution through two specialized branches: a Spatial Transformer (STR) that learns distinctive structural patterns in keypoint configurations, and a Temporal Transformer (TTR) that captures sequential motion patterns. Using the state-of-the-art Sapiens pose estimator, we extract 133 keypoints (based on COCO-WholeBody format) representing facial features, head pose, and hand positions. The framework was evaluated on a dataset of 114 individuals engaged in natural conversations, achieving recognition accuracies of 80.12% for the spatial stream, 63.61% for the temporal stream. We then explored two fusion strategies: a shared loss function approach achieving 82.22% accuracy, and a feature-level fusion method that concatenates feature maps from both streams, significantly improving performance to 94.86%. By jointly modeling both static anatomical relationships and dynamic movement patterns, our approach learns comprehensive identity signatures that are more robust to spoofing than traditional appearance-based methods.
-
-</details>
-
 #### [ARTalk: Speech-Driven 3D Head Animation via Autoregressive Model](https://arxiv.org/abs/2502.20323)
 **Xuangeng Chu, Nabarun Goswami, Ziteng Cui, Hanqin Wang et al.** · 2025-02-27
 
@@ -3478,16 +2742,6 @@ Empathetic Response Generation (ERG) is one of the key tasks of the affective co
 
 </details>
 
-#### [VTutor: An Open-Source SDK for Generative AI-Powered Animated Pedagogical Agents with Multi-Media Output](https://arxiv.org/abs/2502.04103)
-**Eason Chen, Chenyu Lin, Xinyi Tang, Aprille Xi et al.** · 2025-02-06
-
-<details>
-<summary>Abstract</summary>
-
-The rapid evolution of large language models (LLMs) has transformed human-computer interaction (HCI), but the interaction with LLMs is currently mainly focused on text-based interactions, while other multi-model approaches remain under-explored. This paper introduces VTutor, an open-source Software Development Kit (SDK) that combines generative AI with advanced animation technologies to create engaging, adaptable, and realistic APAs for human-AI multi-media interactions. VTutor leverages LLMs for real-time personalized feedback, advanced lip synchronization for natural speech alignment, and WebGL rendering for seamless web integration. Supporting various 2D and 3D character models, VTutor enables researchers and developers to design emotionally resonant, contextually adaptive learning agents. This toolkit enhances learner engagement, feedback receptivity, and human-AI interaction while promoting trustworthy AI principles in education. VTutor sets a new standard for next-generation APAs, offering an accessible, scalable solution for fostering meaningful and immersive human-AI interaction experiences. The VTutor project is open-sourced and welcomes community-driven contributions and showcases.
-
-</details>
-
 #### [EmoTalkingGaussian: Continuous Emotion-conditioned Talking Head Synthesis](https://arxiv.org/abs/2502.00654)
 **Junuk Cha, Seongro Yoon, Valeriya Strizhkova, Francois Bremond et al.** · 2025-02-02
 
@@ -3548,26 +2802,6 @@ In this paper, we propose a novel audio-driven talking head method capable of si
 
 </details>
 
-#### [Neural Speech Tracking in a Virtual Acoustic Environment: Audio-Visual Benefit for Unscripted Continuous Speech](https://arxiv.org/abs/2501.08124)
-**Mareike Daeglau, Juergen Otten, Giso Grimm, Bojana Mirkovic et al.** · 2025-01-14
-
-<details>
-<summary>Abstract</summary>
-
-The audio visual benefit in speech perception, where congruent visual input enhances auditory processing, is well documented across age groups, particularly in challenging listening conditions and among individuals with varying hearing abilities. However, most studies rely on highly controlled laboratory environments with scripted stimuli. Here, we examine the audio visual benefit using unscripted, natural speech from untrained speakers within a virtual acoustic environment. Using electroencephalography (EEG) and cortical speech tracking, we assessed neural responses across audio visual, audio only, visual only, and masked lip conditions to isolate the role of lip movements. Additionally, we analysed individual differences in acoustic and visual features of the speakers, including pitch, jitter, and lip openness, to explore their influence on the audio visual speech tracking benefit. Results showed a significant audio visual enhancement in speech tracking with background noise, with the masked lip condition performing similarly to the audio-only condition, emphasizing the importance of lip movements in adverse listening situations. Our findings reveal the feasibility of cortical speech tracking with naturalistic stimuli and underscore the impact of individual speaker characteristics on audio-visual integration in real world listening contexts.
-
-</details>
-
-#### [Towards Dynamic Neural Communication and Speech Neuroprosthesis Based on Viseme Decoding](https://arxiv.org/abs/2501.14790)
-**Ji-Ha Park, Seo-Hyun Lee, Soowon Kim, Seong-Whan Lee** · 2025-01-09
-
-<details>
-<summary>Abstract</summary>
-
-Decoding text, speech, or images from human neural signals holds promising potential both as neuroprosthesis for patients and as innovative communication tools for general users. Although neural signals contain various information on speech intentions, movements, and phonetic details, generating informative outputs from them remains challenging, with mostly focusing on decoding short intentions or producing fragmented outputs. In this study, we developed a diffusion model-based framework to decode visual speech intentions from speech-related non-invasive brain signals, to facilitate face-to-face neural communication. We designed an experiment to consolidate various phonemes to train visemes of each phoneme, aiming to learn the representation of corresponding lip formations from neural signals. By decoding visemes from both isolated trials and continuous sentences, we successfully reconstructed coherent lip movements, effectively bridging the gap between brain signals and dynamic visual interfaces. The results highlight the potential of viseme decoding and talking face reconstruction from human neural signals, marking a significant step toward dynamic neural communication systems and speech neuroprosthesis for patients.
-
-</details>
-
 #### [Identity-Preserving Video Dubbing Using Motion Warping](https://arxiv.org/abs/2501.04586)
 **Runzhen Liu, Qinjie Lin, Yunfei Liu, Lijian Lin et al.** · 2025-01-08
 
@@ -3588,16 +2822,6 @@ This paper reviews the state-of-the-art in deepfake generation and detection, fo
 
 </details>
 
-#### [RDD4D: 4D Attention-Guided Road Damage Detection And Classification](https://arxiv.org/abs/2501.02822)
-**Asma Alkalbani, Muhammad Saqib, Ahmed Salim Alrawahi, Abbas Anwar et al.** · 2025-01-06
-
-<details>
-<summary>Abstract</summary>
-
-Road damage detection and assessment are crucial components of infrastructure maintenance. However, current methods often struggle with detecting multiple types of road damage in a single image, particularly at varying scales. This is due to the lack of road datasets with various damage types having varying scales. To overcome this deficiency, first, we present a novel dataset called Diverse Road Damage Dataset (DRDD) for road damage detection that captures the diverse road damage types in individual images, addressing a crucial gap in existing datasets. Then, we provide our model, RDD4D, that exploits Attention4D blocks, enabling better feature refinement across multiple scales. The Attention4D module processes feature maps through an attention mechanism combining positional encoding and "Talking Head" components to capture local and global contextual information. In our comprehensive experimental analysis comparing various state-of-the-art models on our proposed, our enhanced model demonstrated superior performance in detecting large-sized road cracks with an Average Precision (AP) of 0.458 and maintained competitive performance with an overall AP of 0.445. Moreover, we also provide results on the CrackTinyNet dataset; our model achieved around a 0.21 increase in performance. The code, model weights, dataset, and our results are available on \href{https://github.com/msaqib17/Road_Damage_Detection}{https://github.com/msaqib17/Road\_Damage\_Detection}.
-
-</details>
-
 #### [MoEE: Mixture of Emotion Experts for Audio-Driven Portrait Animation](https://arxiv.org/abs/2501.01808)
 **Huaize Liu, Wenzhang Sun, Donglin Di, Shibo Sun et al.** · 2025-01-03
 
@@ -3615,16 +2839,6 @@ The generation of talking avatars has achieved significant advancements in preci
 <summary>Abstract</summary>
 
 Significant progress has been made in talking-face video generation research; however, precise lip-audio synchronization and high visual quality remain challenging in editing lip shapes based on input audio. This paper introduces JoyGen, a novel two-stage framework for talking-face generation, comprising audio-driven lip motion generation and visual appearance synthesis. In the first stage, a 3D reconstruction model and an audio2motion model predict identity and expression coefficients respectively. Next, by integrating audio features with a facial depth map, we provide comprehensive supervision for precise lip-audio synchronization in facial generation. Additionally, we constructed a Chinese talking-face dataset containing 130 hours of high-quality video. JoyGen is trained on the open-source HDTF dataset and our curated dataset. Experimental results demonstrate superior lip-audio synchronization and visual quality achieved by our method.
-
-</details>
-
-#### [VideoAnydoor: High-fidelity Video Object Insertion with Precise Motion Control](https://arxiv.org/abs/2501.01427)
-**Yuanpeng Tu, Hao Luo, Xi Chen, Sihui Ji et al.** · 2025-01-02
-
-<details>
-<summary>Abstract</summary>
-
-Despite significant advancements in video generation, inserting a given object into videos remains a challenging task. The difficulty lies in preserving the appearance details of the reference object and accurately modeling coherent motions at the same time. In this paper, we propose VideoAnydoor, a zero-shot video object insertion framework with high-fidelity detail preservation and precise motion control. Starting from a text-to-video model, we utilize an ID extractor to inject the global identity and leverage a box sequence to control the overall motion. To preserve the detailed appearance and meanwhile support fine-grained motion control, we design a pixel warper. It takes the reference image with arbitrary key-points and the corresponding key-point trajectories as inputs. It warps the pixel details according to the trajectories and fuses the warped features with the diffusion U-Net, thus improving detail preservation and supporting users in manipulating the motion trajectories. In addition, we propose a training strategy involving both videos and static images with a weighted loss to enhance insertion quality. VideoAnydoor demonstrates significant superiority over existing methods and naturally supports various downstream applications (e.g., talking head generation, video virtual try-on, multi-region editing) without task-specific fine-tuning.
 
 </details>
 
@@ -3991,16 +3205,6 @@ In this paper, we propose a novel Multi-granularity Temporal Trajectory Factoriz
 
 </details>
 
-#### [Tokenizing Motion: A Generative Approach for Scene Dynamics Compression](https://arxiv.org/abs/2410.09768)
-**Shanzhi Yin, Zihan Zhang, Bolin Chen, Shiqi Wang et al.** · 2024-10-13
-
-<details>
-<summary>Abstract</summary>
-
-This paper proposes a novel generative video compression framework that leverages motion pattern priors, derived from subtle dynamics in common scenes (e.g., swaying flowers or a boat drifting on water), rather than relying on video content priors (e.g., talking faces or human bodies). These compact motion priors enable a new approach to ultra-low bitrate communication while achieving high-quality reconstruction across diverse scene contents. At the encoder side, motion priors can be streamlined into compact representations via a dense-to-sparse transformation. At the decoder side, these priors facilitate the reconstruction of scene dynamics using an advanced flow-driven diffusion model. Experimental results illustrate that the proposed method can achieve superior rate-distortion-performance and outperform the state-of-the-art conventional-video codec Enhanced Compression Model (ECM) on-scene dynamics sequences. The project page can be found at-https://github.com/xyzysz/GNVDC.
-
-</details>
-
 #### [MMHead: Towards Fine-grained Multi-modal 3D Facial Animation](https://arxiv.org/abs/2410.07757)
 **Sijing Wu, Yunhao Li, Yichao Yan, Huiyu Duan et al.** · 2024-10-10
 
@@ -4241,16 +3445,6 @@ Animating human face images aims to synthesize a desired source identity in a na
 
 </details>
 
-#### [AutoDirector: Online Auto-scheduling Agents for Multi-sensory Composition](https://arxiv.org/abs/2408.11564)
-**Minheng Ni, Chenfei Wu, Huaying Yuan, Zhengyuan Yang et al.** · 2024-08-21
-
-<details>
-<summary>Abstract</summary>
-
-With the advancement of generative models, the synthesis of different sensory elements such as music, visuals, and speech has achieved significant realism. However, the approach to generate multi-sensory outputs has not been fully explored, limiting the application on high-value scenarios such as of directing a film. Developing a movie director agent faces two major challenges: (1) Lack of parallelism and online scheduling with production steps: In the production of multi-sensory films, there are complex dependencies between different sensory elements, and the production time for each element varies. (2) Diverse needs and clear communication demands with users: Users often cannot clearly express their needs until they see a draft, which requires human-computer interaction and iteration to continually adjust and optimize the film content based on user feedback. To address these issues, we introduce AutoDirector, an interactive multi-sensory composition framework that supports long shots, special effects, music scoring, dubbing, and lip-syncing. This framework improves the efficiency of multi-sensory film production through automatic scheduling and supports the modification and improvement of interactive tasks to meet user needs. AutoDirector not only expands the application scope of human-machine collaboration but also demonstrates the potential of AI in collaborating with humans in the role of a film director to complete multi-sensory films.
-
-</details>
-
 #### [EmoFace: Emotion-Content Disentangled Speech-Driven 3D Talking Face Animation](https://arxiv.org/abs/2408.11518)
 **Yihong Lin, Liang Peng, Zhaoxin Fan, Xianjia Wu et al.** · 2024-08-21
 
@@ -4381,16 +3575,6 @@ We present a novel approach for synthesizing 3D talking heads with controllable 
 
 </details>
 
-#### [Reenact Anything: Semantic Video Motion Transfer Using Motion-Textual Inversion](https://arxiv.org/abs/2408.00458)
-**Manuel Kansy, Jacek Naruniec, Christopher Schroers, Markus Gross et al.** · 2024-08-01
-
-<details>
-<summary>Abstract</summary>
-
-Recent years have seen a tremendous improvement in the quality of video generation and editing approaches. While several techniques focus on editing appearance, few address motion. Current approaches using text, trajectories, or bounding boxes are limited to simple motions, so we specify motions with a single motion reference video instead. We further propose to use a pre-trained image-to-video model rather than a text-to-video model. This approach allows us to preserve the exact appearance and position of a target object or scene and helps disentangle appearance from motion. Our method, called motion-textual inversion, leverages our observation that image-to-video models extract appearance mainly from the (latent) image input, while the text/image embedding injected via cross-attention predominantly controls motion. We thus represent motion using text/image embedding tokens. By operating on an inflated motion-text embedding containing multiple text/image embedding tokens per frame, we achieve a high temporal motion granularity. Once optimized on the motion reference video, this embedding can be applied to various target images to generate videos with semantically similar motions. Our approach does not require spatial alignment between the motion reference video and target image, generalizes across various domains, and can be applied to various tasks such as full-body and face reenactment, as well as controlling the motion of inanimate objects and the camera. We empirically demonstrate the effectiveness of our method in the semantic video motion transfer task, significantly outperforming existing methods in this context. Project website: https://mkansy.github.io/reenact-anything/
-
-</details>
-
 #### [RAVSS: Robust Audio-Visual Speech Separation in Multi-Speaker Scenarios with Missing Visual Cues](https://arxiv.org/abs/2407.19224)
 **Tianrui Pan, Jie Liu, Bohan Wang, Jie Tang et al.** · 2024-07-27
 
@@ -4511,16 +3695,6 @@ Person-generic audio-driven face generation is a challenging task in computer vi
 
 </details>
 
-#### [EmpathyEar: An Open-source Avatar Multimodal Empathetic Chatbot](https://arxiv.org/abs/2406.15177)
-**Hao Fei, Han Zhang, Bin Wang, Lizi Liao et al.** · 2024-06-21
-
-<details>
-<summary>Abstract</summary>
-
-This paper introduces EmpathyEar, a pioneering open-source, avatar-based multimodal empathetic chatbot, to fill the gap in traditional text-only empathetic response generation (ERG) systems. Leveraging the advancements of a large language model, combined with multimodal encoders and generators, EmpathyEar supports user inputs in any combination of text, sound, and vision, and produces multimodal empathetic responses, offering users, not just textual responses but also digital avatars with talking faces and synchronized speeches. A series of emotion-aware instruction-tuning is performed for comprehensive emotional understanding and generation capabilities. In this way, EmpathyEar provides users with responses that achieve a deeper emotional resonance, closely emulating human-like empathy. The system paves the way for the next emotional intelligence, for which we open-source the code for public access.
-
-</details>
-
 #### [MultiTalk: Enhancing 3D Talking Head Generation Across Languages with Multilingual Video Dataset](https://arxiv.org/abs/2406.14272)
 **Kim Sung-Bin, Lee Chae-Yeon, Gihun Son, Oh Hyun-Bin et al.** · 2024-06-20
 
@@ -4571,16 +3745,6 @@ The field of portrait image animation, driven by speech audio input, has experie
 
 </details>
 
-#### [Talking Heads: Understanding Inter-layer Communication in Transformer Language Models](https://arxiv.org/abs/2406.09519)
-**Jack Merullo, Carsten Eickhoff, Ellie Pavlick** · 2024-06-13
-
-<details>
-<summary>Abstract</summary>
-
-Although it is known that transformer language models (LMs) pass features from early layers to later layers, it is not well understood how this information is represented and routed by the model. We analyze a mechanism used in two LMs to selectively inhibit items in a context in one task, and find that it underlies a commonly used abstraction across many context-retrieval behaviors. Specifically, we find that models write into low-rank subspaces of the residual stream to represent features which are then read out by later layers, forming low-rank communication channels (Elhage et al., 2021) between layers. A particular 3D subspace in model activations in GPT-2 can be traversed to positionally index items in lists, and we show that this mechanism can explain an otherwise arbitrary-seeming sensitivity of the model to the order of items in the prompt. That is, the model has trouble copying the correct information from context when many items ``crowd" this limited space. By decomposing attention heads with the Singular Value Decomposition (SVD), we find that previously described interactions between heads separated by one or more layers can be predicted via analysis of their weight matrices alone. We show that it is possible to manipulate the internal model representations as well as edit model weights based on the mechanism we discover in order to significantly improve performance on our synthetic Laundry List task, which requires recall from a list, often improving task accuracy by over 20%. Our analysis reveals a surprisingly intricate interpretable structure learned from language model pretraining, and helps us understand why sophisticated LMs sometimes fail in simple domains, facilitating future analysis of more complex behaviors.
-
-</details>
-
 #### [FlowAVSE: Efficient Audio-Visual Speech Enhancement with Conditional Flow Matching](https://arxiv.org/abs/2406.09286)
 **Chaeyoung Jung, Suyeon Lee, Ji-Hoon Kim, Joon Son Chung** · 2024-06-13
 
@@ -4628,16 +3792,6 @@ In this paper, we introduce a novel Face-to-Face spoken dialogue model. It proce
 <summary>Abstract</summary>
 
 Audio-driven talking face generation has garnered significant interest within the domain of digital human research. Existing methods are encumbered by intricate model architectures that are intricately dependent on each other, complicating the process of re-editing image or video inputs. In this work, we present ControlTalk, a talking face generation method to control face expression deformation based on driven audio, which can construct the head pose and facial expression including lip motion for both single image or sequential video inputs in a unified manner. By utilizing a pre-trained video synthesis renderer and proposing the lightweight adaptation, ControlTalk achieves precise and naturalistic lip synchronization while enabling quantitative control over mouth opening shape. Our experiments show that our method is superior to state-of-the-art performance on widely used benchmarks, including HDTF and MEAD. The parameterized adaptation demonstrates remarkable generalization capabilities, effectively handling expression deformation across same-ID and cross-ID scenarios, and extending its utility to out-of-domain portraits, regardless of languages. Code is available at https://github.com/NetEase-Media/ControlTalk.
-
-</details>
-
-#### [MunchSonic: Tracking Fine-grained Dietary Actions through Active Acoustic Sensing on Eyeglasses](https://arxiv.org/abs/2405.21004)
-**Saif Mahmud, Devansh Agarwal, Ashwin Ajit, Qikang Liang et al.** · 2024-05-31
-
-<details>
-<summary>Abstract</summary>
-
-We introduce MunchSonic, an AI-powered active acoustic sensing system integrated into eyeglasses to track fine-grained dietary actions. MunchSonic emits inaudible ultrasonic waves from the eyeglass frame, with the reflected signals capturing detailed positions and movements of body parts, including the mouth, jaw, arms, and hands involved in eating. These signals are processed by a deep learning pipeline to classify six actions: hand-to-mouth movements for food intake, chewing, drinking, talking, face-hand touching, and other activities (null). In an unconstrained study with 12 participants, MunchSonic achieved a 93.5% macro F1-score in a user-independent evaluation with a 2-second resolution in tracking these actions, also demonstrating its effectiveness in tracking eating episodes and food intake frequency within those episodes.
 
 </details>
 
@@ -4838,16 +3992,6 @@ The task of face reenactment is to transfer the head motion and facial expressio
 <summary>Abstract</summary>
 
 In the realm of media technology, digital humans have gained prominence due to rapid advancements in computer technology. However, the manual modeling and control required for the majority of digital humans pose significant obstacles to efficient development. The speech-driven methods offer a novel avenue for manipulating the mouth shape and expressions of digital humans. Despite the proliferation of driving methods, the quality of many generated talking head (TH) videos remains a concern, impacting user visual experiences. To tackle this issue, this paper introduces the Talking Head Quality Assessment (THQA) database, featuring 800 TH videos generated through 8 diverse speech-driven methods. Extensive experiments affirm the THQA database's richness in character and speech features. Subsequent subjective quality assessment experiments analyze correlations between scoring results and speech-driven methods, ages, and genders. In addition, experimental results show that mainstream image and video quality assessment methods have limitations for the THQA database, underscoring the imperative for further research to enhance TH video quality assessment. The THQA database is publicly accessible at https://github.com/zyj-2000/THQA.
-
-</details>
-
-#### [GvT: A Graph-based Vision Transformer with Talking-Heads Utilizing Sparsity, Trained from Scratch on Small Datasets](https://arxiv.org/abs/2404.04924)
-**Dongjing Shan, guiqiang chen** · 2024-04-07
-
-<details>
-<summary>Abstract</summary>
-
-Vision Transformers (ViTs) have achieved impressive results in large-scale image classification. However, when training from scratch on small datasets, there is still a significant performance gap between ViTs and Convolutional Neural Networks (CNNs), which is attributed to the lack of inductive bias. To address this issue, we propose a Graph-based Vision Transformer (GvT) that utilizes graph convolutional projection and graph-pooling. In each block, queries and keys are calculated through graph convolutional projection based on the spatial adjacency matrix, while dot-product attention is used in another graph convolution to generate values. When using more attention heads, the queries and keys become lower-dimensional, making their dot product an uninformative matching function. To overcome this low-rank bottleneck in attention heads, we employ talking-heads technology based on bilinear pooled features and sparse selection of attention tensors. This allows interaction among filtered attention scores and enables each attention mechanism to depend on all queries and keys. Additionally, we apply graph-pooling between two intermediate blocks to reduce the number of tokens and aggregate semantic information more effectively. Our experimental results show that GvT produces comparable or superior outcomes to deep convolutional networks and surpasses vision transformers without pre-training on large datasets. The code for our proposed model is publicly available on the website.
 
 </details>
 
@@ -5294,16 +4438,6 @@ High-fidelity and efficient audio-driven talking head generation has been a key 
 
 </details>
 
-#### [MM-TTS: Multi-modal Prompt based Style Transfer for Expressive Text-to-Speech Synthesis](https://arxiv.org/abs/2312.10687)
-**Wenhao Guan, Yishuang Li, Tao Li, Hukai Huang et al.** · 2023-12-17
-
-<details>
-<summary>Abstract</summary>
-
-The style transfer task in Text-to-Speech refers to the process of transferring style information into text content to generate corresponding speech with a specific style. However, most existing style transfer approaches are either based on fixed emotional labels or reference speech clips, which cannot achieve flexible style transfer. Recently, some methods have adopted text descriptions to guide style transfer. In this paper, we propose a more flexible multi-modal and style controllable TTS framework named MM-TTS. It can utilize any modality as the prompt in unified multi-modal prompt space, including reference speech, emotional facial images, and text descriptions, to control the style of the generated speech in a system. The challenges of modeling such a multi-modal style controllable TTS mainly lie in two aspects:1)aligning the multi-modal information into a unified style space to enable the input of arbitrary modality as the style prompt in a single system, and 2)efficiently transferring the unified style representation into the given text content, thereby empowering the ability to generate prompt style-related voice. To address these problems, we propose an aligned multi-modal prompt encoder that embeds different modalities into a unified style space, supporting style transfer for different modalities. Additionally, we present a new adaptive style transfer method named Style Adaptive Convolutions to achieve a better style representation. Furthermore, we design a Rectified Flow based Refiner to solve the problem of over-smoothing Mel-spectrogram and generate audio of higher fidelity. Since there is no public dataset for multi-modal TTS, we construct a dataset named MEAD-TTS, which is related to the field of expressive talking head. Our experiments on the MEAD-TTS dataset and out-of-domain datasets demonstrate that MM-TTS can achieve satisfactory results based on multi-modal prompts.
-
-</details>
-
 #### [Learning Dense Correspondence for NeRF-Based Face Reenactment](https://arxiv.org/abs/2312.10422)
 **Songlin Yang, Wei Wang, Yushi Lan, Xiangyu Fan et al.** · 2023-12-16
 
@@ -5574,16 +4708,6 @@ The objective of this work is to extract target speaker's voice from a mixture o
 
 </details>
 
-#### [Learning Through AI-Clones: Enhancing Self-Perception and Presentation Performance](https://arxiv.org/abs/2310.15112)
-**Qingxiao Zheng, Zhuoer Chen, Yun Huang** · 2023-10-23
-
-<details>
-<summary>Abstract</summary>
-
-This study examines the impact of AI-generated digital clones with self-images on enhancing perceptions and skills in online presentations. A mixed-design experiment with 44 international students compared self-recording videos (self-recording group) to AI-clone videos (AI-clone group) for online English presentation practice. AI-clone videos were generated using voice cloning, face swapping, lip-syncing, and body-language simulation, refining the repetition, filler words, and pronunciation of participants' original presentations. Through the lens of social comparison theory, the results showed that AI clones functioned as positive "role models" for facilitating social comparisons. When comparing the effects on self-perceptions, speech qualities, and self-kindness, the self-recording group showed an increase in pronunciation satisfaction. However, the AI-clone group exhibited greater self-kindness, broader observational coverage, and a meaningful transition from a corrective to an enhancive approach in self-critique. Moreover, machine-rated scores revealed immediate performance gains only within the AI-clone group. Considering individual differences, aligning interventions with participants' regulatory focus significantly enhanced their learning experience. These findings highlight the theoretical, practical, and ethical implications of AI clones in supporting emotional and cognitive skill development.
-
-</details>
-
 #### [CorrTalk: Correlation Between Hierarchical Speech and Facial Activity Variances for 3D Animation](https://arxiv.org/abs/2310.11295)
 **Zhaojie Chu, Kailing Guo, Xiaofen Xing, Yilin Lan et al.** · 2023-10-17
 
@@ -5621,16 +4745,6 @@ In this paper we introduce a new synchronisation task, Gesture-Sync: determining
 <summary>Abstract</summary>
 
 In this paper, we propose a novel method for speaker adaptation in lip reading, motivated by two observations. Firstly, a speaker's own characteristics can always be portrayed well by his/her few facial images or even a single image with shallow networks, while the fine-grained dynamic features associated with speech content expressed by the talking face always need deep sequential networks to represent accurately. Therefore, we treat the shallow and deep layers differently for speaker adaptive lip reading. Secondly, we observe that a speaker's unique characteristics ( e.g. prominent oral cavity and mandible) have varied effects on lip reading performance for different words and pronunciations, necessitating adaptive enhancement or suppression of the features for robust lip reading. Based on these two observations, we propose to take advantage of the speaker's own characteristics to automatically learn separable hidden unit contributions with different targets for shallow layers and deep layers respectively. For shallow layers where features related to the speaker's characteristics are stronger than the speech content related features, we introduce speaker-adaptive features to learn for enhancing the speech content features. For deep layers where both the speaker's features and the speech content features are all expressed well, we introduce the speaker-adaptive features to learn for suppressing the speech content irrelevant noise for robust lip reading. Our approach consistently outperforms existing methods, as confirmed by comprehensive analysis and comparison across different settings. Besides the evaluation on the popular LRW-ID and GRID datasets, we also release a new dataset for evaluation, CAS-VSR-S68h, to further assess the performance in an extreme setting where just a few speakers are available but the speech content covers a large and diversified range.
-
-</details>
-
-#### [uTalk: Bridging the Gap Between Humans and AI](https://arxiv.org/abs/2310.02739)
-**Hussam Azzuni, Sharim Jamal, Abdulmotaleb Elsaddik** · 2023-10-04
-
-<details>
-<summary>Abstract</summary>
-
-Large Language Models (LLMs) have revolutionized various industries by harnessing their power to improve productivity and facilitate learning across different fields. One intriguing application involves combining LLMs with visual models to create a novel approach to Human-Computer Interaction. The core idea of this system is to create a user-friendly platform that enables people to utilize ChatGPT's features in their everyday lives. uTalk is comprised of technologies like Whisper, ChatGPT, Microsoft Speech Services, and the state-of-the-art (SOTA) talking head system SadTalker. Users can engage in human-like conversation with a digital twin and receive answers to any questions. Also, uTalk could generate content by submitting an image and input (text or audio). This system is hosted on Streamlit, where users will be prompted to provide an image to serve as their AI assistant. Then, as the input (text or audio) is provided, a set of operations will produce a video of the avatar with the precise response. This paper outlines how SadTalker's run-time has been optimized by 27.69% based on 25 frames per second (FPS) generated videos and 38.38% compared to our 20FPS generated videos. Furthermore, the integration and parallelization of SadTalker and Streamlit have resulted in a 9.8% improvement compared to the initial performance of the system.
 
 </details>
 
@@ -5934,16 +5048,6 @@ We propose a method for synthesizing photo-realistic digital avatars from only o
 
 </details>
 
-#### [Leveraging Self-Supervised Audio-Visual Pretrained Models to Improve Vocoded Speech Intelligibility in Cochlear Implant Simulation](https://arxiv.org/abs/2307.07748)
-**Richard Lee Lai, Jen-Cheng Hou, I-Chun Chern, Kuo-Hsuan Hung et al.** · 2023-07-15
-
-<details>
-<summary>Abstract</summary>
-
-Individuals with hearing impairments face challenges in their ability to comprehend speech, particularly in noisy environments. The aim of this study is to explore the effectiveness of audio-visual speech enhancement (AVSE) in enhancing the intelligibility of vocoded speech in cochlear implant (CI) simulations. Notably, the study focuses on a challenged scenario where there is limited availability of training data for the AVSE task. To address this problem, we propose a novel deep neural network framework termed Self-Supervised Learning-based AVSE (SSL-AVSE). The proposed SSL-AVSE combines visual cues, such as lip and mouth movements, from the target speakers with corresponding audio signals. The contextually combined audio and visual data are then fed into a Transformer-based SSL AV-HuBERT model to extract features, which are further processed using a BLSTM-based SE model. The results demonstrate several key findings. Firstly, SSL-AVSE successfully overcomes the issue of limited data by leveraging the AV-HuBERT model. Secondly, by fine-tuning the AV-HuBERT model parameters for the target SE task, significant performance improvements are achieved. Specifically, there is a notable enhancement in PESQ (Perceptual Evaluation of Speech Quality) from 1.43 to 1.67 and in STOI (Short-Time Objective Intelligibility) from 0.70 to 0.74. Furthermore, the performance of the SSL-AVSE was evaluated using CI vocoded speech to assess the intelligibility for CI users. Comparative experimental outcomes reveal that in the presence of dynamic noises encountered during human conversations, SSL-AVSE exhibits a substantial improvement. The NCM (Normal Correlation Matrix) values indicate an increase of 26.5% to 87.2% compared to the noisy baseline.
-
-</details>
-
 #### [On the Vulnerability of DeepFake Detectors to Attacks Generated by Denoising Diffusion Models](https://arxiv.org/abs/2307.05397)
 **Marija Ivanovska, Vitomir Štruc** · 2023-07-11
 
@@ -6171,16 +5275,6 @@ Recently, talking face generation has drawn ever-increasing attention from the r
 <summary>Abstract</summary>
 
 Synthesizing high-fidelity head avatars is a central problem for computer vision and graphics. While head avatar synthesis algorithms have advanced rapidly, the best ones still face great obstacles in real-world scenarios. One of the vital causes is inadequate datasets -- 1) current public datasets can only support researchers to explore high-fidelity head avatars in one or two task directions; 2) these datasets usually contain digital head assets with limited data volume, and narrow distribution over different attributes. In this paper, we present RenderMe-360, a comprehensive 4D human head dataset to drive advance in head avatar research. It contains massive data assets, with 243+ million complete head frames, and over 800k video sequences from 500 different identities captured by synchronized multi-view cameras at 30 FPS. It is a large-scale digital library for head avatars with three key attributes: 1) High Fidelity: all subjects are captured by 60 synchronized, high-resolution 2K cameras in 360 degrees. 2) High Diversity: The collected subjects vary from different ages, eras, ethnicities, and cultures, providing abundant materials with distinctive styles in appearance and geometry. Moreover, each subject is asked to perform various motions, such as expressions and head rotations, which further extend the richness of assets. 3) Rich Annotations: we provide annotations with different granularities: cameras' parameters, matting, scan, 2D/3D facial landmarks, FLAME fitting, and text description. Based on the dataset, we build a comprehensive benchmark for head avatar research, with 16 state-of-the-art methods performed on five main tasks: novel view synthesis, novel expression synthesis, hair rendering, hair editing, and talking head generation. Our experiments uncover the strengths and weaknesses of current methods. RenderMe-360 opens the door for future exploration in head avatars.
-
-</details>
-
-#### [An Android Robot Head as Embodied Conversational Agent](https://arxiv.org/abs/2305.10945)
-**Marcel Heisler, Christian Becker-Asano** · 2023-05-18
-
-<details>
-<summary>Abstract</summary>
-
-This paper describes, how current Machine Learning (ML) techniques combined with simple rule-based animation routines make an android robot head an embodied conversational agent with ChatGPT as its core component. The android robot head is described, technical details are given of how lip-sync animation is being achieved, and general software design decisions are presented. A public presentation of the system revealed improvement opportunities that are reported and that lead our iterative implementation approach.
 
 </details>
 
@@ -6947,16 +6041,6 @@ Face animation, one of the hottest topics in computer vision, has achieved a pro
 
 </details>
 
-#### [AutoLV: Automatic Lecture Video Generator](https://arxiv.org/abs/2209.08795)
-**Wenbin Wang, Yang Song, Sanjay Jha** · 2022-09-19
-
-<details>
-<summary>Abstract</summary>
-
-We propose an end-to-end lecture video generation system that can generate realistic and complete lecture videos directly from annotated slides, instructor's reference voice and instructor's reference portrait video. Our system is primarily composed of a speech synthesis module with few-shot speaker adaptation and an adversarial learning-based talking-head generation module. It is capable of not only reducing instructors' workload but also changing the language and accent which can help the students follow the lecture more easily and enable a wider dissemination of lecture contents. Our experimental results show that the proposed model outperforms other current approaches in terms of authenticity, naturalness and accuracy. Here is a video demonstration of how our system works, and the outcomes of the evaluation and comparison: https://youtu.be/cY6TYkI0cog.
-
-</details>
-
 #### [Continuously Controllable Facial Expression Editing in Talking Face Videos](https://arxiv.org/abs/2209.08289)
 **Zhiyao Sun, Yu-Hui Wen, Tian Lv, Yanan Sun et al.** · 2022-09-17
 
@@ -7104,16 +6188,6 @@ In this paper we propose a multi-modal multi-correlation learning framework targ
 <summary>Abstract</summary>
 
 Audio-visual speech enhancement system is regarded as one of promising solutions for isolating and enhancing speech of desired speaker. Typical methods focus on predicting clean speech spectrum via a naive convolution neural network based encoder-decoder architecture, and these methods a) are not adequate to use data fully, b) are unable to effectively balance audio-visual features. The proposed model alleviates these drawbacks by a) applying a model that fuses audio and visual features layer by layer in encoding phase, and that feeds fused audio-visual features to each corresponding decoder layer, and more importantly, b) introducing a 2-stage multi-head cross attention (MHCA) mechanism to infer audio-visual speech enhancement for balancing the fused audio-visual features and eliminating irrelevant features. This paper proposes attentional audio-visual multi-layer feature fusion model, in which MHCA units are applied to feature mapping at every layer of decoder. The proposed model demonstrates the superior performance of the network against the state-of-the-art models.
-
-</details>
-
-#### [Cut Inner Layers: A Structured Pruning Strategy for Efficient U-Net GANs](https://arxiv.org/abs/2206.14658)
-**Bo-Kyeong Kim, Shinkook Choi, Hancheol Park** · 2022-06-29
-
-<details>
-<summary>Abstract</summary>
-
-Pruning effectively compresses overparameterized models. Despite the success of pruning methods for discriminative models, applying them for generative models has been relatively rarely approached. This study conducts structured pruning on U-Net generators of conditional GANs. A per-layer sensitivity analysis confirms that many unnecessary filters exist in the innermost layers near the bottleneck and can be substantially pruned. Based on this observation, we prune these filters from multiple inner layers or suggest alternative architectures by completely eliminating the layers. We evaluate our approach with Pix2Pix for image-to-image translation and Wav2Lip for speech-driven talking face generation. Our method outperforms global pruning baselines, demonstrating the importance of properly considering where to prune for U-Net generators.
 
 </details>
 
@@ -7520,16 +6594,6 @@ Existing deep learning (DL) based speech enhancement approaches are generally op
 
 </details>
 
-#### [BiosecurID: a multimodal biometric database](https://arxiv.org/abs/2111.03472)
-**Julian Fierrez, Javier Galbally, Javier Ortega-Garcia, Manuel R Freire et al.** · 2021-11-02
-
-<details>
-<summary>Abstract</summary>
-
-A new multimodal biometric database, acquired in the framework of the BiosecurID project, is presented together with the description of the acquisition setup and protocol. The database includes eight unimodal biometric traits, namely: speech, iris, face (still images, videos of talking faces), handwritten signature and handwritten text (on-line dynamic signals, off-line scanned images), fingerprints (acquired with two different sensors), hand (palmprint, contour-geometry) and keystroking. The database comprises 400 subjects and presents features such as: realistic acquisition scenario, balanced gender and population distributions, availability of information about particular demographic groups (age, gender, handedness), acquisition of replay attacks for speech and keystroking, skilled forgeries for signatures, and compatibility with other existing databases. All these characteristics make it very useful in research and development of unimodal and multimodal biometric systems.
-
-</details>
-
 #### [Imitating Arbitrary Talking Style for Realistic Audio-DrivenTalking Face Synthesis](https://arxiv.org/abs/2111.00203)
 **Haozhe Wu, Jia Jia, Haoyu Wang, Yishun Dou et al.** · 2021-10-30
 
@@ -7600,16 +6664,6 @@ We present Wav2Lip-Emotion, a video-to-video translation architecture that modif
 
 </details>
 
-#### [Detection of GAN-synthesized street videos](https://arxiv.org/abs/2109.04991)
-**Omran Alamayreh, Mauro Barni** · 2021-09-10
-
-<details>
-<summary>Abstract</summary>
-
-Research on the detection of AI-generated videos has focused almost exclusively on face videos, usually referred to as deepfakes. Manipulations like face swapping, face reenactment and expression manipulation have been the subject of an intense research with the development of a number of efficient tools to distinguish artificial videos from genuine ones. Much less attention has been paid to the detection of artificial non-facial videos. Yet, new tools for the generation of such kind of videos are being developed at a fast pace and will soon reach the quality level of deepfake videos. The goal of this paper is to investigate the detectability of a new kind of AI-generated videos framing driving street sequences (here referred to as DeepStreets videos), which, by their nature, can not be analysed with the same tools used for facial deepfakes. Specifically, we present a simple frame-based detector, achieving very good performance on state-of-the-art DeepStreets videos generated by the Vid2vid architecture. Noticeably, the detector retains very good performance on compressed videos, even when the compression level used during training does not match that used for the test videos.
-
-</details>
-
 #### [Deep Person Generation: A Survey from the Perspective of Face, Pose and Cloth Synthesis](https://arxiv.org/abs/2109.02081)
 **Tong Sha, Wei Zhang, Tong Shen, Zhoujun Li et al.** · 2021-09-05
 
@@ -7667,16 +6721,6 @@ While the significant advancements have made in the generation of deepfakes usin
 <summary>Abstract</summary>
 
 Automatically generating videos in which synthesized speech is synchronized with lip movements in a talking head has great potential in many human-computer interaction scenarios. In this paper, we present an automatic method to generate synchronized speech and talking-head videos on the basis of text and a single face image of an arbitrary person as input. In contrast to previous text-driven talking head generation methods, which can only synthesize the voice of a specific person, the proposed method is capable of synthesizing speech for any person that is inaccessible in the training stage. Specifically, the proposed method decomposes the generation of synchronized speech and talking head videos into two stages, i.e., a text-to-speech (TTS) stage and a speech-driven talking head generation stage. The proposed TTS module is a face-conditioned multi-speaker TTS model that gets the speaker identity information from face images instead of speech, which allows us to synthesize a personalized voice on the basis of the input face image. To generate the talking head videos from the face images, a facial landmark-based method that can predict both lip movements and head rotations is proposed. Extensive experiments demonstrate that the proposed method is able to generate synchronized speech and talking head videos for arbitrary persons and non-persons. Synthesized speech shows consistency with the given face regarding to the synthesized voice's timbre and one's appearance in the image, and the proposed landmark-based talking head method outperforms the state-of-the-art landmark-based method on generating natural talking head videos.
-
-</details>
-
-#### [Beyond Voice Identity Conversion: Manipulating Voice Attributes by Adversarial Learning of Structured Disentangled Representations](https://arxiv.org/abs/2107.12346)
-**Laurent Benaroya, Nicolas Obin, Axel Roebel** · 2021-07-26
-
-<details>
-<summary>Abstract</summary>
-
-Voice conversion (VC) consists of digitally altering the voice of an individual to manipulate part of its content, primarily its identity, while maintaining the rest unchanged. Research in neural VC has accomplished considerable breakthroughs with the capacity to falsify a voice identity using a small amount of data with a highly realistic rendering. This paper goes beyond voice identity and presents a neural architecture that allows the manipulation of voice attributes (e.g., gender and age). Leveraging the latest advances on adversarial learning of structured speech representation, a novel structured neural network is proposed in which multiple auto-encoders are used to encode speech as a set of idealistically independent linguistic and extra-linguistic representations, which are learned adversariarly and can be manipulated during VC. Moreover, the proposed architecture is time-synchronized so that the original voice timing is preserved during conversion which allows lip-sync applications. Applied to voice gender conversion on the real-world VCTK dataset, our proposed architecture can learn successfully gender-independent representation and convert the voice gender with a very high efficiency and naturalness.
 
 </details>
 
@@ -7900,16 +6944,6 @@ A variety of effective face-swap and face-reenactment methods have been publiciz
 
 </details>
 
-#### [Real-time RGBD-based Extended Body Pose Estimation](https://arxiv.org/abs/2103.03663)
-**Renat Bashirov, Anastasia Ianina, Karim Iskakov, Yevgeniy Kononenko et al.** · 2021-03-05
-
-<details>
-<summary>Abstract</summary>
-
-We present a system for real-time RGBD-based estimation of 3D human pose. We use parametric 3D deformable human mesh model (SMPL-X) as a representation and focus on the real-time estimation of parameters for the body pose, hands pose and facial expression from Kinect Azure RGB-D camera. We train estimators of body pose and facial expression parameters. Both estimators use previously published landmark extractors as input and custom annotated datasets for supervision, while hand pose is estimated directly by a previously published method. We combine the predictions of those estimators into a temporally-smooth human pose. We train the facial expression extractor on a large talking face dataset, which we annotate with facial expression parameters. For the body pose we collect and annotate a dataset of 56 people captured from a rig of 5 Kinect Azure RGB-D cameras and use it together with a large motion capture AMASS dataset. Our RGB-D body pose model outperforms the state-of-the-art RGB-only methods and works on the same level of accuracy compared to a slower RGB-D optimization-based solution. The combined system runs at 30 FPS on a server with a single GPU. The code will be available at https://saic-violet.github.io/rgbd-kinect-pose
-
-</details>
-
 #### [Audio-Visual Speech Separation Using Cross-Modal Correspondence Loss](https://arxiv.org/abs/2103.01463)
 **Naoki Makishima, Mana Ihori, Akihiko Takashima, Tomohiro Tanaka et al.** · 2021-03-02
 
@@ -8033,16 +7067,6 @@ We propose a neural talking-head video synthesis model and demonstrate its appli
 
 </details>
 
-#### [Adaptive Compact Attention For Few-shot Video-to-video Translation](https://arxiv.org/abs/2011.14695)
-**Risheng Huang, Li Shen, Xuan Wang, Cheng Lin et al.** · 2020-11-30
-
-<details>
-<summary>Abstract</summary>
-
-This paper proposes an adaptive compact attention model for few-shot video-to-video translation. Existing works in this domain only use features from pixel-wise attention without considering the correlations among multiple reference images, which leads to heavy computation but limited performance. Therefore, we introduce a novel adaptive compact attention mechanism to efficiently extract contextual features jointly from multiple reference images, of which encoded view-dependent and motion-dependent information can significantly benefit the synthesis of realistic videos. Our core idea is to extract compact basis sets from all the reference images as higher-level representations. To further improve the reliability, in the inference phase, we also propose a novel method based on the Delaunay Triangulation algorithm to automatically select the resourceful references according to the input label. We extensively evaluate our method on a large-scale talking-head video dataset and a human dancing dataset; the experimental results show the superior performance of our method for producing photorealistic and temporally consistent videos, and considerable improvements over the state-of-the-art method.
-
-</details>
-
 #### [Audio-visual Speech Separation with Adversarially Disentangled Visual Representation](https://arxiv.org/abs/2011.14334)
 **Peng Zhang, Jiaming Xu, Jing shi, Yunzhe Hao et al.** · 2020-11-29
 
@@ -8123,16 +7147,6 @@ In this paper, we present a deep-learning-based framework for audio-visual speec
 
 </details>
 
-#### [SMILE: Semantically-guided Multi-attribute Image and Layout Editing](https://arxiv.org/abs/2010.02315)
-**Andrés Romero, Luc Van Gool, Radu Timofte** · 2020-10-05
-
-<details>
-<summary>Abstract</summary>
-
-Attribute image manipulation has been a very active topic since the introduction of Generative Adversarial Networks (GANs). Exploring the disentangled attribute space within a transformation is a very challenging task due to the multiple and mutually-inclusive nature of the facial images, where different labels (eyeglasses, hats, hair, identity, etc.) can co-exist at the same time. Several works address this issue either by exploiting the modality of each domain/attribute using a conditional random vector noise, or extracting the modality from an exemplary image. However, existing methods cannot handle both random and reference transformations for multiple attributes, which limits the generality of the solutions. In this paper, we successfully exploit a multimodal representation that handles all attributes, be it guided by random noise or exemplar images, while only using the underlying domain information of the target domain. We present extensive qualitative and quantitative results for facial datasets and several different attributes that show the superiority of our method. Additionally, our method is capable of adding, removing or changing either fine-grained or coarse attributes by using an image as a reference or by exploring the style distribution space, and it can be easily extended to head-swapping and face-reenactment applications without being trained on videos.
-
-</details>
-
 #### [Correlating Subword Articulation with Lip Shapes for Embedding Aware Audio-Visual Speech Enhancement](https://arxiv.org/abs/2009.09561)
 **Hang Chen, Jun Du, Yu Hu, Li-Rong Dai et al.** · 2020-09-21
 
@@ -8170,16 +7184,6 @@ The goal of this work is to automatically determine whether and when a word of i
 <summary>Abstract</summary>
 
 Numerous studies have investigated the effectiveness of audio-visual multimodal learning for speech enhancement (AVSE) tasks, seeking a solution that uses visual data as auxiliary and complementary input to reduce the noise of noisy speech signals. Recently, we proposed a lite audio-visual speech enhancement (LAVSE) algorithm for a car-driving scenario. Compared to conventional AVSE systems, LAVSE requires less online computation and to some extent solves the user privacy problem on facial data. In this study, we extend LAVSE to improve its ability to address three practical issues often encountered in implementing AVSE systems, namely, the additional cost of processing visual data, audio-visual asynchronization, and low-quality visual data. The proposed system is termed improved LAVSE (iLAVSE), which uses a convolutional recurrent neural network architecture as the core AVSE model. We evaluate iLAVSE on the Taiwan Mandarin speech with video dataset. Experimental results confirm that compared to conventional AVSE systems, iLAVSE can effectively overcome the aforementioned three practical issues and can improve enhancement performance. The results also confirm that iLAVSE is suitable for real-world scenarios, where high-quality audio-visual sensors may not always be available.
-
-</details>
-
-#### ["It took me almost 30 minutes to practice this". Performance and Production Practices in Dance Challenge Videos on TikTok](https://arxiv.org/abs/2008.13040)
-**Daniel Klug** · 2020-08-29
-
-<details>
-<summary>Abstract</summary>
-
-TikTok is a music-based video sharing social media app famous for users creating short meme and dance videos. TikTok videos are largely based on popular song snippets, which is why lip syncing and dance moves evolve as significant user performance practices in videos. User prosumption has not yet been studied regarding the characteristics of TikTok. This paper is based on social practice and performance theory, social media studies, and participatory online video culture. It uses the #distantdance challenge on TikTok to analyze production practices and strategies of users through qualitative video product analysis. 92 videos were coded and categorized regarding their visual content (who participated in which way) and paratextual elements (used tags and captions). The visual and (para-)textual elements were then analyzed regarding indicators that allow to draw conclusions on users' video creation strategies and performance practices in participating in the #distantdance challenge. The results show videos are mainly performed by single white female teenagers wearing casual outfits in their bedrooms. Users shared their experiences about learning and performing the dance in video captions. While users prepared settings and outfits for their performance, the majority of performances seems rather unplanned or spontaneous. This indicates most videos might be part of a series of user attempts to master the dance challenge resulting in posting the first successful video performance to TikTok. In addition to the dance moves, participants also added gestures as closing elements to their performances. This indicates their knowledge of using signals as part of an online community while at the same time manifesting their belongingness to the community. These first results of a qualitative product analysis illustrate some of users' motivations and effort to participate in TikTok dance challenges.
 
 </details>
 
@@ -8250,16 +7254,6 @@ Audiovisual speech synthesis is the problem of synthesizing a talking face while
 <summary>Abstract</summary>
 
 We propose a novel deep multi-modality neural network for restoring very low bit rate videos of talking heads. Such video contents are very common in social media, teleconferencing, distance education, tele-medicine, etc., and often need to be transmitted with limited bandwidth. The proposed CNN method exploits the correlations among three modalities, video, audio and emotion state of the speaker, to remove the video compression artifacts caused by spatial down sampling and quantization. The deep learning approach turns out to be ideally suited for the video restoration task, as the complex non-linear cross-modality correlations are very difficult to model analytically and explicitly. The new method is a video post processor that can significantly boost the perceptual quality of aggressively compressed talking head videos, while being fully compatible with all existing video compression standards.
-
-</details>
-
-#### [CSLNSpeech: solving extended speech separation problem with the help of Chinese sign language](https://arxiv.org/abs/2007.10629)
-**Jiasong Wu, Xuan Li, Taotao Li, Fanman Meng et al.** · 2020-07-21
-
-<details>
-<summary>Abstract</summary>
-
-Previous audio-visual speech separation methods use the synchronization of the speaker's facial movement and speech in the video to supervise the speech separation in a self-supervised way. In this paper, we propose a model to solve the speech separation problem assisted by both face and sign language, which we call the extended speech separation problem. We design a general deep learning network for learning the combination of three modalities, audio, face, and sign language information, for better solving the speech separation problem. To train the model, we introduce a large-scale dataset named the Chinese Sign Language News Speech (CSLNSpeech) dataset, in which three modalities of audio, face, and sign language coexist. Experiment results show that the proposed model has better performance and robustness than the usual audio-visual system. Besides, sign language modality can also be used alone to supervise speech separation tasks, and the introduction of sign language is helpful for hearing-impaired people to learn and communicate. Last, our model is a general speech separation framework and can achieve very competitive separation performance on two open-source audio-visual datasets. The code is available at https://github.com/iveveive/SLNSpeech
 
 </details>
 
@@ -8410,16 +7404,6 @@ This paper introduces ActGAN - a novel end-to-end generative adversarial network
 <summary>Abstract</summary>
 
 Recent works have shown how realistic talking face images can be obtained under the supervision of geometry guidance, e.g., facial landmark or boundary. To alleviate the demand for manual annotations, in this paper, we propose a novel self-supervised hybrid model (DAE-GAN) that learns how to reenact face naturally given large amounts of unlabeled videos. Our approach combines two deforming autoencoders with the latest advances in the conditional generation. On the one hand, we adopt the deforming autoencoder to disentangle identity and pose representations. A strong prior in talking face videos is that each frame can be encoded as two parts: one for video-specific identity and the other for various poses. Inspired by that, we utilize a multi-frame deforming autoencoder to learn a pose-invariant embedded face for each video. Meanwhile, a multi-scale deforming autoencoder is proposed to extract pose-related information for each frame. On the other hand, the conditional generator allows for enhancing fine details and overall reality. It leverages the disentangled features to generate photo-realistic and pose-alike face images. We evaluate our model on VoxCeleb1 and RaFD dataset. Experiment results demonstrate the superior quality of reenacted images and the flexibility of transferring facial movements between identities.
-
-</details>
-
-#### [Talking-Heads Attention](https://arxiv.org/abs/2003.02436)
-**Noam Shazeer, Zhenzhong Lan, Youlong Cheng, Nan Ding et al.** · 2020-03-05
-
-<details>
-<summary>Abstract</summary>
-
-We introduce "talking-heads attention" - a variation on multi-head attention which includes linearprojections across the attention-heads dimension, immediately before and after the softmax operation.While inserting only a small number of additional parameters and a moderate amount of additionalcomputation, talking-heads attention leads to better perplexities on masked language modeling tasks, aswell as better quality when transfer-learning to language comprehension and question answering tasks.
 
 </details>
 
