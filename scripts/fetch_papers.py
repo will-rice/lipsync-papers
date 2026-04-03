@@ -80,6 +80,152 @@ CSV_FIELDNAMES = ["arxiv_id", "title", "authors", "submitted", "categories", "ur
 # phrases (case-insensitive) are excluded from results.
 NEGATIVE_KEYWORDS = [
     "speech recognition",
+    # Power / electrical engineering
+    "power synchronization",
+    "grid-forming",
+    "electric load",
+    # Aerospace / mechanical
+    "spacecraft",
+    "tractor engine",
+    # Cryptography / security (non-face)
+    "audio encryption",
+    "audio steganography",
+    # Operations research / scheduling
+    "job-shop scheduling",
+    # Mechanical engineering
+    "mechanical system",
+    # Textiles / materials
+    "warp-knitted",
+    # Wireless communications & signal processing
+    "integrated sensing and communication",
+    "rate-splitting",
+    "reconfigurable intelligent surface",
+    "spread spectrum",
+    "spectrum access",
+    "radiation field reconstruction",
+    "wireless human gesture",
+    "programmable data-plane",
+    # Positioning / localization (non-face)
+    "indoor positioning",
+    "near-field positioning",
+    "human-drone",
+    # Knowledge graphs
+    "temporal knowledge graph",
+    # Audio-visual tasks unrelated to lipsync
+    "event localization",
+    "audio backdoor",
+    "forensic speaker",
+    "intrusion detection",
+    # Mathematics / physics / chemistry
+    "nanostructure",
+    "quantum neural",
+    "pde solver",
+    "printed memristor",
+    "sonar",
+    # Medical / clinical (matched via "lip" or "head" search terms)
+    "cleft lip",
+    "rhinoplasty",
+    "head and neck cancer",
+    "alveolar bone",
+    "lip balm",
+    "lip-ms",
+    "transcranial",
+    "alzheimer",
+    "polycystic ovary",
+    "diabetes mellitus",
+    "perinatal",
+    "dentofacial",
+    "stuttering",
+    "oral health",
+    # Chemistry / materials science
+    "face-to-face stacking",
+    # Social science / humanities / business
+    "talking therapies",
+    "talking therapy",
+    "autocratic leadership",
+    "cloud cost",
+    "professional wrestling",
+    "respondent-driven",
+    "partisan",
+    "macaque",
+    "ai companion chatbot",
+    # Data analytics (non-face speech interfaces)
+    "immersive analytics",
+    # Accessibility (non-lipsync)
+    "audio description text",
+    # General audio ML (no face/lip component)
+    "audio hallucination",
+    "audio language model",
+    "membership inference attack",
+    "binaural audio",
+    "spatial audio",
+    "sound field interpolation",
+    "audio transfer learning",
+    "audio pre-training",
+    "audio captioning",
+    # Neuroscience / brain / neuroprosthetics
+    "resting-state fmri",
+    "granger causality",
+    "speech neuroprosthesis",
+    "neural speech tracking",
+    "cochlear implant",
+    # Networking / radar / sensing hardware
+    "mmwave radar",
+    "lidar-camera",
+    "network twin",
+    # NLP / translation
+    "machine translation",
+    "grammar error correction",
+    "named entity recognition",
+    # Video quality / compression (non-face)
+    "video quality assessment",
+    "scene dynamics compression",
+    # Non-face video editing / motion
+    "video object insertion",
+    "hand object interaction",
+    "road damage",
+    # Dance / food / physical sensing
+    "music-driven dance",
+    "dietary action",
+    "active acoustic sensing",
+    # Transformer attention mechanism (not face)
+    "talking-heads attention",
+    "inter-layer communication",
+    # Audio-visual classification / scene understanding (not talking face)
+    "audio-visual scene classification",
+    "area threat identification",
+    # Education tech / chatbots
+    "pedagogical agent",
+    "empathetic chatbot",
+    # Biometrics (non-face-synthesis)
+    "multimodal biometric database",
+    # Satellite / satellite communications
+    "tiktok",
+    "street video",
+    # Sign language (non-lipsync)
+    "sign language detection",
+    "chinese sign language",
+    # Sentiment analysis
+    "sentiment analysis",
+    # General video motion transfer (non-face)
+    "video motion transfer",
+    # Pruning (non-talking-face specific)
+    "structured pruning u-net",
+    # Scene audio generation
+    "scene2audio",
+    # Face attribute editing (not talking face)
+    "image and layout editing",
+    # Body pose (non-face)
+    "body pose estimation",
+    # Robot (physical)
+    "android robot head",
+    "embodied conversational agent",
+    # Steganography
+    "text-audio steganography",
+    "joint steganography",
+    # Audio-visual segmentation of general objects
+    "reference audio-visual segmentation",
+    "multi-view stereo",
 ]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
