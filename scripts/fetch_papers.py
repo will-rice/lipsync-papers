@@ -226,6 +226,60 @@ NEGATIVE_KEYWORDS = [
     # Audio-visual segmentation of general objects
     "reference audio-visual segmentation",
     "multi-view stereo",
+    # Cosmetic / dermatology
+    "lip augmentation",
+    "lip filler",
+    "dermal filler",
+    "lip flip",
+    "lip eversion",
+    "lip gloss",
+    "lip defect",
+    "hyaluronic acid",
+    "herpes labialis",
+    "trigeminal neuralgia",
+    # Battery / power engineering
+    "li-ion battery",
+    "li-ion cell",
+    # General audio/speech (no face component)
+    "vocal biomarker",
+    "speech quality assessment",
+    "speech codec",
+    "speech transmission",
+    "speaker naming",
+    "text-to-speech for",
+    # Classroom / education / social science
+    "classroom talk",
+    "communicative learning",
+    "culturally responsive leadership",
+    "assistive technology for",
+    "cognitive behavioral therapy",
+    "cognitive training",
+    "collective conversations",
+    "service quality shapes",
+    "construction services",
+    "institutional positions",
+    # Engineering / materials / physics
+    "fluidic camming",
+    "cu-nb conductor",
+    "rip current",
+    "underwater acoustic",
+    "lip shock",
+    "cyclic loading",
+    "industrial sustainability",
+    # Chemistry / food science / biology
+    "flaxseed oil",
+    "emulsion stabilized",
+    "morris-lecar",
+    "icg-lip",
+    # NFC / wearables (non-face)
+    "nfc-integrated clothing",
+    # Privacy / security (general AV)
+    "privacy filtering",
+    "multimodal privacy",
+    # Sketch recognition (non-generative)
+    "face sketch recognition",
+    # Unrelated audio generation
+    "audiogen-omni",
 ]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).

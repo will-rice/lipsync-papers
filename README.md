@@ -5,7 +5,7 @@ A curated, automatically-updated collection of papers on **lip sync**, talking-h
 ## How it works
 
 * Papers are sourced from [arXiv](https://arxiv.org/), [Semantic Scholar](https://www.semanticscholar.org/), and [Papers With Code](https://paperswithcode.com/) via their public APIs.
-* A [GitHub Actions workflow](.github/workflows/fetch_papers.yml) runs every **Monday at 06:00 UTC** to pull papers submitted in the previous week.
+* A [GitHub Actions workflow](.github/workflows/fetch_papers.yml) runs **daily at 06:00 UTC** to pull papers submitted in the previous 8 days.
 * The full paper list is stored in [`papers.csv`](papers.csv) and the table below is regenerated automatically on every update.
 
 ## Running locally
@@ -59,56 +59,6 @@ Realistic lip synchronization is essential for the natural human-robot non-verba
 **Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
 
 
-#### [The Association Between Repeated Lip Augmentation With Hyaluronic Acid Filler and Recurrence of Herpes Labialis: A Longitudinal Self-controlled Study](https://www.semanticscholar.org/paper/c320957fbe51b2f9b5be6ac6706a065dffdb3fbc)
-**A. Armenti** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-Recurrent herpes labialis is a common condition characterized by episodic viral reactivation triggered by local or systemic factors. Hyaluronic acid lip augmentation is widely performed for aesthetic purposes, yet its potential association with changes in herpes labialis recurrence has not been systematically evaluated. To investigate whether repeated lip augmentation with hyaluronic acid filler is associated with changes in the incidence of recurrent herpes labialis episodes over time. A self-controlled longitudinal observational study was conducted in adult patients with a documented history of recurrent herpes labialis undergoing lip augmentation with hyaluronic acid filler between 2016 and 2025. Each participant served as their own control, with recurrence rates compared across predefined baseline and post-treatment intervals. The primary outcome was the incidence of clinically typical herpes labialis episodes, expressed as episodes per person-year. Recurrent events were analyzed using generalized estimating equations with a negative binomial distribution. Ninety patients were included in the final analysis. Baseline incidence was 5.22 episodes per person-year. No significant change in recurrence rate was observed after the first filler session. A statistically significant reduction emerged after the second session (incidence rate ratio [IRR] 0.81; 95% CI 0.72–0.91; p<0.001) and became more pronounced after subsequent sessions. After four sessions, the IRR was 0.55 (95% CI 0.45–0.66; p<0.001). Recurrence rates stabilized after multiple treatments. In this longitudinal self-controlled cohort, repeated lip augmentation with hyaluronic acid filler was associated with a progressive reduction in recurrent herpes labialis incidence after multiple sessions. The clinical relevance of this observed reduction was not predefined. While causality cannot be established, the temporal pattern and statistical robustness of the findings warrant further investigation.
-
-</details>
-
-#### [Persistent Trigeminal Neuralgia‐Like Pain Following Isolated Hyaluronic Acid Lip Augmentation: A Case Report](https://www.semanticscholar.org/paper/2569dc389d2261209b891bcb552dbb598000ada4)
-**Rocco Salvatore Calabrò, Piera Bonavita** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-ABSTRACT Background Hyaluronic acid (HA) fillers are widely used for lip augmentation and are generally associated with a favorable safety profile. While vascular complications are well recognized, non‐vascular neurological adverse events, including trigeminal neuropathic pain, remain underreported, particularly following procedures in anatomically lower‐risk areas such as the lips. Objective To report a rare case of persistent trigeminal neuralgia‐like pain following HA lip augmentation and to highlight diagnostic and therapeutic considerations. Methods A 49‐year‐old woman developed persistent facial pain 10 days after HA lip augmentation. Clinical evaluation included dental assessment, imaging studies, and high‐resolution ultrasound of the perioral region. Initial management with hyaluronidase, corticosteroids, and non‐steroidal anti‐inflammatory drugs was performed. Due to persistent symptoms, a neuropathic pain‐oriented treatment with pregabalin and palmitoylethanolamide (PEA) was initiated. Pain severity was assessed using a visual analog scale (VAS), and follow‐up was conducted over 3 months. Results The patient presented with severe bilateral facial pain and paresthesia (VAS 7), refractory to conventional anti‐inflammatory treatment. Imaging excluded dental pathology and vascular complications, while ultrasound revealed localized post‐procedural tissue changes. Following initiation of pregabalin and PEA, a significant and sustained reduction in pain was observed (VAS 2 at 1 month; VAS 1 at 3 months). Conclusion Persistent trigeminal neuralgia‐like pain represents a rare but clinically relevant complication of HA lip augmentation. This case supports a neuropathic and neuroinflammatory mechanism and underscores the importance of early recognition and targeted treatment. Awareness of this complication may improve clinical outcomes and guide management strategies in aesthetic practice.
-
-</details>
-
-#### [Physics-Informed Neural Network-Enhanced Model Predictive Temperature Balancing Control for Li-Ion Battery Modules](https://www.semanticscholar.org/paper/436ad1ca71a33e654ba9baa9676b53418c26a174)
-**Yajie Jiang, Noven Lee, Xiaojun Deng, Yun Yang et al.** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-Nonuniform temperatures in lithium-ion battery modules, caused by manufacturing inconsistencies, vibrations, and unequal line resistances, lead to uneven current distribution and accelerated degradation of the battery. Existing thermal management methods face challenges in achieving real-time cell-level balancing due to limited intercell modeling, high computational cost, and lack of closed-loop control. This article proposes a model predictive temperature balancing control (MPTBC) strategy based on a scalable 2-D thermal network model (TNM) that captures intercell thermal coupling and enables real-time prediction with reduced computational cost. A physics-informed neural network (PINN) models the nonlinear internal resistance, with Bayesian optimization (BO) used to efficiently identify optimal parameters. The MPTBC is implemented on a four-module, high-power-density, single-input multioutput (SIMO) switched-capacitor (SC) converter. Experiments validate the TNM accuracy and demonstrate that MPTBC effectively minimizes cell-to-cell temperature differences.
-
-</details>
-
-#### [From Monologue to Dialogue: How Classroom Talk Shapes Communicative Learning in ELT](https://www.semanticscholar.org/paper/74ef39c1eb87e497e46a2dac424e0d185a354f58)
-**Sadia Sultana, Ummay Habiba Usha** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-This study examines the role of classroom discourse in shaping communicative learning in Bangladeshi English Language Teaching (ELT) classrooms. Grounded in sociocultural and interactionist perspectives, the study adopts a mixed-methods design to explore both discourse patterns and participants’ perceptions. Data were collected from five secondary and tertiary classrooms involving approximately 150 students and 30 teachers through classroom observations, questionnaires, interviews, and pre- and post-task assessments. The findings reveal that classroom interaction remains predominantly monologic, with Teacher Talking Time significantly exceeding Student Talking Time. Despite this, both students and teachers demonstrate a strong preference for dialogic interaction. Quantitative results indicate that students feel more confident and engaged during pair and group activities, while qualitative data highlight persistent barriers such as fear of making mistakes, large class sizes, and exam-oriented instruction. Teachers acknowledge the importance of communicative competence but report challenges in implementing Communicative Language Teaching (CLT) due to contextual constraints, including limited time and institutional expectations. The study identifies a clear gap between communicative pedagogical ideals and classroom realities, resulting in a hybrid instructional environment where Grammar-Translation Method (GTM) practices coexist with CLT principles. These findings suggest that enhancing dialogic classroom talk is essential for fostering learners’ communicative competence. The study contributes to the literature by highlighting classroom discourse as a critical mechanism of learning rather than a peripheral feature of instruction. It also underscores the need for pedagogical and structural reforms to support sustainable dialogic practices in ELT contexts.
-
-</details>
-
-#### [Testing the role of temporal attention in speech: Pre-target alpha predicts memory encoding rather than effects of linguistic focus.](https://www.semanticscholar.org/paper/3fecf106e9c62d6066e41d48d4ae7dfad829e3cf)
-**Eleonora J. Beier, Assaf Breska, Lee M. Miller, Yulia Oganian et al.** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-The rapid, continuous flow of speech often places strong demands on attention. Listeners are thought to meet these demands by using linguistic focus cues to predict when important information will occur and to allocate temporal attention accordingly. Yet direct neural evidence for focus-driven modulations of preparatory attention is lacking. We address this gap by measuring EEG alpha power (8-13 Hz), an index of temporal attentional preparation ( N = 40; 26 female, 12 male, 2 non-binary). Using an auditory question–answer paradigm, we tested whether pre-target alpha power tracks the temporal prioritization of focused words in the discourse. We found that pre-target alpha was comparable before focused and defocused words, inconsistent with the view that attention is temporally pre-allocated to discourse-relevant information. Instead, trial-by-trial fluctuations in pre-target alpha modulated a centro-parietal ERP Subsequent Memory Effect (SME) for focused words, linking preparatory attention to depth of processing and memory encoding during comprehension. These findings constrain theories of attention in language, indicating that alpha-band activity primarily indexes an encoding-ready state that predicts subsequent memory, rather than focus-driven temporal attentional pre-allocation. Significance statement As spoken language unfolds over time, listeners are hypothesized to prepare for informative content by pre-allocating attention in time, yet direct neural support for this view has been scarce. Using pre-target EEG alpha power as an index of preparatory attention, we examined whether listeners use linguistic focus cues to pre-allocate attention to the timing of focus-marked (novel) information in discourse. We observed no focus-related increase; instead, moment-to-moment fluctuations in preparatory alpha predicted the depth of processing and the encoding of novel information into memory, modulating subsequent neural and behavioral responses. Thus, preparatory alpha reflects an encoding-ready state that supports successful memory encoding, rather than the dynamic pre-allocation of attention to linguistically focused information.
-
-</details>
-
 #### [Analysis of Lighting and Shape Features in Deepfake Identification](https://www.semanticscholar.org/paper/902f40c5f620ec976180a4b4e1bbe43722c67e8e)
 **Karol Jędrasiak** · 2026-04-01
 
@@ -116,36 +66,6 @@ The rapid, continuous flow of speech often places strong demands on attention. L
 <summary>Abstract</summary>
 
 This study investigates interpretable photometric and geometric features for deepfake detection under realistic conditions. The dedicated DeepFake RealWorld (DFRW) dataset, comprising 46 371 clips generated by diffusion, reenactment, and face-swap models, was used to evaluate lighting and shape consistency. Key descriptors, including light direction mismatch (Δθ), luminance deviation (ΔL), shading ratio (r_shade), shadow coherence (χ_shadow), and head-torso alignment, achieved Δp≈0.20–0.23 and PR up to 4.25. The results confirm that physically grounded descriptors of illumination and geometry enable reliable, explainable deepfake detection in forensic contexts.
-
-</details>
-
-#### [„Sovietinėje bazėje, tai kokie čia jūs partizanai“: atminties darbas ir vietokūra Kopūstėliuose](https://www.semanticscholar.org/paper/6477195d2968cc4d54043b3cac865293c07ef38b)
-**Rusnė Marija Poligaitė** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-This article analyses an atypical case of Soviet legacy transformation in Kopūstėliai (Ukmergė district), where a former Soviet missile base has become the home of Miško broliai, a historical reenactment club reviving the memory of the 1944–1953 anti-Soviet freedom struggles. The article aims to understand how this legacy is reworked through the memory work performed by the club and draws on material collected during the author’s ethnographic fieldwork in winter 2024-2025, including interviews with Miško broliai members and (non–) participant observation. The club’s activities are enabled by a flexible approach to the site‘s legacy, seen not as a symbolic framework but as a material medium for shaping their own vision of memory, and by disappointment with state-led commemorative policies. Detached from institutional constraints, Miško broliai create a heterogeneous and dynamic assemblage of people, narratives, meanings, and processes – transforming memory into an open-ended and living field.
-
-</details>
-
-#### [Multi-scale investigation into the flaxseed oil emulsions stabilized by soybean protein isolate - (-)-epigallocatechin gallate covalent complexes: An "Interface thickening - Structure unfolding - Antioxidant reinforcement" cascade mechanism.](https://www.semanticscholar.org/paper/599ce1c010546e14ecf6e9c53fc63ea0e2e4c322)
-**Kangning Li, Qidong Xue, Abdelaziz Elbarbary, Yuxuan Wang et al.** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-Plant protein-stabilized emulsions face challenges in physical and oxidative stability during storage, leading to a great limitation against the further application of these emulsions. The present study established a multiscale mechanism for enhancing flaxseed oil emulsion stability using soybean protein isolate (SPI) - (-)-epigallocatechin gallate (EGCG) covalent complexes. Complexes fabricated at varying SPI:EGCG mass ratios (200:1 to 20:1) via alkaline pH-shifting exhibited dose-dependent improvements in emulsion physical and oxidative stability. Macro-scale assessments, via droplet size, ζ-potential, and lipid oxidation measurements, revealed that higher EGCG incorporation reduced droplet size, increased ζ-potential magnitude, and suppressed lipid oxidation. Meso-scale dissipative particle dynamics simulations demonstrated EGCG-mediated interfacial thickening and uniform oil-water distribution. Molecular analysis confirmed covalent CS thiol-quinone and CN Schiff base linkages between the o-quinone form of EGCG and Lys/Cys residues in SPI, inducing SPI unfolding (β-sheet to random coil transition) and reduced surface hydrophobicity. Quantum chemical calculations revealed a narrowed HOMO-LUMO gap in covalently bound EGCG, enhancing interfacial antioxidant capacity. The stabilization cascade mechanism followed "Interface thickening - Structure unfolding - Antioxidant reinforcement" across scales. This work provides mechanistic insights for designing protein-polyphenol complexes and the wider application such as bioactive delivery and development of multiple products using emulsions stabilized by these complexes.
-
-</details>
-
-#### [Fluidic Camming for Grasping](https://www.semanticscholar.org/paper/e8ddede62f45aff24ae3615a54f903e1c0b6514e)
-**Anders M. Seawright, E. Hawkes** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-Soft robotic grippers offer certain advantages for grasping objects and anchoring into environments compared to traditional rigid grippers. For instance, their conformability enables handling of delicate objects with simplified sensing and control, and their compliance allows them to be robust to impacts. However, soft grippers generally face two significant challenges: (i) an inability to apply large grasping forces, and (ii) the use of large and cumbersome pumps and power supplies, particularly for pneumatic systems. Here, we propose “fluidic camming,” in which the force pulling on a gripper device pressurizes its actuating fluid, which, in turn, applies pressure to the grasped surface. The larger the pulling force is, the larger the grasping force automatically becomes. Fluidic camming results in the ability to grasp with very high squeezing forces. The presented devices are lightweight, work across a large range of feature shapes and sizes, perform both negative and positive-space grasping, and do not require pumps, batteries, or disposable canisters to generate system pressure. This technology is especially interesting for anchoring robots or humans to negative spaces in environments, such as cavities on a rock face, or as a gripper for gently manipulating a wide variety of both heavy and fragile objects. A device with mass 55 g anchored 667 N to a parallel-walled cavity; another device, capable of negative and positive feature grasping, successfully lifted both a chicken egg and a 222 N weight.
 
 </details>
 
@@ -179,107 +99,9 @@ Face anti-spoofing is an essential component in modern biometric authentication 
 
 </details>
 
-#### [Medi connect - Virtual health companion for Underserved Regions with Offline Sync](https://www.semanticscholar.org/paper/568a27aa9dd3f1cf55af83284f3007438967d419)
-**Korupolu Sujana, Dipendra Gaderi, Bikash Sahani, Satya Trinath Ramanam et al.** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Geographic isolation of the rural underserved areas impedes healthcare delivery, with patients traveling hundreds of kilometers over rural roads to meet specialized doctors in urban areas, causing delays in interventions, high turnover, and avoidable mortality - such as Village Health Administrators with basic care with no real-time expert assistance. To deal with these gaps, Medi Connect is a virtual health companion application with strong offline synchronization capabilities, which allows frontline workers to record patient information and perform virtual consultation on Android devices and automatically synchronize with cloud solution providers such as Firebase when they are connected to the Internet to ensure smooth approvals and updates. With the combination of SMS notifications, appointment booking, and conflict-resolution algorithms, it helps reduce the necessity of traveling, provide intuitive tools to non-experts, and provide equitable care without permanent internet access, and, eventually, mend rural-urban gaps.
-
-</details>
-
-#### [Preparation of PSA-DOX/ICG-Lip and Evaluation of Its Efficacy Against Cervical Cancer](https://www.semanticscholar.org/paper/48a15f60d5792682b161e30e81f11b8ec05c8e4c)
-**Jingya Bai, Jiamin Huang, Qian Zhang, Wenjun Su et al.** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Objectives: To fabricate polysialic acid (PSA)-modified liposomes co-loaded with doxorubicin (DOX) and indocyanine green (ICG) for synergistic chemotherapy and photothermal therapy, and to enhance the anti-cervical cancer efficacy of liposomes via neutrophil targeting. Methods: PSA-DOX/ICG liposomes (PSA-DOX/ICG-Lip) were prepared by microfluidic technology. The physicochemical properties, including drug encapsulation efficiency (EE), loading capacity (LC), particle size, polydispersity index (PDI), zeta potential, and stability, were systematically characterized. The in vitro anti-tumor activity was evaluated using cellular uptake, apoptosis assays, reactive oxygen species (ROS) detection, and a cell scratch test in HeLa and C33a cells. The in vivo therapeutic efficacy was verified using a nude mouse xenograft model of cervical cancer combined with histopathological analysis. Results: Microfluidic preparation yielded PSA-DOX/ICG-Lip with favorable physicochemical properties: the EE and LC of DOX were 96.52 ± 0.43% and 8.70 ± 0.04%, respectively, while those of ICG were 90.72 ± 1.10% and 0.82 ± 0.02%. The average particle size was 92.68 ± 1.14 nm with a PDI of 0.04 and a zeta potential of −9.66 ± 0.46 mV. The liposomes maintained good stability in terms of EE, particle size, PDI, and zeta potential after 28 days of storage at 4 °C and room temperature, with PSA modification significantly reducing the drug leakage rate. In vitro drug release studies showed that 808 nm laser irradiation triggered a significant increase in drug release from the liposomes. ICG encapsulated in liposomes mediated localized photothermal heating, and PSA targeting precisely confined the therapeutic effect to the tumor site, minimizing damage to adjacent normal tissues. In vitro experiments demonstrated that PSA-DOX/ICG-Lip, combined with laser irradiation, significantly enhanced cellular uptake, elevated intracellular ROS levels, inhibited cancer cell migration, and induced apoptosis. In vivo studies confirmed that this formulation markedly suppressed tumor growth in nude mice, with a tumor inhibition rate of 81.5%, and exhibited good biocompatibility without obvious organ toxicity. Conclusions: The microfluidically prepared PSA-DOX/ICG-Lip possesses high drug encapsulation efficiency, uniform particle size, good stability and sustained drug release properties. It can efficiently convert light energy into thermal energy, target neutrophils to enhance the affinity for cervical cancer cells, and exert a synergistic anti-tumor effect via the combination of chemotherapy and photothermal therapy, which provides a promising nanoplatform for the precise treatment of cervical cancer.
-
-</details>
-
-#### [Lip Flip Revisited: Clinical Outcomes and Neuromodulatory Basis of Upper Lip Eversion](https://www.semanticscholar.org/paper/e03c13642bc5687a41ccb51915ebdd0ab5226e25)
-**Marcelo Germani, V. Muñoz-Lora, Pietra Roschel, Sebastian Cotofana** · 2026-03-31
-
-
 #### [Protracted development in children of perceptual segregation of competing talking faces in the multisensory cocktail party problem](https://www.semanticscholar.org/paper/ee2c2f7a6d0326247f351d79bf6801ce81ca78f6)
 **Kátia Steinfeld, Micah M. Murray, David J. Lewkowicz** · 2026-03-31
 
-
-#### [Anxiety Symptom Trajectories Following AI-Powered Cognitive Behavioral Therapy in United Kingdom Primary Care: A Multilevel Growth Curve Analysis of the NHS Digital Wellbeing Programme](https://www.semanticscholar.org/paper/1a495a4b9afcaa34a8a112ce607d35a45eaa09fe)
-**A. Lim, J. Pemberton** · 2026-03-31
-
-
-#### [Social Acceptance and Psychological Impact on Physically Challenged People Using Assistive Technology](https://www.semanticscholar.org/paper/573651bb87d377585229fa7a143da6554c4c0b63)
-**Pallavi M. Mankar** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-This research paper says about how people with physical disabilities feel and think when they use assistive technology, like wheelchairs or talking devices, to help them in daily life. It shows that using these tools can make people feel more independent and confident, helping them take part in family, school, and work activities. But sometimes, people may feel shy or worried about what others think when using these devices. The paper explains how important it is for society to accept and support people who use assistive technology so they feel comfortable and happy. It also suggests designing these tools in a way that helps people feel good about themselves and making sure everyone understands how helpful these devices are. Helping users feel accepted and supported can make a big difference in their lives. this study examines the social acceptance and psychological impact of assistive technology on physically challenged individuals. Assistive technologies (AT) have the potential to significantly enhance the quality of life by promoting independence, inclusivity, and participation in educational and social activities. However, issues such as social stigma, inadequate training, and mismatches between user needs and device functionality affect their acceptance and use. Social perceptions and emotional experiences play crucial roles in the adoption of AT, with users often facing stigma and embarrassment. Yet, AT can also transform users' psychological experiences by fostering academic and social engagement. Understanding these dynamics requires a user-centered design approach that addresses individual and societal challenges, aiming to reduce stigma and enhance the overall efficiency and acceptance of assistive technologies. Future research and innovation should focus on creating devices that cater to the diverse needs of users while promoting social inclusion and reducing psychological barriers.
-
-</details>
-
-#### [HASCom: A Heterogeneous Affective-Semantic Communication Framework for Speech Transmission](https://www.semanticscholar.org/paper/0d1213622a4447408652e25dc029bc06f4eeb387)
-**Zhenjia Yu, Taojie Zhu, Md Arman Hossain, Zineb Zbarna et al.** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Driven by the development of next-generation wireless networks and the widespread adoption of sensing, communication is shifting from traditional bit-level transmission to intelligent, rich interactions within our digital social system. However, existing speech semantic communication frameworks predominantly focus on textual accuracy, neglecting the critical affective information (e.g., tone and emotion) that is essential for natural human-centric interactions in the real world. To address this limitation, we propose the Heterogeneous Affective Speech Semantic Communication (HASCom) framework, designed for the robust transmission of highly expressive speech over complex wireless channels. Specifically, we design a heterogeneous dual-stream transmission architecture that decouples discrete phoneme-level linguistic content from continuous emotional embeddings. For discrete semantic information, we use reliable digital coding protected by Low-Density Parity-Check (LDPC) to guarantee strict recoverability. Conversely, for emotional features, we employ Deep Joint Source-Channel Coding (JSCC) analog transmission to prevent irreversible quantization errors and the cliff effect. Additionally, we develop a prior-guided diffusion reconstruction module at the receiving end. This module leverages a structural prior network to align the decoded semantics, which then steers the reverse diffusion process conditioned on the recovered affective features. Extensive experiments under both AWGN and Rayleigh fading channels demonstrate that HASCom significantly outperforms state-of-the-art baselines. Specifically, it achieves superior objective semantic similarity and subjective Mean Opinion Score (MOS) at low Signal-to-Noise Ratios (SNRs), while the JSCC transmission modules maintain an ultra-low inference latency of less than 0.1 ms, validating its high efficiency and robustness for practical deployments.
-
-</details>
-
-#### [Commissure-Preserving Modification of the Gate Flap for Reconstruction of Large Lower Lip Defects](https://www.semanticscholar.org/paper/473be4c9ebd752423d17f4ad2e6c54168c8e6d20)
-**Ergin Seven, Hasan Demirbaşoğlu, Begüm Kolcu, Naz Keçeci et al.** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-Reconstruction of lower lip defects requires techniques that preserve both aesthetics and essential functions such as speech and oral competence. While the unilateral gate flap, originally described by Fujimori, is a widely used option for subtotal and total lower lip defects, disruption of the oral commissure remains a major limitation. In this study, the unilateral gate flap was modified to preserve the oral commissure by de-epithelializing the proximal portion of the flap and advancing it through a subcutaneous tunnel. Between 2014 and 2022, 25 modified gate flaps were performed in 22 patients with lower lip defects involving ≥50% of the lip with commissure preservation. No cases of flap loss were observed. Minor complications included transient local edema and limited wound dehiscence, all of which resolved with conservative management. During follow-up, oral competence and continuity of lower lip function were maintained when the reconstructed segment represented the primary lower lip repair; 1 patient with prior free fibula flap reconstruction had persistent functional limitation. This commissure-sparing, single-stage modification permits preservation of the oral commissure while maintaining the fundamental reconstructive principles of the Fujimori flap. Rather than claiming outcome superiority, it is presented as a practical technical option for selected cases in which commissure preservation is oncologically appropriate.
-
-</details>
-
-#### [Vocal Biomarkers of Childhood Trauma: A Machine-Learning Approach to Speech Analysis](https://www.semanticscholar.org/paper/ec0b56ed9554b3c6f4e457bb0d57d9185e68d5ce)
-**Hicham Adem** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-Childhood trauma can disrupt communication, yet early signs often go unrecognized in regions affected by ongoing war, where immediate physical needs take precedence. Vocal biomarkers—acoustic features linked to emotional and motor regulation—offer a promising, noninvasive means of detecting trauma-linked speech disruptions. This study applied a hybrid framework to distinguish trauma exposure in Arabic-speaking children living amid active conflict. The aim was to support scalable, speech-based tools for early trauma identification in low-resource, humanitarian settings. We analyzed 200 publicly available recordings of spontaneous speech from Arabic-speaking girls (ages 8–12 years): 100 trauma-exposed participants from Gaza (Palestinian) and 100 non-exposed controls from Jordan. Core acoustic features (fundamental frequency [ F 0], jitter, shimmer, harmonics-to-noise ratio [HNR], voice onset time [VOT], first formant, second formant) informed statistical testing and theory-driven composite indices. Exploratory features—including Mel-frequency cepstral coefficients and eGeMAPSv02 descriptors—were used to train binary classification models. Three classifiers (random forest, ridge regression, and logistic regression) were evaluated using nested cross-validation and bootstrap resampling. Composite indices were combined into a 0–10 Trauma Risk Score. Generalizability was assessed using an independent Lebanese cohort ( n = 80), with the trained classifier applied using fixed exploratory features and preprocessing parameters . Core features were tested post hoc for cross-cohort stability. Trauma-exposed children showed reduced F 0 and HNR, elevated shimmer and jitter, and prolonged VOT (Cohen's d > 1.2). Binary classification models achieved strong performance (area under the curve [AUC] = .89–.92); logistic regression reached AUC = .996 under cross-validation. Composite indices (AUCs > .90) stratified 68% into Moderate/High Trauma Risk. Lebanese validation confirmed generalizability, with theory-driven features showing stable predictive patterns. Vocal biomarkers reliably distinguished trauma exposure in Arabic-speaking children using a simple logistic regression model. This strong performance highlights the potential of speech-based tools as scalable, noninvasive methods for early trauma detection. Further validation is needed to support their use in diverse humanitarian and conflict-affected settings.
-
-</details>
-
-#### [Development of NFC-Integrated Clothing Prototypes for People With Visual Impairments](https://www.semanticscholar.org/paper/9b95d352c4d8502f74fc80fdaace8411ea6fffe6)
-**J. Shin, Sunhyung Cho** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-This study utilized a User-Centered Design (UCD) approach, viewed through the lens of the Technology Acceptance Model, to address challenges individuals with visual impairments (VI) face in perceiving clothing information. Affecting over 2.2 billion people globally, VI's onset diminishes self-image, social engagement, and quality of life (QOL). Twenty participants (9 females, 11 males) with VI were interviewed via purposive sampling. Incorporating UCD to explore VI clothing context, research was initiated with interviews and literature review, guiding design objectives to integrate Near Field Communication (NFC) technology into garment prototypes. The study determined optimal NFC sticker size/placement and evaluated usability. Results showed NFC stickers enabled independent access to detailed audio information (color, material, care), enhancing garment care and outfit coordination. Participants favored intuitive solutions, suggesting permanent NFC tags and adjustable speech speed. This study demonstrates NFC's potential to promote autonomy and enhance QOL for people with VI.
-
-</details>
-
-#### [Culturally Responsive Leadership in Multicultural School Contexts: A Latest Systematic Literature Review](https://www.semanticscholar.org/paper/9bfe6adf9854714b67a92d7112f3cca9417ab3f1)
-**Noor Azlee Jumaah, A. Hamid, A. N. Mansor** · 2026-03-30
-
-<details>
-<summary>Abstract</summary>
-
-In increasingly multicultural school contexts, educational leaders face ongoing challenges in fostering equity, inclusion, and culturally responsive practices across leadership, pedagogy, and curriculum. This systematic literature review aims to synthesize recent empirical evidence on culturally responsive leadership (CRL) in multicultural school settings, focusing on (i) educator beliefs and leadership practices, (ii) curriculum and pedagogical approaches, and (iii) learner diversity and inclusive outcomes. Guided by the PRISMA framework, this review analyzed 30 peer-reviewed journal articles published between 2024 and 2025, retrieved from Scopus and Web of Science databases, using a thematic analysis approach through qualitative content synthesis. The findings reveal three interrelated themes. First, educators’ multicultural beliefs and reflective leadership orientations strongly shape inclusive school climates, often exerting greater influence than national policy frameworks. Second, culturally inclusive curricula and pedagogical models—particularly those integrating social-emotional learning, local knowledge, storytelling, and gamified approaches—enhance empathy, intercultural understanding, and student engagement. Third, culturally responsive pedagogies support improved learning experiences for diverse learners, including students from immigrant, linguistic minority, and disability backgrounds, although persistent challenges related to limited professional preparation and institutional support remain evident. Overall, the review highlights CRL as a multidimensional and context-sensitive leadership framework, underscoring the need for sustained alignment between leadership preparation, curriculum design, and school-level support structures to advance equitable and inclusive teaching and learning in multicultural education systems.
-
-</details>
-
-#### [Aftbody Shoulder Effects on Laminar Lip Shock Free Interactions](https://www.semanticscholar.org/paper/8810e534941bb6213d429cd3d7e51c254e52751e)
-**W. Hinman, A. De Alwis, Craig T. Johansen** · 2026-03-29
-
-<details>
-<summary>Abstract</summary>
-
-Compressible Navier–Stokes simulations have been performed to study the laminar near-wake of two-dimensional adiabatic hypersonic blunt bodies. In particular, the modified free-interaction theory from previous work has been examined for cylindrical geometries with a truncated aftbody of finite shoulder radius. The geometries investigated were a single-parameter family of geometries based on the ratio between the shoulder radius and the forebody radius. A series of simulations were performed over a range of Mach [Formula: see text] and Reynolds number [Formula: see text]. The pressure rise due to the lip shock formation process was correlated to the properties of the boundary layer upstream of the shock wave boundary layer interaction. The interaction parameter [Formula: see text], is shown to be a function of a Reynolds number calculated with post-shock properties, and the shoulder radius as the relevant length scale (the shoulder Reynolds number). It has been shown that for a shoulder Reynolds number less than approximately 1500, this interaction is highly Reynolds number dependent. Additionally, it has been shown that for a shoulder Reynolds number less than approximately 330, the separation point exists past the shoulder on the base. This work effectively connects the theory of separation, wake, and lip shock formation between bodies of curvature and finite bases.
-
-</details>
 
 #### [Cinematic Audio Source Separation Using Visual Cues](https://arxiv.org/abs/2603.26113)
 **Kang Zhang, Suyeon Lee, Arda Senocak, Joon Son Chung** · 2026-03-27
@@ -298,30 +120,6 @@ Cinematic Audio Source Separation (CASS) aims to decompose mixed film audio into
 <summary>Abstract</summary>
 
 Recent advances in photorealistic avatar generation have enabled highly realistic talking-head avatars, raising security concerns regarding identity impersonation in AI-mediated communication. To advance in this challenging problem, the task of avatar fingerprinting aims to determine whether two avatar videos are driven by the same human operator or not. However, current public databases in the literature are scarce and based solely on old-fashioned talking-head avatar generators, not representing realistic scenarios for the current task of avatar fingerprinting. To overcome this situation, the present article introduces AVAPrintDB, a new publicly available multi-generator talking-head avatar database for avatar fingerprinting. AVAPrintDB is constructed from two audiovisual corpora and three state-of-the-art avatar generators (GAGAvatar, LivePortrait, HunyuanPortrait), representing different synthesis paradigms, and includes both self- and cross-reenactments to simulate legitimate usage and impersonation scenarios. Building on this database, we also define a standardized and reproducible benchmark for avatar fingerprinting, considering public state-of-the-art avatar fingerprinting systems and exploring novel methods based on Foundation Models (DINOv2 and CLIP). Also, we conduct a comprehensive analysis under generator and dataset shift. Our results show that, while identity-related motion cues persist across synthetic avatars, current avatar fingerprinting systems remain highly sensitive to changes in the synthesis pipeline and source domain. The AVAPrintDB, benchmark protocols, and avatar fingerprinting systems are publicly available to facilitate reproducible research.
-
-</details>
-
-#### [Enhancement of geometry-based time synchronization (UWGS) with packet loss management under dynamic node trajectories in underwater acoustic networks](https://www.semanticscholar.org/paper/7f33effd262691a1ae6726a09081c9625f957a82)
-**Matin Ghalkhani, Jianyu Zhang, Filippo Campagnaro, Michele Zorzi** · 2026-03-27
-
-<details>
-<summary>Abstract</summary>
-
-In underwater networks, achieving precise time synchronization is essential for various critical functions, such as localization and channel access. However, synchronization remains a significant challenge due to substantial propagation delays and the mobility of nodes in underwater environments. While existing methods like D-Sync, Mobi-Sync, and MU-Sync have been developed to address these issues in dynamic underwater settings, they primarily depend on estimating the radial velocity using Doppler shift effects. Additionally, these protocols often involve two-way message exchanges, which contribute to increased signaling overhead and response delays. In our previous study, we introduced a novel time synchronization approach based on the geometric shape of movement. This method, which we call Underwater Geometry-Based Synchronization (UWGS), employs a geometric framework to optimally estimate clock skew and offset for an unsynchronized node. Unlike traditional approaches that estimate radial velocity using Doppler shift, UWGS utilizes multiple one-way pulse signals to establish a geometric relationship between node velocity and range, and its preliminary evolution depicted simulated results in ideal conditions. In this paper, we further investigate the functionality of UWGS and compare its performance with existing methods, such as D-Sync, under more challenging and realistic conditions. Specifically, we consider the presence of random Gaussian noise in the motion of a mobile node and a non-ideal, slightly curved trajectory instead of the straight-line motion assumed in previous studies. Furthermore, we examine the impact of packet loss to assess whether UWGS provides improvements in synchronization accuracy and efficiency across a range of realistic underwater environments.
-
-</details>
-
-#### [Embodying Sexual Abuse in Voice: Babbitt’s Philomel](https://www.semanticscholar.org/paper/d04a217c1c8e55f85f3d5b028f068e357ddf7cbc)
-**J. Sommer** · 2026-03-27
-
-
-#### [Comparing Physics-Informed and Neural ODE Approaches for Modeling Nonlinear Biological Systems: A Case Study Based on the Morris-Lecar Model](https://arxiv.org/abs/2603.26921)
-**N. Matzakos, Chrisovalantis Sfyrakis** · 2026-03-27
-
-<details>
-<summary>Abstract</summary>
-
-Physics-Informed Neural Networks (PINNs) and Neural Ordinary Differential Equations (NODEs) represent two distinct machine learning frameworks for modeling nonlinear neuronal dynamics. This study systematically evaluates their performance on the two-dimensional Morris-Lecar model across three canonical bifurcation regimes: Hopf, Saddle-Node on Limit Cycle, and homoclinic orbit. Synthetic time-series data are generated via numerical integration under controlled conditions, and training is performed using collocation points for PINNs and adaptive solvers for NODEs (Dormand-Prince method). PINNs incorporate the governing differential equations into the loss function using automatic differentiation, which enforces physical consistency during training. In contrast, NODEs learn the system's vector field directly from data, without prior structural assumptions or inductive bias toward physical laws. Model performance is assessed using standard regression metrics, including Mean Squared Error (MSE), Mean Absolute Error (MAE), Mean Absolute Percentage Error (MAPE), and the coefficient of determination. Results indicate that PINNs tend to achieve higher accuracy and robustness in scenarios involving stiffness or sensitive bifurcations, owing to their embedded physical structure. NODEs, while more expressive and flexible, operate as black-box approximators without structural constraints, which can lead to reduced interpretability and stability in these regimes. Although advanced variants of NODEs (e.g., ANODEs, latent NODEs) aim to mitigate such limitations, their performance under stiff dynamics remains an open question. These findings emphasize the trade-offs between physics-informed models, which embed structure and interpretability, and purely data-driven approaches, which prioritize flexibility at the cost of physical consistency.
 
 </details>
 
@@ -995,26 +793,6 @@ Audio-visual emotion recognition (AVER) often performs well under ideal conditio
 **Cheng Yu, Vahid Ahmadi Kalkhorani, Buye Xu, DeLiang Wang** · 2026-01-01
 
 
-#### [Towards Personalized and Continuously Adaptive Cognitive Training with the Reh@Sync: A Pilot Study Series](https://www.semanticscholar.org/paper/7f369c6552b60428deab905230819efd4f657edd)
-**Teresa Paulino, Joana Câmara, Diogo Branco, L. Ferreira et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-: The use of interactive technologies within cognitive rehabilitation interventions following acquired brain injury, such as stroke, has rapidly evolved worldwide. The digital aspect allows the implementation of intelligent processes, enabling personalization and adaptation of the difficulty to the user’s characteristics. This work explores the implementation of supervised machine learning models trained on participants’ performance data to adjust exercise difficulty within an integrative training system, the Reh@Sync. The process involved two pilot studies with participants presenting cognitive impairments. The first pilot study, with 15 participants, aimed at collecting initial data on manual parametrization performed by the therapists. This data was then used to generate fitted models for implementing automatic parametrization in the system. The efficacy of the automation in terms of performance was evaluated in the context of a second pilot study with four participants. Results revealed that the system was able to personalize and continuously adapt the cognitive training program, maintaining participants’ performance within the range set by the therapists.
-
-</details>
-
-#### [Multi-Objective Optimization of a Lip Gloss Formulation Using a D-Optimal Mixture Design and FTIR Analysis](https://www.semanticscholar.org/paper/dd2f67d49ec4c1d078e4eff5794627459990a676)
-**P. Clark, K. Awatefe, E. Q. Umudi** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-This study optimized a lip gloss formulation using a D-optimal mixture design to balance multiple physicochemical and aesthetic properties. Three key components, waxes (40-55%), oils (25-40%), and humectants (8-18%), were systematically varied across 17 experimental runs to evaluate their effects on viscosity, melting point, breaking point, glossiness, spreadability, and stickiness. A highly predictive mathematical model (R² = 0.9448, p < 0.0001) was developed to describe the interactions between components and their corresponding performance responses. Wax concentration primarily influenced structural integrity and thermal stability, yielding an optimal melting point of approximately 49°C and a breaking strength of 243 g. Oils modulated viscosity (≈76 mm²/s) and improved textural properties, whereas humectants enhanced gloss (≈61 GU at 60°) and spreadability (≈1.19 g/cm) but increased stickiness by approximately 15%, emphasizing the need for compositional balance. The optimized formulation (42% waxes, 40% oils, and 18% humectants) provided the most desirable balance of properties, exhibiting high gloss and spreadability with appropriate viscosity and mechanical stability. FTIR spectrum analysis confirmed the successful integration of all components, showing characteristic O-H stretching at 3428 cm⁻¹ (humectants), C-H stretching at 2926 and 2855 cm⁻¹ (waxes and oils), and C=O stretching at 1659 cm⁻¹ (ester groups), consistent with literature values for cosmetic ingredients. The optimized product met cosmetic safety requirements, including a suitable pH range (6.2), a low moisture content (2.1%), and an absence of irritation (0) in preliminary testing. The D-optimal mixture design demonstrated strong efficiency in multi-response optimization, establishing a robust methodological basis for developing lip gloss formulations with optimized physicochemical and sensory properties that simultaneously satisfy performance requirements, consumer expectations, and safety standards
-
-</details>
-
 #### [Nose-Lip and Background Region Segmentation for Precisely Predicting Face Orientation](https://www.semanticscholar.org/paper/18c0ac07f9e1aba4fdb997f0a3891c3123a06c34)
 **S. Prakash** · 2026-01-01
 
@@ -1025,76 +803,6 @@ This study optimized a lip gloss formulation using a D-optimal mixture design to
 
 </details>
 
-#### [Collective Conversations: Talking About and Beyond Our Institutional Positions](https://www.semanticscholar.org/paper/a9007af7184c1eead4a7bdd2da25ce3994ded9ec)
-**Azlan Guttenberg Smith** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-How can communities on campus support scholars in developing specific, situated practices for ethical, accountable, impactful collaborations beyond campus? What opportunities can we open by being communally, radically present in our work? In considering these questions, I draw on three-plus years of organizing and facilitating two scholarly Collectives. These Collectives sustain lived community for scholars bending university systems toward liberatory work. From inside these Collectives, I trace seven guiding principles, including 1) learning alongside situated stories (as opposed to abstracted “advice”), 2) analyzing the specific institutional mechanisms we work through, 3) centering joy, 4) reimagining what we call possible, and 5) naming the places where we refuse educational systems’ dangerous expectations. I ground these principles in lived stories with fellow Collective members, celebrating how living alongside one another can open relational scholarships that are respectful, inspiring, undisciplined, and growing into what we need them to be.
-
-</details>
-
-#### [Face Sketch Recognition: Ethnic Groups Classification and Recognition Via a VGG16 Model Approach](https://www.semanticscholar.org/paper/6003cc61b7c64863c78f39c80fac00bf6c8975e9)
-**Khalid Ounachad, Mohamed El Ghmary** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In the law enforcement investigation, the police use sketching techniques to identify suspects from an eyewitness's memory. Many automatic face sketch recognition systems that determine the perpetrator’s appearance from the face image datasets have been proposed. The aim is to conduct the arrest of the right offender. We propose this work to carry out a search based on the ethnicity criterion to speed up this automatic identification and to help authorities execute fast responses by launching the retrieval process only in a part of the dataset of face images. The goal of this study is to enhance the accuracy of ethnic face sketch classification by using the convolutional neural network built on the VGG16 architecture. The FairFace dataset, which includes seven ethnic face images: White, Black, Indian, East Asian, Southeast Asian, Middle Eastern, and Latino|Hispanic, was employed in the study. We convert the face images dataset to face sketch images, and we optimize the VGG16 model for seven classification outputs. This work shows that the VGG16 deep learning model offers a reliable, automated approach for ethnic face sketch classification and recognition. The used model achieved an accuracy reaching above 94% and produced a low false negative rate, which is crucial for minimizing undetected cases.
-
-</details>
-
-#### [Dossier « Les professionnels de la montagne face aux changements socio-environnementaux » – Les agents d’espaces naturels face aux changements socio-environnementaux et institutionnels : le cas des génépis dans le parc national du Mercantour](https://www.semanticscholar.org/paper/0ded420ce30b58b5efb7aa793e8d5c533a59e6d3)
-**Ninon Fontaine, Isabelle Boulangeat, P. Gauthier, Sophie Caillon** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Les législations mises en œuvre dans les parcs nationaux évoluent au gré de changements institutionnels et socio-environnementaux. Ces territoires, en interaction avec les acteurs qui les utilisent ou les gèrent, peuvent être considérés comme des socio-écosystèmes. Les agents des parcs nationaux jouent un rôle central dans ces systèmes, en tant que sentinelles des dynamiques écologiques et sociales du parc, tout en ayant pour mission d’appliquer des réglementations peu dynamiques et parfois décalées. La gestion d’une plante patrimoniale comme le génépi attise des visions contradictoires entre utilisateurs et gestionnaires. Nous nous intéressons ici plus spécifiquement à la manière dont les agents du parc national du Mercantour vivent les changements affectant le socio-écosystème de « cueillette des génépis », que ce soit l’évolution des populations de génépi, des pratiques de cueillette, de leur métier ou de l’institution « parc national ». Les entretiens soulignent la diversité de vécus au sein de ce territoire, reflétée par les dysfonctionnements de la réglementation de cueillette que chaque agent identifie.
-
-</details>
-
-#### [Enhancing Speaker Naming through Multimodal Fusion of Text and Audio Cues](https://www.semanticscholar.org/paper/a8bffe4f22f91875d37f33c16953f262b32920d2)
-**M. Bellagha, Mounir Zrigui** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-: This study addresses the problem of automatic speaker naming, which involves the identification of speakers based on their true identities. Conventional methods that rely on textual information and linguistic rules to link names with adjacent speaker segments face significant limitations, particularly when applied to spoken text. In this paper, we propose a speaker identification approach that leverages both the audio signal and its transcription to name the speakers. Our approach consists of two modules. The first module, named ”Names assignment”, analyzes the lexical and semantic context when a name is mentioned, determining whether it corresponds to the current speaker segment, the next speaker segment, or the previous speaker segment. To achieve this, we introduce an attention-over-attention (AOA) neural network for names assignment. This model employs an attention mechanism to assess the relevance of each word with respect to a given name. During the evaluation phase, our model yields satisfactory results, achieving an F1 rate of 87.92% and an accuracy rate of 88.69%. The second module, ”Names Propagation”, propagates names to other segments based on acoustic similarity while integrating speaker role information into the naming process. Incorporating this information reduces the identification error rate from 28% to 15.3%.
-
-</details>
-
-#### [AI-Driven Text-to-Speech for Non-Playable Characters in XR Educational Environments](https://www.semanticscholar.org/paper/2a1b52730b4b4542283943272bf9071eea9485f9)
-**S. Silva, Isabelly Oliveira, R. Costa** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-This case study explores the implementation of a text-to-speech (TTS) engine integrated with conversational artificial intelligence (AI) to create interactive non-playable characters (NPCs) for Virtual and Mixed Reality (VR/XR) educational environments. The primary objective was to design a course that introduces students to three transformative technologies—AI, Virtual Reality (VR), and Extended Reality (XR)—while encouraging them to develop AI-driven, voice-acted NPCs as educational tools. These NPCs serve as interactive agents to support the students' learning experience within immersive environments. Throughout the study, various state-of-the-art AI tools were evaluated in combination with leading game engines to determine the most effective and accessible development environment for educational purposes. The project was conducted at Ocean Center, an initiative of the Amazonas State University in Brazil, which offers free technology-focused courses to the population of the western Amazon region. Among the Center's offerings are AR, VR, and XR courses, now enhanced with AI integration to broaden students' technological skillsets. By combining conversational AI with TTS capabilities in immersive VR/XR settings, the project provides a comprehensive framework that empowers students to create engaging, intelligent virtual characters. This approach not only enhances their technical competencies but also fosters creativity and innovation. The results suggest a promising model for integrating emerging technologies into education and may serve as inspiration for educators and institutions seeking to adopt immersive, AI-enhanced learning methodologies worldwide.
-
-</details>
-
-#### [Pseudo-Reference Driven Non-Intrusive Speech Quality Assessment via Multi-Task Learning](https://www.semanticscholar.org/paper/af31b462d1b68f7972325135a1d24d315363b09b)
-**Kailai Shen, Diqun Yan, Li Dong, Rangding Wang et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Non-intrusive speech quality assessment (NISQA) is a foundational yet challenging task within the domain of speech processing, particularly when confronted with limited information and the absence of comparative references. Although there are various feature extraction mechanisms, from natural scene statistics to deep neural networks, performance bottlenecks still exist. To address these challenges, this study proposes an auditory hallucination-guided quality regression network. First, an auditory hallucination reference is generated from the degraded speech to compensate for the lack of real reference. Then, the auditory hallucination reference information is paired with the degraded speech information and used as input to the regression model to learn the perceptual difference to realize accurate quality prediction. In addition, this study implements a multi-task learning strategy, predicting four critical quality dimensions: noisiness, coloration, discontinuity, and loudness. This approach enables service providers to identify and understand the specific causes of speech quality degradation rapidly. The effectiveness of the proposed method is verified by experiments. The experimental results indicate that the proposed method can enhance the performance of baseline models by generating pseudo-auditory speech and can also accurately predict the Mean Opinion Score and scores across the four quality dimensions. The proposed method can provide valuable guidance to online conference service providers in downstream tasks. Further, the experimental results demonstrate the proposed method’s superior performance regarding multiple assessment metrics. Particularly, on datasets containing real-world scenarios, the proposed method achieved a 19.9% reduction in the Root Mean Square Error (RMSE) compared to the state-of-the-art speech quality assessment benchmark, demonstrating its effectiveness in enhancing the accuracy of speech quality assessment.
-
-</details>
-
-#### [High Quality and Secure Speech Transmission at Low Bitrate via Semantic-Acoustic Hybrid Coding for Low-Altitude Intelligent Systems](https://www.semanticscholar.org/paper/193dd9aa3736eca8ebdcd97ff20fd02d91fcfdc3)
-**Bo Chen, Jianping An, Bowen Gui, Liang Zeng** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-In low-altitude communication scenarios, voice transmission imposes stringent requirements on encoding methods in terms of quality, efficiency, and security. Maintaining speech clarity and naturalness at low bit rates is essential for reliable task execution, while bandwidth limitations and the risk of voiceprint leakage further complicate system design. Recent neural-network-based codecs have demonstrated remarkable performance in compressing speech into discrete semantic representations with reduced bandwidth consumption. However, these approaches still face challenges in preserving perceptual quality, achieving flexible bandwidth utilization, and preventing speaker identity leakage. To address these limitations, this paper presents a semantic-acoustic hybrid coding framework that integrates pre-trained semantic modeling with lightweight acoustic representations within an end-to-end encoder-decoder architecture. The framework introduces a semantic-guided dynamic masking mechanism that adaptively selects acoustic feature dimensions based on semantic feature density, enabling intelligent, content-aware bit allocation. Moreover, by substituting voiceprint-related attributes while preserving semantic consistency, it achieves effective speaker anonymization. Experimental results demonstrate that the proposed method provides high-fidelity reconstruction with semantic enhancement, achieving 88 MUSHRA score and outperforming conventional single-channel low-bitrate codecs with near-perceptually lossless speech reconstruction. The framework further enables semantic-driven adaptive bitrate control, offering flexible trade-offs between speech quality and bandwidth through hyperparameter tuning during training. In addition, it exhibits strong speaker anonymization capability by generating non-original voice characteristics while preserving semantic coherence. The training scripts and audio demos can be found at https://github.com/az1mus/Hybrid-Semantic-acoustic-Voice-Codec
-
-</details>
-
 #### [Semantic Modulated Prompting for Few-Shot Audio-Visual Classification](https://www.semanticscholar.org/paper/b549e79f5d9943c9644151c66be758be5e7983d3)
 **Guanjie Huang, Yawen Cui, Danny Hin Kwok Tsang, Wenwu Wang et al.** · 2026-01-01
 
@@ -1102,56 +810,6 @@ In low-altitude communication scenarios, voice transmission imposes stringent re
 <summary>Abstract</summary>
 
 <bold>F</bold>ew-<bold>S</bold>hot <bold>A</bold>udio-<bold>V</bold>isual <bold>C</bold>lassification (FS-AVC) trains models using a limited number of labeled audio and visual sample pairs to capture the classification capability. Deep learning-based audio-visual learning methods often construct complicated frameworks with numerous parameters trained on large labeled datasets, rendering them impractical for FS-AVC. The key challenges for FS-AVC are model overfitting, multimodal fusion under temporal asynchrony, and modality imbalance. To address these challenges, we propose a novel method called Semantic Modulated Prompting (SMP) to improve the learning process of FS-AVC. This framework implants text as prompting tokens via two components: <bold>P</bold>rompt-refined <bold>A</bold>udio-<bold>V</bold>isual <bold>e</bold>fficient <bold>L</bold>earner (P-AVeL) and <bold>P</bold>rompt-tuned <bold>P</bold>rototypical <bold>R</bold>egularization (P-PR). By integrating semantic prompts, adapter-based P-AVeLs conduct the prompt-guided latent attention to alleviate the overfitting and achieve effective alignment and fusion. Concurrently, P-PR, the first rebalancing method designed for few-shot scenarios, uses these semantic prompts to accurately evaluate and dynamically adjust the imbalance of two modalities. Extensive experiments demonstrate that the SMP framework consistently outperforms state-of-the-art multimodal methods by a large margin.
-
-</details>
-
-#### [A Multimodal Privacy Filtering System Using Deep Learning for Visual-Audio Input Streams](https://www.semanticscholar.org/paper/52ee3a3357504bf36dab8a41f175759561b8480b)
-**Kunwoo Kim, S. Park, Hyeon-Ju Lee, Hoyong Choi et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Protecting personally identifiable information (PII) in visual and audio data streams that are continuously being captured by sensing systems remains a critical challenge. Devices such as IoT cameras and smart microphones routinely capture sensitive elements such as faces, voices, and behavioral or contextual cues, often without the subject’s awareness or consent. To address this issue, we propose a multimodal PII filtering system designed for privacy protection in environments where visual and auditory data are persistently recorded. The proposed system detects and irreversibly anonymizes PII at the point of capture, before the data is transmitted or stored in vulnerable infrastructure. It incorporates a visual object detection module based on YOLOv12 and a sentence-level classifier based on BERT, applied to speech transcriptions generated by a speech-to-text module. These modules operate within a unit-based processing framework that segments incoming data into short temporal units, enabling low-latency operation while maintaining semantic consistency across modalities. Although each modality is processed independently, the system maintains temporal synchronization to ensure coherent filtering decisions. We evaluate the system using both in-house and public datasets across diverse conditions including variable lighting and background noise. The system achieves a unified false negative rate of about 3%, showing reliable performance for real-world multimodal privacy protection. Furthermore, the system employs parallel unit-based processing to maximize computational efficiency, and its modular design supports flexible component combinations, confirming suitability for edge or cloud deployment. These findings demonstrate that the proposed system provides an efficient and scalable solution for real-world multimodal privacy protection.
-
-</details>
-
-#### [Implementation of Preparedness Efforts for Rip Current Hazard at Pangandaran Beach](https://www.semanticscholar.org/paper/dd95b98707da914c5508e7b8c1105f6e7abc1aab)
-**Yessi Nirwana Kurniadi, Mia Wimala, Resa Ardian Rivaldi, Muhamad Ridhan** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Rip currents are powerful current that flow from the shore through the surf zone and out to deeper waters. These currents play a critical role in coastal dynamics but they are also of significant concern for beach safety, as they pose a threat to swimmers and beachgoers. The number of fatalities due to rip current every year at Pangandaran Beach raises the question of whether the beach management is ready to face this hazard. Therefore, this study aims to assess the preparedness efforts against rip current hazard in Pangandaran Beach. The benchmarks of preparedness that will be studied include trainings, campaigns, supporting instruments, and beach closure. This qualitative research will use data from interviews with BPBD, Balawista, and Basarnas of Pangandaran Beach, supported by data from field observation. The findings indicate four criteria and eighteen metrics for evaluating rip current preparedness, applicable to beach stakeholders. The stakeholders engaged in rip current hazard management at Pangandaran Beach have undertaken preparedness initiatives that can be categorized as adequately effective. The execution of both routine and non-routine training, the distribution of campaigns via several media, the acquisition of supporting equipment, and the closure of the beach have been completed to date. Nevertheless, feedback concerning the quantity and condition of warning signs, together with the enhancement of materials and platforms for distributing information specifically about rip currents, requires further refinement.
-
-</details>
-
-#### [HOW SERVICE QUALITY SHAPES CUSTOMER SATISFACTION AND LOYALTY IN B2B CONSTRUCTION SERVICES: A PLS-SEM STUDY OF PT BRANTAS ABIPRAYA](https://www.semanticscholar.org/paper/4d3e4fc3ee4e2b65c9c6343b33ad9aa4d73ad191)
-**Erwin Dwiyanto, Satria Wiga Trenggana, Dediek Isqak, Ahmad Syamil** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-State owned construction enterprises face intensifying competitive pressure and budget efficiency constraints that necessitate effective customer retention strategies. Accordingly, this study aims to examine the effects of SERVQUAL dimensions on customer satisfaction and their subsequent impact on customer loyalty within the Precast and Equipment Division of PT BrantasAbipraya. Prior literature confirms the relevance of SERVQUAL in explaining customer satisfaction, yet evidence regarding the translation of satisfaction into loyalty in tender based B2B contexts remains inconclusive. This research adopts a quantitative explanatory design with a cross sectional survey strategy. The population comprises external customers of heavy equipment rental services, with convenience sampling applied to an indefinite population. Of 190 responses collected, 160 valid observations were analyzed using PLS SEM with SmartPLS 4. The findings indicate that all SERVQUAL dimensions exert positive and significant effects on customer satisfaction, with tangibles emerging as the strongest determinant, followed by reliability, empathy, assurance, and responsiveness. Customer satisfaction also has a positive and significant effect on customer loyalty. Future research is encouraged to employ longitudinal designs, multigroup analysis, and incorporate contextual variables such as pricing and tender mechanisms.
-
-</details>
-
-#### [Cu-Nb Conductors Under Cyclic Loading](https://www.semanticscholar.org/paper/cc45dfac36f8bc59ea05ccf814b3716b018c7e29)
-**K. Han, V. Toplosky, R. Goddard, C. Swenson et al.** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-Pulsed magnets in the US National High Magnetic Field Laboratory (MagLab) use rectangular cross-section Cu matrix composite conductors. The strongest of these conductors incorporate various combinations of Cu reinforced by Nb-fibers. The slip systems of Cu and Nb are markedly incompatible during deformation because Cu has a face-centered cubic structure while Nb has a body-centered cubic structure. In order to reach the level of strength that we required in our conductors, Cu-Nb was subjected to especially high levels of deformation strain. This high strain level, in combination with the aforementioned incompatibility of deformation systems, resulted in very high internal stress within both Cu and Nb that greatly affected the future deformation behavior of the resulting Cu-Nb conductors, as reflected in the stress-strain curves generated by our tests, particularly the cyclic loading tests. At cryogenic temperatures, the thermal expansion difference between Nb fibers and Cu matrix added additional internal stress in the resulting conductors. We studied the mechanical deformation behavior of Nb-fiber-strengthened Cu under cyclic loading, and we examined the relationship between the microstructure of these conductors and their deformation behavior.
-
-</details>
-
-#### [ANALYSIS OF APPROACHES TO ASSESSING THE SUSTAINABILITY OF TECHNOLOGICAL DEVELOPMENT OF INDUSTRIAL INFRASTRUCTURE ENTERPRISES](https://www.semanticscholar.org/paper/2184ef3a36981fd81bc1098e5d25526c1f40e408)
-**L. Mamaeva** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-The article examines and systematizes existing approaches to assessing the sustainability of technological development of industrial infrastructure enterprises in the face of increasing external constraints, technological turbulence and the transformation of global value chains. It is shown that in modern Russian and foreign scientific literature, the sustainability of technological development is interpreted from various conceptual positions — within the framework of theories of economic growth, dynamic abilities, technological security, financial, economic and environmental sustainability. The analysis revealed the fragmentation of the existing methodological framework, the orientation of most approaches to fixing the current state of the system and insufficient consideration of the process nature of technological development at the enterprise level. Special attention is paid to the specifics of production infrastructure enterprises, the technological development of which is of a derivative nature and is determined by the requirements of the basic consumer industries. It is proved that the macro-level indicators of technological development and security used in strategic documents have limited practical significance for assessing the sustainability of technological development of such enterprises. It is shown that financial, economic and innovation indicators mainly reflect the results of functioning, but do not reveal the internal mechanisms of sustainability formation. The article proposes a methodological rethinking of the sustainability of technological development of an enterprise’s production infrastructure as a dynamic system property that characterizes the ability to maintain a reproducible and adaptive trajectory of technological change under external constraints. Sustainability is interpreted as the reliability of the development trajectory, which makes it possible to integrate the provisions of reliability theory, system analysis and process management. The findings form the theoretical basis for the development of integrated indicator and process models for assessing and managing the sustainability of technological development of industrial infrastructure enterprises.
 
 </details>
 
@@ -2035,16 +1693,6 @@ Generating semantically coherent and visually accurate talking faces requires br
 <summary>Abstract</summary>
 
 We present X-Actor, a novel audio-driven portrait animation framework that generates lifelike, emotionally expressive talking head videos from a single reference image and an input audio clip. Unlike prior methods that emphasize lip synchronization and short-range visual fidelity in constrained speaking scenarios, X-Actor enables actor-quality, long-form portrait performance capturing nuanced, dynamically evolving emotions that flow coherently with the rhythm and content of speech. Central to our approach is a two-stage decoupled generation pipeline: an audio-conditioned autoregressive diffusion model that predicts expressive yet identity-agnostic facial motion latent tokens within a long temporal context window, followed by a diffusion-based video synthesis module that translates these motions into high-fidelity video animations. By operating in a compact facial motion latent space decoupled from visual and identity cues, our autoregressive diffusion model effectively captures long-range correlations between audio and facial dynamics through a diffusion-forcing training paradigm, enabling infinite-length emotionally-rich motion prediction without error accumulation. Extensive experiments demonstrate that X-Actor produces compelling, cinematic-style performances that go beyond standard talking head animations and achieves state-of-the-art results in long-range, audio-driven emotional portrait acting.
-
-</details>
-
-#### [AudioGen-Omni: A Unified Multimodal Diffusion Transformer for Video-Synchronized Audio, Speech, and Song Generation](https://arxiv.org/abs/2508.00733)
-**Le Wang, Jun Wang, Chunyu Qiang, Feng Deng et al.** · 2025-08-01
-
-<details>
-<summary>Abstract</summary>
-
-We present AudioGen-Omni - a unified approach based on multimodal diffusion transformers (MMDit), capable of generating high-fidelity audio, speech, and song coherently synchronized with the input video. AudioGen-Omni introduces a novel joint training paradigm that seamlessly integrates large-scale video-text-audio corpora, enabling a model capable of generating semantically rich, acoustically diverse audio conditioned on multimodal inputs and adaptable to a wide range of audio generation tasks. AudioGen-Omni employs a unified lyrics-transcription encoder that encodes graphemes and phonemes from both song and spoken inputs into dense frame-level representations. Dense frame-level representations are fused using an AdaLN-based joint attention mechanism enhanced with phase-aligned anisotropic positional infusion (PAAPI), wherein RoPE is selectively applied to temporally structured modalities to ensure precise and robust cross-modal alignment. By unfreezing all modalities and masking missing inputs, AudioGen-Omni mitigates the semantic constraints of text-frozen paradigms, enabling effective cross-modal conditioning. This joint training approach enhances audio quality, semantic alignment, and lip-sync accuracy, while also achieving state-of-the-art results on Text-to-Audio/Speech/Song tasks. With an inference time of 1.91 seconds for 8 seconds of audio, it offers substantial improvements in both efficiency and generality.
 
 </details>
 
