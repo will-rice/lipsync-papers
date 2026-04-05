@@ -103,6 +103,26 @@ Face anti-spoofing is an essential component in modern biometric authentication 
 **Kátia Steinfeld, Micah M. Murray, David J. Lewkowicz** · 2026-03-31
 
 
+#### [Medi connect - Virtual health companion for Underserved Regions with Offline Sync](https://www.semanticscholar.org/paper/568a27aa9dd3f1cf55af83284f3007438967d419)
+**Korupolu Sujana, Dipendra Gaderi, Bikash Sahani, Satya Trinath Ramanam et al.** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Geographic isolation of the rural underserved areas impedes healthcare delivery, with patients traveling hundreds of kilometers over rural roads to meet specialized doctors in urban areas, causing delays in interventions, high turnover, and avoidable mortality - such as Village Health Administrators with basic care with no real-time expert assistance. To deal with these gaps, Medi Connect is a virtual health companion application with strong offline synchronization capabilities, which allows frontline workers to record patient information and perform virtual consultation on Android devices and automatically synchronize with cloud solution providers such as Firebase when they are connected to the Internet to ensure smooth approvals and updates. With the combination of SMS notifications, appointment booking, and conflict-resolution algorithms, it helps reduce the necessity of traveling, provide intuitive tools to non-experts, and provide equitable care without permanent internet access, and, eventually, mend rural-urban gaps.
+
+</details>
+
+#### [Voice on video](https://www.semanticscholar.org/paper/c60271fb3196b0eefd825fcb1d70110db3cce4f4)
+**Sebastian F. K. Svegaard** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual communication takes up a large amount of everyday communication, including in the political and news spheres. With this proportion still growing, and the emergent logics of sound/music as sharing principle/vector, it is striking that sound/music is still understudied in its ability to communicate outside of a stricter arts-related sphere. This is not least true with regard to music’s ability to influence affect and emotions. In this article, I use the case of the 2023 Australian Voice to Parliament referendum to further the understanding of the audio in audio-visual communication. Through a qualitative analysis of two videos, one arguing for and one against the referendum proposal, I show the differing strategies of the campaigns as well as how deliberate use of audio functions as political speech. Thus, I take steps toward bridging a disciplinary divide and highlight the contribution of music as a medium of political communication.
+
+</details>
+
 #### [Cinematic Audio Source Separation Using Visual Cues](https://arxiv.org/abs/2603.26113)
 **Kang Zhang, Suyeon Lee, Arda Senocak, Joon Son Chung** · 2026-03-27
 
@@ -810,6 +830,30 @@ Audio-visual emotion recognition (AVER) often performs well under ideal conditio
 <summary>Abstract</summary>
 
 <bold>F</bold>ew-<bold>S</bold>hot <bold>A</bold>udio-<bold>V</bold>isual <bold>C</bold>lassification (FS-AVC) trains models using a limited number of labeled audio and visual sample pairs to capture the classification capability. Deep learning-based audio-visual learning methods often construct complicated frameworks with numerous parameters trained on large labeled datasets, rendering them impractical for FS-AVC. The key challenges for FS-AVC are model overfitting, multimodal fusion under temporal asynchrony, and modality imbalance. To address these challenges, we propose a novel method called Semantic Modulated Prompting (SMP) to improve the learning process of FS-AVC. This framework implants text as prompting tokens via two components: <bold>P</bold>rompt-refined <bold>A</bold>udio-<bold>V</bold>isual <bold>e</bold>fficient <bold>L</bold>earner (P-AVeL) and <bold>P</bold>rompt-tuned <bold>P</bold>rototypical <bold>R</bold>egularization (P-PR). By integrating semantic prompts, adapter-based P-AVeLs conduct the prompt-guided latent attention to alleviate the overfitting and achieve effective alignment and fusion. Concurrently, P-PR, the first rebalancing method designed for few-shot scenarios, uses these semantic prompts to accurately evaluate and dynamically adjust the imbalance of two modalities. Extensive experiments demonstrate that the SMP framework consistently outperforms state-of-the-art multimodal methods by a large margin.
+
+</details>
+
+#### [AvatarEdit: Optical Flow-Guided Consistent Talking Head Avatar Editing](https://www.semanticscholar.org/paper/645cb0a3890c43e1673abd968549389fa15b8220)
+**Haijie Yang, Zhenyu Zhang, Jianjun Qian, Jian Yang** · 2026-01-01
+
+
+#### [Run-Sketch: Interactive real-time code visualization and AI narration for DSA learning](https://www.semanticscholar.org/paper/7aab358b06771d0662422a3bf294787883dfb17b)
+**Renushree H S, Mahan J. Shetty, H. Kumar, Ankita B R et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Learning Data Structures and Algorithms (DSA) can often be noted to be an important challenge, primarily due to the abstract nature of program execution. To address this pedagogical challenge, the current paper presents RunSketch, an interactive educational application that will help with visualizing code in real-time, highlighting syntax, tracking variables, and providing AI-based narration. RunSketch uses code execution to provide feedback on the code to users, and provides explanatory information in the form of written text and spoken output using Google Text to Speech API. Its front-end architecture is based on React.js, D3.js and Monaco Editor, the back-end is written in Python using Flask and uses the sys.settrace() method to trace execution. RunSketch significantly enhances understanding and interaction of learners, due to the combination of visual and audio feedback systems, thus, becoming an important innovation in the sphere of teaching programming.
+
+</details>
+
+#### [Chain-of-Cognition Through Multi-Agent Collaboration Against Cross-Modal Cognitive Interference](https://www.semanticscholar.org/paper/1c8a8d2b9310a732161c7b7a726778bc3e589930)
+**Liqi He, Zuchao Li, Mengjia Shen, Ping Wang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Multi-modal Large Language Models (MLLMs) leverage Chain-of-Thought (CoT) instruction to transfer the reasoning capabilities of Large Language Models (LLMs) into multi-modal contexts. Prior research has primarily focused on aligning multi-modal features with textual representations, while overlooking the fundamental distinction that multi-modal information perception and information-grounded reasoning necessitate distinct cognitive modes. This limitation induces Cross-Modal Cognitive Interference (CMCI) in MLLMs, characterized by mutual interference between visual perception and reasoning capabilities during multi-modal CoT. To systematically analyse this phenomenon, we develop the CMCI Diagnostic Benchmark, which reveals prevalent mutual interference between perception and reasoning capabilities across advanced MLLMs. Furthermore, we propose a multi-agent dual-system Chain-of-Cognition (CoC) framework, called MADC, to mitigate CMCI in visual question answering. Unlike the traditional CoT methodology, the CoC is explicitly structured into four distinct stages: perception, assessment, reasoning, and decision-making. This structured decomposition enables MADC to better address CMCI, making it more effective for complex multi-modal reasoning tasks. Our empirical evaluation across multiple benchmarks shows that MADC significantly surpasses conventional MLLMs and demonstrates strong compatibility with various multi-modal and uni-modal foundation models. Experiments demonstrate that the MADC framework outperforms end-to-end multi-modal slow-thinking models without the need for fine-tuning, validating the effectiveness of our approach. Additionally, experiments on the video question answering benchmark further validate the generalizability of the MADC framework across multiple modalities.
 
 </details>
 
@@ -3729,16 +3773,6 @@ Talking head synthesis, an advanced method for generating portrait videos from a
 
 </details>
 
-#### [DubWise: Video-Guided Speech Duration Control in Multimodal LLM-based Text-to-Speech for Dubbing](https://arxiv.org/abs/2406.08802)
-**Neha Sahipjohn, Ashishkumar Gudmalwar, Nirmesh Shah, Pankaj Wasnik et al.** · 2024-06-13
-
-<details>
-<summary>Abstract</summary>
-
-Audio-visual alignment after dubbing is a challenging research problem. To this end, we propose a novel method, DubWise Multi-modal Large Language Model (LLM)-based Text-to-Speech (TTS), which can control the speech duration of synthesized speech in such a way that it aligns well with the speakers lip movements given in the reference video even when the spoken text is different or in a different language. To accomplish this, we propose to utilize cross-modal attention techniques in a pre-trained GPT-based TTS. We combine linguistic tokens from text, speaker identity tokens via a voice cloning network, and video tokens via a proposed duration controller network. We demonstrate the effectiveness of our system on the Lip2Wav-Chemistry and LRS2 datasets. Also, the proposed method achieves improved lip sync and naturalness compared to the SOTAs for the same language but different text (i.e., non-parallel) and the different language, different text (i.e., cross-lingual) scenarios.
-
-</details>
-
 #### [Hallo: Hierarchical Audio-Driven Visual Synthesis for Portrait Image Animation](https://arxiv.org/abs/2406.08801)
 **Mingwang Xu, Hui Li, Qingkun Su, Hanlin Shang et al.** · 2024-06-13
 
@@ -6302,16 +6336,6 @@ Recently, talking-face video generation has received considerable attention. So 
 <summary>Abstract</summary>
 
 Face manipulation technology is advancing very rapidly, and new methods are being proposed day by day. The aim of this work is to propose a deepfake detector that can cope with the wide variety of manipulation methods and scenarios encountered in the real world. Our key insight is that each person has specific characteristics that a synthetic generator likely cannot reproduce. Accordingly, we extract audio-visual features which characterize the identity of a person, and use them to create a person-of-interest (POI) deepfake detector. We leverage a contrastive learning paradigm to learn the moving-face and audio segment embeddings that are most discriminative for each identity. As a result, when the video and/or audio of a person is manipulated, its representation in the embedding space becomes inconsistent with the real identity, allowing reliable detection. Training is carried out exclusively on real talking-face video; thus, the detector does not depend on any specific manipulation method and yields the highest generalization ability. In addition, our method can detect both single-modality (audio-only, video-only) and multi-modality (audio-video) attacks, and is robust to low-quality or corrupted videos. Experiments on a wide variety of datasets confirm that our method ensures a SOTA performance, especially on low quality videos. Code is publicly available on-line at https://github.com/grip-unina/poi-forensics.
-
-</details>
-
-#### [Audio-Visual Speech Codecs: Rethinking Audio-Visual Speech Enhancement by Re-Synthesis](https://arxiv.org/abs/2203.17263)
-**Karren Yang, Dejan Markovic, Steven Krenn, Vasu Agrawal et al.** · 2022-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Since facial actions such as lip movements contain significant information about speech content, it is not surprising that audio-visual speech enhancement methods are more accurate than their audio-only counterparts. Yet, state-of-the-art approaches still struggle to generate clean, realistic speech without noise artifacts and unnatural distortions in challenging acoustic environments. In this paper, we propose a novel audio-visual speech enhancement framework for high-fidelity telecommunications in AR/VR. Our approach leverages audio-visual speech cues to generate the codes of a neural speech codec, enabling efficient synthesis of clean, realistic speech from noisy signals. Given the importance of speaker-specific cues in speech, we focus on developing personalized models that work well for individual speakers. We demonstrate the efficacy of our approach on a new audio-visual speech dataset collected in an unconstrained, large vocabulary setting, as well as existing audio-visual datasets, outperforming speech enhancement baselines on both quantitative metrics and human evaluation studies. Please see the supplemental video for qualitative results at https://github.com/facebookresearch/facestar/releases/download/paper_materials/video.mp4.
 
 </details>
 
