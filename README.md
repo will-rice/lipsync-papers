@@ -45,6 +45,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [MMTalker: Multiresolution 3D Talking Head Synthesis with Multimodal Feature Fusion](https://arxiv.org/abs/2604.02941)
+**Bin Liu, Zhixiang Xiong, Zhifen He, Bo Li** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+Speech-driven three-dimensional (3D) facial animation synthesis aims to build a mapping from one-dimensional (1D) speech signals to time-varying 3D facial motion signals. Current methods still face challenges in maintaining lip-sync accuracy and producing realistic facial expressions, primarily due to the highly ill-posed nature of this cross-modal mapping. In this paper, we introduce a novel 3D audio-driven facial animation synthesis method through multi-resolution representation and multi-modal feature fusion, called MMTalker which can accurately reconstruct the rich details of 3D facial motion. We first achieve the continuous representation of 3D face with details by mesh parameterization and non-uniform differentiable sampling. The mesh parameterization technique establishes the correspondence between UV plane and 3D facial mesh and is used to offer ground truth for the continuous learning. Differentiable non-uniform sampling enables precise facial detail acquisition by setting learnable sampling probability in each triangular face. Next, we employ residual graph convolutional network and dual cross-attention mechanism to extract discriminative facial motion feature from multiple input modalities. This proposed multimodal fusion strategy takes full use of the hierarchical features of speech and the explicit spatiotemporal geometric features of facial mesh. Finally, a lightweight regression network predicts the vertex-wise geometric displacements of the synthesized talking face by jointly processing the sampled points in the canonical UV space and the encoded facial motion features. Comprehensive experiments demonstrate that significant improvements are achieved over state-of-the-art methods, especially in the synchronization accuracy of lip and eye movements.
+
+</details>
+
 #### [Realistic Lip Motion Generation Based on 3D Dynamic Viseme and Coarticulation Modeling for Human-Robot Interaction](https://arxiv.org/abs/2604.01756)
 **Sheng Li, Jingcheng Huang, Min Li** · 2026-04-02
 
@@ -76,6 +86,26 @@ This study investigates interpretable photometric and geometric features for dee
 <summary>Abstract</summary>
 
 This paper investigates translation for dubbing and subtitling when dealing with humour and other language- or culture-specific elements, which may hinder the ultimate purpose of producing the same intended effect of the original film among the target-language audience. Whether this aim is achieved or not will often depend on the strategies adopted by the translator, who may lean towards source-oriented solutions or target-oriented ones. As a case study, Young Frankenstein by Mel Brooks (1974) has been selected due to the numerous and different types of challenges involved in the audiovisual translation of this film. After an introduction presenting the content and the research question of this paper, its theoretical core will be illustrated, followed by a section that will briefly outline the film. A comparative analysis will come next, focusing on the original screenplay, the Italian dubbing and the Italian subtitling, so as to examine the most problematic cases and their translation. The results will then be discussed by distinguishing between the occurrences of literal translation and those of adaptation. Finally, the conclusions will reveal the extent to which the target-language dubbing and subtitling can be considered as source-oriented or target-oriented, if not as a combination of both approaches.
+
+</details>
+
+#### [Testing the role of temporal attention in speech: Pre-target alpha predicts memory encoding rather than effects of linguistic focus.](https://www.semanticscholar.org/paper/3fecf106e9c62d6066e41d48d4ae7dfad829e3cf)
+**Eleonora J. Beier, Assaf Breska, Lee M. Miller, Yulia Oganian et al.** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+The rapid, continuous flow of speech often places strong demands on attention. Listeners are thought to meet these demands by using linguistic focus cues to predict when important information will occur and to allocate temporal attention accordingly. Yet direct neural evidence for focus-driven modulations of preparatory attention is lacking. We address this gap by measuring EEG alpha power (8-13 Hz), an index of temporal attentional preparation ( N = 40; 26 female, 12 male, 2 non-binary). Using an auditory question–answer paradigm, we tested whether pre-target alpha power tracks the temporal prioritization of focused words in the discourse. We found that pre-target alpha was comparable before focused and defocused words, inconsistent with the view that attention is temporally pre-allocated to discourse-relevant information. Instead, trial-by-trial fluctuations in pre-target alpha modulated a centro-parietal ERP Subsequent Memory Effect (SME) for focused words, linking preparatory attention to depth of processing and memory encoding during comprehension. These findings constrain theories of attention in language, indicating that alpha-band activity primarily indexes an encoding-ready state that predicts subsequent memory, rather than focus-driven temporal attentional pre-allocation. Significance statement As spoken language unfolds over time, listeners are hypothesized to prepare for informative content by pre-allocating attention in time, yet direct neural support for this view has been scarce. Using pre-target EEG alpha power as an index of preparatory attention, we examined whether listeners use linguistic focus cues to pre-allocate attention to the timing of focus-marked (novel) information in discourse. We observed no focus-related increase; instead, moment-to-moment fluctuations in preparatory alpha predicted the depth of processing and the encoding of novel information into memory, modulating subsequent neural and behavioral responses. Thus, preparatory alpha reflects an encoding-ready state that supports successful memory encoding, rather than the dynamic pre-allocation of attention to linguistically focused information.
+
+</details>
+
+#### [FAD3QN: A Brain-Inspired Deep Reinforcement Learning Model for Speech Depression Detection](https://www.semanticscholar.org/paper/904522e95f641cf2e675cd8a0ffb6473624309ad)
+**Dongdong Li, Jia Yao, Zhe Wang, Yichao Yi** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+In recent years, the high prevalence and severity of depression have highlighted the urgent need for early detection. Depressed patients exhibit noticeable emotional changes in their speech, but existing detection methods face significant challenges in modeling emotion perception mechanisms. In this article, inspired by the knowledge of reinforcement learning neuroscience and the theory of emotion perception in the limbic system, we propose a brain-inspired model frontal-amygdala double dueling deep Q network for depression detection based on speech. The model simulates the frontal lobe and amygdala-centred brain mechanisms for emotion perception through the reinforcement learning framework of double dueling deep Q-networks, and embeds the skip-connected 1-D convolutional neural network and bidirectional long short-term memory network neural networks to simulate the emotion perception process in the limbic system. In addition, we designed an adaptively tuned reward function to address the data imbalance in depression detection, and incorporated an additional step-size penalty factor to limit the number of incorrect decisions made by the agent during the early stages of training. Experimental results across multiple datasets demonstrate the effectiveness and generalizability of our approach. Meanwhile, the relevant ablation experiments conducted in this article validate the key roles of the frontal and limbic systems in the reward learning and emotion perception process, as well as the importance of the adaptive reward function in solving the data imbalance problem.
 
 </details>
 
@@ -120,6 +150,26 @@ Geographic isolation of the rural underserved areas impedes healthcare delivery,
 <summary>Abstract</summary>
 
 Audio-visual communication takes up a large amount of everyday communication, including in the political and news spheres. With this proportion still growing, and the emergent logics of sound/music as sharing principle/vector, it is striking that sound/music is still understudied in its ability to communicate outside of a stricter arts-related sphere. This is not least true with regard to music’s ability to influence affect and emotions. In this article, I use the case of the 2023 Australian Voice to Parliament referendum to further the understanding of the audio in audio-visual communication. Through a qualitative analysis of two videos, one arguing for and one against the referendum proposal, I show the differing strategies of the campaigns as well as how deliberate use of audio functions as political speech. Thus, I take steps toward bridging a disciplinary divide and highlight the contribution of music as a medium of political communication.
+
+</details>
+
+#### [A Data-Driven Digital Framework for Enhancing Parental Engagement and Cognitive Development in Kazakhstani Children: A Survey and Correlation Study](https://www.semanticscholar.org/paper/fbd48180052ac0a6813c85d8f311b57c73fac4b6)
+**Aziza Aipenova** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+This study examines early childhood cognitive development in Kazakhstan using a computational, technology-assisted method, highlighting the critical need for data-driven, culturally appropriate interventions. For statistical analysis, survey data from a cross-sectional sample of Kazakhstani parents (n=21) with children ages 0–6 were encoded. Correlation analysis showed a chronic implementation deficiency, although 93 % participants expressed strong awareness of early development. The study found a very strong negative relationship (r ≈ -0.88) between reported child anger/control issues (Variable N) and knowledge about significant brain development periods (Variable J), as shown in Table III. This suggests that parental education directly improves emotional management.On the other hand, a significant negative relationship (r ≈ -0.71) was found between reported speech clarity (Variable K) and brain knowledge (Variable J), showing that knowledgeable parents use stricter criteria when evaluating achievements. Furthermore, a strong positive correlation (r ≈ 0.638) has been found between the parents' subjective self-rating of the quality of early development (Variable E) and their technical knowledge of brain development (Variable J), indicating that more positive perceptions of developmental progress are related to a deeper understanding. Using the Vue and Vuetify frameworks, a prototype digital platform was created to fill these gaps and integrate awareness into consistent, evidence-based action. The study presents a scalable, data-driven approach for delivering culturally responsive early childhood interventions in the Kazakhstani context, despite its limitations due to its cross-sectional design and small sample size.
+
+</details>
+
+#### [Spiking Feature-Driven Event Simulation with Movement-Aware Polarity Integration](https://www.semanticscholar.org/paper/4e6404ba50ff039737a369e9e1c3bbf7d8b76a9d)
+**Jiwoong Oh, Byeongju Kang, Hyun-Shin Shin, Dongwoo Kang** · 2026-03-29
+
+<details>
+<summary>Abstract</summary>
+
+Event-based face detection has attracted significant interest due to the unique advantages of event cameras, including high temporal resolution, high dynamic range, and low power consumption. However, the lack of annotated public datasets remains a major challenge for training effective event-based face detection models. In this paper, we propose a spiking feature-driven synthetic event generation framework that utilizes a spiking neural network (SNN) in conjunction with a pretrained convolutional backbone to generate synthetic event representations from a single RGB image. To incorporate motion-induced ON/OFF polarity information, we introduce a movement-aware polarity integration (MPI) module that assumes four directional facial movements. An event-similarity score is further employed to select representations most consistent with real event data for training. Unlike conventional approaches relying on video-based simulators, our method enables efficient synthetic event dataset construction without requiring video inputs or additional simulation training. Experimental results on the N-Caltech101 dataset demonstrate a face detection accuracy of 99.91%, outperforming existing event-based face detection methods.
 
 </details>
 
@@ -854,6 +904,26 @@ Learning Data Structures and Algorithms (DSA) can often be noted to be an import
 <summary>Abstract</summary>
 
 Multi-modal Large Language Models (MLLMs) leverage Chain-of-Thought (CoT) instruction to transfer the reasoning capabilities of Large Language Models (LLMs) into multi-modal contexts. Prior research has primarily focused on aligning multi-modal features with textual representations, while overlooking the fundamental distinction that multi-modal information perception and information-grounded reasoning necessitate distinct cognitive modes. This limitation induces Cross-Modal Cognitive Interference (CMCI) in MLLMs, characterized by mutual interference between visual perception and reasoning capabilities during multi-modal CoT. To systematically analyse this phenomenon, we develop the CMCI Diagnostic Benchmark, which reveals prevalent mutual interference between perception and reasoning capabilities across advanced MLLMs. Furthermore, we propose a multi-agent dual-system Chain-of-Cognition (CoC) framework, called MADC, to mitigate CMCI in visual question answering. Unlike the traditional CoT methodology, the CoC is explicitly structured into four distinct stages: perception, assessment, reasoning, and decision-making. This structured decomposition enables MADC to better address CMCI, making it more effective for complex multi-modal reasoning tasks. Our empirical evaluation across multiple benchmarks shows that MADC significantly surpasses conventional MLLMs and demonstrates strong compatibility with various multi-modal and uni-modal foundation models. Experiments demonstrate that the MADC framework outperforms end-to-end multi-modal slow-thinking models without the need for fine-tuning, validating the effectiveness of our approach. Additionally, experiments on the video question answering benchmark further validate the generalizability of the MADC framework across multiple modalities.
+
+</details>
+
+#### [REWEAVING THE SOCIAL FABRIC OF BUSINESS: AI-DRIVEN COLLABORATIVE INNOVATION FOR SUSTAINABLE REVIVAL](https://www.semanticscholar.org/paper/d4f09ec84c97efaf7c097c0decfccdd725bce3bd)
+**A. Rani, F. A. Pradeep, D. S. Mary** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In an era of pervasive digital transformation and deepening sustainability imperatives, organisations face the dual challenge of renewing their social fabric namely, stakeholder collaboration, trust networks and shared innovation ecosystems while leveraging the power of artificial intelligence (AI). This paper examines how AI-driven collaborative innovation can serve as a catalyst for sustainable business revival by reweaving social capital, fostering cross-organisational networks, and enabling socially responsible, value-creating innovations. Drawing on a systematic review of extant literature on AI, collaborative innovation, sustainable business models and open innovation ecosystems that develops an integrative theoretical framework linking AI-enabled capabilities, social-network renewal, stakeholder co-creation, and sustainability outcomes from selected firms. We propose a mixed-methods research design of collaborating qualitative interview and secondary data. The findings are expected to reveal how AI can enhance knowledge integration, network trust, and shared value creation and the key moderating factors (such as organisational culture, governance, and stakeholder engagement) and the boundary conditions. The study contributes to theory by illuminating the socio-technical mechanisms of AI-enabled collaborative innovation for sustainable business and to practice by offering guidelines for managers and policymakers to foster networked, sustainable business renewal.
+
+</details>
+
+#### [A Multimodal AI-Driven Framework for Adaptive Learning of Differently-Abled Learners Using Deep Learning and Real-Time Gesture Recognition](https://www.semanticscholar.org/paper/8f0d7d0666ef94cad4feb2823095656f27833298)
+**Alroy Deon Saldanha, R. T. Aniket, A. Ahibhruth, Ian Jem et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+There are about 1.3 billion people with disabilities in the world, including those who are blind and deaf, yet they still face many obstacles when it comes to participating in educational opportunities. These challenges often emerge from a lack of inclusive infrastructure and limited personalization. Thus, this paper presents a proposed model of an advanced educational system that uses AI, smart content delivery, and gesture recognition. The framework uses a context-aware dialogue system that dynamically modifies content complexity based on individual learner proficiency levels, in conjunction with a hybrid CNN-Transformer architecture created especially for gesture recognition, enabling effective communication for the deaf. Real-time interaction, voice commands, and sign language all work together to promote reinforcement, which improves long-term memory retention. This study captured sign language videos, a variety of voice commands, and synchronized multimodal interactions using a number of datasets, including the Fluent Speech Commands dataset, the RWTH-PHOENIX-Weather 2014 dataset, and the ASL Alphabet dataset from Kaggle. The innovation’s modular design enables scalable deployment across numerous educational institutions through federated learning implementations. Following testing, the proposed system demonstrates 96.8% accuracy in identifying American Sign Language (ASL) in educational settings, 94.5% accuracy in classifying the intent of voice-based commands, and responsive real-time performance with a latency of less than 300 ms. An 87% increase was observed in the completion of independent learning tasks, indicating a significant impact on user autonomy when compared to traditional assistive technologies. The model’s adaptive content delivery, which adapts to the needs of each learner, is responsible for this improvement. Extensive experimental validation, which included 250 participants with various disability profiles, also showed a 20.8% improvement in knowledge retention. Post-test scores were used to calculate the improvement, which was then contrasted with baseline outcomes. The results are significant because controlled experiments across disabilities showed improvements in both engagement and retention.
 
 </details>
 
