@@ -55,6 +55,36 @@ Speech-driven three-dimensional (3D) facial animation synthesis aims to build a 
 
 </details>
 
+#### [Study sync – Collaborative Student-Teacher Learning System](https://www.semanticscholar.org/paper/3a6572a66c9da63c4d455b9edca13f1ce7e4c5e6)
+**R. N, Keerthana K, Keerthana P, D. C et al.** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+The rapid growth of digital technologies has transformed the education sector by introducing interactive and accessible learning platforms. Traditional classroom learning often limits communication to scheduled hours, reducing continuous academic engagement between teachers and students. This project presents a Student Interaction Learning Site – A Teacher and A Student, a web-based application designed to enhance communication, resource sharing, doubt clarification, and collaborative learning in an organized digital environment.The proposed system allows teachers to upload study materials, assignments, announcements, and conduct discussions, while students can access learning resources, submit assignments, ask questions, and receive feedback in real time. The platform ensures structured interaction through role-based authentication, discussion forums, assignment tracking, and performance monitoring
+
+</details>
+
+#### [EXPRESS: Goal-Driven Effects of Masked Priming in Advertising: How Word, Image, and Audio Priming Shape Consumer Brand Choices](https://www.semanticscholar.org/paper/188cacc4f8c454f682f2146538e9faac3666a822)
+**Abudusalamu Saiding, Xia Li, Wenqi Tang, Kaidong Yu** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+This study investigates the effectiveness of masked priming in influencing brand preference under goal-relevant conditions. Two experiments with 510 undergraduate students in China tested word and image masked priming (Study 1) and auditory masked priming (Study 2), focusing on thirst motivation. In Study 1, both word and image primes (briefly presented at a nominal 23 ms) increased preference for the primed brand (Céstbon) only when participants were thirsty, with no significant difference between modalities. In Study 2, auditory primes (embedded "Yibao" in music) similarly boosted preference when goal-directed, but high-frequency (80 exposures) and low-frequency (40 exposures) conditions did not differ significantly. These findings corroborate goal-dependency in masked priming effects across modalities, extend prior work to a logographic/tonal language context (Chinese), and highlight auditory priming in advertising as an under-explored domain. Effects are subtle and contingent on motivation alignment. Practical implications for marketers include strategic placement in high-motivation contexts.
+
+</details>
+
+#### [Do Audio-Visual Large Language Models Really See and Hear?](https://arxiv.org/abs/2604.02605)
+**Ramaneswaran Selvakumar, Kaousheik Jayakumar, S. Sakshi, Sreyan Ghosh et al.** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+Audio-Visual Large Language Models (AVLLMs) are emerging as unified interfaces to multimodal perception. We present the first mechanistic interpretability study of AVLLMs, analyzing how audio and visual features evolve and fuse through different layers of an AVLLM to produce the final text outputs. We find that although AVLLMs encode rich audio semantics at intermediate layers, these capabilities largely fail to surface in the final text generation when audio conflicts with vision. Probing analyses show that useful latent audio information is present, but deeper fusion layers disproportionately privilege visual representations that tend to suppress audio cues. We further trace this imbalance to training: the AVLLM's audio behavior strongly matches its vision-language base model, indicating limited additional alignment to audio supervision. Our findings reveal a fundamental modality bias in AVLLMs and provide new mechanistic insights into how multimodal LLMs integrate audio and vision.
+
+</details>
+
 #### [Realistic Lip Motion Generation Based on 3D Dynamic Viseme and Coarticulation Modeling for Human-Robot Interaction](https://arxiv.org/abs/2604.01756)
 **Sheng Li, Jingcheng Huang, Min Li** · 2026-04-02
 
@@ -62,6 +92,26 @@ Speech-driven three-dimensional (3D) facial animation synthesis aims to build a 
 <summary>Abstract</summary>
 
 Realistic lip synchronization is essential for the natural human-robot non-verbal interaction of humanoid robots. Motivated by this need, this paper presents a lip motion generation framework based on 3D dynamic viseme and coarticulation modeling. By analyzing Chinese pronunciation theory, a 3D dynamic viseme library is constructed based on the ARKit standard, which offers coherent prior trajectories of lips. To resolve motion conflicts within continuous speech streams, a coarticulation mechanism is developed by incorporating initial-final (Shengmu-Yunmu) decoupling and energy modulation. After developing a strategy to retarget high-dimensional spatial lip motion to a 14-DOF lip actuation system of a humanoid head platform, the efficiency and accuracy of the proposed architecture is experimentally validated and demonstrated with quantitative ablation experiments using the metrics of the Pearson Correlation Coefficient (PCC) and the Mean Absolute Jerk (MAJ). This research offers a lightweight, efficient, and highly practical paradigm for the speech-driven lip motion generation of humanoid robots. The 3D dynamic viseme library and real-world deployment videos are available at {https://github.com/yuesheng21/Phoneme-to-Lip-14DOF}
+
+</details>
+
+#### [Multi model Deep Fake Detection using Vision Transformers (ViT) and Hybrid Deep Learning Techniques](https://www.semanticscholar.org/paper/b558f768461b10a0a46e6c756c637a6ee3ba8cbf)
+**Mr. R. Adinarayana, B. Harini, S. Yeswanth, V. Durga Pranavanth et al.** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+The rapid democratization of synthetic media generation—powered by Generative Adversarial Networks, diffusion models, and neural vocoders—has created a global misinformation crisis in which manipulated audio and video are increasingly indistinguishable from authentic recordings. Existing deepfake detection systems are fragmented by modality: video-only pipelines miss audio synthesis attacks, while speech anti-spoofing systems ignore visual manipulation. This paper presents a unified Multi-Model Deepfake Detection System that integrates Vision Transformer (ViT) architectures for video analysis with a Mel-frequency Cepstral Coefficient (MFCC)-based Convolutional Neural Network (CNN) for audio analysis, deployed through a Flask web application accessible to non-technical users without installation. For video detection, the google/vit-base-patch16-224 model (12 transformer layers, 12 attention heads, hidden size D=768) is finetuned on FaceForensics++ and the DeepFake Detection Challenge (DFDC) dataset; 224x224 face crops are divided into 16x16 patches, linearly projected to embeddings, processed through multihead self-attention layers, and classified via a twoclass linear head. Frame-level predictions are aggregated by majority voting over 1-fps sampled frames. For audio detection, Librosa extracts 13 MFCC coefficients over 300 frames at 16 kHz, producing (300,13) tensors classified by a TensorFlow CNN trained on ASVspoof 2019. Evaluated on FaceForensics++ and DFDC (video) and ASVspoof 2019 LA (audio), the system achieves 95.1% video accuracy (AUC-ROC 0.987) and 94.2% audio accuracy (AUC-ROC 0.982). Attention map visualization from the final ViT transformer layer provides spatial explainability, highlighting manipulated facial regions. GPU inference completes in 2.5 seconds for video and 0.8 seconds for audio. All 42 test cases pass with 100% rate across unit, integration, system, and performance testing, with mean user satisfaction of 4.4/5.0. The open-source modular architecture supports future integration of cross-modal audio-visual consistency analysis.
+
+</details>
+
+#### [Spatial-Aware Conditioned Fusion for Audio-Visual Navigation](https://arxiv.org/abs/2604.02390)
+**Shaohang Wu, Yinfeng Yu** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual navigation tasks require agents to locate and navigate toward continuously vocalizing targets using only visual observations and acoustic cues. However, existing methods mainly rely on simple feature concatenation or late fusion, and lack an explicit discrete representation of the target's relative position, which limits learning efficiency and generalization. We propose Spatial-Aware Conditioned Fusion (SACF). SACF first discretizes the target's relative direction and distance from audio-visual cues, predicts their distributions, and encodes them as a compact descriptor for policy conditioning and state modeling. Then, SACF uses audio embeddings and spatial descriptors to generate channel-wise scaling and bias to modulate visual features via conditional linear transformation, producing target-oriented fused representations. SACF improves navigation efficiency with lower computational overhead and generalizes well to unheard target sounds.
 
 </details>
 
@@ -106,6 +156,16 @@ The rapid, continuous flow of speech often places strong demands on attention. L
 <summary>Abstract</summary>
 
 In recent years, the high prevalence and severity of depression have highlighted the urgent need for early detection. Depressed patients exhibit noticeable emotional changes in their speech, but existing detection methods face significant challenges in modeling emotion perception mechanisms. In this article, inspired by the knowledge of reinforcement learning neuroscience and the theory of emotion perception in the limbic system, we propose a brain-inspired model frontal-amygdala double dueling deep Q network for depression detection based on speech. The model simulates the frontal lobe and amygdala-centred brain mechanisms for emotion perception through the reinforcement learning framework of double dueling deep Q-networks, and embeds the skip-connected 1-D convolutional neural network and bidirectional long short-term memory network neural networks to simulate the emotion perception process in the limbic system. In addition, we designed an adaptively tuned reward function to address the data imbalance in depression detection, and incorporated an additional step-size penalty factor to limit the number of incorrect decisions made by the agent during the early stages of training. Experimental results across multiple datasets demonstrate the effectiveness and generalizability of our approach. Meanwhile, the relevant ablation experiments conducted in this article validate the key roles of the frontal and limbic systems in the reward learning and emotion perception process, as well as the importance of the adaptive reward function in solving the data imbalance problem.
+
+</details>
+
+#### [„Sovietinėje bazėje, tai kokie čia jūs partizanai“: atminties darbas ir vietokūra Kopūstėliuose](https://www.semanticscholar.org/paper/6477195d2968cc4d54043b3cac865293c07ef38b)
+**Rusnė Marija Poligaitė** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+This article analyses an atypical case of Soviet legacy transformation in Kopūstėliai (Ukmergė district), where a former Soviet missile base has become the home of Miško broliai, a historical reenactment club reviving the memory of the 1944–1953 anti-Soviet freedom struggles. The article aims to understand how this legacy is reworked through the memory work performed by the club and draws on material collected during the author’s ethnographic fieldwork in winter 2024-2025, including interviews with Miško broliai members and (non–) participant observation. The club’s activities are enabled by a flexible approach to the site‘s legacy, seen not as a symbolic framework but as a material medium for shaping their own vision of memory, and by disappointment with state-led commemorative policies. Detached from institutional constraints, Miško broliai create a heterogeneous and dynamic assemblage of people, narratives, meanings, and processes – transforming memory into an open-ended and living field.
 
 </details>
 
@@ -160,6 +220,16 @@ Audio-visual communication takes up a large amount of everyday communication, in
 <summary>Abstract</summary>
 
 This study examines early childhood cognitive development in Kazakhstan using a computational, technology-assisted method, highlighting the critical need for data-driven, culturally appropriate interventions. For statistical analysis, survey data from a cross-sectional sample of Kazakhstani parents (n=21) with children ages 0–6 were encoded. Correlation analysis showed a chronic implementation deficiency, although 93 % participants expressed strong awareness of early development. The study found a very strong negative relationship (r ≈ -0.88) between reported child anger/control issues (Variable N) and knowledge about significant brain development periods (Variable J), as shown in Table III. This suggests that parental education directly improves emotional management.On the other hand, a significant negative relationship (r ≈ -0.71) was found between reported speech clarity (Variable K) and brain knowledge (Variable J), showing that knowledgeable parents use stricter criteria when evaluating achievements. Furthermore, a strong positive correlation (r ≈ 0.638) has been found between the parents' subjective self-rating of the quality of early development (Variable E) and their technical knowledge of brain development (Variable J), indicating that more positive perceptions of developmental progress are related to a deeper understanding. Using the Vue and Vuetify frameworks, a prototype digital platform was created to fill these gaps and integrate awareness into consistent, evidence-based action. The study presents a scalable, data-driven approach for delivering culturally responsive early childhood interventions in the Kazakhstani context, despite its limitations due to its cross-sectional design and small sample size.
+
+</details>
+
+#### [Analisis Penerapan Media Audio Visual Dalam Pembelajaran Fikih pada Siswa Sekolah Dasar](https://www.semanticscholar.org/paper/91cc4b61c22b1de49129959bf58a05eeb0167e18)
+**Syifa Adilla Zahra, Nur Rohfitta, Ryan Radjendra, Wiwin Sunita et al.** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Pada tingkat dasar, pembelajaran Fikih tidak hanya menekankan pemahaman konsep, tetapi juga kemampuan mempraktikkan ibadah secara tepat dan berkesinambungan. Karena itu, dibutuhkan strategi yang mampu menyajikan materi secara konkret, kontekstual, dan menarik agar mudah dipahami siswa. Media audio visual dipilih sebagai alternatif karena memadukan unsur gambar, suara, dan gerak yang dapat menciptakan pengalaman belajar lebih interaktif dan bermakna. Penelitian ini bertujuan mengkaji implementasi media pembelajaran audio visual dalam mata pelajaran Fikih pada siswa kelas V melalui studi kasus di SD Negeri 2 Kampung Baru. Penelitian ini menggunakan pendekatan kualitatif dengan metode studi kasus. Data dikumpulkan melalui observasi pembelajaran, wawancara dengan guru dan siswa kelas V di SD Negeri 2 Kampung Baru, serta dokumentasi terkait proses pembelajaran Fikih. Analisis data dilakukan secara deskriptif melalui tahap reduksi, penyajian, dan penarikan simpulan. Hasil penelitian menunjukkan bahwa penggunaan media audio visual berdampak positif terhadap motivasi, keterlibatan aktif, dan pemahaman siswa. Siswa menjadi lebih antusias, lebih mudah memahami materi praktik ibadah, serta lebih percaya diri saat mempraktikkannya. Kendati demikian, terdapat kendala berupa keterbatasan fasilitas teknologi dan manajemen waktu. Secara umum, media audio visual dinilai efektif mendukung pembelajaran Fikih jika dirancang dan difasilitasi dengan baik.
 
 </details>
 
@@ -924,6 +994,26 @@ In an era of pervasive digital transformation and deepening sustainability imper
 <summary>Abstract</summary>
 
 There are about 1.3 billion people with disabilities in the world, including those who are blind and deaf, yet they still face many obstacles when it comes to participating in educational opportunities. These challenges often emerge from a lack of inclusive infrastructure and limited personalization. Thus, this paper presents a proposed model of an advanced educational system that uses AI, smart content delivery, and gesture recognition. The framework uses a context-aware dialogue system that dynamically modifies content complexity based on individual learner proficiency levels, in conjunction with a hybrid CNN-Transformer architecture created especially for gesture recognition, enabling effective communication for the deaf. Real-time interaction, voice commands, and sign language all work together to promote reinforcement, which improves long-term memory retention. This study captured sign language videos, a variety of voice commands, and synchronized multimodal interactions using a number of datasets, including the Fluent Speech Commands dataset, the RWTH-PHOENIX-Weather 2014 dataset, and the ASL Alphabet dataset from Kaggle. The innovation’s modular design enables scalable deployment across numerous educational institutions through federated learning implementations. Following testing, the proposed system demonstrates 96.8% accuracy in identifying American Sign Language (ASL) in educational settings, 94.5% accuracy in classifying the intent of voice-based commands, and responsive real-time performance with a latency of less than 300 ms. An 87% increase was observed in the completion of independent learning tasks, indicating a significant impact on user autonomy when compared to traditional assistive technologies. The model’s adaptive content delivery, which adapts to the needs of each learner, is responsible for this improvement. Extensive experimental validation, which included 250 participants with various disability profiles, also showed a 20.8% improvement in knowledge retention. Post-test scores were used to calculate the improvement, which was then contrasted with baseline outcomes. The results are significant because controlled experiments across disabilities showed improvements in both engagement and retention.
+
+</details>
+
+#### [Dossier « Les professionnels de la montagne face aux changements socio-environnementaux » – Les agents d’espaces naturels face aux changements socio-environnementaux et institutionnels : le cas des génépis dans le parc national du Mercantour](https://www.semanticscholar.org/paper/0ded420ce30b58b5efb7aa793e8d5c533a59e6d3)
+**Ninon Fontaine, Isabelle Boulangeat, P. Gauthier, Sophie Caillon** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Les législations mises en œuvre dans les parcs nationaux évoluent au gré de changements institutionnels et socio-environnementaux. Ces territoires, en interaction avec les acteurs qui les utilisent ou les gèrent, peuvent être considérés comme des socio-écosystèmes. Les agents des parcs nationaux jouent un rôle central dans ces systèmes, en tant que sentinelles des dynamiques écologiques et sociales du parc, tout en ayant pour mission d’appliquer des réglementations peu dynamiques et parfois décalées. La gestion d’une plante patrimoniale comme le génépi attise des visions contradictoires entre utilisateurs et gestionnaires. Nous nous intéressons ici plus spécifiquement à la manière dont les agents du parc national du Mercantour vivent les changements affectant le socio-écosystème de « cueillette des génépis », que ce soit l’évolution des populations de génépi, des pratiques de cueillette, de leur métier ou de l’institution « parc national ». Les entretiens soulignent la diversité de vécus au sein de ce territoire, reflétée par les dysfonctionnements de la réglementation de cueillette que chaque agent identifie.
+
+</details>
+
+#### [Rare earth-Mediated Synergistic Lattice Stabilization and Interface Protection for Suppressed Phase Transition and Superior Electrochemical Performance in Ni-Rich Cathodes](https://www.semanticscholar.org/paper/6a53ac0867db224df541cd65ad043bb00c4c3dd3)
+**Bang Yuan, Mingyuan He, Qing Zhou, Ying Wang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Nickel-rich ternary layered oxides are mainstream cathode materials for highperformance lithium-ion batteries, but they face critical challenges (lattice oxygen release, Li⁺/Ni²⁺ cation mixing, microcrack propagation, and transition metal (TM) dissolution)...
 
 </details>
 
