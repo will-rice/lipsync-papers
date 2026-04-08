@@ -45,6 +45,66 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [GROW: A Conversational AI Coach for Goals, Reflection, Optimism, and Well-Being](https://arxiv.org/abs/2604.04548)
+**K. Shah, Himanshi Lalwani, Hanan Salam** · 2026-04-06
+
+<details>
+<summary>Abstract</summary>
+
+College students face well-being challenges driven by academic pressure, financial strain, and social expectations. While campus counseling and student-success programs offer support, access is often limited by stigma, waitlists, and scheduling constraints. Existing digital tools focus on emotional check-ins or chatbots and may overlook structured goal setting and aligning goals with personal values. We present GROW, a goal-centered well-being coaching system that puts values-aligned goals at the center of the student experience. GROW combines the SMART framework with principles from Acceptance and Commitment Therapy in a conversational AI coach that helps students clarify aspirations, break them into concrete steps, and reflect on progress. The system links action plans with Google Calendar, sends reminders, and provides a dashboard that shows progress and engagement. We evaluated GROW through interviews with clinical psychologists, student-success staff, and faculty, followed by a one-week deployment with 30 undergraduates. Findings offer design implications for interactive systems that support engagement, accountability, and sense of purpose in higher education.
+
+</details>
+
+#### [Real-Time IOT Driven Multimodal Proctoring for Fraud-Free Offline Assessments](https://www.semanticscholar.org/paper/db05a9f123dd2d78e658ea7ab9a0177e8bb28f61)
+**Posina Anusha, K. Varshitha, M. Raghuram, S. Nandini et al.** · 2026-04-05
+
+<details>
+<summary>Abstract</summary>
+
+Abstract—The Offline Proctoring System using IoT Technology is designed to ensure secure and malpractice-free examinations without relying completely on online proctoring methods. This system uses RFID tags for student authentication and proper seating arrangement, where candidate details and seat information are displayed on an LCD screen, eliminating impersonation. After entry into the examination hall, an IoT-based camera module continuously monitors candidates to detect face spoofing, suspicious movements, head turns, and the usage of mobile phones or unauthorized devices using the YOLO algorithm. Additionally, an I2C MEMS microphone is used to monitor abnormal sound levels such as murmuring or verbal communication by setting a predefined threshold. All the captured data, including RFID information, visual monitoring records, and audio alerts, are securely stored in the cloud for further verification and analysis. By integrating multiple IoT components, the proposed system minimizes human intervention, prevents examination scams, and provides a reliable and efficient offline proctoring solution. Keywords—IoT, RFID, YOLO, Offline Proctoring, MEMS Microphone, Cloud Storage, Examination Security
+
+</details>
+
+#### [NLP-Powered Emotion Analysis and ML-Driven Speech Processing with Flask](https://www.semanticscholar.org/paper/7bc84278c4a3ed486f5f214d2abbf8c810ce8c57)
+**Naga Thirumalbabu Thota Siva, Uma Mahesh Tungala, Krishnaveni P** · 2026-04-05
+
+<details>
+<summary>Abstract</summary>
+
+Emotion recognition through facial expressions has been a key parameter in the development of human-computer interaction as a technology with some useful results in terms of emotional states in real time. This study presents a hybrid approach for emotion recognition by combining deep learning methods and traditional feature extracting methods to achieve high accuracy and computational efficiency for emotion recognition. The proposed system makes use of the MobileNetV2 architecture for deep feature extraction, which is known to be lightweight, hence suitable for real-time applications. Moreover, fine-grained texture features are abstracted from facial regions through Local Binary Pattern (LBP) for capturing texture details at the fine grain-level, which are complementary to the deep representations and improve the model's ability to distinguish the subtle emotional states. These two sets of features are concatenated and fed to a Random Forest (RF) classifier, that is known to be robust and efficient in the context of moderately sized datasets, in order to classify the emotions using categories such as happy, sad, anger, surprise and neutral. The system is trained and tested with the help of a benchmark facial emotion dataset, incorporating pre-processing techniques of face detection, alignment, normalization and data augmentation for better generalization. The performance of the system is assessed using various metrics such as accuracy, precision, recall, F1-score, confusion matrices with measurements of latency to be able to provide real-time feasibility. Experimental results show that the performance of MobileNetV2 + LBP + RF is higher than that of MobileNetV2 + SoftMax head in the case of distinguishing subtle emotions. The system is implemented in the form of a Flask-based web application that is combined with the OpenCV library for live webcam streaming with minimal latency and user privacy through on-device inference.
+
+</details>
+
+#### [ADAPT: AI-Driven Decentralized Adaptive Publishing Testbed](https://arxiv.org/abs/2604.04077)
+**Md. Motaleb Hossen Manik, Ge Wang** · 2026-04-05
+
+<details>
+<summary>Abstract</summary>
+
+Scholarly publishing faces increasingly strong stressors, including submission overload, reviewer fatigue, inconsistent evaluation, governance opacity, and vulnerability to manipulation in old and new forms. While recent studies applied artificial intelligence to improve specific steps (e.g., triage, reviewer recommendation, or automated critique), they typically work under centralized editorial control and offer limited mechanisms for system-level adaptivity and auditability. Here we present ADAPT (AI-Driven Decentralized Adaptive Publishing Testbed), an agent-based environment that models journal management as a closed-loop control system rather than a fixed editorial workflow. ADAPT integrates interacting agents in various pools (authors, reviewers -- human and AI -- and rotating editors) coupled through policy-level control and diverse feedback signals. Governance adapts to backlog pressure, reviewer disagreement, paper quality drifting, and other relevant factors, while keeping human decision authority, role non-permanence, and data confidentiality. We evaluate ADAPT in a discrete-time simulation setting across multiple operational regimes, including baseline operation, submission surges, quality drift, disagreement escalation, post-publication learning, and collusion suppression. Across regimes, we quantify backlog dynamics, reviewer load, coordination activity, and management performance. The results indicate that ADAPT works under nominal and perturbed conditions, exhibits bounded and interpretable responses under stress, and mitigates clusters with embedded interventions. This feasibility demonstration suggests a promising direction of academic publishing practice, and can be extended to real-world implementations in suitable scenarios.
+
+</details>
+
+#### [Ensuring Digital Equity in Smart City Initiatives: Participatory Models for Pro-Poor Urban Planning in Nigeria](https://www.semanticscholar.org/paper/b36a8117eed922c8b65e944efa1d52522a515342)
+**B. Odediran, S. Okosun, E. E. Okodudu, S. Olatunji et al.** · 2026-04-05
+
+<details>
+<summary>Abstract</summary>
+
+Purpose: Nigeria's burgeoning smart city initiatives hold the promise of urban transformation, yet they face the critical challenge of digital inequity, potentially exacerbating existing socio-economic issues. This study analyses the specific challenges to ensuring digital equity within the context of Nigeria's smart city development. designed to foster inclusivity and equitable outcomes, as it contributes to the broader understanding of how to achieve inclusive and ethical digital governance in developing nations. Design/Methodology/Approach: This research employs a mixed-methods approach, including a case study analysis of emerging smart city projects and the proposal of a novel Community-Driven Digital Inclusion Model (CD-DIM), to examine barriers to digital inclusion and evaluate the potential of participatory governance in the Nigerian context. Research Limitation: This research examines the specific challenges to achieving digital equity in the context of Nigeria's smart city development. Findings: The anticipated key findings underscore the need to prioritise community engagement, co-creation, and culturally relevant digital literacy programs to bridge the digital divide. The proposed CD-DIM offers a framework for fostering inclusive physical and digital forums, implementing shared decision-making mechanisms, and ensuring targeted outreach to marginalised communities. Practical Implication: This research contributes to the discourse on inclusive digital governance by providing a context-specific model for developing nations like Nigeria, emphasising practical strategies. Social Implication: The study underscores the urgency of adopting a development approach that is both technologically advanced and intrinsically socially inclusive. Originality and value: The study recommended a policy to build trust, bridge digital divides, and ensure the equitable distribution of the benefits of smart city development.
+
+</details>
+
+#### [Style AI: An Integrated AI-Driven Framework For Virtual Wardrobe Management And Fashion Try-On](https://www.semanticscholar.org/paper/e4fd6582c76727ae6cff25e9174237569f3ee59d)
+**D. N. Kumari¹, Chandraleela Pulukoory², Mounika Yerraguntla, Roja Rani Palagani et al.** · 2026-04-04
+
+<details>
+<summary>Abstract</summary>
+
+The rapid expansion of e-commerce has significantly transformed the fashion retail industry; however, customers still face challenges in visualizing garment fit and appearance before purchase. This limitation leads to high return rates and customer dissatisfaction. This paper presents Style AI, an integrated artificial intelligence-driven framework for virtual wardrobe management and fashion try-on. The system utilizes computer vision, pose detection, and machine learning algorithms to allow users to digitally try on clothing using their own images without requiring specialized hardware. Additionally, it provides wardrobe organization and personalized outfit recommendations based on user preferences, seasons, and occasions. The platform is developed using React-TypeScript for the frontend and FastAPI for the backend with cloud-based storage support. Experimental evaluation shows improved visualization accuracy, reduced uncertainty in purchasing decisions, and enhanced user satisfaction.
+
+</details>
+
 #### [MMTalker: Multiresolution 3D Talking Head Synthesis with Multimodal Feature Fusion](https://arxiv.org/abs/2604.02941)
 **Bin Liu, Zhixiang Xiong, Zhifen He, Bo Li** · 2026-04-03
 
@@ -85,6 +145,36 @@ Audio-Visual Large Language Models (AVLLMs) are emerging as unified interfaces t
 
 </details>
 
+#### [A Dual-Driven Teaching Reform for the Business Intelligence Course: Integrating Scenario-Based Learning and Industry-Education Collaboration](https://www.semanticscholar.org/paper/773827995c5da51c4aa4ef2aeb1a7490a0c03f3a)
+**Shiqi Bao** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+As the digital economy reshapes enterprise operations, the convergence of business intelligence and artificial intelligence (AI) drives demand for professionals combining business acumen with technical expertise. The Business Intelligence course faces persistent challenges: technical instruction disconnected from business contexts, superficial AI integration, and practical training misaligned with industry needs. Drawing on teaching reform literature, this paper proposes a dual-driven framework integrating scenario-based teaching with industry-education collaboration. The model spans four dimensions—curriculum content redesign, instructional innovation, multi-tiered practical training, and evaluation refinement—each discussed with implementation strategies. The approach embeds AI technologies within authentic business scenarios, aiming to cultivate interdisciplinary talent equipped for evolving industry demands.
+
+</details>
+
+#### [EXPRESS: Is speech planning more linearly or more hierarchically incremental in consecutive interpreting?](https://www.semanticscholar.org/paper/2d7f13aa98a2c009480711ba4e3aa3dd8f8fd43a)
+**Yue Wu, Qianxi Lv** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+When people produce sentences, they can either proceed incrementally word by word (Linear Incrementality) or by preparing larger conceptual-syntactic frameworks (Hierarchical Incrementality). While the scope of advance planning is generally affected by processing load, it remains unclear how bilingual speakers adapt their planning strategies to the heightened demands of L2 production, particularly in cognitively challenging conditions. This study examined the effect of structure-related load on bilinguals’ planning scope in consecutive interpreting. 39 Chinese-English interpreter trainees interpreted sentences that varied in source-target symmetry (symmetrical adjectival modifiers vs. asymmetrical prepositional phrases) and structural length (short vs. long). Planning scope was assessed through reordering rates, based on the assumption that item order can be reversed only when they are processed in the same unit. Results showed that both asymmetry and length increased the probability of reordering, indicating greater reliance on hierarchical incrementality. Further analyses of dependency relations and disfluencies revealed that interpreters expanded the planning scope before articulation to reduce downstream integration costs and facilitate economy-driven reformulations, whereas linear incrementality minimized initial planning effort but often at the expense of fluency. Overall, the findings support the proposal of a flexible and adaptive planning process.
+
+</details>
+
+#### [VisionClaw: Always-On AI Agents through Smart Glasses](https://arxiv.org/abs/2604.03486)
+**Xiaoan Liu, Daeho Lee, Eric J. Gonzalez, Mar González-Franco et al.** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+We present VisionClaw, an always-on wearable AI agent that integrates live egocentric perception with agentic task execution. Running on Meta Ray-Ban smart glasses, VisionClaw continuously perceives real-world context and enables in-situ, speech-driven action initiation and delegation via OpenClaw AI agents. Therefore, users can directly execute tasks through the smart glasses, such as adding real-world objects to an Amazon cart, generating notes from physical documents, receiving meeting briefings on the go, creating events from posters, or controlling IoT devices. We evaluate VisionClaw through a controlled laboratory study (N=12) and a longitudinal deployment study (N=5). Results show that integrating perception and execution enables faster task completion and reduces interaction overhead compared to non-always-on and non-agent baselines. Beyond performance gains, deployment findings reveal a shift in interaction: tasks are initiated opportunistically during ongoing activities, and execution is increasingly delegated rather than manually controlled. These results suggest a new paradigm for wearable AI agents, where perception and action are continuously coupled to support situated, hands-free interaction.
+
+</details>
+
 #### [Realistic Lip Motion Generation Based on 3D Dynamic Viseme and Coarticulation Modeling for Human-Robot Interaction](https://arxiv.org/abs/2604.01756)
 **Sheng Li, Jingcheng Huang, Min Li** · 2026-04-02
 
@@ -114,6 +204,30 @@ The rapid democratization of synthetic media generation—powered by Generative 
 Audio-visual navigation tasks require agents to locate and navigate toward continuously vocalizing targets using only visual observations and acoustic cues. However, existing methods mainly rely on simple feature concatenation or late fusion, and lack an explicit discrete representation of the target's relative position, which limits learning efficiency and generalization. We propose Spatial-Aware Conditioned Fusion (SACF). SACF first discretizes the target's relative direction and distance from audio-visual cues, predicts their distributions, and encodes them as a compact descriptor for policy conditioning and state modeling. Then, SACF uses audio embeddings and spatial descriptors to generate channel-wise scaling and bias to modulate visual features via conditional linear transformation, producing target-oriented fused representations. SACF improves navigation efficiency with lower computational overhead and generalizes well to unheard target sounds.
 
 </details>
+
+#### [Empowering Working Children Through Digital Learning: A Community‐Driven Approach to Reducing Child Labor, Economic Loss, and Social Disruptions](https://www.semanticscholar.org/paper/527edcbe04ac7136db5007aec6ce3df331fb7a18)
+**K. Almazroui** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+Child labor remains a persistent global challenge that affects learning, productivity, and long‐term economic growth, particularly in low‐income and conflict‐affected regions. This study integrates cross‐country data sets, regression analyses, and a comparative case study to examine how community‐driven, hybrid digital learning models can mitigate the educational and economic consequences faced by working children. Results show that child labor is strongly associated with lower school attainment, reduced national productivity, and increased social vulnerability. Countries that leverage community networks and low‐cost digital interventions demonstrate measurable improvements in participation, resilience, and learning outcomes among working children. The study proposes a scalable framework that combines community engagement, digital access, and policy integration to reduce learning losses and enhance long‐term economic stability. By bridging economic, social, and educational perspectives, this paper offers a holistic model that addresses gaps in existing research and supports more equitable learning pathways for working children.
+
+</details>
+
+#### [Spatial Concepts in the Semantics of the English Noun Bottom](https://www.semanticscholar.org/paper/01d5ca6594cd24d113c3a1121c6984d143cf9c39)
+**A. S. Kirichenko, E. Pronina** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+This article examines the spatial meaning of the noun bottom , which is the basic component of its semantic structure. In our understanding, linguistic meaning as such is based on the idea of concept as a way of linguistic representation of a graphic image, which is a schematic reflection of the actual configuration of objects. The problem of using prepositions in phrases with bottom , which English language learners face, is related to the fact that the ways of conceptualizing space, peculiar to the Russian language consciousness, differ from those models used by native English speakers and which, accordingly, are reflected in the semantics of English words. The purpose of this study was to identify these differences and propose a description of concepts that would explain the patterns of using bottom in speech and have a predictive ability. As the analysis showed, the characteristic feature of this lexeme is a combination of two concepts: "the lower surface of a container" and "the lower part of any solid object as opposed to its upper part", which is of key importance for the semantic differentiation of phrases such as at the bottom of the lake and at the bottom of the page . The results of the study also suggest that, unlike phrases with the preposition on, phrases with at – at the bottom – describe the location of an object not as a flat surface of the bottom , but as a space adjacent to it. A similar picture is conveyed by the preposition in – in the bottom , when in the mind of the speaker the bottom is completed to a sphere with lower and lateral surfaces. The data of this study suggest that the spatial semantics of language is largely determined by the anthropocentric model of conceptualization of reality, which once again confirms the idea that language reflects not so much the real state of things in the world as how this world is perceived by humans.
+
+</details>
+
+#### [Human-induced climate change intensifies spatially compounding fire weather extremes across European countries](https://www.semanticscholar.org/paper/960165eb14ed49d8517b335d7e8f313efbdfc73c)
+**E. Gauthier, E. Bevacqua** · 2026-04-02
+
 
 #### [AVFSNet: Audio-visual speech separation for flexible number of speakers with multi-scale and multi-task learning](https://www.semanticscholar.org/paper/6ce2088d73fbc6b8a37ffab6436ded1cd08ac855)
 **Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
@@ -166,6 +280,46 @@ In recent years, the high prevalence and severity of depression have highlighted
 <summary>Abstract</summary>
 
 This article analyses an atypical case of Soviet legacy transformation in Kopūstėliai (Ukmergė district), where a former Soviet missile base has become the home of Miško broliai, a historical reenactment club reviving the memory of the 1944–1953 anti-Soviet freedom struggles. The article aims to understand how this legacy is reworked through the memory work performed by the club and draws on material collected during the author’s ethnographic fieldwork in winter 2024-2025, including interviews with Miško broliai members and (non–) participant observation. The club’s activities are enabled by a flexible approach to the site‘s legacy, seen not as a symbolic framework but as a material medium for shaping their own vision of memory, and by disappointment with state-led commemorative policies. Detached from institutional constraints, Miško broliai create a heterogeneous and dynamic assemblage of people, narratives, meanings, and processes – transforming memory into an open-ended and living field.
+
+</details>
+
+#### [Look who's talking](https://www.semanticscholar.org/paper/017a362e681035fb33f3ce233d9587525e877fc7)
+**Abigail Hodder** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+Mobile awareness systems aim to convey personal context information between people in a way that is less intrusive, somewhat automatic, and often much more persistent than a phone call. Although there are many ways in which awareness information can be useful, the privacy of the individual can become more of an issue as more information is made available. Prototype awareness systems developed to date have therefore often been aimed at familiar cliques. In this thesis proposal, we introduce a mobile address book based awareness system called Look Who's Talking (LWT) that aims to transcend the user's various social settings and social groups. Among its novel features is the ability to grant 'episodic access' to the device owner's context information in circumstances where their day-today access settings do not suffice. This is achieved by way of an SMS-like message called a LookAtMe. LWT also introduces a new type of awareness information for communicating aspects of the user's social attention (called Social Titling). Additionally, the system has a user interface that is geared towards mobile use, including mechanisms for on-the-fly input and a glanceable summary of incoming awareness information. Thesis Supervisor: Christopher Schmandt Title: Principal Research Scientist
+
+</details>
+
+#### [Eco-Design of Renewable Energy-Driven Membrane Water Treatment Systems Based on Life Cycle Assessment and Circular Economy Principles](https://www.semanticscholar.org/paper/acdaad948ede3a2b4a343c9baf08a72208dd7888)
+**Fazal Ur, Rehman Muqeemi, Muhammad Adeel** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+Remote communities in developing countries face the dual challenges of clean water scarcity and environmental pollution. Traditional water treatment technologies often overlook their full life cycle environmental impact and resource circularity potential, especially in renewable energy-driven membrane technology applications, where membrane material waste and concentrate disposal are pressing issues. This study proposes an eco-design framework integrating Life Cycle Assessment (LCA) and Circular Economy (CE) principles to optimize renewable energy-driven membrane water treatment systems. By quantifying the environmental impacts at various stages of the system (material production, operation, maintenance, disposal), and designing closed-loop strategies for membrane material recycling and regeneration, concentrate valorization, and energy-efficient configuration. Using a renewable energy (solar-powered) nanofiltration (NF) water treatment system in Tanzanian communities as a case study, actual operational data and material information are collected. LCA software such as SimaPro is utilized for environmental impact assessment, and the feasibility of circular economy solutions is verified through techno-economic analysis. The study results indicate that eco-design can significantly reduce the carbon footprint and resource consumption of water treatment systems. Membrane material recycling and regeneration can reduce the environmental burden of membrane production by up to X%, and concentrate valorization can recover Y% of valuable substances. The optimized system achieves a Z% improvement in environmental benefits and a W% reduction in operating costs while providing clean drinking water. This research provides an innovative paradigm for sustainable water resource management in remote areas of developing countries, emphasizing the critical role of interdisciplinary integration in addressing global environmental issues. The proposed eco-design framework and circular economy strategies offer significant theoretical guidance and practical insights for promoting green technology development and achieving the United Nations Sustainable Development Goals.
+
+</details>
+
+#### [Contribution of the Digitisation of Cultural Tourism to the Resilience of Local Communities in the Face of Global Crises: An Integrative Review](https://www.semanticscholar.org/paper/bc8c9305bd9143e6310f4cdccb4df1196d3200e8)
+**Franklin Cordova-Buiza, Pamella Sophia Jimenez-Del-Carpio, Heidy Janet Conde-Galindo, Diana Rosas-Falconi** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+The use of digital technologies offers communities opportunities to strengthen their economic and social resilience, preserve their cultural heritage, and sustain tourism activity in times of crisis. However, its adoption remains uneven, limiting the development of community-based tourism and influencing visitor behaviour. This paper critically analyses how the digitalisation of cultural tourism contributes to the resilience of local communities in the face of pandemics, natural disasters, and social conflicts. An integrative literature review was conducted through an exhaustive search of the Scopus databases; high-impact articles (Q1 and Q2) published in the last five years and available in English were prioritised. The information was organised into an analytical matrix and synthesised by theme to identify convergences, gaps and practical guidelines. The findings indicate that geographic information systems, digital platforms, and immersive content (augmented reality and 360-degree video) are driving the transformation of cultural destinations. These tools improve heritage management and protection, guide data-driven conservation and adaptation strategies, and support authentic narratives that reinforce local identity. They also democratise access to culture, strengthen community empowerment and diversify income through digital channels, raising visibility in the recovery. Digital communication influences the image of the destination and travel decisions, while spatial planning allows risks to be anticipated and interventions to be prioritised. Limitations remain: connectivity and capacity gaps, uncertain financial sustainability and low visitor awareness. Policies and training are needed that integrate digital inclusion, collaborative governance, and indicators of authenticity and accessibility. In conclusion, the digitalisation of cultural tourism acts as a catalyst for a more resilient, sustainable and participatory tourism model, in line with SDG 11. Its consolidation requires investment in a technological base that enables secure connection and data exchange between different systems using open standards, content co-created with communities, and rigorous evaluation of results, with special attention to rural destinations and the effectiveness of emerging technologies.
+
+</details>
+
+#### [Digital Twin Assisted Dynamic Modeling and Protection Optimization for Coal Mine Power Distribution Systems](https://www.semanticscholar.org/paper/d8b439d9bf7d8878b8ba773641b2db36832c1bfb)
+**Shan Wang, Jingjing Huang, Aimin Zhang, Yudong Du et al.** · 2026-04-01
+
+<details>
+<summary>Abstract</summary>
+
+Conventional relay protection settings face significant challenges in accurately tracking the dynamic operating states of coal mine power distribution systems due to frequent topology changes and substantial load fluctuations. To address these challenges, this article proposes a digital twin (DT)-based approach for real-time dynamic modeling and optimization of relay protection current settings. A modular and automated modeling method driven by a real-time topology matrix is first developed, enabling accurate real-time representation of the system’s structure and operating state. Subsequently, a real-time simulation-driven prediction method for relay current settings is introduced, along with an adaptive optimization model that dynamically adjusts the setting according to evaluation indices. The proposed approach is experimentally validated based on real-time electrical data and historical fault records collected from a coal mine power distribution system. Results demonstrate that the DT model established by the proposed method exhibits excellent capability in both dynamically tracking the actual system states and achieving high simulation accuracy, thereby effectively improving relay protection performance and showing strong potential for practical application.
 
 </details>
 
@@ -230,6 +384,76 @@ This study examines early childhood cognitive development in Kazakhstan using a 
 <summary>Abstract</summary>
 
 Pada tingkat dasar, pembelajaran Fikih tidak hanya menekankan pemahaman konsep, tetapi juga kemampuan mempraktikkan ibadah secara tepat dan berkesinambungan. Karena itu, dibutuhkan strategi yang mampu menyajikan materi secara konkret, kontekstual, dan menarik agar mudah dipahami siswa. Media audio visual dipilih sebagai alternatif karena memadukan unsur gambar, suara, dan gerak yang dapat menciptakan pengalaman belajar lebih interaktif dan bermakna. Penelitian ini bertujuan mengkaji implementasi media pembelajaran audio visual dalam mata pelajaran Fikih pada siswa kelas V melalui studi kasus di SD Negeri 2 Kampung Baru. Penelitian ini menggunakan pendekatan kualitatif dengan metode studi kasus. Data dikumpulkan melalui observasi pembelajaran, wawancara dengan guru dan siswa kelas V di SD Negeri 2 Kampung Baru, serta dokumentasi terkait proses pembelajaran Fikih. Analisis data dilakukan secara deskriptif melalui tahap reduksi, penyajian, dan penarikan simpulan. Hasil penelitian menunjukkan bahwa penggunaan media audio visual berdampak positif terhadap motivasi, keterlibatan aktif, dan pemahaman siswa. Siswa menjadi lebih antusias, lebih mudah memahami materi praktik ibadah, serta lebih percaya diri saat mempraktikkannya. Kendati demikian, terdapat kendala berupa keterbatasan fasilitas teknologi dan manajemen waktu. Secara umum, media audio visual dinilai efektif mendukung pembelajaran Fikih jika dirancang dan difasilitasi dengan baik.
+
+</details>
+
+#### [Data-Driven Toxicity Prediction: Advances in Machine Learning, Deep Learning, and Predictive Tools - A Systematic Review](https://www.semanticscholar.org/paper/33f4cba569313645eb7b79b86598e09666b02115)
+**H. Al-Hussaniy, Kadhim Adnan Ali, Samer Tareq Jasim, A. Al-samydai** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+High rate of attrition still inhibits drug discovery and development, with toxicity accounting for one of the primary causes of failure in preclinical and clinical development. This review summarizes Machine Learning (ML), Deep Learning (DL), and emerging post-deep learning strategies in drug discovery and environmental safety. Following PRISMA guidelines, a systematic search was conducted across PubMed, Web of Science, Scopus, and ScienceDirect for the years 2015–2025, yielding 1,020 articles. Additional records were obtained from Google Scholar and the reference lists of about 60 articles. The studies were included when they used ML/DL to predict toxicity, provided quantitative measures of performance (e.g., accuracy, AUC, F1-score), or when they described the predictive tools and platforms. Eligibility criteria were: the study was entirely experimental toxicology with no computational modeling of the study, lacked an adequate description of the methodology, or was in a non- English language. The last study count of the paper is 50 articles. DL models like convolutional and graph neural networks are more effective in cases when the size of the datasets is large. Recent methods that address the problem of data scarcity are property augmentation, transfer learning, and semi-supervised learning. A number of web-based applications (e.g., ADMETlab 3.0, admetSAR 3.0, ProTox 3.0) have been published that allow using multi-endpoint prediction with different measures of accuracy and interpretability. Traditional ML methods, particularly support vector machines and random forests, remain valuable for smaller datasets due to their robustness and interpretability. However, the adoption of deep learning architectures, such as convolutional and graph neural networks, has markedly improved predictive accuracy when applied to large and complex datasets. Data-driven methods have significantly advanced toxicity prediction, offering faster and more cost-effective tools compared with traditional assays. However, the field still faces challenges related to limited datasets, variable data quality, and a lack of mechanistic interpretability.
+
+</details>
+
+#### [AI-powered ranking-based placement assistance system](https://www.semanticscholar.org/paper/e6ad63ba44460499c36385a619c3b731eed431e0)
+**Atul Kumar, Saini Rahul, Bhukya Harsha Vardhan, Nalla Sai Teja** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+In today’s competitive job market, students require structured guidance and continuous evaluation to enhance their placement readiness. Traditional placement systems lack personalization, real-time feedback, and performance tracking, leading to inefficiencies in career preparation. This project proposes an AI-Powered Ranking-Based Placement Assistance System, which integrates Artificial Intelligence and Machine Learning to provide a comprehensive career guidance ecosystem. The system consists of three major modules: AI Roadmap Generation, AI Mock Interview, and Performance Dashboard. The AI Roadmap module generates structured learning paths based on user queries using multiple AI models such as OpenAI and Hugging Face. The AI Mock Interview module simulates real interview scenarios, records user responses, and evaluates them using Natural Language Processing (NLP), speech-to-text conversion, and audio-video analysis. The Performance Dashboard tracks user progress, identifies weak areas, and provides personalized recommendations. The system demonstrates improved learning efficiency, better interview performance, and enhanced placement readiness, making it suitable for real-world academic and professional environments.
+
+</details>
+
+#### [A Study of Phonology Among Undergraduate Students of Nanded City](https://www.semanticscholar.org/paper/c344cefa4a08e65e387638e21fa0d28043687898)
+**Dr. Mahesh Dhondiba Rajurkar, Dr. Satish Nagorao Kokate** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Abstract Phonology is a fundamental component of language learning, particularly in the context of English as a second language in multilingual societies like India. Despite prolonged exposure to English at the school level, many undergraduate students continue to face serious challenges in achieving accurate pronunciation and intelligible speech. These difficulties largely stem from strong mother-tongue interference, limited exposure to models of standard English pronunciation, and the absence of systematic phonetic and phonological training at the undergraduate level. The present study investigates the phonological competence of undergraduate students in Nanded city, with specific reference to their ability to produce English vowels, consonants, word stress, and intonation patterns. A descriptive research design was adopted, and primary data were collected from a sample of 100 undergraduate students using pronunciation tests and structured questionnaires. The collected data were analysed using percentage analysis and graphical representation to identify the major areas of phonological difficulty and their underlying causes. The study's findings reveal that a significant proportion of students struggle with English phonology, with intonation and consonant sounds as the most problematic areas, followed by vowel pronunciation and word stress. The study also confirms that mother tongue influence and lack of phonetic instruction are the primary factors contributing to these difficulties. The research highlights the urgent need to integrate focused phonology instruction, practical pronunciation drills, and the effective use of language laboratories into undergraduate English curricula. The study concludes that strengthening phonological competence can significantly enhance students' communicative effectiveness, confidence, and overall proficiency in English. Keywords: Phonology, Pronunciation, Undergraduate Students, English Language, Nanded
+
+</details>
+
+#### [PrepWise: AI Interview Assistant](https://www.semanticscholar.org/paper/6ebcaacaa769c5ce7bfe313b465449d33a5532c2)
+**Dr. Renuka Deshpande, Harshal Gawai, Advait Jadhav, Bhushan Sutar** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Evaluating candidate performance during interviews is a complex task that traditionally depends on human judgment, which can be inconsistent, time-consuming, and subjective. With the rapid advancement of Artificial Intelligence (AI), modern systems can now analyze verbal and non-verbal cues to provide objective and data-driven assessments. This paper presents a comprehensive review of recent deep learning and multimodal AI techniques used for automated interview evaluation. It focuses on the integration of Computer Vision, Natural Language Processing (NLP), and Speech Emotion Recognition for assessing facial expressions, tone of voice, and textual content of responses. Various approaches such as Convolutional Neural Networks (CNNs), Transformer-based architectures, and multimodal fusion models are discussed. The review highlights key research gaps including dataset scarcity, real-time processing challenges, bias and fairness issues, and the limited interpretability of model decisions. The paper also outlines future directions toward developing efficient, explainable, and scalable systems like PrepWise, an AI-powered interview evaluation assistant that supports consistent and unbiased candidate assessment
+
+</details>
+
+#### [Procurement 4.0: A Three-Pillar Framework for Ethical AI Adoption in Small Businesses](https://www.semanticscholar.org/paper/c1ef78ab70ed49be0057363ab6d1165ac93e610b)
+**Senali Amarasuriya, K. Abston** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Small and Medium Enterprises (SME) in the U.S. face significant procurement challenges, like inefficiencies in supplier selection, cost inflation, and low bargaining power. While artificial intelligence (AI) offers transformative solutions, its adoption remains inconsistent due to ethical concerns, implementation barriers, and fears of workforce displacement. This paper introduces a three-pillar framework for AI-driven procurement in SMEs to address and mitigate these concerns. The framework consists of three pillars: Intelligent Automation & Decision Augmentation, which addresses how AI enhances, rather than replaces, human decision-making; Ethical Procurement Ecosystems, which incorporates practices ensuring fairness, transparency, and sustainability in AI-driven supplier networks; and lastly, Dynamic Regulatory Adaptation, which aligns AI use with evolving legal and industry standards. An implementation roadmap is provided along with suggested strategies for addressing anticipated challenges. The paper concludes with policy recommendations to guide SMEs in adopting AI responsibly in the context of best procurement practices, ensuring efficient supply chain management.
+
+</details>
+
+#### [Facial Recognition Attendance System Using Python and OpenCv](https://www.semanticscholar.org/paper/eaad877d9211cc04e1eb4cec8f739d19900b888b)
+**Y. Singh** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+Face recognition technology has rapidly evolved into one of the most effective, unobtrusive methods for verifying personal identity, propelled by significant advancements in artificial intelligence and deep learning algorithms. Today’s sophisticated systems go beyond basic facial recognition by integrating additional biometric modalities such as retina recognition and face mask detection, thereby enhancing accuracy, security, and robustness in diverse, real-world environments. Retina recognition leverages the uniquely intricate patterns of blood vessels in an individual’s eye, providing a highly secure, virtually unforgeable layer of authentication. In response to global challenges like the COVID-19 pandemic, face mask detection—driven by convolutional neural networks (CNNs)— enables these systems to reliably identify individuals even when large portions of their faces are obscured by masks, ensuring continued functionality and safety. Furthermore, the integration of neural networks, 3D facial modeling, transfer learning techniques, and AI-based edge computing empowers modern systems to process vast amounts of visual data rapidly and efficiently. These innovations allow for performance that remains consistent despite variations in lighting, facial orientation, partial occlusions, or dynamic backgrounds. As a result, facial recognition systems have become more adaptable, scalable, and suitable for deployment in real-time applications where reliability and speed are critical. This paper explores the transformative impact of these advanced biometric technologies on contemporary face recognition solutions. It provides an in-depth examination of system architecture, the operational workflow, and real- time implementation strategies. Additionally, it discusses the broader implications for security, user privacy, and the future of identity management across multiple sectors, highlighting how these technologies are reshaping the landscape of secure authentication.
+
+</details>
+
+#### [Just green transitions reshaping spatial planning frameworks. Evidence from the Western Balkans](https://www.semanticscholar.org/paper/417c41d905ed0bcd7a64ee73ae1d0ee6a4cf268f)
+**G. Cotella, Anila Bejko, Erblin Berisha, Marjan Nikolov et al.** · 2026-03-31
+
+<details>
+<summary>Abstract</summary>
+
+The Western Balkans faces unique challenges in pursuing of sustainable development, and to frame the actions put in place to face these challenges within the recent EU policy agenda is of uttermost importance. Aiming at shedding light on the matter, this contribution examines the role of the EU Just Green Transitions policy framework in reshaping spatial planning in the Western Balkans, a region marked by complex post-socialist legacies and geopolitical aspirations towards EU integration. Through a comparative analysis of Albania, North Macedonia, and Serbia, this study examines how domestic spatial governance frameworks and planning systems have adapted their instruments, policies, and institutional structures in response to EU-driven discourses. The collected evidence shows that, while Just Green Transitions narratives are increasingly present in climate and energy strategies, their integration into spatial planning remains fragmented, constrained by limited multilevel coordination and institutional capacity; planning instruments continue to reflect outdated paradigms, and the inclusion of a place-based approach to spatial justice remains minimal. This highlights the need for clearer legal mandates and the introduction of participatory mechanisms to ensure that spatial planning supports equitable and context-sensitive green transformations in the Western Balkans, while contributing to the broader European integration agenda.
 
 </details>
 
@@ -1014,6 +1238,146 @@ Les législations mises en œuvre dans les parcs nationaux évoluent au gré de 
 <summary>Abstract</summary>
 
 Nickel-rich ternary layered oxides are mainstream cathode materials for highperformance lithium-ion batteries, but they face critical challenges (lattice oxygen release, Li⁺/Ni²⁺ cation mixing, microcrack propagation, and transition metal (TM) dissolution)...
+
+</details>
+
+#### [Curvature-Driven Dynamic Blade Tip Clearance Measurement Using Microwave Sensor](https://www.semanticscholar.org/paper/ccbefbef1e3ccad7daa7334bbab1c21f9f8e0f3f)
+**Yang Wang, Saisai Chen, Wei Fan, Yuyong Xiong et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+As a core parameter for performance evaluation of rotating blades and turbines, high-precision noncontact measurement of blade tip clearance (BTC) faces severe challenges. Microwave sensing is promising for BTC measurement. However, static BTC measurements suffer from DC offsets, nonlinear amplitude modulation, and harmonic distortion, and dynamic clearance extraction is degraded by critical phase mutations. To address these issues, this article proposes a curvature-feature-driven correction algorithm based on analytic geometry, namely curvature-adaptive dynamic correction (CADC). CADC provides a parameter-free correction framework that combines a curvature-driven bidirectional compensation mechanism with a curvature-weighted covariance correction matrix, thereby mitigating the above interferences and phase mutations. Simulations verify robust calibration under nonlinear amplitude modulation and high-order harmonic interference, outperforming several state-of-the-art microwave BTC methods. Experiments show that a microwave sensor system with CADC achieves an average static displacement error of <inline-formula> <tex-math notation="LaTeX">$4.150~\mu $ </tex-math></inline-formula>m over a 0–10 mm clearance range. For dynamic BTC measurement, the average absolute error per blade is <inline-formula> <tex-math notation="LaTeX">$2.12~\mu $ </tex-math></inline-formula>m with an average repeatability error of <inline-formula> <tex-math notation="LaTeX">$1.23~\mu $ </tex-math></inline-formula>m, and stable performance is maintained up to 3000 r/min.
+
+</details>
+
+#### [Analysis of Logistics Industry Transformation Driven by "Smart Logistics + AI Technology"](https://www.semanticscholar.org/paper/05581e8280928117931b76d63f760eb430115283)
+**Chi Zhang** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: The world logistics sector faces significant pressure to change. The phenomenal growth of e-commerce and the consumer's insatiable demand for speed are forcing traditional logistics models to evolve toward intelligent and sophisticated logistics. Smart logistics is an essential geometric of modern supply chain systems. Smart logistics utilizes technology, such as artificial intelligence (AI), the Internet of Things (IoT), and big data to increase the recognition capabilities, levels of decision-making, and terminal efficiencies of the logistics systems. AI technology will redefine operating strategies for warehousing management, transportation route optimization, and last mile delivery while ushering in a big shift in the logistics industry from labour-intensive to technology-enabled operations. Transforming the industry is not limited to simply adopting newer tech tools, rather a full scale evolving of operational models, organizational configuration, and even enterprise business logics. This evolving aligns with the national strategies to promote the amalgamation of the digital economy with the real economy while also providing logistics enterprises realistic pathways to counteract cost and efficiency constraints.
+
+</details>
+
+#### [Out-of-Order Architecture for Real-Time Data-Driven Resilient Planning and Scheduling of Cyber-Physical Manufacturing Systems](https://www.semanticscholar.org/paper/1d1963cdf368d7229a79b8ad1b0e1e872ae50521)
+**Mingxing Li, Ting Qu, Binyan Liu, Qijie Luo et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The intrinsic stochasticity of manufacturing is one of the main factors that hinder system resilience. Planning and scheduling problems are typical examples plagued by uncertainties such as stochastic processing time, arrivals of new orders, and breakdowns of workstations. Frequent uncertainties disturb the workflow, and their cascading effects create chaos in the whole system. The transparency and traceability analytics in Cyber-Physical Manufacturing Systems (CPMS) bring new hope to tackle uncertainties. Inspired by the core spirit of Out-of-Order (OoO) Execution in CPU, this paper proposes a novel OoO architecture for resilient planning and scheduling in CPMS with real-time data analytics. Following OoO principles, multi-level instruction queues are constructed, under which manufacturing operations (instructions) are sequenced and performed by analyzing real-time dependencies and executability. This study contributes a new perspective to enhance decision resilience using real-time data in CPMS. Results validate the effectiveness and resilience of OoO under different levels of uncertainty, showing improvements in the on-time delivery rate and reductions in the average order flow time. Note to Practitioners—This study addresses the challenge of planning and scheduling in cyber-physical manufacturing systems under uncertain environments. Traditional planning and scheduling methods often struggle to adapt to real-world uncertainties, resulting in decreased efficiency and stability. To this end, an Out-of-Order (OoO) architecture is proposed, which dynamically organizes operations based on real-time executability. This approach is well suited for manufacturing environments that often face disruptions, such as discrete manufacturing, electronic assembly, or high-mix, low-volume production. These settings frequently experience issues such as demand changes, machine breakdowns, and material shortages. By leveraging real-time data and dynamic queuing mechanisms, OoO helps reduce order completion times, improve on-time delivery rates, and maintain operational resilience under uncertainty.
+
+</details>
+
+#### [From Past to Future: Lessons Learned from Walking in Two Worlds - Opening Address at the Launch of the International Journal of Indigenous Business at The University of Queensland](https://www.semanticscholar.org/paper/7be13b73d11d96cbb3b0ce7d42f7835d1663f895)
+**Baringa Barambah** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This speech was delivered by Baringa Barambah at the launch of the International Journal of Indigenous Business at The University of Queensland. It explores how First Nations business leaders navigate the intersection of culture, community, Country, and contemporary business demands. Drawing on her own journey growing up immersed in Turrbal culture and later navigating corporate environments, Baringa highlights lessons from “walking in two worlds”. The speech examines three key challenges faced by Indigenous leaders: balancing cultural protocols with external expectations, shifting mainstream mindsets to value Indigenous knowledges, and carrying the weight of the collective. Each challenge is paired with practical responses, demonstrating how First Nations organisations provide a model for holistic, sustainable, and purpose-driven approaches to business.
+
+</details>
+
+#### [Development of a Visual Faces Scale for Adults with Hearing Loss: The Facial Scale of Hearing Difficulty](https://www.semanticscholar.org/paper/e01f12c7cc63113e2fd9f9fbfda3886c1383c0a4)
+**L. Gaeta** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Background: In busy clinics, audiologists can benefit from brief, patient-centered tools to identify those with hearing difficulties. Pure-tone and speech audiometry measures, as well as self-report measures, require time and significant patient engagement. Visual analog scales have been used in health care as an accessible and simple way to understand patients’ multifaceted experiences. Purpose: To develop and test a brief, facial-based visual instrument, the Facial Scale for Hearing Difficulty (FSHD), that could provide a clinically useful complement to traditional diagnostic testing. Research Design: Correlational. Study Sample: Twenty-three adults with hearing profiles ranging from normal hearing (defined as −10 to <25 dB HL) to profound hearing loss. Intervention: The FSHD is a single-item, face-based visual analog scale that features five expressive faces ranging from 1 (no difficulty) to 5 (extreme difficulty). Data Collection and Analysis: Participants were asked to select the face from the FSHD that best represents their difficulty hearing. Participants also completed pure-tone audiometry, the Quick Speech-in-Noise test (QuickSIN), and a hearing handicap measure. Results: The FSHD had very strong, positive correlations with hearing handicap scores (ρ = 0.803, p < 0.001), pure-tone averages (ρ = 0.753, p < 0.001 for the better ear; ρ = 0.635, p = 0.001 for the worse ear), and QuickSIN (ρ = 0.567, p = 0.005). Conclusions: The FSHD is a quick instrument that can be administered in less than 1 minute and provides insight into patient difficulties with hearing. Given the strong associations with established clinical measures, the scale could be used as a point-of-entry tool for patient-centered care. Clinical Relevance Statement: The FSHD can help support clinical decision-making by helping to quickly identify patients who could benefit from further assessment, counseling, or aural rehabilitation. Because the instrument does not rely on technical language, literacy, or lengthy questionnaires, it could be well suited for inclusive service delivery in private or public practice, across diverse populations, or in under-resourced or fast-paced clinical settings.
+
+</details>
+
+#### [CONCEPTUALIZATION OF LOCAL COMMUNITY IN THE CONSERVATION OF THE VULNERABLE OWL-FACED MONKEY, CERCOPITHECUS HAMLYNI: NYUNGWE NATIONAL PARK, RWANDA](https://www.semanticscholar.org/paper/c3b5eef5a23f753985a4d7bdce0ccec23a0c1c5b)
+**Methode Majyambere, Felix Niyonzima, Théogène Nsengiyumva, Laurent Twizeyimana et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The owl-faced monkey, Cercopithecus hamlyni, is an understudied primate that exhibits elusive behaviour and is found in only two countries: the Democratic Republic of the Congo and Rwanda. With the help of certain projects, authors investigated the conservation status of this species, the factors driving local people to threaten its bamboo habitat in Nyungwe National Park (NNP) and opportunities to abandon illegal collection. A park-driven incentive program and bamboo plantations in community fields could not alleviate such threats. Potential solutions, including supporting bamboo users in cooperatives to optimise the dependency on bamboo from the community fields, were analysed. The authors suggest a bamboo value chain as a practical and flexible way forward—one that can serve as a reliable solution in the face of future contingencies. More research is urgently needed to reassess the community dimension of Cercopithecus hamlyni conservation and to more extensively investigate its population ecology in NNP. The study highlights the urgent need to conserve the owl-faced monkey and emphasises the importance of taking timely and effective measures. It not only enhances our understanding of this unique species but also underscores the need for collective conservation efforts. Additionally, it points toward practical strategies to safeguard its habitat from growing threats that could otherwise lead to its local extinction.
+
+</details>
+
+#### [AI Enabled Service Automation and Workforce Productivity: How Intelligent Automation Reduces Manual Effort, Increases Throughput, and Releases Capacity for High Value Work](https://www.semanticscholar.org/paper/68819ae51deaf14b83804a04531fc39074dfe8a1)
+**Amit Jha** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Enterprises face sustained pressure to improve service delivery speed, quality, and cost while managing workforce constraints and rising service complexity. Traditional rule-based automation improves efficiency at isolated task levels but fails to scale across end-to-end service operations. This paper examines how AI enabled service automation transforms operational service delivery by reducing manual effort, increasing throughput, and reallocating human capacity toward higher value activities. A reference architecture is presented that integrates intelligent intake, machine learning driven decision engines, workflow orchestration, and human in the loop governance. A quantitative productivity measurement model links automation coverage to service throughput, cycle time reduction, backlog stabilization, and effective full time equivalent capacity release. Enterprise service scenarios across IT operations, customer support, and shared services are evaluated to demonstrate measurable productivity gains. Results indicate that organizations adopting AI enabled service automation achieve significant reductions in manual touchpoints while improving service reliability, workforce utilization, and operational resilience.
+
+</details>
+
+#### [Smart Safety Monitoring for Construction Sites](https://www.semanticscholar.org/paper/9cf8da876206cf303286a9105230739d53244577)
+**Mohamad Khairul Aizzat bin Rusmami, Hanis Damia binti Roslan, Nur Syaranisa Irdina binti Zaidinar, Danny Daniel bin Rahsidin et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+On-site construction safety management continues to face significant challenges due to reliance on manual inspections, paper-based documentation, and reactive safety practices. The absence of automated and data-driven monitoring mechanisms limits timely risk identification and informed decision-making. This paper addresses this gap by proposing a conceptual design of a Smart Safety Monitoring and Decision Support System (DSS) that integrates Internet of Things (IoT) sensors and computer vision technologies. The proposed system is designed to capture real-time environmental data through IoT sensors and detect unsafe behaviours and conditions using computer vision techniques, with all information consolidated through a centralized monitoring dashboard. By enabling continuous data acquisition and real-time analysis, the system aims to support proactive safety management and improve the accuracy of on-site risk identification and safety-related decision-making. Although the study is limited to a conceptual design and does not include empirical implementation or validation, it demonstrates the potential of data-driven technologies to transform construction safety management from a reactive to a proactive approach. The paper contributes to the existing literature by providing a structured conceptual framework for smart, technology-enabled safety monitoring systems in construction environments.
+
+</details>
+
+#### [Simulation-Based Performance Comparison of Wired and Wireless Networks for Office Use](https://www.semanticscholar.org/paper/3e9b0d344d5e3b84f3b62869f0eeb87490a477e6)
+**Famisha Harmila Mohammed Fuad, N. M. Salleh, Haniza Nahar, Mohd Nazrien Zaraini et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The increasing importance of digital connectivity and data-driven processes has made selecting the right network infrastructure in office settings crucial. As organizations expand and adopt more devices and services, managing network performance and reliability becomes increasingly complex. This study aims to address key concerns businesses face when deciding on the most suitable network setup for office use. The study analyzes and compares wired and wireless NetSim simulations with 25 users, single-floor office layout, measuring key performance metrics such as latency, throughput, and jitter under similar simulated conditions. The study consists of three main processes: project planning and requirements analysis, network design, and simulation preparation. The results show that wired networks consistently outperform wireless networks in terms of throughput, latency, and jitter. While wireless throughput was slightly higher under light load, wired networks achieved up to 3.4 times higher throughput under heavy traffic, with latency 78 - 115 times lower and jitter up to 224 times lower. Besides, the findings demonstrate that wired networks provide superior reliability and performance, particularly under high-load conditions, making them more suitable for performance-critical office environments.
+
+</details>
+
+#### [An Evaluation of State-Led Initiatives for Women Entrepreneurs in Karnataka](https://www.semanticscholar.org/paper/462f8b90b04e3380383a6f7134c7e60c3e2f7d71)
+**K. L** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Karnataka has long been recognized as India’s premier innovation hub, yet gender parity in the entrepreneurial ecosystem remains an elusive goal. While the state boasts a high concentration of tech startups, women-led ventures face systemic barriers, ranging from credit access to socio-cultural constraints. In response, the Government of Karnataka (GoK) has implemented a multi-layered support framework involving financial subsidies, incubation, and specialized skilling programs. This study aims to analyze the efficacy and reach of state-led initiatives designed to foster women’s entrepreneurship in Karnataka. It evaluates key programs such as the Udyogini Scheme, Elevate WomEN, and the Women@Work (W@W) initiative, examining their impact on both urban tech-driven startups and rural micro-enterprises.
+
+</details>
+
+#### [Adapting Maintenance Models for Harsh Offshore Environments in Africa](https://www.semanticscholar.org/paper/3468a3300b398c006fa9b024a08bbe9cdf3c5942)
+**Harold Reddy** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Offshore oil and gas facilities operating in African waters face extreme environmental, logistical, and operational challenges that significantly affect maintenance performance and asset reliability (Adumene et al.). Conventional maintenance models adopted from mature offshore regions often fail to account for harsh marine conditions, infrastructural constraints, and limited logistics support prevalent in African offshore operations (Uke). This study examines existing offshore maintenance models and evaluates their suitability for harsh offshore environments in Africa through a structured synthesis of peer-reviewed literature and industry guidelines (Amaechi et al.). The findings indicate that adaptive, risk-based, and condition-driven maintenance strategies outperform rigid preventive models when exposed to corrosion-intensive, remote, and safety-critical offshore conditions (Kimera and Nangolo). The study concludes that maintenance models for African offshore facilities must integrate environmental severity, human reliability, and logistical uncertainty to remain effective (Islam et al.). These insights contribute to the development of context-responsive maintenance frameworks that improve safety, reliability, and operational sustainability across African offshore installations (Markeset).
+
+</details>
+
+#### [Optimization of Heating Systems for Small Towns in Coal-Resource-Based Cities under Low-Carbon Transition](https://www.semanticscholar.org/paper/5a37b058aa8234b8821d3abedb29a114eeaee348)
+**Xue Gong, Ying Kong, Jianjun Xia** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Coal-resource-based cities serve as crucial energy supply bases in China. However, their small towns persistently face challenges of high-carbon and inefficient heating systems due to low heat load density, insufficient pipeline coverage, and poor long-distance heat transmission efficiency. This study takes a typical coal-resource-based city in Northwest China as a case study to conduct a comparative analysis of four heating solutions: coal-fired boiler heating, long-distance combined heat and power (CHP) transmission, photovoltaic (PV)-driven air-source heat pump systems, and wind-PV hybrid power generation integrated with seasonal thermal energy storage. The results demonstrate that traditional coal-fired boiler heating has the lowest cost (21.70 RMB/GJ) but generates substantial annual carbon emissions (212,400 tons). The CHP solution shows significantly higher costs (78.49 RMB/GJ) due to expensive pipeline investments (accounting for 59.5% of total costs). Among the two renewable energy solutions, the wind-PV hybrid system with thermal storage demonstrates optimal comprehensive performance, achieving zero carbon emissions with competitive unit heating costs (25.81 RMB/GJ) and initial investments (889 million RMB). This study concludes that wind-PV hybrid systems with thermal storage represent the optimal pathway for low-carbon heating transition in small towns of coal-resource-based cities, requiring supportive policies to facilitate large-scale implementation.
+
+</details>
+
+#### [Land Policy Reform in China: Dealing with forced Expropriation and the Dual Land Tenure System](https://www.semanticscholar.org/paper/7add2927dc5d57ca90a5cb47a2b4794c2704fd35)
+**Vincent Wong** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This paper examines the profound contradictions within China’s land and property rights regime, where socialist public ownership must coexist with a hyper-capitalist political economy driven by rapid economic modernization. Since the 1982 Constitution, China has operated under a dual land tenure system that distinguishes between state-owned urban land and collectively-owned rural land. While urban residents can eventually sell or mortgage their land use rights, rural farmers face severe restrictions, being permitted to use land only for limited agricultural or residential purposes. This institutional divide has made forced land expropriation the leading cause of social unrest in China, accounting for approximately 60% of all "mass incidents". The author identify several root causes for these ongoing disputes, beginning with a legal framework that often prioritizes state-led development over individual and collective property rights. For instance, the 2007 Property Law largely perpetuated the status quo by maintaining the fundamental inequality between urban and rural land use. Rural land is frequently treated as "dead capital" because farmers cannot leverage it for credit or investment. These issues are exacerbated by the hukou system, which treats rural migrants as "second-class citizens" in cities, and a weak judiciary that lacks the independence to push back against government expropriation decisions. Crucially, local governments rely on land transfer fees for a large portion of their revenue, creating a powerful vested interest in continued seizures. Finally, the paper evaluates several policy experiments designed to alleviate these tensions, such as rural collective corporations that pool land rights to achieve economies of scale and trial property taxes in cities like Shanghai and Chongqing to reduce government reliance on land sales. The author concludes that long-term social stability requires a comprehensive reform strategy that unifies the rural-urban divide, reformulates performance assessments for officials beyond pure GDP metrics, and strengthens judicial oversight to protect the spirit of the law.
+
+</details>
+
+#### [CareerPathKG: Knowledge Graph Integrated Framework for Career Intelligence](https://www.semanticscholar.org/paper/43f2c2a210d603bbc7fb80523ac0edc89173ad76)
+**Ngoc-Quang Le, Duc Duong Hoang, Mai Vu Tran, Thi-Hai-Yen Vuong** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The labor market is experiencing rapid and continual shifts in required skills and competencies, driven by technological advancement and evolving industry structures. Within this dynamic environment, candidates increasingly face challenges in orienting their career development, requiring them to continuously update their knowledge and capabilities to meet contemporary job requirements; this need is particularly necessary for new entrants to the labor market, who must cultivate a comprehensive understanding of current labor-market conditions. To address these issues, this study proposes an enterprise recruitment framework grounded in a career path knowledge graph, capturing occupations, skill requirements, and career transitions using standardized taxonomies enriched with job-posting data. The framework integrates transformer-based embeddings, large language models, and knowledge-graph reasoning to support efficient and reliable CV assessment, CV-JD matching and career guidance. Data and resources are available at: https://github.com/ lengocquanggit255/Tinix-CareerPathKG .
 
 </details>
 
