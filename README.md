@@ -45,6 +45,26 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [An Empirical Study of Perceptions of General LLMs and Multimodal LLMs on Hugging Face](https://arxiv.org/abs/2604.05782)
+**Yujian Liu, Xiao Yu, J. Keung, Xing Hu et al.** · 2026-04-07
+
+<details>
+<summary>Abstract</summary>
+
+Large language models (LLMs) have rapidly evolved from general-purpose systems to multimodal models capable of processing text, images, and audio. As both general-purpose LLMs (GLLMs) and multimodal LLMs (MLLMs) gain widespread adoption, understanding user perceptions in real-world settings becomes increasingly important. However, existing studies often rely on surveys or platform-specific data (e.g., Reddit or GitHub issues), which either constrain user feedback through predefined questions or overemphasize failure-driven, debugging-oriented discussions, thus failing to capture diverse, experience-driven, and cross-model user perspectives in practice. To address this issue, we conduct an empirical study of user discussions on Hugging Face, a major model hub with diverse models and active communities. We collect and manually annotate 662 discussion threads from 38 representative models (21 GLLMs and 17 MLLMs), and develop a three-level taxonomy to systematically characterize user concerns. Our analysis reveals that LLM access barriers, generation quality, and deployment and invocation complexity are the most prominent concerns, alongside issues such as documentation limitations and resource constraints. Based on these findings, we derive actionable implications for improving LLM ecosystem.
+
+</details>
+
+#### [Generating Synthetic Doctor-Patient Conversations for Long-form Audio Summarization](https://arxiv.org/abs/2604.06138)
+**Yanis Labrak, David Grunert, S'everin Baroudi, Jiyun Chun et al.** · 2026-04-07
+
+<details>
+<summary>Abstract</summary>
+
+Long-context audio reasoning is underserved in both training data and evaluation. Existing benchmarks target short-context tasks, and the open-ended generation tasks most relevant to long-context reasoning pose well-known challenges for automatic evaluation. We propose a synthetic data generation pipeline designed to serve both as a training resource and as a controlled evaluation environment, and instantiate it for first-visit doctor-patient conversations with SOAP note generation as the task. The pipeline has three stages, persona-driven dialogue generation, multi-speaker audio synthesis with overlap/pause modeling, room acoustics, and sound events, and LLM-based reference SOAP note production, built entirely on open-weight models. We release 8,800 synthetic conversations with 1.3k hours of corresponding audio and reference notes. Evaluating current open-weight systems, we find that cascaded approaches still substantially outperform end-to-end models.
+
+</details>
+
 #### [GROW: A Conversational AI Coach for Goals, Reflection, Optimism, and Well-Being](https://arxiv.org/abs/2604.04548)
 **K. Shah, Himanshi Lalwani, Hanan Salam** · 2026-04-06
 
@@ -52,6 +72,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <summary>Abstract</summary>
 
 College students face well-being challenges driven by academic pressure, financial strain, and social expectations. While campus counseling and student-success programs offer support, access is often limited by stigma, waitlists, and scheduling constraints. Existing digital tools focus on emotional check-ins or chatbots and may overlook structured goal setting and aligning goals with personal values. We present GROW, a goal-centered well-being coaching system that puts values-aligned goals at the center of the student experience. GROW combines the SMART framework with principles from Acceptance and Commitment Therapy in a conversational AI coach that helps students clarify aspirations, break them into concrete steps, and reflect on progress. The system links action plans with Google Calendar, sends reminders, and provides a dashboard that shows progress and engagement. We evaluated GROW through interviews with clinical psychologists, student-success staff, and faculty, followed by a one-week deployment with 30 undergraduates. Findings offer design implications for interactive systems that support engagement, accountability, and sense of purpose in higher education.
+
+</details>
+
+#### [Smart Face Masks as Wearable Respiratory Sensors: A Review of Sensor Technologies, Materials, and Future Directions](https://www.semanticscholar.org/paper/135726e6e389670f7d90fc083a51859a335fab41)
+**N. Faramarzi, Naseeh Backer Kannanthodi, Alice Nicole Casling, B. Ali et al.** · 2026-04-06
+
+<details>
+<summary>Abstract</summary>
+
+Smart face masks are rapidly evolving into versatile wearable devices capable of simultaneously tracking a variety of physical and biochemical signals for both personal healthcare and environmental monitoring. This review focuses on respiration monitoring and highlights recent advances in materials, device architectures, and sensor design for mask‐integrated platforms. We categorize current approaches into six sensor types, humidity, gas, temperature, pressure, strain, and triboelectric, and summarize their transduction principles, material/fabrication strategies, and representative demonstrations for quantifying respiratory metrics. Finally, we discuss key challenges for real‐world use, including sensor cross‐sensitivity, long‐term stability, and user safety, noting that everyday activities like talking or head movement can affect measurements. We also highlight future opportunities in cost‐effective manufacturing, modular designs, and AI‐enabled data analysis to improve accuracy and reliability in respiratory monitoring.
 
 </details>
 
@@ -172,6 +202,16 @@ When people produce sentences, they can either proceed incrementally word by wor
 <summary>Abstract</summary>
 
 We present VisionClaw, an always-on wearable AI agent that integrates live egocentric perception with agentic task execution. Running on Meta Ray-Ban smart glasses, VisionClaw continuously perceives real-world context and enables in-situ, speech-driven action initiation and delegation via OpenClaw AI agents. Therefore, users can directly execute tasks through the smart glasses, such as adding real-world objects to an Amazon cart, generating notes from physical documents, receiving meeting briefings on the go, creating events from posters, or controlling IoT devices. We evaluate VisionClaw through a controlled laboratory study (N=12) and a longitudinal deployment study (N=5). Results show that integrating perception and execution enables faster task completion and reduces interaction overhead compared to non-always-on and non-agent baselines. Beyond performance gains, deployment findings reveal a shift in interaction: tasks are initiated opportunistically during ongoing activities, and execution is increasingly delegated rather than manually controlled. These results suggest a new paradigm for wearable AI agents, where perception and action are continuously coupled to support situated, hands-free interaction.
+
+</details>
+
+#### [Precise Speech-driven Talking-Face Synthesis with Realistic Speaker-Emulated Facil Expressions](https://www.semanticscholar.org/paper/98adc42cb44096970eea8474b43ffd8087df0f6b)
+**Jhing-Fa Wang, Din-Yuen Chan, Shu-Yan Liou, Hsin-Chun Tsai** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+Traditional facial animation models do not particularly stress on the naturalness of imitating the dynamic facial expressions including eye movements, dynamic eyebrow deformation and head motion naturalness. Hence, in this paper, a speech-driven talking-face synthesizer (SDTS) is proposed for generating the dynamic talking video of given static face for semantically mimicking the speech of any real person. The SDTS can lead the static digital-twin face to vividly mimic the expressive motions of face and lip-synced mouth of various speakers with the personalized accent with high distinctiveness. The SDTS framework has two stages. In first stage, one branch termed the dynamic fused-features generation module (DFGM) contains cross-modal speech-facial fusion module (CSFF) and temporal convolutional network (TCN). The CSFF is the core to seamlessly align the speech features and facial features. The second branch is the self-designed adaptive identity extractor (AIE) where a series of the residual blocks using partial batch normalization unit (PBN-ResNet blocks) and the residual blocks with the squeeze-and-excitation unit (SE-ResNet blocks) are cascaded to precisely capture the key features of face in a static reference image. In the second stage of SDTS, the diffusion model termed diffusion-based rendering model (DIRM) is applied to generate the high-resolution video reconstruction with the consistencies of appearance and emotion via fusing the driving speech features and the referred facial features. The extensive experiments demonstrate that SDTS can significantly promote the lip-synchronization, enrich the upper facial expression, and exhibit the naturalness of the head movements. Moreover, the SDTS can steadily maintain the facial identity consistency and the facial expression coherence for varying speaking speeds and emotions. Hence, it can attain less than 5.26 FID, 0.72 LSE-D and 0.56 LME than the StyleTalk model which is a well-known talking-face synthesis model.
 
 </details>
 
@@ -1378,6 +1418,16 @@ This paper examines the profound contradictions within China’s land and proper
 <summary>Abstract</summary>
 
 The labor market is experiencing rapid and continual shifts in required skills and competencies, driven by technological advancement and evolving industry structures. Within this dynamic environment, candidates increasingly face challenges in orienting their career development, requiring them to continuously update their knowledge and capabilities to meet contemporary job requirements; this need is particularly necessary for new entrants to the labor market, who must cultivate a comprehensive understanding of current labor-market conditions. To address these issues, this study proposes an enterprise recruitment framework grounded in a career path knowledge graph, capturing occupations, skill requirements, and career transitions using standardized taxonomies enriched with job-posting data. The framework integrates transformer-based embeddings, large language models, and knowledge-graph reasoning to support efficient and reliable CV assessment, CV-JD matching and career guidance. Data and resources are available at: https://github.com/ lengocquanggit255/Tinix-CareerPathKG .
+
+</details>
+
+#### [ANALYSIS OF APPROACHES TO ASSESSING THE SUSTAINABILITY OF TECHNOLOGICAL DEVELOPMENT OF INDUSTRIAL INFRASTRUCTURE ENTERPRISES](https://www.semanticscholar.org/paper/2184ef3a36981fd81bc1098e5d25526c1f40e408)
+**L. Mamaeva** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The article examines and systematizes existing approaches to assessing the sustainability of technological development of industrial infrastructure enterprises in the face of increasing external constraints, technological turbulence and the transformation of global value chains. It is shown that in modern Russian and foreign scientific literature, the sustainability of technological development is interpreted from various conceptual positions — within the framework of theories of economic growth, dynamic abilities, technological security, financial, economic and environmental sustainability. The analysis revealed the fragmentation of the existing methodological framework, the orientation of most approaches to fixing the current state of the system and insufficient consideration of the process nature of technological development at the enterprise level. Special attention is paid to the specifics of production infrastructure enterprises, the technological development of which is of a derivative nature and is determined by the requirements of the basic consumer industries. It is proved that the macro-level indicators of technological development and security used in strategic documents have limited practical significance for assessing the sustainability of technological development of such enterprises. It is shown that financial, economic and innovation indicators mainly reflect the results of functioning, but do not reveal the internal mechanisms of sustainability formation. The article proposes a methodological rethinking of the sustainability of technological development of an enterprise’s production infrastructure as a dynamic system property that characterizes the ability to maintain a reproducible and adaptive trajectory of technological change under external constraints. Sustainability is interpreted as the reliability of the development trajectory, which makes it possible to integrate the provisions of reliability theory, system analysis and process management. The findings form the theoretical basis for the development of integrated indicator and process models for assessing and managing the sustainability of technological development of industrial infrastructure enterprises.
 
 </details>
 
