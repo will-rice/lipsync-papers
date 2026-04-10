@@ -45,6 +45,56 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [SyncBreaker:Stage-Aware Multimodal Adversarial Attacks on Audio-Driven Talking Head Generation](https://arxiv.org/abs/2604.08405)
+**Wenli Zhang, Xianglong Shi, Sirui Zhao, Xinqi Chen et al.** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+Diffusion-based audio-driven talking-head generation enables realistic portrait animation, but also introduces risks of misuse, such as fraud and misinformation. Existing protection methods are largely limited to a single modality, and neither image-only nor audio-only attacks can effectively suppress speech-driven facial dynamics. To address this gap, we propose SyncBreaker, a stage-aware multimodal protection framework that jointly perturbs portrait and audio inputs under modality-specific perceptual constraints. Our key contributions are twofold. First, for the image stream, we introduce nullifying supervision with Multi-Interval Sampling (MIS) across diffusion stages to steer the generation toward the static reference portrait by aggregating guidance from multiple denoising intervals. Second, for the audio stream, we propose Cross-Attention Fooling (CAF), which suppresses interval-specific audio-conditioned cross-attention responses. Both streams are optimized independently and combined at inference time to enable flexible deployment. We evaluate SyncBreaker in a white-box proactive protection setting. Extensive experiments demonstrate that SyncBreaker more effectively degrades lip synchronization and facial dynamics than strong single-modality baselines, while preserving input perceptual quality and remaining robust under purification. Code: https://github.com/kitty384/SyncBreaker.
+
+</details>
+
+#### [PrivFedTalk: Privacy-Aware Federated Diffusion with Identity-Stable Adapters for Personalized Talking-Head Generation](https://arxiv.org/abs/2604.08037)
+**Soumya Mazumdar, Vineet Kumar Rakesh, Tapas Samanta** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+Talking-head generation has advanced rapidly with diffusion-based generative models, but training usually depends on centralized face-video and speech datasets, raising major privacy concerns. The problem is more acute for personalized talking-head generation, where identity-specific data are highly sensitive and often cannot be pooled across users or devices. PrivFedTalk is presented as a privacy-aware federated framework for personalized talking-head generation that combines conditional latent diffusion with parameter-efficient identity adaptation. A shared diffusion backbone is trained across clients, while each client learns lightweight LoRA identity adapters from local private audio-visual data, avoiding raw data sharing and reducing communication cost. To address heterogeneous client distributions, Identity-Stable Federated Aggregation (ISFA) weights client updates using privacy-safe scalar reliability signals computed from on-device identity consistency and temporal stability estimates. Temporal-Denoising Consistency (TDC) regularization is introduced to reduce inter-frame drift, flicker, and identity drift during federated denoising. To limit update-side privacy risk, secure aggregation and client-level differential privacy are applied to adapter updates. The implementation supports both low-memory GPU execution and multi-GPU client-parallel training on heterogeneous shared hardware. Comparative experiments on the present setup across multiple training and aggregation conditions with PrivFedTalk, FedAvg, and FedProx show stable federated optimization and successful end-to-end training and evaluation under constrained resources. The results support the feasibility of privacy-aware personalized talking-head training in federated environments, while suggesting that stronger component-wise, privacy-utility, and qualitative claims need further standardized evaluation.
+
+</details>
+
+#### [Cross-Modal Emotion Transfer for Emotion Editing in Talking Face Video](https://arxiv.org/abs/2604.07786)
+**Chanhyuk Choi, Taesoo Kim, Donggyu Lee, Siyeol Jung et al.** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+Talking face generation has gained significant attention as a core application of generative models. To enhance the expressiveness and realism of synthesized videos, emotion editing in talking face video plays a crucial role. However, existing approaches often limit expressive flexibility and struggle to generate extended emotions. Label-based methods represent emotions with discrete categories, which fail to capture a wide range of emotions. Audio-based methods can leverage emotionally rich speech signals - and even benefit from expressive text-to-speech (TTS) synthesis - but they fail to express the target emotions because emotions and linguistic contents are entangled in emotional speeches. Images-based methods, on the other hand, rely on target reference images to guide emotion transfer, yet they require high-quality frontal views and face challenges in acquiring reference data for extended emotions (e.g., sarcasm). To address these limitations, we propose Cross-Modal Emotion Transfer (C-MET), a novel approach that generates facial expressions based on speeches by modeling emotion semantic vectors between speech and visual feature spaces. C-MET leverages a large-scale pretrained audio encoder and a disentangled facial expression encoder to learn emotion semantic vectors that represent the difference between two different emotional embeddings across modalities. Extensive experiments on the MEAD and CREMA-D datasets demonstrate that our method improves emotion accuracy by 14% over state-of-the-art methods, while generating expressive talking face videos - even for unseen extended emotions. Code, checkpoint, and demo are available at https://chanhyeok-choi.github.io/C-MET/
+
+</details>
+
+#### [Tracking Listener Attention: Gaze-Guided Audio-Visual Speech Enhancement Framework](https://arxiv.org/abs/2604.08359)
+**Hsiang-Cheng Yang, You-Jin Li, Rong Chao, Yu Tsao et al.** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+This paper presents a Gaze-Guided Audio-Visual Speech Enhancement (GG-AVSE) framework to address the cocktail party problem. A major challenge in conventional AVSE is identifying the listener's intended speaker in multi-talker environments. GG-AVSE addresses this issue by exploiting gaze direction as a supervisory cue for target-speaker selection. Specifically, we propose the GG-VM module, which combines gaze signals with a YOLO5Face detector to extract the target speaker's facial features and integrates them with the pretrained AVSEMamba model through two strategies: zero-shot merging and partial visual fine-tuning. For evaluation, we introduce the AVSEC2-Gaze dataset. Experimental results show that GG-AVSE achieves substantial performance gains over gaze-free baselines: a 10.08% improvement in PESQ (2.370 to 2.609), a 5.18% improvement in STOI (0.8802 to 0.9258), and a 23.69% improvement in SI-SDR (9.16 to 11.33). These results confirm that gaze provides an effective cue for resolving target-speaker ambiguity and highlight the scalability of GG-AVSE for real-world applications.
+
+</details>
+
+#### [Multiprotocol Wireless Timer Synchronization for IoT Systems](https://arxiv.org/abs/2604.07199)
+**Ziyao Zhou, Tiancheng Cao, Chen Shen, Jiaqi Zhang et al.** · 2026-04-08
+
+<details>
+<summary>Abstract</summary>
+
+Accurate time synchronization is essential for Internet of Things (IoT) systems, where multiple distributed nodes must share a common time base for coordinated sensing and data fusion. However, conventional synchronization approaches suffer from nondeterministic transmission latency, limited precision, or restricted bidirectional functionality. This paper presents a protocol-independent wireless timer synchronization method that exploits radio timeslots to transmit precisely timestamped beacons in a proprietary radio mode. By decoupling synchronization from upper-layer packet retransmissions and leveraging hardware-timed radio events, the proposed approach significantly reduces scheduling uncertainty and achieves nanosecond-level synchronization accuracy. Comprehensive experiments evaluate the impacts of synchronization frequency, RSSI, BLE connection interval, and throughput on synchronization performance. The results demonstrate that an optimal synchronization frequency of 1000 Hz yields an approximately 20 ns delay in the absence of communication stack activity while maintaining sub-500 ns accuracy under most realistic BLE traffic conditions. Furthermore, larger connection intervals, lower application throughput, and higher RSSI consistently improve synchronization quality by reducing radio resource contention and packet loss. The proposed scheme provides a general and high-precision synchronization solution suitable for resource-constrained IoT systems.
+
+</details>
+
 #### [An Empirical Study of Perceptions of General LLMs and Multimodal LLMs on Hugging Face](https://arxiv.org/abs/2604.05782)
 **Yujian Liu, Xiao Yu, J. Keung, Xing Hu et al.** · 2026-04-07
 
@@ -125,6 +175,16 @@ Purpose: Nigeria's burgeoning smart city initiatives hold the promise of urban t
 
 </details>
 
+#### [Beyond the ESG Facade: Measuring and Addressing Corporate ‘Lip Service’](https://www.semanticscholar.org/paper/3edb4e61be7bb2128efabd595878569a79ae3b96)
+**Jia Xu, Mingwei Liu, Helen X. H. Bao** · 2026-04-05
+
+<details>
+<summary>Abstract</summary>
+
+Amid growing global attention to environmental, social and governance (ESG), this study examines the misalignment between ESG disclosures and actual practices—termed ‘lip service’—using data from Chinese firms from 2006 to 2022, constructing an index to quantify it. The findings indicate that such behaviour is more common in high‐emission and capital‐dependent industries, significantly undermining firm value. External oversight mechanisms (media, analysts and institutional investors) and CEO compensation incentives help mitigate its impact, whereas traditional governance tools, such as managerial ownership and CEO duality, are largely ineffective. The severity of this behaviour is influenced by pollution levels, ownership structure, business risk and the tone of annual reports. Further analysis reveals that ‘lip service’ also weakens financial performance, including earnings per share and corporate reputation. These findings highlight the economic risks of ESG inconsistencies and underscore the need for stronger regulatory enforcement and active stakeholder supervision to promote genuine ESG engagement.
+
+</details>
+
 #### [Style AI: An Integrated AI-Driven Framework For Virtual Wardrobe Management And Fashion Try-On](https://www.semanticscholar.org/paper/e4fd6582c76727ae6cff25e9174237569f3ee59d)
 **D. N. Kumari¹, Chandraleela Pulukoory², Mounika Yerraguntla, Roja Rani Palagani et al.** · 2026-04-04
 
@@ -132,6 +192,16 @@ Purpose: Nigeria's burgeoning smart city initiatives hold the promise of urban t
 <summary>Abstract</summary>
 
 The rapid expansion of e-commerce has significantly transformed the fashion retail industry; however, customers still face challenges in visualizing garment fit and appearance before purchase. This limitation leads to high return rates and customer dissatisfaction. This paper presents Style AI, an integrated artificial intelligence-driven framework for virtual wardrobe management and fashion try-on. The system utilizes computer vision, pose detection, and machine learning algorithms to allow users to digitally try on clothing using their own images without requiring specialized hardware. Additionally, it provides wardrobe organization and personalized outfit recommendations based on user preferences, seasons, and occasions. The platform is developed using React-TypeScript for the frontend and FastAPI for the backend with cloud-based storage support. Experimental evaluation shows improved visualization accuracy, reduced uncertainty in purchasing decisions, and enhanced user satisfaction.
+
+</details>
+
+#### [Geometry- and topology-controlled synchronization phase transition on manifolds](https://arxiv.org/abs/2604.03770)
+**Yang Tian** · 2026-04-04
+
+<details>
+<summary>Abstract</summary>
+
+In this work, we explore how the geometry and topology of the underlying manifold shape the synchronization phase transition of a system. To do so, we extend the Kuramoto-Sakaguchi model from spheres to compact, connected, orientable, and homogeneous Riemannian manifolds of arbitrary dimension. Starting from the mean-field kinetic equation on the manifold, we derive a local response equation for the order parameter near the incoherent state and separate the geometric and topological contributions to the phase transition out of the incoherent state. The manifold geometry determines a coefficient $\kappa\left(M\right)$ to control the critical coupling for the linear loss of stability of the incoherent state. The manifold topology constrains the cubic term of the response equation through the Euler characteristic $\chi\left(M\right)$. Under a local sign condition on the cubic term, topology does not allow a generic continuous or tricritical synchronization phase transition to occur when $\chi\left(M\right)\neq 0$, and it imposes a non-zero net defect charge on the incipient ordered texture. When an additional local stabilization condition holds in that nonzero-Euler class, topology further selects a discontinuous phase transition. When $\chi\left(M\right)=0$, topology does not impose that obstruction, so continuous, discontinuous, and tricritical local branches are all allowed. We verify these findings on representative families including hyperspheres, equal even-sphere products, complex Grassmannians, complex projective spaces, flat tori, real Stiefel manifolds, rotation groups, and unitary groups. Our framework recovers the classical hyperspherical parity law and extends it to a broad class of non-spherical state spaces.
 
 </details>
 
@@ -215,6 +285,26 @@ Traditional facial animation models do not particularly stress on the naturalnes
 
 </details>
 
+#### [Successful treatment of lower lip venous lake using CO2 fractional laser therapy](https://www.semanticscholar.org/paper/171b4c508e93fb3eb74b17275c71a5f8e40b0cc4)
+**Sedra Abu Ghedda, Bushra Karkour, Mouina Shami** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+Rationale: Venous lakes (VL) are common vascular anomalies, typically affecting individuals over 40 and appearing on the lips or oral mucosa. Conventional treatments: such as surgical excision and coagulation, can lead to postoperative complications, especially in cosmetically sensitive areas. Various laser therapies have been proposed; however, some are not readily available in developing countries. This case report explores fractional Carbon dioxide laser (CO2 laser) therapy as a safe, minimally invasive alternative with favorable aesthetic and clinical outcomes. Patient concerns: An 18-year-old Syrian female presented with a 1.8 cm violet, sessile nodule on her lower lip. Although asymptomatic, the lesion caused aesthetic distress and occasional trauma from her teeth. Diagnoses: Clinical evaluation confirmed the diagnosis of a VL on the lower lip. Interventions: The patient underwent 3 sessions of fractional CO2 laser therapy targeting the lesion. Outcomes: Complete healing was achieved without tissue loss, scarring, or recurrence during an 8-month follow-up period. No adverse effects were reported throughout the treatment process. Lessons: Fractional CO2 laser therapy shows promise as an effective and minimally invasive treatment for VL, particularly in cosmetically sensitive areas. Further prospective studies are needed to validate its efficacy and compare outcomes across different treatment modalities.
+
+</details>
+
+#### [Ethnocultural meanings of Tatar cinema: “We are not talking about quality, we are talking about mentality”](https://www.semanticscholar.org/paper/55055724895f459fe8ad88d3c63103803588f98e)
+**A. Garifzyanova, V. A. Troeglazova, L. Nasyrova** · 2026-04-03
+
+<details>
+<summary>Abstract</summary>
+
+The article examines how ethnic meanings are constructed and what role ethnocultural codes play in shaping collective national identity through ethnic cinema. Recently, ethnic cinema, including Tatar cinema, has presented many films to the general public. The article on the materials of expert interviews and research essays with the audience presents an analysis of the socio-cultural meanings of ethnic cinema on the example of the Tatarstan case from two sides: the view of experts and the view of respondents who consider themselves to be the Tatar people. Expert interviews were aimed at identifying relevant meanings and forms of ethnic self-reflection represented in modern Tatar cinema. Analysis of the essay demonstrated which elements viewers identify as Tatar cultural codes and how such codes help shape ethnic identity. The focus of our analysis is the question of what role ethnic cinema plays in the broadcast of cultural codes related to the construction of ideas about national identity and memory preservation in modern conditions. The results obtained make it possible to assume that modern Tatar cinema is a fairly rapidly developing space in which ethnic cultural codes are not only broadcast, but also modified, opening up the potential of a wide dialogue with different viewers through the tools of visual and narrative cinema languages.
+
+</details>
+
 #### [Realistic Lip Motion Generation Based on 3D Dynamic Viseme and Coarticulation Modeling for Human-Robot Interaction](https://arxiv.org/abs/2604.01756)
 **Sheng Li, Jingcheng Huang, Min Li** · 2026-04-02
 
@@ -268,6 +358,16 @@ This article examines the spatial meaning of the noun bottom , which is the basi
 #### [Human-induced climate change intensifies spatially compounding fire weather extremes across European countries](https://www.semanticscholar.org/paper/960165eb14ed49d8517b335d7e8f313efbdfc73c)
 **E. Gauthier, E. Bevacqua** · 2026-04-02
 
+
+#### [Synchronization for the Rough Kuramoto Model](https://arxiv.org/abs/2604.02044)
+**Alexandra Neamţu, Christian Kuehn, G. Landi, Dennis Rudik** · 2026-04-02
+
+<details>
+<summary>Abstract</summary>
+
+We study the local synchronization of phases and frequencies for the Kuramoto model driven by rough noise. In particular, we prove exponential convergence towards synchronization and we give the explicit rate of convergence and quantify the size of the random basin of attraction. Furthermore, we show that the long time behavior of the system is determined by the evolution of phases'mean. Our result relies on the use of a Lyapunov function, capable of overriding the particular structure of the noise, taking in account only its intensity. Finally, we illustrate our analytical results and possible extensions with the help of numerical simulations.
+
+</details>
 
 #### [AVFSNet: Audio-visual speech separation for flexible number of speakers with multi-scale and multi-task learning](https://www.semanticscholar.org/paper/6ce2088d73fbc6b8a37ffab6436ded1cd08ac855)
 **Daning Zhang, Yuanjie Deng, Ying Wei, Bing Ji** · 2026-04-01
@@ -1430,6 +1530,104 @@ The labor market is experiencing rapid and continual shifts in required skills a
 The article examines and systematizes existing approaches to assessing the sustainability of technological development of industrial infrastructure enterprises in the face of increasing external constraints, technological turbulence and the transformation of global value chains. It is shown that in modern Russian and foreign scientific literature, the sustainability of technological development is interpreted from various conceptual positions — within the framework of theories of economic growth, dynamic abilities, technological security, financial, economic and environmental sustainability. The analysis revealed the fragmentation of the existing methodological framework, the orientation of most approaches to fixing the current state of the system and insufficient consideration of the process nature of technological development at the enterprise level. Special attention is paid to the specifics of production infrastructure enterprises, the technological development of which is of a derivative nature and is determined by the requirements of the basic consumer industries. It is proved that the macro-level indicators of technological development and security used in strategic documents have limited practical significance for assessing the sustainability of technological development of such enterprises. It is shown that financial, economic and innovation indicators mainly reflect the results of functioning, but do not reveal the internal mechanisms of sustainability formation. The article proposes a methodological rethinking of the sustainability of technological development of an enterprise’s production infrastructure as a dynamic system property that characterizes the ability to maintain a reproducible and adaptive trajectory of technological change under external constraints. Sustainability is interpreted as the reliability of the development trajectory, which makes it possible to integrate the provisions of reliability theory, system analysis and process management. The findings form the theoretical basis for the development of integrated indicator and process models for assessing and managing the sustainability of technological development of industrial infrastructure enterprises.
 
 </details>
+
+#### [A Comparative Study of Alternative Algorithms for Synchrophasor Estimation and Grid Synchronization](https://www.semanticscholar.org/paper/0c59de183a8811f053d093c47b331e1898282a46)
+**Atul Singh, D. Macii, D. Petri** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+A critical challenge for the evolution of smart distribution systems is the shortage of measurement devices, along with the complexity and the high costs of deploying new fine-grained monitoring infrastructures. To address this issue, this article investigates the feasibility of upgrading the grid synchronization algorithms running in the control unit of grid-following power converters to turn them into auxiliary embedded measurement devices supporting system observability. This goal can be achieved in two alternative ways: either by using an algorithm originally designed for a phasor measurement unit (PMU) to perform grid synchronization or, conversely, by applying a grid synchronization technique for synchrophasor estimation. To compare the advantages and disadvantages of either approach, both a two-stage tuned lightweight version of the Taylor–Fourier transform (two-stage TLTFT) algorithm and a phase-locked loop embedding a custom third-order generalized integrator (TOGI-PLL) are analyzed both in the P Class PMU testing conditions specified in the IEEE Standard IEC/IEEE 60255-118-1:2018 and considering the requirements for grid connection reported in the IEEE Standard 1547-2023. Extensive simulation results show that the general idea of a joint solution for synchrophasor estimation and grid synchronization is viable in either way, although some improvement is needed. In particular, the two-stage TLTFT algorithm generally returns more accurate results and shorter response times than the TOGI-PLL, but it is also more computationally demanding. Further simulations, based on a real power electronic converter model, confirm that, when either algorithm is used in the control loop for grid synchronization, the generated output voltage is stable.
+
+</details>
+
+#### [General Decay Synchronization of Multiplex Networks via Delayed Feedback Control](https://www.semanticscholar.org/paper/43327f044e0134fb041965e88dce1f7cdff9a5ff)
+**Shanrong Lin, Xiwei Liu** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This article addresses general decay synchronization matter for multiplex and directed networks via delayed feedback control. Decay synchronization is regarded as a class of $\psi $ -type synchronization, which derives from the generalizations of $\psi $ -type function and $\psi $ -type stability. By exploiting appropriate nonlinear control positioned on a portion of multiplex networks, synchronization for the network system is solved with decay rate. In comparison with previous multiplex networks, the present model contains asymmetric, with non-cooperative factors and not connected outer matrices, combined with negative elements of inner matrices in the article, which improves existing results well. We propose a synchronization method for multiplex network under this constraint from angle of inner matrices. It is proved that if weighted group of union new matrices for each dimension is strongly connected, then decay synchronization and anti-synchronization can be realized under delayed feedback controller. Moreover, some specific modes for synchronization are illustrated more precisely. In addition, reaction-diffusion systems are also further conducted as an application. Simulations are given for verifying the validity of gained results. Note to Practitioners—The motivation of this paper is generalizing decay (anti-) synchronization of multiplex networks based on a nonlinear control with feedback mechanism suffering effect of time delay. Previous literature on multi-weighted networks considered that outer matrices of network modeling were undirect, cooperative, with strong connectedness. On the contrary, each matrix of this present research can be direct, competitive, and even disconnected such that can described more practical networks. Unfortunately, previous strategies used would not work well under this general situation. Thus, one novel approach is proposed for solving the difficulty and challenging that how to address multiple matrices to guarantee decay synchronization. In virtue of a delayed feedback protocol with viewpoint of inner matrices, relevant decay synchronization criteria are obtained, and with illustrations of different decay rates, multiplex diffusion system is developed for obtaining more rules, which are demonstrated for the effectiveness by simulations.
+
+</details>
+
+#### [A Tutorial on SDR-Based NB-IoT PHY: Synchronization, Demodulation, and Validation](https://www.semanticscholar.org/paper/702f537816b8024fb47bf027f8e8a9b29f08feaa)
+**Jingze Zheng, Zhiguo Shi, Xiuzhen Guo, Shibo He et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Low-Power Wide-Area Networks (LPWANs) have become fundamental to the Internet of Things (IoT), with NB-IoT (Narrowband Internet of Things) standing out due to its seamless integration with cellular infrastructure, enhanced coverage, and support for dense deployments. Despite its commercial proliferation, SDR-based physical layer (PHY) exploration for NB-IoT remains limited, particularly in addressing unique complexities such as narrowband signal processing, cellular-specific synchronization sequences, and stringent link budget requirements. This paper bridges this gap by presenting a comprehensive tutorial on SDR-based NB-IoT PHY implementation, focusing on three pillars: robust time-frequency synchronization under severe fading and interference, efficient channel estimation for coherent detection, and experimental performance validation in real-world scenarios. We introduce a first-of-its-kind end-to-end SDR implementation supporting both single-tone and multi-tone transmissions, leveraging commercial off-the-shelf (COTS) platforms. Our novel signal processing workflow achieves synchronization through NPSS-based auto-correlation and NSSS-driven cell-ID detection while incorporating CFO estimation and compensation to mitigate oscillator mismatches. For uplink processing, we detail preamble detection and demodulation, addressing coverage enhancement (CE) levels and adaptive subcarrier spacing configurations. Extensive experiments conducted in both indoor (LOS/NLOS) and outdoor environments demonstrate reliable performance, with Bit Error Rate (BER) and Block Error Rate (BLER) metrics validating resilience under varying repetition counts and propagation conditions. The tutorial offers actionable insights for optimizing PHY-layer design, validated against 3GPP specifications, and lays the foundation for next-generation NB-IoT systems in emerging applications, such as smart cities and industrial automation.
+
+</details>
+
+#### [SyncTwin: Fast Digital Twin Construction and Synchronization for Safe Robotic Grasping](https://www.semanticscholar.org/paper/abff6b90fbb8116a5d6bd10cd1292e7fd47dda55)
+**Ruopeng Huang, Boyu Yang, Wenlong Gui, Jeremy Morgan et al.** · 2026-01-01
+
+
+#### [Sampled-Data-Based Event-Triggered Synchronization Strategy for Directed Networks With Intermittent Communication Control](https://www.semanticscholar.org/paper/f9a167c79e5cb5dd38bacd252e3c5a718c27540e)
+**Hong Sang, Chongyi Cui, Yi Liu, Peng Wang et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This research explores the synchronization problem in directed networks (DNs) under an intermittent communication controller, employing an event-triggered transmission technique that relies on sampling data. Upon analyzing the prior relevant results, it was observed that the derived synchronization conditions are closely related to the number of nodes in networks, reflecting the increasing computational complexity as the number of nodes grows, which makes obtaining a solution within a finite time challenging. To overcome this difficulty, this paper designs a novel intermittent controller and establishes a piecewise time-dependent Lyapunov-Krasovskii functional (PTDLKF) predicated on work and rest intervals of operation for the synchronization system. Next, an event-triggered synchronization method based on sampling data is explored to derive sufficient conditions that ensure asymptotic convergence of synchronization errors in the intermittent context. Importantly, the verification of matrix conditions in the established synchronization criterion is not contingent on the node count in networks. Finally, two simulation examples are provided to substantiate the applicability of the formulated synchronization method in the intermittent communication.
+
+</details>
+
+#### [Cluster Secure Synchronization of Complex Networks With Cooperative-Competitive Interaction Under DoS Attacks](https://www.semanticscholar.org/paper/f1e197debac15c85564baf824808d8f286fb6a96)
+**Ning Li, Dongyu He, Jianwei Shen, Zhiguo Shi** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This study investigates the cluster secure synchronization problem in cooperative-competitive networks subject to Denial-of-Service (DoS) attacks. First, a mathematical model of the cooperative-competitive networks with a weak competition coupling is proposed, where interactions between network nodes are represented by a signed graph that may be either structurally balanced or unbalanced. The network nodes are partitioned into $q$ distinct clusters, with each node within a cluster exhibiting unique self-dynamics. Next, a cluster synchronization error system is formulated under the condition of DoS attacks when the pinning control scheme is utilized. By designing a suitable Lyapunov candidate function and applying advanced inequality techniques, cluster secure synchronization criteria for cooperative-competitive networks are derived. Synchronization analysis reveal that increasing intracluster coupling strength can significantly enhance the network's robustness against DoS attacks. Finally, two optimization algorithms are proposed to obtain the minimum allowable coupling strength and maximum allowable DoS attack rate, respectively, and the effectiveness of the proposed cluster synchronization condition is validated through two representative examples.
+
+</details>
+
+#### [Research on Inter-brain Synchronization in Dyadic Risk Decision-Making](https://www.semanticscholar.org/paper/e1defeb881b30df9dfdab0a2b3ef6b8d4841b87a)
+**Zongwang Huang, Zanhui Xu, Siwen Li, Tianya Hou et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: This study aims to explore the relationship between inter-brain synchronization and decision-making behavior during dyadic risky decision-making, so as to provide theoretical support for the systematic research on the neural mechanism of dyadic risky decision-making and enrich the research system of interpersonal interactive decision-making in the field of social cognitive neuroscience. Based on brain-to-brain coupling, this study adopts hyperscanning technique with functional magnetic resonance imaging, electroencephalography, functional near-infrared spectroscopy and other devices to simultaneously record the interaction and brain activities of two subjects in the scenario of dyadic interactive risky decision-making, and collect and analyze the brain signals during the decision-making process. The results clarify the correlation between inter-brain synchronization and decision-making behavior in dyadic risky decision-making, which provides theoretical support for relevant research and enriches the research system of interpersonal interactive decision-making. The innovation of this paper lies in that it investigates dyadic risky decision-making from the perspective of inter-brain synchronization using hyperscanning technique, which provides a new perspective for understanding the cognitive mechanism in such decision-making process and fills part of the gaps in empirical research on the neural mechanism of interpersonal interactive decision-making in the field of social cognitive neuroscience.
+
+</details>
+
+#### [Time Synchronization Calibration for MERSI Autonomous Geolocation](https://www.semanticscholar.org/paper/9c436252a7e5b0a2fde4277b6d1a75f3c3b4315a)
+**H. Pan, Shun Zhou, Zhichao Guan, Jiajun Xu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Autonomous geolocation is the direct georeferencing of remote sensing imagery without ground control points (GCPs), which is a critical problem for direct broadcast satellites. For the Medium Resolution Spectral Imager (MERSI) with a 250 m ground sample distance, the attitude and orbit determination system meets sub-pixel geolocation accuracy requirements. However, latitude-related geolocation errors were observed from global GCPs of FY-3D MERSI-II, and attitude jitter errors were observed in FY-3F MERSI-III. In this study, three time synchronization errors of four dynamic components were investigated for spaceborne integrated sensors, the time delay between global navigation satellite system (GNSS) receivers, Earth time, and navigation system, when the time of the whiskbroom scanner was the reference. The time synchronization calibration method was developed to calibrate MERSI-II and MERSI-III with two orbits. Given the correlation between the time synchronization and spatial parameters, the scanning compensation angles were used to select the optimal parameters. MERSI-II exhibits a 0.590 s delay with the GNSS receiver, whereas MERSI-III shows 0.27 and 0.175 s delays with the GNSS receiver and the navigation system, respectively. After correcting the time synchronization of MERSI-II, the median geolocation error in the scan direction at $80~^{\circ }$ N decreased from 1.5 to 0.5 instantaneous field of view (IFOV). The global root-mean-square error (RMSE) was 0.493 IFOV (109.02 m) in the image plane. After correcting the time synchronization of MERSI-III, the global RMSE was 0.374 IFOV (93.5 m) in the image plane.
+
+</details>
+
+#### [Timing Synchronization and Symbol Detection in Ambient Backscatter Communication](https://www.semanticscholar.org/paper/d758eb4342253a60ef83491d3ed25c00933352c8)
+**Yuxin Li, Guangyue Lu, Yinghui Ye, Zehui Xiong et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Ambient backscatter communication (AmBC) enables ultra-low-power, low-cost and massive connectivity. However, practical AmBC systems suffer from symbol timing offset (STO) due to propagation delay and backscatter receiver (BR) activation latency, while conventional correlation-based synchronization methods are inapplicable because ambient radio frequency sources are non-cooperative. Moreover, residual STO (RSTO) inevitably remains due to the finite synchronization sequence, which degrades symbol detection performance. To address these challenges, we first design a specialized synchronization sequence with alternating “0” and “1” bits at the backscatter device to induce observable sampling errors at the BR. Based on this, we propose a pilot-aided, sampling-error-aware maximum likelihood estimation (PSE-MLE) method for STO estimation and compensation, which exploits the statistical variations in the received synchronization signal. After STO compensation, the remaining RSTO is statistically modeled as a discrete bilateral Laplace distribution, with its parameter estimated via ridge regression. Leveraging this prior information, we further develop a Bayesian average energy detector (ave-ED) and derive closed-form expressions for both the detection threshold and bit error rate. Simulation and experimental results on a practical AmBC platform validate the effectiveness of the proposed methods.
+
+</details>
+
+#### [Sync4CT: Synchronization for Coherent Transmission in Distributed Massive MIMO](https://www.semanticscholar.org/paper/ff8d135c32bbf2c7cb24bb876ef96499c3c10166)
+**Xi Wang, Fan Xu, Qingjiang Shi** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Frequency synchronization and reciprocity calibration across base stations (BSs) are crucial for coherent transmission in distributed massive multiple-input multiple-output (MIMO) networks, yet are often disrupted by carrier frequency offsets (CFOs) from distinct BS oscillators and phase offsets caused by radio frequency hardware impairments. Traditional approaches typically employ maximum likelihood or least squares estimation for CFOs and phase offsets, requiring additional estimation of inter-BS channels and resulting in high computational costs. This paper introduces an over-the-air protocol, named Sync4CT, which estimates and compensates CFOs and phase offsets to enable coherent transmission. Sync4CT estimates CFOs utilizing the autocorrelation matrices of the received pilot signals and assesses phase offsets in the frequency domain. Both procedures offer closed-form estimators without the need of inter-BS channel estimation, and are executed in parallel across BSs, thereby significantly reducing computational complexity. Theoretical analysis shows that, for Sync4CT, the mean square error (MSE) of CFO estimation approaches the Cramér-Rao bound (CRB), while the MSE of phase offset estimation achieves the CRB in narrowband systems. Simulations further validate the substantial performance improvements of Sync4CT for coherent transmission in distributed MIMO networks.
+
+</details>
+
+#### [Model-based meta-analysis of objective response rate and overall survival in recurrent/metastatic head and neck squamous cell carcinoma](https://www.semanticscholar.org/paper/6e26faf1cd2ceacfd3b221f3339701402362b360)
+**R.C. Franzese, P. Hanafin, L. Qin, Shuai Fu et al.** · 2026-01-01
+
 
 
 ### 2025
