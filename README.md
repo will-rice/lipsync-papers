@@ -85,6 +85,36 @@ This paper presents a Gaze-Guided Audio-Visual Speech Enhancement (GG-AVSE) fram
 
 </details>
 
+#### [AVGen-Bench: A Task-Driven Benchmark for Multi-Granular Evaluation of Text-to-Audio-Video Generation](https://arxiv.org/abs/2604.08540)
+**Ziwei Zhou, Zeyuan Lai, Rui Wang, Yifan Yang et al.** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+Text-to-Audio-Video (T2AV) generation is rapidly becoming a core interface for media creation, yet its evaluation remains fragmented. Existing benchmarks largely assess audio and video in isolation or rely on coarse embedding similarity, failing to capture the fine-grained joint correctness required by realistic prompts. We introduce AVGen-Bench, a task-driven benchmark for T2AV generation featuring high-quality prompts across 11 real-world categories. To support comprehensive assessment, we propose a multi-granular evaluation framework that combines lightweight specialist models with Multimodal Large Language Models (MLLMs), enabling evaluation from perceptual quality to fine-grained semantic controllability. Our evaluation reveals a pronounced gap between strong audio-visual aesthetics and weak semantic reliability, including persistent failures in text rendering, speech coherence, physical reasoning, and a universal breakdown in musical pitch control. Code and benchmark resources are available at http://aka.ms/avgenbench.
+
+</details>
+
+#### [Semantic Noise Reduction via Teacher-Guided Dual-Path Audio-Visual Representation Learning](https://arxiv.org/abs/2604.08147)
+**Linge Wang, Yingying Chen, Bingke Zhu, Lu Zhou et al.** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+Recent advances in audio-visual representation learning have shown the value of combining contrastive alignment with masked reconstruction. However, jointly optimizing these objectives in a single forward pass forces the contrastive branch to rely on randomly visible patches designed for reconstruction rather than cross-modal alignment, introducing semantic noise and optimization interference. We propose TG-DP, a Teacher-Guided Dual-Path framework that decouples reconstruction and alignment into separate optimization paths. By disentangling the masking regimes of the two branches, TG-DP enables the contrastive pathway to use a visibility pattern better suited to cross-modal alignment. A teacher model further provides auxiliary guidance for organizing visible tokens in this branch, helping reduce interference and stabilize cross-modal representation learning. TG-DP achieves state-of-the-art performance in zero-shot retrieval. On AudioSet, it improves R@1 from 35.2\% to 37.4\% for video-to-audio retrieval and from 27.9\% to 37.1\% for audio-to-video retrieval. The learned representations also remain semantically robust, achieving state-of-the-art linear-probe performance on AS20K and VGGSound. Taken together, our results suggest that decoupling multimodal objectives and introducing teacher-guided structure into the contrastive pathway provide an effective framework for improving large-scale audio-visual pretraining. Code is available at https://github.com/wanglg20/TG-DP.
+
+</details>
+
+#### [Scalable Neural Decoders for Practical Fault-Tolerant Quantum Computation](https://arxiv.org/abs/2604.08358)
+**Andi Gu, J. Pablo, Bonilla Ataides, M. Lukin et al.** · 2026-04-09
+
+<details>
+<summary>Abstract</summary>
+
+Quantum error correction (QEC) is essential for scalable quantum computing. However, it requires classical decoders that are fast and accurate enough to keep pace with quantum hardware. While quantum low-density parity-check codes have recently emerged as a promising route to efficient fault tolerance, current decoding algorithms do not allow one to realize the full potential of these codes in practical settings. Here, we introduce a convolutional neural network decoder that exploits the geometric structure of QEC codes, and use it to probe a novel"waterfall"regime of error suppression, demonstrating that the logical error rates required for large-scale fault-tolerant algorithms are attainable with modest code sizes at current physical error rates, and with latencies within the real-time budgets of several leading hardware platforms. For example, for the $[144, 12, 12]$ Gross code, the decoder achieves logical error rates up to $\sim 17$x below existing decoders - reaching logical error rates $\sim 10^{-10}$ at physical error $p=0.1\%$ - with 3-5 orders of magnitude higher throughput. This decoder also produces well-calibrated confidence estimates that can significantly reduce the time overhead of repeat-until-success protocols. Taken together, these results suggest that the space-time costs associated with fault-tolerant quantum computation may be significantly lower than previously anticipated.
+
+</details>
+
 #### [Multiprotocol Wireless Timer Synchronization for IoT Systems](https://arxiv.org/abs/2604.07199)
 **Ziyao Zhou, Tiancheng Cao, Chen Shen, Jiaqi Zhang et al.** · 2026-04-08
 
@@ -92,6 +122,36 @@ This paper presents a Gaze-Guided Audio-Visual Speech Enhancement (GG-AVSE) fram
 <summary>Abstract</summary>
 
 Accurate time synchronization is essential for Internet of Things (IoT) systems, where multiple distributed nodes must share a common time base for coordinated sensing and data fusion. However, conventional synchronization approaches suffer from nondeterministic transmission latency, limited precision, or restricted bidirectional functionality. This paper presents a protocol-independent wireless timer synchronization method that exploits radio timeslots to transmit precisely timestamped beacons in a proprietary radio mode. By decoupling synchronization from upper-layer packet retransmissions and leveraging hardware-timed radio events, the proposed approach significantly reduces scheduling uncertainty and achieves nanosecond-level synchronization accuracy. Comprehensive experiments evaluate the impacts of synchronization frequency, RSSI, BLE connection interval, and throughput on synchronization performance. The results demonstrate that an optimal synchronization frequency of 1000 Hz yields an approximately 20 ns delay in the absence of communication stack activity while maintaining sub-500 ns accuracy under most realistic BLE traffic conditions. Furthermore, larger connection intervals, lower application throughput, and higher RSSI consistently improve synchronization quality by reducing radio resource contention and packet loss. The proposed scheme provides a general and high-precision synchronization solution suitable for resource-constrained IoT systems.
+
+</details>
+
+#### [Multimodal AI in education: an avatar-based intelligent learning system for the Kazakh language](https://www.semanticscholar.org/paper/cc4c9cc6f66ac5f4ecfff5028a0cd8e4761c9d6d)
+**Aru Ukenova, G. Bekmanova, B. Yergesh, Sadok Ben Yahia et al.** · 2026-04-08
+
+<details>
+<summary>Abstract</summary>
+
+This article describes the development of a multimodal learning system for the Kazakh language intended for digital educational environments. The study focuses on the lack of avatar-based learning systems adapted to the linguistic properties of the Kazakh language and the limited integration of verbal and non-verbal components in existing solutions. The proposed system combines syntactic and morphological text analysis with sentiment processing and intonation control. Speech synthesis, gesture generation, facial expression control, and lip synchronization are implemented within a single system architecture. Prosodic parameters are formed based on sentence structure and sentence-level emotional indicators, while visual articulation is synchronized with audio output. The system was tested in speech synthesis scenarios relevant to interactive educational use. The results show that the system can be used for automated lecture narration, voice-over of instructional materials, and basic learner interaction in avatar-based educational settings.
+
+</details>
+
+#### [Experiment-Driven Gaussian Process Surrogate Modeling and Bayesian Optimization for Multi-Objective Injection Molding](https://www.semanticscholar.org/paper/7decb9b2f0deb149d6ef111a39d9ad998341e016)
+**Hanafy M. Omar, S. Mukras** · 2026-04-08
+
+<details>
+<summary>Abstract</summary>
+
+Injection molding process optimization has predominantly relied on simulation-generated data, which cannot capture machine-specific variability and stochastic process noise inherent in real manufacturing environments. This paper presents an experiment-driven machine learning framework for multi-objective optimization of injection molding process parameters targeting volumetric shrinkage, warpage, cycle time, and part weight. Physical experiments were conducted on an industrial injection molding machine using high-density polyethylene with a face-centered central composite design. Systematic benchmarking of four machine learning algorithms under identical cross-validation protocols identified Gaussian process regression as the best-performing surrogate model for the majority of quality metrics, while warpage prediction remained challenging across all algorithms due to its complex thermo-mechanical origins. Permutation-based feature importance analysis established a clear parameter hierarchy, identifying holding time as the dominant factor governing multiple quality responses. Constrained Bayesian optimization with progressive constraint tightening was employed to identify optimal parameter sets and fundamental process capability boundaries. The resulting parameter configurations were validated against a held-out test set. This work demonstrates that rigorous, data-driven optimization using exclusively experimental data provides a viable and practically achievable alternative to simulation-based approaches, contributing to experiment-centric smart manufacturing in polymer processing.
+
+</details>
+
+#### [The Moderating Role of Child Temperament in the Face of Parental Distress During Covid-19: Associations with Long-Term Social-Emotional Functioning](https://www.semanticscholar.org/paper/0d7cb4dd7c39f0424e9c460524fec3eb405643a1)
+**M. Zarra-Nezhad, L. Perasto, K. Tervahartiala, J. Lindblom et al.** · 2026-04-08
+
+<details>
+<summary>Abstract</summary>
+
+This preregistered study examined whether child temperament predicts social-emotional functioning and moderates the associations between parental distress, COVID-19–related stressors, and children’s social-emotional outcomes during the pandemic. The participants were 1,305 Finnish children (46% girls) from the FinnBrain Birth Cohort, with temperament assessed at age 2.5 years and follow-ups conducted from ages 5 to 9 years. Across five time points, parents reported their distress (anxiety and depressive symptoms) and family COVID-19–related stressors, and rated their children’s social-emotional functioning (i.e., emotional symptoms, conduct problems, hyperactivity, peer problems, and prosocial behavior) at four follow-ups (data from up to 568 children). Covariate-adjusted linear regression and mixed-effects models were used to test the main and moderating effects. Higher negative affectivity and lower effortful control in children predicted greater emotional and behavioral problems and fewer prosocial behaviors, while higher surgency was linked with fewer internalizing but more externalizing problems. Temperament also moderated the associations between COVID-19–related stressors and social-emotional functioning. Children high in negative affectivity showed stronger links to emotional symptoms early in the pandemic, whereas, unexpectedly, those low in negative affectivity exhibited more conduct problems under higher stress. Effortful control mitigated the effects of parental distress on conduct problems and hyperactivity. These findings highlight the role of temperament in influencing children’s resilience and vulnerability under prolonged stress, emphasizing the importance of identifying temperamental risk profiles for guiding future prevention and support efforts.
 
 </details>
 
@@ -115,6 +175,40 @@ Long-context audio reasoning is underserved in both training data and evaluation
 
 </details>
 
+#### [THE EFFECT OF HUMAN RESOURCE DRIVEN CORPORATE SOCIAL RESPONSIBILITY ON FINANCIAL PERFORMANCE: EVIDENCES FROM NIGERIAN QUOTED CONSUMER GOODS COMPANIES](https://www.semanticscholar.org/paper/b167957cae22f5d8e458ae32f9523d740fe9359b)
+**Blessing Onyi Akinde, Oluwatimileyin Esther Adenle, Danjuma Adamu, Samuel Oladele Obisesan et al.** · 2026-04-07
+
+<details>
+<summary>Abstract</summary>
+
+This study examined the effect human resource (HR)-driven corporate social responsibility (CSR) on the financial performance of listed consumer goods companies in Nigeria. Despite increasing adoption of CSR initiatives, many firms continue to face challenges in linking employee-focused CSR programs to tangible financial outcomes, creating uncertainty about the effectiveness of such investments. To address this problem, the study employed a purposive sampling technique to select 15 firms from a population of 21 listed consumer goods companies on the Nigerian Exchange Group (NGX) as of 2023. Secondary data were extracted from the annual reports and sustainability disclosures of the selected firms covering a ten-year period (2014–2023). Panel regression analysis, correlation matrix, and descriptive statistics were utilized to analyze the data. The findings revealed a significant positive relationship between HR-driven CSR initiatives and firm financial performance, measured by return on assets (ROA). The helps in improving firm financial performance. The study therefore concludes that HR-driven CSR have a noteworthy impact on firm financial performance. It recommends that companies should keep funding employee-focused CSR initiatives that enhance worker welfare and productivity.
+
+</details>
+
+#### [Designing Optimal Incentives for Target‐Driven Projects](https://www.semanticscholar.org/paper/d2ca697a731c12d520fb9dc84ea108e8fadad6aa)
+**Xiao-hai Zhu, Xu Sun** · 2026-04-07
+
+<details>
+<summary>Abstract</summary>
+
+This paper develops an optimal incentive compensation scheme for a project with a predetermined target but no fixed deadline. A principal sponsors the project and hires an agent to execute it, offering a lump‐sum payment that depends only on the project's completion time. The agent exerts a baseline effort level but may increase effort at a personal cost to accelerate progress, balancing the reward from completion against the cost of additional effort. The principal aims to maximize expected payoff, defined as the value of project completion minus the payment to the agent, while also internalizing the cost of delays. Project progress is modeled as a reflected Brownian motion with an agent‐controlled drift rate. We solve the associated Bellman equation to characterize the agent's optimal effort and derive the principal's optimal incentive scheme. Extensions include settings in which the agent faces a delay penalty or the principal discounts future rewards. These create additional trade‐offs between incentive provision and completion timing. Our numerical experiments further indicate that the principal's payoff is nonmonotonic in the payment level: very small payments produce slow completion, and excessively large payments reduce the net benefit. A finite‐horizon extension incorporates project termination at a fixed deadline, which further highlights the role of timing incentives. Throughout, we provide numerical illustrations and managerial insights for designing incentive contracts in target‐driven project environments.
+
+</details>
+
+#### [Cross-dataset video deepfake detection using Transformer and CNN architectures](https://www.semanticscholar.org/paper/b046387b16ec8705f783b3635947ac93a5e0ac06)
+**G. Petmezas** · 2026-04-07
+
+
+#### [Signal-Dependent Planning Noise Reduces Task Interference by Assisting in the Formation of Stable Motor Primitives in a Neural Network Model of Muscle Coordination Learning](https://www.semanticscholar.org/paper/f1ddb98d83569894280fadc2c5c6fa4ab58e31c1)
+**Daniel W. Feng, David J. Reinkensmeyer, Juan C. Pérez-Ibarra** · 2026-04-07
+
+<details>
+<summary>Abstract</summary>
+
+In human motor coordination, learning to coactivate multiple muscles at once to achieve distinct target combinations of forces or tasks remains a fundamental area of study. Task interference, where training on one task degrades performance on previously learned tasks, can slow motor learning. However, the neural mechanisms that reduce interference are not fully understood. We hypothesized that the structure of planning noise, specifically its signal-dependent nature, significantly shapes learning dynamics and limits interference within motor learning systems that rely on variability for exploration. To test this hypothesis, we developed a three-layer neural network model of muscle coordination informed by key neuroanatomical and neurophysiological principles and simulated learning for producing various combinations of muscle forces. Synaptic weights were stochastically altered from trial to trial with either fixed-variance planning noise (FVPN), where each connection's variance was fixed during learning, or signal-dependent planning noise (SDPN), where noise variance depended on the neuron population activity. Weights were reinforced when they reduced output error relative to target forces. An execution noise term, applied to the motor output, modeled peripheral motor variability. However, the learning rule was not informed about how much of the output corresponded to peripheral or central variability. Our results showed that SDPN improved both the rate and accuracy of multitask learning by reducing task interference compared to FVPN across network sizes, training schedules, and execution noise levels. SDPN achieved this by concentrating neural plasticity within the neuron populations engaged by the current task rather than modifying the entire network. This signal-dependent plasticity allowed multiple motor primitives to form, stabilize, and be reused for new tasks. The model replicated the well-documented benefit of interleaved versus blocked training in motor learning. As a computational proof of concept, this work suggests that SDPN can benefit multitask motor training by facilitating the formation of motor primitives.
+
+</details>
+
 #### [GROW: A Conversational AI Coach for Goals, Reflection, Optimism, and Well-Being](https://arxiv.org/abs/2604.04548)
 **K. Shah, Himanshi Lalwani, Hanan Salam** · 2026-04-06
 
@@ -132,6 +226,20 @@ College students face well-being challenges driven by academic pressure, financi
 <summary>Abstract</summary>
 
 Smart face masks are rapidly evolving into versatile wearable devices capable of simultaneously tracking a variety of physical and biochemical signals for both personal healthcare and environmental monitoring. This review focuses on respiration monitoring and highlights recent advances in materials, device architectures, and sensor design for mask‐integrated platforms. We categorize current approaches into six sensor types, humidity, gas, temperature, pressure, strain, and triboelectric, and summarize their transduction principles, material/fabrication strategies, and representative demonstrations for quantifying respiratory metrics. Finally, we discuss key challenges for real‐world use, including sensor cross‐sensitivity, long‐term stability, and user safety, noting that everyday activities like talking or head movement can affect measurements. We also highlight future opportunities in cost‐effective manufacturing, modular designs, and AI‐enabled data analysis to improve accuracy and reliability in respiratory monitoring.
+
+</details>
+
+#### [“Two birds talking” and “monkey face” Sign in hepatic encephalopathy](https://www.semanticscholar.org/paper/a3aa5ff3df5adcc5cc1e186699fa9bff0f9ea6c9)
+**Qian Zheng, Jifen Wang** · 2026-04-06
+
+
+#### [Artificial Intelligence–Driven and Digital Practices for Circular Business and Finance: Insights for Advancing Hubs for Circularity](https://www.semanticscholar.org/paper/b59adf68bb60f5447d32883288d8f08784c0d153)
+**Aditya Tripathi, M. Machado, L. Spierdijk, D. Yazan** · 2026-04-06
+
+<details>
+<summary>Abstract</summary>
+
+The emerging concept of Hubs for Circularity (H4Cs) presents an opportunity to create collaborative, self‐sustaining regional industrial ecosystems that drive circular economy transitions at scale. However, the operationalisation of H4Cs faces financial, organisational and data‐driven challenges. To inform the development of H4Cs, this study conducts a systematic literature review (SLR) of circular business models (CBMs) as implemented in industrial symbiosis (IS) networks, eco‐industrial parks (EIPs) and closed‐loop supply chains—contexts where CBMs have been actively studied and deployed. We synthesise insights on value creation strategies, stakeholder roles, digital technologies and financial mechanisms in these existing settings. Particular focus is given to the role of artificial intelligence (AI) and digitalisation in supporting operational efficiency, risk reduction and financial decision‐making. Findings identify a set of enabling conditions and technological levers that can guide the financial and business model design of H4Cs. This study also proposes a value creation framework and a four‐phase transition pathway that support future implementation of H4Cs through informed application of AI‐enhanced circular strategies.
 
 </details>
 
@@ -1628,6 +1736,236 @@ Frequency synchronization and reciprocity calibration across base stations (BSs)
 #### [Model-based meta-analysis of objective response rate and overall survival in recurrent/metastatic head and neck squamous cell carcinoma](https://www.semanticscholar.org/paper/6e26faf1cd2ceacfd3b221f3339701402362b360)
 **R.C. Franzese, P. Hanafin, L. Qin, Shuai Fu et al.** · 2026-01-01
 
+
+#### [Self-Supervised and Contrastive Learning for Audio-Based Traffic Congestion Classification in Smart Cities](https://www.semanticscholar.org/paper/e5a1c87086457dad2c29604ddbe302ce66954014)
+**M. Mehdi, Y. Salhi, J. Elleuch, D. Sellami** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: Traffic congestion is one of the most pressing challenges faced by modern cities, causing longer travel times, wasted fuel, and higher levels of pollution. Traditional camera-based monitoring systems, while common, often come with high costs, privacy issues, and limitations under poor lighting or weather conditions. In this work, we explore a different approach: using sound to monitor traffic. However, what is crucial in audio spectral analysis is the judicious selection of temporal windowing for an efficient spectral feature discernment. Prolonged windows invariably conflate distinct frequencies, thereby diminishing temporal acuity, whereas truncated windows inherently preclude comprehensive spectral representation. Consequently, an adaptive win-dowing strategy is mandatory for aligning with intrinsic signal modulations and content. This paper presents an optimal time-partitioning strategy for audio samples from traffic records, specifically designed to align with congestion contexts for robust classification. Accordingly, we evaluate several deep learning models, including residual convolutional neural networks (CNNs) and contrastive self-supervised learning methods. Our findings show that an adequate sample elaboration with contrastive pretraining, followed by fine-tuned classification, delivers outstanding results outperforming both traditional MFCC+SVM approaches and fully supervised CNNs. These results highlight the potential of audio-based analysis as a practical, low-cost, and scalable solution for real-time traffic congestion monitoring in smart cities.
+
+</details>
+
+#### [Strategi Konten Audio Visual dalam Meningkatkan Branding: Studi Kasus Instagram @agromaritim.ipb](https://www.semanticscholar.org/paper/ee09399819356cd6a9bfa1b34c5ca457d24a1f05)
+**Fatimah Azzahra Citra Adila, A. Saleh** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The development of digital technology has encouraged changes in improving institutional image, particularly through social media. Instagram has become an effective platform for institutional branding. This study aims to analyze the audiovisual content strategy used by the Instagram account @agromaritim.ipb and the challenges faced in strengthening its branding. This research employs a descriptive qualitative method through observation, active participation, interviews, and literature review. Primary data were obtained from internship activities at the Directorate of Agro-Maritime Community Development (DPMA IPB), while secondary data came from literature and official media. The findings show that the audiovisual content strategy is carried out through planning, production, and publication stages, following Regina Luttrell’s Circular Model of SOME (sharing, optimizing, managing, engaging), which helps enhance brand awareness and institutional image. The main challenges include limited human resources, editing equipment, and Instagram algorithm changes. Recommendations include improving team capacity, updating equipment, and conducting regular evaluations of content performance.
+
+</details>
+
+#### [Evaluating Green Infrastructure for Climate-Driven Urban Flood Resilience: Insights from Peshawar City, Pakistan](https://www.semanticscholar.org/paper/0372e505482d0ebf9038258f0b83ade80bf5b61f)
+**Syed Shujaat Ali, Syed Ghous Ali Shah, Fahad Ahmed, H. Loc** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Urban flooding presents a critical challenge worldwide, driven by rapid urbanization, inadequate drainage systems, and climate change. In developed countries, aging infrastructure and increasing precipitation intensities worsen flood risks. In contrast, developing nations struggle with uncontrolled urban sprawl, poor stormwater and waste management, and limited financial resources for flood mitigation. Pakistan’s major cities, including Peshawar, frequently experience urban flooding, resulting in infrastructure damage, economic loss, and disrupted livelihoods. This study explores the role of Green Infrastructure (GI) in enhancing urban flood resilience in Peshawar, using Khamosh Colony as a case study which faces frequent flooding due to poor drainage, and encroachments. Climate projections (2015–2100) were analyzed for two Shared Socioeconomic Pathways (SSPs) using the best-performing Global Climate Models (GCMs), revealing a significant increase of 10–40% in precipitation for smaller return periods (2–10 years) and up to 61.66% and 81.35% increases for 200-year events under SSP2-4.5 and SSP5-8.5, respectively, consistent with severe flooding observed in 2022. Using SWMM, standalone and combined GI strategies were assessed for their flood mitigation potential under 2- and 5-year return period rainfall events, including future climate scenarios. Economic feasibility was evaluated using 2024 market rates while community preferences were assessed through surveys conducted in Peshawar via Kobo Toolbox. Among the options, permeable pavement (standalone) and permeable pavement with bioretention (combined) emerged as the most effective and preferred solutions. A novel aspect of this study is the integration of 1D hydrodynamic modeling with 3D visualization in SWMM and GIS, providing stakeholders with an intuitive understanding of pre- and post-GI flood scenarios. This enhances public awareness, facilitates participatory decision-making, and supports investment prioritization. By addressing the lack of integrated flood modeling and decision-support tools in Pakistan, this research fills a key gap and offers a replicable framework for evidence-based, climate-adaptive, and community-inclusive urban planning to build flood-resilient cities.
+
+</details>
+
+#### [A Study on the Integrated Learning Model of Business English Audio-Visual-Speaking Course in the Context of New Liberal Arts](https://www.semanticscholar.org/paper/3cbe68aff4e825c419bcf32dfda1ef78a9d237dd)
+**Xue Yan** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+: The concept of New Liberal Arts emphasizes interdisciplinary integration and the ability to respond to complex situations, providing clear direction for the reform of Business English Audio-Visual-Speaking courses. To address the disconnection between skill training and authentic contexts in traditional teaching, this study aims to construct an integrated learning model. Through theoretical reconstruction, the study elucidates how New Liberal Arts expands the paradigm of language competency. Based on the multimodal characteristics and higher-order cognitive demands of business audio-visual discourse, it demonstrates the appropriateness of integrated learning. Furthermore, the study systematically constructs a core model encompassing a multidimensional content framework, an immersive iterative process, and a competency-oriented evaluation system. It also explores implementation pathways such as the support of a digital learning ecosystem and the transformation of teacher roles. This research provides a systematic theoretical framework and practical solutions for the teaching of related courses, contributing to the cultivation of integrated communication talents who can adapt to the global business environment.
+
+</details>
+
+#### [The Role of School Principals in Improving Student Discipline through School-Based Management in Elementary Schools](https://www.semanticscholar.org/paper/4f2df881367ae3f4bae200b7850c615ae06556d9)
+**Fara Utami Apriyani, Muhamad Sofian Hadi** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This study aims to examine the role of school principals in improving student discipline through the implementation of School-Based Management (SBM) at An-Nisaa Elementary School, South Tangerang. Student discipline is a crucial aspect of character education and significantly influences the effectiveness of the learning process. However, many schools still face challenges in maintaining consistent student discipline due to managerial, environmental, and individual factors. This research employed a qualitative descriptive approach. Data were collected through in-depth interviews, observations, and documentation involving the principal, teachers, and students. Data analysis was conducted using data reduction, data display, and conclusion drawing techniques. The findings indicate that the principal plays a strategic role as a leader, manager, supervisor, motivator, and innovator in strengthening student discipline through SBM. The principal’s strategies include enforcing school regulations consistently, fostering teacher discipline as role models, strengthening collaboration with parents, and implementing reward and punishment systems. Supporting factors include strong school culture, teacher commitment, and parental involvement, while inhibiting factors involve students’ diverse backgrounds and external environmental influences. The study concludes that effective principal leadership through SBM significantly contributes to improving student discipline and creating a conducive school climate.
+
+</details>
+
+#### [Capping The Market: Nil Income Limits And The Shadow Of Antitrust Law](https://www.semanticscholar.org/paper/fd4c7cbcfa6ee8f5b23e3da7d2abdbe4d2370a46)
+**David P. Weber** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+This article addresses the newly created College Sports Commission (CSC) and its NIL clearinghouse, NIL Go. Currently, the collegiate sports industry is attempting to provide a workable framework to allow for limited athlete compensation via NIL while still imposing rules on the operation of college athletics. As part of the historic House settlement agreement in 2025, collegiate sports have implemented institutional NIL with a professional-style salary cap while simultaneously adopting limits on third-party income for college athletes. This article argues that both approaches will face significant hurdles under U.S. antitrust law. The NCAA and CSC, acting on behalf of market monopsonists, have jointly adopted restrictions on earnings that would result in per se violations of U.S. antitrust in any other private industry. However, even under the more lenient rule of reason approach, the collegiate athletics industry should be concerned over the viability of the new income caps. Part I will briefly address the economic environment the college sports industry finds itself in (rising revenues and, in some cases, more quickly rising expenses) and its past issues attempting to curtail costs via its rulemaking authority. Part II of the article addresses the new, direct compensation model that allows universities to directly compensate athletes and examines the soundness of the model both as it pertains to direct university compensation as well as how it may relate to third-party NIL compensation. Part III addresses the new CSC and its clearinghouse, NIL Go, and examines the CSC’s standards by which NIL Go assesses the validity of third-party NIL deals and the difference in treatment for institutional NIL, collective-driven NIL and more traditional NIL opportunities. Part IV analyzes these new rules under traditional antitrust standards examining several recent cases challenging NCAA rules. This part concludes that, while college sports may desire greater policing powers, especially with third-party NIL, the current structure is unsustainable on legal grounds due to likely antitrust violations and practical issues of enforcement and compliance. The article concludes that, barring a new framework that allows for collective bargaining or the adoption of new legislation, college sports will continue to find themselves spending beyond the limits of the current rules and facing continued legal challenges to any enforcement activity.
+
+</details>
+
+#### [Strip-like laminations influence on bending and bonding performance of yellow birch glulam](https://www.semanticscholar.org/paper/8f7af5e1f801b1a7048fca714cd65db55ebc70c5)
+**João Vítor Felippe Silva, Pierre Blanchet, Marie Metten** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Strip-like laminations are wood lamellae formed by face-gluing small wood segments to reduce the effect of natural defects and enable the use of lower-grade timber. This technique offers a promising solution for transforming low-grade wood into solid products. However, its impact on full-scale structural components such as glulam beams has yet to be thoroughly assessed. This study investigated how external layers made of strip-like laminations affected glulam’s bending properties and bonding performance. Grade No. 2 yellow birch (Betula alleghaniensis Britt.) was bonded with one-component polyurethane to fabricate six-layer glulam beams, with strip-like laminations placed on the outer layers. Mechanical testing, including four-point bending, block shear, and delamination, was conducted in accordance with North American standards. Results showed a one-third reduction in the variability of modulus of rupture (MOR), while maintaining comparable performance to traditional glulam configurations. Although apparent modulus of elasticity (MOEapp) was slightly lower and similar to beams containing visual defects, block-shear strength exceeded 90% approval. Some cases of delamination above 10% highlight opportunities for process refinement. These findings demonstrate the potential of strip-like laminations for improving material utilization and provide valuable insights for optimizing manufacturing strategies.
+
+</details>
+
+#### [Human Intellectual Humility: Addressing the fallibility of Artificial Enabled Systems](https://www.semanticscholar.org/paper/14e9a0d37cd13ad95f94bf1bdd5ebf445263b71f)
+**Oyenike Akinlabi** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The use of artificial intelligence (AI) cuts across diverse fields, allowing the generation of output at the speed of light. Despite its efficiency, AI is blamed for its hallucinations and biased output. While this is true, society is hypercritical of this anomaly, and they tend to forget the fallibility of human who trained the model. While studies have examined this problem from technical perspective, little is known about the influence of psychological factors on AI hallucination. Hence, from a psychological lens, this paper proposes intellectual humility to disrupt AI hallucinations. Qualitative research will be adopted to understand the development and application of AI in lived environments. AI developers and users will be recruited, and data will be collected in three stages using questions in the Comprehensive Intellectual Humility Scale (CIHS), behavioural semi-structured questionnaire and face-to-face interview. The findings of this research will highlight how intellectual humility shapes developers’ accountability of AI’s development and users’ responsibility for communicating true output from the AI system, challenging humans for AI hallucinations.
+
+</details>
+
+#### [Why learning redox is difficult even with animations – students’ adherence to cognitive resources](https://www.semanticscholar.org/paper/3eaeb0a9f3307efbf472c29366dab7fa3af05000)
+**Ade Noorliza Niyamae, M. Cheng** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Students face many challenges when they learn redox reactions at the submicroscopic level. Animations have been shown to support students’ learning, but some students may not interpret the animations as...
+
+</details>
+
+#### [Enhancing Facial Expression Recognition: Leveraging MobileNetV3 for Periocular Analysis](https://www.semanticscholar.org/paper/6a0fe14887169a85e7bef5ea4bb75274c6c5e449)
+**Sinar B. Ramadhan** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+—Online meetings and Virtual Reality (VR) applications require innovative approaches to interpret user emotions and behavior. Since verbal communication is constrained in virtual environments, facial expression analysis is essential for understanding emotional states. Recent research demonstrates that the periocular region provides significant diagnostic information regarding affect and attention, exhibiting pronounced responses to emotional stimuli and offering a more reliable indicator of user state than full-face analysis. This study addresses this gap by evaluating lightweight convolutional neural network architectures—MobileNetV1, MobileNetV2, MobileNetV3, and EfficientNetV2—specifically for periocular-based recognition. Experiments are conducted on the Taiwanese Facial Expression Image Database (TFEID) benchmark, with further validation on the Chinese Face dataset using transfer learning for Android platform deployment. Through a detailed analysis, we evaluate the effectiveness of each architecture based on metrics such as accuracy, precision, recall, and F1-Score, providing insights into their suitability for periocular-based expression recognition. In contrast to earlier studies that employed full-face input, this research proposes a periocular-only approach, rendering it more efficacious in confined environments such as virtual reality or masked-face settings. The findings of this study demonstrate that the MobileNetV3-Small architecture offers an optimal trade-off, attaining an accuracy of 83.62% while sustaining a highly efficient inference time of 16.4 milliseconds per image. Moreover, the deployment of these models on Android devices demonstrates their practicality in real-world settings, particularly in the context of lightweight, mobile-based emotion recognition systems. This research contributes to advancing emotion recognition systems, offering practical and robust solutions for real-world applications.
+
+</details>
+
+#### [Finetuning the Sample Points in Gaussian Filters via Neural Networks](https://www.semanticscholar.org/paper/b5c5d07d6052a5b87b2df289d8243d914990bd22)
+**Hanyu Liu, Yuran Chen, Xiucong Sun, Yukai Zhu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Gaussian filters with deterministic sample points, such as the Unscented Kalman Filter (UKF), Cubature Kalman Filter (CKF), Gauss–Hermite Quadrature Filter (GHQF), etc., have been widely employed for nonlinear state estimation. However, these filters utilize a fixed set of sample points irrespective of the system's nonlinearity. While various studies have explored data-driven approaches to optimize the three parameters of the UKF, these methods do not generalize well to other Gaussian filters with a greater number of sample points. In this letter, we propose a novel neural network-based unified framework for finetuning sample points across all Gaussian filters with deterministic sample points. Specifically, we first pretrain a Multi-Layer Perceptron (MLP) to approximate the mapping from the state's mean and covariance to the sample points of the original Gaussian filter. The MLP then replaces the sample points generation strategy in the Gaussian filter and is further refined by maximizing the marginal likelihood of the observed measurement data. Simulation results demonstrate that the Gaussian filters leveraging the well-trained MLP as the sample point generation strategy achieve higher filtering accuracy compared to their original counterparts.
+
+</details>
+
+#### [Artificial Neural Networks and Machine Learning – ICANN 2025: 34th International Conference on Artificial Neural Networks, Kaunas, Lithuania, September 9–12, 2025, Proceedings, Part III](https://www.semanticscholar.org/paper/36bacd8825b10e1fba127828104cfc47388a15c1)
+**** · 2026-01-01
+
+
+#### [Decision Boundary-Aware Counterfactual Learning Against Model Extraction Attacks on Graph Neural Networks](https://www.semanticscholar.org/paper/885ed8406b5d014634d636ac77feb4b5ae11a56c)
+**Xiuwen Liu, Yanjiao Chen, Shanchen Pang** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+When it comes to the marriage of graph neural networks (GNNs) and model extraction attacks, the deployment of GNNs within Machine Learning as a Service (MLaaS) through a publicly pay-per-query API has opened up new attack surfaces. Existing defenses either sacrifice prediction accuracy or fail to thwart more advanced attacks. We investigate this dilemma and discover that fortified models with complex and narrow decision regions are difficult to be reproduced. Nevertheless, complex and narrow decision boundaries are prone to violate the subspaces of neighbor classes under the intrinsic coupling property of graph structure. Furthermore, class-wise representative features within the interior of class-wise subspaces endow the attackers with the capability of functionality replication. Here, we propose a novel model extraction defense, dubbed Decision Boundary-aware Counterfactual Learning (DBCL). DBCL proactively launches counterattacks on potential model extraction attacks, from the very beginning of sensitivity measurement that implicitly detect the malicious queries, such that class-wise representative features embodied in the highly sensitive query batch trigger the demand of worsening their query results unconsciously. Moreover, DBCL draws inspiration from counterfactual learning, aiming at finding the decision boundary-aware adversarial topology perturbations for ambiguously classified query samples, i.e., hard samples, to cross the decision boundary exactly, which introduces the tractive behaviour w.r.t. the inter-connected sensitive samples for class-wise ambiguous topology features. From the graph-structured actionable insights, DBCL innovatively finds the minimum perturbation sufficient for counterfactual learning, without jeopardizing the victim model’s predictive capacity by including confidently classified query samples, i.e., easy samples including sensitive and non-sensitive samples, into their correct classes. Empirically, DBCL shows its effectiveness in reducing the extraction accuracy of the SOTA model extraction attempt with different GNN backbone encoders in evaluating node classification performance. Moreover, we show that DBCL is robust to adaptive model extraction attacks.
+
+</details>
+
+#### [Cryptanalytic Extraction of Convolutional Neural Networks](https://www.semanticscholar.org/paper/d73b7e8918cef5477153b407fd6bcd95945c0b90)
+**Xiao-Hui Sun, Hao Lei, Longxiang Wei, Xiaokang Qi et al.** · 2026-01-01
+
+
+#### [Artificial Neural Networks and Machine Learning – ICANN 2025: 34th International Conference on Artificial Neural Networks, Kaunas, Lithuania, September 9–12, 2025, Proceedings, Part I](https://www.semanticscholar.org/paper/ed85a3f10b7d47849f85db1406e485cf7976b494)
+**** · 2026-01-01
+
+
+#### [Artificial Neural Networks and Machine Learning. ICANN 2025 International Workshops and Special Sessions: 34th International Conference on Artificial Neural Networks, Kaunas, Lithuania, September 9–12, 2025, Proceedings, Part V](https://www.semanticscholar.org/paper/106c8f269b2fbde6b6469733a3345e34365236c9)
+**** · 2026-01-01
+
+
+#### [Artificial Neural Networks and Machine Learning – ICANN 2025: 34th International Conference on Artificial Neural Networks, Kaunas, Lithuania, September 9–12, 2025, Proceedings, Part IV](https://www.semanticscholar.org/paper/75f95076e2a45c8c158d3a985eacf37940c4912c)
+**** · 2026-01-01
+
+
+#### [Advances in Computational Intelligence: 18th International Work-Conference on Artificial Neural Networks, IWANN 2025, A Coruña, Spain, June 16–18, 2025, Proceedings, Part I](https://www.semanticscholar.org/paper/d39cdf2d07813f5b8a4910b5c466503ae38a30e1)
+**** · 2026-01-01
+
+
+#### [Advances in Neural Networks – ISNN 2025: 19th International Symposium on Neural Networks, Zhangye, China, August 22–24, 2025, Proceedings](https://www.semanticscholar.org/paper/592944e31bf7fbe0188fc2a32f3d6f661f1cafb0)
+**** · 2026-01-01
+
+
+#### [Advances in Computational Intelligence: 18th International Work-Conference on Artificial Neural Networks, IWANN 2025, A Coruña, Spain, June 16–18, 2025, Proceedings, Part II](https://www.semanticscholar.org/paper/79cd6aac8c9980f044fcadb1922233e9f5add70f)
+**** · 2026-01-01
+
+
+#### [On the approximation capability of shallow and deep neural networks having smooth activations with respect to the Sobolev norm](https://www.semanticscholar.org/paper/bc66ba9fa45fdd910a84e6bb0199ab044603c51d)
+**Hyeokjoo Park** · 2026-01-01
+
+
+#### [EMM-Det: Energy-Efficient Multidrone Tiny Object Detection by Memory-Enhanced Spiking Neural Networks](https://www.semanticscholar.org/paper/0860bde8a8927d07f51927595cae242755b7cb8c)
+**Zheming Cai, Hanning Luo, Tiange Liu, Ying Xia et al.** · 2026-01-01
+
+
+#### [Neural Architecture Search With Spatial–Spectral Attention for Higher-Order Nonlinear Hyperspectral Unmixing](https://www.semanticscholar.org/paper/b5d43e80bb48fbee842678a99e7b94ffba7f5359)
+**Chunhong Cao, Jing Hu, Yifan Wang, Bowen Xu et al.** · 2026-01-01
+
+
+#### [MHGNN: Multiplex Hypergraph Neural Networks for Predicting Herb–Symptom Interactions](https://www.semanticscholar.org/paper/ae4b399cb32fe37fc6ff860b60d1b45260ec201f)
+**Xudong Liang, Tao Lin, Biao Xie, Yong Tang et al.** · 2026-01-01
+
+
+#### [Anti-Disturbance Proximal Neural Networks for Composite Resource Allocation](https://www.semanticscholar.org/paper/b3bce3826782842e79647f670993da8d4cbeb9d0)
+**Li-qiang Luan, Shuai Qi, Sitian Qin** · 2026-01-01
+
+
+#### [Tracking Neural Activity Underlying Postural Control Dysfunction in a VR-Induced System: Demonstration Using Biovrsea](https://www.semanticscholar.org/paper/02592c075ebc7b18d03c37a4c26c1ee128b1e568)
+**Sümeyye Özdemir, Lorena Guerrini, Carmine Gelormini, B. Güntekin et al.** · 2026-01-01
+
+
+#### [Quantum Convolutional Neural Networks: A Survey on Architectures, Applications, and Future Directions](https://www.semanticscholar.org/paper/bcea6dffe5a2c92c6f5acda8cfb2b703b1530c38)
+**Ratun Rahman, Dinh C. Nguyen** · 2026-01-01
+
+
+#### [A Comprehensive Survey of Knowledge-Driven Deep Learning for Intelligent Wireless Network Optimization in 6G](https://www.semanticscholar.org/paper/02471ab33a3ff16aa344146c8d71886261419cbb)
+**Ruijin Sun, Nan Cheng, Changle Li, Wei Quan et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+The sixth generation (6G) wireless networks are envisioned to feature wide-area coverage, diversified full-scenario services, massive connections and dynamic heterogeneity, resulting in large-scale and complex network optimization problems. Traditional model-based methods, while effective in simple scenarios with precise mathematical models, struggle with high computational intensity and long processing times in the realistic and intricate applications of 6G. Pure data-driven deep learning (DL) methods offer powerful approximation capabilities and fast online inference but are hindered by insufficient datasets and poor interpretability. To address these issues, knowledge-driven DL integrates domain knowledge into neural networks, combining the strengths of both model-based and data-driven approaches. This survey systematically reviews knowledge-driven DL in wireless networks from a novel perspective of the knowledge integration approach. It provides a comprehensive definition of domain knowledge in wireless networks and clarifies the types of knowledge and their representations that can be integrated into neural networks. Furthermore, a leading taxonomy of knowledge integration approaches in wireless networks is proposed, encompassing the integration of domain knowledge into neural network model selection, neural network model customization, knowledge and data fusion architecture construction, loss function design, and hyperparameter configuration. Based on this taxonomy, literature on knowledge-driven resource allocation and signal processing is thoroughly reviewed. This survey aims to provide an insightful guideline for effectively incorporating domain knowledge into neural networks in the field of wireless communications, ultimately advancing efficient and reliable intelligent 6G networks.
+
+</details>
+
+#### [DEER: Distribution Divergence-Based Graph Contrast for Partial Label Learning on Graphs](https://www.semanticscholar.org/paper/b0725905965007dcd7e56ed46ea6334df74f8661)
+**Yiyang Gu, Zihao Chen, Yifang Qin, Zhengyan Mao et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Graph neural networks (GNNs) have emerged as powerful tools for graph classification tasks. However, contemporary graph classification methods are predominantly studied in fully supervised scenarios, while there could be label ambiguity and noise in real-world applications. In this work, we explore the weakly supervised problem of partial label learning on graphs, where each graph sample is assigned a collection of candidate labels. A novel method called Distribution Divergence-based Graph Contrast (DEER) is proposed to address this issue. At the heart of our DEER is to measure the divergence among the underlying semantic distributions in the hidden space and this metric enables the identification of accurate positive graph pairs for effective graph contrastive learning. Specifically, we generate graph representations of augmented graph views that retain semantics and can be regarded as samples from the underlying semantic distributions. We employ a non-parametric metric to measure distribution divergence, which is then combined with pseudo-labeling to generate unbiased and target-oriented graph pairs. Furthermore, we introduce a label-correction method to eliminate noisy candidate labels, updating target labels using posterior distributions in a soft manner. Comprehensive experiments on various benchmarks demonstrate the superiority of our DEER in different settings compared to a range of state-of-the-art baselines.
+
+</details>
+
+#### [Efficient Automatic Modulation Classification for Next-Generation Wireless Networks](https://www.semanticscholar.org/paper/4467387dbdc08365a1cd444bb578a4e53e520f5c)
+**T. An, Argyriou Argyriou, Annisa Anggun Puspitasari, Simon L. Cotton et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+With the imminent development of sixth-generation (6G) networks, there will be a demand for high-accuracy, computationally-efficient, and low-inference time automatic modulation classification (AMC) algorithms. To address this need, we propose a new deep-learning based model for AMC that is called the threshold denoise recurrent neural network (TDRNN). The TDRNN combines an adaptive threshold denoising (TD) algorithm and a recurrent neural network (RNN) that together achieve high accuracy and fast inference. The TD module adaptively reduces the noise level of the received signal, while the RNN module performs the modulation classification on the denoised result. The two subsystems are jointly optimized to reach the optimal architecture. The proposed TDRNN is evaluated for various modulation schemes and signal-to-noise ratios (SNR). The experimental results demonstrate that the TDRNN outperforms existing methods in terms of accuracy, speed, and computational complexity making it an ideal solution for 6G wireless communication systems.
+
+</details>
+
+#### [Pilot Contamination Aware Transformer for Downlink Power Control in Cell-Free Massive MIMO Networks](https://www.semanticscholar.org/paper/1dc214b14217f1250f268f9f165fd9b760f94e18)
+**Atchutaram K. Kocharlakota, Sergiy A. Vorobyov, Robert W. Heath** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Learning-based downlink power control in cell-free massive multiple-input multiple-output (CFmMIMO) systems offers a promising alternative to conventional iterative optimization algorithms, which are computationally intensive due to online iterative steps. Existing learning-based methods, however, often fail to exploit the intrinsic structure of channel data and neglect pilot allocation information, leading to suboptimal performance, especially in large-scale networks with many users. This paper introduces the pilot contamination-aware power control (PAPC) transformer neural network, a novel approach that integrates pilot allocation data into the network, effectively handling pilot contamination scenarios. PAPC employs the attention mechanism with a custom masking technique to utilize structural information and pilot data. The architecture includes tailored preprocessing and post-processing stages for efficient feature extraction and adherence to power constraints. Trained in an unsupervised learning framework, PAPC is evaluated against the accelerated proximal gradient (APG) algorithm, showing comparable spectral efficiency fairness performance, while significantly improving computational efficiency. Simulations demonstrate PAPC’s superior performance over fully connected networks (FCNs) that lack pilot information, its scalability to large-scale CFmMIMO networks, and its computational efficiency improvement over APG. PAPC is further validated through ablation studies and evaluated across several representative CFmMIMO scenarios, demonstrating robustness to pilot contamination, scalability, and adaptability to varying user counts without retraining.
+
+</details>
+
+#### [Multilevel Plug-and-Play Image Restoration](https://www.semanticscholar.org/paper/7b748aaf2e341a2fb97ed8659b4cccb106c14a26)
+**Nils Laurent, Julián Tachella, E. Riccietti, Nelly Pustelnik** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Plug-and-play (PnP) image reconstruction methods leverage pretrained deep neural network denoisers as image priors to solve general inverse problems, and can obtain a competitive performance without having to train a network on a specific problem. Despite their flexibility, PnP methods often require several iterations to converge and their performance can be highly sensitive to the choice of the initialization and of the hyperparameters. In this paper, we propose a new multilevel PnP framework to accelerate the convergence of PnP methods in the context of large-scale images. The proposed scheme, following a coarse-to-fine strategy, is initialized at the coarsest scale and the resolution of the starting point is progressively improved to reach the fine level with the highest resolution. The scheme then combines classical PnP iterations with cheaper iterations, involving representations of the images at coarser scales. As a result of the combination of these two ingredients, the multilevel PnP scheme accelerates the convergence and improves the robustness to the choice of initialization and hyperparameters. In a series of experiments, including image inpainting, demosaicing, and deblurring, we show that the proposed multilevel PnP method outperforms other PnP methods in both speed and reconstruction performance.
+
+</details>
 
 
 ### 2025
