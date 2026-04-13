@@ -491,16 +491,6 @@ This study investigates interpretable photometric and geometric features for dee
 
 </details>
 
-#### [Translating Humour (And More) For Dubbing and Subtitling: The Case of Young Frankenstein](https://www.semanticscholar.org/paper/b4888c5b2871dd98e07606177b420a79737cd242)
-**T. Filizzola** · 2026-04-01
-
-<details>
-<summary>Abstract</summary>
-
-This paper investigates translation for dubbing and subtitling when dealing with humour and other language- or culture-specific elements, which may hinder the ultimate purpose of producing the same intended effect of the original film among the target-language audience. Whether this aim is achieved or not will often depend on the strategies adopted by the translator, who may lean towards source-oriented solutions or target-oriented ones. As a case study, Young Frankenstein by Mel Brooks (1974) has been selected due to the numerous and different types of challenges involved in the audiovisual translation of this film. After an introduction presenting the content and the research question of this paper, its theoretical core will be illustrated, followed by a section that will briefly outline the film. A comparative analysis will come next, focusing on the original screenplay, the Italian dubbing and the Italian subtitling, so as to examine the most problematic cases and their translation. The results will then be discussed by distinguishing between the occurrences of literal translation and those of adaptation. Finally, the conclusions will reveal the extent to which the target-language dubbing and subtitling can be considered as source-oriented or target-oriented, if not as a combination of both approaches.
-
-</details>
-
 #### [Testing the role of temporal attention in speech: Pre-target alpha predicts memory encoding rather than effects of linguistic focus.](https://www.semanticscholar.org/paper/3fecf106e9c62d6066e41d48d4ae7dfad829e3cf)
 **Eleonora J. Beier, Assaf Breska, Lee M. Miller, Yulia Oganian et al.** · 2026-04-01
 

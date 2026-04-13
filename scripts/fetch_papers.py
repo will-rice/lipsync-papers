@@ -280,6 +280,15 @@ NEGATIVE_KEYWORDS = [
     "face sketch recognition",
     # Unrelated audio generation
     "audiogen-omni",
+    # Humanities / translation studies (non-automatic dubbing)
+    "translating humour",
+    "translation studies",
+    "audiovisual translation",
+    # Social science / psychology where "face" is idiomatic
+    "moderating role",
+    "child temperament",
+    "parental distress",
+    "social-emotional functioning",
 ]
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
