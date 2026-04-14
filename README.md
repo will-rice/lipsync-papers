@@ -45,6 +45,66 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Beyond Monologue: Interactive Talking-Listening Avatar Generation with Conversational Audio Context-Aware Kernels](https://arxiv.org/abs/2604.10367)
+**Yuzhe Weng, Haotian Wang, Xinyi Yu, Xiaoyan Wu et al.** · 2026-04-11
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven human video generation has achieved remarkable success in monologue scenarios, largely driven by advancements in powerful video generation foundation models. Moving beyond monologues, authentic human communication is inherently a full-duplex interactive process, requiring virtual agents not only to articulate their own speech but also to react naturally to incoming conversational audio. Most existing methods simply extend conventional audio-driven paradigms to listening scenarios. However, relying on strict frame-to-frame alignment renders the model's response to long-range conversational dynamics rigid, whereas directly introducing global attention catastrophically degrades lip synchronization. Recognizing the unique temporal Scale Discrepancy between talking and listening behaviors, we introduce a multi-head Gaussian kernel to explicitly inject this physical intuition into the model as a progressive temporal inductive bias. Building upon this, we construct a full-duplex interactive virtual agent capable of simultaneously processing dual-stream audio inputs for both talking and listening. Furthermore, we introduce a rigorously cleaned Talking-Listening dataset VoxHear featuring perfectly decoupled speech and background audio tracks. Extensive experiments demonstrate that our approach successfully fuses strong temporal alignment with deep contextual semantics, setting a new state-of-the-art for generating highly natural and responsive full-duplex interactive digital humans. The project page is available at https://warmcongee.github.io/beyond-monologue/ .
+
+</details>
+
+#### [Talking in Timor‐Leste: Urbanization, Peer Input, and Other Influences on Children's Verbal Environments](https://www.semanticscholar.org/paper/874b7552d9c0decaf581f6e793a072188f156721)
+**Joseph R. Coffey, Victoria Baranov, Xinran Hu, D. Suárez et al.** · 2026-04-11
+
+<details>
+<summary>Abstract</summary>
+
+Children's early experiences with language are influenced by socioeconomic and cultural factors that vary greatly across societies. By expanding the geographical diversity of language acquisition studies, researchers are able to answer broader questions about mechanisms linking children's speech input to their learning process. We present a large‐scale study of 277 children between 11 and 58 months old growing up in Timor‐Leste, an island nation in Southeast Asia. Children were drawn from households in 72 villages comprising both rural and urban communities. We used child‐worn audio recorders combined with an open‐source speaker diarization software to quantify their verbal input and production throughout the day. Our analysis found that children were exposed to 15 min of verbal input per hour total, mostly from other children and female adults. Of total input, 6 min/h were produced during conversational exchanges with the child. Children from rural communities heard more adult vocalizations and vocalized more often than those sampled from urban communities. Older children and children with more siblings were exposed to more input from other children and vocalized more often themselves. Higher maternal education was associated with fewer child vocalizations. After adjusting for speaker misclassification, child vocalizations were significantly associated with input from other children and female adults. Our study indicates that verbal input from other children may be especially important in Timorese homes and suggests that a positive relationship between education and adult input may not be universal. These results affirm the usefulness of long‐form audio analysis for educators and policymakers interested in children's early learning environments. Timorese children are most commonly exposed to vocalizations from other children and female adults, but only vocalizations from other children increase with child age. Children from more educated urban communities hear less adult input and produce fewer vocalizations than children from less educated rural communities. Verbal input from all sources is associated with child vocalizations, but input from other children is the strongest predictor. The accuracy, affordability, and flexibility of long‐form audio analysis make it ideal as a tool for addressing geographical and cultural gaps in language acquisition research.
+
+</details>
+
+#### [YOLO-Based Real-Time Object Detection with Audio Feedback for Visual Accessibility](https://www.semanticscholar.org/paper/3dce4a17597c0c9695719b1dbb7c9ea13c6b0049)
+**SIRISHA, D, Charanya Reddy v, V. V et al.** · 2026-04-11
+
+<details>
+<summary>Abstract</summary>
+
+Blind persons need some sort of help to feel secure while moving. Vision Assist is a smartphone app for visually impaired persons. It is a deep learning-based intelligent assistant for visually impaired persons. It makes the user more accessible by understanding the camera input and providing feedback. It is a smartphone app that is compatible with all smartphones.With the help of the app’s real-time object recognition and the ability to set the app’s settings according to the user’s requirements, visually impaired person can move independently and confidently in the environment. Users can get feedback about the environment using text-to-speech communication Keywords— Vision Assist, Smartphone app, Visually Impaired, Deep Accessibility, Learning, Object Real-time Recognition, Assistance,Independence,
+
+</details>
+
+#### [From talking tools to metahumans: social interaction, semiotic skill, and the authority of AI chatbots](https://www.semanticscholar.org/paper/dc5861c63b7709874fd084a8ab0143c9dc4f10e7)
+**W. Keane** · 2026-04-10
+
+<details>
+<summary>Abstract</summary>
+
+What does it take to turn a tool into a talking tool and that into an ultimate authority? Generative artificial intelligence (GenAI) in its diverse forms, such as large language models (LLMs), is celebrated as a useful tool. But LLM‐based conversational agents, or chatbots, the software applications through which ordinary users are likely to engage with LLMs on a regular basis, can seem, for many, to harbour uncanny insights or transcendental knowledge whose sources are inexplicable – resembling what Marshall Sahlins called ‘metahumans’. The temptation to treat chatbots as metahuman is just an extreme case of a more general process. The inferences that chatbot users draw about GenAI's human or superhuman properties arise in part from the apps' role as an interlocutor in social interaction. Their authority draws on the pragmatics and semiotics of speech. Much as a prophet embodies and legitimates the authority of divinity, so chatbots can endow the profit‐seeking strategies of their corporate owners with a supernatural aura. That such effects can seem intuitively real is, in part, because humans and metahumans address one another on semiotically unequal grounds.
+
+</details>
+
+#### [Toward using Speech to Sense Student Emotion in Remote Learning Environments](https://arxiv.org/abs/2604.09881)
+**Sargam Vyas, B. Vlasenko, Andr'e Mayoraz, Egon Werlen et al.** · 2026-04-10
+
+<details>
+<summary>Abstract</summary>
+
+With advancements in multimodal communication technologies, remote learning environments such as, distance universities are increasing. Remote learning typically happens asynchronously. As a consequence, unlike face-to-face in-person classroom teaching, this lacks availability of sufficient emotional cues for making learning a pleasant experience. Motivated by advances made in the paralinguistic speech processing community on emotion prediction, in this paper we explore use of speech for sensing students'emotions by building upon speech-based self-control tasks developed to aid effective remote learning. More precisely, we investigate: (a) whether speech acquired through self-control tasks exhibit perceptible variation along valence, arousal, and dominance dimensions? and (b) whether those dimensional emotion variations can be automatically predicted? We address these two research questions by developing a dataset containing spontaneous monologue speech acquired as open responses to self-control tasks and by carrying out subjective listener evaluations and automatic dimensional emotion prediction studies on that dataset. Our investigations indicate that speech-based self-control tasks can be a means to sense student emotion in remote learning environment. This opens potential venues to seamlessly integrate paralinguistic speech processing technologies in the remote learning loop for enhancing learning experiences through instructional design and feedback generation.
+
+</details>
+
+#### [Humanizing AI Chatbots: The Role of Speech Emotion Recognition with Deep Learning](https://www.semanticscholar.org/paper/e893401ffff7a3753e250ab9eeb012d78e2e059d)
+**B. Barmada, Madawa Gihan Kannangara, Guillermo Ramírez-Prado, S. Pour et al.** · 2026-04-10
+
+<details>
+<summary>Abstract</summary>
+
+This research focuses on integrating Speech Emotion Recognition (SER) with AI chatbots to create a system that is more emotionally intelligent and responsive. Using advanced deep learning techniques such as Convolutional Neural Networks (CNNs), the study enhances the accuracy and robustness of SER models in detecting emotions from speech. The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS) serves as the primary dataset, with data augmentation techniques such as noise injection, speed variation, and pitch shifting applied to improve model performance. Key features such as Mel-Frequency Cepstral Coefficients (MFCC), Mel Spectrogram, and Zero Crossing Rate (ZCR) are extracted to improve the analysis. The study uses regularization techniques, including Batch Normalization and L2 Regularization, to prevent overfitting. Eight emotion classes are evaluated namely, neutral, calm, happy, sad, angry, fear, disgust and surprise. Experimental results show significant improvements with the best test accuracy reaching 87.5%, outperforming previous studies. Visualized training history demonstrates the model’s learning behavior and generalization capabilities. The findings highlight the potential of SER-enhanced chatbots in applications such as customer service and mental health support by enabling empathetic interactions.
+
+</details>
+
 #### [SyncBreaker:Stage-Aware Multimodal Adversarial Attacks on Audio-Driven Talking Head Generation](https://arxiv.org/abs/2604.08405)
 **Wenli Zhang, Xianglong Shi, Sirui Zhao, Xinqi Chen et al.** · 2026-04-09
 
@@ -1028,6 +1088,26 @@ Multi-modal Large Language Models (MLLMs) leverage Chain-of-Thought (CoT) instru
 <summary>Abstract</summary>
 
 —Online meetings and Virtual Reality (VR) applications require innovative approaches to interpret user emotions and behavior. Since verbal communication is constrained in virtual environments, facial expression analysis is essential for understanding emotional states. Recent research demonstrates that the periocular region provides significant diagnostic information regarding affect and attention, exhibiting pronounced responses to emotional stimuli and offering a more reliable indicator of user state than full-face analysis. This study addresses this gap by evaluating lightweight convolutional neural network architectures—MobileNetV1, MobileNetV2, MobileNetV3, and EfficientNetV2—specifically for periocular-based recognition. Experiments are conducted on the Taiwanese Facial Expression Image Database (TFEID) benchmark, with further validation on the Chinese Face dataset using transfer learning for Android platform deployment. Through a detailed analysis, we evaluate the effectiveness of each architecture based on metrics such as accuracy, precision, recall, and F1-Score, providing insights into their suitability for periocular-based expression recognition. In contrast to earlier studies that employed full-face input, this research proposes a periocular-only approach, rendering it more efficacious in confined environments such as virtual reality or masked-face settings. The findings of this study demonstrate that the MobileNetV3-Small architecture offers an optimal trade-off, attaining an accuracy of 83.62% while sustaining a highly efficient inference time of 16.4 milliseconds per image. Moreover, the deployment of these models on Android devices demonstrates their practicality in real-world settings, particularly in the context of lightweight, mobile-based emotion recognition systems. This research contributes to advancing emotion recognition systems, offering practical and robust solutions for real-world applications.
+
+</details>
+
+#### [Dossier « Les professionnels de la montagne face aux changements socio-environnementaux » – Les agents d’espaces naturels face aux changements socio-environnementaux et institutionnels : le cas des génépis dans le parc national du Mercantour](https://www.semanticscholar.org/paper/0ded420ce30b58b5efb7aa793e8d5c533a59e6d3)
+**Ninon Fontaine, Isabelle Boulangeat, P. Gauthier, Sophie Caillon** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Les législations mises en œuvre dans les parcs nationaux évoluent au gré de changements institutionnels et socio-environnementaux. Ces territoires, en interaction avec les acteurs qui les utilisent ou les gèrent, peuvent être considérés comme des socio-écosystèmes. Les agents des parcs nationaux jouent un rôle central dans ces systèmes, en tant que sentinelles des dynamiques écologiques et sociales du parc, tout en ayant pour mission d’appliquer des réglementations peu dynamiques et parfois décalées. La gestion d’une plante patrimoniale comme le génépi attise des visions contradictoires entre utilisateurs et gestionnaires. Nous nous intéressons ici plus spécifiquement à la manière dont les agents du parc national du Mercantour vivent les changements affectant le socio-écosystème de « cueillette des génépis », que ce soit l’évolution des populations de génépi, des pratiques de cueillette, de leur métier ou de l’institution « parc national ». Les entretiens soulignent la diversité de vécus au sein de ce territoire, reflétée par les dysfonctionnements de la réglementation de cueillette que chaque agent identifie.
+
+</details>
+
+#### [Finetuning the Sample Points in Gaussian Filters via Neural Networks](https://www.semanticscholar.org/paper/b5c5d07d6052a5b87b2df289d8243d914990bd22)
+**Hanyu Liu, Yuran Chen, Xiucong Sun, Yukai Zhu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Gaussian filters with deterministic sample points, such as the Unscented Kalman Filter (UKF), Cubature Kalman Filter (CKF), Gauss–Hermite Quadrature Filter (GHQF), etc., have been widely employed for nonlinear state estimation. However, these filters utilize a fixed set of sample points irrespective of the system's nonlinearity. While various studies have explored data-driven approaches to optimize the three parameters of the UKF, these methods do not generalize well to other Gaussian filters with a greater number of sample points. In this letter, we propose a novel neural network-based unified framework for finetuning sample points across all Gaussian filters with deterministic sample points. Specifically, we first pretrain a Multi-Layer Perceptron (MLP) to approximate the mapping from the state's mean and covariance to the sample points of the original Gaussian filter. The MLP then replaces the sample points generation strategy in the Gaussian filter and is further refined by maximizing the marginal likelihood of the observed measurement data. Simulation results demonstrate that the Gaussian filters leveraging the well-trained MLP as the sample point generation strategy achieve higher filtering accuracy compared to their original counterparts.
 
 </details>
 
@@ -4067,16 +4147,6 @@ With the rapid advancement of generative AI, multimodal deepfakes, which manipul
 
 </details>
 
-#### [SPEAK: Speech-Driven Pose and Emotion-Adjustable Talking Head Generation](https://arxiv.org/abs/2405.07257)
-**Changpeng Cai, Guinan Guo, Jiao Li, Junhao Su et al.** · 2024-05-12
-
-<details>
-<summary>Abstract</summary>
-
-Most earlier researches on talking face generation have focused on the synchronization of lip motion and speech content. However, head pose and facial emotions are equally important characteristics of natural faces. While audio-driven talking face generation has seen notable advancements, existing methods either overlook facial emotions or are limited to specific individuals and cannot be applied to arbitrary subjects. In this paper, we propose a novel one-shot Talking Head Generation framework (SPEAK) that distinguishes itself from the general Talking Face Generation by enabling emotional and postural control. Specifically, we introduce Inter-Reconstructed Feature Disentanglement (IRFD) module to decouple facial features into three latent spaces. Then we design a face editing module that modifies speech content and facial latent codes into a single latent space. Subsequently, we present a novel generator that employs modified latent codes derived from the editing module to regulate emotional expression, head poses, and speech content in synthesizing facial animations. Extensive trials demonstrate that our method ensures lip synchronization with the audio while enabling decoupled control of facial features, it can generate realistic talking head with coordinated lip motions, authentic facial emotions, and smooth head movements. The demo video is available: https://anonymous.4open.science/r/SPEAK-8A22
-
-</details>
-
 #### [SwapTalk: Audio-Driven Talking Face Generation with One-Shot Customization in Latent Space](https://arxiv.org/abs/2405.05636)
 **Zeren Zhang, Haibo Qin, Jiayu Huang, Yixin Li et al.** · 2024-05-09
 
@@ -6933,16 +7003,6 @@ As a key component of talking face generation, lip movements generation determin
 <summary>Abstract</summary>
 
 This paper investigates a novel task of talking face video generation solely from speeches. The speech-to-video generation technique can spark interesting applications in entertainment, customer service, and human-computer-interaction industries. Indeed, the timbre, accent and speed in speeches could contain rich information relevant to speakers' appearance. The challenge mainly lies in disentangling the distinct visual attributes from audio signals. In this article, we propose a light-weight, cross-modal distillation method to extract disentangled emotional and identity information from unlabelled video inputs. The extracted features are then integrated by a generative adversarial network into talking face video clips. With carefully crafted discriminators, the proposed framework achieves realistic generation results. Experiments with observed individuals demonstrated that the proposed framework captures the emotional expressions solely from speeches, and produces spontaneous facial motion in the video output. Compared to the baseline method where speeches are combined with a static image of the speaker, the results of the proposed framework is almost indistinguishable. User studies also show that the proposed method outperforms the existing algorithms in terms of emotion expression in the generated videos.
-
-</details>
-
-#### [Egocentric Videoconferencing](https://arxiv.org/abs/2107.03109)
-**Mohamed Elgharib, Mohit Mendiratta, Justus Thies, Matthias Nießner et al.** · 2021-07-07
-
-<details>
-<summary>Abstract</summary>
-
-We introduce a method for egocentric videoconferencing that enables hands-free video calls, for instance by people wearing smart glasses or other mixed-reality devices. Videoconferencing portrays valuable non-verbal communication and face expression cues, but usually requires a front-facing camera. Using a frontal camera in a hands-free setting when a person is on the move is impractical. Even holding a mobile phone camera in the front of the face while sitting for a long duration is not convenient. To overcome these issues, we propose a low-cost wearable egocentric camera setup that can be integrated into smart glasses. Our goal is to mimic a classical video call, and therefore, we transform the egocentric perspective of this camera into a front facing video. To this end, we employ a conditional generative adversarial neural network that learns a transition from the highly distorted egocentric views to frontal views common in videoconferencing. Our approach learns to transfer expression details directly from the egocentric view without using a complex intermediate parametric expressions model, as it is used by related face reenactment methods. We successfully handle subtle expressions, not easily captured by parametric blendshape-based solutions, e.g., tongue movement, eye movements, eye blinking, strong expressions and depth varying movements. To get control over the rigid head movements in the target view, we condition the generator on synthetic renderings of a moving neutral face. This allows us to synthesis results at different head poses. Our technique produces temporally smooth video-realistic renderings in real-time using a video-to-video translation network in conjunction with a temporal discriminator. We demonstrate the improved capabilities of our technique by comparing against related state-of-the art approaches.
 
 </details>
 
