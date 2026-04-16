@@ -45,6 +45,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [DiffMagicFace: Identity Consistent Facial Editing of Real Videos](https://arxiv.org/abs/2604.13841)
+**Huanghao Yin, Shenkun Xu, Kanle Shi, Junhai Yong et al.** · 2026-04-15
+
+<details>
+<summary>Abstract</summary>
+
+Text-conditioned image editing has greatly benefitted from the advancements in Image Diffusion Models. However, extending these techniques to facial video editing introduces challenges in preserving facial identity throughout the source video and ensuring consistency of the edited subject across frames. In this paper, we introduce DiffMagicFace, a unique video editing framework that integrates two fine-tuned models for text and image control. These models operate concurrently during inference to produce video frames that maintain identity features while seamlessly aligning with the editing semantics. To ensure the consistency of the edited videos, we develop a dataset comprising images showcasing various facial perspectives for each edited subject. The creation of a data set is achieved through rendering techniques and the subsequent application of optimization algorithms. Remarkably, our approach does not depend on video datasets but still delivers high-quality results in both consistency and content. The excellent effect holds even for complex tasks like talking head videos and distinguishing closely related categories. The videos edited using our framework exhibit parity with videos that are made using traditional rendering software. Through comparative analysis with current state-of-the-art methods, our framework demonstrates superior performance in both visual appeal and quantitative metrics.
+
+</details>
+
 #### [CoSyncDiT: Cognitive Synchronous Diffusion Transformer for Movie Dubbing](https://arxiv.org/abs/2604.12292)
 **Gaoxiang Cong, Liang Li, Jiaxin Ye, Zhedong Zhang et al.** · 2026-04-14
 
@@ -52,6 +62,36 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <summary>Abstract</summary>
 
 Movie dubbing aims to synthesize speech that preserves the vocal identity of a reference audio while synchronizing with the lip movements in a target video. Existing methods fail to achieve precise lip-sync and lack naturalness due to explicit alignment at the duration level. While implicit alignment solutions have emerged, they remain susceptible to interference from the reference audio, triggering timbre and pronunciation degradation in in-the-wild scenarios. In this paper, we propose a novel flow matching-based movie dubbing framework driven by the Cognitive Synchronous Diffusion Transformer (CoSync-DiT), inspired by the cognitive process of professional actors. This architecture progressively guides the noise-to-speech generative trajectory by executing acoustic style adapting, fine-grained visual calibrating, and time-aware context aligning. Furthermore, we design the Joint Semantic and Alignment Regularization (JSAR) mechanism to simultaneously constrain frame-level temporal consistency on the contextual outputs and semantic consistency on the flow hidden states, ensuring robust alignment. Extensive experiments on both standard benchmarks and challenging in-the-wild dubbing benchmarks demonstrate that our method achieves the state-of-the-art performance across multiple metrics.
+
+</details>
+
+#### [SEDTalker: Emotion-Aware 3D Facial Animation Using Frame-Level Speech Emotion Diarization](https://arxiv.org/abs/2604.13335)
+**Farzaneh Jafari, Stefano Berretti, Anup Basu** · 2026-04-14
+
+<details>
+<summary>Abstract</summary>
+
+We introduce SEDTalker, an emotion-aware framework for speech-driven 3D facial animation that leverages frame-level speech emotion diarization to achieve fine-grained expressive control. Unlike prior approaches that rely on utterance-level or manually specified emotion labels, our method predicts temporally dense emotion categories and intensities directly from speech, enabling continuous modulation of facial expressions over time. The diarized emotion signals are encoded as learned embeddings and used to condition a speech-driven 3D animation model based on a hybrid Transformer-Mamba architecture. This design allows effective disentanglement of linguistic content and emotional style while preserving identity and temporal coherence. We evaluate our approach on a large-scale multi-corpus dataset for speech emotion diarization and on the EmoVOCA dataset for emotional 3D facial animation. Quantitative results demonstrate strong frame-level emotion recognition performance and low geometric and temporal reconstruction errors, while qualitative results show smooth emotion transitions and consistent expression control. These findings highlight the effectiveness of frame-level emotion diarization for expressive and controllable 3D talking head generation.
+
+</details>
+
+#### [Component-Wise Sketching and Generation for Car Interior Design](https://www.semanticscholar.org/paper/4df7ae80bb616e8afb8b648a6aa358bcf4b6ffd5)
+**J. Yoon, Seung-Jun Lee, Donghyeok Ma, Seok-Hyung Bae** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+While car exterior designers are adopting 2D generative AI in their workflows, interior designers still face significant challenges. AI often fails to capture intended forms and layouts from interior sketches typically drawn in extreme perspectives and containing multiple components. Moreover, designers must rely on extensive manual work to explore numerous combinations of various components across different views. Thus, we propose a novel workflow in which designers sketch components individually, generate refined renderings for each component, and compose them to pre-visualize concepts. This pre-visualization then serves as input for generating high-quality renderings. We first interviewed interior designers to identify key challenges. We next developed a proof-of-concept system and conducted a pilot study to test its usefulness. We finally improved the system based on additional requirements and conducted a formal user study, demonstrating that our simple yet effective workflow supports designers in exploring, composing, and refining cabin designs into high-quality results.
+
+</details>
+
+#### [The Second Challenge on Real-World Face Restoration at NTIRE 2026: Methods and Results](https://arxiv.org/abs/2604.10532)
+**Jingkai Wang, Jue Gong, Zhengyi Chen, Kai Liu et al.** · 2026-04-12
+
+<details>
+<summary>Abstract</summary>
+
+This paper provides a review of the NTIRE 2026 challenge on real-world face restoration, highlighting the proposed solutions and the resulting outcomes. The challenge focuses on generating natural and realistic outputs while maintaining identity consistency. Its goal is to advance state-of-the-art solutions for perceptual quality and realism, without imposing constraints on computational resources or training data. Performance is evaluated using a weighted image quality assessment (IQA) score and employs the AdaFace model as an identity checker. The competition attracted 96 registrants, with 10 teams submitting valid models; ultimately, 9 teams achieved valid scores in the final ranking. This collaborative effort advances the performance of real-world face restoration while offering an in-depth overview of the latest trends in the field.
 
 </details>
 
