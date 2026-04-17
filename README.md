@@ -45,6 +45,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Giving Faces Their Feelings Back: Explicit Emotion Control for Feedforward Single-Image 3D Head Avatars](https://arxiv.org/abs/2604.14541)
+**Yicheng Gong, Jiawei Zhang, Liqiang Liu, Yanwen Wang et al.** · 2026-04-16
+
+<details>
+<summary>Abstract</summary>
+
+We present a framework for explicit emotion control in feed-forward, single-image 3D head avatar reconstruction. Unlike existing pipelines where emotion is implicitly entangled with geometry or appearance, we treat emotion as a first-class control signal that can be manipulated independently and consistently across identities. Our method injects emotion into existing feed-forward architectures via a dual-path modulation mechanism without modifying their core design. Geometry modulation performs emotion-conditioned normalization in the original parametric space, disentangling emotional state from speech-driven articulation, while appearance modulation captures identity-aware, emotion-dependent visual cues beyond geometry. To enable learning under this setting, we construct a time-synchronized, emotion-consistent multi-identity dataset by transferring aligned emotional dynamics across identities. Integrated into multiple state-of-the-art backbones, our framework preserves reconstruction and reenactment fidelity while enabling controllable emotion transfer, disentangled manipulation, and smooth emotion interpolation, advancing expressive and scalable 3D head avatars.
+
+</details>
+
 #### [DiffMagicFace: Identity Consistent Facial Editing of Real Videos](https://arxiv.org/abs/2604.13841)
 **Huanghao Yin, Shenkun Xu, Kanle Shi, Junhai Yong et al.** · 2026-04-15
 
