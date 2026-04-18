@@ -55,6 +55,16 @@ We present a framework for explicit emotion control in feed-forward, single-imag
 
 </details>
 
+#### [TurboTalk: Progressive Distillation for One-Step Audio-Driven Talking Avatar Generation](https://arxiv.org/abs/2604.14580)
+**Xiangyu Liu, Feng Gao, Xiaomei Zhang, Yong Zhang et al.** · 2026-04-16
+
+<details>
+<summary>Abstract</summary>
+
+Existing audio-driven video digital human generation models rely on multi-step denoising, resulting in substantial computational overhead that severely limits their deployment in real-world settings. While one-step distillation approaches can significantly accelerate inference, they often suffer from training instability. To address this challenge, we propose TurboTalk, a two-stage progressive distillation framework that effectively compresses a multi-step audio-driven video diffusion model into a single-step generator. We first adopt Distribution Matching Distillation to obtain a strong and stable 4-step student, and then progressively reduce the denoising steps from 4 to 1 through adversarial distillation. To ensure stable training under extreme step reduction, we introduce a progressive timestep sampling strategy and a self-compare adversarial objective that provides an intermediate adversarial reference that stabilizes progressive distillation. Our method achieve single-step generation of video talking avatar, boosting inference speed by 120 times while maintaining high generation quality.
+
+</details>
+
 #### [DiffMagicFace: Identity Consistent Facial Editing of Real Videos](https://arxiv.org/abs/2604.13841)
 **Huanghao Yin, Shenkun Xu, Kanle Shi, Junhai Yong et al.** · 2026-04-15
 
@@ -62,6 +72,36 @@ We present a framework for explicit emotion control in feed-forward, single-imag
 <summary>Abstract</summary>
 
 Text-conditioned image editing has greatly benefitted from the advancements in Image Diffusion Models. However, extending these techniques to facial video editing introduces challenges in preserving facial identity throughout the source video and ensuring consistency of the edited subject across frames. In this paper, we introduce DiffMagicFace, a unique video editing framework that integrates two fine-tuned models for text and image control. These models operate concurrently during inference to produce video frames that maintain identity features while seamlessly aligning with the editing semantics. To ensure the consistency of the edited videos, we develop a dataset comprising images showcasing various facial perspectives for each edited subject. The creation of a data set is achieved through rendering techniques and the subsequent application of optimization algorithms. Remarkably, our approach does not depend on video datasets but still delivers high-quality results in both consistency and content. The excellent effect holds even for complex tasks like talking head videos and distinguishing closely related categories. The videos edited using our framework exhibit parity with videos that are made using traditional rendering software. Through comparative analysis with current state-of-the-art methods, our framework demonstrates superior performance in both visual appeal and quantitative metrics.
+
+</details>
+
+#### [Formulation of a Lip Cream Containing Asoka Flower Extract (Ixora Javanica (Blume) DC.) as a Natural Colorant](https://www.semanticscholar.org/paper/81b55ec81024a8ef56d686c0d19ca1d73c090be1)
+**D. Dayana, K. Sari** · 2026-04-15
+
+<details>
+<summary>Abstract</summary>
+
+Lip cream is a lip coloring product in the form of a semi-solid or cream. The composition of lip cream is similar to decorative cosmetics in general, which consists of active ingredients in the form of dyes in various basic ingredients or bases. This study aims to develop a formula for herbal lip cream preparations from asoka flower extract (Ixora javanica (Blume) DC.) and provide information about evaluation tests in the form of lip cream preparations. This research began with asoka flower extract using the maceration method with 96% ethanol solvent. The extract is made into lip cream preparations with the formulas 1,2 and 3, using the melting and mixing method. The lip cream produced is evaluated and tested for stability which includes organoleptic observation, homogeneity test, pH test, dispersion test, adhesion test, application power test, and determination of the type of lip cream. The results of the physical evaluation showed that the F0, F1, F2 and F3 lip creams met the requirements for physical stability. Based on the results of the study, it can be concluded that asoka flower extract can be formulated into lip cream preparations.
+
+</details>
+
+#### [Conversational Gesture Model (CGM): Extending Speaker‐Centric Audio‐Driven Motion Generation to Full Conversation Gestures](https://www.semanticscholar.org/paper/32274cc3ad0cd0c3012eafbed4decbe314eb8acd)
+**T. Koren, A. Rosenthal, D. Friedman, A. Shamir** · 2026-04-15
+
+<details>
+<summary>Abstract</summary>
+
+In this work we extend speaker‐centric audio‐driven gesture synthesis toward a unified conversational model that jointly captures both speaking and listening behaviors. Existing speaker‐centric models effectively generate gestures aligned with speech but overlook the bidirectional dynamics that characterize natural dialogue. To address this limitation, we propose the Conversational Gesture Model (CGM), a cross‐attention‐based model capable of synthesizing gestures conditioned on interlocutor conversational cues such as gestures, tone, and textual semantics. By leveraging cross‐attention mechanisms, the model fuses interlocutor audio and text features with character gesture encodings, enabling a single system to seamlessly alternate between speaking and listening roles of the same character. Hence, our model enables a single system to act as both speaker and listener, capturing the fluid role shifts and mutual influence inherent in conversation. Experiments demonstrate that this approach preserves the quality of speaker‐driven gestures while significantly improving the realism, coherence, and responsiveness of full conversational interactions.
+
+</details>
+
+#### [AVID: A Benchmark for Omni-Modal Audio-Visual Inconsistency Understanding via Agent-Driven Construction](https://arxiv.org/abs/2604.13593)
+**Zixuan Chen, Depeng Wang, Hao Lin, Li Luo et al.** · 2026-04-15
+
+<details>
+<summary>Abstract</summary>
+
+We present AVID, the first large-scale benchmark for audio-visual inconsistency understanding in videos. While omni-modal large language models excel at temporally aligned tasks such as captioning and question answering, they struggle to perceive cross-modal conflicts, a fundamental human capability that is critical for trustworthy AI. Existing benchmarks predominantly focus on aligned events or deepfake detection, leaving a significant gap in evaluating inconsistency perception in long-form video contexts. AVID addresses this with: (1) a scalable construction pipeline comprising temporal segmentation that classifies video content into Active Speaker, Voiceover, and Scenic categories; an agent-driven strategy planner that selects semantically appropriate inconsistency categories; and five specialized injectors for diverse audio-visual conflict injection; (2) 11.2K long videos (avg. 235.5s) with 39.4K annotated inconsistency events and 78.7K segment clips, supporting evaluation across detection, temporal grounding, classification, and reasoning with 8 fine-grained inconsistency categories. Comprehensive evaluations of state-of-the-art omni-models reveal significant limitations in temporal grounding and reasoning. Our fine-tuned baseline, AVID-Qwen, achieves substantial improvements over the base model (2.8$\times$ higher BLEU-4 in segment reasoning) and surpasses all compared models in temporal grounding (mIoU: 36.1\% vs 26.2\%) and holistic understanding (SODA-m: 7.47 vs 6.15), validating AVID as an effective testbed for advancing trustworthy omni-modal AI systems.
 
 </details>
 
@@ -85,6 +125,50 @@ We introduce SEDTalker, an emotion-aware framework for speech-driven 3D facial a
 
 </details>
 
+#### [Practitioners’ responses to Saunders and Roth’s Ten Talking Points for organising for change](https://www.semanticscholar.org/paper/f0c4a8b9a411a9729b1f14d37cac035cee20f63b)
+**Polly Neate, Lela Kogbara, W. McCallum, Clare Saunders et al.** · 2026-04-14
+
+<details>
+<summary>Abstract</summary>
+
+This collection of papers combines practitioners’ responses to the Ten Talking Points (Saunders and Roth, 2026). Neate (Shelter) reflects on practices like subversive humanitarianism, useful for rebuilding trust in charities. Kogbara (Place Matters) discusses the role of formal institutions in social change ecosystems and highlights the need for hope. McCallum (Greenpeace) focuses on the diversification and localisation of Greenpeace’s activist base, which affects its decision making. Saunders and Roth reply to the issues raised by the practitioners.
+
+</details>
+
+#### [GATA4‐Driven Transcription of HtrA1 Promotes Cellular Senescence in Ménière's Disease and Age‐Related Audio‐Vestibular Dysfunction](https://www.semanticscholar.org/paper/adc2a3b25dbb7f88989bddda2740a7bc1170327e)
+**Na Zhang, Na Li, Yan Wang, Jing Zhang et al.** · 2026-04-14
+
+<details>
+<summary>Abstract</summary>
+
+Ménière's disease (MD), a chronic inflammatory disorder with age‐related increased incidence, exhibits poorly understood pathogenesis and limited therapeutic options. Here, we demonstrate that cellular senescence, marked by mitochondrial damage, reactive oxygen species accumulation, and senescence‐associated secretory phenotype (SASP), is prevalent in the vestibular tissue of MD patients and an endolymphatic hydrops mouse model. The transcription factor GATA4 is upregulated in MD and mice, and its genetic deletion in hair cells alleviates LPS‐induced audio‐vestibular dysfunction and cellular senescence in mice and HEI‐OC1 cells. Mechanistically, HDAC6 interacts with GATA4 and restrains its nuclear transport, while RNA‐seq and ChIP‐seq identify HtrA1, a serine protease, as a direct transcriptional target of GATA4. Inhibition of HDAC6 or AAV‐mediated HtrA1 overexpression exacerbates MD‐like symptoms, whereas inhibition of HtrA1 by Galegenimab ameliorates these phenotypes in mice. In aged mice, GATA4 deletion reduces age‐related audio‐vestibular deficits and senescence markers. Collectively, our findings establish GATA4 as a critical regulator of cellular senescence and inflammaging in inner ear pathologies, providing promising therapeutic targets for MD and age‐related audio‐vestibular disorders.
+
+</details>
+
+#### [Transformer Based Machine Fault Detection From Audio Input](https://arxiv.org/abs/2604.12733)
+**Kiran Voderhobli Holla** · 2026-04-14
+
+<details>
+<summary>Abstract</summary>
+
+In recent years, Sound AI is being increasingly used to predict machine failures. By attaching a microphone to the machine of interest, one can get real time data on machine behavior from the field. Traditionally, Convolutional Neural Net (CNN) architectures have been used to analyze spectrogram images generated from the sounds captured and predict if the machine is functioning as expected. CNN architectures seem to work well empirically even though they have biases like locality and parameter-sharing which may not be completely relevant for spectrogram analysis. With the successful application of transformer-based models in the field of image processing starting with Vision Transformer (ViT) in 2020, there has been significant interest in leveraging these in the field of Sound AI. Since transformer-based architectures have significantly lower inductive biases, they are expected to perform better than CNNs at spectrogram analysis given enough data. This paper demonstrates the effectiveness of transformer-driven architectures in analyzing Sound data and compares the embeddings they generate with CNNs on the specific task of machine fault detection.
+
+</details>
+
+#### [Numerical Data-Driven Modelling of Modified Samanta Process for Cold Extrusion of Gears](https://www.semanticscholar.org/paper/c37dae489c7729fd5fa79ea5bf6a65bf5a8b4cfa)
+**T. Deliktas, M. Görz, A. Schenek, M. Speth et al.** · 2026-04-14
+
+<details>
+<summary>Abstract</summary>
+
+The Guided Material Flow (GMF) process is an advanced variant of the Samanta process designed for the net shape cold extrusion of gears. The GMF process employs a modified die geometry to control material flow and significantly reduce maximum tool loads, effectively overcoming traditional process limitations. Key advantages include enhanced tooth tip strength and a reduction in face end deformations, which are characteristic defects in the conventional Samanta process. Minimising these deformations reduces the requirement for subsequent machining and enhances overall material efficiency. A numerical dataset was generated to train and validate data driven surrogate models, facilitating rapid process analysis without the computational cost of continuous Finite Element Analysis (FEA). The models developed in this paper enable the precise prediction of critical process outputs, including maximum punch force, die filling behaviour, material utilisation and strain hardening at the tooth tip. This paper details the numerical data acquisition, the specific training and validation methodologies of the machine learning models and demonstrates their capability to accurately predict complex process outcomes when varying the geometry of the die active surface in the GMF process.
+
+</details>
+
+#### [MEDI-SLATE: medical imaging slide-lecture aligned teaching ensemble](https://www.semanticscholar.org/paper/f0f14db0dd4a0d571a87eafe5363f130dfe2792a)
+**Md. Motaleb Hossen Manik, Zabirul Islam, Ge Wang** · 2026-04-14
+
+
 #### [Component-Wise Sketching and Generation for Car Interior Design](https://www.semanticscholar.org/paper/4df7ae80bb616e8afb8b648a6aa358bcf4b6ffd5)
 **J. Yoon, Seung-Jun Lee, Donghyeok Ma, Seok-Hyung Bae** · 2026-04-13
 
@@ -95,6 +179,106 @@ While car exterior designers are adopting 2D generative AI in their workflows, i
 
 </details>
 
+#### [Feel the Sync: The Effects of Shared Haptic Feedback on Short-Cycle Repetitive Turn-Taking Collaboration of Remote Users in Virtual Reality](https://www.semanticscholar.org/paper/29c23ca54f7004a963ccbc9ab027c8e873c3010e)
+**Hyuckjin Jang, Bowon Kim, Ki-Dong Baek, C. Ahn et al.** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+Short-cycle repetitive collaborations are prevalent in industry and everyday life, where rapid turn-taking requires effective multimodal cues to convey collaborators’ intentions and action-timing. However, current remote collaboration in virtual reality (VR) relies heavily on visual cues, increasing fatigue and hindering communication. We investigated the impact of shared haptic feedback on remote collaborative experiences by measuring interpersonal synchrony and self-reported perceptions in a short-cycle, repetitive joint assembly task. We manipulated haptic conditions (Both, Self, Partner, None) based on feedback sources. Participants demonstrated higher action-timing synchrony with bi-directional haptic feedback than with uni-directional partner feedback. Notably, the heart rate synchrony was comparably induced in the Both and Self conditions, suggesting egocentric tendencies in interpreting others’ intentions. Survey results corroborated the behavioral and physiological findings, highlighting the importance of bi-directional haptic feedback. Our findings establish shared haptic feedback as an effective means of enhancing remote collaboration while reducing the visual dependency of VR.
+
+</details>
+
+#### [Cheek Advancement Flap for Upper Lip Reconstruction While Preserving Aesthetic Units: Experience With 7 Pediatric Cases](https://www.semanticscholar.org/paper/794534b1f41b17fbcaa4d01fe18dc80d584b0f03)
+**C. G. Villarroel, Stephanie Graf Guerra, Pamela Beltrán Rodríguez** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+Reconstruction of the upper lip in pediatric patients is challenging due to the need to restore function, symmetry, and aesthetic harmony within facial subunits. Descriptions of techniques that respect the aesthetic units of the face are limited. This study evaluates the outcomes of a cheek advancement flap designed according to facial aesthetic subunits for reconstruction of the lateral cutaneous upper lip in pediatric patients. A retrospective analysis was conducted on 7 pediatric patients who underwent reconstruction of isolated lateral upper lip skin defects using a cheek advancement flap between 2005 and 2025. Demographic variables, etiology, laterality, follow-up, and complications were recorded. Postoperative aesthetic outcomes were objectively assessed by 4 independent plastic surgeons using the Strasser Scale. Three females and 4 males were included. The most common etiology was congenital nevus (57%). Six patients underwent unilateral flap advancement and one required bilateral reconstruction. The mean follow-up was 3.5 years (range: 6 months–10 years). No intraoperative or postoperative complications were observed. Aesthetic evaluation demonstrated excellent results in 5 patients, good results in one patient, and a mediocre result in one patient who presented with extensive sequelae from upper lip necrosis secondary to mucormycosis. The perialar semilunar cheek advancement flap is a safe and reproducible technique that provides reliable aesthetic outcomes for reconstruction of the lateral upper lip. By adhering to facial aesthetic subunit principles, this approach achieves harmonious results, discreet scars, and avoids secondary deformities, making it an excellent option for localized upper lip skin defects.
+
+</details>
+
+#### [Talking to Heirlooms: Exploring Embodiments of Conversational Agents Designed to Support Reminiscence for People with Dementia](https://www.semanticscholar.org/paper/dab55dd451dd4f9d77140d34c02de3d5613a405f)
+**Adhityan Raja, Yvon Ruitenburg, N. van Velzen, Minha Lee et al.** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+People living with dementia often face challenges in maintaining social relationships due to their cognitive condition. Conversational reminiscence can support well-being and interdependence; yet, deeper, life-review talk often requires self-disclosure that stigma can inhibit. We explored how the embodiment of a conversational system as a familiar, non-humanoid household object can support reminiscence. We developed the heirloom table, a conversational agent embodied in a table to support reminiscence, and employed it as a technology probe during reminiscence with five dyads of a person with dementia and an acquaintance (n=10). Our findings indicate that the embodiment of the table 1) mediated expectations for what the system could know, 2) created a welcoming place of belonging, and 3) integrated the system as a socially symmetric actor within the user’s network. Collectively, these findings point to the potential of non-humanoid, embodied conversational systems to support interdependence within ecologies of dementia care.
+
+</details>
+
+#### [Ten talking points for organising for change: an academic and practitioner exchange](https://www.semanticscholar.org/paper/b21ea5c6a75dfa7f46192fd0855918d106ea51bf)
+**Clare Saunders, Silke Roth** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+This article summarises the opening plenary talk presented at the Voluntary Sector and Volunteering Research Network conference (September 2024). It takes practical lessons from Organising For Change (Bristol University Press), by the authors, and presents them as Ten Talking Points easily accessible to practitioners. It posits that careful resourcing, collaboration and multipronged tactical approaches are coconstitutive and crucial for delivering desirable, or preventing undesirable, social change. Panel respondents’ perspectives are presented in an accompanying article.
+
+</details>
+
+#### [Use of hypnosis to treat chronic somniloquy (sleep talking): a Case Report](https://www.semanticscholar.org/paper/fec69bc72aaf4e41d38932f32aca6b5a43f869f9)
+**Melvin S. Marsh** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+This case study describes a hypnotherapeutic intervention for a 46-year-old man with chronic somniloquy that had persisted for decades, worsening during periods of stress. The patient sought treatment due to spousal complaints regarding the disturbance in her sleep. A treatment plan consisting of eight bi-weekly hypnotherapy sessions was developed and initiated. The intervention focused on clinical hypnosis as the primary therapeutic modality for addressing somniloquy. The intervention yielded positive results. By the sixth scheduled session, the patient's wife reported that his sleep talking had been nearly completely eliminated, leading to an early discontinuation of treatment. This case study suggests that clinical hypnosis may be a viable treatment option for chronic somniloquy. Further research is warranted to explore this therapeutic approach on a larger scale.
+
+</details>
+
+#### [The More-than-Human Talking Stick: Design Principles for Multispecies Entanglement and Agency](https://www.semanticscholar.org/paper/74addaef13b1583358e507e921acb63a8e8e65db)
+**Margrete Lodahl Rolighed, Morten Bech Laugesen, Eva Eriksson, Lone Koefoed Hansen** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+This paper explores how multispecies agency and relations can be brought to the foreground in a situated design process through utilising design principles. Based on an analysis of fieldwork at a permaculture garden community, our three design principles – consideration, connectedness, dynamics – proved to be useful both as a way to guide the design process towards a designed artefact and to inform continued awareness of multispecies agency and entanglements. The resulting design, The MtH Talking Stick, is an attempt to create an artefact that intervenes with a more-than-human voice in mostly-human conversations. The paper contributes situated insights into how design principles can strengthen human awareness of multispecies entanglements as a response to calls for stronger empirical foundations in the more-than-human design field.
+
+</details>
+
+#### [Li-Fi Based Secure Communication System Using Arduino for High-Speed Data and Audio Transmission Applications](https://www.semanticscholar.org/paper/0ec2d10a8af30cb1380693c6d0411275fcef60aa)
+**Perala Prasad Rao, Sangani Bindhu Vasini, Pusuluri Jaswanth Kumar, Kandukuri Anushka et al.** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+The increasing demand for high-speed and secure wireless communication has driven the exploration of alternative technologies, with global data traffic expected to exceed 180 zettabytes annually and traditional RF-based systems facing challenges such as bandwidth limitations, interference, and security vulnerabilities. Traditional wireless communication systems like Wi-Fi and Bluetooth operate on radio frequencies, which are prone to interference, congestion, and potential security breaches due to signal leakage beyond physical boundaries. Furthermore, conventional systems may not provide sufficient bandwidth for high-speed data and audio transmission in dense environments. To address these challenges, the proposed Li-Fi communication based secure data and audio transmission system utilizes visible light communication integrated with the Arduino Uno using the UART protocol for efficient asynchronous data transfer. The system employs high-frequency LED flickering to transmit text (hexadecimal data) and audio signals through light waves, which are received and decoded by a photodetector at the receiver end. UART ensures reliable and synchronized communication between modules, enhancing system performance. This optical communication approach provides enhanced security since light signals do not penetrate walls, reducing the risk of interception. The system offers high-speed transmission, low interference, and improved data capacity, making it a robust solution for secure communication applications.
+
+</details>
+
+#### [Designing for Staying with Emotions: An AR System Driven by Generative AI to Support Emotional Participation in Children with Autism](https://www.semanticscholar.org/paper/bce0650e04b20d6922d610fb9ea793300cd1c97c)
+**Yue Yu, Zhitao Yu** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+Children with autism spectrum disorder (ASD) often face challenges in emotion recognition and expression. Existing emotional intervention approaches remain limited in their ability to provide personalized support, facilitate contextual transfer, and offer adaptive interaction feedback. Recent advances in generative artificial intelligence and augmented reality (AR) have opened new possibilities for designing situated and immersive emotional support systems; however, systematic explorations of their interaction design for neurodiverse children remain scarce. In this paper, we present MOODMATE, a multimodal emotional cognition support system that integrates generative AI and AR. The system supports children with ASD in engaging with emotional understanding and expression within real-life contexts through character-driven situated narratives, parent-involved personalization mechanisms, and multimodal emotional feedback. We report findings from a four-week exploratory deployment study in which ten children with ASD aged 5–10 used the system in their home environments. Drawing on scale-based measures, system usage logs, and parent interviews, we identify patterns of multimodal emotional interaction, experiential characteristics, and emerging design challenges. Our findings highlight design opportunities related to safety, interpretability, and parental collaboration in generative AI–driven emotional support systems, and offer preliminary insights for the interaction design of emotional interventions for neurodiverse children.
+
+</details>
+
+#### [AR Haptic-Audio Conversion for Non-Visual Product Understanding in Smartphone AR](https://www.semanticscholar.org/paper/a343b50367bc41f21bc1c89b58b300bfb0124774)
+**Satomi Tokida, Ayaka Tsutsui, N. Kobori, Matthew Gillingham et al.** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+Online marketplaces increasingly offer AR "view-in-room" features, yet these tools assume visual interaction, leaving blind and low vision (BLV) users unable to independently assess product shape, size, or material—key factors in purchase decisions. We first conducted a formative study with seven BLV participants to identify online shopping challenges and design requirements. Based on these findings, we built a smartphone AR prototype that converts 3D geometry into vibration patterns and announces material properties via speech synthesis, letting users “feel” virtual products by moving their phones. We evaluated our prototype with four BLV users across four feedback conditions: baseline text description only, haptics-only, audio-only, and combined haptic-audio. Preliminary results suggest that the combined condition may best support product understanding and purchase confidence, while haptic feedback showed promise for conveying shape. This work contributes a haptic-audio conversion approach that extends accessible mobile AR toward e-commerce product evaluation on commodity smartphones.
+
+</details>
+
+#### [Sonic Stage: Automatically Generating an Interactive Spatial Soundscape to Facilitate Dialogue Video Comprehension for Blind and Low Vision Viewers](https://www.semanticscholar.org/paper/e2eec139688c23d7e1d507e1e53d6d1f00f1c91e)
+**Shuchang Xu, Xiaofu Jin, Gaurav Jain, Wenshuo Zhang et al.** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+Audio description (AD) makes film and television accessible to blind and low-vision (BLV) audiences by narrating characters’ actions. However, in scenes with lots of dialogue, AD often omits important actions because it is constrained not to overlap with speech. It is not yet known how to convey characters’ actions during dialogue. We present Sonic Stage, a system that automatically transforms dialogue videos into an interactive spatial soundscape, enabling BLV audiences to intuitively understand characters’ actions and movements through immersive auditory cues. Sonic Stage incorporates three core techniques informed by a formative study with BLV viewers: (1) spatialized dialogue to represent spatial layout, (2) diegetic sound to convey character actions, and (3) interactive descriptions to provide context-specific visual details. We conclude by outlining our evaluation plan and highlighting opportunities for enhancing video accessibility through more immersive, interactive audio representations.
+
+</details>
+
 #### [The Second Challenge on Real-World Face Restoration at NTIRE 2026: Methods and Results](https://arxiv.org/abs/2604.10532)
 **Jingkai Wang, Jue Gong, Zhengyi Chen, Kai Liu et al.** · 2026-04-12
 
@@ -102,6 +286,16 @@ While car exterior designers are adopting 2D generative AI in their workflows, i
 <summary>Abstract</summary>
 
 This paper provides a review of the NTIRE 2026 challenge on real-world face restoration, highlighting the proposed solutions and the resulting outcomes. The challenge focuses on generating natural and realistic outputs while maintaining identity consistency. Its goal is to advance state-of-the-art solutions for perceptual quality and realism, without imposing constraints on computational resources or training data. Performance is evaluated using a weighted image quality assessment (IQA) score and employs the AdaFace model as an identity checker. The competition attracted 96 registrants, with 10 teams submitting valid models; ultimately, 9 teams achieved valid scores in the final ranking. This collaborative effort advances the performance of real-world face restoration while offering an in-depth overview of the latest trends in the field.
+
+</details>
+
+#### [AI-based Architectural Image Captioning and Voice Generation System for Blind Students](https://www.semanticscholar.org/paper/d1466f3a020eb93b7a6e6c37fd174cfe87b79708)
+**D. Bikshalu, P. Shirisha, N. Sowmya, P. Sai Harshini et al.** · 2026-04-12
+
+<details>
+<summary>Abstract</summary>
+
+An AI-powered architectural image captioning and voice generation system is developed to help blind students better understand architectural images by automatically generating textual descriptions. The proposed system employs computer vision and AI algorithms to process images of buildings, rooms, layouts, and architectural structures. Visual features are extracted by Convolutional Neural Networks (CNNs), and Natural Language Processing (NLP) algorithms are used to generate relevant captions. The captions are then transformed into audio by text-to-speech technology. The proposed system enhances visual perception, facilitates inclusive education, and helps blind students better understand architectural concepts independently and effectively.
 
 </details>
 
@@ -135,6 +329,16 @@ Blind persons need some sort of help to feel secure while moving. Vision Assist 
 
 </details>
 
+#### [Relationship Between Consumer Satisfaction and Usage, Market Trends, and Product Preferences Among the Lip Tint Users](https://www.semanticscholar.org/paper/1249bc78a1f15e726a8584830fc87c7a694593dd)
+**Kathleen Mae Relova, Grace Santos** · 2026-04-11
+
+<details>
+<summary>Abstract</summary>
+
+This study examined the relationship between consumer satisfaction and usage, market trends, and product preferences among lip tint users. Using a descriptive–correlational design, data were collected from 321 university students through a structured questionnaire. Descriptive results revealed high levels across all variables: consumer usage (M = 4.42, SD = 0.400), market trends (M = 4.14, SD = 0.478), product preferences (M = 4.34, SD = 0.478), and consumer satisfaction (M = 4.26, SD = 0.516). Among usage indicators, frequency (M = 4.45) and application convenience (M = 4.44) were notably high. For market trends, celebrity endorsement (M = 4.04) and price competitiveness (M = 4.14) showed strong influence. In preferences, product quality (M = 4.38) and packaging and design appeal (M = 4.40) were highly rated. Inferential analysis using Pearson’s r revealed significant positive relationships between consumer satisfaction and usage (r = .787, p < .05), market trends (r = .511, p < .05), and preferences (r = .888, p < .05). Strong correlations were observed for product quality (r = .819), personalization (r = .812), color variety (r = .755), and application convenience (r = .703). Price competitiveness (r = .686) also demonstrated a substantial relationship with satisfaction. However, trendy shades showed no significant relationship (r = .146, p = .074). The findings indicate that satisfaction is primarily driven by functional and personalized product attributes rather than trend-based factors. Overall, the study highlights that quality, convenience, and personalization are key determinants of consumer satisfaction, influencing repeat purchase behavior and brand loyalty among lip tint users.
+
+</details>
+
 #### [From talking tools to metahumans: social interaction, semiotic skill, and the authority of AI chatbots](https://www.semanticscholar.org/paper/dc5861c63b7709874fd084a8ab0143c9dc4f10e7)
 **W. Keane** · 2026-04-10
 
@@ -162,6 +366,16 @@ With advancements in multimodal communication technologies, remote learning envi
 <summary>Abstract</summary>
 
 This research focuses on integrating Speech Emotion Recognition (SER) with AI chatbots to create a system that is more emotionally intelligent and responsive. Using advanced deep learning techniques such as Convolutional Neural Networks (CNNs), the study enhances the accuracy and robustness of SER models in detecting emotions from speech. The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS) serves as the primary dataset, with data augmentation techniques such as noise injection, speed variation, and pitch shifting applied to improve model performance. Key features such as Mel-Frequency Cepstral Coefficients (MFCC), Mel Spectrogram, and Zero Crossing Rate (ZCR) are extracted to improve the analysis. The study uses regularization techniques, including Batch Normalization and L2 Regularization, to prevent overfitting. Eight emotion classes are evaluated namely, neutral, calm, happy, sad, angry, fear, disgust and surprise. Experimental results show significant improvements with the best test accuracy reaching 87.5%, outperforming previous studies. Visualized training history demonstrates the model’s learning behavior and generalization capabilities. The findings highlight the potential of SER-enhanced chatbots in applications such as customer service and mental health support by enabling empathetic interactions.
+
+</details>
+
+#### [Tora3: Trajectory-Guided Audio-Video Generation with Physical Coherence](https://arxiv.org/abs/2604.09057)
+**Junchao Liao, Zhenghao Zhang, Xiangyu Meng, Litao Li et al.** · 2026-04-10
+
+<details>
+<summary>Abstract</summary>
+
+Audio-video (AV) generation has recently made strong progress in perceptual quality and multimodal coherence, yet generating content with plausible motion-sound relations remains challenging. Existing methods often produce object motions that are visually unstable and sounds that are only loosely aligned with salient motion or contact events, largely because they lack an explicit motion-aware structure shared by video and audio generation. We present Tora3, a trajectory-guided AV generation framework that improves physical coherence by using object trajectories as a shared kinematic prior. Rather than treating trajectories as a video-only control signal, Tora3 uses them to jointly guide visual motion and acoustic events. Specifically, we design a trajectory-aligned motion representation for video, a kinematic-audio alignment module driven by trajectory-derived second-order kinematic states, and a hybrid flow matching scheme that preserves trajectory fidelity in trajectory-conditioned regions while maintaining local coherence elsewhere. We further curate PAV, a large-scale AV dataset emphasizing motion-relevant patterns with automatically extracted motion annotations. Extensive experiments show that Tora3 improves motion realism, motion-sound synchronization, and overall AV generation quality over strong open-source baselines.
 
 </details>
 
