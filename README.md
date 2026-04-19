@@ -279,6 +279,16 @@ Audio description (AD) makes film and television accessible to blind and low-vis
 
 </details>
 
+#### [LiveGesture Streamable Co-Speech Gesture Generation Model](https://arxiv.org/abs/2604.10927)
+**Muhammad Usama Saleem, Mayur Jagdishbhai Patel, Ekkasit Pinyoanuntapong, Zhongxing Qin et al.** · 2026-04-13
+
+<details>
+<summary>Abstract</summary>
+
+We propose LiveGesture, the first fully streamable, speech-driven full-body gesture generation framework that operates with zero look-ahead and supports arbitrary sequence length. Unlike existing co-speech gesture methods, which are designed for offline generation and either treat body regions independently or entangle all joints within a single model, LiveGesture is built from the ground up for causal, region-coordinated motion generation. LiveGesture consists of two main modules: the Streamable Vector Quantized Motion Tokenizer (SVQ) and the Hierarchical Autoregressive Transformer (HAR). The SVQ tokenizer converts the motion sequence of each body region into causal, discrete motion tokens, enabling real-time, streamable token decoding. On top of SVQ, HAR employs region-expert autoregressive (xAR) transformers to model expressive, fine-grained motion dynamics for each body region. A causal spatio-temporal fusion module (xAR Fusion) then captures and integrates correlated motion dynamics across regions. Both xAR and xAR Fusion are conditioned on live, continuously arriving audio signals encoded by a streamable causal audio encoder. To enhance robustness under streaming noise and prediction errors, we introduce autoregressive masking training, which leverages uncertainty-guided token masking and random region masking to expose the model to imperfect, partially erroneous histories during training. Experiments on the BEAT2 dataset demonstrate that LiveGesture produces coherent, diverse, and beat-synchronous full-body gestures in real time, matching or surpassing state-of-the-art offline methods under true zero look-ahead conditions.
+
+</details>
+
 #### [The Second Challenge on Real-World Face Restoration at NTIRE 2026: Methods and Results](https://arxiv.org/abs/2604.10532)
 **Jingkai Wang, Jue Gong, Zhengyi Chen, Kai Liu et al.** · 2026-04-12
 
@@ -1382,6 +1392,16 @@ Les législations mises en œuvre dans les parcs nationaux évoluent au gré de 
 <summary>Abstract</summary>
 
 Gaussian filters with deterministic sample points, such as the Unscented Kalman Filter (UKF), Cubature Kalman Filter (CKF), Gauss–Hermite Quadrature Filter (GHQF), etc., have been widely employed for nonlinear state estimation. However, these filters utilize a fixed set of sample points irrespective of the system's nonlinearity. While various studies have explored data-driven approaches to optimize the three parameters of the UKF, these methods do not generalize well to other Gaussian filters with a greater number of sample points. In this letter, we propose a novel neural network-based unified framework for finetuning sample points across all Gaussian filters with deterministic sample points. Specifically, we first pretrain a Multi-Layer Perceptron (MLP) to approximate the mapping from the state's mean and covariance to the sample points of the original Gaussian filter. The MLP then replaces the sample points generation strategy in the Gaussian filter and is further refined by maximizing the marginal likelihood of the observed measurement data. Simulation results demonstrate that the Gaussian filters leveraging the well-trained MLP as the sample point generation strategy achieve higher filtering accuracy compared to their original counterparts.
+
+</details>
+
+#### [SSE-Net: Toward Low-Power-Consumption Spiking Neural Network for Monaural Speech Enhancement](https://www.semanticscholar.org/paper/dbadb3b7ca5b365dd0ceea677bf815d0a3caced0)
+**Enrui Liu, Andong Li, Cunhang Fan, C. Zheng et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Speech enhancement (SE) as a front-end task, especially in edge device deployment, requires low complexity and power consumption. However, deploying most artificial neural network (ANN)-based SE models while ensuring performance is challenging, particularly with the rapid development of large models in recent years. Spiking neural networks (SNNs) have shown potential in reducing power consumption. However, SNN-based SE models face two main challenges: on one hand, directly converting an ANN model to a SNN model introduces redundant modules, leading to difficulties in model training and information mismatch; on the other hand, the discrete binary activation and complex spatio-temporal dynamics of SNNs often result in information loss. To address these challenges, this paper proposes the SNN Speech Enhancement Network (SSE-Net). Unlike conventional approaches that convert ANNs to SNNs, all modules in SSE-Net are specifically designed for spike signal characteristics. Furthermore, the method innovatively develops a spiking feature extraction group that simultaneously converts information into spike signals while extracting original speech features, thereby effectively reducing information loss while significantly lowering both power consumption and computational complexity. The proposed method further designs information transformation blocks to convert spike signals back into continuous signals, fine-tuning and supplementing the speech information. Experimental results demonstrate that our proposed model achieves state of the art (SOTA) performance compared to the best SNN-SE models, with a 62% reduction in power proxy and 11% reduction in power cost, it also demonstrates strong competitiveness when compared with ANN-based SE models.
 
 </details>
 
