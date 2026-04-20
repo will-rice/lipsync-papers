@@ -416,14 +416,15 @@ ML_KEYWORDS = [
     "machine learning",
     "deep learning",
     "neural",
+    "neural network",
+    "vision-language",
+    "computer vision",
     "transformer",
     "diffusion",
     "gan",
     "generative",
     "self-supervised",
     "multimodal",
-    "model",
-    "network",
     "learning-based",
 ]
 
