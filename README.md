@@ -85,16 +85,6 @@ Text-conditioned image editing has greatly benefitted from the advancements in I
 
 </details>
 
-#### [Formulation of a Lip Cream Containing Asoka Flower Extract (Ixora Javanica (Blume) DC.) as a Natural Colorant](https://www.semanticscholar.org/paper/81b55ec81024a8ef56d686c0d19ca1d73c090be1)
-**D. Dayana, K. Sari** · 2026-04-15
-
-<details>
-<summary>Abstract</summary>
-
-Lip cream is a lip coloring product in the form of a semi-solid or cream. The composition of lip cream is similar to decorative cosmetics in general, which consists of active ingredients in the form of dyes in various basic ingredients or bases. This study aims to develop a formula for herbal lip cream preparations from asoka flower extract (Ixora javanica (Blume) DC.) and provide information about evaluation tests in the form of lip cream preparations. This research began with asoka flower extract using the maceration method with 96% ethanol solvent. The extract is made into lip cream preparations with the formulas 1,2 and 3, using the melting and mixing method. The lip cream produced is evaluated and tested for stability which includes organoleptic observation, homogeneity test, pH test, dispersion test, adhesion test, application power test, and determination of the type of lip cream. The results of the physical evaluation showed that the F0, F1, F2 and F3 lip creams met the requirements for physical stability. Based on the results of the study, it can be concluded that asoka flower extract can be formulated into lip cream preparations.
-
-</details>
-
 #### [Conversational Gesture Model (CGM): Extending Speaker‐Centric Audio‐Driven Motion Generation to Full Conversation Gestures](https://www.semanticscholar.org/paper/32274cc3ad0cd0c3012eafbed4decbe314eb8acd)
 **T. Koren, A. Rosenthal, D. Friedman, A. Shamir** · 2026-04-15
 
@@ -134,50 +124,6 @@ Movie dubbing aims to synthesize speech that preserves the vocal identity of a r
 We introduce SEDTalker, an emotion-aware framework for speech-driven 3D facial animation that leverages frame-level speech emotion diarization to achieve fine-grained expressive control. Unlike prior approaches that rely on utterance-level or manually specified emotion labels, our method predicts temporally dense emotion categories and intensities directly from speech, enabling continuous modulation of facial expressions over time. The diarized emotion signals are encoded as learned embeddings and used to condition a speech-driven 3D animation model based on a hybrid Transformer-Mamba architecture. This design allows effective disentanglement of linguistic content and emotional style while preserving identity and temporal coherence. We evaluate our approach on a large-scale multi-corpus dataset for speech emotion diarization and on the EmoVOCA dataset for emotional 3D facial animation. Quantitative results demonstrate strong frame-level emotion recognition performance and low geometric and temporal reconstruction errors, while qualitative results show smooth emotion transitions and consistent expression control. These findings highlight the effectiveness of frame-level emotion diarization for expressive and controllable 3D talking head generation.
 
 </details>
-
-#### [Practitioners’ responses to Saunders and Roth’s Ten Talking Points for organising for change](https://www.semanticscholar.org/paper/f0c4a8b9a411a9729b1f14d37cac035cee20f63b)
-**Polly Neate, Lela Kogbara, W. McCallum, Clare Saunders et al.** · 2026-04-14
-
-<details>
-<summary>Abstract</summary>
-
-This collection of papers combines practitioners’ responses to the Ten Talking Points (Saunders and Roth, 2026). Neate (Shelter) reflects on practices like subversive humanitarianism, useful for rebuilding trust in charities. Kogbara (Place Matters) discusses the role of formal institutions in social change ecosystems and highlights the need for hope. McCallum (Greenpeace) focuses on the diversification and localisation of Greenpeace’s activist base, which affects its decision making. Saunders and Roth reply to the issues raised by the practitioners.
-
-</details>
-
-#### [GATA4‐Driven Transcription of HtrA1 Promotes Cellular Senescence in Ménière's Disease and Age‐Related Audio‐Vestibular Dysfunction](https://www.semanticscholar.org/paper/adc2a3b25dbb7f88989bddda2740a7bc1170327e)
-**Na Zhang, Na Li, Yan Wang, Jing Zhang et al.** · 2026-04-14
-
-<details>
-<summary>Abstract</summary>
-
-Ménière's disease (MD), a chronic inflammatory disorder with age‐related increased incidence, exhibits poorly understood pathogenesis and limited therapeutic options. Here, we demonstrate that cellular senescence, marked by mitochondrial damage, reactive oxygen species accumulation, and senescence‐associated secretory phenotype (SASP), is prevalent in the vestibular tissue of MD patients and an endolymphatic hydrops mouse model. The transcription factor GATA4 is upregulated in MD and mice, and its genetic deletion in hair cells alleviates LPS‐induced audio‐vestibular dysfunction and cellular senescence in mice and HEI‐OC1 cells. Mechanistically, HDAC6 interacts with GATA4 and restrains its nuclear transport, while RNA‐seq and ChIP‐seq identify HtrA1, a serine protease, as a direct transcriptional target of GATA4. Inhibition of HDAC6 or AAV‐mediated HtrA1 overexpression exacerbates MD‐like symptoms, whereas inhibition of HtrA1 by Galegenimab ameliorates these phenotypes in mice. In aged mice, GATA4 deletion reduces age‐related audio‐vestibular deficits and senescence markers. Collectively, our findings establish GATA4 as a critical regulator of cellular senescence and inflammaging in inner ear pathologies, providing promising therapeutic targets for MD and age‐related audio‐vestibular disorders.
-
-</details>
-
-#### [Transformer Based Machine Fault Detection From Audio Input](https://arxiv.org/abs/2604.12733)
-**Kiran Voderhobli Holla** · 2026-04-14
-
-<details>
-<summary>Abstract</summary>
-
-In recent years, Sound AI is being increasingly used to predict machine failures. By attaching a microphone to the machine of interest, one can get real time data on machine behavior from the field. Traditionally, Convolutional Neural Net (CNN) architectures have been used to analyze spectrogram images generated from the sounds captured and predict if the machine is functioning as expected. CNN architectures seem to work well empirically even though they have biases like locality and parameter-sharing which may not be completely relevant for spectrogram analysis. With the successful application of transformer-based models in the field of image processing starting with Vision Transformer (ViT) in 2020, there has been significant interest in leveraging these in the field of Sound AI. Since transformer-based architectures have significantly lower inductive biases, they are expected to perform better than CNNs at spectrogram analysis given enough data. This paper demonstrates the effectiveness of transformer-driven architectures in analyzing Sound data and compares the embeddings they generate with CNNs on the specific task of machine fault detection.
-
-</details>
-
-#### [Numerical Data-Driven Modelling of Modified Samanta Process for Cold Extrusion of Gears](https://www.semanticscholar.org/paper/c37dae489c7729fd5fa79ea5bf6a65bf5a8b4cfa)
-**T. Deliktas, M. Görz, A. Schenek, M. Speth et al.** · 2026-04-14
-
-<details>
-<summary>Abstract</summary>
-
-The Guided Material Flow (GMF) process is an advanced variant of the Samanta process designed for the net shape cold extrusion of gears. The GMF process employs a modified die geometry to control material flow and significantly reduce maximum tool loads, effectively overcoming traditional process limitations. Key advantages include enhanced tooth tip strength and a reduction in face end deformations, which are characteristic defects in the conventional Samanta process. Minimising these deformations reduces the requirement for subsequent machining and enhances overall material efficiency. A numerical dataset was generated to train and validate data driven surrogate models, facilitating rapid process analysis without the computational cost of continuous Finite Element Analysis (FEA). The models developed in this paper enable the precise prediction of critical process outputs, including maximum punch force, die filling behaviour, material utilisation and strain hardening at the tooth tip. This paper details the numerical data acquisition, the specific training and validation methodologies of the machine learning models and demonstrates their capability to accurately predict complex process outcomes when varying the geometry of the die active surface in the GMF process.
-
-</details>
-
-#### [MEDI-SLATE: medical imaging slide-lecture aligned teaching ensemble](https://www.semanticscholar.org/paper/f0f14db0dd4a0d571a87eafe5363f130dfe2792a)
-**Md. Motaleb Hossen Manik, Zabirul Islam, Ge Wang** · 2026-04-14
-
 
 #### [PENGARUH MODEL PEMBELAJARAN TALKING STICK BERBANTUAN MEDIA KOTAK RAHASIA NEGARA KITA TERHADAP PEMAHAMAN](https://www.semanticscholar.org/paper/bed5f958a409831db03d5157f22eb5ff353922ad)
 **Salsabila Alya, Kartika Yuni Purwanti** · 2026-04-14
@@ -226,16 +172,6 @@ Reconstruction of the upper lip in pediatric patients is challenging due to the 
 <summary>Abstract</summary>
 
 People living with dementia often face challenges in maintaining social relationships due to their cognitive condition. Conversational reminiscence can support well-being and interdependence; yet, deeper, life-review talk often requires self-disclosure that stigma can inhibit. We explored how the embodiment of a conversational system as a familiar, non-humanoid household object can support reminiscence. We developed the heirloom table, a conversational agent embodied in a table to support reminiscence, and employed it as a technology probe during reminiscence with five dyads of a person with dementia and an acquaintance (n=10). Our findings indicate that the embodiment of the table 1) mediated expectations for what the system could know, 2) created a welcoming place of belonging, and 3) integrated the system as a socially symmetric actor within the user’s network. Collectively, these findings point to the potential of non-humanoid, embodied conversational systems to support interdependence within ecologies of dementia care.
-
-</details>
-
-#### [Ten talking points for organising for change: an academic and practitioner exchange](https://www.semanticscholar.org/paper/b21ea5c6a75dfa7f46192fd0855918d106ea51bf)
-**Clare Saunders, Silke Roth** · 2026-04-13
-
-<details>
-<summary>Abstract</summary>
-
-This article summarises the opening plenary talk presented at the Voluntary Sector and Volunteering Research Network conference (September 2024). It takes practical lessons from Organising For Change (Bristol University Press), by the authors, and presents them as Ten Talking Points easily accessible to practitioners. It posits that careful resourcing, collaboration and multipronged tactical approaches are coconstitutive and crucial for delivering desirable, or preventing undesirable, social change. Panel respondents’ perspectives are presented in an accompanying article.
 
 </details>
 
@@ -479,16 +415,6 @@ This article describes the development of a multimodal learning system for the K
 
 </details>
 
-#### [Experiment-Driven Gaussian Process Surrogate Modeling and Bayesian Optimization for Multi-Objective Injection Molding](https://www.semanticscholar.org/paper/7decb9b2f0deb149d6ef111a39d9ad998341e016)
-**Hanafy M. Omar, S. Mukras** · 2026-04-08
-
-<details>
-<summary>Abstract</summary>
-
-Injection molding process optimization has predominantly relied on simulation-generated data, which cannot capture machine-specific variability and stochastic process noise inherent in real manufacturing environments. This paper presents an experiment-driven machine learning framework for multi-objective optimization of injection molding process parameters targeting volumetric shrinkage, warpage, cycle time, and part weight. Physical experiments were conducted on an industrial injection molding machine using high-density polyethylene with a face-centered central composite design. Systematic benchmarking of four machine learning algorithms under identical cross-validation protocols identified Gaussian process regression as the best-performing surrogate model for the majority of quality metrics, while warpage prediction remained challenging across all algorithms due to its complex thermo-mechanical origins. Permutation-based feature importance analysis established a clear parameter hierarchy, identifying holding time as the dominant factor governing multiple quality responses. Constrained Bayesian optimization with progressive constraint tightening was employed to identify optimal parameter sets and fundamental process capability boundaries. The resulting parameter configurations were validated against a held-out test set. This work demonstrates that rigorous, data-driven optimization using exclusively experimental data provides a viable and practically achievable alternative to simulation-based approaches, contributing to experiment-centric smart manufacturing in polymer processing.
-
-</details>
-
 #### [Cross-dataset video deepfake detection using Transformer and CNN architectures](https://www.semanticscholar.org/paper/b046387b16ec8705f783b3635947ac93a5e0ac06)
 **G. Petmezas** · 2026-04-07
 
@@ -520,16 +446,6 @@ Speech-driven three-dimensional (3D) facial animation synthesis aims to build a 
 <summary>Abstract</summary>
 
 Audio-Visual Large Language Models (AVLLMs) are emerging as unified interfaces to multimodal perception. We present the first mechanistic interpretability study of AVLLMs, analyzing how audio and visual features evolve and fuse through different layers of an AVLLM to produce the final text outputs. We find that although AVLLMs encode rich audio semantics at intermediate layers, these capabilities largely fail to surface in the final text generation when audio conflicts with vision. Probing analyses show that useful latent audio information is present, but deeper fusion layers disproportionately privilege visual representations that tend to suppress audio cues. We further trace this imbalance to training: the AVLLM's audio behavior strongly matches its vision-language base model, indicating limited additional alignment to audio supervision. Our findings reveal a fundamental modality bias in AVLLMs and provide new mechanistic insights into how multimodal LLMs integrate audio and vision.
-
-</details>
-
-#### [A Dual-Driven Teaching Reform for the Business Intelligence Course: Integrating Scenario-Based Learning and Industry-Education Collaboration](https://www.semanticscholar.org/paper/773827995c5da51c4aa4ef2aeb1a7490a0c03f3a)
-**Shiqi Bao** · 2026-04-03
-
-<details>
-<summary>Abstract</summary>
-
-As the digital economy reshapes enterprise operations, the convergence of business intelligence and artificial intelligence (AI) drives demand for professionals combining business acumen with technical expertise. The Business Intelligence course faces persistent challenges: technical instruction disconnected from business contexts, superficial AI integration, and practical training misaligned with industry needs. Drawing on teaching reform literature, this paper proposes a dual-driven framework integrating scenario-based teaching with industry-education collaboration. The model spans four dimensions—curriculum content redesign, instructional innovation, multi-tiered practical training, and evaluation refinement—each discussed with implementation strategies. The approach embeds AI technologies within authentic business scenarios, aiming to cultivate interdisciplinary talent equipped for evolving industry demands.
 
 </details>
 
@@ -620,26 +536,6 @@ Face anti-spoofing is an essential component in modern biometric authentication 
 #### [Protracted development in children of perceptual segregation of competing talking faces in the multisensory cocktail party problem](https://www.semanticscholar.org/paper/ee2c2f7a6d0326247f351d79bf6801ce81ca78f6)
 **Kátia Steinfeld, Micah M. Murray, David J. Lewkowicz** · 2026-03-31
 
-
-#### [PrepWise: AI Interview Assistant](https://www.semanticscholar.org/paper/6ebcaacaa769c5ce7bfe313b465449d33a5532c2)
-**Dr. Renuka Deshpande, Harshal Gawai, Advait Jadhav, Bhushan Sutar** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Evaluating candidate performance during interviews is a complex task that traditionally depends on human judgment, which can be inconsistent, time-consuming, and subjective. With the rapid advancement of Artificial Intelligence (AI), modern systems can now analyze verbal and non-verbal cues to provide objective and data-driven assessments. This paper presents a comprehensive review of recent deep learning and multimodal AI techniques used for automated interview evaluation. It focuses on the integration of Computer Vision, Natural Language Processing (NLP), and Speech Emotion Recognition for assessing facial expressions, tone of voice, and textual content of responses. Various approaches such as Convolutional Neural Networks (CNNs), Transformer-based architectures, and multimodal fusion models are discussed. The review highlights key research gaps including dataset scarcity, real-time processing challenges, bias and fairness issues, and the limited interpretability of model decisions. The paper also outlines future directions toward developing efficient, explainable, and scalable systems like PrepWise, an AI-powered interview evaluation assistant that supports consistent and unbiased candidate assessment
-
-</details>
-
-#### [Facial Recognition Attendance System Using Python and OpenCv](https://www.semanticscholar.org/paper/eaad877d9211cc04e1eb4cec8f739d19900b888b)
-**Y. Singh** · 2026-03-31
-
-<details>
-<summary>Abstract</summary>
-
-Face recognition technology has rapidly evolved into one of the most effective, unobtrusive methods for verifying personal identity, propelled by significant advancements in artificial intelligence and deep learning algorithms. Today’s sophisticated systems go beyond basic facial recognition by integrating additional biometric modalities such as retina recognition and face mask detection, thereby enhancing accuracy, security, and robustness in diverse, real-world environments. Retina recognition leverages the uniquely intricate patterns of blood vessels in an individual’s eye, providing a highly secure, virtually unforgeable layer of authentication. In response to global challenges like the COVID-19 pandemic, face mask detection—driven by convolutional neural networks (CNNs)— enables these systems to reliably identify individuals even when large portions of their faces are obscured by masks, ensuring continued functionality and safety. Furthermore, the integration of neural networks, 3D facial modeling, transfer learning techniques, and AI-based edge computing empowers modern systems to process vast amounts of visual data rapidly and efficiently. These innovations allow for performance that remains consistent despite variations in lighting, facial orientation, partial occlusions, or dynamic backgrounds. As a result, facial recognition systems have become more adaptable, scalable, and suitable for deployment in real-time applications where reliability and speed are critical. This paper explores the transformative impact of these advanced biometric technologies on contemporary face recognition solutions. It provides an in-depth examination of system architecture, the operational workflow, and real- time implementation strategies. Additionally, it discusses the broader implications for security, user privacy, and the future of identity management across multiple sectors, highlighting how these technologies are reshaping the landscape of secure authentication.
-
-</details>
 
 #### [Spiking Feature-Driven Event Simulation with Movement-Aware Polarity Integration](https://www.semanticscholar.org/paper/4e6404ba50ff039737a369e9e1c3bbf7d8b76a9d)
 **Jiwoong Oh, Byeongju Kang, Hyun-Shin Shin, Dongwoo Kang** · 2026-03-29
@@ -1340,16 +1236,6 @@ Audio-visual emotion recognition (AVER) often performs well under ideal conditio
 #### [Audiovisual speech enhancement and voice activity detection using generative and regressive visual features](https://www.semanticscholar.org/paper/39f39c0552dada9cc7cef73426ef4adde6a9a344)
 **Cheng Yu, Vahid Ahmadi Kalkhorani, Buye Xu, DeLiang Wang** · 2026-01-01
 
-
-#### [Nose-Lip and Background Region Segmentation for Precisely Predicting Face Orientation](https://www.semanticscholar.org/paper/18c0ac07f9e1aba4fdb997f0a3891c3123a06c34)
-**S. Prakash** · 2026-01-01
-
-<details>
-<summary>Abstract</summary>
-
-—The core necessity for the video analysis-based application is the prediction of human face orientation. Here, we propose a unique and novel solution for predicting face orientation through a combination of facial features like the nose and lip region, along with non-facial features like the background region of the facial image. The proposed solution has two stages. The first stage, namely the Nose-Lip Segmenter (NLSeg), generates a nose-lip mask (m2) through a custom-trained U-Net model. The U-Net model segments the nose and lip region very accurately with an Intersection Over Union (IOU) score of 87.56%. The second stage generates a background region mask (m1) through two different methods. In the first method, a background region mask (m1) is constructed through the k-means clustering and Hue-Saturation-Value (HSV) skin color model. In the second method, the background region mask (m1) is constructed through the media-pipe selfie segmentation model. The proposed algorithm blends the nose-lip mask (m2) and background region mask (m1) together to predict face orientation across left, right, and neutral directions. The efficiency of both approaches, namely (NLSeg+method 1) and (NLSeg+method 2), is studied and evaluated on six public datasets namely BIWI-Kinect, AFLW2000-3D, Pandora, Pointing04, Stirling/ESRC 3D face, and multi camera pedestrians video dataset obtained from École Polytechnique Fédérale de Lausanne (EPFL). The proposed work yields very accurate results in spite of challenges like diverse head pose angles, facial expressions, or improper segmentation. The accuracy is 98% when subjects are non-occluded and is above 90% in the case of partial occlusion
-
-</details>
 
 #### [Semantic Modulated Prompting for Few-Shot Audio-Visual Classification](https://www.semanticscholar.org/paper/b549e79f5d9943c9644151c66be758be5e7983d3)
 **Guanjie Huang, Yawen Cui, Danny Hin Kwok Tsang, Wenwu Wang et al.** · 2026-01-01
