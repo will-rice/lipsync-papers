@@ -45,6 +45,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Hierarchical Codec Diffusion for Video-to-Speech Generation](https://arxiv.org/abs/2604.15923)
+**Jiaxin Ye, Gaoxiang Cong, Chenhui Wang, Xin-Cheng Wen et al.** · 2026-04-17
+
+<details>
+<summary>Abstract</summary>
+
+Video-to-Speech (VTS) generation aims to synthesize speech from a silent video without auditory signals. However, existing VTS methods disregard the hierarchical nature of speech, which spans coarse speaker-aware semantics to fine-grained prosodic details. This oversight hinders direct alignment between visual and speech features at specific hierarchical levels during property matching. In this paper, leveraging the hierarchical structure of Residual Vector Quantization (RVQ)-based codec, we propose HiCoDiT, a novel Hierarchical Codec Diffusion Transformer that exploits the inherent hierarchy of discrete speech tokens to achieve strong audio-visual alignment. Specifically, since lower-level tokens encode coarse speaker-aware semantics and higher-level tokens capture fine-grained prosody, HiCoDiT employs low-level and high-level blocks to generate tokens at different levels. The low-level blocks condition on lip-synchronized motion and facial identity to capture speaker-aware content, while the high-level blocks use facial expression to modulate prosodic dynamics. Finally, to enable more effective coarse-to-fine conditioning, we propose a dual-scale adaptive instance layer normalization that jointly captures global vocal style through channel-wise normalization and local prosody dynamics through temporal-wise normalization. Extensive experiments demonstrate that HiCoDiT outperforms baselines in fidelity and expressiveness, highlighting the potential of discrete modelling for VTS. The code and speech demo are both available at https://github.com/Jiaxin-Ye/HiCoDiT.
+
+</details>
+
 #### [Giving Faces Their Feelings Back: Explicit Emotion Control for Feedforward Single-Image 3D Head Avatars](https://arxiv.org/abs/2604.14541)
 **Yicheng Gong, Jiawei Zhang, Liqiang Liu, Yanwen Wang et al.** · 2026-04-16
 
@@ -168,6 +178,16 @@ The Guided Material Flow (GMF) process is an advanced variant of the Samanta pro
 #### [MEDI-SLATE: medical imaging slide-lecture aligned teaching ensemble](https://www.semanticscholar.org/paper/f0f14db0dd4a0d571a87eafe5363f130dfe2792a)
 **Md. Motaleb Hossen Manik, Zabirul Islam, Ge Wang** · 2026-04-14
 
+
+#### [PENGARUH MODEL PEMBELAJARAN TALKING STICK BERBANTUAN MEDIA KOTAK RAHASIA NEGARA KITA TERHADAP PEMAHAMAN](https://www.semanticscholar.org/paper/bed5f958a409831db03d5157f22eb5ff353922ad)
+**Salsabila Alya, Kartika Yuni Purwanti** · 2026-04-14
+
+<details>
+<summary>Abstract</summary>
+
+This study aims to determine the effect of the Talking Stick learning model assisted by the “Kotak Rahasia Negara Kita” media on the conceptual understanding of fifth-grade elementary school students. The study employed a quantitative approach with a quasi-experimental method using a Nonequivalent Control Group Design. The research subjects consisted of two groups, namely the experimental class and the control class, which were selected through purposive sampling. Data collection techniques were carried out using tests to measure students’ conceptual understanding through pretest and posttest in the form of essay questions based on conceptual understanding indicators. In addition, non-test techniques such as observation, questionnaires, interviews, and documentation were used as supporting data. Data analysis was conducted using SPSS through validity tests, reliability tests, item difficulty, discrimination index, normality test, homogeneity test, and hypothesis testing using independent sample t-test and simple linear regression. The results showed that there was a significant effect of the Talking Stick learning model assisted by the “Kotak Rahasia Negara Kita” media on students’ conceptual understanding. This is indicated by the t-test significance value of 0.004 (<0.05) and the regression significance value of 0.024 (<0.05). Therefore, the learning model is effective in improving students’ conceptual understanding.
+
+</details>
 
 #### [Component-Wise Sketching and Generation for Car Interior Design](https://www.semanticscholar.org/paper/4df7ae80bb616e8afb8b648a6aa358bcf4b6ffd5)
 **J. Yoon, Seung-Jun Lee, Donghyeok Ma, Seok-Hyung Bae** · 2026-04-13
