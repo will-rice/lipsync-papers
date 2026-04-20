@@ -387,6 +387,47 @@ NEGATIVE_KEYWORDS = [
     "smart glasses",
 ]
 
+# Positive relevance keywords – papers must contain at least one of these
+# lipsync/talking-face signals in title or abstract.
+POSITIVE_RELEVANCE_KEYWORDS = [
+    "lip sync",
+    "lipsync",
+    "lip synchronization",
+    "lip-synchronization",
+    "lip-synced",
+    "lip movement",
+    "talking head",
+    "talking face",
+    "talking avatar",
+    "speech-driven face",
+    "audio-driven face",
+    "audio-driven talking",
+    "visual dubbing",
+    "neural dubbing",
+    "movie dubbing",
+    "face reenactment",
+    "facial reenactment",
+    "facial animation",
+    "visual speech",
+]
+
+# ML keywords – papers must also look like ML/CV/AI research to pass.
+ML_KEYWORDS = [
+    "machine learning",
+    "deep learning",
+    "neural",
+    "neural network",
+    "vision-language",
+    "computer vision",
+    "transformer",
+    "diffusion",
+    "gan",
+    "generative",
+    "self-supervised",
+    "multimodal",
+    "learning-based",
+]
+
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
 API_DELAY_SECONDS = 3
 
@@ -490,12 +531,38 @@ def _parse_entry(entry: ET.Element) -> dict | None:
 
 
 _NEGATIVE_KEYWORDS_LOWER = [kw.lower() for kw in NEGATIVE_KEYWORDS]
+_POSITIVE_RELEVANCE_KEYWORDS_LOWER = [kw.lower() for kw in POSITIVE_RELEVANCE_KEYWORDS]
+_ML_KEYWORDS_LOWER = [kw.lower() for kw in ML_KEYWORDS]
+
+
+def _paper_haystack(paper: dict) -> str:
+    """Return lower-cased title+abstract text for keyword matching."""
+    return f"{paper.get('title', '')} {paper.get('abstract', '')}".lower()
+
+
+def _matches_any_keyword(haystack: str, keywords: list[str]) -> bool:
+    """Return True when any keyword is present in *haystack*."""
+    return any(kw in haystack for kw in keywords)
 
 
 def _is_excluded(paper: dict) -> bool:
     """Return True if the paper matches any negative keyword."""
-    haystack = f"{paper.get('title', '')} {paper.get('abstract', '')}".lower()
-    return any(kw in haystack for kw in _NEGATIVE_KEYWORDS_LOWER)
+    return _matches_any_keyword(_paper_haystack(paper), _NEGATIVE_KEYWORDS_LOWER)
+
+
+def _has_positive_relevance_signal(paper: dict) -> bool:
+    """Return True if the paper has lipsync/talking-face relevance signals."""
+    return _matches_any_keyword(_paper_haystack(paper), _POSITIVE_RELEVANCE_KEYWORDS_LOWER)
+
+
+def _has_ml_signal(paper: dict) -> bool:
+    """Return True if the paper appears to be ML/CV/AI focused."""
+    return _matches_any_keyword(_paper_haystack(paper), _ML_KEYWORDS_LOWER)
+
+
+def _is_relevant_lipsync_paper(paper: dict) -> bool:
+    """Return True if paper passes exclusion, ML, and positive relevance gates."""
+    return not _is_excluded(paper) and _has_ml_signal(paper) and _has_positive_relevance_signal(paper)
 
 
 def fetch_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
@@ -864,7 +931,7 @@ def _collect_from_source(
 
         for paper in papers:
             pid = paper["arxiv_id"]
-            if pid not in existing and not _is_excluded(paper):
+            if pid not in existing and _is_relevant_lipsync_paper(paper):
                 existing[pid] = paper
                 new_count += 1
                 print(f"  + {pid}: {paper['title'][:70]}")
@@ -911,12 +978,12 @@ def main() -> None:
     existing = load_existing_papers()
     print(f"Loaded {len(existing)} existing papers from {PAPERS_CSV.name}.")
 
-    # Remove any previously saved papers that match negative keywords.
+    # Remove any previously saved papers that no longer pass relevance gates.
     before = len(existing)
-    existing = {pid: p for pid, p in existing.items() if not _is_excluded(p)}
+    existing = {pid: p for pid, p in existing.items() if _is_relevant_lipsync_paper(p)}
     removed = before - len(existing)
     if removed:
-        print(f"Removed {removed} existing paper(s) matching negative keywords.")
+        print(f"Removed {removed} existing paper(s) failing relevance filters.")
 
     new_count = 0
     new_count += _collect_from_source("arXiv", fetch_papers, SEARCH_QUERIES, start_date, end_date, existing)
