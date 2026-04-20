@@ -982,7 +982,7 @@ def main() -> None:
     existing = {pid: p for pid, p in existing.items() if _is_relevant_lipsync_paper(p)}
     removed = before - len(existing)
     if removed:
-        print("Removed {0} existing paper(s) failing relevance filters.".format(removed))
+        print(f"Removed {removed} existing paper(s) failing relevance filters.")
 
     new_count = 0
     new_count += _collect_from_source("arXiv", fetch_papers, SEARCH_QUERIES, start_date, end_date, existing)
