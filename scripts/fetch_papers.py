@@ -852,7 +852,7 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
 
     sections: list[str] = []
     for year in sorted(by_year.keys(), reverse=True):
-        section_lines = [f"### {year}", ""]
+        section_lines = [f"<details open>", f"<summary><h3>{year}</h3></summary>", ""]
         for row in by_year[year]:
             # Truncate long author lists for readability
             authors = row.get("authors", "")
@@ -877,6 +877,7 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
             else:
                 section_lines.append("")
 
+        section_lines.append("</details>")
         sections.append("\n".join(section_lines))
 
     return "\n\n".join(sections)
