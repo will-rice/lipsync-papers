@@ -176,6 +176,16 @@ Audio-driven 3D talking head synthesis has advanced rapidly with Neural Radiance
 
 </details>
 
+#### [Real-Time Multi Model Synchronization of TTS, Lip Sync, and Caption Generation using Deep Learning](https://www.semanticscholar.org/paper/fed7460b81f31dc2f11a904110a7283afd760241)
+**Abhay Gupta, Aditi Kesarwani, Ashish Kumar Mishra, Shubha Mishra** · 2026-03-20
+
+<details>
+<summary>Abstract</summary>
+
+Abstract: Real-time multimodal communication systems require seamless synchronization between speech generation, lip movements, and textual captions to create natural, accessible, and interactive digital experiences. This work proposes a unified deep-learning–based framework for real-time multimodal synchronization of Text-to-Speech (TTS), lipsync animation, and caption generation. The system integrates a streaming neural TTS model, an audio/text-driven lipsync module, and a low-latency caption generator built on streaming ASR. A central synchronization engine aligns phoneme timestamps, viseme transitions, and caption token timings using adaptive buffering and drift-correction strategies. This ensures that all three modalities—audio, visual articulation, and text output—remain synchronized within perceptually acceptable thresholds (<40 ms). The proposed pipeline improves temporal coherence, reduces caption lag, and enhances user experience in applications such as virtual presenters, digital avatars, assistive technologies, and human–AI communication. Experimental evaluation demonstrates significant improvements in alignment accuracy and latency over baseline independent systems. The framework sets a scalable foundation for future advancements in expressive avatars, multilingual communication, and low-resource real-time deployment. Keywords: Real-time synchronization, Text-to-Speech (TTS), Lipsync, Caption generation, Multimodal deep learning, Phoneme–viseme alignment, Streaming ASR, Neural vocoder, Human–computer interaction, Virtual avatar systems.
+
+</details>
+
 #### [EARTalking: End-to-end GPT-style Autoregressive Talking Head Synthesis with Frame-wise Control](https://arxiv.org/abs/2603.20307)
 **Yuzhe Weng, Haotian Wang, Yuanhong Yu, Jun Du et al.** · 2026-03-19
 
@@ -203,6 +213,26 @@ Real-time talking avatar generation requires low latency and minute-level tempor
 <summary>Abstract</summary>
 
 Video dubbing has broad applications in filmmaking, multimedia creation, and assistive speech technology. Existing approaches either train directly on limited dubbing datasets or adopt a two-stage pipeline that adapts pre-trained text-to-speech (TTS) models, which often struggle to produce expressive prosody, rich acoustic characteristics, and precise synchronization. To address these issues, we propose DiFlowDubber with a novel two-stage training framework that effectively transfers knowledge from a pre-trained TTS model to video-driven dubbing, with a discrete flow matching generative backbone. Specifically, we design a FaPro module that captures global prosody and stylistic cues from facial expressions and leverages this information to guide the modeling of subsequent speech attributes. To ensure precise speech-lip synchronization, we introduce a Synchronizer module that bridges the modality gap among text, video, and speech, thereby improving cross-modal alignment and generating speech that is temporally synchronized with lip movements. Experiments on two primary benchmark datasets demonstrate that DiFlowDubber outperforms previous methods across multiple metrics.
+
+</details>
+
+#### [Emotion-Conditioned Motion Sub-spaces with Flow Matching for Real-Time Audio-Driven Talking Heads](https://www.semanticscholar.org/paper/ca037d58a95f1448e433fe8e8e21e003cfbd7fa8)
+**Haoyu Wang, Xiaozhe Xin, Xiaoyu Qin, Meiguang Jin et al.** · 2026-03-14
+
+<details>
+<summary>Abstract</summary>
+
+Recent advances in audio-driven talking-head synthesis have brought lip-sync precision close to human perception, yet emotional fidelity and real-time inference remain open challenges. Existing pipelines typically disentangle lip articulation, facial expression, and head pose in latent space; this rigid factorization ignores the intrinsic coupling between articulation and affect — e.g., downward lip corners when sad—thus limiting expressiveness. We cast speech-conditioned facial motion as a sample from an emotion-conditioned distribution in a motion latent space. Concretely, we (i) learn a motion dictionary of orthogonal bases with an autoencoder via self-supervision, (ii) construct emotion-conditioned sub-spaces within the latent space, and (iii) design a layer-progressive cross-attention fusion module that modulates a flow-matching sampler with both audio and emotion signals. Only ten reverse ODE steps are required to generate a motion-latent trajectory, enabling real-time end-to-end latency. Extensive experiments on MEAD and RAVDESS show that our method outperforms recent GAN- and diffusion-based baselines in emotion accuracy while running at around 75 FPS on a single desktop GPU. The proposed framework delivers the first emotionally expressive Audio2Face system that simultaneously achieves lip-sync accuracy, affective realism, and real-time performance.
+
+</details>
+
+#### [Training-Free Multi-Character Audio-Driven Animation via Diffusion Transformer with Reward Feedback](https://www.semanticscholar.org/paper/a69575793b10289587dc5a63e4779186c1466f81)
+**Xingpei Ma, Shenneng Huang, Jiaran Cai, Yuansheng Guan et al.** · 2026-03-14
+
+<details>
+<summary>Abstract</summary>
+
+Recent advances in diffusion models have significantly improved audio-driven human video generation, surpassing traditional methods in both quality and controllability. However, existing approaches still face challenges in lip-sync accuracy, temporal coherence for long video generation, and multi-character animation. In this work, we propose a diffusion transformer (DiT)-based framework for generating lifelike talking videos of arbitrary length, and introduce a training-free method for multi-character audio-driven animation. First, we employ a LoRA-based training strategy combined with a position shift inference approach, which enables efficient long video generation while preserving the capabilities of the foundation model. Moreover, we combine partial parameter updates with reward feedback to enhance both lip synchronization and natural body motion. Finally, we propose a training-free approach, Mask Classifier-Free Guidance (Mask-CFG), for multi-character animation, which requires no specialized datasets or model modifications and supports audio-driven animation for three or more characters. Experimental results demonstrate that our method outperforms existing state-of-the-art approaches, achieving high-quality, temporally coherent, and multi-character audio-driven video generation in a simple, efficient, and cost-effective manner.
 
 </details>
 
@@ -366,6 +396,16 @@ Movie dubbing is the task of synthesizing speech from scripts conditioned on vid
 
 </details>
 
+#### [Audio-driven single image talking face animation with transformers](https://www.semanticscholar.org/paper/8728bdcb4f6492c5cd9541df88d1b79ad351ded8)
+**Yixin Li, Xizhong Shen** · 2026-01-19
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking-head video generation is a critical task in cross-modal expressive synthesis, with applications in virtual humans, digital content creation, and human-computer interaction. Existing methods, however, often suffer from unnatural lip movements and distortions in non-speech facial regions, especially under exaggerated expressions or emotional variations. These issues arise due to the entanglement of linguistic content, prosodic emotion, and speaker-specific attributes within the audio signal. To address these challenges, we propose ExpNet, a Transformer-based expression regression framework that decouples global head motion from local facial expressions using 3DMM coefficients. The method employs a conditional VAE for robust head pose coefficient generation, while a CNN-Transformer architecture regresses expression coefficients. ExpNet introduces ALiBi-based relative positional bias in the self-attention mechanism, which captures long-range dependencies while focusing on local temporal context. It also conditions on the first-frame expression coefficient to preserve identity and emotion consistency throughout the video. Experimental evaluations on multiple datasets, including HDTF, MEAD, and LRS3, demonstrate that the method presented in this paper outperforms existing methods in terms of expression realism, lip synchronization, and video quality. Ablation studies reveal that key components such as ALiBi, landmark supervision, and the Transformer module are crucial for improving temporal stability, reducing lip jitter, and enhancing overall facial animation consistency.
+
+</details>
+
 #### [Now You See Me, Now You Don't: A Unified Framework for Expression Consistent Anonymization in Talking Head Videos](https://arxiv.org/abs/2601.11635)
 **Anil Egin, Andrea Tangherloni, Antitza Dantcheva** · 2026-01-14
 
@@ -393,6 +433,16 @@ Current audio-driven 3D head generation methods mainly focus on single-speaker s
 <summary>Abstract</summary>
 
 Joint audio-video generation aims to synthesize synchronized multisensory content, yet current unified models struggle with fine-grained acoustic control, particularly for identity-preserving speech. Existing approaches either suffer from temporal misalignment due to cascaded generation or lack the capability to perform zero-shot voice cloning within a joint synthesis framework. In this work, we present MM-Sonate, a multimodal flow-matching framework that unifies controllable audio-video joint generation with zero-shot voice cloning capabilities. Unlike prior works that rely on coarse semantic descriptions, MM-Sonate utilizes a unified instruction-phoneme input to enforce strict linguistic and temporal alignment. To enable zero-shot voice cloning, we introduce a timbre injection mechanism that effectively decouples speaker identity from linguistic content. Furthermore, addressing the limitations of standard classifier-free guidance in multimodal settings, we propose a noise-based negative conditioning strategy that utilizes natural noise priors to significantly enhance acoustic fidelity. Empirical evaluations demonstrate that MM-Sonate establishes new state-of-the-art performance in joint generation benchmarks, significantly outperforming baselines in lip synchronization and speech intelligibility, while achieving voice cloning fidelity comparable to specialized Text-to-Speech systems.
+
+</details>
+
+#### [Emotionally Controllable Audio-driven Talking Face Generation](https://www.semanticscholar.org/paper/599c27a3333605649161d905c21060d190becf2d)
+**Yifan Xu, Sirui Zhao, Shifeng Liu, Tong Xu et al.** · 2026-01-03
+
+<details>
+<summary>Abstract</summary>
+
+Talking face generation is a technique that synthesizes realistic, speech-synchronized facial animations from static images driven by audio or textual input. In recent years, notable advancements have been achieved in the generation of realistic lip-synchronized talking face videos. Although these methods have demonstrated highly realistic results in lip-sync generation, they rarely focus on the expression of emotions, which is essential for achieving emotionally rich and lifelike talking face videos. In this article, we propose a novel emotionally controllable audio-driven talking face generation framework, termed ECATFG. Specifically, the proposed ECATFG mainly consists of three modules: template video generator, landmark generator, and rendering module. Firstly, we integrate a customized motion transfer module into StyleGAN to generate template videos that encapsulate the target emotions and head movements. Subsequently, a Mamba-based landmark generator is proposed to accurately model the correlation between input audio and facial landmarks. Afterwards, in the rendering module, we employ a framework that combines both AdaIN and SPADE layers to transform audio-predicted landmarks into highly realistic images, guided by reference images and facial contour landmarks. Finally, comprehensive experiments validate the effectiveness of ECATFG, demonstrating its capability to generate high-quality talking face videos that not only achieve exceptional lip-synchronization accuracy but also effectively convey a wide range of emotions.
 
 </details>
 
@@ -467,6 +517,16 @@ Generating realistic, dyadic talking head video requires ultra-low latency. Exis
 
 </details>
 
+#### [Accelerating LatentSync Lip-Synchronization via OmniQuant-Inspired Post-Training Quantization](https://www.semanticscholar.org/paper/b2a9ada0ddddf56534fc4d6822f442ea1d93edea)
+**Guolin Wang** · 2025-12-26
+
+<details>
+<summary>Abstract</summary>
+
+Lip-synchronization models play an important role in audio-driven facial animation and virtual human applications. LatentSync is a representative latent-based lip synchronization model that achieves high-quality temporal alignment between audio and visual modalities. However, the inference process of LatentSync relies on deep neural network components with considerable computational cost, which limits its deployment in real-time and resource-constrained scenarios. In this paper, we investigate an OmniQuant-inspired posttraining quantization (PTQ) strategy to accelerate the inference of the LatentSync lip-synchronization model. By applying INT8 weight-only quantization to the core generative backbone, the proposed method significantly reduces model size and inference latency without requiring retraining. The proposed approach follows the calibration principles of OmniQuant, including adaptive weight clipping and equivalent transformation, to mitigate quantization-induced performance degradation. Experimental results show that the proposed approach achieves noticeable inference acceleration and model compression, with no obvious functional degradation observed during empirical evaluation. These results demonstrate that OmniQuant-inspired post-training quantization provides a practical and efficient solution for accelerating lip-synchronization models in real-world applications.
+
+</details>
+
 #### [SyncAnyone: Implicit Disentanglement via Progressive Self-Correction for Lip-Syncing in the wild](https://arxiv.org/abs/2512.21736)
 **Xindi Zhang, Dechao Meng, Steven Xiao, Qi Wang et al.** · 2025-12-25
 
@@ -507,6 +567,16 @@ This paper introduces a parallel and asynchronous Transformer framework designed
 
 </details>
 
+#### [3D Face Animation Generation Method Based on Self-Supervised Speech Coding and Lattice Convolutional Architecture](https://www.semanticscholar.org/paper/40f7cbd9952048787b5ae47712473017f2927ff5)
+**Yunying Wang** · 2025-12-20
+
+<details>
+<summary>Abstract</summary>
+
+Existing 3D face animation generation methods focus on lip movement and audio synchronization, ignoring the ability to synchronize expressions and poses. To address this problem, the study proposes a Self-Supervised Speech-Driven 3D Face Animation via Lattice Convolution Networks. The study first selected students from a certain school to read aloud the same corpus and record audio and video as the dataset. Through self-supervised learning and encoder-decoder structure, the speech features were extracted and mapped, and the obtained facial parameters were applied to the Face Latent Animated Mesh Estimator model to achieve lip-sync. Then, by combining the optical flow information in the video stream with the changes of facial key points, the grid convolutional network is used to model the expression dynamics and head postures, achieving multimodal feature fusion. In the experiment of analyzing the naturalness and accuracy of the generated animation, the lip shape vertex error, naturalness score, lip reading character error rate, and pixel error rate of the proposed method were only 2.54mm ², 9.45, 2.34%, and 2.53% respectively. In the performance analysis experiment of the emotion and posture recognition model, the accuracy rate of expression recognition and the posture offset error were 92.34% and 1.2° respectively. The lighting sensitivity, micro-expression fidelity and rendering frame rate of the generated face animation were 5.01, 93.48% and 63.74FPS respectively. The proposed 3D face animation generation method can effectively improve the realism and synchronization of the animation and achieve more accurate face animation generation.
+
+</details>
+
 #### [InstructDubber: Instruction-based Alignment for Zero-shot Movie Dubbing](https://arxiv.org/abs/2512.17154)
 **Zhedong Zhang, Liang Li, Gaoxiang Cong, Chunshan Liu et al.** · 2025-12-19
 
@@ -524,6 +594,16 @@ Movie dubbing seeks to synthesize speech from a given script using a specific vo
 <summary>Abstract</summary>
 
 Recent advances in neural portrait animation have demonstrated remarked potential for applications in virtual avatars, telepresence, and digital content creation. However, traditional explicit warping approaches often struggle with accurate motion transfer or recovering missing regions, while recent attention-based warping methods, though effective, frequently suffer from high complexity and weak geometric grounding. To address these issues, we propose SynergyWarpNet, an attention-guided cooperative warping framework designed for high-fidelity talking head synthesis. Given a source portrait, a driving image, and a set of reference images, our model progressively refines the animation in three stages. First, an explicit warping module performs coarse spatial alignment between the source and driving image using 3D dense optical flow. Next, a reference-augmented correction module leverages cross-attention across 3D keypoints and texture features from multiple reference images to semantically complete occluded or distorted regions. Finally, a confidence-guided fusion module integrates the warped outputs with spatially-adaptive fusing, using a learned confidence map to balance structural alignment and visual consistency. Comprehensive evaluations on benchmark datasets demonstrate state-of-the-art performance.
+
+</details>
+
+#### [TalkPersonaDiff: High-Fidelity Speech-Driven 3D Facial Animation Generation via Unified Multimodal Synergistic Encoding and Dual-Style Modulation](https://www.semanticscholar.org/paper/05fd46beb0bf6e21f12896e708fa6ea24afea52c)
+**Ouyang Peng, Zhuoyuan Yu, Tong Wu, Zhiqiang Zhang** · 2025-12-19
+
+<details>
+<summary>Abstract</summary>
+
+Speech-driven 3D facial animation is critical for virtual humans, yet balancing Long-term Identity Consistency and Fine-grained Lip-sync in long sequences remains challenging. We propose TalkPersonaDiff, a conditional diffusion framework featuring a Unified Multimodal Synergistic Encoder to align speech semantics and identity priors in a latent space. Furthermore, to mitigate condition forgetting, we design a Dual-Style Modulation Mechanism that employs global injection and local re-weighting to maintain conditional efficacy throughout the denoising process. Experiments on BIWI and VOCASET demonstrate that TalkPersonaDiff outperforms mainstream methods in identity distinctiveness, lip-sync accuracy, and temporal smoothness, achieving high-fidelity, personalized 3D animation .
 
 </details>
 
@@ -597,6 +677,46 @@ Speech-driven talking heads have recently emerged and enable interactive avatars
 
 </details>
 
+#### [FlowTalk: Real-Time Audio-Driven Talking Head Synthesis via Motion-Space Flow Matching](https://www.semanticscholar.org/paper/90b687acd9b3b1df39583c9cbf9a36e41fd13538)
+**Kaijun Deng, Yuhang Guo, Linlin Shen** · 2025-12-08
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking head synthesis has achieved significant progress, yet existing methods face critical trade-offs among generation quality, inference efficiency, and cross-ethnic generalization. Diffusion-based approaches produce high-fidelity results but suffer from slow inference due to iterative denoising, while GAN-based methods achieve faster speed at the cost of reduced motion naturalness and limited generalization. To address these challenges, we propose FlowTalk, a novel framework that enables real-time high-fidelity talking head video synthesis. Our approach leverages Flow Matching technology to perform efficient motion modeling in a decoupled motion space rather than pixel space, achieving significant speedup while maintaining generation quality. Specifically, we adopt an off-the-shelf motion extractor to disentangle facial appearance from motion, and employ an OT-based flow matching model with a transformer architecture to predict identity-agnostic motion sequences conditioned on audio features. To improve cross-ethnic generalization, we train on a balanced combination of DH-FaceVid-1K and HDTF datasets with HuBert-CN as the audio encoder. Experimental results demonstrate that FlowTalk achieves over 100 FPS in motion-space inference with 32 ODE solver steps, approximately 5 times faster than diffusion-based baselines with 500 steps, while preserving comparable visual quality in lip synchronization, facial expressions, and head movements. This efficiency, further enhanced through TensorRT deployment, enables truly real-time generation. Our framework provides an effective and practical solution for real-time talking head generation applications.
+
+</details>
+
+#### [Synchronization of Speech and Lip Motion with a Service Humanoid Robot](https://www.semanticscholar.org/paper/0982ab995632b833b80b34147e62c8a00824f7d0)
+**Qiaowen Wu, Huan Peng, Songji Chen, Mingcong Wang et al.** · 2025-12-03
+
+<details>
+<summary>Abstract</summary>
+
+With the increasing deployment of humanoid service robots in presentation and narration scenarios, there is a growing demand for more natural and effective interactive capabilities. To enhance the expressiveness and motion coordination of robot-delivered narration, this study presents a lip-synchronized presentation system. The proposed system ensures precise synchronization among speech output, lip movements, and slide progression, thereby enhancing the naturalness and coherence of the narration process. It consists of three primary modules: a speech processing module for speech synthesis and recognition, a slide control module for intent recognition and presentation management, and a lip-synchronization module that aligns lip motions with spoken content. Experimental results demonstrate that the system achieves high synchronization accuracy and operational stability. This work provides a solid technical foundation for integrating humanoid service robots into multimodal narration tasks.
+
+</details>
+
+#### [PhonemeNet: A Transformer Pipeline for Text-Driven Facial Animation](https://www.semanticscholar.org/paper/26a484edbab96233b524fd429d76807a23c3e116)
+**Philine Witzig, Barbara Solenthaler, Markus Gross, Rafael Wampfler** · 2025-12-02
+
+<details>
+<summary>Abstract</summary>
+
+We present a fully text-driven framework for 3D facial animation that eliminates the need for audio input or explicit prosodic cues. Our architecture extracts rich phoneme embeddings from text using a pre-trained TTS encoder, aligns them with quantized motion embeddings via a transformer decoder, and decodes the result into mesh deformations through a pre-trained transformer decoder. We explore two scenarios of our pipeline: (1) In the single-subject setting, we find that phoneme embeddings alone can yield accurate lip motion. (2) In a multi-subject setting, where speaker articulation varies widely, we introduce stochastic latent modulation to model residual variability conditioned on both phoneme context and speaker identity. We evaluate our approach quantitatively and qualitatively: We demonstrate accurate lip sync in the single-subject case, and compare against audio-driven baselines on a large multi-subject dataset. Our results show that PhonemeNet not only achieves competitive lip sync and motion quality, but also offers flexibility, modularity, and scalability as an alternative to audio-driven facial animation.
+
+</details>
+
+#### [Multilingual Speech-Driven Talking-Face Generation with Precise Lip Synchronization](https://www.semanticscholar.org/paper/e716de5959076556b3c54bc846fb61ee9a29204d)
+**Che-Wen Chen, Jhing-Fa Wang, Din-Yuen Chan, James Chao et al.** · 2025-12-01
+
+<details>
+<summary>Abstract</summary>
+
+We propose a modular pipeline that converts Chinese text into Taiwanese Hokkien speech and synthesizes a photorealistic talking-face video. The system couples a Taiwanese-aware TTS front end (hybrid word segmentation, iTaigi Tâi-lô romanization with dynamic tone annotation, tone-aware Tacotron2) with a Seed-VC–style timbre converter and a two-stage speech-driven talking-face synthesizer using cross-modal fusion, temporal modeling, and diffusion rendering. On an internal set, the speech reaches MOS 4.602 and CER 2.01%. On talking-face benchmarks, we obtain FID 29.18, CPBD 0.498, and LSE-D 7.23, surpassing representative baselines in realism, sharpness, and lip-sync. The design is lightweight and modular, runs on a single RTX 3080, and is transferable to other low-resource tonal languages.
+
+</details>
+
 #### [EmoDiffTalk:Emotion-aware Diffusion for Editable 3D Gaussian Talking Head](https://arxiv.org/abs/2512.05991)
 **Chang Liu, Tianjiao Jing, Chengcheng Ma, Xuanqi Zhou et al.** · 2025-11-30
 
@@ -604,6 +724,16 @@ Speech-driven talking heads have recently emerged and enable interactive avatars
 <summary>Abstract</summary>
 
 Recent photo-realistic 3D talking head via 3D Gaussian Splatting still has significant shortcoming in emotional expression manipulation, especially for fine-grained and expansive dynamics emotional editing using multi-modal control. This paper introduces a new editable 3D Gaussian talking head, i.e. EmoDiffTalk. Our key idea is a novel Emotion-aware Gaussian Diffusion, which includes an action unit (AU) prompt Gaussian diffusion process for fine-grained facial animator, and moreover an accurate text-to-AU emotion controller to provide accurate and expansive dynamic emotional editing using text input. Experiments on public EmoTalk3D and RenderMe-360 datasets demonstrate superior emotional subtlety, lip-sync fidelity, and controllability of our EmoDiffTalk over previous works, establishing a principled pathway toward high-quality, diffusion-driven, multimodal editable 3D talking-head synthesis. To our best knowledge, our EmoDiffTalk is one of the first few 3D Gaussian Splatting talking-head generation framework, especially supporting continuous, multimodal emotional editing within the AU-based expression space.
+
+</details>
+
+#### [Open-Source Lip-Sync Models in the Period 2020--2025: A Structured Comparative Analysis](https://www.semanticscholar.org/paper/944e04e8799bbee4507ce55cfcadc179ba7064b5)
+**Bilge Sağlam, Mustafa Keles, Mehmet Kutanoglu** · 2025-11-30
+
+<details>
+<summary>Abstract</summary>
+
+Recent advancements in artificial intelligence have led to significant progress in the field of lip synchronization (lip-sync). This paper presents a systematic literature review focusing on popular open-source lip-sync models developed between 2020 and 2025, a period marked by the rapid evolution of deep generative models. Our aim was to examine and classify the prominent models of this era based on their architecture, performance, and technological approaches. To conduct our review, we searched the IEEE Xplore and Scopus databases. This study is based on three main methods most commonly used in the field: Generative Adversarial Networks (GANs), Transformers, and Diffusion Models. Each method was analyzed in detail using its popular representatives: Wav2Lip (GAN), GeneFace (Transformer/NeRF), and Diff2Lip (Diffusion). In this study, the training processes, architectural features, and performance metrics, such as video quality, synchronization accuracy, and computational cost, of these models were compared. Our findings indicate that diffusion models have recently gained prominence because they offer photorealistic outputs and stable training processes, although GAN-based models such as Wav2Lip are still widely used. This review serves as a comprehensive guide for researchers by summarizing the current state of the art in the field. Furthermore, it aims to contribute to new work by discussing the current challenges faced by lip-sync technologies and future research directions (e.g., real-time performance and multilingual support).
 
 </details>
 
@@ -634,6 +764,26 @@ We propose Dimitra++, a novel framework for audio-driven talking head generation
 <summary>Abstract</summary>
 
 The automatic movie dubbing model generates vivid speech from given scripts, replicating a speaker's timbre from a brief timbre prompt while ensuring lip-sync with the silent video. Existing approaches simulate a simplified workflow where actors dub directly without preparation, overlooking the critical director-actor interaction. In contrast, authentic workflows involve a dynamic collaboration: directors actively engage with actors, guiding them to internalize the context cues, specifically emotion, before performance. To address this issue, we propose a new Retrieve-Augmented Director-Actor Interaction Learning scheme to achieve authentic movie dubbing, termed Authentic-Dubber, which contains three novel mechanisms: (1) We construct a multimodal Reference Footage library to simulate the learning footage provided by directors. Note that we integrate Large Language Models (LLMs) to achieve deep comprehension of emotional representations across multimodal signals. (2) To emulate how actors efficiently and comprehensively internalize director-provided footage during dubbing, we propose an Emotion-Similarity-based Retrieval-Augmentation strategy. This strategy retrieves the most relevant multimodal information that aligns with the target silent video. (3) We develop a Progressive Graph-based speech generation approach that incrementally incorporates the retrieved multimodal emotional knowledge, thereby simulating the actor's final dubbing process. The above mechanisms enable the Authentic-Dubber to faithfully replicate the authentic dubbing workflow, achieving comprehensive improvements in emotional expressiveness. Both subjective and objective evaluations on the V2C Animation benchmark dataset validate the effectiveness. The code and demos are available at https://github.com/AI-S2-Lab/Authentic-Dubber.
+
+</details>
+
+#### [The Creation of Immersive Experiences in Transcultural Entertainment: An Action Design Process Focused on Neural Rendering](https://www.semanticscholar.org/paper/60618f2e0144dad7862f144e02000e3e2a11fd55)
+**Mike Seymour, Barney Tan, Yang Li** · 2025-11-13
+
+<details>
+<summary>Abstract</summary>
+
+This study examines how artificial intelligence (AI), specifically neural facial reenactment (NFR), can address the limitations of dubbing and subtitling in adapting foreign films. Using action design research and guided by presence theory, we codeveloped and evaluated an NFR process during the English adaptation of the Polish feature film The Champion. Unlike conventional dubbing, which often disrupts immersion through poor lip-sync or script changes, NFR preserves the original actors’ performances, aligning them with new dialogue. Independent broadcast-quality assessments confirmed technical validity, and subsequent commercial distribution on a major streaming platform demonstrated scalability and audience acceptance. From this process, we derived six design principles: avoid forced script changes, respect creative intent, minimize intrusive technology, reduce training data requirements, enable flexible audience access, and codesign with existing creative structures. These principles offer a replicable template for the responsible researching and developing of AI in information systems. For practice, the findings show that NFR can improve cultural accessibility and create new creative and technical roles rather than displacing talent. For policy, the study highlights the importance of codesign, transparency, and preserving artistic integrity when integrating AI into global cultural products.
+
+</details>
+
+#### [Lightweight Audio-Visual Networks for Real-Time Lip-Sync DeepFake Detection](https://www.semanticscholar.org/paper/33c3ab9ce4d8fe0062d491667557f2b4f44103f6)
+**Quoc-Dat Le, Vu-Hoang Tran, Viet-Dat Nguyen** · 2025-11-12
+
+<details>
+<summary>Abstract</summary>
+
+Lip-sync DeepFakes, which manipulate lip movements to match tampered audio while preserving visual identity, pose significant challenges to digital content integrity due to their subtle temporal inconsistencies. Traditional detection methods focusing on spatial artifacts are often ineffective against these forgeries, while recent temporal correlation models, despite their accuracy, are computationally intensive and impractical for resource-constrained devices. This paper proposes a lightweight, real-time framework for lip-sync DeepFake detection, leveraging compact neural networks, temporal attention mechanisms, and knowledge distillation. Utilizing ShuffleNetV2x0.5 as the backbone, our model incorporates audio-visual temporal modeling and human-inspired perceptual cues, such as lip-speech synchronization, to achieve robust detection. Knowledge distillation transfers insights from a high-capacity teacher model to ensure high accuracy with a model size of only 18 MB and an inference speed of 20 FPS on standard CPUs, optimized for edge device deployment. Evaluated on the AVLIP and FakeAVCeleb datasets, our approach achieves 93.50% average precision on AVLIP and 99.23% average precision on FakeAVCeleb, rivaling state-of-the-art models while enabling real-time performance on edge devices. This framework is well-suited for applications like mobile video authentication, livestream monitoring, and content moderation, addressing the growing need for efficient and scalable DeepFake detection solutions.
 
 </details>
 
@@ -687,6 +837,16 @@ We propose DenseMarks - a new learned representation for human heads, enabling h
 
 </details>
 
+#### [Immersive interactive intelligent patient educational system for venous thromboembolism](https://www.semanticscholar.org/paper/64754368ff056b9a72c6e188261c73bff3dcd7a6)
+**Y. Guo** · 2025-11-01
+
+<details>
+<summary>Abstract</summary>
+
+Large language models (LLMs) can serve as virtual teaching assistants, providing patients with detailed and relevant information and perhaps eventually interactive simulations. This study explored the integration of LLMs into the education and patient-centered care for venous thromboembolism (VTE). We developed a immersive interactive intelligent patient educational system for patients with VTE using LLM，Qwen1.5-7B, Text-to-Speech(TTS)，and Lip Synchronization(Lip-Sync) technologies. The immersive interactive intelligent patient educational system (ChatVTE) consisted of four components (Figure 1): 1) Information Collection of Multimodal Optical Character Recognition Technology Based on Large Models, which collecting patient's clinical data. 2) Knowledge, Attitude/Belief, Practice and Health Belief Model, which capturing patient's health requirement. 3) VTE relevant data were systematically gathered from open-access Internet sources and indexed into a knowledge database. We leveraged Retrieval-Augmented Language Modeling to recall this information and utilized it for pretraining, which was then integrated into Qwen1.5-7B, creating an VTE-specific knowledge question & answer platform. 4) Based on intelligent question & answer, a digital virtual doctor created with TTS Lip-Sync technologies to facilities patient education （Figure 2）. ChatVTE generated fewer hallucinations and demonstrated greater consistency，improved the quality of doctor-patient interaction and enhance the effectiveness of knowledge dissemination. To the best of our knowledge, the digital virtual VTE doctor of ChatVTE was the first digital virtual doctor driven by specialty-specific VTE knowledge retrieval AI that utilizes the latest LLM. It appeared the promising for patient education and shared clinical decision support. Continued research and evaluation are necessary to ensure the optimal integration of AI-based interactive tools into patient-centered care.
+
+</details>
+
 #### [Audio-Visual Speech Enhancement In Complex Scenarios With Separation And Dereverberation Joint Modeling](https://arxiv.org/abs/2510.26825)
 **Jiarong Du, Zhan Jin, Peijun Yang, Juan Liu et al.** · 2025-10-29
 
@@ -724,6 +884,16 @@ Audio-driven talking face generation has gained significant attention for applic
 <summary>Abstract</summary>
 
 The misuse of advanced generative AI models has resulted in the widespread proliferation of falsified data, particularly forged human-centric audiovisual content, which poses substantial societal risks (e.g., financial fraud and social instability). In response to this growing threat, several works have preliminarily explored countermeasures. However, the lack of sufficient and diverse training data, along with the absence of a standardized benchmark, hinder deeper exploration. To address this challenge, we first build Mega-MMDF, a large-scale, diverse, and high-quality dataset for multimodal deepfake detection. Specifically, we employ 21 forgery pipelines through the combination of 10 audio forgery methods, 12 visual forgery methods, and 6 audio-driven face reenactment methods. Mega-MMDF currently contains 0.1 million real samples and 1.1 million forged samples, making it one of the largest and most diverse multimodal deepfake datasets, with plans for continuous expansion. Building on it, we present DeepfakeBench-MM, the first unified benchmark for multimodal deepfake detection. It establishes standardized protocols across the entire detection pipeline and serves as a versatile platform for evaluating existing methods as well as exploring novel approaches. DeepfakeBench-MM currently supports 5 datasets and 11 multimodal deepfake detectors. Furthermore, our comprehensive evaluations and in-depth analyses uncover several key findings from multiple perspectives (e.g., augmentation, stacked forgery). We believe that DeepfakeBench-MM, together with our large-scale Mega-MMDF, will serve as foundational infrastructures for advancing multimodal deepfake detection.
+
+</details>
+
+#### [Lip-Sync Analyzer for Deepfake Detection and Peeking Behind the Black Box with Explainable AI](https://www.semanticscholar.org/paper/268dee604af0f25e9e5ad493fee603f6c39acde9)
+**S. Sakib, S. Haque, Atanu Shome** · 2025-10-23
+
+<details>
+<summary>Abstract</summary>
+
+The swift evolution of deepfake technology presents significant threats to the credibility and trustworthiness of digital media. This work presents a deepfake detection framework that combines spatial and audio-visual features, with a specific focus on lip-sync forgeries. We evaluate multiple state-of-the-art CNN architectures—DenseNet-121, EfficientNet-B0, InceptionV3, ResNet-50, and XceptionNet—alongside a Vision Transformer (ViT-B/32). Experiments on the AVLips dataset (3,396 real and 4,206 fake videos) show that ViT-B/32 achieves superior performance, with 96% F1-score, and 99% AUC. Audio-visual fusion consistently outperforms visual-only models, highlighting the strength of multimodal analysis. To enhance transparency, LIME-based explainable AI visualizations are employed to interpret model predictions. Unlike previous works that primarily rely on unimodal cues, our approach uniquely integrates audio waveforms with visual frames to expose subtle inconsistencies in lip synchronization. Given the potential misuse of deepfakes in misinformation, fraud, and political manipulation, this study emphasizes the urgent need for robust and interpretable detection methods. Our findings confirm the effectiveness of transformer-based models with XAI for dependable deepfake detection, with future work focusing on temporal modeling and scalability.
 
 </details>
 
@@ -857,6 +1027,26 @@ We propose a novel and general framework to disentangle video data into its dyna
 
 </details>
 
+#### [NeRF-LipSync: A Diffusion Model for Speech-Driven and View-Consistent Lip Synchronization in Digital Avatars](https://www.semanticscholar.org/paper/e63487520103d92b2c8eccaaa6b1f5784f679822)
+**A. Axyonov, Mikhail Dolgushin, D. Ryumin** · 2025-09-04
+
+<details>
+<summary>Abstract</summary>
+
+Abstract. Achieving natural, accurate, and identity-preserving lip synchronization in talking avatars is a fundamental problem in audio-visual synthesis. Existing methods often struggle to generalize across speakers, maintain temporal smoothness, or preserve view consistency due to architectural limitations. In this paper, we present NeRF-LipSync, a novel generative framework that synthesizes lip movements conditioned on speech audio while maintaining temporal coherence and view-consistent appearance through a combination of diffusion-based modeling and NeRF-based spatial alignment. Our model incorporates temporal attention and leverages rich audio-visual embeddings to produce expressive, speaker-specific articulation. We evaluate NeRF-LipSync on the VoxCeleb2 and LRW datasets and compare it against strong baselines including Wav2Lip, PC-AVS, and Diff2Lip. On VoxCeleb2, our method achieves an FID of 2.75, SSIM of 0.56, PSNR of 18.32, and LMD of 3.01, with synchronization accuracy (Syncc) reaching 9.06. On LRW, it yields an FID of 2.40, SSIM of 0.71, PSNR of 21.03, and LMD of 2.16. These results confirm the strong generalization ability and perceptual realism of our approach. Ablation studies highlight the contribution of NeRF alignment to identity consistency, diffusion to visual expressiveness, and temporal attention to motion stability. NeRF-LipSync thus offers a robust, scalable solution for high-quality, speech-driven avatar animation.
+
+</details>
+
+#### [All’s Well That FID’s Well? Result Quality and Metric Scores in GAN Models for Lip-Synchronization Tasks](https://www.semanticscholar.org/paper/f70029ecaf500aafde9906acb27fb830b4d22b21)
+**Carina Geldhauser, Johan Liljegren, Pontus Nordqvist** · 2025-08-31
+
+<details>
+<summary>Abstract</summary>
+
+This exploratory study investigates the usability of performance metrics for generative adversarial network (GAN)-based models for speech-driven facial animation. These models focus on the transfer of speech information from an audio file to a still image to generate talking-head videos in a small-scale “everyday usage” setting. Two models, LipGAN and a custom implementation of a Wasserstein GAN with gradient penalty (L1WGAN-GP), are examined for their visual performance and scoring according to commonly used metrics: Quantitative comparisons using FID, SSIM, and PSNR metrics on the GRIDTest dataset show mixed results, and metrics fail to capture local artifacts crucial for lip synchronization, pointing to limitations in their applicability for video animation tasks. The study points towards the inadequacy of current quantitative measures and emphasizes the continued necessity of human qualitative assessment for evaluating talking-head video quality.
+
+</details>
+
 #### [EmoCAST: Emotional Talking Portrait via Emotive Text Description](https://arxiv.org/abs/2508.20615)
 **Yiguo Jiang, Xiaodong Cun, Yong Zhang, Yudian Zheng et al.** · 2025-08-28
 
@@ -864,6 +1054,16 @@ We propose a novel and general framework to disentangle video data into its dyna
 <summary>Abstract</summary>
 
 Emotional talking head synthesis aims to generate talking portrait videos with vivid expressions. Existing methods still exhibit limitations in control flexibility, motion naturalness, and expression quality. Moreover, currently available datasets are mainly collected in lab settings, further exacerbating these shortcomings and hindering real-world deployment. To address these challenges, we propose EmoCAST, a diffusion-based talking head framework for precise, text-driven emotional synthesis. Its contributions are threefold: (1) architectural modules that enable effective text control; (2) an emotional talking-head dataset that expands the framework's ability; and (3) training strategies that further improve performance. Specifically, for appearance modeling, emotional prompts are integrated through a text-guided emotive attention module, enhancing spatial knowledge to improve emotion understanding. To strengthen audio-emotion alignment, we introduce an emotive audio attention module to capture the interplay between controlled emotion and driving audio, generating emotion-aware features to guide precise facial motion synthesis. Additionally, we construct a large-scale, in-the-wild emotional talking head dataset with emotive text descriptions to optimize the framework's performance. Based on this dataset, we propose an emotion-aware sampling strategy and a progressive functional training strategy that improve the model's ability to capture nuanced expressive features and achieve accurate lip-sync. Overall, EmoCAST achieves state-of-the-art performance in generating realistic, emotionally expressive, and audio-synchronized talking-head videos. Project Page: https://github.com/GVCLab/EmoCAST
+
+</details>
+
+#### [Enhancing Visual Speaker Authentication using Dynamic Lip Movement and Meta-Learning](https://www.semanticscholar.org/paper/a197b6d30b625f38a0355ba80433c99e69ad93bb)
+**P. Pathare, Garima Bajwa** · 2025-08-26
+
+<details>
+<summary>Abstract</summary>
+
+Visual speaker authentication (VSA) remains vulnerable to sophisticated spoofing methods, such as deepfakes. Traditional deep learning approaches require extensive userspecific enrollment data and show poor generalization to new speakers. In response, we employ a few-shot meta-learning technique, specifically Model-Agnostic Meta-Learning (MAML), integrated with dynamic lip movement analysis utilizing optical flow to develop a scalable anti-spoof VSA framework. We validated our model using the GRID audiovisual dataset, with spoofing attacks simulated via Wav2Lip for deepfake lip synchronization. The results demonstrate the model’s superior performance, evidenced by near-perfect classification accuracy and negligible error rates, addressing two key challenges of VSA: eliminating extensive training data while enabling rapid adaptation to unfamiliar speakers. Our approach significantly surpasses standard non-meta-learning approaches, substantiating its ability to address real-world scenarios.
 
 </details>
 
@@ -977,6 +1177,16 @@ We present X-Actor, a novel audio-driven portrait animation framework that gener
 
 </details>
 
+#### [Wav2Lip-HQ High-Resolution Audio-Driven Lip Synchronization for Realistic Virtual Avatars](https://www.semanticscholar.org/paper/aca90d844d61baac040a8cf612d00a5532f33d4b)
+**Mallikarjuna G D** · 2025-07-31
+
+<details>
+<summary>Abstract</summary>
+
+High-quality lip synchronization is essential for creating realistic talking face videos in applications such as virtual interviews, online education, film dubbing, and digital avatars. Traditional lip-sync methods often struggle with maintaining high visual fidelity, especially in high-resolution outputs. To address this challenge, Wav2Lip-HQ introduces an advanced Generative Adversarial Network (GAN)[1]-based solution capable of generating photorealistic, high-resolution lip-synced videos with accurate mouth movements synchronized to any given speech audio. In this research, we evaluate the performance of Wav2Lip-HQ, leveraging its core components, including the lipsync_gan.pth[1] model trained on the LRS2 dataset[1] for precise audio-visual synchronization, the face_segmentation.pth[2] model trained on CelebAMask-HQ for accurate facial region parsing, and the esrgan_max.pth[3] enhancer utilizing DIV2K[3] and CelebA[2] datasets to upscale and refine facial details post-synchronization. We conducted extensive experiments using diverse video-audio pairs to assess the improvement in lip-sync accuracy and overall video quality. Our analysis demonstrates that Wav2Lip-HQ significantly outperforms traditional methods and the original Wav2Lip model by delivering sharper, more coherent, and highly realistic talking face videos. The findings of this study confirm that Wav2Lip-HQ is an effective solution for high-resolution, photorealistic lip synchronization, making it highly applicable for real-world use cases requiring professional-grade video quality. Future work will focus on enhancing emotional expressions and optimizing performance for real-time applications.
+
+</details>
+
 #### [DiTalker: A Unified DiT-based Framework for High-Quality and Speaking Styles Controllable Portrait Animation](https://arxiv.org/abs/2508.06511)
 **He Feng, Yongjia Ma, Donglin Di, Lei Fan et al.** · 2025-07-29
 
@@ -1067,6 +1277,16 @@ Talking head generation with arbitrary identities and speech audio remains a cru
 
 </details>
 
+#### [Multimodal Feature-Guided Audio-Driven Emotional Talking Face Generation](https://www.semanticscholar.org/paper/49c1bcd1d1eb546f2454dfaef7491897a1744a9c)
+**Xueping Wang, Yuemeng Huo, Yanan Liu, Xueni Guo et al.** · 2025-07-02
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven emotional talking face generation aims to generate talking face videos with rich facial expressions and temporal coherence. Current diffusion model-based approaches predominantly depend on either single-label emotion annotations or external video references, which often struggle to capture the complex relationships between modalities, resulting in less natural emotional expressions. To address these issues, we propose MF-ETalk, a multimodal feature-guided method for emotional talking face generation. Specifically, we design an emotion-aware multimodal feature disentanglement and fusion framework that leverages Action Units (AUs) to disentangle facial expressions and models the nonlinear relationships among AU features using a residual encoder. Furthermore, we introduce a hierarchical multimodal feature fusion module that enables dynamic interactions among audio, visual cues, AUs, and motion dynamics. This module is optimized through global motion modeling, lip synchronization, and expression subspace learning, enabling full-face dynamic generation. Finally, an emotion-consistency constraint module is employed to refine the generated results and ensure the naturalness of expressions. Extensive experiments on the MEAD and HDTF datasets demonstrate that MF-ETalk outperforms state-of-the-art methods in both expression naturalness and lip-sync accuracy. For example, it achieves an FID of 43.052 and E-FID of 2.403 on MEAD, along with strong synchronization performance (LSE-C of 6.781, LSE-D of 7.962), confirming the effectiveness of our approach in producing realistic and emotionally expressive talking face videos.
+
+</details>
+
 #### [JAM-Flow: Joint Audio-Motion Synthesis with Flow Matching](https://arxiv.org/abs/2506.23552)
 **Mingi Kwon, Joonghyuk Shin, Jaeseok Jung, Jaesik Park et al.** · 2025-06-30
 
@@ -1074,6 +1294,46 @@ Talking head generation with arbitrary identities and speech audio remains a cru
 <summary>Abstract</summary>
 
 The intrinsic link between facial motion and speech is often overlooked in generative modeling, where talking head synthesis and text-to-speech (TTS) are typically addressed as separate tasks. This paper introduces JAM-Flow, a unified framework to simultaneously synthesize and condition on both facial motion and speech. Our approach leverages flow matching and a novel Multi-Modal Diffusion Transformer (MM-DiT) architecture, integrating specialized Motion-DiT and Audio-DiT modules. These are coupled via selective joint attention layers and incorporate key architectural choices, such as temporally aligned positional embeddings and localized joint attention masking, to enable effective cross-modal interaction while preserving modality-specific strengths. Trained with an inpainting-style objective, JAM-Flow supports a wide array of conditioning inputs-including text, reference audio, and reference motion-facilitating tasks such as synchronized talking head generation from text, audio-driven animation, and much more, within a single, coherent model. JAM-Flow significantly advances multi-modal generative modeling by providing a practical solution for holistic audio-visual synthesis. project page: https://joonghyuk.com/jamflow-web
+
+</details>
+
+#### [ConAvatar: Harnessing Facial Mesh for Controllable Avatar Animation](https://www.semanticscholar.org/paper/a862f36ce73d574aad5b4a06f70f05e440acc3f5)
+**Zheng Tan, Wei Wei** · 2025-06-30
+
+<details>
+<summary>Abstract</summary>
+
+Recent advancements in talking head generation have focused on temporal consistency and lip-sync accuracy, but controlling the head pose remains a challenge. Existing methods often rely on reference videos or random generation, leading to unrealistic results. In this paper, we propose ConAvatar, a novel framework that enables precise control over head pose while generating realistic talking heads. Our approach consists of two stages: first, converting control information (Euler angles and position) into 3D facial meshes; second, using these structured information to guide a diffusion model for realistic video generation. This allows the talking head to move in sync with both speech and pose, ensuring natural, controlled head movements. Extensive experiments show that our method delivers high-quality results with improved temporal consistency, accurate lip-sync, and controllable head pose, effectively demonstrating the validity and effectiveness of our approach in realistic talking head synthesis.
+
+</details>
+
+#### [EmoHuman: Fine-Grained Emotion-Controlled Talking Head Generation via Audio-Text Multimodal Detangling](https://www.semanticscholar.org/paper/001006557262952b7a5d58265206618f486d6ed6)
+**Qifeng Dai, Huidong Feng, Wendi Cui, Xinqi Cai et al.** · 2025-06-30
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking head generation has made significant strides in creating realistic and lip-synchronized portraits. However, most existing approaches overlook facial expressions, with only a few attempting to model facial emotions explicitly, often leading to unnatural results. To address this gap, we introduce EmoHuman, an audio-to-video synthesis method that generates emotionally nuanced talking head videos without relying on intermediate 3D representations or facial landmarks. EmoHuman decouples content, emotion, and emotional intensity from the multimodal information of the audio and the corresponding textual content through an Audio Emotion Decoupling Module. The content features are used to drive a powerful video diffusion model, generating synchronized lip movements, while emotion and emotional intensity govern the simulation of facial expressions, resulting in more realistic video outputs. Extensive experiments demonstrate that EmoHuman outperforms state-of-the-art methods in image and video quality, expression correlation, and lip-synchronization accuracy.
+
+</details>
+
+#### [GE-Talker: Generalizable and Efficient Neural Rendering for Talking Head Generation](https://www.semanticscholar.org/paper/ab7592118a4e5ba323dd9be80ba30f2ce810347f)
+**Zixuan Wang, Li Fang, Fei Hu, L. Ye** · 2025-06-30
+
+<details>
+<summary>Abstract</summary>
+
+Talking head generation aims to create videos that preserve a source character’s identity while replicating synchronized lip movements, facial expressions, and head gestures from audio inputs. While personalized methods have achieved impressive results by training neural radiance fields (NeRFs) for specific identities, they often face limitations in generalization and incur high computational costs due to identity-specific retraining. We propose GE-Talker, a Generalizable and Efficient NeRF for talking head generation, which addresses these challenges through two key innovations. First, we leverage FLAME-based full-head modeling as intermediate representations, conditioned on audio features, to achieve precise lip synchronization and natural facial movements. Second, we introduce a semantic-aware depth-guided sampling strategy that uses FLAME-generated depth maps to restrict sampling ranges and semantic segmentation to focus on human regions, improving rendering quality and efficiency. GE-Talker achieves high-quality outputs for unseen speaker identities with a 109% speed-up over baseline methods and enables rapid fine-tuning on new speakers within 14 minutes, establishing it as a powerful and adaptable solution for talking head generation.
+
+</details>
+
+#### [Audio-Driven Emotion-Aware 3D Talking Face Generation from Single Image](https://www.semanticscholar.org/paper/9fde057351c2841cfd3b47d3ed719e1b4f0012e2)
+**Chun-Shuo Qiu, Feng-Lin Liu, Hongbo Fu, Fan Zhang et al.** · 2025-06-30
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking face generation from a single source image is a popular research topic. There still exist many challenges for its practical applications, e.g., diverse motion generation, effective emotional control, and large view angle changes. In this work, we propose a novel one-shot emotion-controllable audio-driven 3D talking face generation framework, which creates free-view talking videos from one reference image. Firstly, to synchronize the motion with the input audio, we use a transformer-based motion generator to capture the context of the input audio and predict motion coefficient sequences, which are leveraged by a motion encoder to extract motion codes. Meanwhile, to reconstruct a 3D portrait from one reference image, an identity encoder is utilized to extract an identity code and generate emotion-dependent appearance with a specific emotion label. Finally, we introduce an emotion-controllable 3D portrait video generator to synthesize free-view talking videos using the disentangled motion and identity codes. Thanks to the audio-synchronized motion codes and emotion-aware identity code, we can render a talking face with realistic emotional expressions in novel views. Extensive experiments show that our method is capable of maintaining superior visual performance and motion accuracy in both front view and novel views.
 
 </details>
 
@@ -1114,6 +1374,16 @@ This paper presents a general-purpose video super-resolution (VSR) method, dubbe
 <summary>Abstract</summary>
 
 Talking head video compression has advanced with neural rendering and keypoint-based methods, but challenges remain, especially at low bit rates, including handling large head movements, suboptimal lip synchronization, and distorted facial reconstructions. To address these problems, we propose a novel audio-visual driven video codec that integrates compact 3D motion features and audio signals. This approach robustly models significant head rotations and aligns lip movements with speech, improving both compression efficiency and reconstruction quality. Experiments on the CelebV-HQ dataset show that our method reduces bitrate by 22% compared to VVC and by 8.5% over state-of-the-art learning-based codec. Furthermore, it provides superior lip-sync accuracy and visual fidelity at comparable bitrates, highlighting its effectiveness in bandwidth-constrained scenarios.
+
+</details>
+
+#### [Viseme Morphing and Text-to-Speech Integration for Indonesian News Broadcasting](https://www.semanticscholar.org/paper/de6942a79eaf13d3334a57729f09995a4851f822)
+**Mirza Ardiana** · 2025-06-16
+
+<details>
+<summary>Abstract</summary>
+
+Advancements in multimedia technology and artificial intelligence have driven innovation in digital broadcasting, including virtual newsreaders. This study proposes a text-to-speech-based lip-sync animation system specifically for the Indonesian language to improve synchronization between lip movements and speech. The primary challenge in developing this system lies in generating realistic lip animations that correspond with the phonetic structure of Indonesian. The system workflow involves text input, syllable parsing using the Finite State Automata (FSA) method, viseme conversion (viseme morphing), and web-based animation output. Test results show a viseme duration accuracy of 98.5%, voice-lip movement synchronization of 94.26%, and a Mean Opinion Score (MOS) of 77.12%, indicating that the system is reasonably feasible for implementation. Despite minor delays, the system demonstrates strong potential for further development through the integration of Natural Language Processing (NLP) and deep learning, which could improve viseme mapping accuracy and enhance system flexibility across various digital broadcasting platforms.
 
 </details>
 
@@ -1177,6 +1447,16 @@ Face reenactment and portrait relighting are essential tasks in portrait editing
 
 </details>
 
+#### [Research on lip synthesis of virtual digital humans based on the Spark large model](https://www.semanticscholar.org/paper/4d808178b1a61adeb25368223adf92728e46cd5c)
+**Yuqi Huang** · 2025-05-09
+
+<details>
+<summary>Abstract</summary>
+
+In recent years, with the support of key technologies such as deep learning algorithms, computer vision, natural language processing, and graphics rendering, the production process of virtual digital humans has achieved revolutionary breakthroughs. Lip synthesis technology, as a crucial component, has also garnered widespread attention. Most existing lip synthesis models are trained on English datasets, resulting in poor synthesis effects in Chinese contexts. This paper, based on the study of the Wav2Lip lip synthesis model, constructs a Chinese lip-sync dataset and conducts a series of training fine-tunings to achieve better synthesis effects. By leveraging the multimodal capabilities of the Spark large model, it realizes efficient speech-driven facial animation generation. Furthermore, this paper explores the application potential of the Wav2Lip model, providing a solid theoretical foundation and technical support for future commercial applications.
+
+</details>
+
 #### [OXSeg: Multidimensional attention UNet-based lip segmentation using semi-supervised lip contours](https://arxiv.org/abs/2505.05531)
 **Hanie Moghaddasi, Christina Chambers, Sarah N. Mattson, Jeffrey R. Wozniak et al.** · 2025-05-08
 
@@ -1204,6 +1484,16 @@ Animating 3D head meshes using audio inputs has significant applications in AR/V
 <summary>Abstract</summary>
 
 Speech-driven 3D facial animation plays a key role in applications such as virtual avatars, gaming, and digital content creation. While existing methods have made significant progress in achieving accurate lip synchronization and generating basic emotional expressions, they often struggle to capture and effectively transfer nuanced performance styles. We propose a novel example-based generation framework that conditions a latent diffusion model on a reference style clip to produce highly expressive and temporally coherent facial animations. To address the challenge of accurately adhering to the style reference, we introduce a novel conditioning mechanism called style basis, which extracts key poses from the reference and additively guides the diffusion generation process to fit the style without compromising lip synchronization quality. This approach enables the model to capture subtle stylistic cues while ensuring that the generated animations align closely with the input speech. Extensive qualitative, quantitative, and perceptual evaluations demonstrate the effectiveness of our method in faithfully reproducing the desired style while achieving superior lip synchronization across various speech scenarios.
+
+</details>
+
+#### [Audio-Driven Talking Face Generation With Segmented Static Facial References for Customized Health Device Interactions](https://www.semanticscholar.org/paper/dc0087781c32ad17f315f856e42f53af965bb8c3)
+**Zige Wang, Yashuai Wang, Tianyu Liu, Peng Zhang et al.** · 2025-05-01
+
+<details>
+<summary>Abstract</summary>
+
+In a variety of human-machine interaction (HMI) applications, the high-level techniques based on audio-driven talking face generation are often challenged by the issues of temporal misalignment and low-quality outputs. Recent solutions have sought to improve synchronization by maximizing the similarity between audio-visual pairs. However, the temporal disturbances introduced during the inference phase continue to limit the enhancement of generative performance. Inspired by the intrinsic connection between the segmented static facial image and the stable appearance representation, in this study, two strategies, Manual Temporal Segmentation (MTS) and Static Facial Reference (SFR), are proposed to improve performance during the inference stage. The corresponding functionality consists of: MTS involves segmenting the input video into several clips, effectively reducing the complexity of the inference process, and SFR utilizes static facial references to mitigate the temporal noise generated by dynamic sequences, thereby enhancing the quality of the generated outputs. Substantial experiments on the LRS2 and VoxCeleb2 datasets have demonstrated that the proposed strategies are able to significantly enhance inference performance with the LSE-C and LSE-D metrics, without altering the network architecture or training strategy. For effectiveness validation in realistic scenario applications, a deployment has also been conducted on the healthcare devices with the proposed solution.
 
 </details>
 
@@ -1247,6 +1537,26 @@ In order to be widely applicable, speech-driven 3D head avatars must articulate 
 
 </details>
 
+#### [Hierarchically Controlled Deformable 3D Gaussians for Talking Head Synthesis](https://www.semanticscholar.org/paper/e4c1fe41a4249e205fe596b17e921199d5333b12)
+**Zhenhua Wu, Linxuan Jiang, Xiang Li, Chaowei Fang et al.** · 2025-04-11
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking head synthesis is a critical task in digital human modeling. While recent advances using diffusion models and Neural Radiance Fields (NeRF) have improved visual quality, they often require substantial computational resources, limiting practical deployment. We present a novel framework for audio-driven talking head synthesis, namely it Hierarchically Controlled Deformable 3D Gaussians (HiCoDe), which achieves state-of-the-art performance with significantly reduced computational costs. Our key contribution is a hierarchical control strategy that effectively bridges the gap between sparse audio features and dense 3D Gaussian point clouds. Specifically, this strategy comprises two control levels: i) coarse-level control based on a 3D Morphable Model (3DMM) and ii) fine-level control using facial landmarks. Extensive experiments on the HDTF dataset and additional test sets demonstrate that our method outperforms existing approaches in visual quality, facial landmark accuracy, and audio-visual synchronization while being more computationally efficient in both training and inference.
+
+</details>
+
+#### [A Survey on Audio-Driven Talking Face Generation](https://www.semanticscholar.org/paper/54112d0b2c9786c7e32504c08190f784cd891a67)
+**Xue Bai, Xiangzhen He, Mengdi Ma, Xiang Wang et al.** · 2025-04-11
+
+<details>
+<summary>Abstract</summary>
+
+In recent years, advancements in deep learning have driven the development of audio-driven talking face generation. This technology has widespread applications in virtual avatars, intelligent assistants, film and television special effects, remote education, digital human live streaming, and more. Audio-driven talking face generation methods synthesize synchronized talking videos based on input speech signals, ensuring that the mouth movements, facial expressions, and head poses of virtual characters naturally align with the speech content. This paper provides an overview of the major research progress in this field and analyzes the advantages and limitations of different techniques. Additionally, it introduces evaluation metrics used to assess model performance in detail. Finally, the paper summarizes current challenges and potential future research directions.
+
+</details>
+
 #### [VideoSPatS: Video SPatiotemporal Splines for Disentangled Occlusion, Appearance and Motion Modeling and Editing](https://arxiv.org/abs/2504.07146)
 **Juan Luis Gonzalez Bello, Xu Yao, Alex Whelan, Kyle Olszewski et al.** · 2025-04-08
 
@@ -1264,6 +1574,46 @@ We present an implicit video representation for occlusions, appearance, and moti
 <summary>Abstract</summary>
 
 Generating consecutive images of lip movements that align with a given speech in audio-driven lip synthesis is a challenging task. While previous studies have made strides in synchronization and visual quality, lip intelligibility and video fluency remain persistent challenges. This work proposes FluentLip, a two-stage approach for audio-driven lip synthesis, incorporating three featured strategies. To improve lip synchronization and intelligibility, we integrate a phoneme extractor and encoder to generate a fusion of audio and phoneme information for multimodal learning. Additionally, we employ optical flow consistency loss to ensure natural transitions between image frames. Furthermore, we incorporate a diffusion chain during the training of Generative Adversarial Networks (GANs) to improve both stability and efficiency. We evaluate our proposed FluentLip through extensive experiments, comparing it with five state-of-the-art (SOTA) approaches across five metrics, including a proposed metric called Phoneme Error Rate (PER) that evaluates lip pose intelligibility and video fluency. The experimental results demonstrate that our FluentLip approach is highly competitive, achieving significant improvements in smoothness and naturalness. In particular, it outperforms these SOTA approaches by approximately $\textbf{16.3%}$ in Fréchet Inception Distance (FID) and $\textbf{35.2%}$ in PER.
+
+</details>
+
+#### [DFNeRF: Disentangled Facial Neural Radiance Fields for Text-based Editing of Free-view Talking Head](https://www.semanticscholar.org/paper/93e8d0e52b07d26494bf4518a74c5c8fcc0e84eb)
+**Benwang Chen, Xiaoyu Li, Xuan Wang, Qi Zhang et al.** · 2025-04-06
+
+<details>
+<summary>Abstract</summary>
+
+In this paper, we propose a text-based approach that can edit the speech content of a free-view talking head based on its transcript. The core of our method is to establish the relationship between phonemes and head attributes. To avoid discontinuities in head pose and facial expressions caused by editing mouth shape. We design the disentangled facial neural radiance fields (DFNeRF) to automatically disentangle these attributes controlled by the learned latent codes. Using the free-view talking head synthesized by DFNeRF as the base corpus, we could re-assemble the latent codes based on the new content using the phoneme search method to produce a seamless edited result. Our phoneme search method with a discriminator could find the best-matched phonemes in the sequence and ensure a smooth transition of mouth shape between the adjacent phonemes. Extensive experiments demonstrate the effectiveness of our method both qualitatively and quantitatively.
+
+</details>
+
+#### [Gaussian-Face: Talking Head Generation with Hybrid Density via 3D Gaussian Splatting](https://www.semanticscholar.org/paper/eea6b50f30ec571eafc0cbea6aa04173cfb51201)
+**Guanwen Feng, Yilin Zhang, Yunan Li, Siyu Jin et al.** · 2025-04-06
+
+<details>
+<summary>Abstract</summary>
+
+In recent years, audio-driven neural radiance field (NeRF)-based talking head generation techniques have achieved impressive results. However, these methods still have some limitations, such as unsynchronized lip movements and visual jitter. Recently, 3D Gaussian splatting has gradually replaced NeRF. Compared to NeRF, 3D Gaussian offers notable advantages, including higher efficiency and better reconstruction quality. Based on this, we propose Gaussian-Face, an audio-driven Gaussian-based facial avatar. With just a few minutes of monocular video and audio, a high-fidelity, driveable facial avatar can be reconstructed within hours. To achieve this, we first use FLAME to obtain the 3D representation of the face and then design a Lip Motion Translator to map audio to 3D lip representations. To model higher-quality facial details, we propose a hybrid density modeling method that balances rendering speed and quality, enabling our approach to render high-fidelity facial avatars at more than 160 FPS. Project page: https://peterfanfan.github.io/Gaussian-Face/
+
+</details>
+
+#### [Subjective Fidelity Assessment of Audio- and Video-Driven Talking Head Generation Methods](https://www.semanticscholar.org/paper/b78b96a87356fe953bd7095007ea90acdac1c2c6)
+**Anthony Trioux, Yusong Gao, Jiarun Song, Wenjie Wu et al.** · 2025-04-06
+
+<details>
+<summary>Abstract</summary>
+
+Audio- and Video-Driven Talking Head Generation methods have attracted considerable research interest due to recent advances in Artificial Intelligence Generated Content (AIGC) technologies. In such approaches, a single image is artificially animated by leveraging audio and/or motion features extracted from video sources. Despite notable progress, current performance assessments rely primarily on traditional objective metrics, often neglecting subjective evaluation aspects. To address this issue, we propose in this paper a subjective fidelity assessment of recent Audio- and/or Video-Driven Talking Head Generation methods. This study aims to assess how accurately and convincingly the generated video reproduces the visual and behavioral characteristics of a real human face, as well as how closely the video aligns with expected natural human expressions, movements, and/or audio synchronization. In order to provide a detailed assessment of the fidelity in the context of talking heads, our study focuses on six key criteria: Overall Fidelity, Gaze Fidelity, Audio-Video Sync Fidelity, Head Pose Fidelity, Expression Fidelity, and Overall Visual Quality. Experiments results reveal a nuanced picture of the fidelity in this context, where the performance varies significantly depending on the video content itself as well as how the animation is generated, highlighting the needs for further research. This research represents an initial step towards the evaluation of Audio- and Video-Driven generative image animation methods for Talking heads while offering insights for improving the accuracy and realism of those techniques. The dataset and corresponding results are available at https://github.com/a-trioux/Subjective-Fidelity-Assessment-Talking-Head.
+
+</details>
+
+#### [Diffused Poses and Distilled Expressions for Controllable Audio-driven Talking Face Generation](https://www.semanticscholar.org/paper/374f3581e81548fed6775f732af5840889d75475)
+**Ziqi Zhou, Weize Quan, Zhaojin Lu, Dong-Ming Yan** · 2025-04-06
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven portrait animation is an emerging field in multi-modal generation that aims to create lifelike talking face videos from audio input. While significant progress has been made, accurately modeling the relationship between audio signals and various facial motions, such as head poses and expressions, remains a challenge. Existing methods have primarily focused on generating lip-synchronized movements, often neglecting the intricate correlations between audio and other facial dynamics like head movements and eye blinks. More recent approaches have attempted to address these limitations by introducing latent disentanglement of facial motions, though this often comes at the cost of reduced flexibility in motion control. In this work, we propose a novel framework for audio-driven talking portrait animation that allows for precise and controllable generation of head poses and facial expressions. Our approach includes two key components: an audio-conditional diffusion model for generating prosody-aware head poses and a noise-conditional, lip-distilling transformer for predicting synchronized facial expressions. We further introduce an innovative animation model that uses these generated poses and expressions to produce highly realistic and controllable talking head videos. Extensive experiments demonstrate that our method not only achieves superior performance in generating natural and synchronized facial motions but also outperforms state-of-the-art techniques in the field.
 
 </details>
 
@@ -1294,6 +1644,16 @@ Talking head synthesis is vital for virtual avatars and human-computer interacti
 <summary>Abstract</summary>
 
 Although significant progress has been made in audio-driven talking head generation, text-driven methods remain underexplored. In this work, we present OmniTalker, a unified framework that jointly generates synchronized talking audio-video content from input text while emulating the speaking and facial movement styles of the target identity, including speech characteristics, head motion, and facial dynamics. Our framework adopts a dual-branch diffusion transformer (DiT) architecture, with one branch dedicated to audio generation and the other to video synthesis. At the shallow layers, cross-modal fusion modules are introduced to integrate information between the two modalities. In deeper layers, each modality is processed independently, with the generated audio decoded by a vocoder and the video rendered using a GAN-based high-quality visual renderer. Leveraging the in-context learning capability of DiT through a masked-infilling strategy, our model can simultaneously capture both audio and visual styles without requiring explicit style extraction modules. Thanks to the efficiency of the DiT backbone and the optimized visual renderer, OmniTalker achieves real-time inference at 25 FPS. To the best of our knowledge, OmniTalker is the first one-shot framework capable of jointly modeling speech and facial styles in real time. Extensive experiments demonstrate its superiority over existing methods in terms of generation quality, particularly in preserving style consistency and ensuring precise audio-video synchronization, all while maintaining efficient inference.
+
+</details>
+
+#### [TransLip: AI-Driven Video Translation and Synchronization](https://www.semanticscholar.org/paper/505f78f7846f2feae20a665472e5820e15ebda73)
+**Adarsh Muralidharan, Minsa Aji, Rohan Jacob Jacob, Shasna Cherukat et al.** · 2025-04-03
+
+<details>
+<summary>Abstract</summary>
+
+The increasing need for region-specific digital content has spurred progress in technologies like video translation and lip synchronization. This work introduces an innovative system for converting video and audio from English into Malayalam, a regional language while achieving precise lip synchronization. The process involves extracting audio and converting speech to text, translating the text and generating speech in the target language. The synchronized audio is then aligned with the speaker’s lip movements using the Generative Adversarial Network(GAN) powered Wav2Lip model. The result is a cohesive video where the translated audio and lip movement are in harmony, delivering a lifelike and engaging experience for viewers. This approach offers substantial benefits in sectors like entertainment, education, and media localization, broadening access to content while upholding the integrity of the original material.
 
 </details>
 
@@ -1477,6 +1837,26 @@ Achieving high-fidelity lip-speech synchronization in audio-driven talking portr
 
 </details>
 
+#### [Realistic Lip-Sync Generation from Text for Multimodal Applications](https://www.semanticscholar.org/paper/ea0ae8bc51add7570999bf6f8504cc9718349785)
+**Doradla Kaushik, Konduru Praveen Karthik, Taduvai Satvik Gupta, Susmitha Vekkot** · 2025-03-06
+
+<details>
+<summary>Abstract</summary>
+
+This paper explores an advanced framework for text-to-lip-sync generation, leveraging the integration of the Massively Multilingual Speech Text-to-Speech (MMS TTS) and Wav2Lip models. The MMS TTS model transforms text into natural, high-quality multilingual speech while preserving speaker identity, and the Wav2Lip model ensures accurate synchronization of lip movements with the generated audio. Using the GRID dataset for training, the Wav2Lip model achieves remarkable performance in audiovisual alignment, attaining high lip-sync confidence metrics with an LSE-C score of 6.701 and an LSE-D score of 7.362. The proposed solution has broad applicability in virtual assistants, media production, digital education, and accessibility, setting a new standard for immersive and realistic audiovisual experiences.
+
+</details>
+
+#### [A Unified Deep Learning Framework for Lip Reading and Deep Fake Audio Classification](https://www.semanticscholar.org/paper/384047c6c103814109d686cdaebe629b11cfd61c)
+**Vijay A. Sangolgi, Mithun B. Patil, Omkar Nagnath Bhosale, Anurag Vivek Deshmukhe et al.** · 2025-03-06
+
+<details>
+<summary>Abstract</summary>
+
+This study proposes a multimodal framework designed to enhance deepfake detection by integrating visual lip-reading analysis and audio signal processing for real-time applications. Leveraging LipNet—a deep learning model pre-trained on the GRID dataset—the system employs 3D convolutional neural networks (CNNs) combined with bidirectional long short-term memory (Bi-LSTM) layers to interpret lip movements and decode spoken words from visual inputs. Simultaneously, audio analysis modules evaluate acoustic features to detect synthetic or manipulated speech. By independently training these components and combining their outputs, the framework identifies inconsistencies between visual and auditory modalities, such as mismatched lip-audio synchronization or unnatural speech patterns. Experimental results demonstrate robust performance in both word-level lip-reading accuracy and deepfake detection reliability, achieving high precision in flagging fraudulent content. The system’s effectiveness in detecting audiovisual anomalies positions it as a practical tool for digital forensics and security applications, with potential to foster trust in digital media. Future work will expand the model’s adaptability to diverse datasets, including multilingual contexts, and refine its integration into real-world media authentication and accessibility tools.
+
+</details>
+
 #### [KeyFace: Expressive Audio-Driven Facial Animation for Long Sequences via KeyFrame Interpolation](https://arxiv.org/abs/2503.01715)
 **Antoni Bigata, Michał Stypułkowski, Rodrigo Mira, Stella Bounareli et al.** · 2025-03-03
 
@@ -1484,6 +1864,16 @@ Achieving high-fidelity lip-speech synchronization in audio-driven talking portr
 <summary>Abstract</summary>
 
 Current audio-driven facial animation methods achieve impressive results for short videos but suffer from error accumulation and identity drift when extended to longer durations. Existing methods attempt to mitigate this through external spatial control, increasing long-term consistency but compromising the naturalness of motion. We propose KeyFace, a novel two-stage diffusion-based framework, to address these issues. In the first stage, keyframes are generated at a low frame rate, conditioned on audio input and an identity frame, to capture essential facial expressions and movements over extended periods of time. In the second stage, an interpolation model fills in the gaps between keyframes, ensuring smooth transitions and temporal coherence. To further enhance realism, we incorporate continuous emotion representations and handle a wide range of non-speech vocalizations (NSVs), such as laughter and sighs. We also introduce two new evaluation metrics for assessing lip synchronization and NSV generation. Experimental results show that KeyFace outperforms state-of-the-art methods in generating natural, coherent facial animations over extended durations, successfully encompassing NSVs and continuous emotions.
+
+</details>
+
+#### [Enhancing Video Conferencing Experience through Speech Activity Detection and Lip Synchronization with Deep Learning Models](https://www.semanticscholar.org/paper/502b96013aaa764b105468a5b31fd3e63ab40bd2)
+**Weikun Lin** · 2025-03-03
+
+<details>
+<summary>Abstract</summary>
+
+As video conferencing becomes increasingly integral to modern communication, the need for high-quality synchronization between speech and visual elements is paramount. Speech Activity Detection (VAD) and lip synchronization technologies play crucial roles in ensuring accurate, real-time communication by distinguishing speech signals from noise and aligning lip movements with audio. This paper proposes a novel multimodal fusion approach based on deep learning models that significantly improves the accuracy of speech activity detection and the real-time performance of lip synchronization. Using open datasets such as AVSpeech and LRW, this study showcases the effectiveness of the proposed models in various real-world scenarios, such as multi-party conferences, noisy environments, and cross-lingual settings. Experimental results demonstrate that the LSTM-based VAD model achieves an accuracy of 92%, outperforming traditional methods, while the lip synchronization module ensures seamless audio-visual alignment with minimal delay.
 
 </details>
 
@@ -1507,6 +1897,26 @@ Speech-driven 3D facial animation aims to generate realistic lip movements and f
 
 </details>
 
+#### [Talking Head Anime 4: Distillation for Real-Time Performance](https://www.semanticscholar.org/paper/a332eebf8c0df968876be9263ee0925a0811b27e)
+**Pramook Khungurn** · 2025-02-26
+
+<details>
+<summary>Abstract</summary>
+
+We study the problem of creating a character model that can be controlled in real time from a single image of an anime character. A solution would greatly reduce the cost of creating avatars, computer games, and other interactive applications. Talking Head Anime 3 (THA3) is an open source project that attempts to directly address the problem [40]. It takes as input (1) an image of an anime character's upper body and (2) a 45-dimensional pose vector and outputs a new image of the same character taking the specified pose. The range of possible movements is expressive enough for personal avatars and certain types of game characters. THA3's main limitation is its speed. It can achieve interactive frame rates (~ 20 FPS) only if it is run on a very powerful GPU (Nvidia Titan RTX or better). Based on the insight that avatars and game characters do not need to change their appearance every so often, we propose a technique to distill the system into a small student neural network ( 2 MB) specific to a particular character. The student model can generate $512 \times 512$ animation frames in real time (> 30 FPS) using consumer gaming GPUs while preserving the image quality of the teacher model. For the first time, our technique makes the whole system practical for real-time applications.
+
+</details>
+
+#### [Deep Face Gen: Speech-Driven Face Image Synthesis](https://www.semanticscholar.org/paper/e08961b0f03e5d184e052253bec3771e0c7c41eb)
+**P. K. Thai, P. Manisha, L. Reddy, M. Reddy** · 2025-02-25
+
+<details>
+<summary>Abstract</summary>
+
+A framework based on Generative Adversarial Networks (GANs) is proposed to synthesize facial images from audio inputs. The system aims to automatically translate large volumes of audio into understandable facial images without human intervention. By using a GAN architecture, the model generates image features from audio waveforms to reconstruct facial images. It is trained on a dataset of labeled examples, producing facial images corresponding to the identities of the speakers. The method achieves an accuracy of 96.88% for ungrouped data and 93.91% for grouped data. This approach demonstrates its capability to generate accurate facial representations from audio, offering an automated solution for converting speech into intelligible visual data. Keywords: Generative Adversarial Networks, facial image synthesis, audio-to-image, speech-to-visual, automated reconstruction.
+
+</details>
+
 #### [Dimitra: Audio-driven Diffusion model for Expressive Talking Head Generation](https://arxiv.org/abs/2502.17198)
 **Baptiste Chopin, Tashvik Dhamija, Pranav Balaji, Yaohui Wang et al.** · 2025-02-24
 
@@ -1514,6 +1924,16 @@ Speech-driven 3D facial animation aims to generate realistic lip movements and f
 <summary>Abstract</summary>
 
 We propose Dimitra, a novel framework for audio-driven talking head generation, streamlined to learn lip motion, facial expression, as well as head pose motion. Specifically, we train a conditional Motion Diffusion Transformer (cMDT) by modeling facial motion sequences with 3D representation. We condition the cMDT with only two input signals, an audio-sequence, as well as a reference facial image. By extracting additional features directly from audio, Dimitra is able to increase quality and realism of generated videos. In particular, phoneme sequences contribute to the realism of lip motion, whereas text transcript to facial expression and head pose realism. Quantitative and qualitative experiments on two widely employed datasets, VoxCeleb2 and HDTF, showcase that Dimitra is able to outperform existing approaches for generating realistic talking heads imparting lip motion, facial expression, and head pose.
+
+</details>
+
+#### [Audio-driven Talking-face Synthesis based on 3D Gaussian](https://www.semanticscholar.org/paper/5f4cb16ff522da3007228ddd371c72b5d12d0602)
+**Botao Xiong** · 2025-02-21
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking-face synthesis is of significant importance in various application scenarios, such as remote meetings, AR/VR, and digital humans. Currently, the work in this field can be broadly divided into two categories: implicit representation-based methods and explicit representation-based methods. Implicit representation-based methods often use neural network models to represent human face. For example, NeRF (Neural Radiance Field) uses MLP (Multi-Layer Perceptron) to represent human face, and by inputting the camera pose, NeRF renders a face image from that viewpoint. When training with audio features, it can render face images with different facial movements. However, due to the lack of editability and slow rendering speed of implicit representations, the industry has been exploring new representation methods. Explicit representation-based methods commonly use 3D Gaussian representations of the face, which offers high editability and nearly real-time rendering speed, making these methods surpass implicit-based approaches in many metrics. However, it is difficult to incorporate other signals during the rendering optimization process. To address this issue, this paper combines 3D Gaussian representations with the 3D head model FLAME (Faces Learned with an Articulated Model and Expressions). The FLAME model represents the face's shape and facial movements with a set of parameters. In this paper, audio signals are first transformed into parameters representing facial movements, which are used to initialize the 3D model generated by the parameters, followed by rendering optimization. This paper proposes a 3D Gaussian-based audio-driven lip-sync video generation system. It consists of two main modules: the audio-to-facial movement module and the 3D Gaussian rendering module. The audio-to-facial movement module uses the extracted audio features to generate parameters that control the FLAME model, converting the audio input into natural and reasonable lip shapes and facial movements. The 3D Gaussian rendering module initializes the 3D Gaussian with the FLAME model, optimizes the rendered image from coarse to fine, and finally stitches the generated images together to create a continuous video. Experiments show that this system can generate lip-synchronized, accurate, high-fidelity videos.
 
 </details>
 
@@ -1617,6 +2037,16 @@ This paper reviews the state-of-the-art in deepfake generation and detection, fo
 
 </details>
 
+#### [Multi-Level Feature Dynamic Fusion Neural Radiance Fields for Audio-Driven Talking Head Generation](https://www.semanticscholar.org/paper/9e27ca01577afb9eba72b34aa9acfc6b61f93ee2)
+**Wenchao Song, Qiong Liu, Yanchao Liu, Pengzhou Zhang et al.** · 2025-01-06
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven cross-modal talking head generation has experienced significant advancement in the last several years, and it aims to generate a talking head video that corresponds to a given audio sequence. Out of these approaches, the NeRF-based method can generate videos featuring a specific person with more natural motion compared to the one-shot methods. However, previous approaches failed to distinguish the importance of different regions, resulting in the loss of information-rich region features. To alleviate the problem and improve video quality, we propose MLDF-NeRF, an end-to-end method for talking head generation, which can achieve better vector representation through multi-level feature dynamic fusion. Specifically, we designed two modules in MLDF-NeRF to enhance the cross-modal mapping ability between audio and different facial regions. We initially developed a multi-level tri-plane hash representation that uses three sets of tri-plane hash networks with varying resolutions of limitation to capture the dynamic information of the face more accurately. Then, we introduce the idea of multi-head attention and design an efficient audio-visual fusion module that explicitly fuses audio features with image features from different planes, thereby improving the mapping between audio features and spatial information. Meanwhile, the design helps to minimize interference from facial areas unrelated to audio, thereby improving the overall quality of the representation. The quantitative and qualitative results indicate that our proposed method can effectively generate talk heads with natural actions and realistic details. Compared with previous methods, it performs better in terms of image quality, lip sync, and other aspects.
+
+</details>
+
 #### [MoEE: Mixture of Emotion Experts for Audio-Driven Portrait Animation](https://arxiv.org/abs/2501.01808)
 **Huaize Liu, Wenzhang Sun, Donglin Di, Shibo Sun et al.** · 2025-01-03
 
@@ -1627,8 +2057,38 @@ The generation of talking avatars has achieved significant advancements in preci
 
 </details>
 
+#### [Decoupled Two-Stage Talking Head Generation via Gaussian-Landmark-Based Neural Radiance Fields](https://www.semanticscholar.org/paper/64ce7c264dd66ece77fff4210891dd4aadc3d2bb)
+**Bo-Yao Ma, Yuanping Cao, Lei Zhang** · 2025-01-01
+
+<details>
+<summary>Abstract</summary>
+
+—Talking head generation based on neural radiance fields (NeRF) has gained prominence, primarily owing to its implicit 3D representation capabilities within neural networks. However, most NeRF-based methods often intertwine audio-to-video conversion in a joint training process, resulting in challenges such as inadequate lip synchronization, limited learning efficiency, large memory requirement and lack of editability. In response to these issues, this paper introduces a fully decoupled NeRF-based method for generating talking head. This method separates the audio-to-video conversion into two stages through the use of facial landmarks. Notably, the Transformer network is used to establish the cross-modal connection between audio and landmarks effectively and generate landmarks conforming to the distribution of training data. Then, these landmarks are combined with Gaussian relative position coding to refine the sampling points on the rays, thereby constructing a dynamic neural radiation field conditioned on these landmarks for rendering the generated head. This decoupled setup enhances both the fidelity and flexibility of mapping audio to video with two independent small-scale networks. Additionally, it supports the generation of the torso part from the head-only image with deformable convolution, further enhancing the realism of the generated talking head. The experimental results demonstrate that our method excels in producing lifelike talking head, and the lightweight neural network models also exhibit superior speed and learning efficiency with less memory requirement.
+
+</details>
+
+#### [SynGauss: Real-Time 3D Gaussian Splatting for Audio-Driven Talking Head Synthesis](https://www.semanticscholar.org/paper/6e6d84175ff8896354892e3f0c20a196bde8a9ab)
+**Zhanyi Zhou, Quandong Feng, Hongjun Li** · 2025-01-01
+
+<details>
+<summary>Abstract</summary>
+
+In the field of virtual human generation, Neural Radiance Fields (NeRF) have made significant strides in precise geometric modeling and color accuracy, establishing new benchmarks for complex viewpoint synthesis and 3D reconstruction. Despite these advancements, existing methods face substantial limitations in real-time dynamic facial expression capture and managing high-frequency details, particularly in rapid facial movements and accurate lip synchronization. These constraints are largely due to the high computational load and the dense data requirements hamper real-time rendering. Additionally, traditional radiance fields struggle to capture subtle facial changes driven by audio, often resulting in animations that lack expressiveness and naturalness. Building upon the foundation laid by TalkingGaussian,this paper introduces an advanced framework named SynGauss that employs 3D Gaussian Splatting to precisely decouple facial and lip movements. We have enhanced this approach by incorporating lip expression coefficients and a regional multi-head attention mechanism, which allow for detailed and controlled animation of complex facial dynamics. Our modifications provide a more refined control over lip movements and facial expressions, significantly improving the realism and expressiveness of the animations while maintaining the efficiency required for real-time applications. This approach holds great promise for real-time applications such as virtual assistants and immersive entertainment experiences, offering more realistic and controllable animation generation.(Project address https://github.com/zzyfight0703/SynGauss/tree/main)
+
+</details>
+
 
 ### 2024
+
+#### [Seeing the Sound: Multilingual Lip Sync for Real-Time Face-to-Face Translation](https://www.semanticscholar.org/paper/b3ad6e15a53015028e88171e6baf21bca5eb5682)
+**A. Oskooei, Mehmet S. Aktas, Mustafa Keles** · 2024-12-28
+
+<details>
+<summary>Abstract</summary>
+
+Imagine a future where language is no longer a barrier to real-time conversations, enabling instant and lifelike communication across the globe. As cultural boundaries blur, the demand for seamless multilingual communication has become a critical technological challenge. This paper addresses the lack of robust solutions for real-time face-to-face translation, particularly for low-resource languages, by introducing a comprehensive framework that not only translates language but also replicates voice nuances and synchronized facial expressions. Our research tackles the primary challenge of achieving accurate lip synchronization across culturally diverse languages, filling a significant gap in the literature by evaluating the generalizability of lip sync models beyond English. Specifically, we develop a novel evaluation framework combining quantitative lip sync error metrics and qualitative assessments by human observers. This framework is applied to assess two state-of-the-art lip sync models with different architectures for Turkish, Persian, and Arabic languages, using a newly collected dataset. Based on these findings, we propose and implement a modular system that integrates language-agnostic lip sync models with neural networks to deliver a fully functional face-to-face translation experience. Inference Time Analysis shows this system achieves highly realistic, face-translated talking heads in real time, with a throughput as low as 0.381 s. This transformative framework is primed for deployment in immersive environments such as VR/AR, Metaverse ecosystems, and advanced video conferencing platforms. It offers substantial benefits to developers and businesses aiming to build next-generation multilingual communication systems for diverse applications. While this work focuses on three languages, its modular design allows scalability to additional languages. However, further testing in broader linguistic and cultural contexts is required to confirm its universal applicability, paving the way for a more interconnected and inclusive world where language ceases to hinder human connection.
+
+</details>
 
 #### [Joint Co-Speech Gesture and Expressive Talking Face Generation using Diffusion with Adapters](https://arxiv.org/abs/2412.14333)
 **Steven Hogue, Chenxu Zhang, Yapeng Tian, Xiaohu Guo** · 2024-12-18
@@ -1647,6 +2107,16 @@ Recent advances in co-speech gesture and talking head generation have been impre
 <summary>Abstract</summary>
 
 Talking face generation (TFG) allows for producing lifelike talking videos of any character using only facial images and accompanying text. Abuse of this technology could pose significant risks to society, creating the urgent need for research into corresponding detection methods. However, research in this field has been hindered by the lack of public datasets. In this paper, we construct the first large-scale multi-scenario talking face dataset (MSTF), which contains 22 audio and video forgery techniques, filling the gap of datasets in this field. The dataset covers 11 generation scenarios and more than 20 semantic scenarios, closer to the practical application scenario of TFG. Besides, we also propose a TFG detection framework, which leverages the analysis of both global and local coherence in the multimodal content of TFG videos. Therefore, a region-focused smoothness detection module (RSFDM) and a discrepancy capture-time frame aggregation module (DCTAM) are introduced to evaluate the global temporal coherence of TFG videos, aggregating multi-grained spatial information. Additionally, a visual-audio fusion module (V-AFM) is designed to evaluate audiovisual coherence within a localized temporal perspective. Comprehensive experiments demonstrate the reasonableness and challenges of our datasets, while also indicating the superiority of our proposed method compared to the state-of-the-art deepfake detection approaches.
+
+</details>
+
+#### [GRS-Wav2lip: General Speech-Driven Lip Synthesis in the Wild](https://www.semanticscholar.org/paper/5b6e1322be854160160f8f8201a478fc5839be3c)
+**Junda Wu, Donghan Ye, Lijun Fu, Zixuan Zhang** · 2024-12-13
+
+<details>
+<summary>Abstract</summary>
+
+In recent years, advancements in virtual digital human technology have accelerated considerably; however, many existing lip synchronization models lack adequate focus on lip details, often leading to asynchrony between speech and lip movements. This paper introduces a novel method, GRS- Wav2Lip, designed to enhance the naturalness and synchronization of generated talking face videos. We have restructured the convolutional layers of the identity encoder within the generator, replacing standard convolutional layers with gated convolutions to improve the model's ability to capture lip-related details and motion-specific features effectively. Additionally, we introduce the SAC module to dynamically adjust the receptive field, enabling the effective capture of both global and local features. To improve resolution and image detail, we integrate the RRDB module, which significantly enhances image quality even with low-resolution inputs. Finally, we employ the LPIPS loss function to accurately measure the perceptual quality of generated images. Experimental results show that our approach not only strengthens the model's generative capacity but also leads to substantial improvements in lip synchronization and image detail quality.
 
 </details>
 
@@ -1677,6 +2147,16 @@ Audio-driven talking head generation necessitates seamless integration of audio 
 <summary>Abstract</summary>
 
 Audio-driven talking face generation is a challenging task in digital communication. Despite significant progress in the area, most existing methods concentrate on audio-lip synchronization, often overlooking aspects such as visual quality, customization, and generalization that are crucial to producing realistic talking faces. To address these limitations, we introduce a novel, customizable one-shot audio-driven talking face generation framework, named PortraitTalk. Our proposed method utilizes a latent diffusion framework consisting of two main components: IdentityNet and AnimateNet. IdentityNet is designed to preserve identity features consistently across the generated video frames, while AnimateNet aims to enhance temporal coherence and motion consistency. This framework also integrates an audio input with the reference images, thereby reducing the reliance on reference-style videos prevalent in existing approaches. A key innovation of PortraitTalk is the incorporation of text prompts through decoupled cross-attention mechanisms, which significantly expands creative control over the generated videos. Through extensive experiments, including a newly developed evaluation metric, our model demonstrates superior performance over the state-of-the-art methods, setting a new standard for the generation of customizable realistic talking faces suitable for real-world applications.
+
+</details>
+
+#### [Emotional Synchronization for Audio-Driven Talking-Head Generation](https://www.semanticscholar.org/paper/2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0)
+**Zhao Zhang, Yan Luo, Zhichao Zuo, Richang Hong et al.** · 2024-12-09
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking-head synthesis has become a significant focus in the field of virtual human applications. However, existing methodologies face challenges in effectively synchronizing audio and video, especially in maintaining emotional consistency. Additionally, there is a notable inefficiency in leveraging emotional prompts to guide expression generation. To address these limitations, this paper introduces an Emotion Synchronized audio-driven Talking-head synthesis (EST) approach. The EST approach aims to enhance the emotion-agnostic talking-head models by enabling emotion control, and it incorporates a diffusion module to learn diverse latent rep-resentations. Furthermore, EST utilizes null-text embedding to align the latent code with emotional prompts. Additionally, a novel Sync Attention Block (SAB) is developed to broaden the spatial perceptual field, thus preventing the loss of critical information. Extensive experiments demonstrate the effectiveness of the EST method, showcasing state-of-the-art performance across widely-adopted datasets. Moreover, the EST approach exhibits exceptional generalization capabilities, even in scenarios where emotional training videos are unavailable.
 
 </details>
 
@@ -1770,6 +2250,16 @@ Diffusion models have shown impressive potential on talking head generation. Whi
 
 </details>
 
+#### [Specialized Face Encoder for Audio-based Speech to Lip Generation](https://www.semanticscholar.org/paper/3cce025710c271851749ef988b732151d7becee6)
+**Miaoyi Li, Dawei Dai, Lanyu Xue, Pengju Tang** · 2024-11-22
+
+<details>
+<summary>Abstract</summary>
+
+Videos that are directly translated and dubbed often fail to provide a natural audiovisual experience, making it crucial to develop methods that can accurately generate lip movements to match the audio. Self-supervised learning models like MAE have proven their robust transfer capabilities. This paper employs the pretraining method of MAE and proposes a new automatic lip-sync network. Additionally, we introduce a separate perceptual loss for the lip region of the generated faces to ensure accurate and clear lip movements. Our automatic lip-sync network consists of four components: video preprocessing, audio preprocessing, generator, and lip-sync discriminator, using facial images and audio features as inputs. We trained an MAE encoder and integrated it into the lip generator. The system was tested on two audiovisual datasets, and the results demonstrate that our proposed method achieves superior performance in both the visual quality of generated talking faces and their synchronization with the audio.
+
+</details>
+
 #### [LES-Talker: Fine-Grained Emotion Editing for Talking Head Generation in Linear Emotion Space](https://arxiv.org/abs/2411.09268)
 **Guanwen Feng, Zhihao Qian, Yunan Li, Siyu Jin et al.** · 2024-11-14
 
@@ -1777,6 +2267,16 @@ Diffusion models have shown impressive potential on talking head generation. Whi
 <summary>Abstract</summary>
 
 While existing one-shot talking head generation models have achieved progress in coarse-grained emotion editing, there is still a lack of fine-grained emotion editing models with high interpretability. We argue that for an approach to be considered fine-grained, it needs to provide clear definitions and sufficiently detailed differentiation. We present LES-Talker, a novel one-shot talking head generation model with high interpretability, to achieve fine-grained emotion editing across emotion types, emotion levels, and facial units. We propose a Linear Emotion Space (LES) definition based on Facial Action Units to characterize emotion transformations as vector transformations. We design the Cross-Dimension Attention Net (CDAN) to deeply mine the correlation between LES representation and 3D model representation. Through mining multiple relationships across different feature and structure dimensions, we enable LES representation to guide the controllable deformation of 3D model. In order to adapt the multimodal data with deviations to the LES and enhance visual quality, we utilize specialized network design and training strategies. Experiments show that our method provides high visual quality along with multilevel and interpretable fine-grained emotion editing, outperforming mainstream methods.
+
+</details>
+
+#### [Audio-Semantic Enhanced Pose-Driven Talking Head Generation](https://www.semanticscholar.org/paper/43826e0f83cfedf6806325e950e8cbecf833b892)
+**Meng Liu, Da Li, Yongqiang Li, Xuemeng Song et al.** · 2024-11-01
+
+<details>
+<summary>Abstract</summary>
+
+Talking head generation, aiming to create photo-realistic videos from a single reference image and audio input, has emerged as a vibrant area of interest within the computer vision community. Despite notable advancements, several challenges remain unaddressed. For instance, many existing approaches overlook the nuanced relationship between audio semantics and head movement, such as nodding in agreement during affirmative expressions. Additionally, the visual quality of generated content, particularly in depicting teeth, often falls short of achieving authentic realism. To address these limitations, we introduce a groundbreaking audio-semantic enhanced pose-driven talking head generation method. Our approach encompasses a multimodal 3DMM parameter prediction network alongside a high-fidelity video synthesis network, meticulously designed to produce authentic and high-quality talking head videos. The multimodal 3DMM parameter prediction network harnesses both acoustic and audio-deduced semantic information, facilitating accurate head pose predictions that resonate with the semantics of spoken words. Furthermore, to significantly improve the depiction of the mouth area, especially the teeth, our video synthesis stage incorporates a mouth-enhanced network augmented by both local and global discriminators. Comprehensive evaluations across diverse metrics affirm the superiority of our method.
 
 </details>
 
@@ -1807,6 +2307,16 @@ This paper studies an efficient multimodal data communication scheme for video c
 <summary>Abstract</summary>
 
 Synthesizing realistic videos of talking faces under custom lighting conditions and viewing angles benefits various downstream applications like video conferencing. However, most existing relighting methods are either time-consuming or unable to adjust the viewpoints. In this paper, we present the first real-time 3D-aware method for relighting in-the-wild videos of talking faces based on Neural Radiance Fields (NeRF). Given an input portrait video, our method can synthesize talking faces under both novel views and novel lighting conditions with a photo-realistic and disentangled 3D representation. Specifically, we infer an albedo tri-plane, as well as a shading tri-plane based on a desired lighting condition for each video frame with fast dual-encoders. We also leverage a temporal consistency network to ensure smooth transitions and reduce flickering artifacts. Our method runs at 32.98 fps on consumer-level hardware and achieves state-of-the-art results in terms of reconstruction quality, lighting error, lighting instability, temporal consistency and inference speed. We demonstrate the effectiveness and interactivity of our method on various portrait videos with diverse lighting and viewing conditions.
+
+</details>
+
+#### [Dynamic Region Fusion Neural Radiance Fields for Audio-Driven Talking Head Generation](https://www.semanticscholar.org/paper/1a3201b7b17d919513d915444858ab5434babcd2)
+**Qiang He, Juan Cao, Haiyan Lu, Pengzhou Zhang** · 2024-10-18
+
+<details>
+<summary>Abstract</summary>
+
+Since humans are sensitive to facial appearance and responsiveness, audio-driven talking head generation remains an ongoing challenge. The paper proposes DRMF-NeRF, a novel approach for generating audio-driven head generation by conditional Neural Radiance Fields (NeRF) audio, which can simultaneously achieve fast convergence of the model and generation of facial with natural motion. More specifically, we present an attention-based mechanism dynamic region fusion module that can effectively explore the potential connections and the degree of influence of audio on various face regions to generate a natural and accurate dynamic talking head. Furthermore, inspired by S3IM loss, we design an optimization function that combines the image pointwise loss and structural loss to enhance the quality of the generated image. Comprehensive experiments have shown that our method can generate realistic speech head videos, and its performance is superior to the baseline method.
 
 </details>
 
@@ -2180,6 +2690,16 @@ Speech-driven 3D facial animation has recently garnered attention due to its cos
 
 </details>
 
+#### [Editing Audio-Driven Talking Head Based on Audio Information](https://www.semanticscholar.org/paper/6ec08eb464be74f258806ba9ab499abfdb041150)
+**Rui Lang** · 2024-06-30
+
+<details>
+<summary>Abstract</summary>
+
+Editing audio-driven talking head is a relatively new direction in the field of computer vision and still faces many challenges. First, the existing methods do not fully take into account the information contained in the driving audio, which can easily lead to the problem of mismatch between audio and video features (for example, the driving audio emotion is happy, but the corresponding facial emotion is calm). Second, existing face editing methods are often limited to one mode, and the variety they can produce is limited. Finally, we would like the final generated facial animation to be undistorted and to retain some of the identity of the original image. To address the above problems, this paper proposes a novel talking head editing method based on audio information. Specifically, we obtain comprehensive audio information by introducing multiple audio feature classifiers and use it to guide facial editing. We generate more diverse and detailed facial features by combining two different dimensional face editors. To ensure that the edited face retains as much of its original identity features as possible, we use a 3D head model to drive a single image, rather than introducing latent space or establishing complex cross-modal associations between audio and video frames, which can easily lead to facial distortion. Extensive experiments demonstrate the superiority of our method for audio-driven talking head editing. Please go to the link below to view detailed video results: https://drive.google.com/drive/folders/10T1nIktZciG6Cih_UEUOrg0YKXG6KM-C?usp=sharing
+
+</details>
+
 #### [RealTalk: Real-time and Realistic Audio-driven Face Generation with 3D Facial Prior-guided Identity Alignment Network](https://arxiv.org/abs/2406.18284)
 **Xiaozhong Ji, Chuming Lin, Zhonggan Ding, Ying Tai et al.** · 2024-06-26
 
@@ -2267,6 +2787,16 @@ In this paper, we introduce a novel Face-to-Face spoken dialogue model. It proce
 <summary>Abstract</summary>
 
 Creating realistic or stylized facial and lip sync animation is a tedious task. It requires lot of time and skills to sync the lips with audio and convey the right emotion to the character's face. To allow animators to spend more time on the artistic and creative part of the animation, we present Audio2Rig: a new deep learning based tool leveraging previously animated sequences of a show, to generate facial and lip sync rig animation from an audio file. Based in Maya, it learns from any production rig without any adjustment and generates high quality and stylized animations which mimic the style of the show. Audio2Rig fits in the animator workflow: since it generates keys on the rig controllers, the animation can be easily retaken. The method is based on 3 neural network modules which can learn an arbitrary number of controllers. Hence, different configurations can be created for specific parts of the face (such as the tongue, lips or eyes). With Audio2Rig, animators can also pick different emotions and adjust their intensities to experiment or customize the output, and have high level controls on the keyframes setting. Our method shows excellent results, generating fine animation details while respecting the show style. Finally, as the training relies on the studio data and is done internally, it ensures data privacy and prevents from copyright infringement.
+
+</details>
+
+#### [EAT-Face: Emotion-Controllable Audio-Driven Talking Face Generation via Diffusion Model](https://www.semanticscholar.org/paper/7b142d08b1319ab1d759083ff65b153400c907cb)
+**Haodi Wang, Xiaojun Jia, Xiaochun Cao** · 2024-05-27
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking face generation is a promising task with a lot of attention. Despite abundant efforts are devoted to video quality and lip synchronization, most existing works do not take the unignorable aspect of facial emotional expression into account during generation. In this paper, we propose an Emotion-controllable Audio-driven Talking Face generation framework called EAT-Face that enables us to control multiple types of emotions. Specifically, the proposed method consists of a Talking Face Reconstructor (TFR) and a Facial Emotion Controller (FEC), utilizing fused multimodal information including audio signals, visual images, and textual emotions for synthesis. Firstly, TFR predicts face images synchronized with given audios from random noises, leveraging external guidances comprised of audio features, character references, and face masks as conditions. Then, FEC further manipulates the facial emotions based on TFR, leveraging the emotion embeddings extracted from emotion texts. However, a semantic misalignment problem lies in the emotion-texts and character images. To tackle this issue, we additionally propose a strategy called joint Emotion-Visual Embedding (EVE) to mitigate the misalignment. In this way, the proposed EAT-Face is captive to control emotion more precisely. Extensive experiments involving both objective evaluations and subjective investigations demonstrate the effectiveness of our framework in synthesizing high-fidelity and emotional talking face videos.
 
 </details>
 
@@ -2420,6 +2950,16 @@ Video-driven neural face reenactment aims to synthesize realistic facial images 
 
 </details>
 
+#### [FG-EmoTalk: Talking Head Video Generation with Fine-Grained Controllable Facial Expressions](https://www.semanticscholar.org/paper/78396d47cff7a5d2e1330d9f75a2619bb7e1b713)
+**Zhaoxu Sun, Yuze Xuan, Fang Liu, Yang Xiang** · 2024-03-24
+
+<details>
+<summary>Abstract</summary>
+
+Although deep generative models have greatly improved one-shot video-driven talking head generation, few studies address fine-grained controllable facial expression editing, which is crucial for practical applications. Existing methods rely on a fixed set of predefined discrete emotion labels or simply copy expressions from input videos. This is limiting as expressions are complex, and methods using only emotion labels cannot generate fine-grained, accurate or mixed expressions. Generating talking head video with precise expressions is also difficult using 3D model-based approaches, as 3DMM only models facial movements and tends to produce deviations. In this paper, we propose a novel framework enabling fine-grained facial expression editing in talking face generation. Our goal is to achieve expression control by manipulating the intensities of individual facial Action Units (AUs) or groups. First, compared with existing methods which decouple the face into pose and expression, we propose a disentanglement scheme to isolates three components from the human face, namely, appearance, pose, and expression. Second, we propose to use input AUs to control muscle group intensities in the generated face, and integrate the AUs features with the disentangled expression latent code. Finally, we present a self-supervised training strategy with well-designed constraints. Experiments show our method achieves fine-grained expression control, produces high-quality talking head videos and outperforms baseline methods.
+
+</details>
+
 #### [ScanTalk: 3D Talking Heads from Unregistered Scans](https://arxiv.org/abs/2403.10942)
 **Federico Nocentini, Thomas Besnier, Claudio Ferrari, Sylvain Arguillere et al.** · 2024-03-16
 
@@ -2459,6 +2999,10 @@ Generating stylized talking head with diverse head motions is crucial for achiev
 The rapid advancement of Artificial Intelligence Generated Content (AIGC) technology has propelled audio-driven talking head generation, gaining considerable research attention for practical applications. However, performance evaluation research lags behind the development of talking head generation techniques. Existing literature relies on heuristic quantitative metrics without human validation, hindering accurate progress assessment. To address this gap, we collect talking head videos generated from four generative methods and conduct controlled psychophysical experiments on visual quality, lip-audio synchronization, and head movement naturalness. Our experiments validate consistency between model predictions and human annotations, identifying metrics that align better with human opinions than widely-used measures. We believe our work will facilitate performance evaluation and model development, providing insights into AIGC in a broader context. Code and data will be made available at https://github.com/zwx8981/ADTH-QA.
 
 </details>
+
+#### [Audio–video syncing with lip movements using generative deep neural networks](https://www.semanticscholar.org/paper/75327cbf02cd2343bdef4a69b93a2be3889b701f)
+**Amal Mathew, Aaryl Saldanha, C. Babu** · 2024-03-11
+
 
 #### [FaceChain-ImagineID: Freely Crafting High-Fidelity Diverse Talking Faces from Disentangled Audio](https://arxiv.org/abs/2403.01901)
 **Chao Xu, Yang Liu, Jiazheng Xing, Weida Wang et al.** · 2024-03-04
@@ -2527,6 +3071,16 @@ In real-world environments, background noise significantly degrades the intellig
 <summary>Abstract</summary>
 
 While considerable progress has been made in achieving accurate lip synchronization for 3D speech-driven talking face generation, the task of incorporating expressive facial detail synthesis aligned with the speaker's speaking status remains challenging. Our goal is to directly leverage the inherent style information conveyed by human speech for generating an expressive talking face that aligns with the speaking status. In this paper, we propose AVI-Talking, an Audio-Visual Instruction system for expressive Talking face generation. This system harnesses the robust contextual reasoning and hallucination capability offered by Large Language Models (LLMs) to instruct the realistic synthesis of 3D talking faces. Instead of directly learning facial movements from human speech, our two-stage strategy involves the LLMs first comprehending audio information and generating instructions implying expressive facial details seamlessly corresponding to the speech. Subsequently, a diffusion-based generative network executes these instructions. This two-stage process, coupled with the incorporation of LLMs, enhances model interpretability and provides users with flexibility to comprehend instructions and specify desired operations or modifications. Extensive experiments showcase the effectiveness of our approach in producing vivid talking faces with expressive facial movements and consistent emotional status.
+
+</details>
+
+#### [Lip Synchronization Model For Sinhala Language Using Machine Learning](https://www.semanticscholar.org/paper/20e6ef1cae962c4bf37c906cb6049664b18a24af)
+**Dilani Ranaweera, R. Weerasinghe, R. Dinalankara** · 2024-02-21
+
+<details>
+<summary>Abstract</summary>
+
+Realistic lip-synchronized animations can be produced by the appropriately timed voice and lip motions of the cartoon character. This process is called as “lip synchronization”. Building a talking face for languages such as English, Korean, and Portuguese has been subject of numerous studies. Compared to other languages, Sinhala is a low-resource language due to less contribution in these researches. This research study focuses to build a frontal view of a synthetic mouth part with smooth lip movements rather than opening and closing while speaking Sinhala sentences. The most difficult challenge is to match the basic sounds, “phonemes” with the lip movement called “visemes”. This study has been used static viseme approach by deriving twenty three (23) Sinhala viseme classes and a deep learning model has been developed to map visemes with Sinhala letters. In system implementation, text input is provided first, after which the system produces audio and the deep learning model generates a collection of visemes based on the given text. The system interface then offers three options for playing the visemes at various speeds, including fast, normal, and slow. The user interface was created in Python, and the deep learning model is integrated into the system. This model will be very helpful to use in cartoon industry to build Sinhala speaking cartoon characters and also be used to train deaf people to read lips.
 
 </details>
 
@@ -2620,6 +3174,30 @@ In human-centric content generation, the pre-trained text-to-image models strugg
 
 </details>
 
+#### [LatentSync: Audio Conditioned Latent Diffusion Models for Lip Sync](https://www.semanticscholar.org/paper/a9ec5c7585a50a5b9cc4458f6b5506693b658be4)
+**Chunyu Li, Chao Zhang, Weikai Xu, Jinghui Xie et al.** · 2024-01-01
+
+
+#### [SD-NeRF: Towards Lifelike Talking Head Animation via Spatially-Adaptive Dual-Driven NeRFs](https://www.semanticscholar.org/paper/e3ad82f6d53d582e03d51bd017f47fcd157fe4ba)
+**Shuai Shen, Wanhua Li, Xiaoke Huang, Zhengbiao Zhu et al.** · 2024-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Recent years have witnessed great progress in audio-driven talking head animation. Among these methods, the 3D-based ones better preserve the 3D consistency of the generated head and produce more natural results compared with 2D-based approaches. However, most 3D-based methods employ 3D morphable face models as the intermediate representation and involve multi-stage training, which may lead to error accumulation. To alleviate this problem, in this article, we propose a fully end-to-end talking head animation method, which implicitly grasps the 3D structures by learning a conditional Neural Radiance Field (NeRF). As NeRF has proven to be an effective tool for 3D modeling, one can learn dynamic neural radiance fields conditioned on audio signals for talking head synthesis. Furthermore, we argue that audio signals cannot fully drive a lifelike talking head. When people are talking, they usually show many spontaneous facial movements like blinks and brow movements, which makes talkers natural and real. These movements cannot be fully driven by the audio signals since they are highly unrelated to the audio. Therefore, we incorporate motion information as another driving factor and develop an audio-motion dual-driven NeRF model to take a step toward more lifelike talking head synthesis. On this basis, as audio and motion mainly affect different regions of the human face, we propose a Spatially-adaptive Dual-driven NeRF (SD-NeRF), which fuses these two driven factors with a spatially-adaptive cross-attention mechanism. Quantitative and qualitative results demonstrate that, with finer facial controls, our method produces more realistic talking head videos compared with existing advanced works.
+
+</details>
+
+#### [MergeTalk: Audio-Driven Talking Head Generation From Single Image With Feature Merge](https://www.semanticscholar.org/paper/3c6249961137d5262a1f874ea9837918b3ebb946)
+**Jian Gao, Chang Shu, Ximin Zheng, Zheng Lu et al.** · 2024-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking head generation has wide real world applications but remains challenging due to the problems such as audio-lip synchronization, head poses, identity preservation, video quality, etc. We propose a novel two-stage framework that uses explicit 3D face images rendered from a 3D model based on the audio input, as intermediate features. We devise two independent 3D motion parameter generation networks to generate expression and pose parameters for the popular 3DMM model to solve the audio-lip synchronization problem and natural head poses without losing identity information. To improve the final talking head quality such as avoiding facial distortion and artifacts, we propose a novel face feature merge network to accurately extract and fuse the background, identity information, facial texture from the source image, and the lip movements and head poses from the 3D face images, and generate the final videos based on generative adversarial networks. Extensive experiments show that our framework outperforms the SOTA methods in several aspects and has good generalization ability.
+
+</details>
+
 
 ### 2023
 
@@ -2700,6 +3278,16 @@ Face reenactment is challenging due to the need to establish dense correspondenc
 <summary>Abstract</summary>
 
 Emotional talking head generation has attracted growing attention. Previous methods, which are mainly GAN-based, still struggle to consistently produce satisfactory results across diverse emotions and cannot conveniently specify personalized emotions. In this work, we leverage powerful diffusion models to address the issue and propose DreamTalk, a framework that employs meticulous design to unlock the potential of diffusion models in generating emotional talking heads. Specifically, DreamTalk consists of three crucial components: a denoising network, a style-aware lip expert, and a style predictor. The diffusion-based denoising network can consistently synthesize high-quality audio-driven face motions across diverse emotions. To enhance lip-motion accuracy and emotional fullness, we introduce a style-aware lip expert that can guide lip-sync while preserving emotion intensity. To more conveniently specify personalized emotions, a diffusion-based style predictor is utilized to predict the personalized emotion directly from the audio, eliminating the need for extra emotion reference. By this means, DreamTalk can consistently generate vivid talking faces across diverse emotions and conveniently specify personalized emotions. Extensive experiments validate DreamTalk's effectiveness and superiority. The code is available at https://github.com/ali-vilab/dreamtalk.
+
+</details>
+
+#### [Speech to Lip Sync generation using Deep learning Algorithm](https://www.semanticscholar.org/paper/114f13f0af15e596b7e6828a35c827b51f9a0a5f)
+**P. Hirishikesh, Mvs Yaswanth, H. A.** · 2023-12-13
+
+<details>
+<summary>Abstract</summary>
+
+The emerging growth of artificial intelligence (AI) technology created a way for many innovative developments. Speech to lip synchronization (STLS) is one of the key requirement in applications related to film making, voice modulation, video creation etc. The identification of speaking face synchronized with the voice need to be done accurately to improve the quality of the video. Many existing systems face the problem while imposing the new audio into the existing video files. The movement of lips dynamically changes according to the speaking faces. To solve the missing synchronization problem of existing videos to retrieve the original quality from the video input, the proposed system is focused on creating accurate lip synchronization model using Deep SyncNet (DSN) using Deep learning convolution architecture. The timing accuracy of the video synchronization extensively improve the quality of the video and demands real time experience from the video footage. Detection of facial variations without extracting the features are particularly challenging. The proposed system considers the existing challenges like misclassification, delayed synchronization and evaluated the SyncNet achieved the accuracy of 95% on lip synchronization with labelled dataset.
 
 </details>
 
@@ -2810,6 +3398,16 @@ Zero-shot talking avatar generation aims at synthesizing natural talking videos 
 <summary>Abstract</summary>
 
 This paper proposes a talking face generation method named "CP-EB" that takes an audio signal as input and a person image as reference, to synthesize a photo-realistic people talking video with head poses controlled by a short video clip and proper eye blinking embedding. It's noted that not only the head pose but also eye blinking are both important aspects for deep fake detection. The implicit control of poses by video has already achieved by the state-of-art work. According to recent research, eye blinking has weak correlation with input audio which means eye blinks extraction from audio and generation are possible. Hence, we propose a GAN-based architecture to extract eye blink feature from input audio and reference video respectively and employ contrastive training between them, then embed it into the concatenated features of identity and poses to generate talking face images. Experimental results show that the proposed method can generate photo-realistic talking face with synchronous lips motions, natural head poses and blinking eyes.
+
+</details>
+
+#### [Audiovisual Inputs for Learning Robust, Real-time Facial Animation with Lip Sync](https://www.semanticscholar.org/paper/54659fdee52c7a090e51ae4b2db50110e7aeba68)
+**Iñaki Navarro, Dario Kneubuehler, Tijmen Verhulsdonck, Eloi Du Bois et al.** · 2023-11-15
+
+<details>
+<summary>Abstract</summary>
+
+We present an approach for generating facial animation that combines video and audio input data in real time for low-end devices through deep learning. Our method produces control signals from audiovisual inputs separately, and mixes them to animate a character rig. The architecture relies on two specialized networks that are trained on a combination of synthetic and real world data and are highly engineered to be efficient in order to support quality avatar faces even on low-end devices. In addition, the system supports several levels of detail that degrade gracefully for additional scaling and efficiency. We showcase how user testing has been employed to improve performance and a comparison with state of the art.
 
 </details>
 
@@ -3103,6 +3701,16 @@ We are interested in a novel task, namely low-resource text-to-talking avatar. G
 
 </details>
 
+#### [Audio-Driven Talking Head Video Generation with Diffusion Model](https://www.semanticscholar.org/paper/6e6d3daeb11675414391bd935a9e4e84dcff8d47)
+**Yizhe Zhu, Chunhui Zhang, Qiong Liu, Xi Zhou** · 2023-06-04
+
+<details>
+<summary>Abstract</summary>
+
+Synthesizing high-fidelity talking head videos by fitting input audio sequences is a highly anticipated technique in many applications, such as digital humans, virtual video conferences, and human-computer interaction. Popular GAN-based methods aim to align speech audio with lip motions and head poses. However, existing methods are prone to training instability and even mode collapse, resulting in low-quality video generation. In this paper, we propose a novel audio-driven diffusion method for generating high-resolution realistic videos of talking heads with the help of the denoising diffusion model. Specifically, the face attribute disentanglement module is proposed to disentangle eye blinking and lip motion features, where the lip motion features are synchronized with audio features via the contrastive learning strategy, and the disentangled motion features are aligned well with the talking head. Furthermore, the denoising diffusion model takes the source image and the warped motion features as input to generate the high-resolution realistic talking head with diverse head poses. Extensive evaluations using multiple metrics demonstrate that our method outperforms the current techniques both qualitatively and quantitatively.
+
+</details>
+
 #### [Audio-Visual Speech Separation in Noisy Environments with a Lightweight Iterative Model](https://arxiv.org/abs/2306.00160)
 **Héctor Martel, Julius Richter, Kai Li, Xiaolin Hu et al.** · 2023-05-31
 
@@ -3343,6 +3951,16 @@ Most of the existing audio-driven 3D facial animation methods suffered from the 
 
 </details>
 
+#### [Deep Learning Technique to generate lip-sync for live 2-D Animation](https://www.semanticscholar.org/paper/7f61d57df02bfeb59057f49944b79b14c1e0aea0)
+**Ashish Soni, Janhvi Deshmukh, Ayush Shende, R. Gawande et al.** · 2023-02-18
+
+<details>
+<summary>Abstract</summary>
+
+Currently, there are a couple of major trends in live 2-D animation like Immersive User Experience, Next-Gen Software, Mobile 2D Animation, VR 2D Animation, AR/VR Live Action Animation, and Web 2D Animation that are getting a lot of attention. For the industries like advertisement, entertainment as well as education, this new technology has become very important as each of them needs to reach their target audience through it. With the help of live 2-D animation, these industries can now reach out to new audiences through something that has never been done before, creating original content that is something that has never been done before. This has now become possible due to the rise of social media. With the advent of social media, it is now possible for anyone in the world to communicate with people who have never been contacted by any advertising or marketing agency before. The solution we are proposing is a deep learning technique for creating animated characters that can make lips synchronized just the way humans do without any assistance and intervention. This can save many working hours that are needed to make an animated character feel real while dialog delivery. The main requirement here is the exact lip sync as that of the human performs while talking the lip movement should get exactly matched. This is possible with the help of LSTM model [5].
+
+</details>
+
 #### [GeneFace: Generalized and High-Fidelity Audio-Driven 3D Talking Face Synthesis](https://arxiv.org/abs/2301.13430)
 **Zhenhui Ye, Ziyue Jiang, Yi Ren, Jinglin Liu et al.** · 2023-01-31
 
@@ -3393,6 +4011,16 @@ It is in high demand to generate facial animation with high realism, but it rema
 
 </details>
 
+#### [LipNeRF: What is the right feature space to lip-sync a NeRF?](https://www.semanticscholar.org/paper/5d082bc5968b7138509758f88069288076227d42)
+**Aggelina Chatziagapi, ShahRukh Athar, Abhinav Jain, M. Rohith et al.** · 2023-01-05
+
+<details>
+<summary>Abstract</summary>
+
+Synthesizing high-fidelity talking head videos of an arbitrary identity, lip-synced to a target speech segment, is a challenging problem. Recent GAN-based methods succeed by training a model on a large amount of videos, allowing the generator to learn a variety of audio-lip representations. However, they are unable to handle head pose changes. On the other hand, Neural Radiance Fields (NeRFs) model the 3D face geometry more accurately. Current audio-conditioned NeRFs are not as good in lip synchronization as GANs, since they are trained on limited video data of a single identity. In this work, we propose LipNeRF, a lip-syncing NeRF that bridges the gap between the accurate lip synchronization of GAN-based methods and the accurate 3D face modeling of NeRFs. LipNeRF is conditioned on the expression space of a 3DMM, instead of the audio feature space. We experimentally demonstrate that the expression space gives a better representation for the lip shape than the audio feature space. LipNeRF shows a significant improvement in lip-sync quality over the current state-of-the-art, especially in high-definition videos of cinematic content, with challenging pose, illumination and expression variations.
+
+</details>
+
 #### [StyleTalk: One-shot Talking Head Generation with Controllable Speaking Styles](https://arxiv.org/abs/2301.01081)
 **Yifeng Ma, Suzhen Wang, Zhipeng Hu, Changjie Fan et al.** · 2023-01-03
 
@@ -3402,6 +4030,20 @@ It is in high demand to generate facial animation with high realism, but it rema
 Different people speak with diverse personalized speaking styles. Although existing one-shot talking head methods have made significant progress in lip sync, natural facial expressions, and stable head motions, they still cannot generate diverse speaking styles in the final talking head videos. To tackle this problem, we propose a one-shot style-controllable talking face generation framework. In a nutshell, we aim to attain a speaking style from an arbitrary reference speaking video and then drive the one-shot portrait to speak with the reference speaking style and another piece of audio. Specifically, we first develop a style encoder to extract dynamic facial motion patterns of a style reference video and then encode them into a style code. Afterward, we introduce a style-controllable decoder to synthesize stylized facial animations from the speech content and style code. In order to integrate the reference speaking style into generated videos, we design a style-aware adaptive transformer, which enables the encoded style code to adjust the weights of the feed-forward layers accordingly. Thanks to the style-aware adaptation mechanism, the reference speaking style can be better embedded into synthesized videos during decoding. Extensive experiments demonstrate that our method is capable of generating talking head videos with diverse speaking styles from only one portrait image and an audio clip while achieving authentic visual effects. Project Page: https://github.com/FuxiVirtualHuman/styletalk.
 
 </details>
+
+#### [A Simple and Efficient method for Dubbed Audio Sync Detection using Compressive Sensing](https://www.semanticscholar.org/paper/e0dcef74307d12f0b757c5a914a0925bf818bfcb)
+**Avijit Vajpayee, Zhikang Zhang, Abhinav Jain, Vimal Bhat** · 2023-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Lack of temporal synchronization between audio and video streams represents one of the major quality defects in videos. The defect is more prominent in dubbed media due to errors in post-production such as improper audio overlay. Prior works in Audio-Video sync detection rely on either lip synchronization methods, which cannot be applied to dubbed media, or on self-supervised embeddings for general sound events, which are not accurate. In this paper, we present a novel, accurate and efficient method for temporal sync detection between dubbed audio tracks and corresponding non-dubbed original-language audio tracks. Using the availability of non-dubbed audio tracks and existing lip sync methods, we can simplify the problem of “Dubbed Audio-to-Video” sync detection to that of “Dubbed Audio-to-Original Audio” sync detection. Our method finds and compares matching frames in compressed audio signatures, achieving near perfect classification with 99.4 F1 score in less than 1 minute of processing time per hour of audio, along with ≈ 99.6% relative reduction in memory footprint compared to an uncompressed full audio spectrogram. We believe this is the first work to tackle temporal sync detection in dubbed media.
+
+</details>
+
+#### [DreamTalk: When Expressive Talking Head Generation Meets Diffusion Probabilistic Models](https://www.semanticscholar.org/paper/ccfaf773a4c4d6ac3e3da2c573846488cabfe449)
+**Yifeng Ma, Shiwei Zhang, Jiayu Wang, Xiang Wang et al.** · 2023-01-01
+
 
 
 ### 2022
@@ -3503,6 +4145,16 @@ Audio-visual speech enhancement aims to extract clean speech from a noisy enviro
 <summary>Abstract</summary>
 
 This paper proposes a self-supervised approach to learn universal facial representations from videos, that can transfer across a variety of facial analysis tasks such as Facial Attribute Recognition (FAR), Facial Expression Recognition (FER), DeepFake Detection (DFD), and Lip Synchronization (LS). Our proposed framework, named MARLIN, is a facial video masked autoencoder, that learns highly robust and generic facial embeddings from abundantly available non-annotated web crawled facial videos. As a challenging auxiliary task, MARLIN reconstructs the spatio-temporal details of the face from the densely masked facial regions which mainly include eyes, nose, mouth, lips, and skin to capture local and global aspects that in turn help in encoding generic and transferable features. Through a variety of experiments on diverse downstream tasks, we demonstrate MARLIN to be an excellent facial video encoder as well as feature extractor, that performs consistently well across a variety of downstream tasks including FAR (1.13% gain over supervised benchmark), FER (2.64% gain over unsupervised benchmark), DFD (1.86% gain over unsupervised benchmark), LS (29.36% gain for Frechet Inception Distance), and even in low data regime. Our code and models are available at https://github.com/ControlNet/MARLIN .
+
+</details>
+
+#### [Lip Sync Matters: A Novel Multimodal Forgery Detector](https://www.semanticscholar.org/paper/71c614bd54f89d0d618e2a917349c37a875eedab)
+**Sahibzada Adil Shahzad, Ammarah Hashmi, S. Khan, Yan-Tsung Peng et al.** · 2022-11-07
+
+<details>
+<summary>Abstract</summary>
+
+Deepfake technology has advanced a lot, but it is a double-sided sword for the community. One can use it for beneficial purposes, such as restoring vintage content in old movies, or for nefarious purposes, such as creating fake footage to manipulate the public and distribute non-consensual pornography. A lot of work has been done to combat its improper use by detecting fake footage with good performance thanks to the availability of numerous public datasets and unimodal deep learning-based models. However, these methods are insufficient to detect multimodal manipulations, such as both visual and acoustic. This work proposes a novel lip-reading-based multi-modal Deepfake detection method called “Lip Sync Matters.” It targets high-level semantic features to exploit the mismatch between the lip sequence extracted from the video and the synthetic lip sequence generated from the audio by the Wav2lip model to detect forged videos. Experimental results show that the proposed method outperforms several existing unimodal, ensemble, and multimodal methods on the publicly available multimodal FakeAVCeleb dataset.
 
 </details>
 
@@ -3676,6 +4328,16 @@ Despite the recent success of machine learning algorithms, most models face draw
 
 </details>
 
+#### [Learning Speaker-specific Lip-to-Speech Generation](https://arxiv.org/abs/2206.02050)
+**Munender Varshney, Ravindra Yadav, Vinay P. Namboodiri, R. Hegde** · 2022-06-04
+
+<details>
+<summary>Abstract</summary>
+
+Understanding the lip movement and inferring the speech from it is notoriously difficult for the common person. The task of accurate lip-reading gets help from various cues of the speaker and its contextual or environmental setting. Every speaker has a different accent and speaking style, which can be inferred from their visual and speech features. This work aims to understand the correlation/mapping between speech and the sequence of lip movement of individual speakers in an unconstrained and large vocabulary. We model the frame sequence as a distribution of features from the transformer in an autoencoder setting and learn the embeddings jointly that exploits temporal properties of both audio and video. We learn temporal synchronization using deep metric learning, which guides the decoder to generate speech in sync with input lip movements. The predictive posterior thus gives us the generated speech in speaker speaking style. We have trained our model on the Grid and Lip2Wav Chemistry lecture dataset to evaluate single speaker natural speech generation tasks from lip movement in an unconstrained natural setting. Extensive evaluation using various qualitative and quantitative metrics with human evaluation also shows that our method outperforms on Lip2Wav Chemistry dataset (large vocabulary in an unconstrained setting) by a good margin across almost all evaluation metrics and marginally outperforms the state-of-the-art on GRID dataset.
+
+</details>
+
 #### [One-Shot Face Reenactment on Megapixels](https://arxiv.org/abs/2205.13368)
 **Wonjun Kang, Geonsu Lee, Hyung Il Koo, Nam Ik Cho** · 2022-05-26
 
@@ -3693,6 +4355,16 @@ The goal of face reenactment is to transfer a target expression and head pose to
 <summary>Abstract</summary>
 
 We introduce the Merkel Podcast Corpus, an audio-visual-text corpus in German collected from 16 years of (almost) weekly Internet podcasts of former German chancellor Angela Merkel. To the best of our knowledge, this is the first single speaker corpus in the German language consisting of audio, visual and text modalities of comparable size and temporal extent. We describe the methods used with which we have collected and edited the data which involves downloading the videos, transcripts and other metadata, forced alignment, performing active speaker recognition and face detection to finally curate the single speaker dataset consisting of utterances spoken by Angela Merkel. The proposed pipeline is general and can be used to curate other datasets of similar nature, such as talk show contents. Through various statistical analyses and applications of the dataset in talking face generation and TTS, we show the utility of the dataset. We argue that it is a valuable contribution to the research community, in particular, due to its realistic and challenging material at the boundary between prepared and spontaneous speech.
+
+</details>
+
+#### [Meta Talk: Learning To Data-Efficiently Generate Audio-Driven Lip-Synchronized Talking Face With High Definition](https://www.semanticscholar.org/paper/e3d8c277a9a688d57ca1d33408ba36b2c3c4ec66)
+**Yuhan Zhang, Weihua He, Minglei Li, Kun Tian et al.** · 2022-05-23
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven talking face, driving talking face by audio, has received considerable attention in multi-modal learning due to its widespread use in virtual reality. However, long-time recording of target high-quality video is needed by most existing audio-driven talking face studies, which significantly increases customization costs. This paper proposes a novel data-efficient audio-driven talking face generation method, which uses just a short target video to produce both lip-synchronized and high-definition face video driven by arbitrary audio in the wild. Current methods suffer from many problems, such as low definition, asynchronization of lip movement and voice, and intense demands for videos for training. In this work, the original target character’s face images are decomposed into 3D face model parameters including expression, geometry, illumination, etc. Then, low-definition pseudo video generated by an adapted target face video bridges the powerful pre-trained audio-driven model to our audio-to-expression transformation network and help to transfer the ability of audio-identity disentanglement. The expression is replaced via an audio and then combined with other face parameters to render a synthetic face. Finally, a neural rendering network translates the synthetic face into talking face without loss of definition. Experimental results show that the proposed method has the best performance in high-definition image quality, and comparable performance in lip synchronization compared with the existing state-of-the-art methods.
 
 </details>
 
@@ -3743,6 +4415,16 @@ Talking head generation is to synthesize a lip-synchronized talking head video b
 <summary>Abstract</summary>
 
 Recently, talking-face video generation has received considerable attention. So far most methods generate results with neutral expressions or expressions that are implicitly determined by neural networks in an uncontrollable way. In this paper, we propose a method to generate talking-face videos with continuously controllable expressions in real-time. Our method is based on an important observation: In contrast to facial geometry of moderate resolution, most expression information lies in textures. Then we make use of neural textures to generate high-quality talking face videos and design a novel neural network that can generate neural textures for image frames (which we called dynamic neural textures) based on the input expression and continuous intensity expression coding (CIEC). Our method uses 3DMM as a 3D model to sample the dynamic neural texture. The 3DMM does not cover the teeth area, so we propose a teeth submodule to complete the details in teeth. Results and an ablation study show the effectiveness of our method in generating high-quality talking-face videos with continuously controllable expressions. We also set up four baseline methods by combining existing representative methods and compare them with our method. Experimental results including a user study show that our method has the best performance.
+
+</details>
+
+#### [Lip to Speech Synthesis with Visual Context Attentional GAN](https://arxiv.org/abs/2204.01726)
+**Minsu Kim, Joanna Hong, Y. Ro** · 2022-04-04
+
+<details>
+<summary>Abstract</summary>
+
+In this paper, we propose a novel lip-to-speech generative adversarial network, Visual Context Attentional GAN (VCA-GAN), which can jointly model local and global lip movements during speech synthesis. Specifically, the proposed VCA-GAN synthesizes the speech from local lip visual features by finding a mapping function of viseme-to-phoneme, while global visual context is embedded into the intermediate layers of the generator to clarify the ambiguity in the mapping induced by homophene. To achieve this, a visual context attention module is proposed where it encodes global representations from the local visual features, and provides the desired global visual context corresponding to the given coarse speech representation to the generator through audio-visual attention. In addition to the explicit modelling of local and global visual representations, synchronization learning is introduced as a form of contrastive learning that guides the generator to synthesize a speech in sync with the given input lip movements. Extensive experiments demonstrate that the proposed VCA-GAN outperforms existing state-of-the-art and is able to effectively synthesize the speech from multi-speaker that has been barely handled in the previous works.
 
 </details>
 
@@ -3886,6 +4568,10 @@ While recent advances in deep neural networks have made it possible to render hi
 
 </details>
 
+#### [Towards audio-visual deep learning methods for singing voice separation and lip synchronization](https://www.semanticscholar.org/paper/0a429a0cd79b2ce508f30550aba98dd8fb2289fa)
+**V. S. Kadandale** · 2022-01-01
+
+
 
 ### 2021
 
@@ -4016,6 +4702,16 @@ Video represents the majority of internet traffic today, driving a continual rac
 <summary>Abstract</summary>
 
 A speaker extraction algorithm seeks to extract the speech of a target speaker from a multi-talker speech mixture when given a cue that represents the target speaker, such as a pre-enrolled speech utterance, or an accompanying video track. Visual cues are particularly useful when a pre-enrolled speech is not available. In this work, we don't rely on the target speaker's pre-enrolled speech, but rather use the target speaker's face track as the speaker cue, that is referred to as the auxiliary reference, to form an attractor towards the target speaker. We advocate that the temporal synchronization between the speech and its accompanying lip movements is a direct and dominant audio-visual cue. Therefore, we propose a self-supervised pre-training strategy, to exploit the speech-lip synchronization cue for target speaker extraction, which allows us to leverage abundant unlabeled in-domain data. We transfer the knowledge from the pre-trained model to the attractor encoder of the speaker extraction network. We show that the proposed speaker extraction network outperforms various competitive baselines in terms of signal quality, perceptual quality, and intelligibility, achieving state-of-the-art performance.
+
+</details>
+
+#### [Learning Pose-Adaptive Lip Sync with Cascaded Temporal Convolutional Network](https://www.semanticscholar.org/paper/81ff564e6318ff01b00f9480ba1456798692201c)
+**Ruobing Zheng, Bo Song, Changjiang Ji** · 2021-06-06
+
+<details>
+<summary>Abstract</summary>
+
+Speech-driven lip sync has become a promising technique for generating and editing talking-head videos. These studies mainly use 3D morphable models or 2D facial landmarks as the intermediate face representations. However, 2D-based methods have been stagnant recently due to their inability to handle out-of-plane rotations, even though the 2D landmarks have the advantage of fast and accurate extraction. In this paper, we design a cascaded temporal convolutional network to successively generate mouth shapes and corresponding jawlines based on audio signals and template headposes. Instead of explicitly calibrating the rotation between the predicted mouth and the template face, we employ neural networks to learn the pose-adaptive mapping implicitly. We also propose an image-to-image translation-based neural rendering method for producing high-resolution and photo-realistic videos. Experiments show our solution improves both the mapping accuracy and visual performance than baselines. This work could benefit many real-world applications like virtual anchors, telepresence, and conversational agents.
 
 </details>
 
