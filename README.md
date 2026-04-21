@@ -46,6 +46,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <!-- PAPERS_TABLE_START -->
 ### 2026
 
+#### [Polyglot: Multilingual Style Preserving Speech-Driven Facial Animation](https://arxiv.org/abs/2604.16108)
+**Federico Nocentini, Kwang-duck Seo, Qingju Liu, C. Ferrari et al.** · 2026-04-17
+
+<details>
+<summary>Abstract</summary>
+
+Speech-Driven Facial Animation (SDFA) has gained significant attention due to its applications in movies, video games, and virtual reality. However, most existing models are trained on single-language data, limiting their effectiveness in real-world multilingual scenarios. In this work, we address multilingual SDFA, which is essential for realistic generation since language influences phonetics, rhythm, intonation, and facial expressions. Speaking style is also shaped by individual differences, not only by language. Existing methods typically rely on either language-specific or speaker-specific conditioning, but not both, limiting their ability to model their interaction. We introduce Polyglot, a unified diffusion-based architecture for personalized multilingual SDFA. Our method uses transcript embeddings to encode language information and style embeddings extracted from reference facial sequences to capture individual speaking characteristics. Polyglot does not require predefined language or speaker labels, enabling generalization across languages and speakers through self-supervised learning. By jointly conditioning on language and style, it captures expressive traits such as rhythm, articulation, and habitual facial movements, producing temporally coherent and realistic animations. Experiments show improved performance in both monolingual and multilingual settings, providing a unified framework for modeling language and personal style in SDFA.
+
+</details>
+
 #### [TurboTalk: Progressive Distillation for One-Step Audio-Driven Talking Avatar Generation](https://arxiv.org/abs/2604.14580)
 **Xiangyu Liu, Feng Gao, Xiaomei Zhang, Yong Zhang et al.** · 2026-04-16
 
