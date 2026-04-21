@@ -44,7 +44,8 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 ## Papers
 
 <!-- PAPERS_TABLE_START -->
-### 2026
+<details open>
+<summary><h3>2026</h3></summary>
 
 #### [Polyglot: Multilingual Style Preserving Speech-Driven Facial Animation](https://arxiv.org/abs/2604.16108)
 **Federico Nocentini, Kwang-duck Seo, Qingju Liu, C. Ferrari et al.** · 2026-04-17
@@ -494,8 +495,10 @@ Human speech perception naturally integrates visual and auditory cues, with lip 
 **Cheng Yu, Vahid Ahmadi Kalkhorani, Buye Xu, DeLiang Wang** · 2026-01-01
 
 
+</details>
 
-### 2025
+<details open>
+<summary><h3>2025</h3></summary>
 
 #### [From Inpainting to Editing: A Self-Bootstrapping Framework for Context-Rich Visual Dubbing](https://arxiv.org/abs/2512.25066)
 **Xu He, Haoxian Zhang, Hejia Chen, Changyuan Zheng et al.** · 2025-12-31
@@ -2077,8 +2080,10 @@ In the field of virtual human generation, Neural Radiance Fields (NeRF) have mad
 
 </details>
 
+</details>
 
-### 2024
+<details open>
+<summary><h3>2024</h3></summary>
 
 #### [Seeing the Sound: Multilingual Lip Sync for Real-Time Face-to-Face Translation](https://www.semanticscholar.org/paper/b3ad6e15a53015028e88171e6baf21bca5eb5682)
 **A. Oskooei, Mehmet S. Aktas, Mustafa Keles** · 2024-12-28
@@ -3198,8 +3203,10 @@ Audio-driven talking head generation has wide real world applications but remain
 
 </details>
 
+</details>
 
-### 2023
+<details open>
+<summary><h3>2023</h3></summary>
 
 #### [EFHQ: Multi-purpose ExtremePose-Face-HQ dataset](https://arxiv.org/abs/2312.17205)
 **Trung Tuan Dao, Duc Hong Vu, Cuong Pham, Anh Tran** · 2023-12-28
@@ -4045,8 +4052,10 @@ Lack of temporal synchronization between audio and video streams represents one 
 **Yifeng Ma, Shiwei Zhang, Jiayu Wang, Xiang Wang et al.** · 2023-01-01
 
 
+</details>
 
-### 2022
+<details open>
+<summary><h3>2022</h3></summary>
 
 #### [All's well that FID's well? Result quality and metric scores in GAN models for lip-sychronization tasks](https://arxiv.org/abs/2212.13810)
 **Carina Geldhauser, Johan Liljegren, Pontus Nordqvist** · 2022-12-28
@@ -4572,8 +4581,10 @@ While recent advances in deep neural networks have made it possible to render hi
 **V. S. Kadandale** · 2022-01-01
 
 
+</details>
 
-### 2021
+<details open>
+<summary><h3>2021</h3></summary>
 
 #### [Initiative Defense against Facial Manipulation](https://arxiv.org/abs/2112.10098)
 **Qidong Huang, Jie Zhang, Wenbo Zhou, WeimingZhang et al.** · 2021-12-19
@@ -4855,8 +4866,10 @@ Dense facial landmark detection is one of the key elements of face processing pi
 
 </details>
 
+</details>
 
-### 2020
+<details open>
+<summary><h3>2020</h3></summary>
 
 #### [Multi Modal Adaptive Normalization for Audio to Video Generation](https://arxiv.org/abs/2012.07304)
 **Neeraj Kumar, Srishti Goel, Ankur Narang, Brejesh Lall** · 2020-12-14
@@ -5088,4 +5101,5 @@ The objective of this paper is to learn representations of speaker identity with
 
 </details>
 
+</details>
 <!-- PAPERS_TABLE_END -->
