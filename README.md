@@ -47,6 +47,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <details open>
 <summary><h3>2026</h3></summary>
 
+#### [PortraitDirector: A Hierarchical Disentanglement Framework for Controllable and Real-time Facial Reenactment](https://arxiv.org/abs/2604.19129)
+**Chaonan Ji, Jinwei Qi, Sheng Xu, Peng Zhang et al.** · 2026-04-21
+
+<details>
+<summary>Abstract</summary>
+
+Existing facial reenactment methods struggle with a trade-off between expressiveness and fine-grained controllability. Holistic facial reenactment models often sacrifice granular control for expressiveness, while methods designed for control may struggle with fidelity and robust disentanglement. Instead of treating facial motion as a monolithic signal, we explore an alternative compositional perspective. In this paper, we introduce PortraitDirector, a novel framework that formulates face reenactment as a hierarchical composition task, achieving high-fidelity and controllable results. We employ a Hierarchical Motion Disentanglement and Composition strategy, deconstructing facial motion into a Spatial Layer for physical movements and a Semantic Layer for emotional content. The Spatial Layer comprises: (i) global head pose, managed via a dedicated representation and injection pathway; (ii) spatially separated local facial expressions, distilled from cropped facial regions and purged of emotional cues via Emotion-Filtering Module leveraging an information bottleneck. The Semantic Layer contains a derived global emotion. The disentangled components are then recomposed into an expressive motion latent. Furthermore, we engineer the framework for real-time performance through a suite of optimizations, including diffusion distillation, causal attention and VAE acceleration. PortraitDirector achieves streaming, high-fidelity, controllable 512 x 512 face reenactment at 20 FPS with a end-to-end 800 ms latency on a single 5090 GPU.
+
+</details>
+
 #### [Polyglot: Multilingual Style Preserving Speech-Driven Facial Animation](https://arxiv.org/abs/2604.16108)
 **Federico Nocentini, Kwang-duck Seo, Qingju Liu, C. Ferrari et al.** · 2026-04-17
 
