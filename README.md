@@ -47,6 +47,26 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <details open>
 <summary><h3>2026</h3></summary>
 
+#### [Talker-T2AV: Joint Talking Audio-Video Generation with Autoregressive Diffusion Modeling](https://arxiv.org/abs/2604.23586)
+**Zhen Ye, Xu Tan, Aoxiong Yin, Hongzhan Lin et al.** · 2026-04-26
+
+<details>
+<summary>Abstract</summary>
+
+Joint audio-video generation models have shown that unified generation yields stronger cross-modal coherence than cascaded approaches. However, existing models couple modalities throughout denoising via pervasive attention, treating high-level semantics and low-level details in a fully entangled manner. This is suboptimal for talking head synthesis: while audio and facial motion are semantically correlated, their low-level realizations (acoustic signals and visual textures) follow distinct rendering processes. Enforcing joint modeling across all levels causes unnecessary entanglement and reduces efficiency. We propose Talker-T2AV, an autoregressive diffusion framework where high-level cross-modal modeling occurs in a shared backbone, while low-level refinement uses modality-specific decoders. A shared autoregressive language model jointly reasons over audio and video in a unified patch-level token space. Two lightweight diffusion transformer heads decode the hidden states into frame-level audio and video latents. Experiments on talking portrait benchmarks show Talker-T2AV outperforms dual-branch baselines in lip-sync accuracy, video quality, and audio quality, achieving stronger cross-modal consistency than cascaded pipelines.
+
+</details>
+
+#### [Do Protective Perturbations Really Protect Portrait Privacy under Real-world Image Transformations?](https://arxiv.org/abs/2604.23688)
+**Ruiqing Sun, Xingshan Yao, Zhijing Wu, Tian Lan et al.** · 2026-04-26
+
+<details>
+<summary>Abstract</summary>
+
+Proactive defense methods protect portrait images from unauthorized editing or talking face generation (TFG) by introducing pixel-level protective perturbations, and have already attracted increasing attention for privacy protection. In real-world scenarios, images inevitably undergo various transformations during cross-device display and dissemination--such as scale transformations and color compression--that directly alter pixel values. However, it remains unclear whether such pixel-level modifications affect the effectiveness of existing proactive defense methods that rely on pixel-level perturbations. To solve this problem, we conduct a systematic evaluation of representative proactive defenses under image transformation. The evaluated methods are selected to span different generation architectures such as diffusion and GAN-based models, as well as defense scopes covering both portrait and natural images, and are assessed using both qualitative and quantitative metrics for subjective and objective comparison. Experimental results indicate that defense methods based on pixel-level perturbations struggle to withstand common image transformations, posing a risk of defense failure in real-world applications. To further highlight this risk, we propose a simple yet effective purification framework by leveraging the vulnerabilities induced by real-world image transformations. Experimental results demonstrate that the proposed method can efficiently remove protective perturbations with low computational cost, highlighting previously overlooked risks to the research community.
+
+</details>
+
 #### [PortraitDirector: A Hierarchical Disentanglement Framework for Controllable and Real-time Facial Reenactment](https://arxiv.org/abs/2604.19129)
 **Chaonan Ji, Jinwei Qi, Sheng Xu, Peng Zhang et al.** · 2026-04-21
 
