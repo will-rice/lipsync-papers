@@ -47,6 +47,10 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <details open>
 <summary><h3>2026</h3></summary>
 
+#### [Audio-to-3D: One-shot talking face generation with disentangled latent codes and diffusion control](https://www.semanticscholar.org/paper/f779cc81439b6ab6ea76bd98e415381c8cd9a489)
+**Peixu Zhang, Xinyu Yang** · 2026-05-01
+
+
 #### [Talker-T2AV: Joint Talking Audio-Video Generation with Autoregressive Diffusion Modeling](https://arxiv.org/abs/2604.23586)
 **Zhen Ye, Xu Tan, Aoxiong Yin, Hongzhan Lin et al.** · 2026-04-26
 
