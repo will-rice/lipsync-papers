@@ -2,10 +2,10 @@
 name = "lipsync-papers"
 version = "0.1.0"
 description = "Curated lipsync papers + LLM-friendly markdown conversion."
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
     "marker-pdf>=1.2.0",
-    "anthropic>=0.40.0",
+    "anthropic>=0.46.0",
     "pyyaml>=6.0",
 ]
 
@@ -18,7 +18,7 @@ dev = [
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
