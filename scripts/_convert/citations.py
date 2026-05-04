@@ -8,6 +8,7 @@ import re
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass, field
+from pathlib import Path
 
 # Pattern for individual \bibitem blocks (greedy until next \bibitem or thebibliography end)
 _BIBITEM_RE = re.compile(
@@ -248,3 +249,16 @@ def resolved_count(refs: list[Reference]) -> str:
     """Return a diagnostic string like ``27/41``."""
     resolved = sum(1 for r in refs if r.resolved_url)
     return f"{resolved}/{len(refs)}"
+
+
+def load_citation_cache(path: Path) -> dict[str, dict]:
+    """Load the JSON citation cache at *path*; return {} if missing."""
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def save_citation_cache(path: Path, cache: dict[str, dict]) -> None:
+    """Persist *cache* as JSON at *path*, creating parent dirs."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(cache, indent=2, sort_keys=True), encoding="utf-8")

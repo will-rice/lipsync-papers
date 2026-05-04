@@ -202,3 +202,13 @@ def test_render_references_section_with_links() -> None:
     assert "## References" in out
     assert "[arXiv:2008.10010](../2020/2008.10010.md)" in out
     assert "Unknown ref." in out
+
+
+def test_load_and_save_citation_cache(tmp_path) -> None:
+    from scripts._convert.citations import load_citation_cache, save_citation_cache
+    path = tmp_path / "citations.json"
+    assert load_citation_cache(path) == {}
+    save_citation_cache(path, {"title:foo": {"data": [{"externalIds": {"ArXiv": "1234.5678"}}]}})
+    loaded = load_citation_cache(path)
+    assert "title:foo" in loaded
+    assert loaded["title:foo"]["data"][0]["externalIds"]["ArXiv"] == "1234.5678"
