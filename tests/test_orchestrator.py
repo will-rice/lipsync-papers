@@ -194,3 +194,39 @@ def test_llm_remediation_dry_run_logs_without_api(monkeypatch, tmp_path, caplog)
     with caplog.at_level("INFO"):
         convert_papers._run_remediation_pass(rows)
     assert any("would remediate 2008.10010" in m.lower() for m in caplog.text.splitlines())
+
+
+@pytest.mark.slow
+@pytest.mark.skipif(shutil.which("pandoc") is None, reason="pandoc not installed")
+def test_second_run_is_idempotent(monkeypatch, tmp_path, fixtures_dir):
+    """After one full process_paper run, a second run for the same paper should write nothing new."""
+    import time
+
+    from scripts import convert_papers
+
+    cache_root = tmp_path / ".cache" / "source"
+    papers_root = tmp_path / "papers"
+    cache_root.mkdir(parents=True)
+    paper_cache = cache_root / "2008.10010"
+    paper_cache.mkdir()
+    shutil.copy(fixtures_dir / "sources_2008.10010.tar.gz", paper_cache / "source.tar.gz")
+
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", papers_root)
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+
+    row = convert_papers.PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["A"],
+        submitted="2020-08-23",
+        categories=["cs.CV"],
+        url="https://arxiv.org/abs/2008.10010",
+        abstract="abstract",
+    )
+    convert_papers._process_paper(row)
+    md_path = papers_root / "2020" / "2008.10010.md"
+    first_mtime = md_path.stat().st_mtime
+    time.sleep(0.05)
+
+    # needs_conversion should now return False
+    assert convert_papers.needs_conversion(row, papers_root) is False
