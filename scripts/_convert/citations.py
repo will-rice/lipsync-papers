@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import json
+import logging
 import re
+import urllib.parse
+import urllib.request
 from dataclasses import dataclass, field
 
 # Pattern for individual \bibitem blocks (greedy until next \bibitem or thebibliography end)
@@ -86,6 +90,86 @@ def _extract_title_heuristic(raw: str) -> str:
     if len(title) > 250:
         return ""
     return title
+
+
+S2_SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search?query={q}&fields=externalIds&limit=1"
+USER_AGENT = "lipsync-papers-bot/1.0"
+
+
+@dataclass
+class ResolutionContext:
+    """Context passed to resolve_reference — local corpus, current paper's year, S2 cache."""
+
+    corpus_arxiv_to_year: dict[str, str]   # {"2008.10010": "2020", …}
+    current_year: str                       # year of the citing paper, for relative paths
+    s2_cache: dict[str, dict]               # {"title:<lowercased>": <s2 response>, …}
+
+
+def _local_sibling_url(arxiv_id: str, target_year: str, current_year: str) -> str:
+    """Return a relative path from current_year/<id>.md to target_year/<id>.md."""
+    if target_year == current_year:
+        return f"./{arxiv_id}.md"
+    return f"../{target_year}/{arxiv_id}.md"
+
+
+def _s2_lookup_by_title(title: str, cache: dict[str, dict]) -> dict | None:
+    """Look up *title* in the S2 cache, falling back to a network call on miss."""
+    key = f"title:{title.lower().strip()}"
+    if key in cache:
+        return cache[key]
+    encoded = urllib.parse.quote(title)
+    url = S2_SEARCH_URL.format(q=encoded)
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read())
+        cache[key] = data
+        return data
+    except Exception as exc:  # noqa: BLE001
+        logging.warning("S2 title lookup failed for %r: %s", title, exc)
+        cache[key] = {"data": []}
+        return cache[key]
+
+
+def resolve_reference(ref: Reference, ctx: ResolutionContext) -> None:
+    """Mutate *ref* in place: set ref.resolved_url and (sometimes) ref.arxiv_id/doi.
+
+    Priority order:
+      1. Local sibling (arxiv_id in corpus)
+      2. External arXiv (arxiv_id set, not in corpus)
+      3. DOI
+      4. S2 title lookup → re-enter chain
+      5. Leave None (citation rendered bare)
+    """
+    if ref.arxiv_id and ref.arxiv_id in ctx.corpus_arxiv_to_year:
+        target_year = ctx.corpus_arxiv_to_year[ref.arxiv_id]
+        ref.resolved_url = _local_sibling_url(ref.arxiv_id, target_year, ctx.current_year)
+        return
+    if ref.arxiv_id:
+        ref.resolved_url = f"https://arxiv.org/abs/{ref.arxiv_id}"
+        return
+    if ref.doi:
+        ref.resolved_url = f"https://doi.org/{ref.doi}"
+        return
+    if ref.title:
+        s2 = _s2_lookup_by_title(ref.title, ctx.s2_cache)
+        hits = (s2 or {}).get("data") or []
+        if hits:
+            ext = hits[0].get("externalIds") or {}
+            if (arxiv_id := ext.get("ArXiv")):
+                ref.arxiv_id = arxiv_id
+                if arxiv_id in ctx.corpus_arxiv_to_year:
+                    target_year = ctx.corpus_arxiv_to_year[arxiv_id]
+                    ref.resolved_url = _local_sibling_url(arxiv_id, target_year, ctx.current_year)
+                else:
+                    ref.resolved_url = f"https://arxiv.org/abs/{arxiv_id}"
+                return
+            if (doi := ext.get("DOI")):
+                ref.doi = doi
+                ref.resolved_url = f"https://doi.org/{doi}"
+                return
+    # Step 5: unresolved
+    ref.resolved_url = None
 
 
 def parse_bbl(bbl_text: str) -> list[Reference]:
