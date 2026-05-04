@@ -115,3 +115,40 @@ def test_process_paper_end_to_end_latex(monkeypatch, tmp_path, fixtures_dir):
     )
     convert_papers._process_paper(row)
     assert (papers_root / "2020" / "2008.10010.md").exists()
+
+
+def test_regenerate_indexes_creates_top_and_year_files(monkeypatch, tmp_path):
+    from scripts import convert_papers
+
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", tmp_path / "papers")
+
+    rows = [
+        convert_papers.PaperRow(
+            arxiv_id="2008.10010",
+            title="Wav2Lip",
+            authors=["A"],
+            submitted="2020-08-23",
+            categories=["cs.CV"],
+            url="…",
+            abstract="…",
+        ),
+        convert_papers.PaperRow(
+            arxiv_id="2604.23586",
+            title="Talker",
+            authors=["B"],
+            submitted="2026-04-26",
+            categories=["cs.CV"],
+            url="…",
+            abstract="…",
+        ),
+    ]
+    # Pre-create the per-paper MD files so per-year index has something to point at.
+    for r in rows:
+        p = tmp_path / "papers" / r.year / f"{r.arxiv_id}.md"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("body")
+
+    convert_papers._regenerate_indexes(rows)
+    assert (tmp_path / "papers" / "README.md").exists()
+    assert (tmp_path / "papers" / "2020" / "README.md").exists()
+    assert (tmp_path / "papers" / "2026" / "README.md").exists()
