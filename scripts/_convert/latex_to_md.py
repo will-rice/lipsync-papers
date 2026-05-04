@@ -16,6 +16,7 @@ class LatexConversionResult:
 
     body: str  # rendered markdown
     bbl_text: str  # raw .bbl contents (or "")
+    bib_text: str  # raw .bib contents when no .bbl was generated (or "")
     exit_code: int
     stderr: str
 
@@ -44,6 +45,14 @@ def find_bbl(extracted: Path) -> Path | None:
     return max(bbls, key=lambda p: p.stat().st_size)
 
 
+def find_bib(extracted: Path) -> Path | None:
+    """Return the largest .bib file (BibTeX source) if present."""
+    bibs = list(extracted.rglob("*.bib"))
+    if not bibs:
+        return None
+    return max(bibs, key=lambda p: p.stat().st_size)
+
+
 def convert_latex_to_md(extracted: Path) -> LatexConversionResult:
     """Run pandoc on the main .tex file, return the markdown body and .bbl text.
 
@@ -56,7 +65,9 @@ def convert_latex_to_md(extracted: Path) -> LatexConversionResult:
     """
     main = find_main_tex(extracted)
     if main is None:
-        return LatexConversionResult(body="", bbl_text="", exit_code=2, stderr="no .tex file")
+        return LatexConversionResult(
+            body="", bbl_text="", bib_text="", exit_code=2, stderr="no .tex file"
+        )
 
     cmd = [
         "pandoc",
@@ -77,10 +88,15 @@ def convert_latex_to_md(extracted: Path) -> LatexConversionResult:
 
     bbl = find_bbl(extracted)
     bbl_text = bbl.read_text(encoding="utf-8", errors="replace") if bbl else ""
+    bib_text = ""
+    if not bbl_text:
+        bib = find_bib(extracted)
+        bib_text = bib.read_text(encoding="utf-8", errors="replace") if bib else ""
 
     return LatexConversionResult(
         body=proc.stdout,
         bbl_text=bbl_text,
+        bib_text=bib_text,
         exit_code=proc.returncode,
         stderr=proc.stderr,
     )

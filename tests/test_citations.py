@@ -225,3 +225,59 @@ def test_load_and_save_citation_cache(tmp_path) -> None:
     loaded = load_citation_cache(path)
     assert "title:foo" in loaded
     assert loaded["title:foo"]["data"][0]["externalIds"]["ArXiv"] == "1234.5678"
+
+
+SAMPLE_BIB = r"""
+@inproceedings{kumar2024dac,
+  title={High-Fidelity Audio Compression with Improved {RVQGAN}},
+  author={Kumar, Rithesh and Lam, Prem and Hatcher, Thomas},
+  booktitle={NeurIPS},
+  year={2024}
+}
+
+@article{mova2026,
+  title={MOVA: Towards Scalable and Synchronized Video-Audio Generation},
+  author={Yu, Donghua and Chen, Mingshu},
+  journal={arXiv preprint arXiv:2602.08794},
+  year={2026}
+}
+
+@misc{ho2020ddpm,
+  title={Denoising Diffusion Probabilistic Models},
+  author={Ho, Jonathan},
+  year={2020},
+  eprint={2006.11239},
+  doi={10.5555/3495724.3496298}
+}
+"""
+
+
+def test_parse_bib_extracts_three_entries() -> None:
+    from scripts._convert.citations import parse_bib
+
+    refs = parse_bib(SAMPLE_BIB)
+    assert len(refs) == 3
+    assert {r.key for r in refs} == {"kumar2024dac", "mova2026", "ho2020ddpm"}
+
+
+def test_parse_bib_extracts_arxiv_id_from_eprint_field() -> None:
+    from scripts._convert.citations import parse_bib
+
+    refs = {r.key: r for r in parse_bib(SAMPLE_BIB)}
+    assert refs["ho2020ddpm"].arxiv_id == "2006.11239"
+    assert refs["ho2020ddpm"].doi == "10.5555/3495724.3496298"
+
+
+def test_parse_bib_extracts_arxiv_id_from_journal_field() -> None:
+    from scripts._convert.citations import parse_bib
+
+    refs = {r.key: r for r in parse_bib(SAMPLE_BIB)}
+    assert refs["mova2026"].arxiv_id == "2602.08794"
+
+
+def test_parse_bib_extracts_year() -> None:
+    from scripts._convert.citations import parse_bib
+
+    refs = {r.key: r for r in parse_bib(SAMPLE_BIB)}
+    assert refs["kumar2024dac"].year == 2024
+    assert refs["ho2020ddpm"].year == 2020

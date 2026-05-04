@@ -192,6 +192,68 @@ def parse_bbl(bbl_text: str) -> list[Reference]:
     return refs
 
 
+# BibTeX entry: @type{key, ... }  with balanced braces in the body.
+_BIB_ENTRY_HEAD_RE = re.compile(r"@(\w+)\s*\{\s*([^,\s]+)\s*,", re.MULTILINE)
+_BIB_FIELD_RE = re.compile(
+    r"(\w+)\s*=\s*(?:\{((?:[^{}]|\{[^{}]*\})*)\}|\"([^\"]*)\"|([^,\n]+?))\s*(?:,|\Z|(?=\n\s*\}))",
+    re.DOTALL,
+)
+_BIB_ARXIV_RE = re.compile(r"arXiv[:\s]+(\d{4}\.\d{4,5})", re.IGNORECASE)
+_BIB_ARXIV_BARE_RE = re.compile(r"\b(\d{4}\.\d{4,5})\b")
+
+
+def _split_bib_entries(bib_text: str) -> list[tuple[str, str]]:
+    """Yield (cite-key, body) pairs by tracking balanced braces from each ``@type{key,`` head."""
+    entries: list[tuple[str, str]] = []
+    for match in _BIB_ENTRY_HEAD_RE.finditer(bib_text):
+        key = match.group(2).strip()
+        depth = 1
+        start = match.end()
+        i = start
+        while i < len(bib_text) and depth > 0:
+            ch = bib_text[i]
+            if ch == "{":
+                depth += 1
+            elif ch == "}":
+                depth -= 1
+            i += 1
+        if depth == 0:
+            entries.append((key, bib_text[start : i - 1]))
+    return entries
+
+
+def parse_bib(bib_text: str) -> list[Reference]:
+    """Parse a BibTeX .bib file into a list of References."""
+    refs: list[Reference] = []
+    for key, body in _split_bib_entries(bib_text):
+        fields: dict[str, str] = {}
+        for fm in _BIB_FIELD_RE.finditer(body):
+            name = fm.group(1).lower()
+            value = fm.group(2) or fm.group(3) or fm.group(4) or ""
+            fields[name] = re.sub(r"[{}]", "", value).strip()
+
+        ref = Reference(
+            key=key,
+            raw=fields.get("title", "") or body.strip(),
+            title=fields.get("title", ""),
+        )
+        if year := fields.get("year"):
+            try:
+                ref.year = int(re.findall(r"\d{4}", year)[0])
+            except (ValueError, IndexError):
+                pass
+        if arxiv := (fields.get("eprint") or fields.get("arxivid")):
+            ref.arxiv_id = arxiv.strip()
+        elif (journal := fields.get("journal", "")) and (m := _BIB_ARXIV_RE.search(journal)):
+            ref.arxiv_id = m.group(1)
+        elif (note := fields.get("note", "")) and (m := _BIB_ARXIV_BARE_RE.search(note)):
+            ref.arxiv_id = m.group(1)
+        if doi := fields.get("doi"):
+            ref.doi = doi.strip()
+        refs.append(ref)
+    return refs
+
+
 _CITE_RE = re.compile(r"\\cite\{([^}]+)\}")
 _PDF_NUM_CITE_RE = re.compile(r"\[(\d+)\]")
 
