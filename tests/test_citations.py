@@ -44,3 +44,30 @@ def test_parse_bbl_extracts_year() -> None:
     refs = {r.key: r for r in parse_bbl(SAMPLE_BBL)}
     assert refs["Prajwal2020"].year == 2020
     assert refs["Goodfellow2014"].year == 2014
+
+
+SAMPLE_PDF_REFS = """
+## References
+
+[1] K. R. Prajwal, R. Mukhopadhyay, V. P. Namboodiri, and C. V. Jawahar. A Lip Sync
+Expert Is All You Need for Speech to Lip Generation In The Wild. In ACM MM, 2020.
+
+[2] I. Goodfellow, J. Pouget-Abadie, et al. Generative Adversarial Nets. In NeurIPS, 2014.
+
+[3] J. Ho, A. Jain, and P. Abbeel. Denoising Diffusion Probabilistic Models. NeurIPS, 2020.
+"""
+
+
+def test_parse_pdf_references_extracts_three_entries() -> None:
+    from scripts._convert.citations import parse_pdf_references
+    refs = parse_pdf_references(SAMPLE_PDF_REFS)
+    assert len(refs) == 3
+    assert [r.key for r in refs] == ["1", "2", "3"]
+
+
+def test_parse_pdf_references_extracts_titles() -> None:
+    from scripts._convert.citations import parse_pdf_references
+    refs = {r.key: r for r in parse_pdf_references(SAMPLE_PDF_REFS)}
+    assert "Lip Sync Expert" in refs["1"].title
+    assert "Generative Adversarial Nets" in refs["2"].title
+    assert "Denoising Diffusion Probabilistic Models" in refs["3"].title
