@@ -72,6 +72,10 @@ def main() -> None:
                     error_log, fixme_path, row.arxiv_id, "process", str(exc)
                 )
 
+    # Stage 2.5: LLM remediation (skippable).
+    if not args.skip_llm:
+        _run_remediation_pass(rows)
+
     # Stage 4: indexes (always regenerate; cheap).
     _regenerate_indexes(rows)
 
@@ -217,6 +221,90 @@ def _build_corpus_index() -> dict[str, str]:
     """Map arxiv_id → year for every paper in papers.csv (for local-sibling links)."""
     rows = load_papers_csv(PAPERS_CSV)
     return {r.arxiv_id: r.year for r in rows if not r.arxiv_id.startswith(("s2:", "pwc:"))}
+
+
+def _run_remediation_pass(rows: list[PaperRow]) -> None:
+    """Stage 2.5 — flag low-quality papers + manually-listed ones, re-render via Claude.
+
+    Honors LLM_REMEDIATION_DRY_RUN and LLM_REMEDIATION_MAX_PAPERS env caps.
+    """
+    import yaml
+
+    from scripts._convert import remediation
+
+    fixme_path = PAPERS_DIR / ".fixme.txt"
+    fixme = remediation.load_fixme_list(fixme_path)
+    candidates: list[tuple[PaperRow, Path, dict, str]] = []
+
+    for row in rows:
+        md_path = PAPERS_DIR / row.year / f"{row.arxiv_id}.md"
+        if not md_path.exists():
+            continue
+        text = md_path.read_text(encoding="utf-8")
+        front_end = text.index("\n---\n", 4)
+        front = yaml.safe_load(text[4:front_end])
+        body = text[front_end + 5 :]
+        if front.get("llm_remediated"):
+            continue
+
+        resolved = front.get("citations_resolved", "0/0")
+        try:
+            num, denom = resolved.split("/")
+            ratio = int(num) / max(1, int(denom))
+        except (ValueError, ZeroDivisionError):
+            ratio = 0.0
+
+        flags = remediation.should_remediate(
+            body=body,
+            page_count=10,  # rough; we don't store this currently
+            has_references=front.get("references_parsed", 0) > 0,
+            citations_resolved_ratio=ratio,
+            latex_exit_code=0,  # not persisted; rely on other heuristics
+        )
+        if flags.flagged or row.arxiv_id in fixme:
+            candidates.append((row, md_path, front, body))
+
+    candidates = candidates[:LLM_REMEDIATION_MAX_PAPERS]
+    if not candidates:
+        logging.info("No papers flagged for remediation.")
+        return
+    logging.info("Remediation candidates: %d (cap %d)", len(candidates), LLM_REMEDIATION_MAX_PAPERS)
+
+    if LLM_REMEDIATION_DRY_RUN:
+        for row, _, _, _ in candidates:
+            logging.info("Would remediate %s", row.arxiv_id)
+        return
+
+    from scripts._convert.output import PaperRecord, write_paper_markdown
+
+    client = remediation.build_anthropic_client()
+    for row, md_path, front, body in candidates:
+        pdf_path = CACHE_DIR / "source" / row.arxiv_id / "paper.pdf"
+        if not pdf_path.exists():
+            logging.warning("No PDF cached for %s; skipping remediation.", row.arxiv_id)
+            continue
+        try:
+            corrected = remediation.remediate_with_pdf(pdf_path, body, client)
+        except Exception as exc:  # noqa: BLE001
+            logging.exception("Remediation API call failed for %s: %s", row.arxiv_id, exc)
+            continue
+        front["llm_remediated"] = True
+        record = PaperRecord(
+            arxiv_id=front["arxiv_id"],
+            title=front["title"],
+            authors=front.get("authors", []),
+            submitted=front["submitted"],
+            categories=front.get("categories", []),
+            arxiv_url=front.get("arxiv_url", ""),
+            source=front.get("source", "pdf"),
+            converter=front.get("converter", "marker"),
+            body=corrected,
+            references_parsed=front.get("references_parsed", 0),
+            citations_resolved=front.get("citations_resolved", "0/0"),
+            arxiv_version=front.get("arxiv_version", ""),
+            llm_remediated=True,
+        )
+        write_paper_markdown(record, PAPERS_DIR)
 
 
 def _regenerate_indexes(rows: list[PaperRow]) -> None:

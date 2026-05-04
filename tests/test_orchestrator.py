@@ -152,3 +152,45 @@ def test_regenerate_indexes_creates_top_and_year_files(monkeypatch, tmp_path):
     assert (tmp_path / "papers" / "README.md").exists()
     assert (tmp_path / "papers" / "2020" / "README.md").exists()
     assert (tmp_path / "papers" / "2026" / "README.md").exists()
+
+
+def test_llm_remediation_dry_run_logs_without_api(monkeypatch, tmp_path, caplog):
+    from scripts import convert_papers
+
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", tmp_path / "papers")
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+    monkeypatch.setattr(convert_papers, "LLM_REMEDIATION_DRY_RUN", True)
+    monkeypatch.setattr(convert_papers, "LLM_REMEDIATION_MAX_PAPERS", 50)
+
+    # Pre-create a paper file with low citation resolution to trigger flagger.
+    p = tmp_path / "papers" / "2020" / "2008.10010.md"
+    p.parent.mkdir(parents=True)
+    p.write_text(
+        "---\n"
+        "arxiv_id: 2008.10010\n"
+        "submitted: 2020-08-23\n"
+        "source: pdf\n"
+        "converter: marker\n"
+        "llm_remediated: false\n"
+        "citations_resolved: 1/30\n"
+        "references_parsed: 30\n"
+        "---\n\nshort body\n"
+    )
+    pdf_path = tmp_path / ".cache" / "source" / "2008.10010" / "paper.pdf"
+    pdf_path.parent.mkdir(parents=True)
+    pdf_path.write_bytes(b"%PDF-1.7\n")
+
+    rows = [
+        convert_papers.PaperRow(
+            arxiv_id="2008.10010",
+            title="Wav2Lip",
+            authors=["A"],
+            submitted="2020-08-23",
+            categories=[],
+            url="…",
+            abstract="…",
+        )
+    ]
+    with caplog.at_level("INFO"):
+        convert_papers._run_remediation_pass(rows)
+    assert any("would remediate 2008.10010" in m.lower() for m in caplog.text.splitlines())
