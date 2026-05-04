@@ -58,6 +58,8 @@ def main() -> None:
     logging.info("%d papers need conversion", len(pending))
 
     # Stage 1+2 (per-paper, parallel).
+    error_log = CACHE_DIR / "conversion_errors.jsonl"
+    fixme_path = PAPERS_DIR / ".fixme.txt"
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         futures = {pool.submit(_process_paper, row): row for row in pending}
         for fut in as_completed(futures):
@@ -65,7 +67,10 @@ def main() -> None:
             try:
                 fut.result()
             except Exception as exc:  # noqa: BLE001
-                logging.exception("Failed to process %s: %s", row.arxiv_id, exc)
+                logging.exception("Failed to process %s", row.arxiv_id)
+                record_failure_and_maybe_escalate(
+                    error_log, fixme_path, row.arxiv_id, "process", str(exc)
+                )
 
     # Stage 4: indexes (always regenerate; cheap).
     _regenerate_indexes(rows)
@@ -244,6 +249,55 @@ def _regenerate_indexes(rows: list[PaperRow]) -> None:
         (year_dir / "README.md").write_text(
             indexes.render_year_index(year, entries), encoding="utf-8"
         )
+
+
+def log_conversion_error(log_path: Path, arxiv_id: str, stage: str, error: str) -> None:
+    """Append a JSON line to .cache/conversion_errors.jsonl."""
+    import json
+    from datetime import datetime, timezone
+
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    record = {
+        "arxiv_id": arxiv_id,
+        "stage": stage,
+        "error": error,
+        "ts": datetime.now(tz=timezone.utc).isoformat(timespec="seconds"),
+    }
+    with log_path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(record) + "\n")
+
+
+def _count_recent_failures(log_path: Path, arxiv_id: str) -> int:
+    """Count how many times *arxiv_id* appears in the error log."""
+    if not log_path.exists():
+        return 0
+    import json
+
+    count = 0
+    for line in log_path.read_text(encoding="utf-8").splitlines():
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if rec.get("arxiv_id") == arxiv_id:
+            count += 1
+    return count
+
+
+def record_failure_and_maybe_escalate(
+    log_path: Path,
+    fixme_path: Path,
+    arxiv_id: str,
+    stage: str,
+    error: str,
+    threshold: int = 3,
+) -> None:
+    """Log the failure; if cumulative count >= threshold, append to fixme.txt."""
+    log_conversion_error(log_path, arxiv_id, stage, error)
+    if _count_recent_failures(log_path, arxiv_id) >= threshold:
+        from scripts._convert.remediation import append_to_fixme
+
+        append_to_fixme(fixme_path, arxiv_id)
 
 
 if __name__ == "__main__":
