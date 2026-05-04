@@ -9,20 +9,41 @@ A curated, automatically-updated collection of papers on **lip sync**, talking-h
 * Results are filtered with a negative-keyword blacklist plus an ML signal check and a positive lipsync/talking-face relevance gate.
 * The full paper list is stored in [`papers.csv`](papers.csv) and the table below is regenerated automatically on every update.
 
+## Markdown corpus
+
+Each paper is also available as LLM-friendly markdown under `papers/<year>/<arxiv_id>.md`. The conversion pipeline:
+
+* Fetches LaTeX source from `arxiv.org/e-print/<id>` (preferred; preserves equations and citation structure) or PDFs (fallback for papers without LaTeX source).
+* Converts via [pandoc](https://pandoc.org) (LaTeX) or [marker](https://github.com/datalab-to/marker) (PDF).
+* Auto-flagged or manually-listed (`papers/.fixme.txt`) low-quality outputs go through a Claude Sonnet 4.6 remediation pass.
+* Citations are rewritten as clickable links — local sibling MD when the cited paper is in this corpus, external arXiv/DOI URLs otherwise.
+
+Browse the corpus at [papers/README.md](papers/README.md). Each paper file has YAML frontmatter with metadata + diagnostics (`source`, `converter`, `llm_remediated`, `citations_resolved`).
+
 ## Running locally
+
+You'll need pandoc:
+
+```bash
+# macOS
+brew install pandoc
+
+# Ubuntu
+sudo apt-get install pandoc
+```
 
 ```bash
 # Incremental fetch (last 8 days)
-python scripts/fetch_papers.py
+uv run python scripts/fetch_papers.py
 
 # Full historical fetch (everything since 2020-01-01)
-python scripts/fetch_papers.py --full
+uv run python scripts/fetch_papers.py --full
 
 # Custom window
-python scripts/fetch_papers.py --days 30
+uv run python scripts/fetch_papers.py --days 30
 ```
 
-No third-party dependencies are required — the script uses only the Python standard library.
+The fetch script uses only the Python standard library; the conversion pipeline adds `marker-pdf`, `anthropic`, `pyyaml`, and the `pandoc` system binary (managed via `uv` and your package manager).
 
 ## Triggering a manual update
 
