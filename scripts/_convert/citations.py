@@ -187,3 +187,64 @@ def parse_bbl(bbl_text: str) -> list[Reference]:
             ref.year = int(m.group(0))
         refs.append(ref)
     return refs
+
+
+_CITE_RE = re.compile(r"\\cite\{([^}]+)\}")
+_PDF_NUM_CITE_RE = re.compile(r"\[(\d+)\]")
+
+
+def rewrite_latex_cites(body: str, refs: dict[str, Reference]) -> str:
+    """Rewrite each ``\\cite{key}`` in *body* using *refs* mapping (resolved_url required)."""
+    def _replace(m: re.Match[str]) -> str:
+        keys_raw = m.group(1)
+        rendered_keys = []
+        for key in (k.strip() for k in keys_raw.split(",")):
+            ref = refs.get(key)
+            if ref and ref.resolved_url:
+                rendered_keys.append(f"[\\[{key}\\]]({ref.resolved_url})")
+            else:
+                rendered_keys.append(f"\\[{key}\\]")
+        return ", ".join(rendered_keys)
+
+    return _CITE_RE.sub(_replace, body)
+
+
+def rewrite_pdf_numeric_cites(body: str, refs: dict[str, Reference]) -> str:
+    """Rewrite ``[N]`` markers in *body* using *refs* — only high-confidence refs become links."""
+    # Avoid touching the ## References section — split and rejoin.
+    parts = _PDF_REF_HEADING_RE.split(body, maxsplit=1)
+    head = parts[0]
+    tail = parts[1] if len(parts) > 1 else ""
+
+    def _replace(m: re.Match[str]) -> str:
+        key = m.group(1)
+        ref = refs.get(key)
+        if ref and ref.resolved_url and ref.confidence == "high":
+            return f"[\\[{key}\\]]({ref.resolved_url})"
+        return m.group(0)
+
+    rewritten_head = _PDF_NUM_CITE_RE.sub(_replace, head)
+    if tail:
+        return rewritten_head + "## References" + tail
+    return rewritten_head
+
+
+def render_references_section(refs: list[Reference]) -> str:
+    """Render a ``## References`` section with each entry getting its resolved link."""
+    lines = ["## References", ""]
+    for i, ref in enumerate(refs, start=1):
+        link_suffix = ""
+        if ref.arxiv_id and ref.resolved_url:
+            link_suffix = f" [arXiv:{ref.arxiv_id}]({ref.resolved_url})"
+        elif ref.doi and ref.resolved_url:
+            link_suffix = f" [doi:{ref.doi}]({ref.resolved_url})"
+        elif ref.resolved_url:
+            link_suffix = f" [link]({ref.resolved_url})"
+        lines.append(f"{i}. {ref.raw.strip()}{link_suffix}")
+    return "\n".join(lines) + "\n"
+
+
+def resolved_count(refs: list[Reference]) -> str:
+    """Return a diagnostic string like ``27/41``."""
+    resolved = sum(1 for r in refs if r.resolved_url)
+    return f"{resolved}/{len(refs)}"

@@ -155,3 +155,50 @@ def test_resolve_unresolvable_remains_none() -> None:
     ref = Reference(key="x", raw="…", title="Nonexistent paper title that should not match")
     resolve_reference(ref, ctx)
     assert ref.resolved_url is None
+
+
+def test_rewrite_latex_cite_markers() -> None:
+    from scripts._convert.citations import Reference, rewrite_latex_cites
+    refs = {
+        "Prajwal2020": Reference(key="Prajwal2020", raw="…", resolved_url="../2020/2008.10010.md"),
+        "Goodfellow2014": Reference(key="Goodfellow2014", raw="…", resolved_url="https://arxiv.org/abs/1406.2661"),
+    }
+    body = "We build on Wav2Lip \\cite{Prajwal2020} and GANs \\cite{Goodfellow2014}."
+    out = rewrite_latex_cites(body, refs)
+    assert "[\\[Prajwal2020\\]](../2020/2008.10010.md)" in out
+    assert "[\\[Goodfellow2014\\]](https://arxiv.org/abs/1406.2661)" in out
+
+
+def test_rewrite_latex_cite_unresolved_stays_bare() -> None:
+    from scripts._convert.citations import Reference, rewrite_latex_cites
+    refs = {"Unresolved": Reference(key="Unresolved", raw="…", resolved_url=None)}
+    body = "We cite \\cite{Unresolved}."
+    out = rewrite_latex_cites(body, refs)
+    assert "\\[Unresolved\\]" in out
+    assert "](" not in out  # no link rendered
+
+
+def test_rewrite_pdf_numeric_markers_high_confidence() -> None:
+    from scripts._convert.citations import Reference, rewrite_pdf_numeric_cites
+    refs = {
+        "1": Reference(key="1", raw="…", resolved_url="../2020/2008.10010.md", confidence="high"),
+        "2": Reference(key="2", raw="…", resolved_url=None, confidence="low"),
+    }
+    body = "We use [1] and also [2]."
+    out = rewrite_pdf_numeric_cites(body, refs)
+    assert "[\\[1\\]](../2020/2008.10010.md)" in out
+    assert "[2]" in out  # low-confidence bare
+
+
+def test_render_references_section_with_links() -> None:
+    from scripts._convert.citations import Reference, render_references_section
+    refs = [
+        Reference(key="Prajwal2020", raw="K.R. Prajwal et al. A Lip Sync Expert. ACM MM, 2020.",
+                  title="A Lip Sync Expert", arxiv_id="2008.10010",
+                  resolved_url="../2020/2008.10010.md"),
+        Reference(key="Unresolved", raw="Unknown ref.", resolved_url=None),
+    ]
+    out = render_references_section(refs)
+    assert "## References" in out
+    assert "[arXiv:2008.10010](../2020/2008.10010.md)" in out
+    assert "Unknown ref." in out
