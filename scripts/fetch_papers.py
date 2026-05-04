@@ -862,8 +862,14 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
             abstract = row.get("abstract", "").strip()
             title = row["title"]
             url = row["url"]
+            arxiv_id = row.get("arxiv_id", "")
 
-            section_lines.append(f"#### [{title}]({url})")
+            local_md = REPO_ROOT / "papers" / year / f"{arxiv_id}.md"
+            local_link = ""
+            if local_md.exists():
+                local_link = f" · [📄 Read](papers/{year}/{arxiv_id}.md)"
+
+            section_lines.append(f"#### [{title}]({url}){local_link}")
             section_lines.append(f"**{authors}** · {date_str}")
             section_lines.append("")
             if abstract:
