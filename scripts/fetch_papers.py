@@ -29,7 +29,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import os
 import re
 import sys
 import time
@@ -456,8 +455,7 @@ def _build_query(keywords: str, start_date: date, end_date: date) -> str:
     """Return a URL-encoded arXiv API query string."""
     # Date range filter: submittedDate:[YYYYMMDD TO YYYYMMDD]
     date_filter = (
-        f"submittedDate:[{start_date.strftime('%Y%m%d')}0000"
-        f" TO {end_date.strftime('%Y%m%d')}2359]"
+        f"submittedDate:[{start_date.strftime('%Y%m%d')}0000 TO {end_date.strftime('%Y%m%d')}2359]"
     )
     # Title + abstract search
     term = f'(ti:"{keywords}" OR abs:"{keywords}") AND {date_filter}'
@@ -482,7 +480,7 @@ def _fetch_page(query: str, start: int, max_results: int) -> ET.Element:
                 data = resp.read()
             return ET.fromstring(data)
         except Exception as exc:  # noqa: BLE001
-            wait = min(2 ** attempt * API_DELAY_SECONDS, 30)
+            wait = min(2**attempt * API_DELAY_SECONDS, 30)
             print(f"  [warn] request failed ({exc}); retrying in {wait}s …", file=sys.stderr)
             time.sleep(wait)
     raise RuntimeError(f"Failed to fetch arXiv page after 5 attempts: {url}")
@@ -507,8 +505,7 @@ def _parse_entry(entry: ET.Element) -> dict | None:
     submitted = published_raw[:10]  # YYYY-MM-DD
 
     categories = " ".join(
-        cat.get("term", "")
-        for cat in entry.findall("atom:category", namespaces=NS)
+        cat.get("term", "") for cat in entry.findall("atom:category", namespaces=NS)
     )
 
     url = f"https://arxiv.org/abs/{arxiv_id}"
@@ -562,7 +559,9 @@ def _has_ml_signal(paper: dict) -> bool:
 
 def _is_relevant_lipsync_paper(paper: dict) -> bool:
     """Return True if paper passes exclusion, ML, and positive relevance gates."""
-    return not _is_excluded(paper) and _has_ml_signal(paper) and _has_positive_relevance_signal(paper)
+    return (
+        not _is_excluded(paper) and _has_ml_signal(paper) and _has_positive_relevance_signal(paper)
+    )
 
 
 def fetch_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
@@ -574,7 +573,9 @@ def fetch_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
     while True:
         root = _fetch_page(query, start=start, max_results=PAGE_SIZE)
 
-        total_el = root.find("opensearch:totalResults", {"opensearch": "http://a9.com/-/spec/opensearch/1.1/"})
+        total_el = root.find(
+            "opensearch:totalResults", {"opensearch": "http://a9.com/-/spec/opensearch/1.1/"}
+        )
         total = int(total_el.text) if total_el is not None and total_el.text else 0
 
         entries = root.findall("atom:entry", namespaces=NS)
@@ -620,7 +621,7 @@ def _fetch_s2_page(keywords: str, year_filter: str, offset: int) -> dict:
             with urllib.request.urlopen(req, timeout=30) as resp:
                 return json.loads(resp.read())
         except Exception as exc:  # noqa: BLE001
-            wait = min(2 ** attempt * API_DELAY_SECONDS, 30)
+            wait = min(2**attempt * API_DELAY_SECONDS, 30)
             print(f"  [warn] S2 request failed ({exc}); retrying in {wait}s …", file=sys.stderr)
             time.sleep(wait)
     raise RuntimeError(f"Failed to fetch Semantic Scholar page after 5 attempts: {url}")
@@ -662,10 +663,7 @@ def _parse_s2_entry(item: dict, start_date: date, end_date: date) -> dict | None
     else:
         return None
 
-    authors = ", ".join(
-        (a.get("name") or "").strip()
-        for a in (item.get("authors") or [])
-    )
+    authors = ", ".join((a.get("name") or "").strip() for a in (item.get("authors") or []))
     abstract = re.sub(r"\s+", " ", (item.get("abstract") or "")).strip()
 
     return {
@@ -734,7 +732,7 @@ def _fetch_pwc_page(keywords: str, page: int) -> dict:
             with urllib.request.urlopen(req, timeout=30) as resp:
                 return json.loads(resp.read())
         except Exception as exc:  # noqa: BLE001
-            wait = min(2 ** attempt * API_DELAY_SECONDS, 30)
+            wait = min(2**attempt * API_DELAY_SECONDS, 30)
             print(f"  [warn] PWC request failed ({exc}); retrying in {wait}s …", file=sys.stderr)
             time.sleep(wait)
     raise RuntimeError(f"Failed to fetch Papers With Code page after 5 attempts: {url}")
@@ -852,7 +850,7 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
 
     sections: list[str] = []
     for year in sorted(by_year.keys(), reverse=True):
-        section_lines = [f"<details open>", f"<summary><h3>{year}</h3></summary>", ""]
+        section_lines = ["<details open>", f"<summary><h3>{year}</h3></summary>", ""]
         for row in by_year[year]:
             # Truncate long author lists for readability
             authors = row.get("authors", "")
@@ -993,9 +991,16 @@ def main() -> None:
         print(f"Removed {removed} existing paper(s) failing relevance filters.")
 
     new_count = 0
-    new_count += _collect_from_source("arXiv", fetch_papers, SEARCH_QUERIES, start_date, end_date, existing)
     new_count += _collect_from_source(
-        "Semantic Scholar", fetch_semantic_scholar_papers, SEARCH_QUERIES, start_date, end_date, existing
+        "arXiv", fetch_papers, SEARCH_QUERIES, start_date, end_date, existing
+    )
+    new_count += _collect_from_source(
+        "Semantic Scholar",
+        fetch_semantic_scholar_papers,
+        SEARCH_QUERIES,
+        start_date,
+        end_date,
+        existing,
     )
     new_count += _collect_from_source(
         "Papers With Code", fetch_pwc_papers, SEARCH_QUERIES, start_date, end_date, existing

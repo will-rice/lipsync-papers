@@ -1,7 +1,8 @@
 """Tests for scripts/_convert/remediation.py."""
+
 from __future__ import annotations
 
-from scripts._convert.remediation import RemediationFlags, should_remediate
+from scripts._convert.remediation import should_remediate
 
 
 def test_short_body_flags_remediation() -> None:
@@ -78,9 +79,13 @@ def test_remediate_with_pdf_returns_corrected_markdown(fixtures_dir, tmp_path):
 
         def create(self, **kwargs):
             self.calls.append(kwargs)
+
             class _Resp:
-                content = [type("Block", (), {"type": "text", "text": txt["text"]})()
-                           for txt in self._response["content"]]
+                content = [
+                    type("Block", (), {"type": "text", "text": txt["text"]})()
+                    for txt in self._response["content"]
+                ]
+
             return _Resp()
 
     pdf = tmp_path / "fake.pdf"

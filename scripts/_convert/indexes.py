@@ -1,4 +1,5 @@
 """Generate the papers/README.md and per-year README.md index files."""
+
 from __future__ import annotations
 
 from collections import defaultdict
@@ -11,7 +12,7 @@ class IndexEntry:
     arxiv_id: str
     title: str
     authors: list[str]
-    submitted: str       # YYYY-MM-DD
+    submitted: str  # YYYY-MM-DD
     abstract: str
 
 

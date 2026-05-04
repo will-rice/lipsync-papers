@@ -1,4 +1,5 @@
 """Tests for scripts/_convert/output.py."""
+
 from __future__ import annotations
 
 from pathlib import Path

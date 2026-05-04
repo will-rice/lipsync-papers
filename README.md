@@ -47,7 +47,7 @@ The fetch script uses only the Python standard library; the conversion pipeline 
 
 ## Triggering a manual update
 
-Open the **Actions** tab → **Fetch Lipsync Papers** → **Run workflow**.  
+Open the **Actions** tab → **Fetch Lipsync Papers** → **Run workflow**.
 Select *full = true* to back-fill from 2020, or leave it as *false* for an incremental update.
 
 ## Search terms

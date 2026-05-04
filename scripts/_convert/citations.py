@@ -50,7 +50,7 @@ def parse_pdf_references(markdown: str) -> list[Reference]:
     heading = _PDF_REF_HEADING_RE.search(markdown)
     if not heading:
         return []
-    refs_block = markdown[heading.end():]
+    refs_block = markdown[heading.end() :]
 
     refs: list[Reference] = []
     for match in _PDF_REF_ENTRY_RE.finditer(refs_block):
@@ -58,11 +58,11 @@ def parse_pdf_references(markdown: str) -> list[Reference]:
         raw = " ".join(match.group(2).split())
         ref = Reference(key=key, raw=raw)
         ref.title = _extract_title_heuristic(raw)
-        if (m := _ARXIV_ID_RE.search(raw)):
+        if m := _ARXIV_ID_RE.search(raw):
             ref.arxiv_id = m.group(1)
-        if (m := _DOI_RE.search(raw)):
+        if m := _DOI_RE.search(raw):
             ref.doi = m.group(1)
-        if (m := _YEAR_RE.search(raw)):
+        if m := _YEAR_RE.search(raw):
             ref.year = int(m.group(0))
         if not ref.title:
             ref.confidence = "low"
@@ -93,7 +93,9 @@ def _extract_title_heuristic(raw: str) -> str:
     return title
 
 
-S2_SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search?query={q}&fields=externalIds&limit=1"
+S2_SEARCH_URL = (
+    "https://api.semanticscholar.org/graph/v1/paper/search?query={q}&fields=externalIds&limit=1"
+)
 USER_AGENT = "lipsync-papers-bot/1.0"
 
 
@@ -101,9 +103,9 @@ USER_AGENT = "lipsync-papers-bot/1.0"
 class ResolutionContext:
     """Context passed to resolve_reference — local corpus, current paper's year, S2 cache."""
 
-    corpus_arxiv_to_year: dict[str, str]   # {"2008.10010": "2020", …}
-    current_year: str                       # year of the citing paper, for relative paths
-    s2_cache: dict[str, dict]               # {"title:<lowercased>": <s2 response>, …}
+    corpus_arxiv_to_year: dict[str, str]  # {"2008.10010": "2020", …}
+    current_year: str  # year of the citing paper, for relative paths
+    s2_cache: dict[str, dict]  # {"title:<lowercased>": <s2 response>, …}
 
 
 def _local_sibling_url(arxiv_id: str, target_year: str, current_year: str) -> str:
@@ -157,7 +159,7 @@ def resolve_reference(ref: Reference, ctx: ResolutionContext) -> None:
         hits = (s2 or {}).get("data") or []
         if hits:
             ext = hits[0].get("externalIds") or {}
-            if (arxiv_id := ext.get("ArXiv")):
+            if arxiv_id := ext.get("ArXiv"):
                 ref.arxiv_id = arxiv_id
                 if arxiv_id in ctx.corpus_arxiv_to_year:
                     target_year = ctx.corpus_arxiv_to_year[arxiv_id]
@@ -165,7 +167,7 @@ def resolve_reference(ref: Reference, ctx: ResolutionContext) -> None:
                 else:
                     ref.resolved_url = f"https://arxiv.org/abs/{arxiv_id}"
                 return
-            if (doi := ext.get("DOI")):
+            if doi := ext.get("DOI"):
                 ref.doi = doi
                 ref.resolved_url = f"https://doi.org/{doi}"
                 return
@@ -196,6 +198,7 @@ _PDF_NUM_CITE_RE = re.compile(r"\[(\d+)\]")
 
 def rewrite_latex_cites(body: str, refs: dict[str, Reference]) -> str:
     """Rewrite each ``\\cite{key}`` in *body* using *refs* mapping (resolved_url required)."""
+
     def _replace(m: re.Match[str]) -> str:
         keys_raw = m.group(1)
         rendered_keys = []

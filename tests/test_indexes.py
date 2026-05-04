@@ -1,7 +1,7 @@
 """Tests for scripts/_convert/indexes.py."""
+
 from __future__ import annotations
 
-from pathlib import Path
 
 from scripts._convert.indexes import IndexEntry, render_top_index, render_year_index
 

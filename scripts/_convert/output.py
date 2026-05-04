@@ -1,4 +1,5 @@
 """Write per-paper markdown files with YAML frontmatter."""
+
 from __future__ import annotations
 
 import unicodedata
@@ -16,17 +17,19 @@ class PaperRecord:
     arxiv_id: str
     title: str
     authors: list[str]
-    submitted: str            # YYYY-MM-DD
+    submitted: str  # YYYY-MM-DD
     categories: list[str]
     arxiv_url: str
-    source: str               # "latex" | "pdf" | "metadata-only"
-    converter: str            # "pandoc" | "marker" | "none"
-    body: str                 # already-rendered markdown body (no frontmatter, no h1)
+    source: str  # "latex" | "pdf" | "metadata-only"
+    converter: str  # "pandoc" | "marker" | "none"
+    body: str  # already-rendered markdown body (no frontmatter, no h1)
     references_parsed: int
-    citations_resolved: str   # e.g. "27/41"
+    citations_resolved: str  # e.g. "27/41"
     arxiv_version: str = ""
     llm_remediated: bool = False
-    citations_resolved_at: str = field(default_factory=lambda: datetime.now(tz=timezone.utc).isoformat(timespec="seconds"))
+    citations_resolved_at: str = field(
+        default_factory=lambda: datetime.now(tz=timezone.utc).isoformat(timespec="seconds")
+    )
 
 
 def paper_path(arxiv_id: str, submitted: str, papers_root: Path) -> Path:

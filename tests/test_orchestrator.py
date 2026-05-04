@@ -224,8 +224,6 @@ def test_second_run_is_idempotent(monkeypatch, tmp_path, fixtures_dir):
         abstract="abstract",
     )
     convert_papers._process_paper(row)
-    md_path = papers_root / "2020" / "2008.10010.md"
-    first_mtime = md_path.stat().st_mtime
     time.sleep(0.05)
 
     # needs_conversion should now return False

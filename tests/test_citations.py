@@ -60,6 +60,7 @@ Expert Is All You Need for Speech to Lip Generation In The Wild. In ACM MM, 2020
 
 def test_parse_pdf_references_extracts_three_entries() -> None:
     from scripts._convert.citations import parse_pdf_references
+
     refs = parse_pdf_references(SAMPLE_PDF_REFS)
     assert len(refs) == 3
     assert [r.key for r in refs] == ["1", "2", "3"]
@@ -67,6 +68,7 @@ def test_parse_pdf_references_extracts_three_entries() -> None:
 
 def test_parse_pdf_references_extracts_titles() -> None:
     from scripts._convert.citations import parse_pdf_references
+
     refs = {r.key: r for r in parse_pdf_references(SAMPLE_PDF_REFS)}
     assert "Lip Sync Expert" in refs["1"].title
     assert "Generative Adversarial Nets" in refs["2"].title
@@ -75,10 +77,10 @@ def test_parse_pdf_references_extracts_titles() -> None:
 
 def test_resolve_local_sibling_priority(tmp_path) -> None:
     from scripts._convert.citations import (
-        Reference,
         ResolutionContext,
         resolve_reference,
     )
+
     ctx = ResolutionContext(
         corpus_arxiv_to_year={"2008.10010": "2020", "2006.11239": "2020"},
         current_year="2026",
@@ -91,10 +93,10 @@ def test_resolve_local_sibling_priority(tmp_path) -> None:
 
 def test_resolve_external_arxiv_fallback() -> None:
     from scripts._convert.citations import (
-        Reference,
         ResolutionContext,
         resolve_reference,
     )
+
     ctx = ResolutionContext(
         corpus_arxiv_to_year={},
         current_year="2026",
@@ -107,10 +109,10 @@ def test_resolve_external_arxiv_fallback() -> None:
 
 def test_resolve_doi_fallback() -> None:
     from scripts._convert.citations import (
-        Reference,
         ResolutionContext,
         resolve_reference,
     )
+
     ctx = ResolutionContext(
         corpus_arxiv_to_year={},
         current_year="2026",
@@ -124,10 +126,10 @@ def test_resolve_doi_fallback() -> None:
 def test_resolve_s2_lookup_promotes_to_arxiv(fixtures_dir) -> None:
     import json
     from scripts._convert.citations import (
-        Reference,
         ResolutionContext,
         resolve_reference,
     )
+
     cache = json.loads((fixtures_dir / "citations_in.json").read_text())
     ctx = ResolutionContext(
         corpus_arxiv_to_year={"2006.11239": "2020"},
@@ -143,10 +145,10 @@ def test_resolve_s2_lookup_promotes_to_arxiv(fixtures_dir) -> None:
 
 def test_resolve_unresolvable_remains_none() -> None:
     from scripts._convert.citations import (
-        Reference,
         ResolutionContext,
         resolve_reference,
     )
+
     ctx = ResolutionContext(
         corpus_arxiv_to_year={},
         current_year="2026",
@@ -158,10 +160,13 @@ def test_resolve_unresolvable_remains_none() -> None:
 
 
 def test_rewrite_latex_cite_markers() -> None:
-    from scripts._convert.citations import Reference, rewrite_latex_cites
+    from scripts._convert.citations import rewrite_latex_cites
+
     refs = {
         "Prajwal2020": Reference(key="Prajwal2020", raw="…", resolved_url="../2020/2008.10010.md"),
-        "Goodfellow2014": Reference(key="Goodfellow2014", raw="…", resolved_url="https://arxiv.org/abs/1406.2661"),
+        "Goodfellow2014": Reference(
+            key="Goodfellow2014", raw="…", resolved_url="https://arxiv.org/abs/1406.2661"
+        ),
     }
     body = "We build on Wav2Lip \\cite{Prajwal2020} and GANs \\cite{Goodfellow2014}."
     out = rewrite_latex_cites(body, refs)
@@ -170,7 +175,8 @@ def test_rewrite_latex_cite_markers() -> None:
 
 
 def test_rewrite_latex_cite_unresolved_stays_bare() -> None:
-    from scripts._convert.citations import Reference, rewrite_latex_cites
+    from scripts._convert.citations import rewrite_latex_cites
+
     refs = {"Unresolved": Reference(key="Unresolved", raw="…", resolved_url=None)}
     body = "We cite \\cite{Unresolved}."
     out = rewrite_latex_cites(body, refs)
@@ -179,7 +185,8 @@ def test_rewrite_latex_cite_unresolved_stays_bare() -> None:
 
 
 def test_rewrite_pdf_numeric_markers_high_confidence() -> None:
-    from scripts._convert.citations import Reference, rewrite_pdf_numeric_cites
+    from scripts._convert.citations import rewrite_pdf_numeric_cites
+
     refs = {
         "1": Reference(key="1", raw="…", resolved_url="../2020/2008.10010.md", confidence="high"),
         "2": Reference(key="2", raw="…", resolved_url=None, confidence="low"),
@@ -191,11 +198,16 @@ def test_rewrite_pdf_numeric_markers_high_confidence() -> None:
 
 
 def test_render_references_section_with_links() -> None:
-    from scripts._convert.citations import Reference, render_references_section
+    from scripts._convert.citations import render_references_section
+
     refs = [
-        Reference(key="Prajwal2020", raw="K.R. Prajwal et al. A Lip Sync Expert. ACM MM, 2020.",
-                  title="A Lip Sync Expert", arxiv_id="2008.10010",
-                  resolved_url="../2020/2008.10010.md"),
+        Reference(
+            key="Prajwal2020",
+            raw="K.R. Prajwal et al. A Lip Sync Expert. ACM MM, 2020.",
+            title="A Lip Sync Expert",
+            arxiv_id="2008.10010",
+            resolved_url="../2020/2008.10010.md",
+        ),
         Reference(key="Unresolved", raw="Unknown ref.", resolved_url=None),
     ]
     out = render_references_section(refs)
@@ -206,6 +218,7 @@ def test_render_references_section_with_links() -> None:
 
 def test_load_and_save_citation_cache(tmp_path) -> None:
     from scripts._convert.citations import load_citation_cache, save_citation_cache
+
     path = tmp_path / "citations.json"
     assert load_citation_cache(path) == {}
     save_citation_cache(path, {"title:foo": {"data": [{"externalIds": {"ArXiv": "1234.5678"}}]}})

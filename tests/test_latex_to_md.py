@@ -1,4 +1,5 @@
 """Tests for scripts/_convert/latex_to_md.py."""
+
 from __future__ import annotations
 
 import shutil

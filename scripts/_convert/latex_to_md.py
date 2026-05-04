@@ -1,4 +1,5 @@
 """Convert extracted LaTeX source to markdown via pandoc."""
+
 from __future__ import annotations
 
 import logging
@@ -13,8 +14,8 @@ PANDOC_TIMEOUT_SECONDS = 120
 class LatexConversionResult:
     """Outcome of a single pandoc invocation."""
 
-    body: str               # rendered markdown
-    bbl_text: str           # raw .bbl contents (or "")
+    body: str  # rendered markdown
+    bbl_text: str  # raw .bbl contents (or "")
     exit_code: int
     stderr: str
 
