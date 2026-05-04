@@ -61,3 +61,31 @@ def test_latex_failure_flags() -> None:
     )
     assert flags.flagged is True
     assert "latex_build_failed" in flags.reasons
+
+
+def test_remediate_with_pdf_returns_corrected_markdown(fixtures_dir, tmp_path):
+    import json
+    from scripts._convert.remediation import remediate_with_pdf
+
+    class StubClient:
+        def __init__(self, response_path):
+            self._response = json.loads(response_path.read_text())
+            self.calls = []
+
+        @property
+        def messages(self):
+            return self
+
+        def create(self, **kwargs):
+            self.calls.append(kwargs)
+            class _Resp:
+                content = [type("Block", (), {"type": "text", "text": txt["text"]})()
+                           for txt in self._response["content"]]
+            return _Resp()
+
+    pdf = tmp_path / "fake.pdf"
+    pdf.write_bytes(b"%PDF-1.7\n%fake")
+    client = StubClient(fixtures_dir / "remediation_response.json")
+    body = remediate_with_pdf(pdf, mangled_body="bad output", client=client)
+    assert "Cleaned Paper" in body
+    assert client.calls, "expected client.messages.create to be called"

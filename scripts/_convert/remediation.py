@@ -1,9 +1,11 @@
 """LLM-driven remediation pass for low-quality conversions."""
 from __future__ import annotations
 
+import base64
 import logging
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Protocol
 
 # Heuristic thresholds
 MIN_WORDS_PER_PAGE_RATIO = 0.5
@@ -61,3 +63,64 @@ def append_to_fixme(path: Path, arxiv_id: str) -> None:
     with path.open("a", encoding="utf-8") as f:
         f.write(f"{arxiv_id}\n")
     logging.info("Auto-appended %s to %s", arxiv_id, path)
+
+
+CLAUDE_MODEL = "claude-sonnet-4-6"
+MAX_OUTPUT_TOKENS = 16000
+
+REMEDIATION_SYSTEM_PROMPT = """You are given (1) a PDF of an academic paper and (2) a markdown rendering produced by automated tools that may have errors. Output a corrected markdown that preserves the section/equation/citation structure of the PDF, keeps citation markers like [1] or \\cite{Smith2020} intact, and uses LaTeX $...$ for math. Do not add references that aren't in the PDF. Output only the corrected markdown — no preamble, no explanation."""
+
+
+class _AnthropicLike(Protocol):
+    """Duck-typed Anthropic client interface, narrow enough for our use."""
+
+    @property
+    def messages(self): ...
+
+
+def remediate_with_pdf(
+    pdf_path: Path,
+    mangled_body: str,
+    client: _AnthropicLike,
+) -> str:
+    """Call Claude with the PDF + mangled markdown, return the corrected markdown."""
+    pdf_b64 = base64.standard_b64encode(pdf_path.read_bytes()).decode("ascii")
+    response = client.messages.create(
+        model=CLAUDE_MODEL,
+        max_tokens=MAX_OUTPUT_TOKENS,
+        system=[
+            {
+                "type": "text",
+                "text": REMEDIATION_SYSTEM_PROMPT,
+                "cache_control": {"type": "ephemeral"},
+            }
+        ],
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "document",
+                        "source": {
+                            "type": "base64",
+                            "media_type": "application/pdf",
+                            "data": pdf_b64,
+                        },
+                    },
+                    {
+                        "type": "text",
+                        "text": f"Existing (potentially mangled) rendering:\n\n```markdown\n{mangled_body}\n```",
+                    },
+                ],
+            }
+        ],
+    )
+    parts = [b.text for b in response.content if getattr(b, "type", "") == "text"]
+    return "\n".join(parts).strip()
+
+
+def build_anthropic_client():
+    """Construct a real anthropic.Anthropic client. Imported lazily so tests don't need the SDK env."""
+    import anthropic
+
+    return anthropic.Anthropic()
