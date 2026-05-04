@@ -12,11 +12,16 @@ import argparse
 import csv
 import logging
 import os
+import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# Make `scripts._convert` importable when running this file directly.
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 PAPERS_CSV = REPO_ROOT / "papers.csv"
 PAPERS_DIR = REPO_ROOT / "papers"
 CACHE_DIR = REPO_ROOT / ".cache"
@@ -152,6 +157,7 @@ def _process_paper(row: PaperRow) -> None:
     # Stage 2: convert.
     body = ""
     bbl_text = ""
+    bib_text = ""
     converter = "none"
     source_label = "metadata-only"
 
@@ -159,6 +165,7 @@ def _process_paper(row: PaperRow) -> None:
         result = latex_to_md.convert_latex_to_md(extracted_dir)
         body = result.body
         bbl_text = result.bbl_text
+        bib_text = result.bib_text
         converter = "pandoc"
         source_label = "latex"
     elif kind is sources.SourceKind.PDF:
@@ -181,6 +188,8 @@ def _process_paper(row: PaperRow) -> None:
     refs: list[citations.Reference] = []
     if bbl_text:
         refs = citations.parse_bbl(bbl_text)
+    elif bib_text:
+        refs = citations.parse_bib(bib_text)
     elif body:
         refs = citations.parse_pdf_references(body)
 
