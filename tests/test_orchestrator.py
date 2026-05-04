@@ -1,8 +1,12 @@
 """Tests for scripts/convert_papers.py orchestration."""
+
 from __future__ import annotations
 
 import csv
+import shutil
 from pathlib import Path
+
+import pytest
 
 from scripts.convert_papers import (
     PaperRow,
@@ -13,23 +17,38 @@ from scripts.convert_papers import (
 
 def _write_csv(path: Path, rows: list[dict]) -> None:
     with path.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["arxiv_id", "title", "authors", "submitted",
-                                          "categories", "url", "abstract"])
+        w = csv.DictWriter(
+            f,
+            fieldnames=[
+                "arxiv_id",
+                "title",
+                "authors",
+                "submitted",
+                "categories",
+                "url",
+                "abstract",
+            ],
+        )
         w.writeheader()
         w.writerows(rows)
 
 
 def test_load_papers_csv(tmp_path: Path) -> None:
     csv_path = tmp_path / "papers.csv"
-    _write_csv(csv_path, [{
-        "arxiv_id": "2008.10010",
-        "title": "Wav2Lip",
-        "authors": "K. R. Prajwal, et al.",
-        "submitted": "2020-08-23",
-        "categories": "cs.CV",
-        "url": "https://arxiv.org/abs/2008.10010",
-        "abstract": "abstract",
-    }])
+    _write_csv(
+        csv_path,
+        [
+            {
+                "arxiv_id": "2008.10010",
+                "title": "Wav2Lip",
+                "authors": "K. R. Prajwal, et al.",
+                "submitted": "2020-08-23",
+                "categories": "cs.CV",
+                "url": "https://arxiv.org/abs/2008.10010",
+                "abstract": "abstract",
+            }
+        ],
+    )
     rows = load_papers_csv(csv_path)
     assert len(rows) == 1
     assert isinstance(rows[0], PaperRow)
@@ -38,15 +57,61 @@ def test_load_papers_csv(tmp_path: Path) -> None:
 
 
 def test_needs_conversion_when_missing(tmp_papers_dir: Path) -> None:
-    row = PaperRow(arxiv_id="2008.10010", title="Wav2Lip", authors=["A"],
-                   submitted="2020-08-23", categories=[], url="…", abstract="…")
+    row = PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["A"],
+        submitted="2020-08-23",
+        categories=[],
+        url="…",
+        abstract="…",
+    )
     assert needs_conversion(row, tmp_papers_dir) is True
 
 
 def test_needs_conversion_when_present(tmp_papers_dir: Path) -> None:
-    row = PaperRow(arxiv_id="2008.10010", title="Wav2Lip", authors=["A"],
-                   submitted="2020-08-23", categories=[], url="…", abstract="…")
+    row = PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["A"],
+        submitted="2020-08-23",
+        categories=[],
+        url="…",
+        abstract="…",
+    )
     target = tmp_papers_dir / "2020" / "2008.10010.md"
     target.parent.mkdir(parents=True)
     target.write_text("---\nllm_remediated: false\n---\n\nbody\n")
     assert needs_conversion(row, tmp_papers_dir) is False
+
+
+@pytest.mark.slow
+@pytest.mark.skipif(shutil.which("pandoc") is None, reason="pandoc not installed")
+def test_process_paper_end_to_end_latex(monkeypatch, tmp_path, fixtures_dir):
+    """End-to-end: pre-seed cache with the fixture tarball, run process, assert MD exists."""
+    from scripts import convert_papers
+
+    cache_root = tmp_path / ".cache" / "source"
+    papers_root = tmp_path / "papers"
+    cache_root.mkdir(parents=True)
+
+    # Seed the cache so Stage 1 short-circuits.
+    paper_cache = cache_root / "2008.10010"
+    paper_cache.mkdir()
+    src_tar = paper_cache / "source.tar.gz"
+    shutil.copy(fixtures_dir / "sources_2008.10010.tar.gz", src_tar)
+
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", papers_root)
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+
+    row = convert_papers.PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["K. R. Prajwal"],
+        submitted="2020-08-23",
+        categories=["cs.CV"],
+        url="https://arxiv.org/abs/2008.10010",
+        abstract="abstract",
+    )
+    convert_papers._process_paper(row)
+    assert (papers_root / "2020" / "2008.10010.md").exists()
