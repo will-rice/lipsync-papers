@@ -1,6 +1,19 @@
 # 2026
 
-51 papers in this year.
+53 papers in this year.
+
+### [Omni-Fake: Benchmarking Unified Multimodal Social Media Deepfake Detection](2605.01638.md)
+**Tianxiao Li, Zhenglin Huang, Haiquan Wen, Yiwei He et al.** · 2026-05-02
+
+<details>
+<summary>Abstract</summary>
+
+Multimodal deepfakes are proliferating on social media and threaten authenticity, information integrity, and digital forensics. Existing benchmarks are constrained by their single-modality scope, simplified manipulations, or unrealistic distributions, which limit their ability to assess real-world robustness. To address these limitations, we present Omni-Fake, a unified omni-dataset for comprehensive multimodal deepfake detection in social-media settings. It comprises Omni-Fake-Set, a large-scale, high-quality dataset with 1M+ samples, and Omni-Fake-OOD, an out-of-distribution benchmark with 200k+ samples intentionally excluded from training to evaluate generalization. Omni-Fake spans four modalities (image, audio, video, and audio-video talking head) and supports a joint detection-localization-explanation protocol. On top of Omni-Fake, we further propose Omni-Fake-R1, a reinforcement-learning-driven multimodal detector that adaptively integrates visual and auditory cues and outputs structured decisions, localization, and natural-language explanations. Extensive experiments show significant gains in detection accuracy, cross-modal generalization, and explainability over state-of-the-art baselines. Project page: https://tianxiao1201.github.io/omni-fake-project-page/
+
+</details>
+
+### [Audio-to-3D: One-shot talking face generation with disentangled latent codes and diffusion control](s2:f779cc81439b6ab6ea76bd98e415381c8cd9a489.md)
+**Peixu Zhang, Xinyu Yang** · 2026-05-01
 
 ### [Talker-T2AV: Joint Talking Audio-Video Generation with Autoregressive Diffusion Modeling](2604.23586.md)
 **Zhen Ye, Xu Tan, Aoxiong Yin, Hongzhan Lin et al.** · 2026-04-26
