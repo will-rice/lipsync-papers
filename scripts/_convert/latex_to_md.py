@@ -7,7 +7,7 @@ import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
-PANDOC_TIMEOUT_SECONDS = 120
+PANDOC_TIMEOUT_SECONDS = 300
 
 
 @dataclass
@@ -78,12 +78,16 @@ def convert_latex_to_md(extracted: Path) -> LatexConversionResult:
         str(main),
     ]
     logging.info("Running: %s", " ".join(cmd))
+    # Note: do NOT pass cwd=extracted. When pandoc's working directory is the
+    # source dir, it scans local .sty files (e.g. preprint.sty, icml.sty) and
+    # can hang at 100% CPU on custom-macro packages. Absolute paths + resource-
+    # path are sufficient for figures and \input{}; custom .sty files are
+    # silently skipped, which is the correct behavior for body extraction.
     proc = subprocess.run(
         cmd,
         capture_output=True,
         text=True,
         timeout=PANDOC_TIMEOUT_SECONDS,
-        cwd=extracted,
     )
 
     bbl = find_bbl(extracted)

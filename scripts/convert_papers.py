@@ -28,7 +28,7 @@ CACHE_DIR = REPO_ROOT / ".cache"
 
 LLM_REMEDIATION_MAX_PAPERS = int(os.environ.get("LLM_REMEDIATION_MAX_PAPERS", "50"))
 LLM_REMEDIATION_DRY_RUN = os.environ.get("LLM_REMEDIATION_DRY_RUN", "false").lower() == "true"
-MAX_WORKERS = 8
+MAX_WORKERS = int(os.environ.get("CONVERT_MAX_WORKERS", "8"))
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
