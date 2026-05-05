@@ -47,6 +47,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <details open>
 <summary><h3>2026</h3></summary>
 
+#### [Omni-Fake: Benchmarking Unified Multimodal Social Media Deepfake Detection](https://arxiv.org/abs/2605.01638)
+**Tianxiao Li, Zhenglin Huang, Haiquan Wen, Yiwei He et al.** · 2026-05-02
+
+<details>
+<summary>Abstract</summary>
+
+Multimodal deepfakes are proliferating on social media and threaten authenticity, information integrity, and digital forensics. Existing benchmarks are constrained by their single-modality scope, simplified manipulations, or unrealistic distributions, which limit their ability to assess real-world robustness. To address these limitations, we present Omni-Fake, a unified omni-dataset for comprehensive multimodal deepfake detection in social-media settings. It comprises Omni-Fake-Set, a large-scale, high-quality dataset with 1M+ samples, and Omni-Fake-OOD, an out-of-distribution benchmark with 200k+ samples intentionally excluded from training to evaluate generalization. Omni-Fake spans four modalities (image, audio, video, and audio-video talking head) and supports a joint detection-localization-explanation protocol. On top of Omni-Fake, we further propose Omni-Fake-R1, a reinforcement-learning-driven multimodal detector that adaptively integrates visual and auditory cues and outputs structured decisions, localization, and natural-language explanations. Extensive experiments show significant gains in detection accuracy, cross-modal generalization, and explainability over state-of-the-art baselines. Project page: https://tianxiao1201.github.io/omni-fake-project-page/
+
+</details>
+
 #### [Audio-to-3D: One-shot talking face generation with disentangled latent codes and diffusion control](https://www.semanticscholar.org/paper/f779cc81439b6ab6ea76bd98e415381c8cd9a489)
 **Peixu Zhang, Xinyu Yang** · 2026-05-01
 
