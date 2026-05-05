@@ -1,0 +1,11 @@
+{
+  "id": "msg_test",
+  "type": "message",
+  "role": "assistant",
+  "content": [
+    {"type": "text", "text": "# Cleaned Paper\n\nThis is the LLM-corrected markdown.\n\n## References\n\n[1] Example."}
+  ],
+  "model": "claude-sonnet-4-6",
+  "stop_reason": "end_turn",
+  "usage": {"input_tokens": 5000, "output_tokens": 800}
+}
