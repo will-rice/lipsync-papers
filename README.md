@@ -68,6 +68,16 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <details open>
 <summary><h3>2026</h3></summary>
 
+#### [Enhancing Self-Supervised Talking Head Forgery Detection via a Training-Free Dual-System Framework](https://arxiv.org/abs/2605.03390)
+**Ke Liu, Jiwei Wei, Shuchang Zhou, Yutong Xiao et al.** · 2026-05-05
+
+<details>
+<summary>Abstract</summary>
+
+Supervised talking head forgery detection faces severe generalization challenges due to the continuous evolution of generators. By reducing reliance on generator-specific forgery patterns, self-supervised detectors offer stronger cross-generator robustness. However, existing research has mainly focused on building stronger detectors, while the discriminative capacity of trained detectors remains insufficiently exploited. In particular, for score-based self-supervised detectors, the limited discriminative ability on hard cases is often reflected in unreliable anomaly ordering, leaving room for further refinement. Motivated by this observation, we draw inspiration from the dual-system theory of human cognition and propose a Training-Free Dual-System (TFDS) framework to further exploit the latent discriminative capacity of existing score-based self-supervised detectors. TFDS treats anomaly-like scores as the basis of System-1, using lightweight threshold-based routing to partition samples into confident and uncertain subsets. System-2 then revisits only the uncertain subset, performing fine-grained evidence-guided reasoning to refine the relative ordering of ambiguous samples within the original score distribution. Extensive experiments demonstrate consistent improvements across datasets and perturbation settings, with the gains arising mainly from corrected ordering within the uncertain subset. These findings show that existing self-supervised talking head forgery detectors still contain underexploited discriminative cues that can be effectively unlocked through training-free dual-system reasoning.
+
+</details>
+
 #### [Omni-Fake: Benchmarking Unified Multimodal Social Media Deepfake Detection](https://arxiv.org/abs/2605.01638) · [📄 Read](papers/2026/2605.01638.md)
 **Tianxiao Li, Zhenglin Huang, Haiquan Wen, Yiwei He et al.** · 2026-05-02
 
@@ -81,6 +91,16 @@ Multimodal deepfakes are proliferating on social media and threaten authenticity
 #### [Audio-to-3D: One-shot talking face generation with disentangled latent codes and diffusion control](https://www.semanticscholar.org/paper/f779cc81439b6ab6ea76bd98e415381c8cd9a489) · [📄 Read](papers/2026/s2:f779cc81439b6ab6ea76bd98e415381c8cd9a489.md)
 **Peixu Zhang, Xinyu Yang** · 2026-05-01
 
+
+#### [AsymK-Talker: Real-Time and Long-Horizon Talking Head Generation via Asymmetric Kernel Distillation](https://arxiv.org/abs/2605.02948)
+**Yuxin Lu, Qian Qiao, Jiayang Sun, Min Cao et al.** · 2026-05-01
+
+<details>
+<summary>Abstract</summary>
+
+Recent advances in diffusion models have markedly enhanced the visual fidelity of audio-driven talking head generation. Nevertheless, existing methods are constrained by three critical limitations: causal inefficiency that impedes real-time inference, incompatibility with temporally coherent conditioning, and progressive drift over long-horizon generation, collectively hindering their deployment in real-time applications. To overcome these challenges, we introduce AsymK-Talker, a novel diffusion-distillation method designed for real-time and long-horizon talking head generation. AsymK-Talker comprises three key components: (1) Kernel-Conditioned Loop Generation (KCLG), a causal, chunk-wise generation paradigm that leverages motion kernels to enable temporally consistent propagation; (2) Temporal Reference Encoding (TRE), which converts a static identity reference into a time-aware latent representation to enhance audio-visual synchronization; and (3) Asymmetric Kernel Distillation (AKD), a teacher-student distillation framework wherein the teacher model conditions on ground-truth motion kernels for supervision, while the student learns to generate from generated kernels, thereby ensuring robustness during extended generation sequences. AsymK-Talker achieves promising results on both visual fidelity and lip synchronization metrics.
+
+</details>
 
 #### [Talker-T2AV: Joint Talking Audio-Video Generation with Autoregressive Diffusion Modeling](https://arxiv.org/abs/2604.23586) · [📄 Read](papers/2026/2604.23586.md)
 **Zhen Ye, Xu Tan, Aoxiong Yin, Hongzhan Lin et al.** · 2026-04-26

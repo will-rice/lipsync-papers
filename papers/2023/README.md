@@ -1,6 +1,6 @@
 # 2023
 
-83 papers in this year.
+84 papers in this year.
 
 ### [EFHQ: Multi-purpose ExtremePose-Face-HQ dataset](2312.17205.md)
 **Trung Tuan Dao, Duc Hong Vu, Cuong Pham, Anh Tran** · 2023-12-28
@@ -489,6 +489,16 @@ Deepfake technologies empowered by deep learning are rapidly evolving, creating 
 <summary>Abstract</summary>
 
 We are interested in a novel task, namely low-resource text-to-talking avatar. Given only a few-minute-long talking person video with the audio track as the training data and arbitrary texts as the driving input, we aim to synthesize high-quality talking portrait videos corresponding to the input text. This task has broad application prospects in the digital human industry but has not been technically achieved yet due to two challenges: (1) It is challenging to mimic the timbre from out-of-domain audio for a traditional multi-speaker Text-to-Speech system. (2) It is hard to render high-fidelity and lip-synchronized talking avatars with limited training data. In this paper, we introduce Adaptive Text-to-Talking Avatar (Ada-TTA), which (1) designs a generic zero-shot multi-speaker TTS model that well disentangles the text content, timbre, and prosody; and (2) embraces recent advances in neural rendering to achieve realistic audio-driven talking face video generation. With these designs, our method overcomes the aforementioned two challenges and achieves to generate identity-preserving speech and realistic talking person video. Experiments demonstrate that our method could synthesize realistic, identity-preserving, and audio-visual synchronized talking avatar videos.
+
+</details>
+
+### [Audio-Driven Talking Head Video Generation with Diffusion Model](s2:6e6d3daeb11675414391bd935a9e4e84dcff8d47.md)
+**Yizhe Zhu, Chunhui Zhang, Qiong Liu, Xi Zhou** · 2023-06-04
+
+<details>
+<summary>Abstract</summary>
+
+Synthesizing high-fidelity talking head videos by fitting input audio sequences is a highly anticipated technique in many applications, such as digital humans, virtual video conferences, and human-computer interaction. Popular GAN-based methods aim to align speech audio with lip motions and head poses. However, existing methods are prone to training instability and even mode collapse, resulting in low-quality video generation. In this paper, we propose a novel audio-driven diffusion method for generating high-resolution realistic videos of talking heads with the help of the denoising diffusion model. Specifically, the face attribute disentanglement module is proposed to disentangle eye blinking and lip motion features, where the lip motion features are synchronized with audio features via the contrastive learning strategy, and the disentangled motion features are aligned well with the talking head. Furthermore, the denoising diffusion model takes the source image and the warped motion features as input to generate the high-resolution realistic talking head with diverse head poses. Extensive evaluations using multiple metrics demonstrate that our method outperforms the current techniques both qualitatively and quantitatively.
 
 </details>
 
