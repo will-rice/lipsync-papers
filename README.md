@@ -68,7 +68,7 @@ Papers whose title or abstract contain any of the following phrases (case-insens
 <details open>
 <summary><h3>2026</h3></summary>
 
-#### [Enhancing Self-Supervised Talking Head Forgery Detection via a Training-Free Dual-System Framework](https://arxiv.org/abs/2605.03390)
+#### [Enhancing Self-Supervised Talking Head Forgery Detection via a Training-Free Dual-System Framework](https://arxiv.org/abs/2605.03390) · [📄 Read](papers/2026/2605.03390.md)
 **Ke Liu, Jiwei Wei, Shuchang Zhou, Yutong Xiao et al.** · 2026-05-05
 
 <details>
@@ -92,13 +92,23 @@ Multimodal deepfakes are proliferating on social media and threaten authenticity
 **Peixu Zhang, Xinyu Yang** · 2026-05-01
 
 
-#### [AsymK-Talker: Real-Time and Long-Horizon Talking Head Generation via Asymmetric Kernel Distillation](https://arxiv.org/abs/2605.02948)
+#### [AsymK-Talker: Real-Time and Long-Horizon Talking Head Generation via Asymmetric Kernel Distillation](https://arxiv.org/abs/2605.02948) · [📄 Read](papers/2026/2605.02948.md)
 **Yuxin Lu, Qian Qiao, Jiayang Sun, Min Cao et al.** · 2026-05-01
 
 <details>
 <summary>Abstract</summary>
 
 Recent advances in diffusion models have markedly enhanced the visual fidelity of audio-driven talking head generation. Nevertheless, existing methods are constrained by three critical limitations: causal inefficiency that impedes real-time inference, incompatibility with temporally coherent conditioning, and progressive drift over long-horizon generation, collectively hindering their deployment in real-time applications. To overcome these challenges, we introduce AsymK-Talker, a novel diffusion-distillation method designed for real-time and long-horizon talking head generation. AsymK-Talker comprises three key components: (1) Kernel-Conditioned Loop Generation (KCLG), a causal, chunk-wise generation paradigm that leverages motion kernels to enable temporally consistent propagation; (2) Temporal Reference Encoding (TRE), which converts a static identity reference into a time-aware latent representation to enhance audio-visual synchronization; and (3) Asymmetric Kernel Distillation (AKD), a teacher-student distillation framework wherein the teacher model conditions on ground-truth motion kernels for supervision, while the student learns to generate from generated kernels, thereby ensuring robustness during extended generation sequences. AsymK-Talker achieves promising results on both visual fidelity and lip synchronization metrics.
+
+</details>
+
+#### [Decoding Speech from Labial Movements](https://www.semanticscholar.org/paper/ce8e958599c41760bb6a67995e1843d9dab66e4e)
+**N. Lakshmi** · 2026-04-30
+
+<details>
+<summary>Abstract</summary>
+
+Decoding speech from labial movements is an emerging area of research that bridges computer vision, linguistics, and artificial intelligence. By analysing the dynamic patterns of lip shapes, positions, and motions, systems can infer spoken words even in the absence of acoustic signals. This technique is particularly valuable in noisy environments, for individuals with hearing impairments, and in applications requiring silent communication. Recent advances in deep learning and image processing have enabled more accurate mapping between visual features and phonetic units, improving recognition rates and robustness across diverse speakers. The integration of multimodal cues, such as facial expressions and contextual language models, further enhances performance, making visual speech decoding a promising complement to traditional audio-based systems. Ultimately, this field contributes to more inclusive human-computer interaction and opens new possibilities for assistive technologies and secure communication.
 
 </details>
 
@@ -3813,7 +3823,7 @@ We are interested in a novel task, namely low-resource text-to-talking avatar. G
 
 </details>
 
-#### [Audio-Driven Talking Head Video Generation with Diffusion Model](https://www.semanticscholar.org/paper/6e6d3daeb11675414391bd935a9e4e84dcff8d47)
+#### [Audio-Driven Talking Head Video Generation with Diffusion Model](https://www.semanticscholar.org/paper/6e6d3daeb11675414391bd935a9e4e84dcff8d47) · [📄 Read](papers/2023/s2:6e6d3daeb11675414391bd935a9e4e84dcff8d47.md)
 **Yizhe Zhu, Chunhui Zhang, Qiong Liu, Xi Zhou** · 2023-06-04
 
 <details>
