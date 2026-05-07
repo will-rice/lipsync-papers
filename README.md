@@ -2,6 +2,8 @@
 
 A curated, automatically-updated collection of papers on **lip sync**, talking-head synthesis, audio-driven face animation, and related topics — starting from [Wav2Lip](https://arxiv.org/abs/2008.10010) (2020) and growing every week.
 
+Beyond a reading list, this repo is built to be **browsed by LLMs**. Every paper is mirrored as a markdown file with structured YAML frontmatter and inline citation links that resolve to sibling files in the corpus when the cited work is here, or to arXiv / DOI otherwise. Point an agent at [`papers/README.md`](papers/README.md) and it can crawl the literature graph the same way you would.
+
 ## How it works
 
 * Papers are sourced from [arXiv](https://arxiv.org/), [Semantic Scholar](https://www.semanticscholar.org/), and [Papers With Code](https://paperswithcode.com/) via their public APIs.
@@ -49,18 +51,6 @@ The fetch script uses only the Python standard library; the conversion pipeline 
 
 Open the **Actions** tab → **Fetch Lipsync Papers** → **Run workflow**.
 Select *full = true* to back-fill from 2020, or leave it as *false* for an incremental update.
-
-## Search terms
-
-The following keyword queries are used against arXiv, Semantic Scholar, and Papers With Code title and abstract fields:
-
-`lip sync` · `lip synchronization` · `wav2lip` · `talking head` · `talking face` · `audio-driven face` · `speech-driven face` · `audio visual speech` · `face reenactment` · `neural dubbing`
-
-## Negative keywords
-
-Papers whose title or abstract contain any of the following phrases (case-insensitive) are excluded:
-
-`speech recognition` · `power synchronization` · `grid-forming` · `electric load` · `spacecraft` · `tractor engine` · `audio encryption` · `audio steganography` · `job-shop scheduling` · `mechanical system` · `warp-knitted` · `integrated sensing and communication` · `rate-splitting` · `reconfigurable intelligent surface` · `spread spectrum` · `spectrum access` · `radiation field reconstruction` · `wireless human gesture` · `programmable data-plane` · `indoor positioning` · `near-field positioning` · `human-drone` · `temporal knowledge graph` · `event localization` · `audio backdoor` · `forensic speaker` · `intrusion detection` · `nanostructure` · `quantum neural` · `pde solver` · `printed memristor` · `sonar` · `cleft lip` · `rhinoplasty` · `head and neck cancer` · `alveolar bone` · `lip balm` · `lip-ms` · `transcranial` · `alzheimer` · `polycystic ovary` · `diabetes mellitus` · `perinatal` · `dentofacial` · `stuttering` · `oral health` · `face-to-face stacking` · `talking therapies` · `talking therapy` · `autocratic leadership` · `cloud cost` · `professional wrestling` · `respondent-driven` · `partisan` · `macaque` · `ai companion chatbot` · `immersive analytics` · `audio description text` · `audio hallucination` · `audio language model` · `membership inference attack` · `binaural audio` · `spatial audio` · `sound field interpolation` · `audio transfer learning` · `audio pre-training` · `audio captioning` · `resting-state fmri` · `granger causality` · `speech neuroprosthesis` · `neural speech tracking` · `cochlear implant` · `mmwave radar` · `lidar-camera` · `network twin` · `machine translation` · `grammar error correction` · `named entity recognition` · `video quality assessment` · `scene dynamics compression` · `video object insertion` · `hand object interaction` · `road damage` · `music-driven dance` · `dietary action` · `active acoustic sensing` · `talking-heads attention` · `inter-layer communication` · `audio-visual scene classification` · `area threat identification` · `pedagogical agent` · `empathetic chatbot` · `multimodal biometric database` · `tiktok` · `street video` · `sign language detection` · `chinese sign language` · `sentiment analysis` · `video motion transfer` · `structured pruning u-net` · `scene2audio` · `image and layout editing` · `body pose estimation` · `android robot head` · `embodied conversational agent` · `text-audio steganography` · `joint steganography` · `reference audio-visual segmentation` · `multi-view stereo`
 
 ## Papers
 
