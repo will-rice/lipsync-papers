@@ -92,7 +92,7 @@ Recent advances in diffusion models have markedly enhanced the visual fidelity o
 
 </details>
 
-#### [Decoding Speech from Labial Movements](https://www.semanticscholar.org/paper/ce8e958599c41760bb6a67995e1843d9dab66e4e)
+#### [Decoding Speech from Labial Movements](https://www.semanticscholar.org/paper/ce8e958599c41760bb6a67995e1843d9dab66e4e) · [📄 Read](papers/2026/s2:ce8e958599c41760bb6a67995e1843d9dab66e4e.md)
 **N. Lakshmi** · 2026-04-30
 
 <details>
