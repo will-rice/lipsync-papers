@@ -1,6 +1,16 @@
 # 2026
 
-58 papers in this year.
+59 papers in this year.
+
+### [SDTalk: Structured Facial Priors and Dual-Branch Motion Fields for Generalizable Gaussian Talking Head Synthesis](2605.09956.md)
+**Peng Jia, Zhen Xiao, Jia Li, Xueliang Liu et al.** · 2026-05-11
+
+<details>
+<summary>Abstract</summary>
+
+High-quality, real-time talking head synthesis remains a fundamental challenge in computer vision. Existing reconstruction- and rendering-based methods typically rely on identity-specific models, limiting cross-identity generalization. To address this issue, we propose SDTalk, a one-shot 3D Gaussian Splatting (3DGS)-based framework that generalizes to unseen identities without personalized training or fine-tuning. Our framework comprises two modules with a two-stage training strategy. In the first stage, we incorporate structured facial priors into the reconstruction module and separately predict 3DGS parameters for visible and occluded regions, enabling complete head reconstruction from a single image. In the second stage, we introduce a dual-branch motion field to model coarse and fine facial dynamics, improving detail fidelity and lip synchronization. Experiments demonstrate that SDTalk surpasses existing methods in both visual quality and inference efficiency.
+
+</details>
 
 ### [MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation](2605.08050.md)
 **Xinyan Ye, Jiankang Deng, Abbas Edalat** · 2026-05-08
