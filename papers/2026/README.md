@@ -1,6 +1,6 @@
 # 2026
 
-59 papers in this year.
+60 papers in this year.
 
 ### [SDTalk: Structured Facial Priors and Dual-Branch Motion Fields for Generalizable Gaussian Talking Head Synthesis](2605.09956.md)
 **Peng Jia, Zhen Xiao, Jia Li, Xueliang Liu et al.** · 2026-05-11
@@ -9,6 +9,16 @@
 <summary>Abstract</summary>
 
 High-quality, real-time talking head synthesis remains a fundamental challenge in computer vision. Existing reconstruction- and rendering-based methods typically rely on identity-specific models, limiting cross-identity generalization. To address this issue, we propose SDTalk, a one-shot 3D Gaussian Splatting (3DGS)-based framework that generalizes to unseen identities without personalized training or fine-tuning. Our framework comprises two modules with a two-stage training strategy. In the first stage, we incorporate structured facial priors into the reconstruction module and separately predict 3DGS parameters for visible and occluded regions, enabling complete head reconstruction from a single image. In the second stage, we introduce a dual-branch motion field to model coarse and fine facial dynamics, improving detail fidelity and lip synchronization. Experiments demonstrate that SDTalk surpasses existing methods in both visual quality and inference efficiency.
+
+</details>
+
+### [Deep Learning Framework for Detecting Deep Fake Media Using Lip Region Analysis and Audio–Visual Synchronization](s2:397c803b91d9532db059720dac4e6500267cfccc.md)
+**Hitashri M, Deekshitha M, Boreddy Sahastra Reddy, Dr. Nagaraj Cholli** · 2026-05-11
+
+<details>
+<summary>Abstract</summary>
+
+The advancement of the ‘deep fake’ technology has been rapid, with the emergence of innovative generative models that have the capability to create realistic fake media. Such fake videos have the potential to impact the authenticity, security, and trust of the information being conveyed, thereby creating a need for the detection of such fake videos. Several methods for the detection of ‘deep fake’ videos have been proposed, which primarily focus on the global facial artifacts and temporal inconsistencies. However, such methods may not perform well with the emergence of advanced ‘deep fake’ models, which have the potential to generate realistic fake videos. In this paper, we have proposed a ‘deep fake’ video detection framework that primarily focuses on the lip region and the audio-visual synchronization. The process was carried out through a series of checks, progressing through a series of steps in a specific order. The process starts by closely inspecting the video, followed by inspection of the lip region, inspection of any cues present in the video, and then audio features, among others, until a conclusion is reached. A major portion of this process is focused on the lip region, which is used to identify the speaker in a three-dimensional space. Audio cues, including Mel-frequency cepstral coefficients, are also considered during this process. The process involves authentic and manipulated videos, and it is clear that unusual lip movement is a strong indicator of a deep fake video.
 
 </details>
 

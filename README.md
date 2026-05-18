@@ -68,6 +68,16 @@ High-quality, real-time talking head synthesis remains a fundamental challenge i
 
 </details>
 
+#### [Deep Learning Framework for Detecting Deep Fake Media Using Lip Region Analysis and Audio–Visual Synchronization](https://www.semanticscholar.org/paper/397c803b91d9532db059720dac4e6500267cfccc)
+**Hitashri M, Deekshitha M, Boreddy Sahastra Reddy, Dr. Nagaraj Cholli** · 2026-05-11
+
+<details>
+<summary>Abstract</summary>
+
+The advancement of the ‘deep fake’ technology has been rapid, with the emergence of innovative generative models that have the capability to create realistic fake media. Such fake videos have the potential to impact the authenticity, security, and trust of the information being conveyed, thereby creating a need for the detection of such fake videos. Several methods for the detection of ‘deep fake’ videos have been proposed, which primarily focus on the global facial artifacts and temporal inconsistencies. However, such methods may not perform well with the emergence of advanced ‘deep fake’ models, which have the potential to generate realistic fake videos. In this paper, we have proposed a ‘deep fake’ video detection framework that primarily focuses on the lip region and the audio-visual synchronization. The process was carried out through a series of checks, progressing through a series of steps in a specific order. The process starts by closely inspecting the video, followed by inspection of the lip region, inspection of any cues present in the video, and then audio features, among others, until a conclusion is reached. A major portion of this process is focused on the lip region, which is used to identify the speaker in a three-dimensional space. Audio cues, including Mel-frequency cepstral coefficients, are also considered during this process. The process involves authentic and manipulated videos, and it is clear that unusual lip movement is a strong indicator of a deep fake video.
+
+</details>
+
 #### [MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation](https://arxiv.org/abs/2605.08050) · [📄 Read](papers/2026/2605.08050.md)
 **Xinyan Ye, Jiankang Deng, Abbas Edalat** · 2026-05-08
 
