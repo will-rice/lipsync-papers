@@ -1,6 +1,26 @@
 # 2026
 
-60 papers in this year.
+62 papers in this year.
+
+### [HighSync: High-Quality Lip Synchronization via Latent Diffusion Models](2605.16918.md)
+**Saeed Firouzi Daghigh, Majid Iranpour Mobarekeh, Mostafa Alavi, Mehdi Bagheri** · 2026-05-16
+
+<details>
+<summary>Abstract</summary>
+
+We present HighSync, an end-to-end diffusion-based framework for high-fidelity lip synchronization that generates photorealistic talking-face videos aligned with arbitrary input audio. Existing approaches consistently struggle to reconcile image quality with synchronization accuracy, producing either visually degraded outputs or temporally inconsistent lip movements. HighSync addresses both challenges simultaneously and, to our knowledge, is the first lip sync model to operate natively at 512*512 resolution, positioning it as a viable solution for professional production environments such as the film and broadcast industries. Central to our approach is the identification and systematic elimination of a data leakage phenomenon that has silently undermined temporal modeling in prior work, preventing models from developing a genuine dependence on the audio signal. Comprehensive evaluations across both perceptual quality and synchronization accuracy metrics confirm that HighSync achieves state-of-the-art performance on both fronts. Source code, pre-trained models, and supplementary video results are publicly available at: https://github.com/saeed5959/high_sync
+
+</details>
+
+### [Let Toon Talk: Speech-Driven 3D Cartoon Animation via Parametric Modeling and Flow Matching](s2:a5d84f7cc3770c322c911f3849057f36d1957d2f.md)
+**Dong Wang, Sanxing Cao, Baihui Tang** · 2026-05-13
+
+<details>
+<summary>Abstract</summary>
+
+Speech-driven 3D cartoon facial animation remains underexplored due to the difficulty of handling heterogeneous geometries with exaggerated proportions, limited generalization to diverse unseen subjects, and the scarcity of datasets. To address these challenges, we propose Let Toon Talk, a two-stage cascaded framework that effectively mitigates these bottlenecks in both modeling and driving. It enables one-shot, speech-synchronized 3D animation from a single unseen humanoid cartoon image, driven by arbitrary audio. Specifically, for avatar modeling, we propose a parametric adaptation mechanism to capture diverse heterogeneous facial topologies, which subsequently guides a feed-forward reconstruction module to create high-quality 3D Gaussian Splatting (3DGS) avatars. Building upon this, for speech driving, we introduce an Identity-Adaptive Flow Matching network. This generative module effectively maps audio to precise facial dynamics, achieving identity-adaptive motion synthesis for diverse humanoid cartoon characters without per-subject pretraining. Furthermore, we construct a hybrid cartoon talking-face dataset with a systematic curation strategy to bridge the data gap. Extensive experiments demonstrate that our framework produces high-quality, temporally coherent animations, exhibiting effective generalization on unseen structurally humanoid cartoon characters.
+
+</details>
 
 ### [SDTalk: Structured Facial Priors and Dual-Branch Motion Fields for Generalizable Gaussian Talking Head Synthesis](2605.09956.md)
 **Peng Jia, Zhen Xiao, Jia Li, Xueliang Liu et al.** · 2026-05-11
