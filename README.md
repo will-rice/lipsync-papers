@@ -58,7 +58,7 @@ Select *full = true* to back-fill from 2020, or leave it as *false* for an incre
 <details open>
 <summary><h3>2026</h3></summary>
 
-#### [HighSync: High-Quality Lip Synchronization via Latent Diffusion Models](https://arxiv.org/abs/2605.16918)
+#### [HighSync: High-Quality Lip Synchronization via Latent Diffusion Models](https://arxiv.org/abs/2605.16918) · [📄 Read](papers/2026/2605.16918.md)
 **Saeed Firouzi Daghigh, Majid Iranpour Mobarekeh, Mostafa Alavi, Mehdi Bagheri** · 2026-05-16
 
 <details>
@@ -68,7 +68,7 @@ We present HighSync, an end-to-end diffusion-based framework for high-fidelity l
 
 </details>
 
-#### [Let Toon Talk: Speech-Driven 3D Cartoon Animation via Parametric Modeling and Flow Matching](https://www.semanticscholar.org/paper/a5d84f7cc3770c322c911f3849057f36d1957d2f)
+#### [Let Toon Talk: Speech-Driven 3D Cartoon Animation via Parametric Modeling and Flow Matching](https://www.semanticscholar.org/paper/a5d84f7cc3770c322c911f3849057f36d1957d2f) · [📄 Read](papers/2026/s2:a5d84f7cc3770c322c911f3849057f36d1957d2f.md)
 **Dong Wang, Sanxing Cao, Baihui Tang** · 2026-05-13
 
 <details>
