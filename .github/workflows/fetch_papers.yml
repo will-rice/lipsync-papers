@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   fetch:
@@ -27,11 +28,17 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          # Fetch full history so the digest can diff against HEAD's papers.csv.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install digest dependencies
+        run: pip install --quiet anthropic
 
       - name: Fetch papers (incremental)
         if: ${{ github.event.inputs.full != 'true' }}
@@ -41,8 +48,27 @@ jobs:
         if: ${{ github.event.inputs.full == 'true' }}
         run: python scripts/fetch_papers.py --full
 
-      - name: Commit updated paper list
+      - name: Generate daily digest
+        id: digest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_digest.py
+
+      - name: Commit updated paper list and digest
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update papers list [skip ci]"
-          file_pattern: "papers.csv README.md"
+          file_pattern: "papers.csv README.md digests/*.md"
+
+      - name: Open digest issue
+        if: ${{ steps.digest.outputs.digest_path != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DIGEST_PATH: ${{ steps.digest.outputs.digest_path }}
+          DIGEST_DATE: ${{ steps.digest.outputs.digest_date }}
+          DIGEST_COUNT: ${{ steps.digest.outputs.digest_count }}
+        run: |
+          gh issue create \
+            --title "Lipsync digest — $DIGEST_DATE ($DIGEST_COUNT new)" \
+            --body-file "$DIGEST_PATH" \
+            --label "digest"
