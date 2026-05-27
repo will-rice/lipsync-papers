@@ -58,7 +58,7 @@ Select *full = true* to back-fill from 2020, or leave it as *false* for an incre
 <details open>
 <summary><h3>2026</h3></summary>
 
-#### [Test-Time Self-Adaptive Conditioning for Stable Audio-Driven Talking-Head Generation](https://arxiv.org/abs/2605.25488)
+#### [Test-Time Self-Adaptive Conditioning for Stable Audio-Driven Talking-Head Generation](https://arxiv.org/abs/2605.25488) · [📄 Read](papers/2026/2605.25488.md)
 **Zhicheng Zhang, Lei Wang, Yu Zhang, Yongsheng Gao** · 2026-05-25
 
 <details>
