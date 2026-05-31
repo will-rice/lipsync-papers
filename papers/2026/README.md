@@ -1,6 +1,6 @@
 # 2026
 
-66 papers in this year.
+67 papers in this year.
 
 ### [IP-Adapter Is All You Need: Towards Fine-Tuning-Free Diffusion-Based Talking Face Generation](2605.30230.md)
 **Hao Wu, Xiangyang Luo, Hao Wang, Jiawei Zhang et al.** · 2026-05-28
@@ -9,6 +9,16 @@
 <summary>Abstract</summary>
 
 With the rapid advancement of diffusion models, talking face generation has made remarkable progress. However, existing diffusion-based methods still require task-specific fine-tuning and large-scale audiovisual datasets, resulting in high computational costs that hinder scalability and accessibility of diffusion-based approaches across the research community. To address this, we propose a finetuning-free paradigm that directly performs talking face generation using the pretrained weights of Stable Diffusion and IP-Adapter. This backbone leverages the visual embedding capability of IP-Adapter to mine lip-related semantics from the pretrained Stable Diffusion. To address the challenges of identity drift, synchronization errors, and temporal instability, we also design three trainable-parameterfree components: (1) the Structurist, which explicitly disentangles and reassembles lip and appearance features to mitigate identity drift and appearance distortion; (2) the Structure Controller, which adaptively refines embeddings based on quasi-monotonic motion trends for precise lip synchronization; and (3) the Noise Sensor, which introduces Gaussian prior to detect and suppress flicker and jitter artifacts and enhance temporal consistency. Experimental results show that our method outperforms existing SOTA approaches in both lip-sync accuracy (at least 0.16 gain in PCLD) and visual fidelity (at least 0.7 improvement in FID), establishing a novel fine-tuning-free diffusion framework for talking face generation.
+
+</details>
+
+### [Explainable Children Autism Detection using Gaze Features in Audio-Visual Speech Comprehension ETRA012](s2:b608a5b26365240ad5a5ce13e553fd8577a83ef0.md)
+**Miguel Zaragozá-Portolés, David Gimeno-Gómez, V. Ávila, Dr. Inmaculada Fajardo et al.** · 2026-05-28
+
+<details>
+<summary>Abstract</summary>
+
+Autism Spectrum Disorder (ASD) is a neurodevelopmental condition marked by impairments in social interaction and delayed language acquisition. Early and accurate identification is crucial for timely interventions that support cognitive and social development. Motivated by the subjectivity of traditional behavior-based assessments, computational methodologies offer more objective and cost-effective alternatives. Among these, eye-tracking stands out for capturing subtle attentional and perceptual patterns. This paper investigates the use of eye-tracking data for automatic ASD detection in children during audio-visual storytelling interactions, emphasizing traditional yet explainable machine learning methods. Although performance remains modest, our analyses reveal that fixation duration and revisit patterns to facial regions may serve as potential biomarkers. Further analyses highlight the impact of stimulus modality, suggesting that the inclusion of visual speech cues provides valuable discriminative information. These findings have the potential to support and guide the work of psychologists in the assessment of ASD within speech comprehension contexts.
 
 </details>
 
