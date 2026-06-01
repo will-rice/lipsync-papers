@@ -68,7 +68,7 @@ With the rapid advancement of diffusion models, talking face generation has made
 
 </details>
 
-#### [Explainable Children Autism Detection using Gaze Features in Audio-Visual Speech Comprehension ETRA012](https://www.semanticscholar.org/paper/b608a5b26365240ad5a5ce13e553fd8577a83ef0)
+#### [Explainable Children Autism Detection using Gaze Features in Audio-Visual Speech Comprehension ETRA012](https://www.semanticscholar.org/paper/b608a5b26365240ad5a5ce13e553fd8577a83ef0) · [📄 Read](papers/2026/s2:b608a5b26365240ad5a5ce13e553fd8577a83ef0.md)
 **Miguel Zaragozá-Portolés, David Gimeno-Gómez, V. Ávila, Dr. Inmaculada Fajardo et al.** · 2026-05-28
 
 <details>
