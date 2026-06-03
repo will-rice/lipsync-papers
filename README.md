@@ -58,7 +58,7 @@ Select *full = true* to back-fill from 2020, or leave it as *false* for an incre
 <details open>
 <summary><h3>2026</h3></summary>
 
-#### [Temporally-Aligned Evaluation for Audio-Driven Talking Head Generation](https://arxiv.org/abs/2606.01031)
+#### [Temporally-Aligned Evaluation for Audio-Driven Talking Head Generation](https://arxiv.org/abs/2606.01031) · [📄 Read](papers/2026/2606.01031.md)
 **Zhicheng Zhang, Lei Wang, Yu Zhang, Yongsheng Gao** · 2026-05-31
 
 <details>
