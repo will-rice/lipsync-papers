@@ -1,6 +1,16 @@
 # 2026
 
-68 papers in this year.
+69 papers in this year.
+
+### [Resonant Minds: Closed-Loop Social Avatars with Theory of Mind](2606.05896.md)
+**Jianxu Shangguan, Jing Xu, Hang Ye, Xiaoxuan Ma et al.** · 2026-06-04
+
+<details>
+<summary>Abstract</summary>
+
+Creating lifelike digital humans with genuine social intelligence requires unifying cognitive reasoning and multimodal generation within a coherent framework. Current approaches treat these as separate tasks: Large Language Models excel at dialogue but lack embodied expression, while diffusion-based talking head models achieve visual fidelity but ignore social cognition. To bridge this gap, we propose a closed-loop dual-agent framework integrating perception, social reasoning, and expression into a continuous interaction cycle. The perception module analyzes partners' multimodal behaviors from video, while the social reasoning module infers hidden mental states through Theory of Mind and selects responses via an ensemble mechanism. The expression module then generates emotion-controllable dual-agent videos synthesizing both speaker speech and expression alongside listener reactive behaviors, capturing bidirectional dynamics absent in prior work. We construct a hierarchical Persona-Scenario dataset with psychologically grounded personas and private social goals to support evaluation under information asymmetry. Experiments on this dataset demonstrate competitive or superior performance on both dialogue quality and video generation metrics. Notably, our method surpasses even the full-information Script mode on key dialogue quality dimensions, suggesting that explicit mental state inference under uncertainty can elicit more thoughtful dialogue than unrestricted information access.
+
+</details>
 
 ### [Temporally-Aligned Evaluation for Audio-Driven Talking Head Generation](2606.01031.md)
 **Zhicheng Zhang, Lei Wang, Yu Zhang, Yongsheng Gao** · 2026-05-31
