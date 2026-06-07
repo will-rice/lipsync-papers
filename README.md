@@ -730,6 +730,16 @@ We address the problem of speech denoising where the goal is to extract clean sp
 
 </details>
 
+#### [HP-Gaussian: Head Prior-Guided Gaussian Splatting for Personalized Talking Head Synthesis From Few-Second Video](https://www.semanticscholar.org/paper/aa94087405ba62ce76f92bad66aead691171bf8c)
+**Shuai Shen, Wanhua Li, Yunpeng Zhang, Weipeng Hu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Gaussian Splatting-based talking head synthesis has made significant progress in recent years, yet existing methods often struggle with generalization beyond specific training identity. In this paper, we propose Head Prior guided Gaussian Splatting for personalized talking head synthesis (HP-Gaussian) that can generalize to new identities with only few training data. Unlike traditional optimization-based Gaussian Splatting methods, our approach directly predicts Gaussian parameters from multi-modal inputs, including audio and visual cues. This feed-forward design enables multiple identities pre-training, allowing the model to learn shared head priors from large-scale datasets, while supporting flexible speaker-specific adaptation. To further enhance Gaussian feature learning, we introduce a Spatial Gaussian Transformer that captures correlations among neighboring Gaussians, improving parameter estimation accuracy. Additionally, recognizing the critical importance of personalized speaking styles in the synthesis of high-quality talking videos, a two-stage training strategy is implemented. A base model is initially trained across diverse identities to establish the foundational head prior knowledge. Subsequently, we introduce the short-video personalized adaptation phase for more realistic customized talking video generation. Extensive experiments demonstrate that our HP-Gaussian can synthesize high-fidelity and personalized talking videos with remarkably few training examples, setting a new benchmark for efficiency and quality in talking head synthesis. We highly recommend viewing our demonstration video at https://youtu.be/RpjWdvikKhU for intuitive visual comparisons and qualitative results.
+
+</details>
+
 </details>
 
 <details open>

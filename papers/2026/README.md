@@ -1,6 +1,6 @@
 # 2026
 
-69 papers in this year.
+70 papers in this year.
 
 ### [Resonant Minds: Closed-Loop Social Avatars with Theory of Mind](2606.05896.md)
 **Jianxu Shangguan, Jing Xu, Hang Ye, Xiaoxuan Ma et al.** · 2026-06-04
@@ -668,6 +668,16 @@ Human speech perception naturally integrates visual and auditory cues, with lip 
 <summary>Abstract</summary>
 
 We address the problem of speech denoising where the goal is to extract clean speech signal from a noisy signal. Traditionally, the task of denoising has been performed using audio modality only. However, human speech perception is inherently multimodal where cues from visual modality are used to understand the speech better in a noisy environment. Similar observation has been made with computational denoising methods, i.e., performance of audio only model improves after adding visual modality. Inspired by these findings we propose a novel audio-visual network for adaptively combining both modalities for the task of speech audio denoising. We show that extracting noise from mixed audio and using it as a conditioning signal, improves speech denoising performance. To estimate the noise, we use both audio and visual modalities, i.e., lip region of the speaker, to extract the non-speech/silent regions from it. The silent regions enable us to estimate better noise profile to eliminate from the signal. Our proposed network uses self and cross attention framework between audio and video features, along the temporal dimension, to model correlations between the two modalities. We evaluate the proposed approach on a large scale audio-visual dataset VoxCeleb2 and obtain state-of-the-art results. We also demonstrate generalization to unseen speakers at test time.
+
+</details>
+
+### [HP-Gaussian: Head Prior-Guided Gaussian Splatting for Personalized Talking Head Synthesis From Few-Second Video](s2:aa94087405ba62ce76f92bad66aead691171bf8c.md)
+**Shuai Shen, Wanhua Li, Yunpeng Zhang, Weipeng Hu et al.** · 2026-01-01
+
+<details>
+<summary>Abstract</summary>
+
+Gaussian Splatting-based talking head synthesis has made significant progress in recent years, yet existing methods often struggle with generalization beyond specific training identity. In this paper, we propose Head Prior guided Gaussian Splatting for personalized talking head synthesis (HP-Gaussian) that can generalize to new identities with only few training data. Unlike traditional optimization-based Gaussian Splatting methods, our approach directly predicts Gaussian parameters from multi-modal inputs, including audio and visual cues. This feed-forward design enables multiple identities pre-training, allowing the model to learn shared head priors from large-scale datasets, while supporting flexible speaker-specific adaptation. To further enhance Gaussian feature learning, we introduce a Spatial Gaussian Transformer that captures correlations among neighboring Gaussians, improving parameter estimation accuracy. Additionally, recognizing the critical importance of personalized speaking styles in the synthesis of high-quality talking videos, a two-stage training strategy is implemented. A base model is initially trained across diverse identities to establish the foundational head prior knowledge. Subsequently, we introduce the short-video personalized adaptation phase for more realistic customized talking video generation. Extensive experiments demonstrate that our HP-Gaussian can synthesize high-fidelity and personalized talking videos with remarkably few training examples, setting a new benchmark for efficiency and quality in talking head synthesis. We highly recommend viewing our demonstration video at https://youtu.be/RpjWdvikKhU for intuitive visual comparisons and qualitative results.
 
 </details>
 
