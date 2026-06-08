@@ -730,7 +730,7 @@ We address the problem of speech denoising where the goal is to extract clean sp
 
 </details>
 
-#### [HP-Gaussian: Head Prior-Guided Gaussian Splatting for Personalized Talking Head Synthesis From Few-Second Video](https://www.semanticscholar.org/paper/aa94087405ba62ce76f92bad66aead691171bf8c)
+#### [HP-Gaussian: Head Prior-Guided Gaussian Splatting for Personalized Talking Head Synthesis From Few-Second Video](https://www.semanticscholar.org/paper/aa94087405ba62ce76f92bad66aead691171bf8c) · [📄 Read](papers/2026/s2:aa94087405ba62ce76f92bad66aead691171bf8c.md)
 **Shuai Shen, Wanhua Li, Yunpeng Zhang, Weipeng Hu et al.** · 2026-01-01
 
 <details>
