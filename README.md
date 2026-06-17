@@ -58,7 +58,7 @@ Select *full = true* to back-fill from 2020, or leave it as *false* for an incre
 <details open>
 <summary><h3>2026</h3></summary>
 
-#### [EmoZone-Talker: Regional Semantic Control of Audio-Driven 3DGS Talking Heads via Facial Action Units](https://arxiv.org/abs/2606.15848)
+#### [EmoZone-Talker: Regional Semantic Control of Audio-Driven 3DGS Talking Heads via Facial Action Units](https://arxiv.org/abs/2606.15848) · [📄 Read](papers/2026/2606.15848.md)
 **Tingting Chen, Shaojun Wang, Huaye Zhang, Diqiong Jiang et al.** · 2026-06-14
 
 <details>
