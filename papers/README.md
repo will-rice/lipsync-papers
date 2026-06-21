@@ -2,7 +2,7 @@
 
 Total papers: 532
 
-_Generated: 2026-06-20_
+_Generated: 2026-06-21_
 
 - [2026](2026/README.md) — 75 papers
 - [2025](2025/README.md) — 156 papers
