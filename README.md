@@ -68,7 +68,7 @@ Diffusion Transformers (DiTs) have significantly advanced audio-driven portrait 
 
 </details>
 
-#### [DIVA-3D: a diverse 3D talking head dataset from in-the-wild videos](https://www.semanticscholar.org/paper/636d2024d246b43d37b6bb3d887c5607ad8ba1d1)
+#### [DIVA-3D: a diverse 3D talking head dataset from in-the-wild videos](https://www.semanticscholar.org/paper/636d2024d246b43d37b6bb3d887c5607ad8ba1d1) · [📄 Read](papers/2026/s2:636d2024d246b43d37b6bb3d887c5607ad8ba1d1.md)
 **Yuhang Wu, Yixuan Zhang, Qing Chang, Junran Peng et al.** · 2026-06-29
 
 <details>
