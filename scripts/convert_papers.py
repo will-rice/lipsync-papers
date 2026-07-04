@@ -2,6 +2,7 @@
 
 Usage:
     uv run python scripts/convert_papers.py
+    uv run python scripts/convert_papers.py --regenerate-all
     uv run python scripts/convert_papers.py --only 2008.10010
     uv run python scripts/convert_papers.py --skip-llm
 """
@@ -59,7 +60,7 @@ def main() -> None:
         rows = [r for r in rows if r.arxiv_id == args.only]
         logging.info("Filtered to %d paper(s) matching --only=%s", len(rows), args.only)
 
-    pending = [r for r in rows if needs_conversion(r, PAPERS_DIR)]
+    pending = [r for r in rows if needs_conversion(r, PAPERS_DIR, force=args.regenerate_all)]
     logging.info("%d papers need conversion", len(pending))
 
     # Stage 1+2 (per-paper, parallel).
@@ -88,6 +89,11 @@ def main() -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Convert papers in papers.csv to markdown.")
     parser.add_argument("--only", default=None, help="Only process this arxiv_id.")
+    parser.add_argument(
+        "--regenerate-all",
+        action="store_true",
+        help="Rebuild markdown for every paper, even when an output file already exists.",
+    )
     parser.add_argument("--skip-llm", action="store_true", help="Skip Stage 2.5 remediation.")
     return parser.parse_args()
 
@@ -112,8 +118,10 @@ def load_papers_csv(path: Path) -> list[PaperRow]:
     return rows
 
 
-def needs_conversion(row: PaperRow, papers_dir: Path) -> bool:
-    """True if this paper has no markdown file yet."""
+def needs_conversion(row: PaperRow, papers_dir: Path, *, force: bool = False) -> bool:
+    """True if this paper should be converted."""
+    if force:
+        return True
     target = papers_dir / row.year / f"{row.arxiv_id}.md"
     return not target.exists()
 

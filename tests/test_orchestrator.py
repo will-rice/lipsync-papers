@@ -85,6 +85,22 @@ def test_needs_conversion_when_present(tmp_papers_dir: Path) -> None:
     assert needs_conversion(row, tmp_papers_dir) is False
 
 
+def test_needs_conversion_when_force_enabled(tmp_papers_dir: Path) -> None:
+    row = PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["A"],
+        submitted="2020-08-23",
+        categories=[],
+        url="…",
+        abstract="…",
+    )
+    target = tmp_papers_dir / "2020" / "2008.10010.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("---\nllm_remediated: false\n---\n\nbody\n")
+    assert needs_conversion(row, tmp_papers_dir, force=True) is True
+
+
 @pytest.mark.slow
 @pytest.mark.skipif(shutil.which("pandoc") is None, reason="pandoc not installed")
 def test_process_paper_end_to_end_latex(monkeypatch, tmp_path, fixtures_dir):

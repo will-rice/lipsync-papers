@@ -40,6 +40,7 @@ uv run python scripts/fetch_papers.py
 
 # Full historical fetch (everything since 2020-01-01)
 uv run python scripts/fetch_papers.py --full
+uv run python scripts/convert_papers.py --regenerate-all
 
 # Custom window
 uv run python scripts/fetch_papers.py --days 30
@@ -50,7 +51,7 @@ The fetch script uses only the Python standard library; the conversion pipeline 
 ## Triggering a manual update
 
 Open the **Actions** tab → **Fetch Lipsync Papers** → **Run workflow**.
-Select *full = true* to back-fill from 2020, or leave it as *false* for an incremental update.
+Select *full = true* to back-fill from 2020 and rebuild all paper markdown, or leave it as *false* for an incremental update.
 
 ## Papers
 

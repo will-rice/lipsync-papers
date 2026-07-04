@@ -50,7 +50,12 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           LLM_REMEDIATION_MAX_PAPERS: "50"
-        run: uv run python scripts/convert_papers.py
+        run: |
+          if [ "${{ github.event.inputs.full }}" = "true" ]; then
+            uv run python scripts/convert_papers.py --regenerate-all
+          else
+            uv run python scripts/convert_papers.py
+          fi
 
       - name: Commit and push changes
         run: |
