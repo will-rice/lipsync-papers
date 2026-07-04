@@ -14,11 +14,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ARXIV_EPRINT_URL = "https://arxiv.org/e-print/{arxiv_id}"
+ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
 S2_PAPER_URL = (
     "https://api.semanticscholar.org/graph/v1/paper/{paper_id}?fields=openAccessPdf,externalIds"
 )
 USER_AGENT = "lipsync-papers-bot/1.0"
 ARXIV_RATE_LIMIT_SECONDS = 3
+ARXIV_HTML_RATE_LIMIT_SECONDS = 1
+ARXIV_HTML_MIN_LENGTH = 500
 DEFAULT_CACHE_AGE_DAYS = 30
 
 
@@ -53,6 +56,30 @@ def fetch_arxiv_eprint(arxiv_id: str, dest: Path) -> Path:
     dest.write_bytes(data)
     time.sleep(ARXIV_RATE_LIMIT_SECONDS)
     return dest
+
+
+def fetch_arxiv_html(arxiv_id: str) -> str | None:
+    """Fetch arXiv's HTML rendering for *arxiv_id*, or None when unavailable/low-quality."""
+    if arxiv_id.startswith(("s2:", "pwc:")):
+        return None
+
+    url = ARXIV_HTML_URL.format(arxiv_id=urllib.parse.quote(arxiv_id))
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+    except (urllib.error.HTTPError, urllib.error.URLError) as exc:
+        logging.info("arXiv HTML unavailable for %s: %s", arxiv_id, exc)
+        return None
+
+    time.sleep(ARXIV_HTML_RATE_LIMIT_SECONDS)
+    if len(html.strip()) < ARXIV_HTML_MIN_LENGTH:
+        logging.info("arXiv HTML too short for %s (%d chars)", arxiv_id, len(html.strip()))
+        return None
+    if "<body" not in html.lower():
+        logging.info("arXiv HTML missing <body> for %s", arxiv_id)
+        return None
+    return html
 
 
 def extract_arxiv_tarball(tarball: Path, out_dir: Path) -> None:

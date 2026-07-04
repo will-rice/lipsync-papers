@@ -154,6 +154,59 @@ def test_regenerate_indexes_creates_top_and_year_files(monkeypatch, tmp_path):
     assert (tmp_path / "papers" / "2026" / "README.md").exists()
 
 
+def test_process_paper_uses_arxiv_html_stage0(monkeypatch, tmp_path):
+    from scripts import convert_papers
+    from scripts._convert import html_to_md, sources
+
+    csv_path = tmp_path / "papers.csv"
+    _write_csv(
+        csv_path,
+        [
+            {
+                "arxiv_id": "2401.01207",
+                "title": "Paper",
+                "authors": "A, B",
+                "submitted": "2024-01-02",
+                "categories": "cs.CV",
+                "url": "https://arxiv.org/abs/2401.01207",
+                "abstract": "abstract",
+            }
+        ],
+    )
+
+    monkeypatch.setattr(convert_papers, "PAPERS_CSV", csv_path)
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", tmp_path / "papers")
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+    monkeypatch.setattr(sources, "fetch_arxiv_html", lambda _arxiv_id: "<html><body>x</body></html>")
+    monkeypatch.setattr(
+        html_to_md,
+        "convert_html_to_md",
+        lambda _html: html_to_md.HtmlConversionResult(
+            body="## Intro\n\n" + ("x" * 600), exit_code=0, stderr=""
+        ),
+    )
+
+    def fail_fetch(*_args, **_kwargs):
+        raise AssertionError("fetch_arxiv_eprint should not be called when Stage 0 succeeds")
+
+    monkeypatch.setattr(sources, "fetch_arxiv_eprint", fail_fetch)
+
+    row = convert_papers.PaperRow(
+        arxiv_id="2401.01207",
+        title="Paper",
+        authors=["A", "B"],
+        submitted="2024-01-02",
+        categories=["cs.CV"],
+        url="https://arxiv.org/abs/2401.01207",
+        abstract="abstract",
+    )
+    convert_papers._process_paper(row)
+
+    out = (tmp_path / "papers" / "2024" / "2401.01207.md").read_text(encoding="utf-8")
+    assert "source: arxiv-html" in out
+    assert "converter: pandoc" in out
+
+
 def test_llm_remediation_dry_run_logs_without_api(monkeypatch, tmp_path, caplog):
     from scripts import convert_papers
 

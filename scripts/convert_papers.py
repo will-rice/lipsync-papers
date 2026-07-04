@@ -119,61 +119,81 @@ def needs_conversion(row: PaperRow, papers_dir: Path) -> bool:
 
 
 def _process_paper(row: PaperRow) -> None:
-    """Run Stages 1, 2, and 3 for a single paper. Idempotent."""
+    """Run Stages 0-3 for a single paper. Idempotent."""
     from scripts._convert import (
         citations,
+        html_to_md,
         latex_to_md,
         output,
-        pdf_to_md,
         sources,
     )
 
     cache_root = CACHE_DIR / "source"
     paper_cache = sources.cache_dir_for(row.arxiv_id, cache_root)
 
-    # Stage 1: ensure source is cached.
+    # Stage 0: try arXiv HTML render first (faster than source tarball/PDF paths).
     is_arxiv = not row.arxiv_id.startswith(("s2:", "pwc:"))
-    extracted_dir = paper_cache / "extracted"
-    if not sources.is_cache_fresh(extracted_dir):
-        if is_arxiv:
-            tarball = paper_cache / "source.tar.gz"
-            if not tarball.exists():
-                sources.fetch_arxiv_eprint(row.arxiv_id, tarball)
-            sources.extract_arxiv_tarball(tarball, extracted_dir)
-        else:
-            # S2 path: try openAccessPdf
-            s2_paper_id = row.arxiv_id.removeprefix("s2:")
-            pdf_url = sources.fetch_s2_pdf_url(s2_paper_id)
-            if pdf_url:
-                pdf_dest = paper_cache / "paper.pdf"
-                sources.fetch_pdf(pdf_url, pdf_dest)
-                extracted_dir.mkdir(parents=True, exist_ok=True)
-                (extracted_dir / "paper.pdf").write_bytes(pdf_dest.read_bytes())
-            else:
-                extracted_dir.mkdir(parents=True, exist_ok=True)  # empty → metadata-only
-
-    kind = sources.classify_extracted_source(extracted_dir)
-
-    # Stage 2: convert.
     body = ""
     bbl_text = ""
     bib_text = ""
     converter = "none"
     source_label = "metadata-only"
 
-    if kind is sources.SourceKind.LATEX:
-        result = latex_to_md.convert_latex_to_md(extracted_dir)
-        body = result.body
-        bbl_text = result.bbl_text
-        bib_text = result.bib_text
-        converter = "pandoc"
-        source_label = "latex"
-    elif kind is sources.SourceKind.PDF:
-        pdf_files = list(extracted_dir.rglob("*.pdf"))
-        result = pdf_to_md.convert_pdf_to_md(pdf_files[0])
-        body = result.body
-        converter = "marker"
-        source_label = "pdf"
+    if is_arxiv:
+        html = sources.fetch_arxiv_html(row.arxiv_id)
+        if html:
+            html_result = html_to_md.convert_html_to_md(html)
+            if html_result.exit_code == 0 and len(html_result.body.strip()) > 500:
+                body = html_result.body
+                converter = "pandoc"
+                source_label = "arxiv-html"
+            else:
+                logging.warning(
+                    "arXiv HTML conversion failed for %s (exit=%s): %s",
+                    row.arxiv_id,
+                    html_result.exit_code,
+                    html_result.stderr.strip(),
+                )
+
+    if not body:
+        # Stage 1: ensure source is cached.
+        extracted_dir = paper_cache / "extracted"
+        if not sources.is_cache_fresh(extracted_dir):
+            if is_arxiv:
+                tarball = paper_cache / "source.tar.gz"
+                if not tarball.exists():
+                    sources.fetch_arxiv_eprint(row.arxiv_id, tarball)
+                sources.extract_arxiv_tarball(tarball, extracted_dir)
+            else:
+                # S2 path: try openAccessPdf
+                s2_paper_id = row.arxiv_id.removeprefix("s2:")
+                pdf_url = sources.fetch_s2_pdf_url(s2_paper_id)
+                if pdf_url:
+                    pdf_dest = paper_cache / "paper.pdf"
+                    sources.fetch_pdf(pdf_url, pdf_dest)
+                    extracted_dir.mkdir(parents=True, exist_ok=True)
+                    (extracted_dir / "paper.pdf").write_bytes(pdf_dest.read_bytes())
+                else:
+                    extracted_dir.mkdir(parents=True, exist_ok=True)  # empty → metadata-only
+
+        kind = sources.classify_extracted_source(extracted_dir)
+
+        # Stage 2: convert.
+        if kind is sources.SourceKind.LATEX:
+            result = latex_to_md.convert_latex_to_md(extracted_dir)
+            body = result.body
+            bbl_text = result.bbl_text
+            bib_text = result.bib_text
+            converter = "pandoc"
+            source_label = "latex"
+        elif kind is sources.SourceKind.PDF:
+            from scripts._convert import pdf_to_md
+
+            pdf_files = list(extracted_dir.rglob("*.pdf"))
+            result = pdf_to_md.convert_pdf_to_md(pdf_files[0])
+            body = result.body
+            converter = "marker"
+            source_label = "pdf"
 
     # Stage 3: parse + resolve + rewrite citations.
     cache_path = CACHE_DIR / "citations.json"
