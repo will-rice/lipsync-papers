@@ -65,14 +65,22 @@ def fetch_arxiv_html(arxiv_id: str) -> str | None:
 
     url = ARXIV_HTML_URL.format(arxiv_id=urllib.parse.quote(arxiv_id))
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+
+    import threading
+
+    lock = getattr(fetch_arxiv_html, "_rate_lock", None)
+    if lock is None:
+        lock = threading.Lock()
+        setattr(fetch_arxiv_html, "_rate_lock", lock)
+
     try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
+        with lock:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                html = resp.read().decode("utf-8", errors="replace")
+            time.sleep(ARXIV_HTML_RATE_LIMIT_SECONDS)
     except (urllib.error.HTTPError, urllib.error.URLError) as exc:
         logging.info("arXiv HTML unavailable for %s: %s", arxiv_id, exc)
         return None
-
-    time.sleep(ARXIV_HTML_RATE_LIMIT_SECONDS)
     if len(html.strip()) < ARXIV_HTML_MIN_LENGTH:
         logging.info("arXiv HTML too short for %s (%d chars)", arxiv_id, len(html.strip()))
         return None
