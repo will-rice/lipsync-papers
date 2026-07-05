@@ -1,6 +1,5 @@
 """Convert arXiv HTML to markdown via pandoc."""
 
-import logging
 import subprocess
 from dataclasses import dataclass
 
@@ -22,7 +21,6 @@ def convert_html_to_md(html: str) -> HtmlConversionResult:
         "--to=gfm",
         "--wrap=none",
     ]
-    logging.info("Running: %s", " ".join(cmd))
     proc = subprocess.run(
         cmd,
         input=html,

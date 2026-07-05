@@ -1,8 +1,5 @@
 """Tests for scripts/_convert/sources.py."""
 
-from __future__ import annotations
-
-import io
 import urllib.error
 from pathlib import Path
 
@@ -82,7 +79,7 @@ def test_fetch_arxiv_html_404_returns_none(monkeypatch) -> None:
             code=404,
             msg="Not Found",
             hdrs=None,
-            fp=io.BytesIO(),
+            fp=None,
         )
 
     monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
