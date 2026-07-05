@@ -1,7 +1,5 @@
 """Convert arXiv HTML to markdown via pandoc."""
 
-from __future__ import annotations
-
 import logging
 import subprocess
 from dataclasses import dataclass
