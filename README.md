@@ -58,7 +58,7 @@ Select *full = true* to back-fill from 2020, or leave it as *false* for an incre
 <details open>
 <summary><h3>2026</h3></summary>
 
-#### [Multi-Modal Deepfake Detection via Spatial, Temporal, and Audio-Visual Fusion with Vision Transformers](https://www.semanticscholar.org/paper/5ad7261ad284f64c1b7776c990a9bbb305c402b5)
+#### [Multi-Modal Deepfake Detection via Spatial, Temporal, and Audio-Visual Fusion with Vision Transformers](https://www.semanticscholar.org/paper/5ad7261ad284f64c1b7776c990a9bbb305c402b5) · [📄 Read](papers/2026/s2:5ad7261ad284f64c1b7776c990a9bbb305c402b5.md)
 **Merlin Gethsy D., S. V** · 2026-06-30
 
 <details>
