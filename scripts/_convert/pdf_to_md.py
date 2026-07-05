@@ -14,9 +14,11 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-_REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+_REPO_ROOT = Path(__file__).resolve().parents[2]  # lipsync-papers/
 _WORKER_MODULE = "scripts._convert._pdf_worker"
 _CONVERT_TIMEOUT = 300  # seconds per PDF
+_MAX_STDERR_LEN = 500  # characters of subprocess stderr to include in error messages
+_MAX_STDOUT_PREVIEW = 200  # characters of stdout to show when JSON parsing fails
 
 
 @dataclass
@@ -49,14 +51,14 @@ def convert_pdf_to_md(pdf_path: Path) -> PdfConversionResult:
     if result.returncode != 0:
         stderr = result.stderr.strip()
         raise RuntimeError(
-            f"PDF conversion subprocess exited {result.returncode}: {stderr[:500]}"
+            f"PDF conversion subprocess exited {result.returncode}: {stderr[:_MAX_STDERR_LEN]}"
         )
 
     try:
         data = json.loads(result.stdout)
     except json.JSONDecodeError as exc:
         raise RuntimeError(
-            f"PDF worker produced invalid JSON: {result.stdout[:200]}"
+            f"PDF worker produced invalid JSON: {result.stdout[:_MAX_STDOUT_PREVIEW]}"
         ) from exc
 
     return PdfConversionResult(body=data["body"], page_count=data["page_count"])

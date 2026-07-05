@@ -39,7 +39,7 @@ def main() -> None:
     converter = PdfConverter(artifact_dict=create_model_dict())
     rendered = converter(str(pdf_path))
     body, _, _images = text_from_rendered(rendered)
-    page_count = converter.page_count if converter.page_count is not None else body.count("\f") + 1
+    page_count = converter.page_count if converter.page_count is not None else body.count("\f") + 1  # \f = form-feed page separator used by marker-pdf
     print(json.dumps({"body": body, "page_count": page_count}))
 
 
