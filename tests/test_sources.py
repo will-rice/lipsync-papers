@@ -125,4 +125,3 @@ def test_fetch_arxiv_html_skips_non_arxiv(monkeypatch) -> None:
 
     monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
     assert fetch_arxiv_html("s2:abc") is None
-    assert fetch_arxiv_html("pwc:abc") is None

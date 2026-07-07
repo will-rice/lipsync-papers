@@ -78,7 +78,7 @@ def fetch_arxiv_html(arxiv_id: str) -> HtmlPage | None:
 
     Returns None when neither source has a usable LaTeXML conversion.
     """
-    if arxiv_id.startswith(("s2:", "pwc:")):
+    if arxiv_id.startswith("s2:"):
         return None
 
     quoted = urllib.parse.quote(arxiv_id)

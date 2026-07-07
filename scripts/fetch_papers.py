@@ -1,6 +1,6 @@
 """Fetch lipsync-related papers from multiple academic sources.
 
-This script queries arXiv, Semantic Scholar, and Papers With Code for papers
+This script queries arXiv and Semantic Scholar for papers
 related to lipsync, talking-head synthesis, and related topics.  It is designed
 to be run in two modes:
 
@@ -436,14 +436,8 @@ PAGE_SIZE = 100
 # Maximum pages to fetch per keyword from each external source.
 MAX_PAGES_PER_QUERY = 5
 
-# Maximum length for Papers With Code paper IDs used as fallback identifiers.
-MAX_PWC_ID_LENGTH = 80
-
 # Semantic Scholar API base URL
 SEMANTIC_SCHOLAR_API_BASE = "https://api.semanticscholar.org/graph/v1/paper/search"
-
-# Papers With Code API base URL
-PAPERS_WITH_CODE_API_BASE = "https://paperswithcode.com/api/v1/papers/"
 
 
 # ---------------------------------------------------------------------------
@@ -712,103 +706,6 @@ def fetch_semantic_scholar_papers(keywords: str, start_date: date, end_date: dat
 
 
 # ---------------------------------------------------------------------------
-# Papers With Code helpers
-# ---------------------------------------------------------------------------
-
-
-def _fetch_pwc_page(keywords: str, page: int) -> dict:
-    """Fetch one page of Papers With Code results and return the parsed JSON."""
-    params = urllib.parse.urlencode(
-        {
-            "q": keywords,
-            "items_per_page": PAGE_SIZE,
-            "page": page,
-        }
-    )
-    url = f"{PAPERS_WITH_CODE_API_BASE}?{params}"
-    for attempt in range(5):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "lipsync-papers-bot/1.0"})
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                return json.loads(resp.read())
-        except Exception as exc:  # noqa: BLE001
-            wait = min(2**attempt * API_DELAY_SECONDS, 30)
-            print(f"  [warn] PWC request failed ({exc}); retrying in {wait}s …", file=sys.stderr)
-            time.sleep(wait)
-    raise RuntimeError(f"Failed to fetch Papers With Code page after 5 attempts: {url}")
-
-
-def _parse_pwc_entry(item: dict, start_date: date, end_date: date) -> dict | None:
-    """Parse a Papers With Code paper item into our paper dict format."""
-    title = re.sub(r"\s+", " ", (item.get("title") or "")).strip()
-    if not title:
-        return None
-
-    pub_date_str = (item.get("published") or "")[:10]
-    if not pub_date_str:
-        return None
-    try:
-        pub_date = date.fromisoformat(pub_date_str)
-    except ValueError:
-        return None
-    if pub_date < start_date or pub_date > end_date:
-        return None
-
-    arxiv_id = (item.get("arxiv_id") or "").strip()
-    if arxiv_id:
-        paper_id = arxiv_id
-        url = item.get("url_abs") or f"https://arxiv.org/abs/{arxiv_id}"
-    else:
-        url = (item.get("url_abs") or "").strip()
-        if not url:
-            return None
-        pwc_id = (item.get("id") or title)[:MAX_PWC_ID_LENGTH]
-        paper_id = f"pwc:{pwc_id}"
-
-    authors_raw = item.get("authors") or []
-    authors = ", ".join(str(a).strip() for a in authors_raw if a)
-    abstract = re.sub(r"\s+", " ", (item.get("abstract") or "")).strip()
-
-    return {
-        "arxiv_id": paper_id,
-        "title": title,
-        "authors": authors,
-        "submitted": pub_date_str,
-        "categories": "",
-        "url": url,
-        "abstract": abstract,
-    }
-
-
-def fetch_pwc_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
-    """Return papers from Papers With Code matching *keywords* in [start_date, end_date]."""
-    papers: list[dict] = []
-
-    for page in range(1, MAX_PAGES_PER_QUERY + 1):
-        try:
-            data = _fetch_pwc_page(keywords, page)
-        except RuntimeError as exc:
-            print(f"  [error] {exc}", file=sys.stderr)
-            break
-
-        items = data.get("results") or []
-        if not items:
-            break
-
-        for item in items:
-            paper = _parse_pwc_entry(item, start_date, end_date)
-            if paper:
-                papers.append(paper)
-
-        if not data.get("next"):
-            break
-
-        time.sleep(API_DELAY_SECONDS)
-
-    return papers
-
-
-# ---------------------------------------------------------------------------
 # CSV helpers
 # ---------------------------------------------------------------------------
 
@@ -948,7 +845,7 @@ def _collect_from_source(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Fetch lipsync papers from arXiv, Semantic Scholar, and Papers With Code."
+        description="Fetch lipsync papers from arXiv and Semantic Scholar."
     )
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument(
@@ -1001,9 +898,6 @@ def main() -> None:
         start_date,
         end_date,
         existing,
-    )
-    new_count += _collect_from_source(
-        "Papers With Code", fetch_pwc_papers, SEARCH_QUERIES, start_date, end_date, existing
     )
 
     print(f"\nFound {new_count} new papers. Total: {len(existing)}.")

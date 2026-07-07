@@ -360,3 +360,112 @@ def test_main_with_only_does_not_clobber_indexes(monkeypatch, tmp_path):
     assert "[2024]" in top_index
     year_index = (papers_root / "2020" / "README.md").read_text(encoding="utf-8")
     assert "Wav2Lip" in year_index
+
+
+def test_needs_conversion_retries_recent_non_html_paper(tmp_papers_dir: Path) -> None:
+    """A recent paper that fell back to latex must be retried for the HTML tier."""
+    from datetime import date, timedelta
+
+    recent = (date.today() - timedelta(days=5)).isoformat()
+    row = PaperRow(
+        arxiv_id="2401.01207",
+        title="Paper",
+        authors=["A"],
+        submitted=recent,
+        categories=[],
+        url="…",
+        abstract="…",
+    )
+    target = tmp_papers_dir / recent[:4] / "2401.01207.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("---\nsource: latex\n---\n\nbody\n")
+    assert needs_conversion(row, tmp_papers_dir) is True
+
+
+def test_needs_conversion_leaves_recent_html_paper_alone(tmp_papers_dir: Path) -> None:
+    from datetime import date, timedelta
+
+    recent = (date.today() - timedelta(days=5)).isoformat()
+    row = PaperRow(
+        arxiv_id="2401.01207",
+        title="Paper",
+        authors=["A"],
+        submitted=recent,
+        categories=[],
+        url="…",
+        abstract="…",
+    )
+    target = tmp_papers_dir / recent[:4] / "2401.01207.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("---\nsource: arxiv-html\n---\n\nbody\n")
+    assert needs_conversion(row, tmp_papers_dir) is False
+
+
+def test_needs_conversion_leaves_old_non_html_paper_alone(tmp_papers_dir: Path) -> None:
+    row = PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["A"],
+        submitted="2020-08-23",
+        categories=[],
+        url="…",
+        abstract="…",
+    )
+    target = tmp_papers_dir / "2020" / "2008.10010.md"
+    target.parent.mkdir(parents=True)
+    target.write_text("---\nsource: latex\n---\n\nbody\n")
+    assert needs_conversion(row, tmp_papers_dir) is False
+
+
+def test_process_paper_does_not_rewrite_when_tier_unchanged(monkeypatch, tmp_path, fixtures_dir):
+    """Retrying a latex-tier paper without HTML available must not churn the file."""
+    import shutil
+
+    from scripts import convert_papers
+    from scripts._convert import sources
+
+    cache_root = tmp_path / ".cache" / "source"
+    papers_root = tmp_path / "papers"
+    paper_cache = cache_root / "2008.10010"
+    paper_cache.mkdir(parents=True)
+    shutil.copy(fixtures_dir / "sources_2008.10010.tar.gz", paper_cache / "source.tar.gz")
+
+    csv_path = tmp_path / "papers.csv"
+    _write_csv(
+        csv_path,
+        [
+            {
+                "arxiv_id": "2008.10010",
+                "title": "Wav2Lip",
+                "authors": "A",
+                "submitted": "2020-08-23",
+                "categories": "cs.CV",
+                "url": "…",
+                "abstract": "…",
+            }
+        ],
+    )
+    monkeypatch.setattr(convert_papers, "PAPERS_CSV", csv_path)
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", papers_root)
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+    monkeypatch.setattr(sources, "fetch_arxiv_html", lambda _arxiv_id: None)
+
+    existing = papers_root / "2020" / "2008.10010.md"
+    existing.parent.mkdir(parents=True)
+    existing.write_text("---\nsource: latex\n---\n\nexisting body\n")
+
+    row = convert_papers.PaperRow(
+        arxiv_id="2008.10010",
+        title="Wav2Lip",
+        authors=["A"],
+        submitted="2020-08-23",
+        categories=["cs.CV"],
+        url="…",
+        abstract="…",
+    )
+    convert_papers._process_paper(row)
+    assert existing.read_text() == "---\nsource: latex\n---\n\nexisting body\n"
+
+    # But a forced run must rewrite it.
+    convert_papers._process_paper(row, force=True)
+    assert existing.read_text() != "---\nsource: latex\n---\n\nexisting body\n"
