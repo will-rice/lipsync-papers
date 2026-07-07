@@ -193,14 +193,21 @@ def test_process_paper_uses_arxiv_html_stage0(monkeypatch, tmp_path):
     monkeypatch.setattr(convert_papers, "PAPERS_CSV", csv_path)
     monkeypatch.setattr(convert_papers, "PAPERS_DIR", tmp_path / "papers")
     monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
-    monkeypatch.setattr(sources, "fetch_arxiv_html", lambda _arxiv_id: "<html><body>x</body></html>")
     monkeypatch.setattr(
-        html_to_md,
-        "convert_html_to_md",
-        lambda _html: html_to_md.HtmlConversionResult(
-            body="## Intro\n\n" + ("x" * 600), exit_code=0, stderr=""
+        sources,
+        "fetch_arxiv_html",
+        lambda _arxiv_id: sources.HtmlPage(
+            html="<html><body>x</body></html>", url="https://arxiv.org/html/2401.01207v1"
         ),
     )
+    paper_body = "## Intro\n\n## Method\n\n## Results\n\n" + ("x" * 2400)
+    seen_base_urls: list[str] = []
+
+    def fake_convert(_html, base_url):
+        seen_base_urls.append(base_url)
+        return html_to_md.HtmlConversionResult(body=paper_body, exit_code=0, stderr="")
+
+    monkeypatch.setattr(html_to_md, "convert_html_to_md", fake_convert)
 
     def fail_fetch(*_args, **_kwargs):
         raise AssertionError("fetch_arxiv_eprint should not be called when Stage 0 succeeds")
@@ -221,6 +228,7 @@ def test_process_paper_uses_arxiv_html_stage0(monkeypatch, tmp_path):
     out = (tmp_path / "papers" / "2024" / "2401.01207.md").read_text(encoding="utf-8")
     assert "source: arxiv-html" in out
     assert "converter: pandoc" in out
+    assert seen_base_urls == ["https://arxiv.org/html/2401.01207v1"]
 
 
 def test_llm_remediation_dry_run_logs_without_api(monkeypatch, tmp_path, caplog):
@@ -297,3 +305,58 @@ def test_second_run_is_idempotent(monkeypatch, tmp_path, fixtures_dir):
 
     # needs_conversion should now return False
     assert convert_papers.needs_conversion(row, papers_root) is False
+
+
+def test_main_with_only_does_not_clobber_indexes(monkeypatch, tmp_path):
+    """--only converts one paper but indexes must still cover the whole corpus."""
+    import argparse
+
+    from scripts import convert_papers
+
+    csv_path = tmp_path / "papers.csv"
+    _write_csv(
+        csv_path,
+        [
+            {
+                "arxiv_id": "2008.10010",
+                "title": "Wav2Lip",
+                "authors": "A",
+                "submitted": "2020-08-23",
+                "categories": "cs.CV",
+                "url": "…",
+                "abstract": "…",
+            },
+            {
+                "arxiv_id": "2401.01207",
+                "title": "Other Paper",
+                "authors": "B",
+                "submitted": "2024-01-02",
+                "categories": "cs.CV",
+                "url": "…",
+                "abstract": "…",
+            },
+        ],
+    )
+    papers_root = tmp_path / "papers"
+    for year, arxiv_id in (("2020", "2008.10010"), ("2024", "2401.01207")):
+        p = papers_root / year / f"{arxiv_id}.md"
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text("body")
+
+    monkeypatch.setattr(convert_papers, "PAPERS_CSV", csv_path)
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", papers_root)
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+    monkeypatch.setattr(convert_papers, "_process_paper", lambda _row: None)
+    monkeypatch.setattr(
+        convert_papers,
+        "parse_args",
+        lambda: argparse.Namespace(only="2401.01207", regenerate_all=True, skip_llm=True),
+    )
+
+    convert_papers.main()
+
+    top_index = (papers_root / "README.md").read_text(encoding="utf-8")
+    assert "[2020]" in top_index
+    assert "[2024]" in top_index
+    year_index = (papers_root / "2020" / "README.md").read_text(encoding="utf-8")
+    assert "Wav2Lip" in year_index

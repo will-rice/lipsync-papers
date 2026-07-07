@@ -15,8 +15,8 @@ Beyond a reading list, this repo is built to be **browsed by LLMs**. Every paper
 
 Each paper is also available as LLM-friendly markdown under `papers/<year>/<arxiv_id>.md`. The conversion pipeline:
 
-* Fetches LaTeX source from `arxiv.org/e-print/<id>` (preferred; preserves equations and citation structure) or PDFs (fallback for papers without LaTeX source).
-* Converts via [pandoc](https://pandoc.org) (LaTeX) or [marker](https://github.com/datalab-to/marker) (PDF).
+* Converts arXiv's HTML rendering (`arxiv.org/html/<id>`, falling back to [ar5iv](https://ar5iv.labs.arxiv.org) for pre-2024 papers) — the article is extracted from the page, figures become absolute-URL images, and equations become GitHub-native ` ```math ` blocks.
+* Papers without a usable HTML rendering fall back to LaTeX source (`arxiv.org/e-print/<id>`) via [pandoc](https://pandoc.org), then PDF via [marker](https://github.com/datalab-to/marker).
 * Auto-flagged or manually-listed (`papers/.fixme.txt`) low-quality outputs go through a Claude Sonnet 4.6 remediation pass.
 * Citations are rewritten as clickable links — local sibling MD when the cited paper is in this corpus, external arXiv/DOI URLs otherwise.
 

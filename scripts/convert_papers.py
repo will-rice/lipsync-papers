@@ -53,9 +53,10 @@ class PaperRow:
 
 def main() -> None:
     args = parse_args()
-    rows = load_papers_csv(PAPERS_CSV)
-    logging.info("Loaded %d papers from %s", len(rows), PAPERS_CSV)
+    all_rows = load_papers_csv(PAPERS_CSV)
+    logging.info("Loaded %d papers from %s", len(all_rows), PAPERS_CSV)
 
+    rows = all_rows
     if args.only:
         rows = [r for r in rows if r.arxiv_id == args.only]
         logging.info("Filtered to %d paper(s) matching --only=%s", len(rows), args.only)
@@ -82,8 +83,9 @@ def main() -> None:
     if not args.skip_llm:
         _run_remediation_pass(rows)
 
-    # Stage 4: indexes (always regenerate; cheap).
-    _regenerate_indexes(rows)
+    # Stage 4: indexes (always regenerate; cheap). Use the unfiltered corpus so a
+    # --only run cannot clobber the index files down to a single entry.
+    _regenerate_indexes(all_rows)
 
 
 def parse_args() -> argparse.Namespace:
@@ -148,16 +150,16 @@ def _process_paper(row: PaperRow) -> None:
     source_label = "metadata-only"
 
     if is_arxiv:
-        html = sources.fetch_arxiv_html(row.arxiv_id)
-        if html:
-            html_result = html_to_md.convert_html_to_md(html)
-            if html_result.exit_code == 0 and len(html_result.body.strip()) > 500:
+        page = sources.fetch_arxiv_html(row.arxiv_id)
+        if page:
+            html_result = html_to_md.convert_html_to_md(page.html, base_url=page.url)
+            if html_result.exit_code == 0 and html_to_md.looks_like_paper(html_result.body):
                 body = html_result.body
                 converter = "pandoc"
                 source_label = "arxiv-html"
             else:
                 logging.warning(
-                    "arXiv HTML conversion failed for %s (exit=%s): %s",
+                    "arXiv HTML conversion unusable for %s (exit=%s): %s",
                     row.arxiv_id,
                     html_result.exit_code,
                     html_result.stderr.strip(),
@@ -228,7 +230,7 @@ def _process_paper(row: PaperRow) -> None:
     refs_by_key = {r.key: r for r in refs}
     if source_label == "latex":
         body = citations.rewrite_latex_cites(body, refs_by_key)
-    elif source_label == "pdf":
+    elif source_label in ("pdf", "arxiv-html"):
         body = citations.rewrite_pdf_numeric_cites(body, refs_by_key)
 
     if refs:
