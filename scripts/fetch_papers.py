@@ -735,9 +735,22 @@ def save_papers(papers_by_id: dict[str, dict]) -> None:
 _TABLE_START = "<!-- PAPERS_TABLE_START -->"
 _TABLE_END = "<!-- PAPERS_TABLE_END -->"
 
+# The README table shows only recent papers; the full list would blow past
+# GitHub's ~512 KB markdown render cap (each entry inlines its abstract).
+README_TABLE_WINDOW_DAYS = 30
+
 
 def _build_table(papers_by_id: dict[str, dict]) -> str:
     rows = sorted(papers_by_id.values(), key=lambda r: r.get("submitted", ""), reverse=True)
+
+    total = len(rows)
+    cutoff = datetime.now(tz=timezone.utc).date() - timedelta(days=README_TABLE_WINDOW_DAYS)
+    rows = [r for r in rows if r.get("submitted", "") >= cutoff.isoformat()]
+    header = (
+        f"_Showing the last {README_TABLE_WINDOW_DAYS} days ({len(rows)} of {total} papers). "
+        f"The full list lives in [papers.csv](papers.csv); browse everything by year at "
+        f"[papers/README.md](papers/README.md)._\n\n"
+    )
 
     # Group by year (newest first).
     by_year: dict[str, list] = defaultdict(list)
@@ -781,7 +794,7 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
         section_lines.append("</details>")
         sections.append("\n".join(section_lines))
 
-    return "\n\n".join(sections)
+    return header + "\n\n".join(sections)
 
 
 def update_readme(papers_by_id: dict[str, dict]) -> None:
