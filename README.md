@@ -6,7 +6,7 @@ Beyond a reading list, this repo is built to be **browsed by LLMs**. Every paper
 
 ## How it works
 
-* Papers are sourced from [arXiv](https://arxiv.org/) and [Semantic Scholar](https://www.semanticscholar.org/) via their public APIs.
+* Papers are sourced from [arXiv](https://arxiv.org/) and [Hugging Face Papers](https://huggingface.co/papers) via their public APIs. (Entries with `s2:` IDs are historical finds from Semantic Scholar, which was retired as a source after persistent API rate-limiting.)
 * A [GitHub Actions workflow](.github/workflows/fetch_papers.yml) runs **daily at 06:00 UTC** to pull papers submitted in the previous 8 days.
 * Results are filtered with a negative-keyword blacklist plus an ML signal check and a positive lipsync/talking-face relevance gate.
 * The full paper list is stored in [`papers.csv`](papers.csv) and the table below is regenerated automatically on every update.
@@ -1460,7 +1460,7 @@ Detection of face forgery videos remains a formidable challenge in the field of 
 
 </details>
 
-#### [Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies](https://arxiv.org/abs/2508.08468)
+#### [Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies](https://arxiv.org/abs/2508.08468) · [📄 Read](papers/2025/2508.08468.md)
 **Anis Hamadouche, Haifeng Luo, Mathini Sellathurai, Tharm Ratnarajah** · 2025-08-11
 
 <details>
@@ -2220,7 +2220,7 @@ As video conferencing becomes increasingly integral to modern communication, the
 
 </details>
 
-#### [Two-Stream Spatial-Temporal Transformer Framework for Person Identification via Natural Conversational Keypoints](https://arxiv.org/abs/2502.20803)
+#### [Two-Stream Spatial-Temporal Transformer Framework for Person Identification via Natural Conversational Keypoints](https://arxiv.org/abs/2502.20803) · [📄 Read](papers/2025/2502.20803.md)
 **Masoumeh Chapariniya, Hossein Ranjbar, Teodora Vukovic, Sarah Ebling et al.** · 2025-02-28
 
 <details>
@@ -3928,7 +3928,7 @@ Recent research has made significant progress in designing fusion modules for au
 
 </details>
 
-#### [Context-Aware Talking-Head Video Editing](https://arxiv.org/abs/2308.00462)
+#### [Context-Aware Talking-Head Video Editing](https://arxiv.org/abs/2308.00462) · [📄 Read](papers/2023/2308.00462.md)
 **Songlin Yang, Wei Wang, Jun Ling, Bo Peng et al.** · 2023-08-01
 
 <details>
