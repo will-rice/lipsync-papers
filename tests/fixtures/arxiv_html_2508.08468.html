@@ -1,0 +1,1157 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies</title>
+<!--Generated on Sun Jul  5 22:39:55 2026 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/browse/0.3.4/css/arxiv-html-papers-20260131.css" type="text/css">
+<script src="/static/browse/0.3.4/js/arxiv-html-papers-20260131.js"></script>
+<meta name="keywords" lang="en" content="
+">
+<script>
+  // Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+    // Pre-apply spinout-banner dismissal here, before the banner paints, so it
+    // never flashes in only to be hidden later by the deferred arxiv-header.js.
+    // Key matches arxiv-header.js: "arxiv-banner-dismissed:" + data-banner-name.
+    if (localStorage.getItem('arxiv-banner-dismissed:spinout-nonprofit')) {
+      document.documentElement.setAttribute("data-banner-dismissed", "");
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+</script>
+<link rel="apple-touch-icon" sizes="180x180"
+  href="/static/browse/0.3.4/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32"
+  href="/static/browse/0.3.4/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16"
+  href="/static/browse/0.3.4/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/static/browse/0.3.4/images/icons/site.webmanifest">
+<link rel="mask-icon" href="/static/browse/0.3.4/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="stylesheet" type="text/css" media="screen" href="https://use.typekit.net/utz6mli.css"><link rel="stylesheet" type="text/css" media="screen"
+  href="/static/base/1.0.1/css/arxiv-header-footer.css?v=20260626"><style>
+  /* Banner pre-dismissal (set above before paint -> no flash-then-hide) and
+     reading-mode chrome hiding. */
+  html[data-banner-dismissed] .ds-announcement { display: none; }
+  html[data-reading-mode="enabled"] .ds-announcement,
+  html[data-reading-mode="enabled"] .ds-site-footer { display: none; }
+  /* Keep the announcement text dark on the Open-Blue band in both colour themes
+     (otherwise it inherits the paper's warm-wash text in dark mode and washes out). */
+  .ds-announcement-text { color: var(--arxiv-ink, #1c1a17); }
+</style>
+<script defer src="/static/base/1.0.1/js/arxiv-header.js?v=20260626"></script>
+</head>
+<body>
+<dialog id="modal-form" aria-labelledby="modal-title" closedby="any">
+  <form id="modal-form-content" method="dialog" enctype="multipart/form-data">
+    <header class="modal-header">
+      <h5 id="modal-title" class="modal-title">Report GitHub Issue</h5>
+      <button type="submit" formnovalidate class="modal-close" aria-label="Close">×</button>
+    </header>
+
+    <div class="modal-body">
+      <label for="form_title">Title:</label>
+      <input class="form-control" id="form_title" name="form_title" required placeholder="Enter title">
+
+      <p id="selectedTextModalDescription" hidden>Content selection saved. Describe the issue below:</p>
+
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" required maxlength="500"
+        placeholder="500 characters maximum"></textarea>
+    </div>
+
+    <footer class="modal-footer">
+      <button type="submit" value="internal-report" class="sr-only modal-submit">Submit without GitHub</button>
+      <button type="submit" value="github-report" class="modal-submit">Submit in GitHub</button>
+    </footer>
+  </form>
+</dialog><div class="ds-announcement" id="announcement-banner" role="region" aria-label="Announcement"
+    data-banner-name="spinout-nonprofit">
+    <img class="ds-announcement-glyph" src="/static/base/1.0.1/images/icons/smileybones-small.svg" alt="" aria-hidden="true">
+    <span class="ds-announcement-text">arXiv is now an independent nonprofit!</span>
+    <a class="ds-announcement-link" href="https://info.arxiv.org/about">Learn more</a>
+    <button type="button" class="ds-announcement-close" aria-label="Dismiss announcement">&times;</button>
+  </div>
+
+<header class="arxiv-html-header">
+  <div class="html-header-logo">
+    <a href="/"><img alt="arXiv logo" class="logo desktop-only" width="100"
+        src="/static/base/1.0.1/images/arxiv-logo-primary-light.svg">
+      <span class="sr-only">Back to arXiv</span>
+    </a>
+  </div>
+  <!--TOC, dark mode, links-->
+  <nav class="html-header-nav">
+    <a class="header-button hover-effect desktop-only" href="https://info.arxiv.org/about/accessible_HTML.html"
+      target="_blank">Why HTML?</a>
+    <a class="header-button" title="Report an Issue" href="#" title="Report an issue"
+      onclick="event.preventDefault(); showModalForm();">
+      <svg role="presentation" class="mobile-only toggle-icon" aria-hidden="true" height="1.25rem"
+        viewBox="0 0 640 640">
+        <path
+          d="M224 160C224 107 267 64 320 64C373 64 416 107 416 160L416 163.6C416 179.3 403.3 192 387.6 192L252.5 192C236.8 192 224.1 179.3 224.1 163.6L224.1 160zM569.6 172.8C580.2 186.9 577.3 207 563.2 217.6L465.4 290.9C470.7 299.8 474.7 309.6 477.2 320L576 320C593.7 320 608 334.3 608 352C608 369.7 593.7 384 576 384L480 384L480 416C480 418.6 479.9 421.3 479.8 423.9L563.2 486.4C577.3 497 580.2 517.1 569.6 531.2C559 545.3 538.9 548.2 524.8 537.6L461.7 490.3C438.5 534.5 395.2 566.5 344 574.2L344 344C344 330.7 333.3 320 320 320C306.7 320 296 330.7 296 344L296 574.2C244.8 566.5 201.5 534.5 178.3 490.3L115.2 537.6C101.1 548.2 81 545.3 70.4 531.2C59.8 517.1 62.7 497 76.8 486.4L160.2 423.9C160.1 421.3 160 418.7 160 416L160 384L64 384C46.3 384 32 369.7 32 352C32 334.3 46.3 320 64 320L162.8 320C165.3 309.6 169.3 299.8 174.6 290.9L76.8 217.6C62.7 207 59.8 186.9 70.4 172.8C81 158.7 101.1 155.8 115.2 166.4L224 248C236.3 242.9 249.8 240 264 240L376 240C390.2 240 403.7 242.8 416 248L524.8 166.4C538.9 155.8 559 158.7 569.6 172.8z" />
+      </svg>
+      <span class="desktop-only">Report Issue</span></a>
+    <!--back to abstract-->
+    <a class="header-button" title="Back to abstract page" aria-label="Back to abstract page"
+      href="/abs/2508.08468v6">
+      <svg class="mobile-only toggle-icon" role="presentation" height="1.25rem" viewBox="0 0 512 512" fill="#ffffff"
+        aria-hidden="true">
+        <path
+          d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z">
+        </path>
+      </svg>
+      <span class="desktop-only">Back to Abstract</span>
+    </a>
+    <!-- PDF download link -->
+    <a class="header-button" title="Download PDF" href="/pdf/2508.08468v6"
+      target="_blank">
+      <svg class="mobile-only toggle-icon" role="presentation" height="1.25rem" viewBox="0 0 576 542">
+        <path
+          d="M208 48L96 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16l80 0 0 48-80 0c-35.3 0-64-28.7-64-64L32 64C32 28.7 60.7 0 96 0L229.5 0c17 0 33.3 6.7 45.3 18.7L397.3 141.3c12 12 18.7 28.3 18.7 45.3l0 149.5-48 0 0-128-88 0c-39.8 0-72-32.2-72-72l0-88zM348.1 160L256 67.9 256 136c0 13.3 10.7 24 24 24l68.1 0zM240 380l32 0c33.1 0 60 26.9 60 60s-26.9 60-60 60l-12 0 0 28c0 11-9 20-20 20s-20-9-20-20l0-128c0-11 9-20 20-20zm32 80c11 0 20-9 20-20s-9-20-20-20l-12 0 0 40 12 0zm96-80l32 0c28.7 0 52 23.3 52 52l0 64c0 28.7-23.3 52-52 52l-32 0c-11 0-20-9-20-20l0-128c0-11 9-20 20-20zm32 128c6.6 0 12-5.4 12-12l0-64c0-6.6-5.4-12-12-12l-12 0 0 88 12 0zm76-108c0-11 9-20 20-20l48 0c11 0 20 9 20 20s-9 20-20 20l-28 0 0 24 28 0c11 0 20 9 20 20s-9 20-20 20l-28 0 0 44c0 11-9 20-20 20s-20-9-20-20l0-128z" />
+      </svg>
+      <span class="desktop-only">Download PDF</span></a>
+    <!-- navigational table of contents toggle -->
+    <a class="header-button toggle-icon" href="javascript:toggleNavTOC();" title="Toggle navigation"
+      aria-label="Toggle navigation">
+      <svg height="1.25rem" role="presentation" viewBox="0 0 512 512">
+        <path
+          d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z">
+        </path>
+      </svg>
+    </a>
+    <!--- collapsable header / reading mode toggle -->
+    <a class="header-button toggle-icon" href="javascript:toggleReadingMode();"
+      title="Disable reading mode, show header and footer">
+      <svg role="presentation" height="1.25rem"
+        viewBox="0 0 448 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+        <path
+          d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32S0 334.3 0 352l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z" />
+      </svg>
+    </a>
+    <!--- colored theme toggle -->
+    <button type="button" class="header-button color-tog" onclick="toggleColorScheme();" title="Toggle dark/light mode" aria-label="Toggle color scheme">
+      <span class="toggle-icon automatic-tog" aria-hidden="true">
+        <svg role="presentation" height="1.25rem" viewBox="0 0 24 24">
+          <path
+            d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z">
+          </path>
+        </svg>
+      </span>
+      <span class="toggle-icon light-tog" aria-hidden="true">
+        <svg role="presentation" height="1.25rem" viewBox="0 0 24 24">
+          <path
+            d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z">
+          </path>
+        </svg>
+      </span>
+      <span class="toggle-icon dark-tog" aria-hidden="true">
+        <svg role="presentation" height="1.25rem" viewBox="0 0 24 24">
+          <path
+            d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z">
+          </path>
+        </svg>
+      </span>
+    </button>
+  </nav>
+</header><nav class="ltx_page_navbar">
+<nav class="ltx_TOC">
+<ol class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_abstract"><a href="#abstract1" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title">Abstract</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S1" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">I </span><span class="ltx_text ltx_font_smallcaps">Introduction</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S2" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">II </span><span class="ltx_text ltx_font_smallcaps">Related Work</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S3" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">III </span><span class="ltx_text ltx_font_smallcaps">Problem Formulation: Audio–Visual Speech Enhancement</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="#S4" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">IV </span><span class="ltx_text ltx_font_smallcaps">Proposed Solution</span></span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="#S4.SS1" title="In IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref"><span class="ltx_text">IV-A</span> </span><span class="ltx_text ltx_font_italic">Model Architecture and Feature Fusion</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="#S4.SS2" title="In IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref"><span class="ltx_text">IV-B</span> </span><span class="ltx_text ltx_font_italic">Implementation</span></span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a href="#S5" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">V </span><span class="ltx_text ltx_font_smallcaps">Experimental Results</span></span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="#S5.SS1" title="In V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref"><span class="ltx_text">V-A</span> </span><span class="ltx_text ltx_font_italic">Vodafone 5G network</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="#S5.SS2" title="In V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref"><span class="ltx_text">V-B</span> </span><span class="ltx_text ltx_font_italic">Algorithm Processing Latency</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a href="#S5.SS3" title="In V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref"><span class="ltx_text">V-C</span> </span><span class="ltx_text ltx_font_italic">Algorithm Development</span></span></a></li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a href="#S6" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">VI </span><span class="ltx_text ltx_font_smallcaps">CONCLUSION</span></span></a></li>
+<li class="ltx_tocentry ltx_tocentry_bibliography"><a href="#bib" title="In Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_title">References</span></a></li>
+</ol></nav>
+</nav>
+<div class="ltx_page_main">
+<div id="infobox" class="infobox">
+  <a id="license-tr" href="https://info.arxiv.org/help/license/index.html#licenses-available">
+    License: CC BY 4.0
+  </a>
+  <div id="watermark-tr">
+arXiv:2508.08468v6 [cs.SD] 05 Jul 2026</div>
+</div><div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_font_bold ltx_title_document">Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies </h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">
+Anis Hamadouche, 
+Haifeng Luo,  
+Mathini Sellathurai,  
+Amir Hussain  
+and 
+Tharm Ratnarajah
+</span><span class="ltx_author_notes">
+Work supported by the UK Engineering and Physical Sciences Research Council (EPSRC) Grant No. EP/T021063/1.
+Anis Hamadouche and Mathini Sellathurai
+are with the School of Engineering &amp; Physical Sciences, Heriot-Watt University, Edinburgh EH14 4AS,
+UK (e-mail: {anis.hamadouche,m.sellathurai}@hw.ac.uk). Tharmalingam Ratnarajah is with the College of Engineering Department of Electrical and Computer Engineering, San Diego State University, USA (e-mail: tratnarajah@sdsu.edu).
+Amir Hussain is with SDAIA-KFUPM Joint Research Centre for Artificial Intelligence, King Fahd University of Petroleum and Minerals, Dhahran, Saudi Arabia (e-mail: amir.hussain@kfupm.edu.sa).
+</span></span>
+</div>
+
+<div id="abstract1" class="ltx_abstract">
+<h6 class="ltx_title ltx_title_abstract">Abstract</h6>
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Real-time audio-visual speech enhancement (AVSE) is a key enabler for immersive and interactive multimedia services, yet its performance is tightly constrained by network latency, uplink capacity, and computational delay. This paper presents the design, deployment, and evaluation of a complete cloud–edge–assisted AVSE system operating over a public 5G edge network. The system integrates CNN-based acoustic enhancement and OpenCV-based facial feature extraction with an LSTM fusion network to preserve temporal coherence, and is deployed on a Vodafone-compatible AWS Wavelength edge cloud. Through extensive stress testing, we analyze end-to-end performance under varying network load and adaptive multimedia profiles. Results show that compute placement at the network edge is critical for meeting real-time coherence constraints, and that uplink capacity is often the dominant bottleneck for interactive AVSE services. Only 5G and wired Ethernet consistently satisfied the required communication delay bound for uncompressed audio-video chunks, while aggressive compression reduced payload sizes by up to 80× with negligible perceptual degradation, enabling robust operation under constrained conditions. We further demonstrate a fundamental trade-off between processing latency and enhancement quality, where reduced model complexity lowers delay but degrades reconstruction performance in low-SNR scenarios. Our findings indicate that public 5G edge environments can sustain real-time, interactive AVSE workloads when network and compute resources are carefully orchestrated, although performance margins remain tighter than in dedicated infrastructures. The architectural insights derived from this study provide practical guidelines for the design of delay-sensitive multimedia and perceptual enhancement services on emerging 5G edge-cloud platforms.</span></p>
+</div>
+<div class="ltx_keywords">
+<h6 class="ltx_title ltx_title_keywords">Index Terms: </h6>
+<span id="id1.id1" class="ltx_text ltx_font_bold">Audio-Visual Speech Enhancement, 5G Networks, Cloud Computing, Deep Learning, CNN-LSTM Fusion, Real-Time Processing, Wireless Communication, Multimodal Signal Processing</span>
+
+</div>
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">I </span><span id="S1.1.1" class="ltx_text ltx_font_smallcaps">Introduction</span>
+</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p id="S1.p1.1" class="ltx_p">Speech signals captured in real-world environments are often severely degraded by background noise, reverberation, and competing speakers, leading to reduced intelligibility and perceived quality. Traditional audio-only speech enhancement techniques struggle to recover clean speech in low signal-to-noise ratio (SNR) settings or with overlapping talkers, because audio cues alone provide limited information under such conditions. In contrast, humans naturally exploit visual cues—such as lip movements and facial articulations—to disambiguate speech in noise, demonstrating that visual information is robust to acoustic masking and can significantly improve speech understanding in adverse environments. Audio-visual speech enhancement (AVSE) systems leverage this multimodal insight by fusing acoustic and visual features through deep neural networks, often outperforming audio-only approaches in low-SNR or multi-speaker scenarios.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p id="S1.p2.1" class="ltx_p">Despite these advances in multimodal modeling, deploying AVSE in real-time applications introduces a distinct set of system-level challenges. Wearable and mobile devices—such as hearing aids, smart glasses, or assistive communication tools—must operate under strict latency, power, and connectivity constraints while processing continuous streams of synchronized audio and video. Offloading compute-intensive deep-learning inference to remote servers emerges as a viable solution for resource-limited devices, but this exposes the system to network latency, jitter, and variable throughput that can degrade performance or violate temporal coherence requirements.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p id="S1.p3.1" class="ltx_p">The advent of 5G and edge cloud computing offers a promising platform for addressing these challenges. Multi-access edge computing (MEC) brings cloud capabilities closer to end users by deploying compute resources at or near the radio access network (RAN), thereby reducing data transport delay and backbone congestion. Standards bodies such as ETSI define MEC as an environment where applications can run at the edge of 4G/5G networks with ultra-low latency and high bandwidth <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib7" title="Multi-access edge computing (mec)" class="ltx_ref">4</a>]</cite>. Edge cloud platforms like AWS Wavelength embed cloud infrastructure within telecommunications networks, enabling low-latency access to compute and storage services directly from 5G devices <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib8" title="5G edge computing infrastructure – aws wavelength" class="ltx_ref">2</a>]</cite>. While prior work has demonstrated the theoretical potential of MEC for latency-sensitive services, real-world empirical studies of audio-visual multimedia workloads over public 5G edge deployments remain limited, especially at the intersection of multimodal processing, network variability, and end-to-end performance.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p id="S1.p4.1" class="ltx_p">Audio-visual multimedia workloads are inherently demanding: they combine temporally synchronized audio and video streams, require sustained throughput for high-resolution visual data, and must maintain tight end-to-end latency to preserve perceptual coherence. Even modest delay variation or packet loss can disrupt synchronization, degrade quality, and undermine user experience in interactive settings. These challenges are further exacerbated in mobile environments, where wireless channel conditions and user mobility introduce variability that centralized cloud architectures cannot easily accommodate.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p id="S1.p5.1" class="ltx_p">In this work, we address these gaps by presenting a full-stack, deployment-oriented study of audio-visual multimedia delivery and processing over a public 5G edge cloud, using AVSE as a representative real-time workload. We design and implement an AVSE pipeline that captures synchronized audio and lip-region video on a wearable front end, transmits data via a 5G uplink to an edge cloud server, performs multimodal deep learning-based enhancement, and streams enhanced speech back to the device. The system is deployed on a commercial 5G edge platform, and its performance is evaluated in terms of end-to-end latency, throughput, packet loss, compute utilization, and enhancement quality under realistic network conditions and adaptive stress profiles.</p>
+</div>
+<div id="S1.p6" class="ltx_para">
+<p id="S1.p6.1" class="ltx_p">Our contributions are as follows:</p>
+</div>
+<div id="S1.p7" class="ltx_para">
+<ul id="S1.I1" class="ltx_itemize">
+<li id="S1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i1.p1" class="ltx_para">
+<p id="S1.I1.i1.p1.1" class="ltx_p">We present a real-world deployment and end-to-end evaluation of audio-visual multimedia processing over a public 5G edge cloud, extending AVSE research from model-centric prototypes to practical systems.</p>
+</div>
+</li>
+<li id="S1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i2.p1" class="ltx_para">
+<p id="S1.I1.i2.p1.1" class="ltx_p">We introduce stress-adaptive multimedia profiles that systematically explore throughput, latency, and quality trade-offs across heterogeneous network conditions.</p>
+</div>
+</li>
+<li id="S1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i3.p1" class="ltx_para">
+<p id="S1.I1.i3.p1.1" class="ltx_p">We quantitatively measure network and system performance—including uplink throughput, round-trip latency, resource utilization, and packet loss—to identify constraints on real-time operation in public 5G environments.</p>
+</div>
+</li>
+<li id="S1.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i4.p1" class="ltx_para">
+<p id="S1.I1.i4.p1.1" class="ltx_p">We derive practical insights and design guidelines for latency-sensitive multimedia services on 5G edge clouds, highlighting the importance of edge proximity, adaptive profiles, and multi-modal synchronization for real-time QoE.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S1.p8" class="ltx_para">
+<p id="S1.p8.1" class="ltx_p">The remainder of this paper is organized as follows. Section II reviews related work on audio-visual speech enhancement, edge/cloud deployment strategies, and 5G-enabled multimedia systems. Section III presents the proposed audio-visual speech enhancement architecture and its deployment over a public 5G edge cloud, including system design and latency modeling. Section IV reports experimental results from real-world deployments over Ethernet, Wi-Fi, 4G, and public 5G networks, and analyzes throughput, latency, reliability, and compute utilization under stress-adaptive multimedia profiles. Section V discusses algorithmic processing latency and model optimization for real-time operation. Finally, Section VI concludes the paper and outlines directions for future research.</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">II </span><span id="S2.1.1" class="ltx_text ltx_font_smallcaps">Related Work</span>
+</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p id="S2.p1.1" class="ltx_p">Research on audio–visual speech enhancement (AVSE) has advanced significantly with the adoption of deep learning and multimodal fusion architectures. Early seminal work demonstrated that combining audio with visual cues such as lip motion significantly improves speech separation and enhancement under noisy and multi-speaker conditions compared to audio-only methods. For example, Ephrat <em id="S2.p1.1.1" class="ltx_emph ltx_font_italic">et al.</em> jointly model audio and visual modalities for speaker separation, establishing a foundation for multimodal speech processing <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib17" title="Looking to listen at the cocktail party: a speaker-independent audio-visual model for speech separation" class="ltx_ref">3</a>]</cite>. Subsequent models such as multimodal deep convolutional networks (e.g., AVDCNN) validate the effectiveness of integrated audio and visual feature extraction and joint decoding for enhanced speech quality <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib9" title="Audio-visual speech enhancement using multimodal deep convolutional neural networks" class="ltx_ref">9</a>]</cite>.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p id="S2.p2.1" class="ltx_p">Beyond model design, more recent AVSE studies have explored enhanced fusion strategies (e.g., dense connectivity and gated fusion) and real-time capable architectures, while also considering robust dataset construction and domain-specific tasks such as spatial audio processing or feature alignment <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib11" title="Real-time audio-visual end-to-end speech enhancement" class="ltx_ref">13</a>]</cite>.</p>
+</div>
+<div id="S2.p3" class="ltx_para">
+<p id="S2.p3.1" class="ltx_p">While the majority of AVSE research focuses on improving model performance in controlled conditions, fewer studies tackle the challenges of real-time deployment where network transport, latency constraints, and computational placement are critical. In <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib16" title="5G-iot cloud based demonstration of real-time audio-visual speech enhancement for multimodal hearing-aids" class="ltx_ref">8</a>]</cite> the authors showcased a proof-of-concept implementation of the world’s first 5G and Internet of Things (IoT) enabled multi-modal hearing aid (MM HA) prototype. This integrates an innovative 5G cloudradio access network (C-RAN) and IoT based transceiver model for real-time audio-visual speech enhancement (AVSE). Our work evaluates AVSE performance under realistic network conditions (Ethernet, Wi-Fi, 4G, and 5G), highlighting trade-offs between communication delay, model complexity, and enhancement effectiveness.</p>
+</div>
+<div id="S2.p4" class="ltx_para">
+<p id="S2.p4.1" class="ltx_p">Another related direction investigates 5G-enabled IoT and wearable systems, where audiovisual data are streamed to cloud servers for enhancement and secure processing, addressing both latency and privacy concerns in emerging assistive applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib20" title="Real-time lightweight chaotic encryption for 5g iot enabled lip-reading driven secure hearing-aid" class="ltx_ref">1</a>]</cite>. Beyond AVSE, broader work on mobile edge computing (MEC) and 5G performance analysis provides insights into system design for interactive multimedia services, where computation offloading and resource allocation strategies are critical to support low-latency processing required by live audiovisual applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib13" title="A survey on mobile edge computing: the communication perspective" class="ltx_ref">10</a>]</cite>. Additionally, work on wireless offloading and wearable edge computing suggests that high-throughput, low-latency links can effectively support the real-time transport of high-resolution visual streams for vision-driven workloads such as object detection, further emphasizing the potential of advanced wireless architectures for AVSE systems <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib14" title="Network-aware 5g edge computing for object detection: augmenting wearables to “see” more, farther and faster" class="ltx_ref">12</a>]</cite>.</p>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">III </span><span id="S3.1.1" class="ltx_text ltx_font_smallcaps">Problem Formulation: Audio–Visual Speech Enhancement</span>
+</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p id="S3.p1.5" class="ltx_p">Audio–visual speech enhancement (AVSE) aims to recover a clean target speech signal by jointly exploiting
+acoustic and visual observations of the speaker. Let the discrete-time noisy audio signal captured at the
+microphone be</p>
+<table id="S3.E1" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.E1.m1" class="ltx_Math" alttext="y[n]=x[n]+d[n]," display="block" intent=":literal"><semantics><mrow><mrow><mrow><mi>y</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mrow><mi>x</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><mo>+</mo><mrow><mi>d</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">y[n]=x[n]+d[n],</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td>
+</tr></tbody>
+</table>
+<p id="S3.p1.4" class="ltx_p">where <math id="S3.p1.1.m1" class="ltx_Math" alttext="x[n]" display="inline" intent=":literal"><semantics><mrow><mi>x</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><annotation encoding="application/x-tex">x[n]</annotation></semantics></math> denotes the clean target speech and <math id="S3.p1.2.m2" class="ltx_Math" alttext="d[n]" display="inline" intent=":literal"><semantics><mrow><mi>d</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><annotation encoding="application/x-tex">d[n]</annotation></semantics></math> represents additive noise and interference.
+In adverse acoustic environments, recovering <math id="S3.p1.3.m3" class="ltx_Math" alttext="x[n]" display="inline" intent=":literal"><semantics><mrow><mi>x</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><annotation encoding="application/x-tex">x[n]</annotation></semantics></math> from <math id="S3.p1.4.m4" class="ltx_Math" alttext="y[n]" display="inline" intent=":literal"><semantics><mrow><mi>y</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><annotation encoding="application/x-tex">y[n]</annotation></semantics></math> alone is ill-posed, particularly at low
+signal-to-noise ratio (SNR) or in the presence of competing speakers. Visual cues, however, remain largely
+invariant to acoustic corruption and therefore provide complementary information for speech recovery.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p id="S3.p2.4" class="ltx_p">Let <math id="S3.p2.1.m1" class="ltx_Math" alttext="\mathbf{a}_{t}\in\mathbb{R}^{F_{a}}" display="inline" intent=":literal"><semantics><mrow><msub><mi>𝐚</mi><mi>t</mi></msub><mo>∈</mo><msup><mi>ℝ</mi><msub><mi>F</mi><mi>a</mi></msub></msup></mrow><annotation encoding="application/x-tex">\mathbf{a}_{t}\in\mathbb{R}^{F_{a}}</annotation></semantics></math> denote the audio feature vector extracted from <math id="S3.p2.2.m2" class="ltx_Math" alttext="y[n]" display="inline" intent=":literal"><semantics><mrow><mi>y</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow></mrow><annotation encoding="application/x-tex">y[n]</annotation></semantics></math> over time
+frame <math id="S3.p2.3.m3" class="ltx_Math" alttext="t" display="inline" intent=":literal"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math> (e.g., log-mel or STFT magnitude features), and let <math id="S3.p2.4.m4" class="ltx_Math" alttext="\mathbf{v}_{t}\in\mathbb{R}^{F_{v}}" display="inline" intent=":literal"><semantics><mrow><msub><mi>𝐯</mi><mi>t</mi></msub><mo>∈</mo><msup><mi>ℝ</mi><msub><mi>F</mi><mi>v</mi></msub></msup></mrow><annotation encoding="application/x-tex">\mathbf{v}_{t}\in\mathbb{R}^{F_{v}}</annotation></semantics></math> denote the
+corresponding visual feature vector extracted from the speaker’s facial region (e.g., lip motion
+embeddings). The AVSE problem is formulated as learning a nonlinear mapping</p>
+<table id="S3.E2" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.E2.m1" class="ltx_Math" alttext="\hat{\mathbf{x}}_{t}=f_{\theta}(\mathbf{a}_{1:t},\mathbf{v}_{1:t})," display="block" intent=":literal"><semantics><mrow><mrow><msub><mover accent="true"><mi>𝐱</mi><mo>^</mo></mover><mi>t</mi></msub><mo>=</mo><mrow><msub><mi>f</mi><mi>θ</mi></msub><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐚</mi><mrow><mn>1</mn><mo lspace="0.278em" rspace="0.278em">:</mo><mi>t</mi></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mrow><mn>1</mn><mo lspace="0.278em" rspace="0.278em">:</mo><mi>t</mi></mrow></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\hat{\mathbf{x}}_{t}=f_{\theta}(\mathbf{a}_{1:t},\mathbf{v}_{1:t}),</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(2)</span></td>
+</tr></tbody>
+</table>
+<p id="S3.p2.8" class="ltx_p">where <math id="S3.p2.5.m1" class="ltx_Math" alttext="f_{\theta}(\cdot)" display="inline" intent=":literal"><semantics><mrow><msub><mi>f</mi><mi>θ</mi></msub><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><mo lspace="0em" rspace="0em">⋅</mo><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">f_{\theta}(\cdot)</annotation></semantics></math> denotes a deep neural network with parameters <math id="S3.p2.6.m2" class="ltx_Math" alttext="\theta" display="inline" intent=":literal"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>, and
+<math id="S3.p2.7.m3" class="ltx_Math" alttext="\hat{\mathbf{x}}_{t}" display="inline" intent=":literal"><semantics><msub><mover accent="true"><mi>𝐱</mi><mo>^</mo></mover><mi>t</mi></msub><annotation encoding="application/x-tex">\hat{\mathbf{x}}_{t}</annotation></semantics></math> is the estimated clean speech representation at time <math id="S3.p2.8.m4" class="ltx_Math" alttext="t" display="inline" intent=":literal"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
+The model is trained by minimizing the reconstruction loss</p>
+<table id="S3.E3" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.E3.m1" class="ltx_Math" alttext="\min_{\theta}\;\mathcal{L}=\sum_{t=1}^{T}\left\|\hat{\mathbf{x}}_{t}-\mathbf{x}_{t}\right\|_{2}^{2}," display="block" intent=":literal"><semantics><mrow><mrow><mrow><munder><mi>min</mi><mi>θ</mi></munder><mo lspace="0.447em">⁡</mo><mi class="ltx_font_mathcaligraphic">ℒ</mi></mrow><mo rspace="0.111em">=</mo><mrow><munderover><mo movablelimits="false" rspace="0em">∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>T</mi></munderover><msubsup><mrow><mo>‖</mo><mrow><msub><mover accent="true"><mi>𝐱</mi><mo>^</mo></mover><mi>t</mi></msub><mo>−</mo><msub><mi>𝐱</mi><mi>t</mi></msub></mrow><mo>‖</mo></mrow><mn>2</mn><mn>2</mn></msubsup></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\min_{\theta}\;\mathcal{L}=\sum_{t=1}^{T}\left\|\hat{\mathbf{x}}_{t}-\mathbf{x}_{t}\right\|_{2}^{2},</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(3)</span></td>
+</tr></tbody>
+</table>
+<p id="S3.p2.10" class="ltx_p">where <math id="S3.p2.9.m1" class="ltx_Math" alttext="\mathbf{x}_{t}" display="inline" intent=":literal"><semantics><msub><mi>𝐱</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\mathbf{x}_{t}</annotation></semantics></math> denotes the clean target speech features and <math id="S3.p2.10.m2" class="ltx_Math" alttext="T" display="inline" intent=":literal"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math> is the sequence length.</p>
+</div>
+</section>
+<section id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">IV </span><span id="S4.1.1" class="ltx_text ltx_font_smallcaps">Proposed Solution</span>
+</h2>
+
+<section id="S4.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection"><span id="S4.SS1.5.1.1" class="ltx_text">IV-A</span> </span><span id="S4.SS1.6.2" class="ltx_text ltx_font_italic">Model Architecture and Feature Fusion</span>
+</h3>
+
+<div id="S4.SS1.p1" class="ltx_para">
+<p id="S4.SS1.p1.1" class="ltx_p">The proposed AVSE architecture consists of parallel audio and visual processing streams followed by
+feature fusion and temporal modeling, as illustrated in Fig. <a href="#S4.F1" title="Figure 1 ‣ IV-A Model Architecture and Feature Fusion ‣ IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>.</p>
+</div>
+<figure id="S4.F1" class="ltx_figure"><img src="2508.08468v6/fig1.png" id="S4.F1.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="238" height="88" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S4.F1.2.1.1" class="ltx_text" style="font-size:90%;">Figure 1</span>: </span><span id="S4.F1.3.2" class="ltx_text" style="font-size:90%;">Audio-Visual Speech Enhancement AI model architecture.</span></figcaption>
+</figure>
+<div id="S4.SS1.p2" class="ltx_para">
+<p id="S4.SS1.p2.2" class="ltx_p">The audio stream employs a convolutional neural network (CNN) encoder</p>
+<table id="S4.E4" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E4.m1" class="ltx_Math" alttext="\mathbf{z}_{t}^{(a)}=\mathcal{E}_{a}(\mathbf{a}_{t})," display="block" intent=":literal"><semantics><mrow><mrow><msubsup><mi>𝐳</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></msubsup><mo>=</mo><mrow><msub><mi class="ltx_font_mathcaligraphic">ℰ</mi><mi>a</mi></msub><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐚</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathbf{z}_{t}^{(a)}=\mathcal{E}_{a}(\mathbf{a}_{t}),</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(4)</span></td>
+</tr></tbody>
+</table>
+<p id="S4.SS1.p2.3" class="ltx_p">while the visual stream extracts facial features using a vision front-end based on OpenCV and CNN
+feature extractors,</p>
+<table id="S4.E5" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E5.m1" class="ltx_Math" alttext="\mathbf{z}_{t}^{(v)}=\mathcal{E}_{v}(\mathbf{v}_{t})." display="block" intent=":literal"><semantics><mrow><mrow><msubsup><mi>𝐳</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></msubsup><mo>=</mo><mrow><msub><mi class="ltx_font_mathcaligraphic">ℰ</mi><mi>v</mi></msub><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐯</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow><annotation encoding="application/x-tex">\mathbf{z}_{t}^{(v)}=\mathcal{E}_{v}(\mathbf{v}_{t}).</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(5)</span></td>
+</tr></tbody>
+</table>
+<p id="S4.SS1.p2.4" class="ltx_p">The modality-specific embeddings are fused via concatenation,</p>
+<table id="S4.E6" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E6.m1" class="ltx_Math" alttext="\mathbf{z}_{t}=\left[\mathbf{z}_{t}^{(a)}\;\|\;\mathbf{z}_{t}^{(v)}\right]," display="block" intent=":literal"><semantics><mrow><mrow><msub><mi>𝐳</mi><mi>t</mi></msub><mo>=</mo><mrow><mo>[</mo><mrow><msubsup><mi>𝐳</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></msubsup><mo rspace="0.558em">∥</mo><msubsup><mi>𝐳</mi><mi>t</mi><mrow><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><mo>]</mo></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathbf{z}_{t}=\left[\mathbf{z}_{t}^{(a)}\;\|\;\mathbf{z}_{t}^{(v)}\right],</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(6)</span></td>
+</tr></tbody>
+</table>
+<p id="S4.SS1.p2.1" class="ltx_p">where <math id="S4.SS1.p2.1.m1" class="ltx_math_unparsed" alttext="[\cdot\|\cdot]" display="inline" intent=":literal"><semantics><mrow><mo stretchy="false">[</mo><mo lspace="0em" rspace="0em">⋅</mo><mo lspace="0em" rspace="0em">∥</mo><mo lspace="0em" rspace="0em">⋅</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[\cdot\|\cdot]</annotation></semantics></math> denotes vector concatenation. Temporal dependencies are modeled using a long
+short-term memory (LSTM) network,</p>
+<table id="S4.E7" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E7.m1" class="ltx_Math" alttext="\mathbf{h}_{t}=\mathrm{LSTM}(\mathbf{z}_{t},\mathbf{h}_{t-1})," display="block" intent=":literal"><semantics><mrow><mrow><msub><mi>𝐡</mi><mi>t</mi></msub><mo>=</mo><mrow><mi>LSTM</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐳</mi><mi>t</mi></msub><mo>,</mo><msub><mi>𝐡</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathbf{h}_{t}=\mathrm{LSTM}(\mathbf{z}_{t},\mathbf{h}_{t-1}),</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(7)</span></td>
+</tr></tbody>
+</table>
+<p id="S4.SS1.p2.5" class="ltx_p">which ensures coherent speech reconstruction across time. A stack of fully connected (FC) layers
+decodes the enhanced speech features,</p>
+<table id="S4.E8" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E8.m1" class="ltx_Math" alttext="\hat{\mathbf{x}}_{t}=\mathcal{D}(\mathbf{h}_{t})." display="block" intent=":literal"><semantics><mrow><mrow><msub><mover accent="true"><mi>𝐱</mi><mo>^</mo></mover><mi>t</mi></msub><mo>=</mo><mrow><mi class="ltx_font_mathcaligraphic">𝒟</mi><mo lspace="0em" rspace="0em">​</mo><mrow><mo stretchy="false">(</mo><msub><mi>𝐡</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow><annotation encoding="application/x-tex">\hat{\mathbf{x}}_{t}=\mathcal{D}(\mathbf{h}_{t}).</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(8)</span></td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<section id="S4.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection"><span id="S4.SS2.5.1.1" class="ltx_text">IV-B</span> </span><span id="S4.SS2.6.2" class="ltx_text ltx_font_italic">Implementation</span>
+</h3>
+
+<div id="S4.SS2.p1" class="ltx_para">
+<p id="S4.SS2.p1.1" class="ltx_p"><a href="#S4.F2" title="Figure 2 ‣ IV-B Implementation ‣ IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Figure 2</span></a> presents a pragmatic framework for the deployment of the developed AVSE algorithm within the context of real-world applications. In order to enable the service in low quality terminals (e.g., IoT devices), the remote server takes over all the processing, including the pre-processing of the raw data. By doing so, any device with a camera, microphone, and communication capabilities can use the service without any requirements on its computing power. This allows us to apply the service to some cheap IoT devices to achieve specific functions. For high-performance devices (e.g., smartphones), offloading all processing to the server can also reduce energy consumption and improve battery life.</p>
+</div>
+<figure id="S4.F2" class="ltx_figure"><img src="2508.08468v6/fig2.png" id="S4.F2.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="476" height="164" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S4.F2.2.1.1" class="ltx_text" style="font-size:90%;">Figure 2</span>: </span><span id="S4.F2.3.2" class="ltx_text" style="font-size:90%;">A block diagram of enabling real-world AVSE service on terminal devices.</span></figcaption>
+</figure>
+<div id="S4.SS2.p2" class="ltx_para">
+<p id="S4.SS2.p2.1" class="ltx_p">As the figure depicts, the client terminals only collect the raw audio and video, then upload them to the server and wait for the feedback from the server. It should be noted that collecting and playing audio requires parallel processing, so we use two independent threads. The server will listen to clients and wait for the raw audio-video data from clients. It starts processing using the stored trained model once it listens to data transmission from the client. Considering that processing latency may exceed the duration of the audio itself, resulting in incoherent feedback audio, we use buffers to store input and output data and perform parallel signal processing in another independent thread. In this way, even if the processing delay is high due to algorithm complexity, the client can still hear coherent enhanced audio after a specific delay, thereby having a satisfactory service experience.</p>
+</div>
+<figure id="S4.F3" class="ltx_figure"><img src="2508.08468v6/fig3.png" id="S4.F3.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="238" height="155" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S4.F3.2.1.1" class="ltx_text" style="font-size:90%;">Figure 3</span>: </span><span id="S4.F3.3.2" class="ltx_text" style="font-size:90%;">A schematic describes the experienced latency of this service.</span></figcaption>
+</figure>
+<div id="S4.SS2.p3" class="ltx_para">
+<p id="S4.SS2.p3.5" class="ltx_p"><a href="#S4.F3" title="Figure 3 ‣ IV-B Implementation ‣ IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Figure 3</span></a> describes the latency of the processing of the AVSE service. As shown in the system model, the client continuously collects voice and video information and sends it to the server. Assume that the length of the audio-video chunk sent by the client each time is <math id="S4.SS2.p3.1.m1" class="ltx_Math" alttext="t_{\text{chunk}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>chunk</mtext></msub><annotation encoding="application/x-tex">t_{\text{chunk}}</annotation></semantics></math>, that is, the client will send out audio and video after collecting a chunk of <math id="S4.SS2.p3.2.m2" class="ltx_Math" alttext="t_{\text{chunk}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>chunk</mtext></msub><annotation encoding="application/x-tex">t_{\text{chunk}}</annotation></semantics></math>. After receiving the data, the server will first perform preprocessing, such as feature extraction of video frames, and then store the processed data in the buffer. Since our algorithm tracks lips to help audio enhancement, the input of the algorithm must have a specific length <math id="S4.SS2.p3.3.m3" class="ltx_Math" alttext="t_{i}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi>i</mi></msub><annotation encoding="application/x-tex">t_{i}</annotation></semantics></math> to ensure sufficient visual features. When there are more than <math id="S4.SS2.p3.4.m4" class="ltx_Math" alttext="t_{i}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi>i</mi></msub><annotation encoding="application/x-tex">t_{i}</annotation></semantics></math> data in the buffer, the server will start executing the AVSE algorithm. Then, the server processes the incoming audio and video data sequentially, and we must set a sufficient buffer interval <math id="S4.SS2.p3.5.m5" class="ltx_Math" alttext="t_{\Delta}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub><annotation encoding="application/x-tex">t_{\Delta}</annotation></semantics></math> to ensure that it can complete each process, which is given as</p>
+</div>
+<div id="S4.SS2.p4" class="ltx_para">
+<table id="S4.E9" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E9.m1" class="ltx_Math" alttext="t_{\Delta}&gt;t_{a}" display="block" intent=":literal"><semantics><mrow><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub><mo>&gt;</mo><msub><mi>t</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">t_{\Delta}&gt;t_{a}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(9)</span></td>
+</tr></tbody>
+</table>
+</div>
+<div id="S4.SS2.p5" class="ltx_para">
+<p id="S4.SS2.p5.5" class="ltx_p">where <math id="S4.SS2.p5.1.m1" class="ltx_Math" alttext="t_{a}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi>a</mi></msub><annotation encoding="application/x-tex">t_{a}</annotation></semantics></math> is the algorithm processing latency. The enhanced audio is stored in the output buffer, and the server begins feeding the enhanced audio back to the client when there is enough data in the output buffer. It should be noted that since <math id="S4.SS2.p5.2.m2" class="ltx_Math" alttext="t_{i}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi>i</mi></msub><annotation encoding="application/x-tex">t_{i}</annotation></semantics></math> is usually much larger than <math id="S4.SS2.p5.3.m3" class="ltx_Math" alttext="t_{\Delta}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub><annotation encoding="application/x-tex">t_{\Delta}</annotation></semantics></math>, if we want the initial audio to be enhanced by this algorithm, there will be an inevitable <math id="S4.SS2.p5.4.m4" class="ltx_Math" alttext="t_{i}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi>i</mi></msub><annotation encoding="application/x-tex">t_{i}</annotation></semantics></math>-length waiting time for data, causing a high delay. In order to mitigate the significant delays we do not process the audio at the beginning of <math id="S4.SS2.p5.5.m5" class="ltx_Math" alttext="t_{i}-t_{\Delta}" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mi>i</mi></msub><mo>−</mo><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub></mrow><annotation encoding="application/x-tex">t_{i}-t_{\Delta}</annotation></semantics></math>, thereby reducing the overall delay to</p>
+</div>
+<div id="S4.SS2.p6" class="ltx_para">
+<table id="S4.E10" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S4.E10.m1" class="ltx_Math" alttext="t_{\text{delay}}=t_{1}+t_{2}+t_{3}=t_{\text{comm}}+t_{\text{proc}}" display="block" intent=":literal"><semantics><mrow><msub><mi>t</mi><mtext>delay</mtext></msub><mo>=</mo><mrow><msub><mi>t</mi><mn>1</mn></msub><mo>+</mo><msub><mi>t</mi><mn>2</mn></msub><mo>+</mo><msub><mi>t</mi><mn>3</mn></msub></mrow><mo>=</mo><mrow><msub><mi>t</mi><mtext>comm</mtext></msub><mo>+</mo><msub><mi>t</mi><mtext>proc</mtext></msub></mrow></mrow><annotation encoding="application/x-tex">t_{\text{delay}}=t_{1}+t_{2}+t_{3}=t_{\text{comm}}+t_{\text{proc}}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(10)</span></td>
+</tr></tbody>
+</table>
+</div>
+<div id="S4.SS2.p7" class="ltx_para">
+<p id="S4.SS2.p7.10" class="ltx_p">where <math id="S4.SS2.p7.1.m1" class="ltx_Math" alttext="t_{1}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mn>1</mn></msub><annotation encoding="application/x-tex">t_{1}</annotation></semantics></math> denotes the forward network latency, i.e., the delay incurred in transmitting data from the client to the server; <math id="S4.SS2.p7.2.m2" class="ltx_Math" alttext="t_{2}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mn>2</mn></msub><annotation encoding="application/x-tex">t_{2}</annotation></semantics></math> denotes the server’s processing latency, i.e., the delay incurred by the server in processing the data; <math id="S4.SS2.p7.3.m3" class="ltx_Math" alttext="t_{3}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mn>3</mn></msub><annotation encoding="application/x-tex">t_{3}</annotation></semantics></math> denotes the reverse network latency, i.e., the delay incurred in transmitting data from the server to the client. Thus, <math id="S4.SS2.p7.4.m4" class="ltx_Math" alttext="t_{1}+t_{3}" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub><mo>+</mo><msub><mi>t</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">t_{1}+t_{3}</annotation></semantics></math> comprise the communication latency, and the processing latency <math id="S4.SS2.p7.5.m5" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math> (i.e., <math id="S4.SS2.p7.6.m6" class="ltx_Math" alttext="t_{2}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mn>2</mn></msub><annotation encoding="application/x-tex">t_{2}</annotation></semantics></math>) can be decomposed into the buffer interval <math id="S4.SS2.p7.7.m7" class="ltx_Math" alttext="t_{\Delta}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub><annotation encoding="application/x-tex">t_{\Delta}</annotation></semantics></math> and algorithm processing time <math id="S4.SS2.p7.8.m8" class="ltx_Math" alttext="t_{a}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mi>a</mi></msub><annotation encoding="application/x-tex">t_{a}</annotation></semantics></math>. As a result, the client can get coherent feedback audio <math id="S4.SS2.p7.9.m9" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math> seconds after enabling the service, and audio enhancement is enabled after <math id="S4.SS2.p7.10.m10" class="ltx_Math" alttext="t_{i}-t_{\Delta}" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mi>i</mi></msub><mo>−</mo><msub><mi>t</mi><mi mathvariant="normal">Δ</mi></msub></mrow><annotation encoding="application/x-tex">t_{i}-t_{\Delta}</annotation></semantics></math> seconds.</p>
+</div>
+<figure id="S4.F4" class="ltx_figure"><img src="2508.08468v6/avse_arch_aws_5g_vodafone.png" id="S4.F4.g1" class="ltx_graphics ltx_centering ltx_img_portrait" width="238" height="351" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S4.F4.2.1.1" class="ltx_text" style="font-size:90%;">Figure 4</span>: </span><span id="S4.F4.3.2" class="ltx_text" style="font-size:90%;">End-to-end system architecture for 5G edge cloud multimedia delivery.</span></figcaption>
+</figure>
+</section>
+</section>
+<section id="S5" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">V </span><span id="S5.1.1" class="ltx_text ltx_font_smallcaps">Experimental Results</span>
+</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p id="S5.p1.1" class="ltx_p">In this experiment, the auditory information undergoes a transformation via convolutional neural networks (CNNs), which can distill the audio patterns. The visual information is processed through the OpenCV library, which is an open-source computer vision and machine learning software library, to extract facial features from the face embeddings. It is implemented using the pre-trained Haar feature-based cascade classifiers, which are underpinned also by CNNs. Subsequently, the algorithm employs a fusion strategy where the extracted auditory and facial features coalesce, serving as inputs to a sophisticated Long- Short Term Memory (LSTM) network. This step is crucial for integrating temporal dynamics and ensuring a coherent feature representation. The convergence of these modalities culminates in a series of FC layers, which tunes the composite features to reconstruct the target outputs. This framework provides a foundational blueprint, while the explicit architectural configuration (i.e., layers, neurons, etc.) can vary depending on the requirements and data pre-processing.</p>
+</div>
+<div id="S5.p2" class="ltx_para">
+<p id="S5.p2.1" class="ltx_p">It should be noted that although we do buffering to ensure coherent audio feedback from the server, the capacity of the communication network is also extremely important to ensure reliable quality of service. The communication network needs to have sufficient capacity so that the round-trip delay of data transmission between the client and server is shorter than the time of the data itself to ensure a consistent service experience, denoted as</p>
+</div>
+<div id="S5.p3" class="ltx_para">
+<table id="S5.E11" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S5.E11.m1" class="ltx_Math" alttext="t_{\text{comm}}\leq t_{\text{chunk}}" display="block" intent=":literal"><semantics><mrow><msub><mi>t</mi><mtext>comm</mtext></msub><mo>≤</mo><msub><mi>t</mi><mtext>chunk</mtext></msub></mrow><annotation encoding="application/x-tex">t_{\text{comm}}\leq t_{\text{chunk}}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(11)</span></td>
+</tr></tbody>
+</table>
+</div>
+<div id="S5.p4" class="ltx_para">
+<p id="S5.p4.1" class="ltx_p">Otherwise, after playing a chunk, if the data of the next chunk has not been fed back, there will be a blank period.</p>
+</div>
+<div id="S5.p5" class="ltx_para">
+<p id="S5.p5.8" class="ltx_p">We measure the latency of a variety of networks in real-world environments. We record audio at a sampling rate of <math id="S5.p5.1.m1" class="ltx_Math" alttext="16" display="inline" intent=":literal"><semantics><mn>16</mn><annotation encoding="application/x-tex">16</annotation></semantics></math> kHz and captured video frames at a resolution of <math id="S5.p5.2.m2" class="ltx_Math" alttext="380\times 640" display="inline" intent=":literal"><semantics><mrow><mn>380</mn><mo lspace="0.222em" rspace="0.222em">×</mo><mn>640</mn></mrow><annotation encoding="application/x-tex">380\times 640</annotation></semantics></math> pixels at a frame rate of <math id="S5.p5.3.m3" class="ltx_Math" alttext="25" display="inline" intent=":literal"><semantics><mn>25</mn><annotation encoding="application/x-tex">25</annotation></semantics></math> fps. We set <math id="S5.p5.4.m4" class="ltx_Math" alttext="t_{\text{chunk}}=40" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mtext>chunk</mtext></msub><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">t_{\text{chunk}}=40</annotation></semantics></math> ms, congruent with the temporal extent of a single video frame. This configuration yields a raw data payload of approximately <math id="S5.p5.5.m5" class="ltx_Math" alttext="0.3" display="inline" intent=":literal"><semantics><mn>0.3</mn><annotation encoding="application/x-tex">0.3</annotation></semantics></math> MB per audio-video chunk. <a href="#S5.F5" title="Figure 5 ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Figure 5</span></a> shows the latency profiles observed across a suite of <math id="S5.p5.6.m6" class="ltx_Math" alttext="100" display="inline" intent=":literal"><semantics><mn>100</mn><annotation encoding="application/x-tex">100</annotation></semantics></math> round-trip data transmissions. In our experimental setup, a desktop-based server and a laptop-based client were utilized to simulate a realistic user scenario. The communication between server and client was facilitated through Wi-Fi (802.11n, i.e., Wi-Fi 4), 4G, 5G, and a direct Ethernet cable link, respectively. We also tried the Amazon Web Services over internet as well as over Vodafone 5G public network whose architecture is depicted in <a href="#S4.F4" title="Figure 4 ‣ IV-B Implementation ‣ IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Figure 4</span></a>. The results suggest that only private 5G network and direct Ethernet cable link could support a coherent service experience, i.e., satisfying <math id="S5.p5.7.m7" class="ltx_Math" alttext="t_{\text{comm}}\leq t_{\text{chunk}}" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mtext>comm</mtext></msub><mo>≤</mo><msub><mi>t</mi><mtext>chunk</mtext></msub></mrow><annotation encoding="application/x-tex">t_{\text{comm}}\leq t_{\text{chunk}}</annotation></semantics></math> where <math id="S5.p5.8.m8" class="ltx_Math" alttext="t_{\text{chunk}}=40" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mtext>chunk</mtext></msub><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">t_{\text{chunk}}=40</annotation></semantics></math> ms in our experiments. Note that 4G and 5G network capacities may differ in different regions and with different carriers while choosing different AWS locations may also result in different latencies. We used Wi-Fi from the King’s Buildings, The University of Edinburgh (Edinburgh, UK), and for 4G and 5G network testing used a private network of Cambridge Wireless (Cambridge, UK) and Vodafone 5G public network. Using new Wi-Fi protocols, such as 802.11ac (Wi-Fi 5) or 802.11ax (Wi-Fi 6), can dramatically reduce the latency.</p>
+</div>
+<div id="S5.p6" class="ltx_para">
+<p id="S5.p6.1" class="ltx_p">In areas with poor signal coverage, we can compress the raw audio-video data to reduce the transmission load, obtaining reliable and consistent quality of service. <a href="#S5.F6" title="Figure 6 ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Figure 6</span></a> shows the data size versus compression factors. It can be seen that proper compression of data can greatly reduce the data size and the required data rate, especially in the range of 80-100 compression factors. At a compression factor of 80, the data can be reduced to <math id="S5.p6.1.m1" class="ltx_Math" alttext="\approx 70" display="inline" intent=":literal"><semantics><mrow><mi></mi><mo>≈</mo><mn>70</mn></mrow><annotation encoding="application/x-tex">\approx 70</annotation></semantics></math> KB with an insignificant effect on the quality of the video frames. We also used a compression factor of 80 in our real-world demonstration in Cambridge to ensure smooth service, and experiments proved that the impact of other speech enhancement properties could be ignored and we could still achieve considerable noise reduction.</p>
+</div>
+<figure id="S5.F5" class="ltx_figure">
+<div class="ltx_flex_figure">
+<div class="ltx_flex_cell ltx_flex_size_3">
+<figure id="S5.F5.1" class="ltx_figure ltx_figure_panel ltx_minipage ltx_align_center ltx_align_middle" style="width:110.4pt;"><img src="2508.08468v6/latency_wifi_802.11n.png" id="S5.F5.1.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="153" height="97" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering">(a) Wi-Fi (802.11n)</figcaption>
+</figure>
+</div>
+<div class="ltx_flex_cell ltx_flex_size_3">
+<figure id="S5.F5.2" class="ltx_figure ltx_figure_panel ltx_minipage ltx_align_center ltx_align_middle" style="width:110.4pt;"><img src="2508.08468v6/latency_4G.png" id="S5.F5.2.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="153" height="97" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering">(b) 4G</figcaption>
+</figure>
+</div>
+<div class="ltx_flex_cell ltx_flex_size_3">
+<figure id="S5.F5.3" class="ltx_figure ltx_figure_panel ltx_minipage ltx_align_center ltx_align_middle" style="width:110.4pt;"><img src="2508.08468v6/latency_5G.png" id="S5.F5.3.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="153" height="97" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering">(c) 5G</figcaption>
+</figure>
+</div>
+<div class="ltx_flex_break"></div>
+<div class="ltx_flex_cell ltx_flex_size_3">
+<figure id="S5.F5.4" class="ltx_figure ltx_figure_panel ltx_minipage ltx_align_center ltx_align_middle" style="width:110.4pt;"><img src="2508.08468v6/latency_Ethernet_Cable.png" id="S5.F5.4.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="153" height="97" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering">(d) Ethernet cable</figcaption>
+</figure>
+</div>
+<div class="ltx_flex_cell ltx_flex_size_3">
+<figure id="S5.F5.5" class="ltx_figure ltx_figure_panel ltx_minipage ltx_align_center ltx_align_middle" style="width:110.4pt;"><img src="2508.08468v6/latency_AWS_Internet.png" id="S5.F5.5.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="153" height="97" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering">(e) Amazon Web Services</figcaption>
+</figure>
+</div>
+<div class="ltx_flex_cell ltx_flex_size_3">
+<figure id="S5.F5.6" class="ltx_figure ltx_figure_panel ltx_minipage ltx_align_center ltx_align_middle" style="width:110.4pt;"><img src="2508.08468v6/latency_AWS_Wavelength_5G_Vodafone.png" id="S5.F5.6.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="153" height="85" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering">(f) AWS Wavelength over Vodafone 5G Cellular Network</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F5.10.2.1" class="ltx_text" style="font-size:90%;">Figure 5</span>: </span><span id="S5.F5.8.1" class="ltx_text" style="font-size:90%;">Network latency measured in real-world environments (round-trip latency for transferring <math id="S5.F5.8.1.m1" class="ltx_Math" alttext="\tilde{0}.3" display="inline" intent=":literal"><semantics><mrow><mover accent="true"><mn>0</mn><mo>~</mo></mover><mo lspace="0em" rspace="0em">​</mo><mn>.3</mn></mrow><annotation encoding="application/x-tex">\tilde{0}.3</annotation></semantics></math> MB of data).</span></figcaption>
+</figure>
+<figure id="S5.F6" class="ltx_figure"><img src="2508.08468v6/fig5.png" id="S5.F6.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="238" height="152" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F6.2.1.1" class="ltx_text" style="font-size:90%;">Figure 6</span>: </span><span id="S5.F6.3.2" class="ltx_text" style="font-size:90%;">Audio-video data size versus compression factors.</span></figcaption>
+</figure>
+<div id="S5.p7" class="ltx_para">
+<p id="S5.p7.1" class="ltx_p">The next section describes extensive Vodafone 5G public network stress testing with different data compression profiles.</p>
+</div>
+<section id="S5.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection"><span id="S5.SS1.5.1.1" class="ltx_text">V-A</span> </span><span id="S5.SS1.6.2" class="ltx_text ltx_font_italic">Vodafone 5G network</span>
+</h3>
+
+<div id="S5.SS1.p1" class="ltx_para">
+<p id="S5.SS1.p1.1" class="ltx_p">This section describes the experimental environment used to evaluate real-time audio-visual multimedia delivery over a public 5G network integrated with edge cloud infrastructure. We first outline the network characteristics and edge cloud configuration, followed by details of the user equipment setup, stress profile design, and performance metrics used for analysis.</p>
+</div>
+<div id="S5.SS1.p2" class="ltx_para">
+<p id="S5.SS1.p2.1" class="ltx_p">The experiments were conducted over a commercial Vodafone 5G network operating in the United Kingdom’s mid-band spectrum (3.4–3.6 GHz), which provides a balance of capacity and coverage suitable for real-world edge deployments. Targeted network characteristics include an end-to-end latency of less than 15 ms for edge-hosted applications and sustained upstream bandwidth in excess of 50 Mbps. Typical downstream 5G throughput is expected to range between 100–200 Mbps, significantly higher than legacy 4G under ideal conditions, thus accommodating bandwidth-intensive audio-visual workloads.</p>
+</div>
+<div id="S5.SS1.p3" class="ltx_para">
+<p id="S5.SS1.p3.1" class="ltx_p">The edge cloud environment was hosted using AWS Wavelength Zones, which embed compute and storage resources directly within the operator’s network to minimize transport distance. In this deployment, application servers were placed within a private subnet accessible only through the operator’s carrier gateway. A bastion host provided controlled secure shell access for development and system management, ensuring that compute resources remained isolated from direct public Internet exposure. General-purpose instance types supported by Wavelength include t3.medium, t3.xlarge, and r5.2xlarge, along with GPU-accelerated options such as g4dn.2xlarge; this work uses the t3.medium instance type to represent a typical baseline for edge compute.</p>
+</div>
+<div id="S5.SS1.p4" class="ltx_para">
+<p id="S5.SS1.p4.1" class="ltx_p">User equipment consisted of a Google Pixel 8 smartphone used as the primary 5G access device. To facilitate logging and control from a standard development environment, the phone’s mobile data connection was shared with a laptop via Wi-Fi tethering, effectively creating a local hotspot. All multimedia payloads were generated by client applications on the tethered laptop and transmitted over the 5G access network to the edge application servers. This setup ensured realistic traffic behavior on the mobile access link while providing flexibility for measurement and control.</p>
+</div>
+<div id="S5.SS1.p5" class="ltx_para">
+<p id="S5.SS1.p5.1" class="ltx_p">To systematically explore system performance under varying network loads and processing demands, we defined a set of AVSE profiles. These profiles vary in video frame rate, spatial resolution, JPEG compression quality, and audio frame configuration, reflecting a range from very low to extreme bandwidth usage. Table <a href="#S5.T1" title="TABLE I ‣ V-A Vodafone 5G network ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">I</span></a> summarizes the profile parameters used in this study.</p>
+</div>
+<figure id="S5.T1" class="ltx_table">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span id="S5.T1.10.1.1" class="ltx_text" style="font-size:90%;">TABLE I</span>: </span><span id="S5.T1.11.2" class="ltx_text" style="font-size:90%;">AVSE Multimedia Profile Configurations</span></figcaption>
+<table id="S5.T1.8" class="ltx_tabular ltx_centering ltx_align_middle">
+<tr id="S5.T1.8.9" class="ltx_tr">
+<td id="S5.T1.8.9.1" class="ltx_td ltx_align_center ltx_border_tt"><span id="S5.T1.8.9.1.1" class="ltx_text ltx_font_bold">Profile</span></td>
+<td id="S5.T1.8.9.2" class="ltx_td ltx_align_left ltx_border_tt"><span id="S5.T1.8.9.2.1" class="ltx_text ltx_font_bold">Category</span></td>
+<td id="S5.T1.8.9.3" class="ltx_td ltx_align_center ltx_border_tt"><span id="S5.T1.8.9.3.1" class="ltx_text ltx_font_bold">Video FPS</span></td>
+<td id="S5.T1.8.9.4" class="ltx_td ltx_align_center ltx_border_tt"><span id="S5.T1.8.9.4.1" class="ltx_text ltx_font_bold">Resolution</span></td>
+<td id="S5.T1.8.9.5" class="ltx_td ltx_align_center ltx_border_tt"><span id="S5.T1.8.9.5.1" class="ltx_text ltx_font_bold">JPEG Quality</span></td>
+<td id="S5.T1.8.9.6" class="ltx_td ltx_align_center ltx_border_tt"><span id="S5.T1.8.9.6.1" class="ltx_text ltx_font_bold">Audio Frame (ms)</span></td>
+<td id="S5.T1.8.9.7" class="ltx_td ltx_align_left ltx_border_tt"><span id="S5.T1.8.9.7.1" class="ltx_text ltx_font_bold">Bandwidth Class</span></td>
+</tr>
+<tr id="S5.T1.1.1" class="ltx_tr">
+<td id="S5.T1.1.1.2" class="ltx_td ltx_align_center ltx_border_t">1A</td>
+<td id="S5.T1.1.1.3" class="ltx_td ltx_align_left ltx_border_t">Low-bandwidth</td>
+<td id="S5.T1.1.1.4" class="ltx_td ltx_align_center ltx_border_t">3</td>
+<td id="S5.T1.1.1.1" class="ltx_td ltx_align_center ltx_border_t">160<math id="S5.T1.1.1.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>120</td>
+<td id="S5.T1.1.1.5" class="ltx_td ltx_align_center ltx_border_t">60</td>
+<td id="S5.T1.1.1.6" class="ltx_td ltx_align_center ltx_border_t">20</td>
+<td id="S5.T1.1.1.7" class="ltx_td ltx_align_left ltx_border_t">Very low</td>
+</tr>
+<tr id="S5.T1.2.2" class="ltx_tr">
+<td id="S5.T1.2.2.2" class="ltx_td ltx_align_center">1B</td>
+<td id="S5.T1.2.2.3" class="ltx_td ltx_align_left">Low-bandwidth</td>
+<td id="S5.T1.2.2.4" class="ltx_td ltx_align_center">5</td>
+<td id="S5.T1.2.2.1" class="ltx_td ltx_align_center">240<math id="S5.T1.2.2.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>180</td>
+<td id="S5.T1.2.2.5" class="ltx_td ltx_align_center">70</td>
+<td id="S5.T1.2.2.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.2.2.7" class="ltx_td ltx_align_left">Low</td>
+</tr>
+<tr id="S5.T1.3.3" class="ltx_tr">
+<td id="S5.T1.3.3.2" class="ltx_td ltx_align_center">2A</td>
+<td id="S5.T1.3.3.3" class="ltx_td ltx_align_left">Medium-bandwidth</td>
+<td id="S5.T1.3.3.4" class="ltx_td ltx_align_center">7</td>
+<td id="S5.T1.3.3.1" class="ltx_td ltx_align_center">320<math id="S5.T1.3.3.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>240</td>
+<td id="S5.T1.3.3.5" class="ltx_td ltx_align_center">75</td>
+<td id="S5.T1.3.3.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.3.3.7" class="ltx_td ltx_align_left">Medium</td>
+</tr>
+<tr id="S5.T1.4.4" class="ltx_tr">
+<td id="S5.T1.4.4.2" class="ltx_td ltx_align_center">2B</td>
+<td id="S5.T1.4.4.3" class="ltx_td ltx_align_left">Medium-bandwidth</td>
+<td id="S5.T1.4.4.4" class="ltx_td ltx_align_center">10</td>
+<td id="S5.T1.4.4.1" class="ltx_td ltx_align_center">320<math id="S5.T1.4.4.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>240</td>
+<td id="S5.T1.4.4.5" class="ltx_td ltx_align_center">90</td>
+<td id="S5.T1.4.4.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.4.4.7" class="ltx_td ltx_align_left">Medium–high</td>
+</tr>
+<tr id="S5.T1.5.5" class="ltx_tr">
+<td id="S5.T1.5.5.2" class="ltx_td ltx_align_center">3A</td>
+<td id="S5.T1.5.5.3" class="ltx_td ltx_align_left">High-bandwidth</td>
+<td id="S5.T1.5.5.4" class="ltx_td ltx_align_center">10</td>
+<td id="S5.T1.5.5.1" class="ltx_td ltx_align_center">640<math id="S5.T1.5.5.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>480</td>
+<td id="S5.T1.5.5.5" class="ltx_td ltx_align_center">80</td>
+<td id="S5.T1.5.5.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.5.5.7" class="ltx_td ltx_align_left">High</td>
+</tr>
+<tr id="S5.T1.6.6" class="ltx_tr">
+<td id="S5.T1.6.6.2" class="ltx_td ltx_align_center">3B</td>
+<td id="S5.T1.6.6.3" class="ltx_td ltx_align_left">High-bandwidth</td>
+<td id="S5.T1.6.6.4" class="ltx_td ltx_align_center">15</td>
+<td id="S5.T1.6.6.1" class="ltx_td ltx_align_center">640<math id="S5.T1.6.6.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>480</td>
+<td id="S5.T1.6.6.5" class="ltx_td ltx_align_center">85</td>
+<td id="S5.T1.6.6.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.6.6.7" class="ltx_td ltx_align_left">Very high</td>
+</tr>
+<tr id="S5.T1.7.7" class="ltx_tr">
+<td id="S5.T1.7.7.2" class="ltx_td ltx_align_center">4A</td>
+<td id="S5.T1.7.7.3" class="ltx_td ltx_align_left">Stress-test</td>
+<td id="S5.T1.7.7.4" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.7.7.1" class="ltx_td ltx_align_center">320<math id="S5.T1.7.7.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>240</td>
+<td id="S5.T1.7.7.5" class="ltx_td ltx_align_center">70</td>
+<td id="S5.T1.7.7.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.7.7.7" class="ltx_td ltx_align_left">High (FPS-heavy)</td>
+</tr>
+<tr id="S5.T1.8.8" class="ltx_tr">
+<td id="S5.T1.8.8.2" class="ltx_td ltx_align_center">4B</td>
+<td id="S5.T1.8.8.3" class="ltx_td ltx_align_left">Stress-test</td>
+<td id="S5.T1.8.8.4" class="ltx_td ltx_align_center">30</td>
+<td id="S5.T1.8.8.1" class="ltx_td ltx_align_center">1280<math id="S5.T1.8.8.1.m1" class="ltx_Math" alttext="\times" display="inline" intent=":literal"><semantics><mo>×</mo><annotation encoding="application/x-tex">\times</annotation></semantics></math>720</td>
+<td id="S5.T1.8.8.5" class="ltx_td ltx_align_center">95</td>
+<td id="S5.T1.8.8.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.8.8.7" class="ltx_td ltx_align_left">Extreme</td>
+</tr>
+<tr id="S5.T1.8.10" class="ltx_tr">
+<td id="S5.T1.8.10.1" class="ltx_td ltx_align_center">5A</td>
+<td id="S5.T1.8.10.2" class="ltx_td ltx_align_left">Audio-only</td>
+<td id="S5.T1.8.10.3" class="ltx_td ltx_align_center">–</td>
+<td id="S5.T1.8.10.4" class="ltx_td ltx_align_center">–</td>
+<td id="S5.T1.8.10.5" class="ltx_td ltx_align_center">–</td>
+<td id="S5.T1.8.10.6" class="ltx_td ltx_align_center">20</td>
+<td id="S5.T1.8.10.7" class="ltx_td ltx_align_left">Very low</td>
+</tr>
+<tr id="S5.T1.8.11" class="ltx_tr">
+<td id="S5.T1.8.11.1" class="ltx_td ltx_align_center ltx_border_bb">5B</td>
+<td id="S5.T1.8.11.2" class="ltx_td ltx_align_left ltx_border_bb">Audio-only</td>
+<td id="S5.T1.8.11.3" class="ltx_td ltx_align_center ltx_border_bb">–</td>
+<td id="S5.T1.8.11.4" class="ltx_td ltx_align_center ltx_border_bb">–</td>
+<td id="S5.T1.8.11.5" class="ltx_td ltx_align_center ltx_border_bb">–</td>
+<td id="S5.T1.8.11.6" class="ltx_td ltx_align_center ltx_border_bb">10</td>
+<td id="S5.T1.8.11.7" class="ltx_td ltx_align_left ltx_border_bb">Low</td>
+</tr>
+</table>
+</figure>
+<div id="S5.SS1.p6" class="ltx_para">
+<p id="S5.SS1.p6.1" class="ltx_p">Performance was assessed using several key metrics. Round-trip time (RTT) was measured between the user equipment and the edge application server, excluding application processing overhead, to characterize pure network latency. Throughput measurements captured sustained uplink and downlink bandwidth during multimedia transmission. Packet loss was tracked at the network level to quantify reliability, and jitter was analyzed to understand timing variation affecting real-time media. Finally, resource utilization on the edge compute node, particularly host CPU usage, was monitored to evaluate processing overhead under different profile loads. Together, these metrics provide a comprehensive view of network, transport, and system performance supporting real-time multimedia over 5G edge cloud deployments.</p>
+</div>
+<div id="S5.SS1.p7" class="ltx_para">
+<p id="S5.SS1.p7.1" class="ltx_p">The analysis below focuses on throughput scalability, latency behavior, system resource utilization, and reliability across AVSE profiles ranging from audio-only baselines to extreme audio-visual configurations.</p>
+</div>
+<figure id="S5.F7" class="ltx_figure">
+<div class="ltx_flex_figure">
+<div class="ltx_flex_cell ltx_flex_size_2">
+<figure id="S5.F7.sf1" class="ltx_figure ltx_figure_panel ltx_align_center"><img src="2508.08468v6/x1.png" id="S5.F7.sf1.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="330" height="264" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F7.sf1.2.1.1" class="ltx_text" style="font-size:90%;">(a)</span> </span><span id="S5.F7.sf1.3.2" class="ltx_text" style="font-size:90%;">Average downlink throughput.</span></figcaption>
+</figure>
+</div>
+<div class="ltx_flex_cell ltx_flex_size_2">
+<figure id="S5.F7.sf2" class="ltx_figure ltx_figure_panel ltx_align_center"><img src="2508.08468v6/x2.png" id="S5.F7.sf2.g1" class="ltx_graphics ltx_centering ltx_img_square" width="330" height="272" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F7.sf2.2.1.1" class="ltx_text" style="font-size:90%;">(b)</span> </span><span id="S5.F7.sf2.3.2" class="ltx_text" style="font-size:90%;">Average RTT (network latency only).</span></figcaption>
+</figure>
+</div>
+<div class="ltx_flex_break"></div>
+<div class="ltx_flex_cell ltx_flex_size_2">
+<figure id="S5.F7.sf3" class="ltx_figure ltx_figure_panel ltx_align_center"><img src="2508.08468v6/x3.png" id="S5.F7.sf3.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="330" height="264" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F7.sf3.2.1.1" class="ltx_text" style="font-size:90%;">(c)</span> </span><span id="S5.F7.sf3.3.2" class="ltx_text" style="font-size:90%;">Average host CPU utilization.</span></figcaption>
+</figure>
+</div>
+<div class="ltx_flex_cell ltx_flex_size_2">
+<figure id="S5.F7.sf4" class="ltx_figure ltx_figure_panel ltx_align_center"><img src="2508.08468v6/x4.png" id="S5.F7.sf4.g1" class="ltx_graphics ltx_centering ltx_img_square" width="330" height="271" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F7.sf4.2.1.1" class="ltx_text" style="font-size:90%;">(d)</span> </span><span id="S5.F7.sf4.3.2" class="ltx_text" style="font-size:90%;">Average packet loss.</span></figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F7.2.1.1" class="ltx_text" style="font-size:90%;">Figure 7</span>: </span><span id="S5.F7.3.2" class="ltx_text" style="font-size:90%;">AWS edge-cloud (Wavelength) over Vodafone 5G network performance metrics across different AVSE profiles under increasing load.</span></figcaption>
+</figure>
+<div id="S5.SS1.p8" class="ltx_para">
+<p id="S5.SS1.p8.1" class="ltx_p">Fig. <a href="#S5.F7.sf1" title="In Figure 7 ‣ V-A Vodafone 5G network ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7(a)</span></a> presents the average downlink throughput for the five stress classes. Throughput increases monotonically from the audio-only (AO) baseline to the AV Stress profile, demonstrating that the proposed profile design provides controlled and predictable scaling of network load. Low and medium stress profiles (AV Low and AV Medium) increase throughput gradually, enabling graceful adaptation under constrained network conditions. In contrast, the AV High and AV Stress profiles introduce a sharp increase in bandwidth demand, with the latter exceeding 13 Mbps on average, representing the upper operational limit of the pipeline. These results validate the ability of the system to span a wide range of deployment scenarios using a single unified profile design.</p>
+</div>
+<div id="S5.SS1.p9" class="ltx_para">
+<p id="S5.SS1.p9.1" class="ltx_p">Fig. <a href="#S5.F7.sf2" title="In Figure 7 ‣ V-A Vodafone 5G network ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7(b)</span></a> shows the corresponding network latency measured as average RTT, excluding AVSE processing overhead. RTT remains relatively stable for AO, AV Low, and AV Medium profiles (approximately 54–59 ms), indicating that moderate increases in video bitrate do not significantly impact network delay when edge cloud deployment is used. However, latency increases for AV High and peaks for AV Stress at approximately 73 ms, suggesting the onset of queuing and scheduling effects under sustained high throughput. While still acceptable for real-time audio-visual processing, these results highlight the reduced latency margin at extreme configurations and the importance of adaptive profile selection.</p>
+</div>
+<div id="S5.SS1.p10" class="ltx_para">
+<p id="S5.SS1.p10.1" class="ltx_p">Fig. <a href="#S5.F7.sf3" title="In Figure 7 ‣ V-A Vodafone 5G network ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7(c)</span></a> illustrates the host CPU utilization across stress levels. Audio-only processing requires minimal resources (approximately 5% CPU usage), while AV Low and AV Medium profiles operate between 10–13%, representing a practical region for sustained deployment. The AV High profile increases CPU usage to approximately 18%, and the AV Stress profile exceeds 21%, reflecting the combined cost of high-rate video encoding and network transmission. These results indicate that computational load scales predictably with stress level and that mid-range profiles provide the best efficiency–performance trade-off.</p>
+</div>
+<div id="S5.SS1.p11" class="ltx_para">
+<p id="S5.SS1.p11.1" class="ltx_p">Fig. <a href="#S5.F7.sf4" title="In Figure 7 ‣ V-A Vodafone 5G network ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7(d)</span></a> reports the average packet loss observed across stress profiles. Packet loss remains low for AO through AV High profiles, demonstrating the robustness of the pipeline under typical operating conditions. The AV Stress profile exhibits higher loss and variance, confirming that it is primarily suitable for stress testing rather than continuous real-time operation. Notably, AV Medium and AV High profiles maintain low packet loss while delivering significantly higher throughput, reinforcing their suitability for practical deployments.</p>
+</div>
+<div id="S5.SS1.p12" class="ltx_para">
+<p id="S5.SS1.p12.1" class="ltx_p">Overall, the results demonstrate that while extreme profiles expose system and network limits, mid-range configurations achieve a favorable balance between throughput, latency, resource consumption, and reliability. These findings confirm that edge cloud proximity, combined with adaptive profile selection, is a key enabler for real-time audio-visual speech enhancement in public 5G environments.</p>
+</div>
+<figure id="S5.T2" class="ltx_table">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span id="S5.T2.7.1.1" class="ltx_text" style="font-size:90%;">TABLE II</span>: </span><span id="S5.T2.8.2" class="ltx_text" style="font-size:90%;">Latency report of different AVSE deployments</span></figcaption>
+<table id="S5.T2.5" class="ltx_tabular ltx_centering ltx_align_middle">
+<tr id="S5.T2.5.6" class="ltx_tr">
+<td id="S5.T2.5.6.1" class="ltx_td ltx_align_left ltx_border_tt"><span id="S5.T2.5.6.1.1" class="ltx_text ltx_font_bold">Network</span></td>
+<td id="S5.T2.5.6.2" class="ltx_td ltx_align_left ltx_border_tt"><span id="S5.T2.5.6.2.1" class="ltx_text ltx_font_bold">Latency (ms)</span></td>
+<td id="S5.T2.5.6.3" class="ltx_td ltx_align_left ltx_border_tt"><span id="S5.T2.5.6.3.1" class="ltx_text ltx_font_bold">Notes</span></td>
+</tr>
+<tr id="S5.T2.1.1" class="ltx_tr">
+<td id="S5.T2.1.1.2" class="ltx_td ltx_align_left ltx_border_t">Ethernet (Direct)</td>
+<td id="S5.T2.1.1.1" class="ltx_td ltx_align_left ltx_border_t">
+<math id="S5.T2.1.1.1.m1" class="ltx_Math" alttext="\sim" display="inline" intent=":literal"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>5–15</td>
+<td id="S5.T2.1.1.3" class="ltx_td ltx_align_left ltx_border_t">Stable, lowest latency</td>
+</tr>
+<tr id="S5.T2.2.2" class="ltx_tr">
+<td id="S5.T2.2.2.2" class="ltx_td ltx_align_left">5G private network (Cambridge Wireless)</td>
+<td id="S5.T2.2.2.1" class="ltx_td ltx_align_left">
+<math id="S5.T2.2.2.1.m1" class="ltx_Math" alttext="\sim" display="inline" intent=":literal"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>20–35</td>
+<td id="S5.T2.2.2.3" class="ltx_td ltx_align_left">Satisfies real-time requirements</td>
+</tr>
+<tr id="S5.T2.5.7" class="ltx_tr">
+<td id="S5.T2.5.7.1" class="ltx_td ltx_align_left">5G public network (Vodafone + AWS Wavelength, London)</td>
+<td id="S5.T2.5.7.2" class="ltx_td ltx_align_left">54.4–73</td>
+<td id="S5.T2.5.7.3" class="ltx_td ltx_align_left">Acceptable for real-time A/V with reduced margin</td>
+</tr>
+<tr id="S5.T2.3.3" class="ltx_tr">
+<td id="S5.T2.3.3.2" class="ltx_td ltx_align_left">Wi-Fi 4 (802.11n)</td>
+<td id="S5.T2.3.3.1" class="ltx_td ltx_align_left">
+<math id="S5.T2.3.3.1.m1" class="ltx_Math" alttext="\sim" display="inline" intent=":literal"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>50–100</td>
+<td id="S5.T2.3.3.3" class="ltx_td ltx_align_left">Too high for smooth streaming; Wi-Fi 5/6 recommended</td>
+</tr>
+<tr id="S5.T2.4.4" class="ltx_tr">
+<td id="S5.T2.4.4.2" class="ltx_td ltx_align_left">4G (Cambridge Wireless)</td>
+<td id="S5.T2.4.4.1" class="ltx_td ltx_align_left">
+<math id="S5.T2.4.4.1.m1" class="ltx_Math" alttext="\sim" display="inline" intent=":literal"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>60–150</td>
+<td id="S5.T2.4.4.3" class="ltx_td ltx_align_left">Exceeds latency threshold, inconsistent</td>
+</tr>
+<tr id="S5.T2.5.5" class="ltx_tr">
+<td id="S5.T2.5.5.2" class="ltx_td ltx_align_left ltx_border_bb">AWS over Internet (WebRTC)</td>
+<td id="S5.T2.5.5.1" class="ltx_td ltx_align_left ltx_border_bb">
+<math id="S5.T2.5.5.1.m1" class="ltx_Math" alttext="\sim" display="inline" intent=":literal"><semantics><mo>∼</mo><annotation encoding="application/x-tex">\sim</annotation></semantics></math>80–200</td>
+<td id="S5.T2.5.5.3" class="ltx_td ltx_align_left ltx_border_bb">Region and ISP dependent; cloud adds delay</td>
+</tr>
+</table>
+</figure>
+<div id="S5.SS1.p13" class="ltx_para">
+<p id="S5.SS1.p13.1" class="ltx_p">The latency measurements highlight the strong dependence of real-time audio-visual speech enhancement (AVSE) performance on network architecture rather than access technology alone. Ethernet (direct) provides the lowest and most stable latency (<math id="S5.SS1.p13.1.m1" class="ltx_Math" alttext="\approx" display="inline" intent=":literal"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>5–15 ms), representing the ideal baseline for real-time AVSE and confirming that processing, rather than networking, becomes the dominant factor in wired deployments.</p>
+</div>
+<div id="S5.SS1.p14" class="ltx_para">
+<p id="S5.SS1.p14.1" class="ltx_p">The private 5G network achieves consistently low latency (<math id="S5.SS1.p14.1.m1" class="ltx_Math" alttext="\approx" display="inline" intent=":literal"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>20–35 ms), comfortably satisfying real-time requirements and demonstrating the advantage of localized cores and controlled radio environments for edge-based AVSE services.</p>
+</div>
+<div id="S5.SS1.p15" class="ltx_para">
+<p id="S5.SS1.p15.1" class="ltx_p">Vodafone’s public 5G network with AWS Wavelength in London exhibits moderate latency (<math id="S5.SS1.p15.1.m1" class="ltx_Math" alttext="\approx" display="inline" intent=":literal"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>54–73 ms), which remains acceptable for real-time audio-visual applications, though with reduced margin. This increase reflects the added complexity of public network traversal and edge-cloud integration, yet still significantly outperforms traditional internet-based cloud deployment.</p>
+</div>
+<div id="S5.SS1.p16" class="ltx_para">
+<p id="S5.SS1.p16.1" class="ltx_p">In contrast, Wi-Fi 4 and 4G show higher and more variable latency (<math id="S5.SS1.p16.1.m1" class="ltx_Math" alttext="\approx" display="inline" intent=":literal"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>50–150 ms), often exceeding thresholds for smooth interactive streaming. These results indicate that legacy access technologies and shared radio conditions introduce instability that limits AVSE usability.</p>
+</div>
+<div id="S5.SS1.p17" class="ltx_para">
+<p id="S5.SS1.p17.1" class="ltx_p">Finally, deploying AVSE over the public internet to AWS regions using WebRTC results in the highest and most unpredictable latency (<math id="S5.SS1.p17.1.m1" class="ltx_Math" alttext="\approx" display="inline" intent=":literal"><semantics><mo>≈</mo><annotation encoding="application/x-tex">\approx</annotation></semantics></math>80–200 ms), driven by geographic distance, ISP routing, and core network hops. This clearly demonstrates the importance of edge computing for latency-sensitive audio-visual applications.</p>
+</div>
+<div id="S5.SS1.p18" class="ltx_para">
+<p id="S5.SS1.p18.1" class="ltx_p">Overall, the results confirm that edge proximity is the dominant factor enabling real-time AVSE, and that public 5G with edge cloud provides a practical middle ground between private networks and best-effort internet cloud deployments.</p>
+</div>
+</section>
+<section id="S5.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection"><span id="S5.SS2.5.1.1" class="ltx_text">V-B</span> </span><span id="S5.SS2.6.2" class="ltx_text ltx_font_italic">Algorithm Processing Latency</span>
+</h3>
+
+<figure id="S5.F8" class="ltx_figure"><img src="2508.08468v6/fig6.png" id="S5.F8.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="238" height="166" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F8.2.1.1" class="ltx_text" style="font-size:90%;">Figure 8</span>: </span><span id="S5.F8.3.2" class="ltx_text" style="font-size:90%;">Algorithm processing latency versus input chunk size.</span></figcaption>
+</figure>
+<div id="S5.SS2.p1" class="ltx_para">
+<p id="S5.SS2.p1.3" class="ltx_p">The end-to-end user-perceived delay (<math id="S5.SS2.p1.1.m1" class="ltx_Math" alttext="t_{\text{delay}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>delay</mtext></msub><annotation encoding="application/x-tex">t_{\text{delay}}</annotation></semantics></math>) can be decomposed into communication latency (<math id="S5.SS2.p1.2.m2" class="ltx_Math" alttext="t_{\text{comm}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>comm</mtext></msub><annotation encoding="application/x-tex">t_{\text{comm}}</annotation></semantics></math>) and algorithm processing latency (<math id="S5.SS2.p1.3.m3" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math>), i.e.,</p>
+<table id="S5.E12" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S5.E12.m1" class="ltx_Math" alttext="t_{\text{delay}}=t_{\text{comm}}+t_{\text{proc}}." display="block" intent=":literal"><semantics><mrow><mrow><msub><mi>t</mi><mtext>delay</mtext></msub><mo>=</mo><mrow><msub><mi>t</mi><mtext>comm</mtext></msub><mo>+</mo><msub><mi>t</mi><mtext>proc</mtext></msub></mrow></mrow><mo lspace="0em">.</mo></mrow><annotation encoding="application/x-tex">t_{\text{delay}}=t_{\text{comm}}+t_{\text{proc}}.</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(12)</span></td>
+</tr></tbody>
+</table>
+<p id="S5.SS2.p1.6" class="ltx_p">In practice, <math id="S5.SS2.p1.4.m1" class="ltx_Math" alttext="t_{\text{comm}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>comm</mtext></msub><annotation encoding="application/x-tex">t_{\text{comm}}</annotation></semantics></math> mainly affects the synchronization and coherence of the feedback audio, whereas <math id="S5.SS2.p1.5.m2" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math> directly determines the system responsiveness. Real-world measurements indicate that modern wireless standards such as 5G NR and Wi-Fi 6 can satisfy the required throughput and transmission delay constraints. Consequently, minimizing <math id="S5.SS2.p1.6.m3" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math> becomes the dominant factor in reducing overall interaction latency.</p>
+</div>
+<div id="S5.SS2.p2" class="ltx_para">
+<p id="S5.SS2.p2.1" class="ltx_p">A common approach to reduce <math id="S5.SS2.p2.1.m1" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math> is to shorten the input chunk duration and reduce model complexity. However, in audio–visual speech enhancement (AVSE), the enhancement model must capture temporal lip-motion dynamics in order to reliably extract the target speaker from competing noise sources. As a result, overly short input chunks may degrade enhancement performance due to insufficient temporal context.</p>
+</div>
+<div id="S5.SS2.p3" class="ltx_para">
+<p id="S5.SS2.p3.2" class="ltx_p">This latency–performance trade-off has been widely recognized in the AVSE literature. Gogate <em id="S5.SS2.p3.2.1" class="ltx_emph ltx_font_italic">et al.</em> introduced <span id="S5.SS2.p3.2.2" class="ltx_text ltx_font_italic">CochleaNet</span>, a causal, language-, noise-, and speaker-independent AVSE framework designed for real-time processing in noisy environments <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib2" title="CochleaNet: a robust language-independent audio-visual model for real-time speech enhancement" class="ltx_ref">5</a>]</cite>. More recently, Gogate <em id="S5.SS2.p3.2.3" class="ltx_emph ltx_font_italic">et al.</em> proposed a robust real-time AVSE framework that integrates a CycleGAN-based visual enhancement stage with a causal DNN-based fusion model to estimate an ideal binary mask (IBM) for noise suppression <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib6" title="Robust real-time audio-visual speech enhancement based on dnn and gan" class="ltx_ref">7</a>]</cite>. Their system reports an end-to-end processing latency of approximately <math id="S5.SS2.p3.1.m1" class="ltx_Math" alttext="15" display="inline" intent=":literal"><semantics><mn>15</mn><annotation encoding="application/x-tex">15</annotation></semantics></math> ms while achieving significant gains in objective and subjective intelligibility metrics, demonstrating the feasibility of low-latency AVSE under real-time constraints <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib6" title="Robust real-time audio-visual speech enhancement based on dnn and gan" class="ltx_ref">7</a>]</cite>. Additional efforts by the same group further explore lightweight architectures for benchmark AVSE challenges, emphasizing computational efficiency and practical deployment <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib4" title="A lightweight real-time audio-visual speech enhancement framework" class="ltx_ref">6</a>]</cite>. Furthermore, latency-efficient AVSE models based on cross-modal feature synchronization have reported real-time performance with processing delays on the order of <math id="S5.SS2.p3.2.m2" class="ltx_Math" alttext="36" display="inline" intent=":literal"><semantics><mn>36</mn><annotation encoding="application/x-tex">36</annotation></semantics></math> ms, reinforcing the importance of low-latency multimodal fusion for assistive hearing applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib5" title="Audio-visual feature synchronization for robust speech enhancement in hearing aids" class="ltx_ref">11</a>]</cite>.</p>
+</div>
+<div id="S5.SS2.p4" class="ltx_para">
+<p id="S5.SS2.p4.5" class="ltx_p">In our system, the input stream is segmented into chunks of <math id="S5.SS2.p4.1.m1" class="ltx_Math" alttext="N" display="inline" intent=":literal"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math> frames, where each frame corresponds to <math id="S5.SS2.p4.2.m2" class="ltx_Math" alttext="40" display="inline" intent=":literal"><semantics><mn>40</mn><annotation encoding="application/x-tex">40</annotation></semantics></math> ms. Fig. <a href="#S5.F8" title="Figure 8 ‣ V-B Algorithm Processing Latency ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">8</span></a> illustrates the measured algorithm processing latency as a function of chunk size. The results indicate that processing latency increases approximately linearly with the input duration. In principle, processing each frame independently could reduce <math id="S5.SS2.p4.3.m3" class="ltx_Math" alttext="t_{\text{proc}}" display="inline" intent=":literal"><semantics><msub><mi>t</mi><mtext>proc</mtext></msub><annotation encoding="application/x-tex">t_{\text{proc}}</annotation></semantics></math> below <math id="S5.SS2.p4.4.m4" class="ltx_Math" alttext="40" display="inline" intent=":literal"><semantics><mn>40</mn><annotation encoding="application/x-tex">40</annotation></semantics></math> ms, enabling a total interaction latency within <math id="S5.SS2.p4.5.m5" class="ltx_Math" alttext="100" display="inline" intent=":literal"><semantics><mn>100</mn><annotation encoding="application/x-tex">100</annotation></semantics></math> ms. However, such short-context processing significantly reduces enhancement quality due to the lack of sufficient temporal information for robust audio–visual fusion.</p>
+</div>
+<div id="S5.SS2.p5" class="ltx_para">
+<p id="S5.SS2.p5.1" class="ltx_p">To further evaluate the impact of chunk size on enhancement quality, Fig. <a href="#S5.F9" title="Figure 9 ‣ V-B Algorithm Processing Latency ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">9</span></a> shows the time-domain waveform and spectrogram of the noisy input and enhanced output audio under varying chunk durations. Using <math id="S5.SS2.p5.1.m1" class="ltx_Math" alttext="10" display="inline" intent=":literal"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>-s audio–visual segments produces the strongest reconstruction of the target speech and the most effective suppression of competing background noise. In contrast, frame-level enhancement yields output dominated by residual noise, indicating that the model fails to extract reliable speaker-discriminative features at this temporal resolution. Increasing the chunk duration generally improves enhancement quality, although the performance is not uniformly consistent across all temporal segments, suggesting that longer temporal context does not necessarily guarantee optimal reconstruction in all intervals.</p>
+</div>
+<figure id="S5.F9" class="ltx_figure"><img src="2508.08468v6/fig7.png" id="S5.F9.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="476" height="235" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F9.2.1.1" class="ltx_text" style="font-size:90%;">Figure 9</span>: </span><span id="S5.F9.3.2" class="ltx_text" style="font-size:90%;">Time plot and spectrogram of the input noisy audio and output enhanced audio processed with different input chunk lengths.</span></figcaption>
+</figure>
+</section>
+<section id="S5.SS3" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection"><span id="S5.SS3.5.1.1" class="ltx_text">V-C</span> </span><span id="S5.SS3.6.2" class="ltx_text ltx_font_italic">Algorithm Development</span>
+</h3>
+
+<div id="S5.SS3.p1" class="ltx_para">
+<p id="S5.SS3.p1.1" class="ltx_p">To mitigate the processing latency while maintaining enhancement performance, we investigated whether the proposed model could learn discriminative representations from shorter temporal contexts. Specifically, the training scheme was adapted to support condensed input durations of <math id="S5.SS3.p1.1.m1" class="ltx_Math" alttext="200" display="inline" intent=":literal"><semantics><mn>200</mn><annotation encoding="application/x-tex">200</annotation></semantics></math> ms. Based on the AVSE architecture shown in <a href="#S4.F1" title="Figure 1 ‣ IV-A Model Architecture and Feature Fusion ‣ IV Proposed Solution ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Figure 1</span></a>, a series of lightweight variants were developed by reducing network depth and neuron count with the objective of shortening inference time. The total number of parameters and measured execution time for each reduced model are summarized in <a href="#S5.T3" title="TABLE III ‣ V-C Algorithm Development ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref ltx_refmacro_autoref"><span class="ltx_text ltx_ref_tag">Table III</span></a>.</p>
+</div>
+<figure id="S5.T3" class="ltx_table">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table"><span id="S5.T3.2.1.1" class="ltx_text" style="font-size:90%;">TABLE III</span>: </span><span id="S5.T3.3.2" class="ltx_text" style="font-size:90%;">Model Complexity and Execution Time</span></figcaption>
+<table id="S5.T3.4" class="ltx_tabular ltx_centering ltx_align_middle">
+<tr id="S5.T3.4.1" class="ltx_tr">
+<td id="S5.T3.4.1.1" class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t"><span id="S5.T3.4.1.1.1" class="ltx_text ltx_font_bold">Model</span></td>
+<td id="S5.T3.4.1.2" class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span id="S5.T3.4.1.2.1" class="ltx_text ltx_font_bold">Total Parameters</span></td>
+<td id="S5.T3.4.1.3" class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span id="S5.T3.4.1.3.1" class="ltx_text ltx_font_bold">Execution Time (ms)</span></td>
+</tr>
+<tr id="S5.T3.4.2" class="ltx_tr">
+<td id="S5.T3.4.2.1" class="ltx_td ltx_align_center ltx_border_l ltx_border_r ltx_border_t">Model 1</td>
+<td id="S5.T3.4.2.2" class="ltx_td ltx_align_center ltx_border_r ltx_border_t">1,540,396 (5.88 MB)</td>
+<td id="S5.T3.4.2.3" class="ltx_td ltx_align_center ltx_border_r ltx_border_t">1200</td>
+</tr>
+<tr id="S5.T3.4.3" class="ltx_tr">
+<td id="S5.T3.4.3.1" class="ltx_td ltx_align_center ltx_border_l ltx_border_r">Model 2</td>
+<td id="S5.T3.4.3.2" class="ltx_td ltx_align_center ltx_border_r">603,564 (2.30 MB)</td>
+<td id="S5.T3.4.3.3" class="ltx_td ltx_align_center ltx_border_r">550</td>
+</tr>
+<tr id="S5.T3.4.4" class="ltx_tr">
+<td id="S5.T3.4.4.1" class="ltx_td ltx_align_center ltx_border_b ltx_border_l ltx_border_r">Model 3</td>
+<td id="S5.T3.4.4.2" class="ltx_td ltx_align_center ltx_border_b ltx_border_r">202,564 (791.27 KB)</td>
+<td id="S5.T3.4.4.3" class="ltx_td ltx_align_center ltx_border_b ltx_border_r">350</td>
+</tr>
+</table>
+</figure>
+<div id="S5.SS3.p2" class="ltx_para">
+<p id="S5.SS3.p2.1" class="ltx_p">Fig. <a href="#S5.F10" title="Figure 10 ‣ V-C Algorithm Development ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a> compares the time-domain waveform and spectrogram of the clean target speech, noisy mixture, and enhanced output produced by the reduced models. The results show that shortening the input duration and reducing model capacity decreases reconstruction fidelity, particularly for low-energy speech components, due to reduced availability of visual temporal information. Nevertheless, the reduced models maintain satisfactory noise suppression performance, indicating that lightweight architectures can provide an effective trade-off between enhancement quality and low-latency execution.</p>
+</div>
+<figure id="S5.F10" class="ltx_figure"><img src="2508.08468v6/fig8.png" id="S5.F10.g1" class="ltx_graphics ltx_centering ltx_img_landscape" width="476" height="235" alt="Refer to caption">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure"><span id="S5.F10.2.1.1" class="ltx_text" style="font-size:90%;">Figure 10</span>: </span><span id="S5.F10.3.2" class="ltx_text" style="font-size:90%;">Time plot and spectrogram of the input noisy audio and output enhanced audio processed with different network architectures.</span></figcaption>
+</figure>
+<div id="S5.SS3.p3" class="ltx_para">
+<p id="S5.SS3.p3.1" class="ltx_p">Overall, the results demonstrate a clear trade-off between processing latency and enhancement performance. Longer input chunks provide richer temporal context for lip-motion tracking and speaker discrimination, but significantly increase processing delay. Conversely, reducing chunk size and model complexity improves responsiveness but may degrade speech reconstruction quality in challenging low-SNR conditions. Therefore, selecting an optimal configuration requires balancing the latency constraints of real-time feedback against the temporal context required for robust AVSE.</p>
+</div>
+</section>
+</section>
+<section id="S6" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">VI </span><span id="S6.1.1" class="ltx_text ltx_font_smallcaps">CONCLUSION</span>
+</h2>
+
+<div id="S6.p1" class="ltx_para">
+<p id="S6.p1.1" class="ltx_p">This work presented a comprehensive evaluation of a real-time, cloud–edge–assisted audio-visual speech enhancement (AVSE) system operating over a public 5G edge cloud. The proposed system integrates CNN-based acoustic processing and OpenCV-driven facial feature extraction with an LSTM fusion network to preserve temporal coherence, and was deployed and evaluated using a Vodafone-compatible AWS Wavelength edge in London. The results demonstrate that compute placement at the network edge and network transport latency are primary determinants of end-to-end performance for interactive multimedia and perceptual enhancement applications.</p>
+</div>
+<div id="S6.p2" class="ltx_para">
+<p id="S6.p2.1" class="ltx_p">Experimental analysis showed that real-time coherence is achieved only when communication delay remains below the chunk duration (<math id="S6.p2.1.m1" class="ltx_Math" alttext="t_{\text{comm}}\leq t_{\text{chunk}}=40" display="inline" intent=":literal"><semantics><mrow><msub><mi>t</mi><mtext>comm</mtext></msub><mo>≤</mo><msub><mi>t</mi><mtext>chunk</mtext></msub><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">t_{\text{comm}}\leq t_{\text{chunk}}=40</annotation></semantics></math> ms). In practice, this requirement was consistently met by 5G and wired Ethernet connections for uncompressed 0.3 MB audio-video chunks, while other access networks failed to maintain stable operation. Applying aggressive compression (up to a factor of 80) reduced payloads to approximately 70 KB with negligible perceptual degradation, significantly improving robustness under constrained uplink conditions and enabling smoother real-time streaming. These findings confirm that uplink capacity is often the dominant bottleneck for interactive edge-based multimedia services.</p>
+</div>
+<div id="S6.p3" class="ltx_para">
+<p id="S6.p3.1" class="ltx_p">We further observed that system responsiveness and enhancement quality are jointly governed by network quality, chunk size, and model complexity. Reducing temporal context and model size lowered processing latency from approximately 1.2 s to 0.35 s, but at the cost of degraded speech reconstruction, particularly in low-SNR conditions. This reveals a fundamental trade-off between computational efficiency and enhancement fidelity, underscoring the need for adaptive operating profiles that can dynamically balance latency, throughput, and quality based on current network and compute conditions. Stress testing identified safe operating regions as well as the importance of fallback modes, such as audio-only operation, to preserve service continuity during adverse network conditions.</p>
+</div>
+<div id="S6.p4" class="ltx_para">
+<p id="S6.p4.1" class="ltx_p">Overall, the results indicate that public 5G edge environments can sustain real-time, interactive multimedia workloads, provided that network and compute resources are carefully orchestrated. However, performance margins remain tighter than in dedicated or private infrastructures, making dynamic adaptation and edge proximity essential architectural considerations. The insights derived from this study are directly applicable to delay-sensitive services such as augmented reality, interactive conferencing, and multimodal perception enhancement.</p>
+</div>
+<div id="S6.p5" class="ltx_para">
+<p id="S6.p5.1" class="ltx_p">Future work will extend this study by incorporating mobility and multi-user scenarios, exploring GPU-accelerated edge instances for more complex models, and evaluating performance across multiple geographic regions and operator ecosystems. We also plan to investigate adaptive chunking, lightweight streaming architectures, and edge-assisted learning to further reduce latency while preserving enhancement fidelity in real-world wireless environments.</p>
+</div>
+</section>
+<section id="Sx1" class="ltx_section">
+<h2 class="ltx_title ltx_font_smallcaps ltx_title_section">Acknowledgements</h2>
+
+<div id="Sx1.p1" class="ltx_para">
+<p id="Sx1.p1.1" class="ltx_p">This work was supported by the UK Engineering and Physical Sciences Research Council (EPSRC) Grant No. EP/T021063/1.</p>
+</div>
+</section>
+<section id="bib" class="ltx_bibliography">
+<h2 class="ltx_title ltx_title_bibliography">References</h2>
+
+<ul id="bib.L1" class="ltx_biblist">
+<li id="bib.bib20" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[1]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">A. Adeel, J. Ahmad, and A. Hussain</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Real-time lightweight chaotic encryption for 5g iot enabled lip-reading driven secure hearing-aid</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:1809.04966</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p4.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+<li id="bib.bib8" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[2]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">Amazon Web Services, Inc.</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">5G edge computing infrastructure – aws wavelength</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note"><a href="https://aws.amazon.com/wavelength/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://aws.amazon.com/wavelength/</a>Accessed: Jan. 2026</span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p3.1" title="I Introduction ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§I</span></a>.
+</span>
+</li>
+<li id="bib.bib17" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[3]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">A. Ephrat, I. Mosseri, O. Lang, T. Dekel, K. Wilson, A. Hassidim, W. T. Freeman, and M. Rubinstein</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Looking to listen at the cocktail party: a speaker-independent audio-visual model for speech separation</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:1804.03619</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p1.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+<li id="bib.bib7" class="ltx_bibitem ltx_bib_misc">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[4]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">European Telecommunications Standards Institute (ETSI)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Multi-access edge computing (mec)</span>.
+</span>
+<span class="ltx_bibblock">Note: <span class="ltx_text ltx_bib_note"><a href="https://www.etsi.org/technologies/multi-access-edge-computing" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://www.etsi.org/technologies/multi-access-edge-computing</a>Accessed: 2026-01</span>
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p3.1" title="I Introduction ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§I</span></a>.
+</span>
+</li>
+<li id="bib.bib2" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[5]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">M. Gogate, K. Dashtipour, A. Adeel, and A. Hussain</span><span class="ltx_text ltx_bib_year"> (2020)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">CochleaNet: a robust language-independent audio-visual model for real-time speech enhancement</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Information Fusion</span> <span class="ltx_text ltx_bib_volume">63</span>, <span class="ltx_text ltx_bib_pages"> pp. 273–285</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S5.SS2.p3.2" title="V-B Algorithm Processing Latency ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§<span class="ltx_text">V-B</span></span></a>.
+</span>
+</li>
+<li id="bib.bib4" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[6]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">M. Gogate, K. Dashtipour, and A. Hussain</span><span class="ltx_text ltx_bib_year"> (2024)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">A lightweight real-time audio-visual speech enhancement framework</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">Proceedings of AVSEC</span>, <span class="ltx_text ltx_bib_pages"> pp. 19–23</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S5.SS2.p3.2" title="V-B Algorithm Processing Latency ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§<span class="ltx_text">V-B</span></span></a>.
+</span>
+</li>
+<li id="bib.bib6" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[7]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">M. Gogate, K. Dashtipour, and A. Hussain</span><span class="ltx_text ltx_bib_year"> (2024)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Robust real-time audio-visual speech enhancement based on dnn and gan</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">IEEE Transactions on Artificial Intelligence</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S5.SS2.p3.2" title="V-B Algorithm Processing Latency ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§<span class="ltx_text">V-B</span></span></a>.
+</span>
+</li>
+<li id="bib.bib16" class="ltx_bibitem ltx_bib_inproceedings">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[8]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">A. Gupta, A. Bishnu, M. Gogate, K. Dashtipour, T. Arslan, A. Adeel, A. Hussain, T. Ratnarajah, and M. Sellathurai</span><span class="ltx_text ltx_bib_year"> (2023)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">5G-iot cloud based demonstration of real-time audio-visual speech enhancement for multimodal hearing-aids</span>.
+</span>
+<span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">24th International Speech Communication Association Conference 2023</span>,
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 686–687</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p3.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+<li id="bib.bib9" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[9]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">J. Hou, S. Wang, Y. Lai, Y. Tsao, H. Chang, and H. Wang</span><span class="ltx_text ltx_bib_year"> (2018)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Audio-visual speech enhancement using multimodal deep convolutional neural networks</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">IEEE Transactions on Emerging Topics in Computational Intelligence</span> <span class="ltx_text ltx_bib_volume">2</span> (<span class="ltx_text ltx_bib_number">2</span>), <span class="ltx_text ltx_bib_pages"> pp. 117–128</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p1.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+<li id="bib.bib13" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[10]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">Y. Mao, C. You, J. Zhang, K. Huang, and K. B. Letaief</span><span class="ltx_text ltx_bib_year"> (2017)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">A survey on mobile edge computing: the communication perspective</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">IEEE communications surveys &amp; tutorials</span> <span class="ltx_text ltx_bib_volume">19</span> (<span class="ltx_text ltx_bib_number">4</span>), <span class="ltx_text ltx_bib_pages"> pp. 2322–2358</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p4.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+<li id="bib.bib5" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[11]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">N. Saleem, M. Gogate, K. Dashtipour, A. Hussain, U. Anwar, A. Adetomi, T. Arslan, and A. Hussain</span><span class="ltx_text ltx_bib_year"> (2025)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Audio-visual feature synchronization for robust speech enhancement in hearing aids</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">arXiv preprint arXiv:2508.19483</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S5.SS2.p3.2" title="V-B Algorithm Processing Latency ‣ V Experimental Results ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§<span class="ltx_text">V-B</span></span></a>.
+</span>
+</li>
+<li id="bib.bib14" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[12]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">Z. Yuan, T. Azzino, Y. Hao, Y. Lyu, H. Pei, A. Boldini, M. Mezzavilla, M. Beheshti, M. Porfiri, T. E. Hudson, <span class="ltx_text ltx_bib_etal">et al.</span></span><span class="ltx_text ltx_bib_year"> (2022)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Network-aware 5g edge computing for object detection: augmenting wearables to “see” more, farther and faster</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">IEEE Access</span> <span class="ltx_text ltx_bib_volume">10</span>, <span class="ltx_text ltx_bib_pages"> pp. 29612–29632</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p4.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+<li id="bib.bib11" class="ltx_bibitem ltx_bib_inproceedings">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[13]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">Z. Zhu, H. Yang, M. Tang, Z. Yang, S. E. Eskimez, and H. Wang</span><span class="ltx_text ltx_bib_year"> (2023)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">Real-time audio-visual end-to-end speech enhancement</span>.
+</span>
+<span class="ltx_bibblock">In <span class="ltx_text ltx_bib_inbook">ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)</span>,
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_pages"> pp. 1–5</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p2.1" title="II Related Work ‣ Audio-Visual Speech Enhancement: Architectural Design and Deployment Strategies" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§II</span></a>.
+</span>
+</li>
+</ul>
+</section>
+</article>
+</div>
+</div>
+<footer class="arxiv-html-footer">
+  <div class="ltx_page_logo">
+    Experimental support, please
+    <a href="./2508.08468v6/__stdout.txt" class="ltx_ref"
+    target="_blank" rel="nofollow">view the build logs</a>
+    for errors. Generated by
+    <a href="https://math.nist.gov/~BMiller/LaTeXML/" target="_blank" class="ltx_ref ltx_LaTeXML_logo">
+      <span style="letter-spacing: -0.2em; margin-right: 0.1em;">
+        L
+        <span style="font-size: 70%; position: relative; bottom: 2.2pt;">A</span>
+        T
+        <span style="position: relative; bottom: -0.4ex;">E</span>
+      </span>
+      <span class="ltx_font_smallcaps">xml</span>
+      <img alt="[LOGO]"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==">
+    </a>.
+  </div>
+  <div class="keyboard-glossary">
+    <h2>Instructions for reporting errors</h2>
+    <p>We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below:</p>
+    <ul>
+      <li>Click the "Report Issue" <span class="mobile-only">(<svg role="presentation"
+            style="display: inline-block; vertical-align: middle; fill: var(--text-color);" aria-hidden="true"
+            height="1em" viewBox="0 0 640 640">
+            <path
+              d="M224 160C224 107 267 64 320 64C373 64 416 107 416 160L416 163.6C416 179.3 403.3 192 387.6 192L252.5 192C236.8 192 224.1 179.3 224.1 163.6L224.1 160zM569.6 172.8C580.2 186.9 577.3 207 563.2 217.6L465.4 290.9C470.7 299.8 474.7 309.6 477.2 320L576 320C593.7 320 608 334.3 608 352C608 369.7 593.7 384 576 384L480 384L480 416C480 418.6 479.9 421.3 479.8 423.9L563.2 486.4C577.3 497 580.2 517.1 569.6 531.2C559 545.3 538.9 548.2 524.8 537.6L461.7 490.3C438.5 534.5 395.2 566.5 344 574.2L344 344C344 330.7 333.3 320 320 320C306.7 320 296 330.7 296 344L296 574.2C244.8 566.5 201.5 534.5 178.3 490.3L115.2 537.6C101.1 548.2 81 545.3 70.4 531.2C59.8 517.1 62.7 497 76.8 486.4L160.2 423.9C160.1 421.3 160 418.7 160 416L160 384L64 384C46.3 384 32 369.7 32 352C32 334.3 46.3 320 64 320L162.8 320C165.3 309.6 169.3 299.8 174.6 290.9L76.8 217.6C62.7 207 59.8 186.9 70.4 172.8C81 158.7 101.1 155.8 115.2 166.4L224 248C236.3 242.9 249.8 240 264 240L376 240C390.2 240 403.7 242.8 416 248L524.8 166.4C538.9 155.8 559 158.7 569.6 172.8z" />
+          </svg>)</span> button, located in the page header.</li>
+    </ul>
+    <p><strong>Tip:</strong> You can select the relevant text first, to include it in your report.</p>
+    <p>Our team has already identified <a class="ltx_ref" href="https://github.com/arXiv/html_feedback/issues"
+        target="_blank">the following issues</a>. We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all.</p>
+    <p>Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a <a
+        class="ltx_ref" href="https://github.com/brucemiller/LaTeXML/wiki/Porting-LaTeX-packages-for-LaTeXML"
+        target="_blank">list of packages that need conversion</a>, and welcome <a class="ltx_ref"
+        href="https://github.com/brucemiller/LaTeXML/issues" target="_blank">developer contributions</a>.</p>
+  </div>
+</footer><footer class="ds-site-footer">
+  <div class="ds-site-footer-grid">
+    <div class="ds-site-footer-main">
+      <div class="ds-site-footer-ack">
+        We gratefully acknowledge support from
+        our <strong>major funders</strong>,
+        <a href="https://info.arxiv.org/about/ourmembers.html"><strong>member institutions</strong></a><span class="ack-member-inline" hidden>, <strong></strong></span>,
+        and all contributors.
+      </div>
+      <nav class="ds-site-footer-links" aria-label="Site navigation">
+        <a href="https://info.arxiv.org/about">About</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help">Help</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/contact.html">Contact</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/subscribe">Subscribe</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a>
+        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://status.arxiv.org" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
+      </nav>
+    </div>
+
+    <div class="ds-site-footer-funders" aria-label="Major funders">
+      <div class="ds-site-footer-funders-label">Major funding support from</div>
+      <div class="ds-site-footer-funders-logos">
+        <img class="ds-funder-logo" src="/static/base/1.0.1/images/funders/simons-foundation.png" alt="Simons Foundation">
+        <img class="ds-funder-logo" src="/static/base/1.0.1/images/funders/schmidt-sciences.png" alt="Schmidt Sciences">
+      </div>
+    </div>
+  </div>
+</footer><div id="fixed-buttons-container">
+  <a id="disable-reading-mode-btn" class="header-button" href="javascript:toggleReadingMode();"
+    title="Disable reading mode, show header and footer">
+    <svg role="presentation" height="1.25rem"
+      viewBox="0 0 448 512"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+      <path
+        d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
+    </svg>
+  </a>
+</div></body>
+</html>

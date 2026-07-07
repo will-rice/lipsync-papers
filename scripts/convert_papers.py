@@ -14,8 +14,10 @@ import csv
 import logging
 import os
 import sys
+import urllib.error
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -53,9 +55,10 @@ class PaperRow:
 
 def main() -> None:
     args = parse_args()
-    rows = load_papers_csv(PAPERS_CSV)
-    logging.info("Loaded %d papers from %s", len(rows), PAPERS_CSV)
+    all_rows = load_papers_csv(PAPERS_CSV)
+    logging.info("Loaded %d papers from %s", len(all_rows), PAPERS_CSV)
 
+    rows = all_rows
     if args.only:
         rows = [r for r in rows if r.arxiv_id == args.only]
         logging.info("Filtered to %d paper(s) matching --only=%s", len(rows), args.only)
@@ -67,7 +70,9 @@ def main() -> None:
     error_log = CACHE_DIR / "conversion_errors.jsonl"
     fixme_path = PAPERS_DIR / ".fixme.txt"
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
-        futures = {pool.submit(_process_paper, row): row for row in pending}
+        futures = {
+            pool.submit(_process_paper, row, force=args.regenerate_all): row for row in pending
+        }
         for fut in as_completed(futures):
             row = futures[fut]
             try:
@@ -82,8 +87,9 @@ def main() -> None:
     if not args.skip_llm:
         _run_remediation_pass(rows)
 
-    # Stage 4: indexes (always regenerate; cheap).
-    _regenerate_indexes(rows)
+    # Stage 4: indexes (always regenerate; cheap). Use the unfiltered corpus so a
+    # --only run cannot clobber the index files down to a single entry.
+    _regenerate_indexes(all_rows)
 
 
 def parse_args() -> argparse.Namespace:
@@ -118,15 +124,41 @@ def load_papers_csv(path: Path) -> list[PaperRow]:
     return rows
 
 
+# Conversion tiers, best last. A paper is only rewritten when its tier improves.
+SOURCE_TIER_RANK = {"metadata-only": 0, "pdf": 1, "latex": 2, "arxiv-html": 3}
+
+# New papers can gain an arXiv HTML rendering days after submission; retry
+# non-HTML conversions until the paper lands on the top tier or ages out.
+HTML_RETRY_DAYS = 30
+
+
+def read_source_tier(md_path: Path) -> str:
+    """Return the frontmatter ``source:`` value of an existing paper file."""
+    for line in md_path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("source:"):
+            return line.removeprefix("source:").strip()
+    return ""
+
+
 def needs_conversion(row: PaperRow, papers_dir: Path, *, force: bool = False) -> bool:
     """True if this paper should be converted."""
     if force:
         return True
     target = papers_dir / row.year / f"{row.arxiv_id}.md"
-    return not target.exists()
+    if not target.exists():
+        return True
+    if row.arxiv_id.startswith("s2:"):
+        return False
+    try:
+        submitted = date.fromisoformat(row.submitted[:10])
+    except ValueError:
+        return False
+    if (date.today() - submitted).days > HTML_RETRY_DAYS:
+        return False
+    return read_source_tier(target) != "arxiv-html"
 
 
-def _process_paper(row: PaperRow) -> None:
+def _process_paper(row: PaperRow, force: bool = False) -> None:
     """Run Stages 0-3 for a single paper. Idempotent."""
     from scripts._convert import (
         citations,
@@ -140,7 +172,7 @@ def _process_paper(row: PaperRow) -> None:
     paper_cache = sources.cache_dir_for(row.arxiv_id, cache_root)
 
     # Stage 0: try arXiv HTML render first (faster than source tarball/PDF paths).
-    is_arxiv = not row.arxiv_id.startswith(("s2:", "pwc:"))
+    is_arxiv = not row.arxiv_id.startswith("s2:")
     body = ""
     bbl_text = ""
     bib_text = ""
@@ -148,16 +180,16 @@ def _process_paper(row: PaperRow) -> None:
     source_label = "metadata-only"
 
     if is_arxiv:
-        html = sources.fetch_arxiv_html(row.arxiv_id)
-        if html:
-            html_result = html_to_md.convert_html_to_md(html)
-            if html_result.exit_code == 0 and len(html_result.body.strip()) > 500:
+        page = sources.fetch_arxiv_html(row.arxiv_id)
+        if page:
+            html_result = html_to_md.convert_html_to_md(page.html, base_url=page.url)
+            if html_result.exit_code == 0 and html_to_md.looks_like_paper(html_result.body):
                 body = html_result.body
                 converter = "pandoc"
                 source_label = "arxiv-html"
             else:
                 logging.warning(
-                    "arXiv HTML conversion failed for %s (exit=%s): %s",
+                    "arXiv HTML conversion unusable for %s (exit=%s): %s",
                     row.arxiv_id,
                     html_result.exit_code,
                     html_result.stderr.strip(),
@@ -169,9 +201,14 @@ def _process_paper(row: PaperRow) -> None:
         if not sources.is_cache_fresh(extracted_dir):
             if is_arxiv:
                 tarball = paper_cache / "source.tar.gz"
-                if not tarball.exists():
-                    sources.fetch_arxiv_eprint(row.arxiv_id, tarball)
-                sources.extract_arxiv_tarball(tarball, extracted_dir)
+                try:
+                    if not tarball.exists():
+                        sources.fetch_arxiv_eprint(row.arxiv_id, tarball)
+                    sources.extract_arxiv_tarball(tarball, extracted_dir)
+                except urllib.error.HTTPError as exc:
+                    # Withdrawn / source-unavailable papers → metadata-only stub.
+                    logging.warning("No e-print for %s (%s); writing stub.", row.arxiv_id, exc)
+                    extracted_dir.mkdir(parents=True, exist_ok=True)
             else:
                 # S2 path: try openAccessPdf
                 s2_paper_id = row.arxiv_id.removeprefix("s2:")
@@ -203,6 +240,14 @@ def _process_paper(row: PaperRow) -> None:
             converter = "marker"
             source_label = "pdf"
 
+    # Retries must not churn files: only rewrite when the conversion tier improves.
+    target = output.paper_path(row.arxiv_id, row.submitted, PAPERS_DIR)
+    if not force and target.exists():
+        existing_tier = read_source_tier(target)
+        if SOURCE_TIER_RANK[source_label] <= SOURCE_TIER_RANK.get(existing_tier, -1):
+            logging.info("Keeping existing %s output for %s", existing_tier, row.arxiv_id)
+            return
+
     # Stage 3: parse + resolve + rewrite citations.
     cache_path = CACHE_DIR / "citations.json"
     s2_cache = citations.load_citation_cache(cache_path)
@@ -228,7 +273,7 @@ def _process_paper(row: PaperRow) -> None:
     refs_by_key = {r.key: r for r in refs}
     if source_label == "latex":
         body = citations.rewrite_latex_cites(body, refs_by_key)
-    elif source_label == "pdf":
+    elif source_label in ("pdf", "arxiv-html"):
         body = citations.rewrite_pdf_numeric_cites(body, refs_by_key)
 
     if refs:
@@ -257,7 +302,7 @@ def _process_paper(row: PaperRow) -> None:
 def _build_corpus_index() -> dict[str, str]:
     """Map arxiv_id → year for every paper in papers.csv (for local-sibling links)."""
     rows = load_papers_csv(PAPERS_CSV)
-    return {r.arxiv_id: r.year for r in rows if not r.arxiv_id.startswith(("s2:", "pwc:"))}
+    return {r.arxiv_id: r.year for r in rows if not r.arxiv_id.startswith("s2:")}
 
 
 def _run_remediation_pass(rows: list[PaperRow]) -> None:

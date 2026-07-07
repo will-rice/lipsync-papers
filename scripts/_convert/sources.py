@@ -6,15 +6,19 @@ import enum
 import json
 import logging
 import tarfile
+import threading
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
 ARXIV_EPRINT_URL = "https://arxiv.org/e-print/{arxiv_id}"
 ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
+# ar5iv serves LaTeXML HTML for papers predating arXiv's native HTML (~Dec 2023).
+AR5IV_HTML_URL = "https://ar5iv.labs.arxiv.org/html/{arxiv_id}"
 S2_PAPER_URL = (
     "https://api.semanticscholar.org/graph/v1/paper/{paper_id}?fields=openAccessPdf,externalIds"
 )
@@ -58,36 +62,56 @@ def fetch_arxiv_eprint(arxiv_id: str, dest: Path) -> Path:
     return dest
 
 
-def fetch_arxiv_html(arxiv_id: str) -> str | None:
-    """Fetch arXiv's HTML rendering for *arxiv_id*, or None when unavailable/low-quality."""
-    if arxiv_id.startswith(("s2:", "pwc:")):
+@dataclass
+class HtmlPage:
+    """A fetched HTML rendering plus its final URL (for resolving relative paths)."""
+
+    html: str
+    url: str
+
+
+_HTML_RATE_LOCK = threading.Lock()
+
+
+def fetch_arxiv_html(arxiv_id: str) -> HtmlPage | None:
+    """Fetch an HTML rendering for *arxiv_id* from arXiv, falling back to ar5iv.
+
+    Returns None when neither source has a usable LaTeXML conversion.
+    """
+    if arxiv_id.startswith("s2:"):
         return None
 
-    url = ARXIV_HTML_URL.format(arxiv_id=urllib.parse.quote(arxiv_id))
+    quoted = urllib.parse.quote(arxiv_id)
+    for template in (ARXIV_HTML_URL, AR5IV_HTML_URL):
+        page = _fetch_html_page(template.format(arxiv_id=quoted), arxiv_id)
+        if page is not None:
+            return page
+    return None
+
+
+def _fetch_html_page(url: str, arxiv_id: str) -> HtmlPage | None:
+    """Fetch one HTML URL, or None when unavailable or not a paper rendering."""
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-
-    import threading
-
-    lock = getattr(fetch_arxiv_html, "_rate_lock", None)
-    if lock is None:
-        lock = threading.Lock()
-        setattr(fetch_arxiv_html, "_rate_lock", lock)
-
     try:
-        with lock:
+        with _HTML_RATE_LOCK:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 html = resp.read().decode("utf-8", errors="replace")
+                final_url = resp.geturl()
             time.sleep(ARXIV_HTML_RATE_LIMIT_SECONDS)
     except (urllib.error.HTTPError, urllib.error.URLError) as exc:
-        logging.info("arXiv HTML unavailable for %s: %s", arxiv_id, exc)
+        logging.info("HTML unavailable for %s at %s: %s", arxiv_id, url, exc)
+        return None
+    if "/abs/" in final_url:
+        # ar5iv redirects to the arxiv.org abstract page when it has no conversion.
+        logging.info("HTML for %s redirected to abstract page (%s)", arxiv_id, final_url)
         return None
     if len(html.strip()) < ARXIV_HTML_MIN_LENGTH:
-        logging.info("arXiv HTML too short for %s (%d chars)", arxiv_id, len(html.strip()))
+        logging.info("HTML too short for %s at %s (%d chars)", arxiv_id, url, len(html.strip()))
         return None
     if "<body" not in html.lower():
-        logging.info("arXiv HTML missing <body> for %s", arxiv_id)
+        logging.info("HTML missing <body> for %s at %s", arxiv_id, url)
         return None
-    return html
+    return HtmlPage(html=html, url=final_url)
 
 
 def extract_arxiv_tarball(tarball: Path, out_dir: Path) -> None:
