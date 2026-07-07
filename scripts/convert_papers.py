@@ -14,6 +14,7 @@ import csv
 import logging
 import os
 import sys
+import urllib.error
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import date
@@ -200,9 +201,14 @@ def _process_paper(row: PaperRow, force: bool = False) -> None:
         if not sources.is_cache_fresh(extracted_dir):
             if is_arxiv:
                 tarball = paper_cache / "source.tar.gz"
-                if not tarball.exists():
-                    sources.fetch_arxiv_eprint(row.arxiv_id, tarball)
-                sources.extract_arxiv_tarball(tarball, extracted_dir)
+                try:
+                    if not tarball.exists():
+                        sources.fetch_arxiv_eprint(row.arxiv_id, tarball)
+                    sources.extract_arxiv_tarball(tarball, extracted_dir)
+                except urllib.error.HTTPError as exc:
+                    # Withdrawn / source-unavailable papers → metadata-only stub.
+                    logging.warning("No e-print for %s (%s); writing stub.", row.arxiv_id, exc)
+                    extracted_dir.mkdir(parents=True, exist_ok=True)
             else:
                 # S2 path: try openAccessPdf
                 s2_paper_id = row.arxiv_id.removeprefix("s2:")

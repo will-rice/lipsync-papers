@@ -469,3 +469,57 @@ def test_process_paper_does_not_rewrite_when_tier_unchanged(monkeypatch, tmp_pat
     # But a forced run must rewrite it.
     convert_papers._process_paper(row, force=True)
     assert existing.read_text() != "---\nsource: latex\n---\n\nexisting body\n"
+
+
+def test_process_paper_writes_stub_when_eprint_unavailable(monkeypatch, tmp_path):
+    """A 404 on the e-print (withdrawn/no-source papers) must yield a metadata stub."""
+    import urllib.error
+
+    from scripts import convert_papers
+    from scripts._convert import sources
+
+    csv_path = tmp_path / "papers.csv"
+    _write_csv(
+        csv_path,
+        [
+            {
+                "arxiv_id": "2308.00462",
+                "title": "Paper",
+                "authors": "A",
+                "submitted": "2023-08-01",
+                "categories": "cs.CV",
+                "url": "https://arxiv.org/abs/2308.00462",
+                "abstract": "the abstract",
+            }
+        ],
+    )
+    monkeypatch.setattr(convert_papers, "PAPERS_CSV", csv_path)
+    monkeypatch.setattr(convert_papers, "PAPERS_DIR", tmp_path / "papers")
+    monkeypatch.setattr(convert_papers, "CACHE_DIR", tmp_path / ".cache")
+    monkeypatch.setattr(sources, "fetch_arxiv_html", lambda _arxiv_id: None)
+
+    def raise_404(arxiv_id, dest):
+        raise urllib.error.HTTPError(
+            url=f"https://arxiv.org/e-print/{arxiv_id}",
+            code=404,
+            msg="Not Found",
+            hdrs=None,
+            fp=None,
+        )
+
+    monkeypatch.setattr(sources, "fetch_arxiv_eprint", raise_404)
+
+    row = convert_papers.PaperRow(
+        arxiv_id="2308.00462",
+        title="Paper",
+        authors=["A"],
+        submitted="2023-08-01",
+        categories=["cs.CV"],
+        url="https://arxiv.org/abs/2308.00462",
+        abstract="the abstract",
+    )
+    convert_papers._process_paper(row)
+
+    out = (tmp_path / "papers" / "2023" / "2308.00462.md").read_text(encoding="utf-8")
+    assert "source: metadata-only" in out
+    assert "the abstract" in out
