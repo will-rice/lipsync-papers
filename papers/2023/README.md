@@ -1,6 +1,6 @@
 # 2023
 
-84 papers in this year.
+85 papers in this year.
 
 ### [EFHQ: Multi-purpose ExtremePose-Face-HQ dataset](2312.17205.md)
 **Trung Tuan Dao, Duc Hong Vu, Cuong Pham, Anh Tran** · 2023-12-28
@@ -379,6 +379,16 @@ Body language (BL) refers to the non-verbal communication expressed through phys
 <summary>Abstract</summary>
 
 Recent research has made significant progress in designing fusion modules for audio-visual speech separation. However, they predominantly focus on multi-modal fusion at a single temporal scale of auditory and visual features without employing selective attention mechanisms, which is in sharp contrast with the brain. To address this issue, We propose a novel model called Intra- and Inter-Attention Network (IIANet), which leverages the attention mechanism for efficient audio-visual feature fusion. IIANet consists of two types of attention blocks: intra-attention (IntraA) and inter-attention (InterA) blocks, where the InterA blocks are distributed at the top, middle and bottom of IIANet. Heavily inspired by the way how human brain selectively focuses on relevant content at various temporal scales, these blocks maintain the ability to learn modality-specific features and enable the extraction of different semantics from audio-visual features. Comprehensive experiments on three standard audio-visual separation benchmarks (LRS2, LRS3, and VoxCeleb2) demonstrate the effectiveness of IIANet, outperforming previous state-of-the-art methods while maintaining comparable inference time. In particular, the fast version of IIANet (IIANet-fast) has only 7% of CTCNet's MACs and is 40% faster than CTCNet on CPUs while achieving better separation quality, showing the great potential of attention mechanism for efficient and effective multimodal fusion.
+
+</details>
+
+### [Context-Aware Talking-Head Video Editing](2308.00462.md)
+**Songlin Yang, Wei Wang, Jun Ling, Bo Peng et al.** · 2023-08-01
+
+<details>
+<summary>Abstract</summary>
+
+Talking-head video editing aims to efficiently insert, delete, and substitute the word of a pre-recorded video through a text transcript editor. The key challenge for this task is obtaining an editing model that generates new talking-head video clips which simultaneously have accurate lip synchronization and motion smoothness. Previous approaches, including 3DMM-based (3D Morphable Model) methods and NeRF-based (Neural Radiance Field) methods, are sub-optimal in that they either require minutes of source videos and days of training time or lack the disentangled control of verbal (e.g., lip motion) and non-verbal (e.g., head pose and expression) representations for video clip insertion. In this work, we fully utilize the video context to design a novel framework for talking-head video editing, which achieves efficiency, disentangled motion control, and sequential smoothness. Specifically, we decompose this framework to motion prediction and motion-conditioned rendering: (1) We first design an animation prediction module that efficiently obtains smooth and lip-sync motion sequences conditioned on the driven speech. This module adopts a non-autoregressive network to obtain context prior and improve the prediction efficiency, and it learns a speech-animation mapping prior with better generalization to novel speech from a multi-identity video dataset. (2) We then introduce a neural rendering module to synthesize the photo-realistic and full-head video frames given the predicted motion sequence. This module adopts a pre-trained head topology and uses only few frames for efficient fine-tuning to obtain a person-specific rendering model. Extensive experiments demonstrate that our method efficiently achieves smoother editing results with higher image quality and lip accuracy using less data than previous methods.
 
 </details>
 

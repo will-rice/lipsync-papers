@@ -1,6 +1,6 @@
 # 2025
 
-157 papers in this year.
+158 papers in this year.
 
 ### [From Inpainting to Editing: A Self-Bootstrapping Framework for Context-Rich Visual Dubbing](2512.25066.md)
 **Xu He, Haoxian Zhang, Hejia Chen, Changyuan Zheng et al.** · 2025-12-31
@@ -1379,6 +1379,16 @@ Current audio-driven facial animation methods achieve impressive results for sho
 <summary>Abstract</summary>
 
 As video conferencing becomes increasingly integral to modern communication, the need for high-quality synchronization between speech and visual elements is paramount. Speech Activity Detection (VAD) and lip synchronization technologies play crucial roles in ensuring accurate, real-time communication by distinguishing speech signals from noise and aligning lip movements with audio. This paper proposes a novel multimodal fusion approach based on deep learning models that significantly improves the accuracy of speech activity detection and the real-time performance of lip synchronization. Using open datasets such as AVSpeech and LRW, this study showcases the effectiveness of the proposed models in various real-world scenarios, such as multi-party conferences, noisy environments, and cross-lingual settings. Experimental results demonstrate that the LSTM-based VAD model achieves an accuracy of 92%, outperforming traditional methods, while the lip synchronization module ensures seamless audio-visual alignment with minimal delay.
+
+</details>
+
+### [Two-Stream Spatial-Temporal Transformer Framework for Person Identification via Natural Conversational Keypoints](2502.20803.md)
+**Masoumeh Chapariniya, Hossein Ranjbar, Teodora Vukovic, Sarah Ebling et al.** · 2025-02-28
+
+<details>
+<summary>Abstract</summary>
+
+In the age of AI-driven generative technologies, traditional biometric recognition systems face unprecedented challenges, particularly from sophisticated deepfake and face reenactment techniques. In this study, we propose a Two-Stream Spatial-Temporal Transformer Framework for person identification using upper body keypoints visible during online conversations, which we term conversational keypoints. Our framework processes both spatial relationships between keypoints and their temporal evolution through two specialized branches: a Spatial Transformer (STR) that learns distinctive structural patterns in keypoint configurations, and a Temporal Transformer (TTR) that captures sequential motion patterns. Using the state-of-the-art Sapiens pose estimator, we extract 133 keypoints (based on COCO-WholeBody format) representing facial features, head pose, and hand positions. The framework was evaluated on a dataset of 114 individuals engaged in natural conversations, achieving recognition accuracies of 80.12% for the spatial stream, 63.61% for the temporal stream. We then explored two fusion strategies: a shared loss function approach achieving 82.22% accuracy, and a feature-level fusion method that concatenates feature maps from both streams, significantly improving performance to 94.86%. By jointly modeling both static anatomical relationships and dynamic movement patterns, our approach learns comprehensive identity signatures that are more robust to spoofing than traditional appearance-based methods.
 
 </details>
 
