@@ -1,0 +1,3 @@
+# Generated / vendored — never format these.
+node_modules/
+.cache/

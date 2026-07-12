@@ -6,34 +6,36 @@ Beyond a reading list, this repo is built to be **browsed by LLMs**. Every paper
 
 ## How it works
 
-* Papers are sourced from [arXiv](https://arxiv.org/) and [Hugging Face Papers](https://huggingface.co/papers) via their public APIs. (Entries with `s2:` IDs are historical finds from Semantic Scholar, which was retired as a source after persistent API rate-limiting.)
-* Query this corpus over MCP: `https://wrice-papers-mcp.hf.space/lipsync/mcp` ([server code](https://huggingface.co/spaces/wrice/papers-mcp)).
-* A [GitHub Actions workflow](.github/workflows/fetch_papers.yml) runs **daily at 06:00 UTC** to pull papers submitted in the previous 8 days.
-* Results are filtered with a negative-keyword blacklist plus an ML signal check and a positive lipsync/talking-face relevance gate.
-* The full paper list is stored in [`papers.csv`](papers.csv) and the table below is regenerated automatically on every update.
+- Papers are sourced from [arXiv](https://arxiv.org/) and [Hugging Face Papers](https://huggingface.co/papers) via their public APIs. (Entries with `s2:` IDs are historical finds from Semantic Scholar, which was retired as a source after persistent API rate-limiting.)
+- Query this corpus over MCP: `https://wrice-papers-mcp.hf.space/lipsync/mcp` ([server code](https://huggingface.co/spaces/wrice/papers-mcp)).
+- A [GitHub Actions workflow](.github/workflows/fetch_papers.yml) runs **daily at 06:00 UTC** to pull papers submitted in the previous 8 days.
+- Results are filtered with a negative-keyword blacklist plus an ML signal check and a positive lipsync/talking-face relevance gate.
+- The full paper list is stored in [`papers.csv`](papers.csv) and the table below is regenerated automatically on every update.
 
 ## Markdown corpus
 
 Each paper is also available as LLM-friendly markdown under `papers/<year>/<arxiv_id>.md`. The conversion pipeline:
 
-* Converts arXiv's HTML rendering (`arxiv.org/html/<id>`, falling back to [ar5iv](https://ar5iv.labs.arxiv.org) for pre-2024 papers) — the article is extracted from the page, figures become absolute-URL images, and equations become GitHub-native ` ```math ` blocks.
-* Papers without a usable HTML rendering fall back to LaTeX source (`arxiv.org/e-print/<id>`) via [pandoc](https://pandoc.org), then PDF via [marker](https://github.com/datalab-to/marker).
-* Auto-flagged or manually-listed (`papers/.fixme.txt`) low-quality outputs go through a Claude Sonnet 4.6 remediation pass.
-* Citations are rewritten as clickable links — local sibling MD when the cited paper is in this corpus, external arXiv/DOI URLs otherwise.
+- Converts arXiv's HTML rendering (`arxiv.org/html/<id>`, falling back to [ar5iv](https://ar5iv.labs.arxiv.org) for pre-2024 papers) — the article is extracted from the page, figures become absolute-URL images, and equations become GitHub-native ` ```math ` blocks.
+- Papers without a usable HTML rendering fall back to LaTeX source (`arxiv.org/e-print/<id>`) via [pandoc](https://pandoc.org), then PDF via [marker](https://github.com/datalab-to/marker).
+- Auto-flagged or manually-listed (`papers/.fixme.txt`) low-quality outputs go through a Claude Sonnet 4.6 remediation pass.
+- Citations are rewritten as clickable links — local sibling MD when the cited paper is in this corpus, external arXiv/DOI URLs otherwise.
 
 Browse the corpus at [papers/README.md](papers/README.md). Each paper file has YAML frontmatter with metadata + diagnostics (`source`, `converter`, `llm_remediated`, `citations_resolved`).
 
 ## Running locally
 
-You'll need pandoc:
+You'll need pandoc and Node (for Prettier, which normalizes the generated markdown):
 
 ```bash
 # macOS
-brew install pandoc
+brew install pandoc node
 
 # Ubuntu
-sudo apt-get install pandoc
+sudo apt-get install pandoc nodejs npm
 ```
+
+Then run `npm ci` to install the pinned Prettier used by the pipeline, CI, and pre-commit.
 
 ```bash
 # Incremental fetch (last 8 days)
@@ -47,22 +49,24 @@ uv run python scripts/convert_papers.py --regenerate-all
 uv run python scripts/fetch_papers.py --days 30
 ```
 
-The fetch script uses only the Python standard library; the conversion pipeline adds `marker-pdf`, `anthropic`, `pyyaml`, and the `pandoc` system binary (managed via `uv` and your package manager).
+The fetch script uses only the Python standard library (plus a Prettier pass on the README); the conversion pipeline adds `marker-pdf`, `anthropic`, `pyyaml`, and the `pandoc` system binary (managed via `uv` and your package manager). Both scripts format the markdown they generate with the repo-pinned [Prettier](https://prettier.io/) (`npm ci`), and a [Format workflow](.github/workflows/format.yml) enforces it on every PR.
 
 ## Triggering a manual update
 
 Open the **Actions** tab → **Fetch Lipsync Papers** → **Run workflow**.
-Select *full = true* to back-fill from 2020 and rebuild all paper markdown, or leave it as *false* for an incremental update.
+Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or leave it as _false_ for an incremental update.
 
 ## Papers
 
 <!-- PAPERS_TABLE_START -->
+
 _Showing the last 30 days (6 of 540 papers). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>2026</h3></summary>
 
 #### [Multi-Modal Deepfake Detection via Spatial, Temporal, and Audio-Visual Fusion with Vision Transformers](https://www.semanticscholar.org/paper/5ad7261ad284f64c1b7776c990a9bbb305c402b5) · [📄 Read](papers/2026/s2:5ad7261ad284f64c1b7776c990a9bbb305c402b5.md)
+
 **Merlin Gethsy D., S. V** · 2026-06-30
 
 <details>
@@ -73,6 +77,7 @@ The rapid advancement of the deepfake generation technologies has intensified co
 </details>
 
 #### [SyncCache: Exploiting Asymmetric Dynamics for Fast Audio-Driven Portrait Animation](https://arxiv.org/abs/2606.30849) · [📄 Read](papers/2026/2606.30849.md)
+
 **Juncheng Ma, Yuxuan Du, Yanan Sun, Zhening Xing et al.** · 2026-06-29
 
 <details>
@@ -83,6 +88,7 @@ Diffusion Transformers (DiTs) have significantly advanced audio-driven portrait 
 </details>
 
 #### [DIVA-3D: a diverse 3D talking head dataset from in-the-wild videos](https://www.semanticscholar.org/paper/636d2024d246b43d37b6bb3d887c5607ad8ba1d1) · [📄 Read](papers/2026/s2:636d2024d246b43d37b6bb3d887c5607ad8ba1d1.md)
+
 **Yuhang Wu, Yixuan Zhang, Qing Chang, Junran Peng et al.** · 2026-06-29
 
 <details>
@@ -93,6 +99,7 @@ The synthesis of lifelike three-dimensional (3D) talking heads from audio requir
 </details>
 
 #### [KM-Speaker: Keypoint-Based Style Control for High-Quality Speech-Driven 3D Facial Animation and Dialogue Localization](https://arxiv.org/abs/2606.28568) · [📄 Read](papers/2026/2606.28568.md)
+
 **Arthur Josi, Emeline Got, Abdallah Dib, Luiz Gustavo Hafemann et al.** · 2026-06-26
 
 <details>
@@ -103,6 +110,7 @@ Speech-driven 3D facial animation methods face significant challenges in simulta
 </details>
 
 #### [Audio-visual Contrastive Alignment for Diffusion-based Visual-conditioned Speech Enhancement](https://arxiv.org/abs/2606.23712) · [📄 Read](papers/2026/2606.23712.md)
+
 **Colombe Mboungou, Mostafa Sadeghi, Jean-Eudes Ayilo, Romain Serizel** · 2026-06-16
 
 <details>
@@ -113,6 +121,7 @@ Audio-visual speech enhancement (AVSE) exploits visual cues such as lip movement
 </details>
 
 #### [EmoZone-Talker: Regional Semantic Control of Audio-Driven 3DGS Talking Heads via Facial Action Units](https://arxiv.org/abs/2606.15848) · [📄 Read](papers/2026/2606.15848.md)
+
 **Tingting Chen, Shaojun Wang, Huaye Zhang, Diqiong Jiang et al.** · 2026-06-14
 
 <details>

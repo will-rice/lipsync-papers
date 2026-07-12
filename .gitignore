@@ -208,3 +208,6 @@ __marimo__/
 
 # Conversion pipeline cache
 .cache/
+
+# Node tooling (Prettier)
+node_modules/

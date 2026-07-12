@@ -91,6 +91,12 @@ def main() -> None:
     # --only run cannot clobber the index files down to a single entry.
     _regenerate_indexes(all_rows)
 
+    # Stage 5: normalize all generated markdown with Prettier so the committed
+    # corpus is consistently formatted (and stays green against the format CI).
+    from scripts._convert.formatting import format_markdown
+
+    format_markdown([str(PAPERS_DIR / "**" / "*.md"), str(REPO_ROOT / "README.md")])
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Convert papers in papers.csv to markdown.")

@@ -104,11 +104,11 @@ authors: [Zhen Ye, Xu Tan, Aoxiong Yin, …]
 submitted: 2026-04-26
 categories: [cs.CV, cs.CL, cs.MM, cs.SD, eess.AS]
 arxiv_url: https://arxiv.org/abs/2604.23586
-source: latex                  # latex | pdf | metadata-only
-converter: pandoc              # pandoc | marker
+source: latex # latex | pdf | metadata-only
+converter: pandoc # pandoc | marker
 llm_remediated: false
-citations_resolved: 27/41      # diagnostic — fraction of refs with a resolved URL
-citations_resolved_at: 2026-05-02T14:23:00Z   # for idempotency vs. papers.csv mtime
+citations_resolved: 27/41 # diagnostic — fraction of refs with a resolved URL
+citations_resolved_at: 2026-05-02T14:23:00Z # for idempotency vs. papers.csv mtime
 references_parsed: 41
 arxiv_version: v2
 ---
@@ -119,12 +119,15 @@ arxiv_version: v2
 **Submitted:** 2026-04-26 · [arXiv:2604.23586](https://arxiv.org/abs/2604.23586)
 
 ## Abstract
+
 …
 
 ## 1. Introduction
+
 …cross-modal coherence, building on Wav2Lip [[1]](../2020/2008.10010.md) and …
 
 ## References
+
 1. K. R. Prajwal, et al. **A Lip Sync Expert Is All You Need for Speech to Lip Generation In The Wild.** [arXiv:2008.10010](../2020/2008.10010.md)
 2. …
 ```
@@ -133,7 +136,7 @@ arxiv_version: v2
 
 - **`papers/README.md`** — short. Generation date, total paper count, one collapsible `<details>` block per year linking to `papers/<year>/README.md`.
 - **`papers/<year>/README.md`** — for each paper that year: title link to local `.md`, truncated authors (first 4 + "et al."), date, collapsible abstract — same visual style as the existing top-level `README.md` table.
-- **Top-level `README.md`** — keep `update_readme()` logic; augment each entry with a `📄 [Read](papers/<year>/<arxiv_id>.md)` link next to the existing arXiv link, *only* when the markdown file exists.
+- **Top-level `README.md`** — keep `update_readme()` logic; augment each entry with a `📄 [Read](papers/<year>/<arxiv_id>.md)` link next to the existing arXiv link, _only_ when the markdown file exists.
 
 ## Citation resolution
 
@@ -238,11 +241,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-      - name: Install pandoc                          # NEW
+      - name: Install pandoc # NEW
         run: sudo apt-get install -y pandoc
-      - run: uv sync                                  # NEW (was stdlib-only before)
+      - run: uv sync # NEW (was stdlib-only before)
       - run: uv run python scripts/fetch_papers.py
-      - name: Restore conversion cache                # NEW
+      - name: Restore conversion cache # NEW
         uses: actions/cache@v4
         with:
           path: |
@@ -250,7 +253,7 @@ jobs:
             .cache/citations.json
           key: convert-cache-${{ github.run_id }}
           restore-keys: convert-cache-
-      - run: uv run python scripts/convert_papers.py  # NEW
+      - run: uv run python scripts/convert_papers.py # NEW
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - run: |
@@ -266,7 +269,12 @@ jobs:
 Each paper wrapped in its own try/except. Failures logged to `.cache/conversion_errors.jsonl`:
 
 ```json
-{"arxiv_id": "2604.23586", "stage": "latex_to_md", "error": "pandoc exited 1: missing \\usepackage{customthing}", "ts": "2026-05-02T14:23:00Z"}
+{
+  "arxiv_id": "2604.23586",
+  "stage": "latex_to_md",
+  "error": "pandoc exited 1: missing \\usepackage{customthing}",
+  "ts": "2026-05-02T14:23:00Z"
+}
 ```
 
 Failed papers are skipped this run, retried next run (their `.md` is missing → re-enter the pipeline). After 3 consecutive failures → auto-added to `papers/.fixme.txt` for LLM remediation.
@@ -305,17 +313,17 @@ End-to-end is the integration test by virtue of being committed to git: every PR
 
 ## Edge cases
 
-| Case | Handling |
-|------|----------|
-| Withdrawn / replaced arXiv paper (404 on `e-print`) | Log to `conversion_errors.jsonl`, skip. |
-| Multi-version arXiv paper | Always fetch latest (no `vN` suffix). Frontmatter records `arxiv_version`. |
-| Paper without bibliography | Render body without refs section, `references_parsed: 0`. |
-| Unicode in author names | Pandoc handles UTF-8; we NFC-normalize on write. |
-| Cross-year reference link | Local-sibling resolver computes paths from `papers.csv` directly, not filesystem walks. |
-| Self-citation | Resolves to its own file (harmless). Has unit test. |
-| `papers/` already exists at script start | Abort with explicit error. |
-| Paper drops out of `papers.csv` (relevance filter tightens) | Delete corresponding `.md` to keep corpus consistent with index. |
-| `s2:` paper with no PDF anywhere | Render metadata-only stub (frontmatter + abstract) so the README link still resolves. |
+| Case                                                        | Handling                                                                                |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Withdrawn / replaced arXiv paper (404 on `e-print`)         | Log to `conversion_errors.jsonl`, skip.                                                 |
+| Multi-version arXiv paper                                   | Always fetch latest (no `vN` suffix). Frontmatter records `arxiv_version`.              |
+| Paper without bibliography                                  | Render body without refs section, `references_parsed: 0`.                               |
+| Unicode in author names                                     | Pandoc handles UTF-8; we NFC-normalize on write.                                        |
+| Cross-year reference link                                   | Local-sibling resolver computes paths from `papers.csv` directly, not filesystem walks. |
+| Self-citation                                               | Resolves to its own file (harmless). Has unit test.                                     |
+| `papers/` already exists at script start                    | Abort with explicit error.                                                              |
+| Paper drops out of `papers.csv` (relevance filter tightens) | Delete corresponding `.md` to keep corpus consistent with index.                        |
+| `s2:` paper with no PDF anywhere                            | Render metadata-only stub (frontmatter + abstract) so the README link still resolves.   |
 
 ## Open decisions (defaults chosen, easy to flip)
 
@@ -326,15 +334,15 @@ End-to-end is the integration test by virtue of being committed to git: every PR
 
 ## Cost & runtime estimates
 
-| Phase | Per-paper | 511-paper run |
-|-------|-----------|---------------|
-| Stage 1 (fetch) | ~3s (arXiv rate limit) | ~25 min |
-| Stage 2 LaTeX path | ~5s (pandoc) | ~10 min over ~400 papers |
-| Stage 2 PDF path (marker) | ~30s | ~50 min over ~100 papers |
-| Stage 2.5 LLM | ~30s + ~$0.45 | ~$25–45 lifetime tail |
-| Stage 3 citations | ~1s + S2 lookups | ~5 min, near-zero on cached re-runs |
-| **Total back-fill** | — | **~90 min, ~$25–45 one-time** |
-| **Weekly cron delta** | — | **~5 min, ~$0–2** |
+| Phase                     | Per-paper              | 511-paper run                       |
+| ------------------------- | ---------------------- | ----------------------------------- |
+| Stage 1 (fetch)           | ~3s (arXiv rate limit) | ~25 min                             |
+| Stage 2 LaTeX path        | ~5s (pandoc)           | ~10 min over ~400 papers            |
+| Stage 2 PDF path (marker) | ~30s                   | ~50 min over ~100 papers            |
+| Stage 2.5 LLM             | ~30s + ~$0.45          | ~$25–45 lifetime tail               |
+| Stage 3 citations         | ~1s + S2 lookups       | ~5 min, near-zero on cached re-runs |
+| **Total back-fill**       | —                      | **~90 min, ~$25–45 one-time**       |
+| **Weekly cron delta**     | —                      | **~5 min, ~$0–2**                   |
 
 ## Out of scope (future work)
 

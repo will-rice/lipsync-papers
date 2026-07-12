@@ -16,49 +16,50 @@
 
 **New files:**
 
-| Path | Responsibility |
-|------|----------------|
-| `pyproject.toml` | uv project config, deps |
-| `scripts/convert_papers.py` | Entry point, orchestrates all stages |
-| `scripts/_convert/__init__.py` | Package marker |
-| `scripts/_convert/sources.py` | Fetch arXiv e-print / S2 PDF, manage `.cache/source/` |
-| `scripts/_convert/latex_to_md.py` | pandoc invocation, `.bbl` extraction |
-| `scripts/_convert/pdf_to_md.py` | marker invocation |
-| `scripts/_convert/citations.py` | Parse refs, resolve URLs, rewrite inline markers |
-| `scripts/_convert/remediation.py` | LLM remediation via Anthropic SDK + heuristic flagger |
-| `scripts/_convert/output.py` | Write `papers/<year>/<arxiv_id>.md` with frontmatter |
-| `scripts/_convert/indexes.py` | Generate `papers/README.md` and per-year READMEs |
-| `tests/__init__.py` | Package marker |
-| `tests/conftest.py` | Shared pytest fixtures |
-| `tests/test_sources.py` | Unit + recorded-tarball tests |
-| `tests/test_latex_to_md.py` | Pandoc conversion goldens |
-| `tests/test_pdf_to_md.py` | Marker conversion goldens |
-| `tests/test_citations.py` | Ref parsing, resolution priority |
-| `tests/test_remediation.py` | Heuristic flagger + recorded API replay |
-| `tests/test_output.py` | Frontmatter & file layout |
-| `tests/test_indexes.py` | Index file generation |
-| `tests/test_orchestrator.py` | Idempotency + per-paper error isolation |
-| `tests/fixtures/2008.10010/` | Wav2Lip LaTeX source (tarball + extracted) |
-| `tests/fixtures/2008.10010.expected.md` | Wav2Lip golden output |
-| `tests/fixtures/pdf_only.pdf` | Hand-picked PDF-only fixture |
-| `tests/fixtures/pdf_only.expected.md` | Golden output |
-| `tests/fixtures/citations_in.json` | Recorded S2 lookup responses |
-| `tests/fixtures/remediation_response.json` | Recorded Claude API response |
+| Path                                       | Responsibility                                        |
+| ------------------------------------------ | ----------------------------------------------------- |
+| `pyproject.toml`                           | uv project config, deps                               |
+| `scripts/convert_papers.py`                | Entry point, orchestrates all stages                  |
+| `scripts/_convert/__init__.py`             | Package marker                                        |
+| `scripts/_convert/sources.py`              | Fetch arXiv e-print / S2 PDF, manage `.cache/source/` |
+| `scripts/_convert/latex_to_md.py`          | pandoc invocation, `.bbl` extraction                  |
+| `scripts/_convert/pdf_to_md.py`            | marker invocation                                     |
+| `scripts/_convert/citations.py`            | Parse refs, resolve URLs, rewrite inline markers      |
+| `scripts/_convert/remediation.py`          | LLM remediation via Anthropic SDK + heuristic flagger |
+| `scripts/_convert/output.py`               | Write `papers/<year>/<arxiv_id>.md` with frontmatter  |
+| `scripts/_convert/indexes.py`              | Generate `papers/README.md` and per-year READMEs      |
+| `tests/__init__.py`                        | Package marker                                        |
+| `tests/conftest.py`                        | Shared pytest fixtures                                |
+| `tests/test_sources.py`                    | Unit + recorded-tarball tests                         |
+| `tests/test_latex_to_md.py`                | Pandoc conversion goldens                             |
+| `tests/test_pdf_to_md.py`                  | Marker conversion goldens                             |
+| `tests/test_citations.py`                  | Ref parsing, resolution priority                      |
+| `tests/test_remediation.py`                | Heuristic flagger + recorded API replay               |
+| `tests/test_output.py`                     | Frontmatter & file layout                             |
+| `tests/test_indexes.py`                    | Index file generation                                 |
+| `tests/test_orchestrator.py`               | Idempotency + per-paper error isolation               |
+| `tests/fixtures/2008.10010/`               | Wav2Lip LaTeX source (tarball + extracted)            |
+| `tests/fixtures/2008.10010.expected.md`    | Wav2Lip golden output                                 |
+| `tests/fixtures/pdf_only.pdf`              | Hand-picked PDF-only fixture                          |
+| `tests/fixtures/pdf_only.expected.md`      | Golden output                                         |
+| `tests/fixtures/citations_in.json`         | Recorded S2 lookup responses                          |
+| `tests/fixtures/remediation_response.json` | Recorded Claude API response                          |
 
 **Modified files:**
 
-| Path | Change |
-|------|--------|
-| `.gitignore` | Add `.cache/` |
-| `.github/workflows/fetch_papers.yml` | Add pandoc install, uv sync, convert step, cache action |
-| `scripts/fetch_papers.py` | Modify `update_readme()` to add `📄 Read` link to each entry |
-| `README.md` | Document conversion pipeline + new deps |
+| Path                                 | Change                                                       |
+| ------------------------------------ | ------------------------------------------------------------ |
+| `.gitignore`                         | Add `.cache/`                                                |
+| `.github/workflows/fetch_papers.yml` | Add pandoc install, uv sync, convert step, cache action      |
+| `scripts/fetch_papers.py`            | Modify `update_readme()` to add `📄 Read` link to each entry |
+| `README.md`                          | Document conversion pipeline + new deps                      |
 
 ---
 
 ## Task 1: Project setup — uv, deps, gitignore
 
 **Files:**
+
 - Create: `pyproject.toml`
 - Modify: `.gitignore`
 
@@ -122,6 +123,7 @@ git commit -m "chore: introduce uv project with marker, anthropic, pyyaml deps"
 ## Task 2: Output writer — frontmatter and file layout
 
 **Files:**
+
 - Create: `scripts/_convert/__init__.py`
 - Create: `scripts/_convert/output.py`
 - Create: `tests/__init__.py`
@@ -314,6 +316,7 @@ git commit -m "feat(convert): add per-paper markdown writer with YAML frontmatte
 ## Task 3: Source fetching — arXiv e-print + S2 PDF
 
 **Files:**
+
 - Create: `scripts/_convert/sources.py`
 - Create: `tests/test_sources.py`
 - Create: `tests/fixtures/sources_2008.10010.tar.gz` (small recorded tarball)
@@ -508,6 +511,7 @@ git commit -m "feat(convert): add arXiv e-print + S2 PDF source fetcher with cac
 ## Task 4: LaTeX → markdown via pandoc
 
 **Files:**
+
 - Create: `scripts/_convert/latex_to_md.py`
 - Create: `tests/test_latex_to_md.py`
 - Create: `tests/fixtures/2008.10010.expected.body.md` (golden body)
@@ -681,6 +685,7 @@ git commit -m "feat(convert): add pandoc-based LaTeX-to-markdown converter with 
 ## Task 5: PDF → markdown via marker
 
 **Files:**
+
 - Create: `scripts/_convert/pdf_to_md.py`
 - Create: `tests/test_pdf_to_md.py`
 - Create: `tests/fixtures/pdf_only.pdf` (small hand-picked fixture)
@@ -793,6 +798,7 @@ git commit -m "feat(convert): add marker-pdf PDF-to-markdown converter"
 ## Task 6: Citation parsing — LaTeX `.bbl`
 
 **Files:**
+
 - Create: `scripts/_convert/citations.py` (initial — bbl parsing only)
 - Create: `tests/test_citations.py`
 
@@ -921,6 +927,7 @@ git commit -m "feat(convert): parse LaTeX .bbl bibliographies into normalized re
 ## Task 7: Citation parsing — PDF references section
 
 **Files:**
+
 - Modify: `scripts/_convert/citations.py`
 - Modify: `tests/test_citations.py`
 
@@ -1032,6 +1039,7 @@ git commit -m "feat(convert): parse PDF references-section into normalized refer
 ## Task 8: Citation resolution — local sibling, arxiv, DOI, S2
 
 **Files:**
+
 - Modify: `scripts/_convert/citations.py`
 - Modify: `tests/test_citations.py`
 - Create: `tests/fixtures/citations_in.json` (recorded S2 responses)
@@ -1044,10 +1052,15 @@ Create `tests/fixtures/citations_in.json`:
 {
   "title:denoising diffusion probabilistic models": {
     "data": [
-      {"externalIds": {"ArXiv": "2006.11239", "DOI": "10.5555/3495724.3496298"}}
+      {
+        "externalIds": {
+          "ArXiv": "2006.11239",
+          "DOI": "10.5555/3495724.3496298"
+        }
+      }
     ]
   },
-  "title:nonexistent paper title that should not match": {"data": []}
+  "title:nonexistent paper title that should not match": { "data": [] }
 }
 ```
 
@@ -1254,6 +1267,7 @@ git commit -m "feat(convert): resolve references via local-sibling/arxiv/DOI/S2 
 ## Task 9: Citation rewriting — inline markers + references list
 
 **Files:**
+
 - Modify: `scripts/_convert/citations.py`
 - Modify: `tests/test_citations.py`
 
@@ -1397,6 +1411,7 @@ git commit -m "feat(convert): rewrite inline citation markers and render linked 
 ## Task 10: Citation cache persistence
 
 **Files:**
+
 - Modify: `scripts/_convert/citations.py`
 - Modify: `tests/test_citations.py`
 
@@ -1455,6 +1470,7 @@ git commit -m "feat(convert): persist citation cache to .cache/citations.json"
 ## Task 11: LLM remediation — heuristic flagger
 
 **Files:**
+
 - Create: `scripts/_convert/remediation.py`
 - Create: `tests/test_remediation.py`
 
@@ -1618,6 +1634,7 @@ git commit -m "feat(convert): add heuristic flagger and .fixme.txt manual list h
 ## Task 12: LLM remediation — Anthropic API call
 
 **Files:**
+
 - Modify: `scripts/_convert/remediation.py`
 - Modify: `tests/test_remediation.py`
 - Create: `tests/fixtures/remediation_response.json` (recorded API response)
@@ -1632,11 +1649,14 @@ Create `tests/fixtures/remediation_response.json`:
   "type": "message",
   "role": "assistant",
   "content": [
-    {"type": "text", "text": "# Cleaned Paper\n\nThis is the LLM-corrected markdown.\n\n## References\n\n[1] Example."}
+    {
+      "type": "text",
+      "text": "# Cleaned Paper\n\nThis is the LLM-corrected markdown.\n\n## References\n\n[1] Example."
+    }
   ],
   "model": "claude-sonnet-4-6",
   "stop_reason": "end_turn",
-  "usage": {"input_tokens": 5000, "output_tokens": 800}
+  "usage": { "input_tokens": 5000, "output_tokens": 800 }
 }
 ```
 
@@ -1682,7 +1702,7 @@ Expected: FAIL — `ImportError`.
 
 Append:
 
-```python
+````python
 import base64
 from typing import Protocol
 
@@ -1744,7 +1764,7 @@ def build_anthropic_client():
     """Construct a real anthropic.Anthropic client. Imported lazily so tests don't need the SDK env."""
     import anthropic
     return anthropic.Anthropic()
-```
+````
 
 - [ ] **Step 5: Run test to verify it passes**
 
@@ -1763,6 +1783,7 @@ git commit -m "feat(convert): add Claude Sonnet remediation call with PDF + cach
 ## Task 13: Index file generation
 
 **Files:**
+
 - Create: `scripts/_convert/indexes.py`
 - Create: `tests/test_indexes.py`
 
@@ -1900,6 +1921,7 @@ git commit -m "feat(convert): generate papers/README.md and per-year index files
 ## Task 14: Augment top-level README to link to local MD
 
 **Files:**
+
 - Modify: `scripts/fetch_papers.py:844-883` (the `_build_table` function)
 
 - [ ] **Step 1: Locate and read `_build_table`**
@@ -1974,6 +1996,7 @@ git commit -m "feat(readme): add per-entry 'Read' link when local markdown exist
 ## Task 15: Orchestrator skeleton — load CSV, dispatch per paper
 
 **Files:**
+
 - Create: `scripts/convert_papers.py`
 - Create: `tests/test_orchestrator.py`
 
@@ -2178,6 +2201,7 @@ git commit -m "feat(convert): orchestrator skeleton with CSV loading and per-pap
 ## Task 16: Wire orchestrator to stages 1–3
 
 **Files:**
+
 - Modify: `scripts/convert_papers.py`
 - Modify: `tests/test_orchestrator.py`
 
@@ -2363,6 +2387,7 @@ git commit -m "feat(convert): wire orchestrator to stages 1, 2, and 3 for arxiv 
 ## Task 17: Wire orchestrator to stage 4 (indexes)
 
 **Files:**
+
 - Modify: `scripts/convert_papers.py`
 - Modify: `tests/test_orchestrator.py`
 
@@ -2455,6 +2480,7 @@ git commit -m "feat(convert): regenerate top-level and per-year index files in o
 ## Task 18: Per-paper error logging + fixme escalation
 
 **Files:**
+
 - Modify: `scripts/convert_papers.py`
 - Create: `tests/test_error_handling.py`
 
@@ -2597,6 +2623,7 @@ git commit -m "feat(convert): per-paper error logging with 3-strike fixme escala
 ## Task 19: Wire LLM remediation pass into orchestrator
 
 **Files:**
+
 - Modify: `scripts/convert_papers.py`
 - Modify: `tests/test_orchestrator.py`
 
@@ -2760,6 +2787,7 @@ git commit -m "feat(convert): wire Stage 2.5 LLM remediation with dry-run + cap"
 ## Task 20: Idempotency end-to-end test
 
 **Files:**
+
 - Modify: `tests/test_orchestrator.py`
 
 - [ ] **Step 1: Write the failing test**
@@ -2818,6 +2846,7 @@ git commit -m "test(convert): verify second-run idempotency via needs_conversion
 ## Task 21: Update GitHub Actions workflow
 
 **Files:**
+
 - Modify: `.github/workflows/fetch_papers.yml`
 
 - [ ] **Step 1: Read the current workflow**
@@ -2913,6 +2942,7 @@ git commit -m "ci: install pandoc + run convert_papers.py + cache .cache/ across
 ## Task 22: Documentation — README updates
 
 **Files:**
+
 - Modify: `README.md`
 
 - [ ] **Step 1: Re-read the current README.md to identify the right insertion point**
@@ -2923,15 +2953,15 @@ Read `README.md`. You're looking for the "## Running locally" section (around li
 
 Insert this block before the `## Running locally` heading:
 
-```markdown
+````markdown
 ## Markdown corpus
 
 Each paper is also available as LLM-friendly markdown under `papers/<year>/<arxiv_id>.md`. The conversion pipeline:
 
-* Fetches LaTeX source from `arxiv.org/e-print/<id>` (preferred; preserves equations and citation structure) or PDFs (fallback for papers without LaTeX source).
-* Converts via [pandoc](https://pandoc.org) (LaTeX) or [marker](https://github.com/datalab-to/marker) (PDF).
-* Auto-flagged or manually-listed (`papers/.fixme.txt`) low-quality outputs go through a Claude Sonnet 4.6 remediation pass.
-* Citations are rewritten as clickable links — local sibling MD when the cited paper is in this corpus, external arXiv/DOI URLs otherwise.
+- Fetches LaTeX source from `arxiv.org/e-print/<id>` (preferred; preserves equations and citation structure) or PDFs (fallback for papers without LaTeX source).
+- Converts via [pandoc](https://pandoc.org) (LaTeX) or [marker](https://github.com/datalab-to/marker) (PDF).
+- Auto-flagged or manually-listed (`papers/.fixme.txt`) low-quality outputs go through a Claude Sonnet 4.6 remediation pass.
+- Citations are rewritten as clickable links — local sibling MD when the cited paper is in this corpus, external arXiv/DOI URLs otherwise.
 
 Browse the corpus at [papers/README.md](papers/README.md). Each paper file has YAML frontmatter with metadata + diagnostics (`source`, `converter`, `llm_remediated`, `citations_resolved`).
 
@@ -2946,6 +2976,7 @@ brew install pandoc
 # Ubuntu
 sudo apt-get install pandoc
 ```
+````
 
 Then:
 
@@ -2954,7 +2985,8 @@ uv sync
 uv run python scripts/fetch_papers.py        # update papers.csv (existing)
 uv run python scripts/convert_papers.py      # convert any new papers to markdown
 ```
-```
+
+````
 
 - [ ] **Step 3: Update the existing "## Running locally" content to mention `uv`**
 
@@ -2969,7 +3001,7 @@ uv run python scripts/fetch_papers.py --full
 
 # Custom window
 uv run python scripts/fetch_papers.py --days 30
-```
+````
 
 And replace the line `No third-party dependencies are required — the script uses only the Python standard library.` with:
 
@@ -2989,6 +3021,7 @@ git commit -m "docs: document markdown corpus, conversion pipeline, and uv-based
 ## Task 23: pre-commit configuration
 
 **Files:**
+
 - Create: `.pre-commit-config.yaml`
 
 - [ ] **Step 1: Create `.pre-commit-config.yaml`**
@@ -3038,6 +3071,7 @@ git commit -m "chore: add pre-commit config (ruff + standard hygiene hooks)"
 ## Task 24: Smoke test — run pipeline against a few real papers
 
 **Files:**
+
 - (No file changes)
 
 This is a manual verification step before the full back-fill.
@@ -3051,6 +3085,7 @@ Expected: Stages 1–4 complete. Output at `papers/2020/2008.10010.md` exists, h
 
 Run: `head -60 papers/2020/2008.10010.md`
 Expected: YAML frontmatter, then markdown body. Confirm by eye:
+
 - `source: latex`, `converter: pandoc`
 - `references_parsed > 0`, `citations_resolved` ratio above 0
 - Body has section headers from the actual paper
@@ -3087,6 +3122,7 @@ git status
 ## Task 25: Initial back-fill PR
 
 **Files:**
+
 - Create: `papers/` (entire tree, ~511 files)
 
 This task produces the large initial commit. Run it locally — the workflow's first scheduled run can also do it, but a deliberate local back-fill makes the diff reviewable.
@@ -3156,36 +3192,37 @@ EOF
 
 Mapping spec sections → tasks:
 
-| Spec section | Task(s) |
-|---|---|
-| Architecture overview | Tasks 2–4, 5, 6–10, 11–12, 13, 15–17 |
-| Code organization | Tasks 2, 3, 4, 5, 6, 11, 13, 15 |
-| Disk layout (`papers/<year>/<id>.md`) | Task 2, 17 |
-| YAML frontmatter | Task 2 |
-| Index files (`papers/README.md`, per-year) | Task 13, 17 |
-| Top-level README augmentation | Task 14 |
-| Citation Pass A (parse) | Task 6 (LaTeX), Task 7 (PDF) |
-| Citation Pass B (resolve) | Task 8 |
-| Citation Pass C (rewrite) | Task 9 |
-| Citation cache | Task 10 |
-| Stage 2.5 heuristic flagger | Task 11 |
-| Stage 2.5 LLM call | Task 12 |
-| Stage 2.5 wired in orchestrator | Task 19 |
-| `papers/.fixme.txt` manual list | Task 11 |
-| 3-strike escalation | Task 18 |
-| Per-paper error logging | Task 18 |
-| Idempotency rules | Task 15, 17, 20 |
-| ThreadPoolExecutor concurrency | Task 15 |
-| Workflow integration | Task 21 |
-| Cost-control env vars | Task 19 |
-| Testing strategy (4 fixtures, golden tests, recorded API) | Tasks 3, 4, 5, 6, 12 |
-| Edge case: withdrawn paper | Task 18 (general error path) |
-| Edge case: no bibliography | Task 16 (refs empty → `references_parsed: 0`) |
-| Edge case: self-citation | Task 8 (resolved via local-sibling) |
-| Initial back-fill | Task 25 |
-| Pandoc version pin | Task 21 (apt install — version pin via documenting in README; explicit pinning is a future improvement) |
+| Spec section                                              | Task(s)                                                                                                 |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Architecture overview                                     | Tasks 2–4, 5, 6–10, 11–12, 13, 15–17                                                                    |
+| Code organization                                         | Tasks 2, 3, 4, 5, 6, 11, 13, 15                                                                         |
+| Disk layout (`papers/<year>/<id>.md`)                     | Task 2, 17                                                                                              |
+| YAML frontmatter                                          | Task 2                                                                                                  |
+| Index files (`papers/README.md`, per-year)                | Task 13, 17                                                                                             |
+| Top-level README augmentation                             | Task 14                                                                                                 |
+| Citation Pass A (parse)                                   | Task 6 (LaTeX), Task 7 (PDF)                                                                            |
+| Citation Pass B (resolve)                                 | Task 8                                                                                                  |
+| Citation Pass C (rewrite)                                 | Task 9                                                                                                  |
+| Citation cache                                            | Task 10                                                                                                 |
+| Stage 2.5 heuristic flagger                               | Task 11                                                                                                 |
+| Stage 2.5 LLM call                                        | Task 12                                                                                                 |
+| Stage 2.5 wired in orchestrator                           | Task 19                                                                                                 |
+| `papers/.fixme.txt` manual list                           | Task 11                                                                                                 |
+| 3-strike escalation                                       | Task 18                                                                                                 |
+| Per-paper error logging                                   | Task 18                                                                                                 |
+| Idempotency rules                                         | Task 15, 17, 20                                                                                         |
+| ThreadPoolExecutor concurrency                            | Task 15                                                                                                 |
+| Workflow integration                                      | Task 21                                                                                                 |
+| Cost-control env vars                                     | Task 19                                                                                                 |
+| Testing strategy (4 fixtures, golden tests, recorded API) | Tasks 3, 4, 5, 6, 12                                                                                    |
+| Edge case: withdrawn paper                                | Task 18 (general error path)                                                                            |
+| Edge case: no bibliography                                | Task 16 (refs empty → `references_parsed: 0`)                                                           |
+| Edge case: self-citation                                  | Task 8 (resolved via local-sibling)                                                                     |
+| Initial back-fill                                         | Task 25                                                                                                 |
+| Pandoc version pin                                        | Task 21 (apt install — version pin via documenting in README; explicit pinning is a future improvement) |
 
 Gaps noted:
+
 - Pandoc minor-version pinning is not enforced in CI (only documented). If reproducibility regressions appear, add a pinned `apt-get install pandoc=3.1.x` step.
 - Multi-version arXiv `arxiv_version` field is in the frontmatter schema but not currently captured at fetch time. The `e-print` URL returns latest by default; capturing the version requires inspecting tarball metadata. Defer until a real need surfaces.
 
