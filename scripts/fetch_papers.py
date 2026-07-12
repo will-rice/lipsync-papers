@@ -873,6 +873,13 @@ def main() -> None:
 
     update_readme(existing)
 
+    # Normalize the regenerated README with Prettier so the committed markdown
+    # matches the format CI (and the rest of the corpus).
+    sys.path.insert(0, str(REPO_ROOT))
+    from scripts._convert.formatting import format_markdown
+
+    format_markdown([str(README_MD)])
+
 
 if __name__ == "__main__":
     main()

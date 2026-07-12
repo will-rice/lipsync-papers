@@ -1,0 +1,9 @@
+{
+  "name": "lipsync-papers",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Tooling dependencies for lipsync-papers (Prettier markdown formatting).",
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}
