@@ -133,7 +133,7 @@ def test_process_paper_end_to_end_latex(monkeypatch, tmp_path, fixtures_dir):
     assert (papers_root / "2020" / "2008.10010.md").exists()
 
 
-def test_regenerate_indexes_creates_top_and_year_files(monkeypatch, tmp_path):
+def test_regenerate_indexes_writes_top_index_only(monkeypatch, tmp_path):
     from scripts import convert_papers
 
     monkeypatch.setattr(convert_papers, "PAPERS_DIR", tmp_path / "papers")
@@ -165,9 +165,12 @@ def test_regenerate_indexes_creates_top_and_year_files(monkeypatch, tmp_path):
         p.write_text("body")
 
     convert_papers._regenerate_indexes(rows)
-    assert (tmp_path / "papers" / "README.md").exists()
-    assert (tmp_path / "papers" / "2020" / "README.md").exists()
-    assert (tmp_path / "papers" / "2026" / "README.md").exists()
+    top = tmp_path / "papers" / "README.md"
+    assert top.exists()
+    assert "[2020](2020/)" in top.read_text(encoding="utf-8")
+    # No per-year README pages are generated any more.
+    assert not (tmp_path / "papers" / "2020" / "README.md").exists()
+    assert not (tmp_path / "papers" / "2026" / "README.md").exists()
 
 
 def test_process_paper_uses_arxiv_html_stage0(monkeypatch, tmp_path):
@@ -358,8 +361,6 @@ def test_main_with_only_does_not_clobber_indexes(monkeypatch, tmp_path):
     top_index = (papers_root / "README.md").read_text(encoding="utf-8")
     assert "[2020]" in top_index
     assert "[2024]" in top_index
-    year_index = (papers_root / "2020" / "README.md").read_text(encoding="utf-8")
-    assert "Wav2Lip" in year_index
 
 
 def test_needs_conversion_retries_recent_non_html_paper(tmp_papers_dir: Path) -> None:
