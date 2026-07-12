@@ -390,35 +390,17 @@ def _run_remediation_pass(rows: list[PaperRow]) -> None:
 
 
 def _regenerate_indexes(rows: list[PaperRow]) -> None:
-    """Write papers/README.md and papers/<year>/README.md from rows that have an MD file."""
-    from collections import defaultdict
-
+    """Write papers/README.md from the rows that have an MD file on disk."""
     from scripts._convert import indexes
 
-    entries_by_year: dict[str, list[indexes.IndexEntry]] = defaultdict(list)
-    all_entries: list[indexes.IndexEntry] = []
-    for r in rows:
-        target = PAPERS_DIR / r.year / f"{r.arxiv_id}.md"
-        if not target.exists():
-            continue
-        entry = indexes.IndexEntry(
-            arxiv_id=r.arxiv_id,
-            title=r.title,
-            authors=r.authors,
-            submitted=r.submitted,
-            abstract=r.abstract,
-        )
-        entries_by_year[r.year].append(entry)
-        all_entries.append(entry)
+    all_entries = [
+        indexes.IndexEntry(arxiv_id=r.arxiv_id, submitted=r.submitted)
+        for r in rows
+        if (PAPERS_DIR / r.year / f"{r.arxiv_id}.md").exists()
+    ]
 
     PAPERS_DIR.mkdir(parents=True, exist_ok=True)
     (PAPERS_DIR / "README.md").write_text(indexes.render_top_index(all_entries), encoding="utf-8")
-    for year, entries in entries_by_year.items():
-        year_dir = PAPERS_DIR / year
-        year_dir.mkdir(parents=True, exist_ok=True)
-        (year_dir / "README.md").write_text(
-            indexes.render_year_index(year, entries), encoding="utf-8"
-        )
 
 
 def log_conversion_error(log_path: Path, arxiv_id: str, stage: str, error: str) -> None:
