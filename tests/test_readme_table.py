@@ -28,4 +28,5 @@ def test_table_shows_only_papers_inside_window() -> None:
     assert "Paper 1" in table
     assert "Paper 2" not in table
     assert f"last {README_TABLE_WINDOW_DAYS} days (1 of 2 papers)" in table
+    assert f"<summary><h3>Last {README_TABLE_WINDOW_DAYS} Days</h3></summary>" in table
     assert "papers/README.md" in table
