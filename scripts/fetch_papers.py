@@ -688,7 +688,7 @@ _TABLE_END = "<!-- PAPERS_TABLE_END -->"
 
 # The README table shows only recent papers; the full list would blow past
 # GitHub's ~512 KB markdown render cap (each entry inlines its abstract).
-README_TABLE_WINDOW_DAYS = 30
+README_TABLE_WINDOW_DAYS = 60
 
 
 def _build_table(papers_by_id: dict[str, dict]) -> str:
