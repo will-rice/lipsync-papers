@@ -63,7 +63,7 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 _Showing the last 30 days (6 of 541 papers). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
-<summary><h3>2026</h3></summary>
+<summary><h3>Last 30 Days</h3></summary>
 
 #### [PolyInterview: An LLM-based Platform for Immersive Mock Interview Practice with Comprehensive Multimodal Assessment](https://arxiv.org/abs/2607.10310) · [📄 Read](papers/2026/2607.10310.md)
 

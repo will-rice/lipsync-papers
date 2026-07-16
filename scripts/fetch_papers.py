@@ -35,7 +35,6 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from collections import defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -698,55 +697,50 @@ def _build_table(papers_by_id: dict[str, dict]) -> str:
     total = len(rows)
     cutoff = datetime.now(tz=timezone.utc).date() - timedelta(days=README_TABLE_WINDOW_DAYS)
     rows = [r for r in rows if r.get("submitted", "") >= cutoff.isoformat()]
+    window_title = f"Last {README_TABLE_WINDOW_DAYS} Days"
     header = (
         f"_Showing the last {README_TABLE_WINDOW_DAYS} days ({len(rows)} of {total} papers). "
         f"The full list lives in [papers.csv](papers.csv); browse everything by year at "
         f"[papers/README.md](papers/README.md)._\n\n"
     )
 
-    # Group by year (newest first).
-    by_year: dict[str, list] = defaultdict(list)
+    if not rows:
+        return header.rstrip()
+
+    section_lines = ["<details open>", f"<summary><h3>{window_title}</h3></summary>", ""]
     for row in rows:
+        # Truncate long author lists for readability
+        authors = row.get("authors", "")
+        if authors.count(",") >= 4:
+            authors = ", ".join(authors.split(", ")[:4]) + " et al."
+        date_str = row.get("submitted", "")[:10]
+        abstract = row.get("abstract", "").strip()
+        title = row["title"]
+        url = row["url"]
+        arxiv_id = row.get("arxiv_id", "")
         year = row.get("submitted", "")[:4] or "Unknown"
-        by_year[year].append(row)
 
-    sections: list[str] = []
-    for year in sorted(by_year.keys(), reverse=True):
-        section_lines = ["<details open>", f"<summary><h3>{year}</h3></summary>", ""]
-        for row in by_year[year]:
-            # Truncate long author lists for readability
-            authors = row.get("authors", "")
-            if authors.count(",") >= 4:
-                authors = ", ".join(authors.split(", ")[:4]) + " et al."
-            date_str = row.get("submitted", "")[:10]
-            abstract = row.get("abstract", "").strip()
-            title = row["title"]
-            url = row["url"]
-            arxiv_id = row.get("arxiv_id", "")
+        local_md = REPO_ROOT / "papers" / year / f"{arxiv_id}.md"
+        local_link = ""
+        if local_md.exists():
+            local_link = f" · [📄 Read](papers/{year}/{arxiv_id}.md)"
 
-            local_md = REPO_ROOT / "papers" / year / f"{arxiv_id}.md"
-            local_link = ""
-            if local_md.exists():
-                local_link = f" · [📄 Read](papers/{year}/{arxiv_id}.md)"
-
-            section_lines.append(f"#### [{title}]({url}){local_link}")
-            section_lines.append(f"**{authors}** · {date_str}")
+        section_lines.append(f"#### [{title}]({url}){local_link}")
+        section_lines.append(f"**{authors}** · {date_str}")
+        section_lines.append("")
+        if abstract:
+            section_lines.append("<details>")
+            section_lines.append("<summary>Abstract</summary>")
             section_lines.append("")
-            if abstract:
-                section_lines.append("<details>")
-                section_lines.append("<summary>Abstract</summary>")
-                section_lines.append("")
-                section_lines.append(abstract)
-                section_lines.append("")
-                section_lines.append("</details>")
-                section_lines.append("")
-            else:
-                section_lines.append("")
+            section_lines.append(abstract)
+            section_lines.append("")
+            section_lines.append("</details>")
+            section_lines.append("")
+        else:
+            section_lines.append("")
 
-        section_lines.append("</details>")
-        sections.append("\n".join(section_lines))
-
-    return header + "\n\n".join(sections)
+    section_lines.append("</details>")
+    return header + "\n".join(section_lines)
 
 
 def update_readme(papers_by_id: dict[str, dict]) -> None:
