@@ -59,12 +59,14 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 ## Papers
 
 <!-- PAPERS_TABLE_START -->
+
 _Showing the last 60 days (18 of 541 papers). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 60 Days</h3></summary>
 
 #### [PolyInterview: An LLM-based Platform for Immersive Mock Interview Practice with Comprehensive Multimodal Assessment](https://arxiv.org/abs/2607.10310) · [📄 Read](papers/2026/2607.10310.md)
+
 **Zhiyuan Wen, Jiannong Cao, Zijian Wang, Chen Chen et al.** · 2026-07-11
 
 <details>
@@ -75,6 +77,7 @@ Preparing for job interviews is important for securing desired positions, yet re
 </details>
 
 #### [Multi-Modal Deepfake Detection via Spatial, Temporal, and Audio-Visual Fusion with Vision Transformers](https://www.semanticscholar.org/paper/5ad7261ad284f64c1b7776c990a9bbb305c402b5) · [📄 Read](papers/2026/s2:5ad7261ad284f64c1b7776c990a9bbb305c402b5.md)
+
 **Merlin Gethsy D., S. V** · 2026-06-30
 
 <details>
@@ -85,6 +88,7 @@ The rapid advancement of the deepfake generation technologies has intensified co
 </details>
 
 #### [SyncCache: Exploiting Asymmetric Dynamics for Fast Audio-Driven Portrait Animation](https://arxiv.org/abs/2606.30849) · [📄 Read](papers/2026/2606.30849.md)
+
 **Juncheng Ma, Yuxuan Du, Yanan Sun, Zhening Xing et al.** · 2026-06-29
 
 <details>
@@ -95,6 +99,7 @@ Diffusion Transformers (DiTs) have significantly advanced audio-driven portrait 
 </details>
 
 #### [DIVA-3D: a diverse 3D talking head dataset from in-the-wild videos](https://www.semanticscholar.org/paper/636d2024d246b43d37b6bb3d887c5607ad8ba1d1) · [📄 Read](papers/2026/s2:636d2024d246b43d37b6bb3d887c5607ad8ba1d1.md)
+
 **Yuhang Wu, Yixuan Zhang, Qing Chang, Junran Peng et al.** · 2026-06-29
 
 <details>
@@ -105,6 +110,7 @@ The synthesis of lifelike three-dimensional (3D) talking heads from audio requir
 </details>
 
 #### [KM-Speaker: Keypoint-Based Style Control for High-Quality Speech-Driven 3D Facial Animation and Dialogue Localization](https://arxiv.org/abs/2606.28568) · [📄 Read](papers/2026/2606.28568.md)
+
 **Arthur Josi, Emeline Got, Abdallah Dib, Luiz Gustavo Hafemann et al.** · 2026-06-26
 
 <details>
@@ -115,6 +121,7 @@ Speech-driven 3D facial animation methods face significant challenges in simulta
 </details>
 
 #### [Audio-visual Contrastive Alignment for Diffusion-based Visual-conditioned Speech Enhancement](https://arxiv.org/abs/2606.23712) · [📄 Read](papers/2026/2606.23712.md)
+
 **Colombe Mboungou, Mostafa Sadeghi, Jean-Eudes Ayilo, Romain Serizel** · 2026-06-16
 
 <details>
@@ -125,6 +132,7 @@ Audio-visual speech enhancement (AVSE) exploits visual cues such as lip movement
 </details>
 
 #### [EmoZone-Talker: Regional Semantic Control of Audio-Driven 3DGS Talking Heads via Facial Action Units](https://arxiv.org/abs/2606.15848) · [📄 Read](papers/2026/2606.15848.md)
+
 **Tingting Chen, Shaojun Wang, Huaye Zhang, Diqiong Jiang et al.** · 2026-06-14
 
 <details>
@@ -135,6 +143,7 @@ Audio-visual speech enhancement (AVSE) exploits visual cues such as lip movement
 </details>
 
 #### [ReFree: Towards Realistic Co-Speech Video Generation via Reward-Free RL and Multilevel Speech Guidance](https://arxiv.org/abs/2606.13304) · [📄 Read](papers/2026/2606.13304.md)
+
 **Salaheldin Mohamed, M. Hamza Mughal, Rishabh Dabral, Christian Theobalt** · 2026-06-11
 
 <details>
@@ -145,6 +154,7 @@ Speech-driven talking character animation seeks to generate life-like portrait v
 </details>
 
 #### [From Tokens to Faces: Investigating Discrete Speech Representations for 3D Facial Animation](https://arxiv.org/abs/2606.13630) · [📄 Read](papers/2026/2606.13630.md)
+
 **Pedro Corrêa, Olivier Perrotin, Samir Sadok, P. Costa et al.** · 2026-06-11
 
 <details>
@@ -155,10 +165,11 @@ The choice of speech representation is critical in speech-driven 3D facial anima
 </details>
 
 #### [EmoPoseFace: Head Pose Aware Speech- driven 3D Emotional Facial Animation Using Latent Diffusion.](https://www.semanticscholar.org/paper/7e1a054065faab0115b3ce00098b395a13617397) · [📄 Read](papers/2026/s2:7e1a054065faab0115b3ce00098b395a13617397.md)
+
 **Xin Zhao, Ju Dai, Feng Zhou, Haofei Wang et al.** · 2026-06-10
 
-
 #### [Lip Forcing: Few-Step Autoregressive Diffusion for Real-time Lip Synchronization](https://arxiv.org/abs/2606.11180) · [📄 Read](papers/2026/2606.11180.md)
+
 **Paul Hyunbin Cho, Jinhyuk Jang, SeokYoung Lee, Joungbin Lee et al.** · 2026-06-09
 
 <details>
@@ -169,6 +180,7 @@ Diffusion-based lip synchronization models achieve strong visual quality and aud
 </details>
 
 #### [Resonant Minds: Closed-Loop Social Avatars with Theory of Mind](https://arxiv.org/abs/2606.05896) · [📄 Read](papers/2026/2606.05896.md)
+
 **Jianxu Shangguan, Jing Xu, Hang Ye, Xiaoxuan Ma et al.** · 2026-06-04
 
 <details>
@@ -179,6 +191,7 @@ Creating lifelike digital humans with genuine social intelligence requires unify
 </details>
 
 #### [Temporally-Aligned Evaluation for Audio-Driven Talking Head Generation](https://arxiv.org/abs/2606.01031) · [📄 Read](papers/2026/2606.01031.md)
+
 **Zhicheng Zhang, Lei Wang, Yu Zhang, Yongsheng Gao** · 2026-05-31
 
 <details>
@@ -189,6 +202,7 @@ Audio-driven talking-head generation has advanced rapidly, yet existing evaluati
 </details>
 
 #### [IP-Adapter Is All You Need: Towards Fine-Tuning-Free Diffusion-Based Talking Face Generation](https://arxiv.org/abs/2605.30230) · [📄 Read](papers/2026/2605.30230.md)
+
 **Hao Wu, Xiangyang Luo, Hao Wang, Jiawei Zhang et al.** · 2026-05-28
 
 <details>
@@ -199,6 +213,7 @@ With the rapid advancement of diffusion models, talking face generation has made
 </details>
 
 #### [Explainable Children Autism Detection using Gaze Features in Audio-Visual Speech Comprehension ETRA012](https://www.semanticscholar.org/paper/b608a5b26365240ad5a5ce13e553fd8577a83ef0) · [📄 Read](papers/2026/s2:b608a5b26365240ad5a5ce13e553fd8577a83ef0.md)
+
 **Miguel Zaragozá-Portolés, David Gimeno-Gómez, V. Ávila, Dr. Inmaculada Fajardo et al.** · 2026-05-28
 
 <details>
@@ -209,6 +224,7 @@ Autism Spectrum Disorder (ASD) is a neurodevelopmental condition marked by impai
 </details>
 
 #### [CogPortrait: Fine-Grained Eye-Region Control in Portrait Animation via Hierarchical Agent Planning](https://arxiv.org/abs/2605.28056) · [📄 Read](papers/2026/2605.28056.md)
+
 **He Feng, Yongjia Ma, Donglin Di, Lei Fan et al.** · 2026-05-27
 
 <details>
@@ -219,6 +235,7 @@ Portrait animation methods have achieved substantial visual quality and lip sync
 </details>
 
 #### [From Talking to Singing: A New Challenge for Audio-Visual Deepfake Detection](https://arxiv.org/abs/2605.27944) · [📄 Read](papers/2026/2605.27944.md)
+
 **Keqi Liu, Jiwei Wei, Wenyuan Zhang, Shuchang Zhou et al.** · 2026-05-27
 
 <details>
@@ -229,6 +246,7 @@ With rapid advances in audio-visual generative models, reliable forgery detectio
 </details>
 
 #### [Test-Time Self-Adaptive Conditioning for Stable Audio-Driven Talking-Head Generation](https://arxiv.org/abs/2605.25488) · [📄 Read](papers/2026/2605.25488.md)
+
 **Zhicheng Zhang, Lei Wang, Yu Zhang, Yongsheng Gao** · 2026-05-25
 
 <details>
