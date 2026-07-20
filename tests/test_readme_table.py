@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 
-from scripts.fetch_papers import README_TABLE_WINDOW_DAYS, _build_table
+from scripts.fetch_papers import README_TABLE_LIMIT, _build_table
 
 
 def _paper(i: int, submitted: str) -> dict:
@@ -19,14 +19,27 @@ def _paper(i: int, submitted: str) -> dict:
     }
 
 
-def test_table_shows_only_papers_inside_window() -> None:
-    recent = (date.today() - timedelta(days=3)).isoformat()
-    old = (date.today() - timedelta(days=README_TABLE_WINDOW_DAYS + 5)).isoformat()
-    papers = {p["arxiv_id"]: p for p in [_paper(1, recent), _paper(2, old)]}
+def test_table_shows_only_recent_papers_up_to_limit() -> None:
+    base = date.today()
+    # Create more papers than the limit
+    papers = {
+        p["arxiv_id"]: p
+        for p in [_paper(i, (base - timedelta(days=i)).isoformat()) for i in range(1, README_TABLE_LIMIT + 5)]
+    }
     table = _build_table(papers)
-    assert table.count("#### [") == 1
-    assert "Paper 1" in table
-    assert "Paper 2" not in table
-    assert f"last {README_TABLE_WINDOW_DAYS} days (1 of 2 papers)" in table
-    assert f"<summary><h3>Last {README_TABLE_WINDOW_DAYS} Days</h3></summary>" in table
+    assert table.count("#### [") == README_TABLE_LIMIT
+    assert f"last {README_TABLE_LIMIT} papers ({README_TABLE_LIMIT} of {README_TABLE_LIMIT + 4} total)" in table
+    assert f"<summary><h3>Last {README_TABLE_LIMIT} Papers</h3></summary>" in table
     assert "papers/README.md" in table
+
+
+def test_table_shows_all_papers_when_below_limit() -> None:
+    base = date.today()
+    count = README_TABLE_LIMIT - 5
+    papers = {
+        p["arxiv_id"]: p
+        for p in [_paper(i, (base - timedelta(days=i)).isoformat()) for i in range(1, count + 1)]
+    }
+    table = _build_table(papers)
+    assert table.count("#### [") == count
+    assert f"last {README_TABLE_LIMIT} papers ({count} of {count} total)" in table
