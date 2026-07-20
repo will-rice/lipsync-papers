@@ -407,6 +407,7 @@ POSITIVE_RELEVANCE_KEYWORDS = [
     "facial reenactment",
     "facial animation",
     "visual speech",
+    "real-time digital human",
 ]
 
 # ML keywords – papers must also look like ML/CV/AI research to pass.
