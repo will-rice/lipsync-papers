@@ -61,6 +61,10 @@ SEARCH_QUERIES = [
     "audio visual speech",
     "face reenactment",
     "neural dubbing",
+    "portrait animation",
+    "audio-driven avatar",
+    "co-speech",
+    "head synthesis",
 ]
 
 # Earliest date to consider (wav2lip: ACM MM 2020, submitted April 2020).
