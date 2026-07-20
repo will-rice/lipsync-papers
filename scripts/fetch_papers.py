@@ -427,6 +427,13 @@ ML_KEYWORDS = [
     "learning-based",
 ]
 
+# Semantic gate – papers without an exact positive keyword can still be
+# admitted when they are close (in MiniLM embedding space) to the curated
+# corpus. See docs/superpowers/specs/2026-07-20-semantic-similarity-filtering-design.md.
+SEMANTIC_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+SEMANTIC_TOP_K = 10
+SEMANTIC_MIN_CORPUS = 50
+
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
 API_DELAY_SECONDS = 3
 
@@ -554,6 +561,38 @@ def _is_relevant_lipsync_paper(paper: dict) -> bool:
     return (
         not _is_excluded(paper) and _has_ml_signal(paper) and _has_positive_relevance_signal(paper)
     )
+
+
+class SemanticGate:
+    """Scores papers by cosine similarity to the curated corpus.
+
+    The score is the mean similarity to the top-k nearest corpus papers.  A
+    paper that is itself in the corpus is excluded from its own neighbor set,
+    so re-scoring existing papers stays meaningful.
+    """
+
+    def __init__(self, corpus: list[dict]):
+        from sentence_transformers import SentenceTransformer
+
+        self.model = SentenceTransformer(SEMANTIC_MODEL)
+        self.index = {p["arxiv_id"]: i for i, p in enumerate(corpus)}
+        self.corpus_embeddings = self.embed(corpus)
+
+    def embed(self, papers: list[dict]):
+        return self.model.encode(
+            [f"{p['title']}. {p['abstract']}" for p in papers],
+            convert_to_tensor=True,
+            normalize_embeddings=True,
+        )
+
+    def score(self, paper: dict) -> float:
+        row = self.index.get(paper["arxiv_id"])
+        embedding = self.corpus_embeddings[row] if row is not None else self.embed([paper])[0]
+        sims = self.corpus_embeddings @ embedding
+        if row is not None:
+            sims[row] = -1.0
+        k = min(SEMANTIC_TOP_K, len(sims) - (0 if row is None else 1))
+        return float(sims.topk(k).values.mean())
 
 
 def fetch_papers(keywords: str, start_date: date, end_date: date) -> list[dict]:
