@@ -560,11 +560,13 @@ def _has_ml_signal(paper: dict) -> bool:
     return _matches_any_keyword(_paper_haystack(paper), _ML_KEYWORDS_LOWER)
 
 
-def _is_relevant_lipsync_paper(paper: dict) -> bool:
-    """Return True if paper passes exclusion, ML, and positive relevance gates."""
-    return (
-        not _is_excluded(paper) and _has_ml_signal(paper) and _has_positive_relevance_signal(paper)
-    )
+def _is_relevant_lipsync_paper(paper: dict, gate: "SemanticGate | None") -> bool:
+    """Return True if paper passes the blacklist plus a keyword or semantic gate."""
+    if _is_excluded(paper):
+        return False
+    if _has_ml_signal(paper) and _has_positive_relevance_signal(paper):
+        return True
+    return gate is not None and gate.score(paper) >= SEMANTIC_THRESHOLD
 
 
 class SemanticGate:
@@ -822,6 +824,7 @@ def _collect_from_source(
     start_date: date,
     end_date: date,
     existing: dict[str, dict],
+    gate: "SemanticGate | None",
 ) -> int:
     """Query *fetch_fn* for each keyword and merge results into *existing*."""
     new_count = 0
@@ -835,10 +838,13 @@ def _collect_from_source(
 
         for paper in papers:
             pid = paper["arxiv_id"]
-            if pid not in existing and _is_relevant_lipsync_paper(paper):
+            if pid not in existing and _is_relevant_lipsync_paper(paper, gate):
                 existing[pid] = paper
                 new_count += 1
-                print(f"  + {pid}: {paper['title'][:70]}")
+                if _has_ml_signal(paper) and _has_positive_relevance_signal(paper):
+                    print(f"  + {pid}: {paper['title'][:70]}")
+                else:
+                    print(f"  + {pid} [sem {gate.score(paper):.2f}]: {paper['title'][:70]}")
 
         time.sleep(API_DELAY_SECONDS)
 
@@ -882,16 +888,23 @@ def main() -> None:
     existing = load_existing_papers()
     print(f"Loaded {len(existing)} existing papers from {PAPERS_CSV.name}.")
 
+    # The curated corpus anchors the semantic gate; below SEMANTIC_MIN_CORPUS
+    # (fresh backfill) filtering is keyword-only.
+    gate = None
+    if len(existing) >= SEMANTIC_MIN_CORPUS:
+        print(f"Building semantic gate from {len(existing)} corpus papers …")
+        gate = SemanticGate(list(existing.values()))
+
     # Remove any previously saved papers that no longer pass relevance gates.
     before = len(existing)
-    existing = {pid: p for pid, p in existing.items() if _is_relevant_lipsync_paper(p)}
+    existing = {pid: p for pid, p in existing.items() if _is_relevant_lipsync_paper(p, gate)}
     removed = before - len(existing)
     if removed:
         print(f"Removed {removed} existing paper(s) failing relevance filters.")
 
     new_count = 0
     new_count += _collect_from_source(
-        "arXiv", fetch_papers, SEARCH_QUERIES, start_date, end_date, existing
+        "arXiv", fetch_papers, SEARCH_QUERIES, start_date, end_date, existing, gate
     )
     new_count += _collect_from_source(
         "Hugging Face Papers",
@@ -900,6 +913,7 @@ def main() -> None:
         start_date,
         end_date,
         existing,
+        gate,
     )
 
     print(f"\nFound {new_count} new papers. Total: {len(existing)}.")

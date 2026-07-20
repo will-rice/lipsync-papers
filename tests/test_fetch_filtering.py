@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import pytest
 
-from scripts.fetch_papers import SemanticGate, load_existing_papers
+from scripts.fetch_papers import (
+    SEMANTIC_THRESHOLD,
+    SemanticGate,
+    _is_relevant_lipsync_paper,
+    load_existing_papers,
+)
 
 pytestmark = pytest.mark.slow
 
@@ -52,3 +57,29 @@ def test_corpus_paper_excludes_itself(corpus: list[dict]) -> None:
     score_b = small.score(corpus[1])
     assert score_a == pytest.approx(score_b, abs=1e-5)
     assert score_a < 0.999
+
+
+def test_semantic_path_admits_missing_keyword_paper(gate: SemanticGate) -> None:
+    assert gate.score(RELEVANT_NO_KEYWORD) >= SEMANTIC_THRESHOLD
+    assert _is_relevant_lipsync_paper(RELEVANT_NO_KEYWORD, gate)
+
+
+def test_off_topic_paper_rejected(gate: SemanticGate) -> None:
+    assert gate.score(OFF_TOPIC) < SEMANTIC_THRESHOLD
+    assert not _is_relevant_lipsync_paper(OFF_TOPIC, gate)
+
+
+def test_no_gate_falls_back_to_keyword_only() -> None:
+    assert not _is_relevant_lipsync_paper(RELEVANT_NO_KEYWORD, None)
+
+
+def test_blacklist_overrides_semantic_path(gate: SemanticGate) -> None:
+    blacklisted = dict(RELEVANT_NO_KEYWORD)
+    blacklisted["abstract"] += " We additionally evaluate on cleft lip patients."
+    assert not _is_relevant_lipsync_paper(blacklisted, gate)
+
+
+def test_keyword_path_is_preserved(corpus: list[dict]) -> None:
+    # Every corpus paper was admitted by the keyword path; the new rule must
+    # remain a strict superset of the old one.
+    assert all(_is_relevant_lipsync_paper(p, None) for p in corpus)
