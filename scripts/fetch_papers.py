@@ -438,9 +438,11 @@ SEMANTIC_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 SEMANTIC_TOP_K = 10
 SEMANTIC_MIN_CORPUS = 50
 
-# Calibrated 2026-07-20 as the p5 of leave-one-out corpus scores; see
-# scripts/calibrate_semantic_threshold.py for the procedure.
-SEMANTIC_THRESHOLD = 0.64
+# Calibrated 2026-07-20 as the p5 of leave-one-out corpus scores (0.64); see
+# scripts/calibrate_semantic_threshold.py for the procedure. Raised to just
+# under p10 (0.673) on 2026-07-20 after a live-run precision check at p5
+# admitted an off-topic paper (makeup transfer) at 0.65.
+SEMANTIC_THRESHOLD = 0.67
 
 # Delay between API requests to respect arXiv's rate-limit guidance (3 s).
 API_DELAY_SECONDS = 3
