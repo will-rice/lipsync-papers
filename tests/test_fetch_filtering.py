@@ -79,7 +79,8 @@ def test_blacklist_overrides_semantic_path(gate: SemanticGate) -> None:
     assert not _is_relevant_lipsync_paper(blacklisted, gate)
 
 
-def test_keyword_path_is_preserved(corpus: list[dict]) -> None:
-    # Every corpus paper was admitted by the keyword path; the new rule must
-    # remain a strict superset of the old one.
-    assert all(_is_relevant_lipsync_paper(p, None) for p in corpus)
+def test_corpus_is_stable_under_reprune(gate: SemanticGate, corpus: list[dict]) -> None:
+    # main() re-filters the existing corpus every run; nothing already curated
+    # may be pruned. Keyword-path papers pass regardless of the gate; papers
+    # admitted semantically must keep passing via their self-excluded score.
+    assert all(_is_relevant_lipsync_paper(p, gate) for p in corpus)
