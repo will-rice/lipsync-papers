@@ -60,7 +60,7 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 548 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1099 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
@@ -241,6 +241,17 @@ The choice of speech representation is critical in speech-driven 3D facial anima
 
 </details>
 
+#### [Avatar V: Scaling Video-Reference Avatar Video Generation](https://arxiv.org/abs/2606.13872)
+
+**Benjamin Liang, Ce Chen, Desmond Lin, Ivan Somov et al.** · 2026-06-11
+
+<details>
+<summary>Abstract</summary>
+
+Generating avatar videos that are not merely visually similar to a target individual but behaviorally recognizable, faithfully reproducing their talking rhythm, gestural tendencies, and expression dynamics, remains an open challenge. Existing methods predominantly condition on single static images, which provide insufficient identity information and cannot capture dynamic motion traits, while standard pixel-level objectives underserve the perceptually critical facial regions that determine avatar fidelity. We present Avatar V, a production-scale framework that addresses these limitations through video-reference-conditioned identity modeling. Rather than compressing identity into fixed-size embeddings, the model conditions directly on the full token sequence of a reference video, learning to reproduce both static identity attributes (facial geometry, skin texture) and dynamic behavioral patterns (talking rhythm, micro-expressions) through attention over the reference context. We introduce Sparse Reference Attention, an asymmetric mechanism achieving linear-complexity conditioning on arbitrarily long references; a motion representation stream enabling closed-loop talking style transfer; and an identity-aware super-resolution refiner inheriting the full reference conditioning. These are supported by a data engine curating 100M+ training clips from 50M raw videos, and a five-stage training pipeline with flow matching pre-training, personality fine-tuning, two-phase distillation (>10x acceleration), and RLHF alignment, deployed across thousands of GPUs. Avatar V generates 1080p videos of unlimited duration, achieving state-of-the-art identity preservation, lip synchronization, and generation quality on our cross-scene benchmark, consistently outperforming leading systems including Seedance 2.0, Kling O3 Pro, Veo 3.1, and OmniHuman 1.5 in both automated metrics and human evaluation.
+
+</details>
+
 #### [EmoPoseFace: Head Pose Aware Speech- driven 3D Emotional Facial Animation Using Latent Diffusion.](https://www.semanticscholar.org/paper/7e1a054065faab0115b3ce00098b395a13617397) · [📄 Read](papers/2026/s2:7e1a054065faab0115b3ce00098b395a13617397.md)
 
 **Xin Zhao, Ju Dai, Feng Zhou, Haofei Wang et al.** · 2026-06-10
@@ -264,6 +275,17 @@ Diffusion-based lip synchronization models achieve strong visual quality and aud
 <summary>Abstract</summary>
 
 Creating lifelike digital humans with genuine social intelligence requires unifying cognitive reasoning and multimodal generation within a coherent framework. Current approaches treat these as separate tasks: Large Language Models excel at dialogue but lack embodied expression, while diffusion-based talking head models achieve visual fidelity but ignore social cognition. To bridge this gap, we propose a closed-loop dual-agent framework integrating perception, social reasoning, and expression into a continuous interaction cycle. The perception module analyzes partners' multimodal behaviors from video, while the social reasoning module infers hidden mental states through Theory of Mind and selects responses via an ensemble mechanism. The expression module then generates emotion-controllable dual-agent videos synthesizing both speaker speech and expression alongside listener reactive behaviors, capturing bidirectional dynamics absent in prior work. We construct a hierarchical Persona-Scenario dataset with psychologically grounded personas and private social goals to support evaluation under information asymmetry. Experiments on this dataset demonstrate competitive or superior performance on both dialogue quality and video generation metrics. Notably, our method surpasses even the full-information Script mode on key dialogue quality dimensions, suggesting that explicit mental state inference under uncertainty can elicit more thoughtful dialogue than unrestricted information access.
+
+</details>
+
+#### [Mamba-Enhanced Implicit Motion Learning for Audio-Driven Portrait Animation](https://arxiv.org/abs/2606.03402)
+
+**Xuan Wei, Jiahui Chen, Kaiheng Li, Mingyu Shao et al.** · 2026-06-02
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven human motion video generation aims to synthesize realistic and temporally coherent human animations from a single static image, with applications in talking-head synthesis, co-speech gesture generation, and dynamic presentations. Moving beyond conventional keypoint-based methods that often struggle to capture subtle motion dynamics, We propose a novel implicit-motion framework for generating realistic and temporally coherent human motion videos from a single static image and audio. Our approach uses a two-stage pipeline that decouples motion prediction from rendering. The first stage integrates appearance priors and hierarchical depth cues into a region-aware attention mechanism to model latent motion features. The second stage employs a Mamba-enhanced diffusion model to directly predict these features from audio and the source image, enabling unsupervised learning of fine-grained motion patterns. This decoupled architecture enhances flexibility and efficiency. Trained on a new 380-hour high-quality dataset, our method outperforms prior work across multiple public benchmarks and our collected data in accuracy, naturalness, and temporal coherence, setting a new state-of-the-art.
 
 </details>
 
@@ -300,6 +322,39 @@ Autism Spectrum Disorder (ASD) is a neurodevelopmental condition marked by impai
 
 </details>
 
+#### [CapTalk: Text-Guided Stylization and Speech-Driven 3D Head Animation](https://arxiv.org/abs/2605.29316)
+
+**Xuangeng Chu, Yuan Gan, Ziteng Cui, Shuhong Liu et al.** · 2026-05-28
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven 3D facial animation aims to generate synchronized lip movements and vivid facial expressions from arbitrary audio clips. While existing methods can produce synchronized lip motions, they often rely on predefined identity or style latent features, which limits users' ability to freely control speaking styles. Moreover, applying a fixed style or identity to an entire audio segment typically results in facial animation styles that do not adapt to the emotional content of the audio. To address these challenges, we revisit the entanglement between style and emotion, construct a large-scale dataset with textual descriptions of both style and emotion, and propose a novel talking head generation framework that enables separate control over style and emotion. Our model takes as input both textual descriptions of speaking style and character emotion, as well as the driving audio stream, enabling real-time generation of highly synchronized lip movements and facial expressions that match the provided descriptions. Furthermore, our model supports dynamic emotion control during inference, allowing it to handle scenarios where the target emotion changes throughout the speech.
+
+</details>
+
+#### [Native Audio-Visual Alignment for Generation](https://arxiv.org/abs/2605.30073)
+
+**Longbin Ji, Guan Wang, Xuan Wei, Chenye Yang et al.** · 2026-05-28
+
+<details>
+<summary>Abstract</summary>
+
+Joint audio-video generation aims to synthesize temporally synchronized and semantically coherent visual-acoustic content. However, existing open-source methods mainly rely on either dual-tower designs with posterior alignment or fully unified tri-modal designs that mix textual context, audio and video in one shared space. The former weakens fine-grained audio-video co-evolution, while the latter couples semantic conditioning with low-level synchronization. To address these limitations, we propose NAVA, a Native Audio-Visual Alignment framework for joint audio-video generation. NAVA is built upon context-conditioned native audio-visual alignment: it first establishes audio-video correspondence in a dedicated interaction space, and then uses external context to condition the joint denoising process. Specifically, NAVA is instantiated with an Align-then-Fuse MMDiT architecture, which transitions from modality-aware audio-video alignment to modality-shared joint denoising. Furthermore, we introduce Timbre-in-Context Conditioning to associate reference timbre cues with corresponding speech spans to achieve controllable speech timbre. Experiments on Verse-Bench and Seed-TTS, together with a user study, demonstrate that NAVA achieves superior video quality, precise audio-visual synchronization, competitive audio quality, and stronger reference-timbre controllability using only 6.3B parameters.
+
+</details>
+
+#### [VideoFDB: Evaluating Full-Duplex Vision-Speech Capabilities in Conversational Agents](https://arxiv.org/abs/2605.30256)
+
+**Amrita Mazumdar, Seonwook Park, Rajarshi Roy, Nikhil Srihari et al.** · 2026-05-28
+
+<details>
+<summary>Abstract</summary>
+
+Natural human conversation is full-duplex and audio-visual: people simultaneously speak and listen while continuously interpreting and producing nonverbal cues, such as nods, smiles, and gestures. To support successful human-agent interaction, agents must model full-duplex audiovisual conversation; however, existing full-duplex benchmarks evaluate only speech. In this work, we present VideoFDB, the first benchmark to evaluate full-duplex audio-visual-to-audio-visual (AV2AV) conversational agents. VideoFDB contributes (i) 237 dyadic clips spanning 11 nonverbal conversational dynamics from real-world video calls, (ii) a taxonomy separating perception from generation behaviors, and (iii) a rubric-based LM-as-judge evaluation framework with interpretable axes for assessing conversational quality with respect to nonverbal conversational dynamics. Across open- and closed-source vision-speech agents, we find systematic failure modes: captioning collapse and visual-stream ignorance, and we show that current systems exploit vision for explicit visual question answering but not for the streaming joint audiovisual grounding required in natural conversation. We further evaluate cascaded speech-to-avatar systems and find that their architecture fundamentally precludes the production of full-duplex nonverbal cues. As the first benchmark for full-duplex AV2AV interaction, VideoFDB establishes a foundation for systematic evaluation and, we hope, will accelerate the advancement and development of next-generation multimodal conversational agents.
+
+</details>
+
 #### [CogPortrait: Fine-Grained Eye-Region Control in Portrait Animation via Hierarchical Agent Planning](https://arxiv.org/abs/2605.28056) · [📄 Read](papers/2026/2605.28056.md)
 
 **He Feng, Yongjia Ma, Donglin Di, Lei Fan et al.** · 2026-05-27
@@ -322,69 +377,14 @@ With rapid advances in audio-visual generative models, reliable forgery detectio
 
 </details>
 
-#### [Test-Time Self-Adaptive Conditioning for Stable Audio-Driven Talking-Head Generation](https://arxiv.org/abs/2605.25488) · [📄 Read](papers/2026/2605.25488.md)
+#### [EchoAvatar: Real-time Generative Avatar Animation from Audio Streams](https://arxiv.org/abs/2605.28272)
 
-**Zhicheng Zhang, Lei Wang, Yu Zhang, Yongsheng Gao** · 2026-05-25
-
-<details>
-<summary>Abstract</summary>
-
-Audio-driven talking-head generation has achieved remarkable progress with recent models such as AniTalker, FLOAT, and Sonic. Despite their success, most existing approaches rely on a single static reference image to condition the entire video generation process at inference stage. This static conditioning paradigm often creates a mismatch between fixed identity features and dynamically evolving facial motion, leading to identity drift, temporal inconsistency, and degraded perceptual quality. We introduce Test-Time Self-Adaptive Conditioning (TT-SAC), a parameter-free inference framework that enables pretrained talking-head generators to adapt their conditioning representations during inference without retraining, gradient updates, or additional supervision. Instead of treating the reference portrait as immutable, TT-SAC composes the generator with its encoder in a feedback loop: the generator's own outputs are re-encoded to construct a refined conditioning representation that better aligns with the temporal dynamics of the synthesized sequence. A single adaptation step approximates a self-consistent equilibrium of the generative process, stabilizing identity and motion across time. We further provide theoretical analysis showing that test-time conditioning adaptation reduces feature variance and improves generative stability under mild Lipschitz assumptions, while exhibiting a principled bias-variance tradeoff that governs the optimal strength of adaptation. Extensive experiments on state-of-the-art talking-head generators and benchmark datasets demonstrate consistent improvements in lip-sync accuracy, temporal coherence, identity preservation, and perceptual fidelity. TT-SAC offers a model-agnostic and training-free strategy for enhancing generative video models, establishing test-time conditioning adaptation as an effective mechanism for stabilizing audio-driven portrait animation.
-
-</details>
-
-#### [HighSync: High-Quality Lip Synchronization via Latent Diffusion Models](https://arxiv.org/abs/2605.16918) · [📄 Read](papers/2026/2605.16918.md)
-
-**Saeed Firouzi Daghigh, Majid Iranpour Mobarekeh, Mostafa Alavi, Mehdi Bagheri** · 2026-05-16
+**Bohong Chen, Yumeng Li, Yinglin Xu, Youyi Zheng et al.** · 2026-05-27
 
 <details>
 <summary>Abstract</summary>
 
-We present HighSync, an end-to-end diffusion-based framework for high-fidelity lip synchronization that generates photorealistic talking-face videos aligned with arbitrary input audio. Existing approaches consistently struggle to reconcile image quality with synchronization accuracy, producing either visually degraded outputs or temporally inconsistent lip movements. HighSync addresses both challenges simultaneously and, to our knowledge, is the first lip sync model to operate natively at 512\*512 resolution, positioning it as a viable solution for professional production environments such as the film and broadcast industries. Central to our approach is the identification and systematic elimination of a data leakage phenomenon that has silently undermined temporal modeling in prior work, preventing models from developing a genuine dependence on the audio signal. Comprehensive evaluations across both perceptual quality and synchronization accuracy metrics confirm that HighSync achieves state-of-the-art performance on both fronts. Source code, pre-trained models, and supplementary video results are publicly available at: https://github.com/saeed5959/high_sync
-
-</details>
-
-#### [Let Toon Talk: Speech-Driven 3D Cartoon Animation via Parametric Modeling and Flow Matching](https://www.semanticscholar.org/paper/a5d84f7cc3770c322c911f3849057f36d1957d2f) · [📄 Read](papers/2026/s2:a5d84f7cc3770c322c911f3849057f36d1957d2f.md)
-
-**Dong Wang, Sanxing Cao, Baihui Tang** · 2026-05-13
-
-<details>
-<summary>Abstract</summary>
-
-Speech-driven 3D cartoon facial animation remains underexplored due to the difficulty of handling heterogeneous geometries with exaggerated proportions, limited generalization to diverse unseen subjects, and the scarcity of datasets. To address these challenges, we propose Let Toon Talk, a two-stage cascaded framework that effectively mitigates these bottlenecks in both modeling and driving. It enables one-shot, speech-synchronized 3D animation from a single unseen humanoid cartoon image, driven by arbitrary audio. Specifically, for avatar modeling, we propose a parametric adaptation mechanism to capture diverse heterogeneous facial topologies, which subsequently guides a feed-forward reconstruction module to create high-quality 3D Gaussian Splatting (3DGS) avatars. Building upon this, for speech driving, we introduce an Identity-Adaptive Flow Matching network. This generative module effectively maps audio to precise facial dynamics, achieving identity-adaptive motion synthesis for diverse humanoid cartoon characters without per-subject pretraining. Furthermore, we construct a hybrid cartoon talking-face dataset with a systematic curation strategy to bridge the data gap. Extensive experiments demonstrate that our framework produces high-quality, temporally coherent animations, exhibiting effective generalization on unseen structurally humanoid cartoon characters.
-
-</details>
-
-#### [SDTalk: Structured Facial Priors and Dual-Branch Motion Fields for Generalizable Gaussian Talking Head Synthesis](https://arxiv.org/abs/2605.09956) · [📄 Read](papers/2026/2605.09956.md)
-
-**Peng Jia, Zhen Xiao, Jia Li, Xueliang Liu et al.** · 2026-05-11
-
-<details>
-<summary>Abstract</summary>
-
-High-quality, real-time talking head synthesis remains a fundamental challenge in computer vision. Existing reconstruction- and rendering-based methods typically rely on identity-specific models, limiting cross-identity generalization. To address this issue, we propose SDTalk, a one-shot 3D Gaussian Splatting (3DGS)-based framework that generalizes to unseen identities without personalized training or fine-tuning. Our framework comprises two modules with a two-stage training strategy. In the first stage, we incorporate structured facial priors into the reconstruction module and separately predict 3DGS parameters for visible and occluded regions, enabling complete head reconstruction from a single image. In the second stage, we introduce a dual-branch motion field to model coarse and fine facial dynamics, improving detail fidelity and lip synchronization. Experiments demonstrate that SDTalk surpasses existing methods in both visual quality and inference efficiency.
-
-</details>
-
-#### [Deep Learning Framework for Detecting Deep Fake Media Using Lip Region Analysis and Audio–Visual Synchronization](https://www.semanticscholar.org/paper/397c803b91d9532db059720dac4e6500267cfccc) · [📄 Read](papers/2026/s2:397c803b91d9532db059720dac4e6500267cfccc.md)
-
-**Hitashri M, Deekshitha M, Boreddy Sahastra Reddy, Dr. Nagaraj Cholli** · 2026-05-11
-
-<details>
-<summary>Abstract</summary>
-
-The advancement of the ‘deep fake’ technology has been rapid, with the emergence of innovative generative models that have the capability to create realistic fake media. Such fake videos have the potential to impact the authenticity, security, and trust of the information being conveyed, thereby creating a need for the detection of such fake videos. Several methods for the detection of ‘deep fake’ videos have been proposed, which primarily focus on the global facial artifacts and temporal inconsistencies. However, such methods may not perform well with the emergence of advanced ‘deep fake’ models, which have the potential to generate realistic fake videos. In this paper, we have proposed a ‘deep fake’ video detection framework that primarily focuses on the lip region and the audio-visual synchronization. The process was carried out through a series of checks, progressing through a series of steps in a specific order. The process starts by closely inspecting the video, followed by inspection of the lip region, inspection of any cues present in the video, and then audio features, among others, until a conclusion is reached. A major portion of this process is focused on the lip region, which is used to identify the speaker in a three-dimensional space. Audio cues, including Mel-frequency cepstral coefficients, are also considered during this process. The process involves authentic and manipulated videos, and it is clear that unusual lip movement is a strong indicator of a deep fake video.
-
-</details>
-
-#### [MoCoTalk: Multi-Conditional Diffusion with Adaptive Router for Controllable Talking Head Generation](https://arxiv.org/abs/2605.08050) · [📄 Read](papers/2026/2605.08050.md)
-
-**Xinyan Ye, Jiankang Deng, Abbas Edalat** · 2026-05-08
-
-<details>
-<summary>Abstract</summary>
-
-Talking-head generation requires joint modeling of identity, head pose, facial expression, and mouth dynamics. Existing methods typically address only a subset of these factors, and rely on fixed-weight or heuristic fusion when multiple conditions are involved. We present MoCoTalk, a multi-conditional video diffusion framework that unifies four complementary control signals: a reference image, facial keypoints, 3DMM-rendered shading meshes, and the corresponding speech audio. To resolve destructive interference among heterogeneous conditions, we introduce an Adaptive Multi-Condition Router that computes channel-wise, timestep-aware gating over the four condition streams, allowing the fusion strategy to vary with both feature subspace and noise level. To better capture speech-related facial dynamics, we design a Mouth-Augmented Shading Mesh, a 3DMM-based representation that decouples head motion, mouth motion, expression, and lighting. This design provides a temporally consistent geometric prior and allows flexible recombination of these attributes at inference. We further introduce a lip consistency loss to tighten audio-visual alignment. Extensive experiments show that MoCoTalk achieves state-of-the-art performance on the majority of structural, motion, and perceptual metrics, while offering attribute-level controllability that single-condition methods do not provide.
+Real-time synthesis of high-fidelity 3D character motion from audio is a pivotal component for next-generation interactive avatars and virtual assistants. However, most existing approaches are limited to offline processing of complete audio sequences or are constrained to specific domains, rarely handling both speech and music effectively. In this paper, we introduce a novel framework designed to generate continuous, coherent full-body motion from streaming speech and music with low latency. Central to our approach is a unified streaming architecture capable of synthesizing continuous motion from incremental audio inputs. We employ a robust training strategy that enforces strong audio dependency, allowing the model to seamlessly generalize across conversational speech and rhythmic music without requiring explicit domain labels or mode switching. Additionally, we explored Reinforcement Learning to refine the quality of online generation. Furthermore, we bridge reactive animation with intent-driven behavior via a tool-call interface that allows upstream Large Language Models to inject explicit semantic control. By combining this controllability with stream audio-driven synthesis, our framework serves as a plug-and-play solution for transforming voice agents into interactive humanoid avatars. Extensive experiments demonstrate that our method outperforms state-of-the-art realtime baselines in motion quality and synchronization while maintaining the flexibility required for live deployment. Our code, pre-trained models, and videos are available at https://robinwitch.github.io/EchoAvatar-Page.
 
 </details>
 
