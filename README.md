@@ -76,7 +76,7 @@ Preparing for job interviews is important for securing desired positions, yet re
 
 </details>
 
-#### [Learn2Chat: Rethinking Dyadic Talking Heads via Interaction-Modulated Monologic Priors](https://arxiv.org/abs/2607.10313)
+#### [Learn2Chat: Rethinking Dyadic Talking Heads via Interaction-Modulated Monologic Priors](https://arxiv.org/abs/2607.10313) · [📄 Read](papers/2026/2607.10313.md)
 
 **Zikai Huang, Siyue Chen, Xuemiao Xu, Haoxin Yang et al.** · 2026-07-11
 
@@ -87,7 +87,7 @@ Dyadic conversational motion generation is essential for realistic interactive d
 
 </details>
 
-#### [Conversational Human Audio-visual Talking Dialogue Generation](https://arxiv.org/abs/2607.02799)
+#### [Conversational Human Audio-visual Talking Dialogue Generation](https://arxiv.org/abs/2607.02799) · [📄 Read](papers/2026/2607.02799.md)
 
 **Junhao Song, Lluis Guasch, Xilin He, Zhongyu Yang et al.** · 2026-07-02
 
@@ -98,7 +98,7 @@ Large-scale dyadic interactive audio-visual dialogue (DIAD) datasets provide fun
 
 </details>
 
-#### [GaussianEmoTalker: Real-Time Emotional Talking Head Synthesis with Audio-Driven and Blendshape-Based 3D Gaussian Splatting](https://arxiv.org/abs/2607.00959)
+#### [GaussianEmoTalker: Real-Time Emotional Talking Head Synthesis with Audio-Driven and Blendshape-Based 3D Gaussian Splatting](https://arxiv.org/abs/2607.00959) · [📄 Read](papers/2026/2607.00959.md)
 
 **Haijie Yang, Zhenyu Zhang, Yixuan Dong, Jianjun Qian et al.** · 2026-07-01
 
@@ -120,7 +120,7 @@ The rapid advancement of the deepfake generation technologies has intensified co
 
 </details>
 
-#### [Towards Flexible, Natural, Efficient Interaction for Conversational Talking Face Generation](https://arxiv.org/abs/2606.31088)
+#### [Towards Flexible, Natural, Efficient Interaction for Conversational Talking Face Generation](https://arxiv.org/abs/2606.31088) · [📄 Read](papers/2026/2606.31088.md)
 
 **Baiqin Wang, Sen Chen, Jiankuo Zhao, Xiangyu Liu et al.** · 2026-06-30
 
@@ -153,7 +153,7 @@ The synthesis of lifelike three-dimensional (3D) talking heads from audio requir
 
 </details>
 
-#### [FacePlex: Full-Duplex Joint Speech-Facial Motion Generation for Conversational Avatars](https://arxiv.org/abs/2606.30145)
+#### [FacePlex: Full-Duplex Joint Speech-Facial Motion Generation for Conversational Avatars](https://arxiv.org/abs/2606.30145) · [📄 Read](papers/2026/2606.30145.md)
 
 **Habin Lim, Jae-Ho Lee, Hah Min Lew, Ji-Su Kang et al.** · 2026-06-29
 
@@ -175,7 +175,7 @@ Speech-driven 3D facial animation methods face significant challenges in simulta
 
 </details>
 
-#### [LoCC: Detection and Localization of Lip-Syncing Deepfakes via Counterfactual Frame Consistency](https://arxiv.org/abs/2606.22772)
+#### [LoCC: Detection and Localization of Lip-Syncing Deepfakes via Counterfactual Frame Consistency](https://arxiv.org/abs/2606.22772) · [📄 Read](papers/2026/2606.22772.md)
 
 **Soumyya Kanti Datta, Shan Jia, Siwei Lyu** · 2026-06-22
 
@@ -186,7 +186,7 @@ Lip-syncing deepfakes are among the most challenging forms of manipulated media 
 
 </details>
 
-#### [InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars](https://arxiv.org/abs/2606.22905)
+#### [InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars](https://arxiv.org/abs/2606.22905) · [📄 Read](papers/2026/2606.22905.md)
 
 **Quanyue Song, Yishan He, Yanfei Zhang, Shihao Cheng et al.** · 2026-06-22
 
@@ -241,7 +241,7 @@ The choice of speech representation is critical in speech-driven 3D facial anima
 
 </details>
 
-#### [Avatar V: Scaling Video-Reference Avatar Video Generation](https://arxiv.org/abs/2606.13872)
+#### [Avatar V: Scaling Video-Reference Avatar Video Generation](https://arxiv.org/abs/2606.13872) · [📄 Read](papers/2026/2606.13872.md)
 
 **Benjamin Liang, Ce Chen, Desmond Lin, Ivan Somov et al.** · 2026-06-11
 
@@ -278,7 +278,7 @@ Creating lifelike digital humans with genuine social intelligence requires unify
 
 </details>
 
-#### [Mamba-Enhanced Implicit Motion Learning for Audio-Driven Portrait Animation](https://arxiv.org/abs/2606.03402)
+#### [Mamba-Enhanced Implicit Motion Learning for Audio-Driven Portrait Animation](https://arxiv.org/abs/2606.03402) · [📄 Read](papers/2026/2606.03402.md)
 
 **Xuan Wei, Jiahui Chen, Kaiheng Li, Mingyu Shao et al.** · 2026-06-02
 
@@ -322,7 +322,7 @@ Autism Spectrum Disorder (ASD) is a neurodevelopmental condition marked by impai
 
 </details>
 
-#### [CapTalk: Text-Guided Stylization and Speech-Driven 3D Head Animation](https://arxiv.org/abs/2605.29316)
+#### [CapTalk: Text-Guided Stylization and Speech-Driven 3D Head Animation](https://arxiv.org/abs/2605.29316) · [📄 Read](papers/2026/2605.29316.md)
 
 **Xuangeng Chu, Yuan Gan, Ziteng Cui, Shuhong Liu et al.** · 2026-05-28
 
@@ -333,7 +333,7 @@ Audio-driven 3D facial animation aims to generate synchronized lip movements and
 
 </details>
 
-#### [Native Audio-Visual Alignment for Generation](https://arxiv.org/abs/2605.30073)
+#### [Native Audio-Visual Alignment for Generation](https://arxiv.org/abs/2605.30073) · [📄 Read](papers/2026/2605.30073.md)
 
 **Longbin Ji, Guan Wang, Xuan Wei, Chenye Yang et al.** · 2026-05-28
 
@@ -344,7 +344,7 @@ Joint audio-video generation aims to synthesize temporally synchronized and sema
 
 </details>
 
-#### [VideoFDB: Evaluating Full-Duplex Vision-Speech Capabilities in Conversational Agents](https://arxiv.org/abs/2605.30256)
+#### [VideoFDB: Evaluating Full-Duplex Vision-Speech Capabilities in Conversational Agents](https://arxiv.org/abs/2605.30256) · [📄 Read](papers/2026/2605.30256.md)
 
 **Amrita Mazumdar, Seonwook Park, Rajarshi Roy, Nikhil Srihari et al.** · 2026-05-28
 
@@ -377,7 +377,7 @@ With rapid advances in audio-visual generative models, reliable forgery detectio
 
 </details>
 
-#### [EchoAvatar: Real-time Generative Avatar Animation from Audio Streams](https://arxiv.org/abs/2605.28272)
+#### [EchoAvatar: Real-time Generative Avatar Animation from Audio Streams](https://arxiv.org/abs/2605.28272) · [📄 Read](papers/2026/2605.28272.md)
 
 **Bohong Chen, Yumeng Li, Yinglin Xu, Youyi Zheng et al.** · 2026-05-27
 
