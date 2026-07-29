@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1106 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [ViDS: Video Diffusion Shader using 3D Face Tracking](https://arxiv.org/abs/2607.24124)
+#### [ViDS: Video Diffusion Shader using 3D Face Tracking](https://arxiv.org/abs/2607.24124) · [📄 Read](papers/2026/2607.24124.md)
 
 **Wenbo Ji, Davide Davoli, Zhe Chen, Liam Schoneveld et al.** · 2026-07-27
 
@@ -76,7 +76,7 @@ We introduce ViDS, a Video Diffusion Shader that leverages 3D face tracking for 
 
 </details>
 
-#### [AptAvatar: Fast and Vivid Long-Form Audio-Driven Video Generation for Production-Ready Avatars](https://arxiv.org/abs/2607.24013)
+#### [AptAvatar: Fast and Vivid Long-Form Audio-Driven Video Generation for Production-Ready Avatars](https://arxiv.org/abs/2607.24013) · [📄 Read](papers/2026/2607.24013.md)
 
 **Hengyuan Zhang, Jingna Sun, Meiguang Jin, Junfeng Ma** · 2026-07-27
 
@@ -87,7 +87,7 @@ Production-ready audio-driven avatar generation requires efficient inference wit
 
 </details>
 
-#### [STEER: Steerable Dyadic Head Avatars](https://arxiv.org/abs/2607.23840)
+#### [STEER: Steerable Dyadic Head Avatars](https://arxiv.org/abs/2607.23840) · [📄 Read](papers/2026/2607.23840.md)
 
 **Kartik Teotia, Helge Rhodin, Hyeongwoo Kim, Marc Habermann et al.** · 2026-07-26
 
@@ -98,7 +98,7 @@ Facial movement and expression are central to face-to-face communication, convey
 
 </details>
 
-#### [GRAPE: Graduated Routing for Articulated Portrait mesh Estimation](https://arxiv.org/abs/2607.23657)
+#### [GRAPE: Graduated Routing for Articulated Portrait mesh Estimation](https://arxiv.org/abs/2607.23657) · [📄 Read](papers/2026/2607.23657.md)
 
 **Yunfei Liu, Lijian Lin, Ye Zhu, Yu Li** · 2026-07-26
 
@@ -109,7 +109,7 @@ Articulated portrait mesh estimation is fundamental to 3D understanding, avatar 
 
 </details>
 
-#### [OmniMate: Open-Ended Real-Time Streaming Audio-Visual Generation for Interactive Avatars](https://arxiv.org/abs/2607.23023)
+#### [OmniMate: Open-Ended Real-Time Streaming Audio-Visual Generation for Interactive Avatars](https://arxiv.org/abs/2607.23023) · [📄 Read](papers/2026/2607.23023.md)
 
 **Quanyue Song, Yishan He, Yanbo Ding, Zhixiang He et al.** · 2026-07-25
 
@@ -120,7 +120,7 @@ Recent advances in diffusion-based generative models have enabled real-time audi
 
 </details>
 
-#### [ID-V2V: Identity-Preserving Video Restylization](https://arxiv.org/abs/2607.22830)
+#### [ID-V2V: Identity-Preserving Video Restylization](https://arxiv.org/abs/2607.22830) · [📄 Read](papers/2026/2607.22830.md)
 
 **Yuancheng Xu, Mingming He, Pablo Salamanca, Li Ma et al.** · 2026-07-24
 
