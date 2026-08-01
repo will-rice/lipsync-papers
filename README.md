@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1108 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [ReGenVC: End-to-End Real-Time Generative Video Coding at Ultra-Low Bitrate](https://arxiv.org/abs/2607.28144)
+#### [ReGenVC: End-to-End Real-Time Generative Video Coding at Ultra-Low Bitrate](https://arxiv.org/abs/2607.28144) · [📄 Read](papers/2026/2607.28144.md)
 
 **Zheyuan Zhang, Johnson Wu** · 2026-07-30
 
@@ -76,7 +76,7 @@ We present ReGenVC, an end-to-end generative video codec that compresses talking
 
 </details>
 
-#### [TongueReenact: Geometry-Anchored Tongue Synthesis for Face Reenactment](https://arxiv.org/abs/2607.28039)
+#### [TongueReenact: Geometry-Anchored Tongue Synthesis for Face Reenactment](https://arxiv.org/abs/2607.28039) · [📄 Read](papers/2026/2607.28039.md)
 
 **MD Wahiduzzaman Khan, Mingshan Jia, Xiaolin Zhang, En Yu et al.** · 2026-07-30
 
