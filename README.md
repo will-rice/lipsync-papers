@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1113 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [ETHead: Generating Expressive 3D Facial Animation and Head Movement from Speech](https://arxiv.org/abs/2608.01605)
+#### [ETHead: Generating Expressive 3D Facial Animation and Head Movement from Speech](https://arxiv.org/abs/2608.01605) · [📄 Read](papers/2026/2608.01605.md)
 
 **Jiu-Cheng Xie, Jiwang Zheng, Yongkang Xia, Jian Xiong et al.** · 2026-08-03
 
@@ -76,7 +76,7 @@ Generating expressive 3D talking heads solely from speech remains a significant 
 
 </details>
 
-#### [Proxy Avatar Meets Low-Rank Caching: Real-Time One-Shot Emotion-Controllable Portrait Animation](https://arxiv.org/abs/2608.01978)
+#### [Proxy Avatar Meets Low-Rank Caching: Real-Time One-Shot Emotion-Controllable Portrait Animation](https://arxiv.org/abs/2608.01978) · [📄 Read](papers/2026/2608.01978.md)
 
 **Haijie Yang, Jindi Bao, Yixuan Dong, Hongliang Zhang et al.** · 2026-08-03
 
@@ -87,7 +87,7 @@ Audio-driven portrait animation has advanced rapidly with diffusion-based genera
 
 </details>
 
-#### [StreamTalk: Streaming Co-Speech Gesture Generation with Key-Pose Anchoring](https://arxiv.org/abs/2608.01643)
+#### [StreamTalk: Streaming Co-Speech Gesture Generation with Key-Pose Anchoring](https://arxiv.org/abs/2608.01643) · [📄 Read](papers/2026/2608.01643.md)
 
 **Xiangyue Zhang, Jianfang Li, Jiaxu Zhang, Kaixing Yang et al.** · 2026-08-03
 
@@ -98,7 +98,7 @@ Real-time co-speech gesture generation must produce 3D motion clip by clip as sp
 
 </details>
 
-#### [Geometry-guided Emotion Modulation for Controllable and Photorealistic Emotional Talking Face Generation](https://arxiv.org/abs/2608.00663)
+#### [Geometry-guided Emotion Modulation for Controllable and Photorealistic Emotional Talking Face Generation](https://arxiv.org/abs/2608.00663) · [📄 Read](papers/2026/2608.00663.md)
 
 **Chenggong Hu, Shaoyin Ma, Yi Wang, Li Sun et al.** · 2026-08-01
 
@@ -131,7 +131,7 @@ Modern face reenactment systems achieve impressive pose and expression transfer 
 
 </details>
 
-#### [LeapTalk: Breaking the Latency-Quality Trade-off in Talking Head Generation](https://arxiv.org/abs/2608.00079)
+#### [LeapTalk: Breaking the Latency-Quality Trade-off in Talking Head Generation](https://arxiv.org/abs/2608.00079) · [📄 Read](papers/2026/2608.00079.md)
 
 **Rongxiang Zhang, Songhua Liu** · 2026-07-29
 
