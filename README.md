@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1116 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [Vorch-Streamer: Extending Human Audio-Visual Generation to Real-Time Long-Form Streaming](https://arxiv.org/abs/2608.05663)
+#### [Vorch-Streamer: Extending Human Audio-Visual Generation to Real-Time Long-Form Streaming](https://arxiv.org/abs/2608.05663) · [📄 Read](papers/2026/2608.05663.md)
 
 **Menglin Han, Yang Ding, Yulei Lu, Haoran Yu et al.** · 2026-08-06
 
@@ -76,7 +76,7 @@ Real-time long-form avatar audio--video generation requires causal, continuous s
 
 </details>
 
-#### [Wan-Animate-2: Pushing the Application Boundaries of Character Animation](https://arxiv.org/abs/2608.06009)
+#### [Wan-Animate-2: Pushing the Application Boundaries of Character Animation](https://arxiv.org/abs/2608.06009) · [📄 Read](papers/2026/2608.06009.md)
 
 **Guangyuan Wang, Li Hu, Dechao Meng, Zhongyi Zhang et al.** · 2026-08-06
 
@@ -87,7 +87,7 @@ Character image animation remains a foundational yet challenging task in compute
 
 </details>
 
-#### [PD-GS: Phoneme-Driven 3DGS for Audio-Driven Talking Heads](https://arxiv.org/abs/2608.05218)
+#### [PD-GS: Phoneme-Driven 3DGS for Audio-Driven Talking Heads](https://arxiv.org/abs/2608.05218) · [📄 Read](papers/2026/2608.05218.md)
 
 **Ao Fu, Yi Zhou** · 2026-08-05
 
