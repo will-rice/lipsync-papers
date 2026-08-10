@@ -60,10 +60,21 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1117 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1119 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection](https://arxiv.org/abs/2608.06865)
+
+**Xuechao Zou, Shun Zhang, Kai Li, Yi Zhou et al.** · 2026-08-07
+
+<details>
+<summary>Abstract</summary>
+
+The malicious use of generative artificial intelligence to create highly realistic deepfake videos raises serious ethical concerns and poses substantial challenges to AI safety. However, existing deepfake video benchmarks provide limited coverage of recent synthesis methods and generally lack reliable fine-grained textual annotations. Meanwhile, conventional detectors and multimodal large language models (MLLMs), whether operating as a single model or relying on a single analytical perspective, often fail to capture subtle forgery artifacts, limiting their generalization to emerging AI-generated methods. To address these limitations, we introduce FaceVid-Forensics-100K, a large-scale deepfake video dataset comprising 100,000 videos and spanning 33 synthesis methods across face swapping, face reenactment, and entire-face synthesis, including recent generators such as Seedance 2.0. The dataset provides fine-grained textual annotations of visual observations and verdict-consistent forensic explanations, automatically synthesized through a multi-model aggregation and conflict-resolution pipeline powered by advanced MLLMs. Building on this benchmark, we propose a multi-agent forensic reasoning framework that employs four specialized domain-expert agents to independently analyze forgery cues from four perspectives: texture, lighting, motion, and physics. A judge agent then reconciles their reports to produce a final prediction together with an explanation. Extensive evaluations on out-of-domain test sets show that, despite being composed entirely of small open-source MLLMs, our framework outperforms all methods including closed-source GPT and Gemini models and ranks first across all reported metrics on this benchmark. The project page is available at https://xavierjiezou.github.io/ARGUS/.
+
+</details>
 
 #### [Vorch-Streamer: Extending Human Audio-Visual Generation to Real-Time Long-Form Streaming](https://arxiv.org/abs/2608.05663) · [📄 Read](papers/2026/2608.05663.md)
 
@@ -131,7 +142,7 @@ Real-time co-speech gesture generation must produce 3D motion clip by clip as sp
 
 </details>
 
-#### [SwanTale: Unified Multi-Speaker Speech and Audio Generation for Instruct and Zero-Shot Tasks](https://arxiv.org/abs/2608.02023)
+#### [SwanTale: Unified Multi-Speaker Speech and Audio Generation for Instruct and Zero-Shot Tasks](https://arxiv.org/abs/2608.02023) · [📄 Read](papers/2026/2608.02023.md)
 
 **Yu Zhang, Ruiqi Li, Changhao Pan, Ke Lei et al.** · 2026-08-03
 
@@ -139,6 +150,17 @@ Real-time co-speech gesture generation must produce 3D motion clip by clip as sp
 <summary>Abstract</summary>
 
 Speech and audio generation is often needed in animation dubbing, audio drama, movies, advertising, games, podcasts, and short-video production. In these scenarios, creators may need to design voices without reference recordings, control speaker styles with natural language, support acoustic scenes with environments and audio effects, and later reuse the designed voices. Therefore, it is important to support multi-speaker speech and audio generation for both instruct and zero-shot tasks. The instruct task requires a caption of the environment, speaker styles, and fine-grained content, while the zero-shot task uses reference audio together with the same fine-grained content. We address these tasks from both the data and model sides. First, we propose SwanData-Caption, which cleans raw speech and audio data, adds targeted synthetic coverage, and annotates diverse and accurate multi-level captions. Then, we propose SwanTale, a multi-speaker expressive speech and audio generation model that supports both zero-shot and instruct tasks. We introduce SwanVAE to support high-quality multi-audio-modality generation. Then, we adopt reward-conditioned quality control and Engram conditioning, along with Unified MoE for multi-task and multi-audio-modality modeling. In addition, we use curriculum learning and GRPO post-training to let the model progressively learn and strengthen its capabilities. Experimental results show that SwanTale leads on multiple key zero-shot and instruct metrics, achieves the best expressiveness scores in both tasks, and supports complex instruct generation involving multi-speaker speech and audio. Demos can be found at https://swanaigc.github.io/\#swantale.
+
+</details>
+
+#### [SubtleTalk: Generating Controllable Weakly-correlated Facial Dynamics for 3D Talking Heads via Residual Flow Matching](https://arxiv.org/abs/2608.06408)
+
+**Chenyang Ding, Shuai Tan, Qunfen Lin, Xinwei Jiang et al.** · 2026-08-03
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven 3D facial animation aims to synthesize realistic and temporally coherent motions from speech. Despite notable progress in lip synchronization, weakly correlated dynamics, including eyebrow movements, eye blinks, and head motion, which are essential to photorealistic facial animation, remain difficult to model faithfully and often appear static or unnaturally repetitive. We attribute this limitation to three factors: (a) insufficient conditioning for weakly correlated dynamics; (b) the limited ability of deterministic regression to capture diverse motion patterns; (c) data bottlenecks from unreliable upper-face pseudo-labels and limited dataset diversity. To address these issues, we propose SubtleTalk, a framework for generating natural and controllable weakly correlated facial dynamics via multi-condition modeling and residual flow matching. First, to compensate for the limited guidance of speech alone, we introduce interpretable controls, including prosody, regional intensity, and Valence-Arousal signals, to explicitly capture the timing, magnitude, and affective variation of weakly correlated dynamics. Second, to overcome the limited expressiveness of deterministic regression, we build residual flow matching based on a stable speech-driven motion prior, allowing the model to capture stochastic deviations beyond deterministic prediction. Third, to alleviate the data bottleneck, we construct SubtleTalk-Face, a large-scale 3D facial animation dataset comprising about 3,900 identities and 74 hours of data, built via a simple and scalable pseudo-labeling pipeline and featuring improved upper-face tracking and frame-level VA annotations. Extensive experiments demonstrate that our method significantly improves the realism and diversity of weakly correlated facial dynamics while preserving accurate lip synchronization.
 
 </details>
 
@@ -370,28 +392,6 @@ Natural face-to-face conversation requires real-time speech generation together 
 <summary>Abstract</summary>
 
 Speech-driven 3D facial animation methods face significant challenges in simultaneously achieving high-fidelity motion and precise artistic control at production quality. Existing controllable models typically learn global style control by relying on large-scale, low-quality \emph{in-the-wild} datasets that compromise overall animation realism. Furthermore, these frameworks often lack the fine-grained temporal precision required for demanding tasks such as dialogue localization (e.g., dubbing), where matching specific facial expressions is as critical as lip synchronization. We present KM-Speaker (Keypoint-Matching Speaker), a novel keypoint-conditioned flow-based generative framework that provides both global style guidance and frame-level temporal control from reference performances. We propose a disentanglement strategy that separates audio-driven lip motion from keypoint-driven upper-face dynamics, together with a global style context preservation mechanism to ensure coherent full-face expressiveness. KM-Speaker advances example-based 3D facial animation by achieving high-fidelity motion and flexible controllability in a data-constrained setting, consistently outperforming state-of-the-art methods in lip-sync accuracy, style adherence, and expressive temporal control.
-
-</details>
-
-#### [LoCC: Detection and Localization of Lip-Syncing Deepfakes via Counterfactual Frame Consistency](https://arxiv.org/abs/2606.22772) · [📄 Read](papers/2026/2606.22772.md)
-
-**Soumyya Kanti Datta, Shan Jia, Siwei Lyu** · 2026-06-22
-
-<details>
-<summary>Abstract</summary>
-
-Lip-syncing deepfakes are among the most challenging forms of manipulated media because their artifacts are localized almost exclusively to the mouth region and evolve dynamically over time. Detecting such deepfakes requires precise temporal and spatial modeling of lip motion. In this paper, we propose LoCC, a novel detection framework that performs fine-grained detection and localization of lip-syncing deepfakes at both segment and frame levels. Unlike prior approaches that analyze videos holistically, our method evaluates whether each frame aligns with a counterfactual estimate generated from its temporal neighbors. Real videos exhibit strong and stable consistency, whereas lip-sync deepfakes introduce localized inconsistencies. Following a teacher-student learning paradigm, our model effectively captures these frame-level discrepancies and achieves superior performance over state-of-the-art methods on multiple benchmark lip-syncing deepfake datasets, including LAV-DF, AVDF1M, FakeAVCeleb, and KODF, and generalizes well across compression levels and datasets.
-
-</details>
-
-#### [InteractiveAvatar: Real-Time Streaming Video Generation for Consistent and Intent-Aware Avatars](https://arxiv.org/abs/2606.22905) · [📄 Read](papers/2026/2606.22905.md)
-
-**Quanyue Song, Yishan He, Yanfei Zhang, Shihao Cheng et al.** · 2026-06-22
-
-<details>
-<summary>Abstract</summary>
-
-Recent diffusion-based models have enabled realistic audio-driven avatar generation in real-time streaming. However, existing approaches struggle to maintain visual temporal consistency and fail to explicitly perceive user intent in complex interactive streaming scenarios. To address these challenges, we propose InteractiveAvatar, a real-time infinite-streaming video generation framework that supports visually consistent avatar video generation and intent-aware interactions. With autoregressive distillation, InteractiveAvatar achieves real-time str-eaming generation of human avatars over arbitrarily long durations. For visual consistency, we introduce a Long-Short Visual Memory (LSVM) mechanism that flexibly compresses historical visual information into compact tokens, preserving both short-range coherence and long-term consistency. To generate avatars with speeches and actions aligned with user intent, we propose a Reasoning-Reaction Module (RRM), which incorporates a State-Cycling strategy and a Cache-Switching mechanism. Extensive experimental results over diverse scenarios demonstrate that our method achieves state-of-the-art visual consistency in long-duration generation, while enabling complex user-avatar interaction in real time.
 
 </details>
 
