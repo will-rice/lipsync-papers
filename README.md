@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1120 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [DAVE: A Decoupled Audio-Visual Enhancement Framework for Real-World Speech Separation](https://arxiv.org/abs/2608.09288)
+#### [DAVE: A Decoupled Audio-Visual Enhancement Framework for Real-World Speech Separation](https://arxiv.org/abs/2608.09288) · [📄 Read](papers/2026/2608.09288.md)
 
 **Wei Zhou, Wanyi Ning, Yinshang Guo, Qianxiao Fang et al.** · 2026-08-10
 
