@@ -76,7 +76,7 @@ Pose-driven human animation synthesizes a video of a target person from a single
 
 </details>
 
-#### [UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos](https://arxiv.org/abs/2608.11752)
+#### [UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos](https://arxiv.org/abs/2608.11752) · [📄 Read](papers/2026/2608.11752.md)
 
 **Yuxuan Zhang, Haozhong Xiong, Jiayi Song, Jinpeng Yu et al.** · 2026-08-13
 
