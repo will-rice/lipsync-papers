@@ -60,10 +60,65 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1124 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1130 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [AnyTalk: Speech Animation for Arbitrary Characters Leveraging a Video Generation Model](https://arxiv.org/abs/2608.16143)
+
+**Kwan Yun, Serin Yoon, Sunjin Jung, Jung Eun Yoo et al.** · 2026-08-17
+
+<details>
+<summary>Abstract</summary>
+
+We present AnyTalk, a novel method for generating 3D speech animations for arbitrary characters without requiring any animation data. While existing audio-driven 3D speech animation methods rely on character-specific training data or laborious rigging/re-meshing, AnyTalk circumvents these limitations by leveraging recent video diffusion models trained on extensive video datasets. We first adapt a pre-trained video diffusion model to a target character through our Character-specific Fine-tuning (\textit{CsF}) technique. By fine-tuning on rendered images of the 3D character paired with zeroed-out audio embeddings (representing "no motion"), we eliminate the need for animation data while preserving the motion prior of large-scale video diffusion model. We then uplift the resulting talking-head video into a 3D speech animation by estimating blendshape parameters through a proposed optimization process. AnyTalk enables lip-synced animations across diverse face meshes and blendshape configurations, significantly reducing manual effort and data requirements. We further enhance usability by distilling AnyTalk into a streamlined network, $\text{AnyTalk}_{RT}$, thereby enabling real-time performance. By leveraging talking-head video generation, our method broadens access to audio-driven speech animation technology for arbitrary characters. The code is publicly available at https://serin-yoon.github.io/projects/anytalk/.
+
+</details>
+
+#### [SingDance: Compositional Zero-Shot Singing-and-Dancing Video Generation with Role-Aware Audio Conditioning](https://arxiv.org/abs/2608.16220)
+
+**Tao Feng, Xu Li, Xiangyang Luo, Ming Wen et al.** · 2026-08-17
+
+<details>
+<summary>Abstract</summary>
+
+Generating personalized dance videos from a reference image, text prompt, and audio track requires music-conditioned body motion. Singing-and-dancing adds a second requirement: the visible subject must also articulate the vocals. Existing music-conditioned methods focus primarily on choreography, while speech-driven models generally assume that the visible subject produces the input voice, leaving this combined setting largely underexplored. We introduce SingDance, a unified video diffusion framework that formulates controllable vocal articulation as a semantic role: the visible subject is either the source, who produces the vocal signal, or the listener, who receives it from an off-screen performer. Hard-compact routing selects task-relevant speech, music, and role conditions, which are composed through frame-wise joint audio injection; source and listener retain the same speech pathway. Training uses asymmetric supervision: on-screen speaking and curated off-screen conversational-response videos establish role control, while instrumental and song-based dancing-only videos establish music-conditioned body motion. The target Song/Source configuration is never observed during training. At inference, assigning the source role to a song composes separately learned articulation and song-conditioned dance capabilities, enabling compositional zero-shot singing-and-dancing. Experiments demonstrate strong motion--beat alignment and visual fidelity, reliable paired switching of vocal articulation while preserving music-aligned body motion, and highly competitive lip synchronization with substantially fewer generation-time parameters than the strongest speech-driven baseline evaluated.
+
+</details>
+
+#### [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](https://arxiv.org/abs/2608.15734)
+
+**Yusheng Dai, Kangdi Wang, Baolong Gao, Yuxuan Jiang et al.** · 2026-08-16
+
+<details>
+<summary>Abstract</summary>
+
+Automatic video dubbing in the wild remains fundamentally limited by two competing constraints: hierarchical methods depend on brittle, multi-stage preprocessing pipelines that severely restrict data scalability and practical deployment, while holistic approaches operating on uncropped video suffer from weak temporal alignment and speaker-utterance ambiguity in multi-speaker settings. To overcome these limitations, we propose CineDub, a unified diffusion-based model that achieves precise multi-speaker dialogue dubbing directly from uncropped videos, without face cropping or speaker diarization. Central to our approach is the Implicitly-Coupled Holistic Conditioning (ICHC) paradigm, where holistic visual representations and a semantic-bundled transcription format are encoded independently, yet implicitly coupled through cross-modal training to resolve speaker ambiguity and enable precise multi-speaker multi-turn dialogue dubbing. Building on the unified temporal cues captured by holistic visual features, we further extend CineDub to joint speech and audio generation. We introduce an Ambient-to-Linguistic Curriculum Learning (ALC) to mitigate sub-task degradation, and a decoupled textual branch control mechanism to resolve cross-prompt interference during simultaneous generation. We also release two in-the-wild benchmarks, CineDub-Multi for multi-speaker dialogue dubbing and CineDub-SA for video-to-speech-and-audio (V2SA) generation, to enable evaluation under realistic conditions. Experiments show that CineDub achieves state-of-the-art results on established single-speaker dubbing and video-to-audio benchmarks while excelling in multi-speaker dialogue dubbing and acoustically coherent joint generation.
+
+</details>
+
+#### [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](https://arxiv.org/abs/2608.15110)
+
+**Peng Jia, Li Dai, Zhen Xiao, Xueliang Liu et al.** · 2026-08-15
+
+<details>
+<summary>Abstract</summary>
+
+Emotional 3D talking head generation aims to synthesize expressive facial animations with accurate lip synchronization. However, existing methods often rely on discrete emotion categories, which fail to capture the continuous evolution of affect. They also overlook the temporal frequency mismatch between audio articulation and emotional expression. In this paper, we propose CETalk, an audio-driven 3D facial animation framework conditioned on continuous Valence--Arousal (VA) representations for fine-grained emotion control. CETalk predicts a sequence of FLAME parameters through three key components: a Dynamic Emotion Modulation Module that adaptively scales emotional intensity using audio-derived cues; a Multi-Scale Temporal Modeling mechanism that employs parallel branches to decouple high-frequency articulatory movements from low-frequency emotional dynamics; and a Dynamic Fusion Mechanism that integrates these multi-scale features via an adaptive gating network. To support training and evaluation, we construct 3D-VA-MEAD, a large-scale dataset with automatically estimated VA annotations and reconstructed 3D facial motions. Extensive experiments demonstrate that CETalk outperforms state-of-the-art methods in both lip-sync accuracy and emotional expressiveness, while enabling smooth and controllable emotion transitions.
+
+</details>
+
+#### [Separate First, Then Associate: A Two-Stage Approach for Real-World Audio-Visual Speech Enhancement](https://arxiv.org/abs/2608.14812)
+
+**Tongtao Ling, Zhong-Qiu Wang** · 2026-08-14
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual speech enhancement (AVSE) aims at extracting target speech from multi-speaker mixtures by exploiting visual cues. Although recent studies have reported strong performance on simulated datasets, the performance, however, often drops dramatically when they are applied to real-world audio-visual recordings. To bridge this gap, the Real-World AVSE Challenge held in the ISCSLP 2026 conference calls for participants to design a practical solution for AVSE under real-world conditions, where speaker overlap, acoustic interferences, room reverberation and visual degradations naturally co-exist. In our submission to the challenge, we propose a decoupled separation-then-association approach. It consists of two stages: a separation stage in which a trained, audio-only model (i.e., not using visual cues) is used to separate input multi-speaker mixture to individual speaker signals, followed by an association stage, where an audio-visual CLIP model is used to identify the separated speech signal with the highest similarity with the target speaker's facial video via cross-modal similarity matching. Evaluation results on the challenge dataset show the effectiveness of our proposed approach.
+
+</details>
 
 #### [LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time](https://arxiv.org/abs/2608.11745) · [📄 Read](papers/2026/2608.11745.md)
 
@@ -106,6 +161,17 @@ Existing streaming video systems often rely on sequential, distillation-centered
 <summary>Abstract</summary>
 
 Audio-visual speech enhancement under real-world conditions remains challenging due to unreliable visual inputs and the lack of large-scale training data with realistic acoustic conditions. Existing approaches usually fuse visual features directly into the separation network, making them vulnerable to degraded visual signals. In this paper, we present DAVE, a decoupled audio-visual enhancement framework for real-world speech separation. Firstly, to address the data scarcity issue, we construct DAVE-Corpus, a large-scale training corpus with 219,411 mixtures generated from public meeting corpora through combinatorial acoustic augmentation. Then, we introduce a progressive multi-objective optimization strategy to jointly improve speech separation, intelligibility, speaker identity preservation, and perceptual quality. We further develop a certified selective enhancement chain that applies scene routing, GAN-based denoising, and loudness normalization only within the no-reference partition, guaranteeing non-degradation of reference-based metrics. Experimental results on the Real-World Audio-Visual Speech Enhancement Challenge demonstrate the robustness of DAVE under both real-world mixed scenarios and visual degradation conditions.
+
+</details>
+
+#### [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](https://arxiv.org/abs/2608.14700)
+
+**Chaolong Yang, Yinuo Guo, Kai Yao, Yuyao Yan et al.** · 2026-08-10
+
+<details>
+<summary>Abstract</summary>
+
+Precise emotion control in audio-driven talking heads remains a challenge due to the reliance on implicit emotion regulation in existing systems, which often leads to indirect and insufficient control. Additionally, training with explicit emotion-related losses across the entire motion space poses significant difficulties due to the inherent trade-off between accurate lip synchronization and fine-grained emotion control. In this paper, we reveal a key finding: although emotional cues are distributed throughout the motion space, concentrating discriminative supervision on less-principal components achieves a better emotion-lip synchronization balance, as principal components mainly encode high-energy articulation and pose variations. Building on this insight, we propose Xemo-Talker, which first learns a neutral speech-to-motion mapping for stable articulation and lip synchronization, and then introduces a lightweight emotion branch guided by less-principal subspace supervision. To enhance emotion control, we design a Tri-Loss consisting of inter-class separation, intra-class compactness, and less-principal contrastive learning. Given an audio input, a reference image, and an emotion label, Xemo-Talker achieves state-of-the-art emotion classification accuracy while maintaining competitive lip synchronization and high inference efficiency, with performance approaching that measured on real videos.The source code is publicly available at https://github.com/chaolongy/Xemo-Talker.
 
 </details>
 
@@ -326,72 +392,6 @@ Recent advances in diffusion-based generative models have enabled real-time audi
 <summary>Abstract</summary>
 
 In visual storytelling, human performances are central to creative intent and narrative meaning. However, preserving human identity and performance while enabling flexible visual edits remains challenging for generative video models. We formalize this challenge as identity-preserving video restylization, which propagates scene, lighting, and style changes specified by an edited keyframe across a source video, while preserving facial likeness and performance, including expressions, eye gaze, and lip synchronization. A key obstacle is the absence of paired training data, as identity-preserving restylized video pairs are rare in real-world settings. To address this, we propose a decoupling of source-grounded identity preservation and edit-driven video synthesis. Our key insight is that facial appearance and expression should remain invariant, with illumination being the primary permissible variation. We therefore cast identity preservation as a video relighting problem, while modeling visual edit propagation as controlled video synthesis guided by the edited keyframe. Building on this formulation, we introduce ID-V2V, a video-to-video generative framework integrating complementary control signals: relit facial regions and facial normal maps tightly constrain facial likeness and performance, while edited keyframes and depth sequences enable flexible and temporally coherent generation. This design enables constructing training pairs from a single video, eliminating the need for scarce paired data. Extensive experiments demonstrate that ID-V2V significantly outperforms existing methods in preserving facial likeness and fine-grained facial performance, supports both single- and multi-subject scenarios, and delivers high visual quality, highlighting its potential as a human-centric tool for real-world content production. The code is available at: https://github.com/Eyeline-Labs/ID-V2V.
-
-</details>
-
-#### [Fusion Embedding: A Unified Embedding Space for Text, Image, Video, and Audio](https://arxiv.org/abs/2607.18666) · [📄 Read](papers/2026/2607.18666.md)
-
-**Abdul Basit Tonmoy, Kazi Fardinul Hoque, Md. Shahrier Islam Arham, Arman Luthra** · 2026-07-21
-
-<details>
-<summary>Abstract</summary>
-
-A single embedding space that covers text, images, video, and audio lets one index serve every query a user can pose. Embedding models built on vision-language backbones now lead text/image/video retrieval benchmarks but lack audio entirely, while audio-text retrieval is led by specialist systems that serve no other modality. We present the Fusion Embedding family, which adds audio to a frozen vision-language embedding base whose parameters are never updated: generation 1 (fusion-embedding-1) trains only a 16.4M-parameter connector between a frozen audio tower and the frozen base, and generation 2 (fusion-embedding-2) adds modality-gated deep adapters (44.2M parameters) whose branch never executes on text, image, or video inputs: their outputs are bit-for-bit those of the released base, verified after every training run. Because the base already binds text, images, and video, aligning audio to text alone makes audio-image retrieval emerge, with zero paired audio-visual training data. Alongside the recipe we map its design space with controlled negative results (rewriting training captions with an LLM, substituting a leaderboard-stronger audio tower, and widening the connector each reduce retrieval) and with training-protocol findings that we expect to transfer to any frozen decoder-LM embedding backbone. Both generations train in hours on a single GPU. Weights, code, and the evaluation harness are openly released.
-
-</details>
-
-#### [PolyInterview: An LLM-based Platform for Immersive Mock Interview Practice with Comprehensive Multimodal Assessment](https://arxiv.org/abs/2607.10310) · [📄 Read](papers/2026/2607.10310.md)
-
-**Zhiyuan Wen, Jiannong Cao, Zijian Wang, Chen Chen et al.** · 2026-07-11
-
-<details>
-<summary>Abstract</summary>
-
-Preparing for job interviews is important for securing desired positions, yet realistic practice remains difficult to access: real interviews are infrequent, expert mock coaching is costly, and self-practice offers neither adaptive dialogue nor structured assessment. Existing systems typically address only parts of this need through fixed question sequences, limited communication channels, or feedback with little supporting evidence. We present PolyInterview, an LLM-based platform for immersive mock interview practice with comprehensive multimodal assessment. PolyInterview uses the target job description and CV to generate questions tailored to the role and candidate, conducts multi-turn spoken interviews with a lip-synced digital human interviewer that asks answer-aware follow-up questions, and evaluates response content, vocal delivery, and non-verbal behavior. Four parallel evaluators produce 13 behavior-level features that are aggregated into 10 assessment aspects and two competency tracks. Guided by the KSA and STAR frameworks, the report links each score to behavioral evidence and actionable recommendations. PolyInterview is publicly accessible. Its current all-account snapshot contains 101 accounts, 1,564 interview sessions, 7,665 generated questions, and 1,422 five-stage question sets. Generated questions are more closely aligned with their matched job description than with cross-role job descriptions in 93.7% of sessions. An evaluation by ten experts found strong question plans and actionable feedback.
-
-</details>
-
-#### [Learn2Chat: Rethinking Dyadic Talking Heads via Interaction-Modulated Monologic Priors](https://arxiv.org/abs/2607.10313) · [📄 Read](papers/2026/2607.10313.md)
-
-**Zikai Huang, Siyue Chen, Xuemiao Xu, Haoxin Yang et al.** · 2026-07-11
-
-<details>
-<summary>Abstract</summary>
-
-Dyadic conversational motion generation is essential for realistic interactive digital humans. Existing approaches typically model conversational behaviors within unified dyadic generators. However, such holistic formulations tend to couple self-speech-driven motion with partner-responsive social feedback, leaving the interaction-specific component implicit and underutilizing the speech-motion correspondence already learned by pretrained monologic motion models. We propose Learn2Chat, a unified framework that models dyadic motion as interaction modulation over pretrained monologic motion priors. This design separates intrinsic speech-driven motion from social interaction effects and enables more structured interaction modeling. Specifically, we introduce a Monologic-Anchored Motion Factorization scheme that leverages the semantic motion manifold learned from monologic data to disentangle audio-driven motion dynamics from interaction-induced modulation, yielding clean interaction representations from dyadic sequences. On top of this representation space, a Cross-Attentive Interaction Latent Prediction module maps paired speech signals to interaction latents through cross-branch attention and interaction alignment. During inference, the predicted interaction latents modulate canonical monologic motion to generate coherent and synchronized dyadic behaviors in a data-efficient manner. Extensive experiments on the DualTalk benchmark demonstrate that Learn2Chat achieves state-of-the-art performance across both quantitative metrics and perceptual evaluations. Moreover, the framework is model-agnostic and seamlessly integrates with diverse pretrained monologic motion backbones, highlighting the effectiveness of prior reuse and interaction adaptation for scalable conversational motion generation. More visual results are available on the project page.
-
-</details>
-
-#### [Conversational Human Audio-visual Talking Dialogue Generation](https://arxiv.org/abs/2607.02799) · [📄 Read](papers/2026/2607.02799.md)
-
-**Junhao Song, Lluis Guasch, Xilin He, Zhongyu Yang et al.** · 2026-07-02
-
-<details>
-<summary>Abstract</summary>
-
-Large-scale dyadic interactive audio-visual dialogue (DIAD) datasets provide fundamental data resources for developing humanoid interactive virtual agents and digital humans. However, collecting such data is time-consuming, expensive, and ethically sensitive. To address this, we propose CHAT, a new dyadic interactive audio-visual dialogue generation (DIADG) framework that generates diverse, paired, and mutually responsive speech-face dialogue clips from a single textual prompt. CHAT unifies large language models and talking face models with interactive audio and facial behaviour refinement modules, enabling the generation of aligned dyadic dialogue clips with diverse contents and facial identities. Experiments show that CHAT outperforms existing related methods designed for similar tasks under both objective and subjective evaluations. Moreover, our synthesised CHAT-AVD-50k dataset serves as effective pre-training data for downstream interactive head generation, consistently improving PerFRDiff and ReactDiff on REACT 2024. CHAT offers a scalable alternative to the costly and ethically sensitive collection of real dyadic interaction data.
-
-</details>
-
-#### [GaussianEmoTalker: Real-Time Emotional Talking Head Synthesis with Audio-Driven and Blendshape-Based 3D Gaussian Splatting](https://arxiv.org/abs/2607.00959) · [📄 Read](papers/2026/2607.00959.md)
-
-**Haijie Yang, Zhenyu Zhang, Yixuan Dong, Jianjun Qian et al.** · 2026-07-01
-
-<details>
-<summary>Abstract</summary>
-
-Audio-driven talking head synthesis has achieved impressive progress in lip synchronization and visual quality, yet generating expressive emotional avatars with controllable intensity remains challenging, especially under real-time constraints. In this paper, we present GaussianEmoTalker, an audio-driven framework for real-time emotional talking head synthesis based on 3D Gaussian Splatting. Instead of directly predicting the final emotional avatar from speech, we formulate emotional animation as a neutral-to-emotional residual deformation problem. GaussianEmoTalker first constructs an identity-specific neutral talking space with GaussianBlendshapes, which provides high-fidelity Gaussian attributes and phoneme-synchronized neutral motion. It then predicts an emotion-conditioned residual deformation by combining mesh displacement cues, audio features, emotion categories, and intensity encodings. To fuse these heterogeneous signals, we introduce a spatial-audio-emotion attention module that estimates the offsets of Gaussian attributes for expressive and temporally stable rendering. Extensive experiments demonstrate that GaussianEmoTalker achieves competitive video quality, accurate lip synchronization, controllable emotional expression, and real-time rendering compared with recent emotional talking head methods. Our project page is available at https://njust-yang.github.io/GaussianEmoTalker.github.io/
-
-</details>
-
-#### [Multi-Modal Deepfake Detection via Spatial, Temporal, and Audio-Visual Fusion with Vision Transformers](https://www.semanticscholar.org/paper/5ad7261ad284f64c1b7776c990a9bbb305c402b5) · [📄 Read](papers/2026/s2:5ad7261ad284f64c1b7776c990a9bbb305c402b5.md)
-
-**Merlin Gethsy D., S. V** · 2026-06-30
-
-<details>
-<summary>Abstract</summary>
-
-The rapid advancement of the deepfake generation technologies has intensified concerns related to digital misinformation, identity impersonation, and media manipulation. Although numerous deepfake detection methods have been developed by mitigate these threats, most rely on a single modality and exhibit limited robustness when confronted with diverse manipulation techniques and cross-dataset scenarios. To overcome these deficiencies, we propose VeriSphere, a multimodal deepfake detection framework that combines spatial, temporal, and audiovisual forensics in one system. It uses a Vision Transformer for detecting spatial artifacts, an X-CLIP-based module for capturing temporality, and an AV synchronization module to examine whether speech aligns with lip movements. The outputs are then fused using a weighted strategy to produce a single trust score for prediction. Results show that VeriSphere achieves a high accuracy of 92.1%, an AUC of 0.963, and an F1-score of 0.924 across three benchmark datasets: FaceForensics++, Celeb-DF, and DFDC.
 
 </details>
 
