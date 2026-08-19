@@ -60,12 +60,23 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1130 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1131 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [AnyTalk: Speech Animation for Arbitrary Characters Leveraging a Video Generation Model](https://arxiv.org/abs/2608.16143)
+#### [DynaForcing: Overcoming Dynamic Collapse in Self-Forcing Distillation for Streaming Avatar Generation](https://arxiv.org/abs/2608.17707)
+
+**Yubo Huang, Sirui Zhao, Xinchen Yao, Zhengye Zhang et al.** · 2026-08-18
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven avatar generation requires realistic lip-sync, expressive motion, and real-time streaming. Recent work achieves the latter via self-forcing with Distribution Matching Distillation (DMD), but this paradigm suffers from a critical failure that has not been systematically characterized: dynamic collapse, where the student model converges to a near-static optimum with high perceptual quality but severely suppressed temporal dynamics. We trace this to two causes: the reverse KL objective in DMD, which biases toward low-motion modes, and unanchored self-conditioning, which creates a feedback loop that amplifies collapse. This is especially harmful for avatars, where even subtle motion loss breaks lip-sync and expression. To address this, we propose DynaForcing, a training framework with three complementary strategies applied at different levels. Specifically, Hybrid Forcing anchors rollouts to ground-truth dynamics at the data level to break the feedback loop. Dynamics-Aware Reward Regularization introduces explicit motion rewards via the RL interpretation of DMD to counteract the reverse KL bias at the loss level. Reference Perturbation perturbs reference images to decouple identity from static details, forcing the model to rely on audio for motion at the conditioning level. We further introduce computation graph pruning and gradient replay, reducing the GPU footprint of self-forcing by over an order of magnitude. Experiments show that DynaForcing recovers dynamics to teacher-comparable levels (Dyn-Deg: 0.31 -> 0.73, Sync-C: 7.03 -> 7.68) while improving visual quality, resolving the quality-dynamics trade-off throughout training without early stopping.
+
+</details>
+
+#### [AnyTalk: Speech Animation for Arbitrary Characters Leveraging a Video Generation Model](https://arxiv.org/abs/2608.16143) · [📄 Read](papers/2026/2608.16143.md)
 
 **Kwan Yun, Serin Yoon, Sunjin Jung, Jung Eun Yoo et al.** · 2026-08-17
 
@@ -76,7 +87,7 @@ We present AnyTalk, a novel method for generating 3D speech animations for arbit
 
 </details>
 
-#### [SingDance: Compositional Zero-Shot Singing-and-Dancing Video Generation with Role-Aware Audio Conditioning](https://arxiv.org/abs/2608.16220)
+#### [SingDance: Compositional Zero-Shot Singing-and-Dancing Video Generation with Role-Aware Audio Conditioning](https://arxiv.org/abs/2608.16220) · [📄 Read](papers/2026/2608.16220.md)
 
 **Tao Feng, Xu Li, Xiangyang Luo, Ming Wen et al.** · 2026-08-17
 
@@ -87,7 +98,7 @@ Generating personalized dance videos from a reference image, text prompt, and au
 
 </details>
 
-#### [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](https://arxiv.org/abs/2608.15734)
+#### [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](https://arxiv.org/abs/2608.15734) · [📄 Read](papers/2026/2608.15734.md)
 
 **Yusheng Dai, Kangdi Wang, Baolong Gao, Yuxuan Jiang et al.** · 2026-08-16
 
@@ -98,7 +109,7 @@ Automatic video dubbing in the wild remains fundamentally limited by two competi
 
 </details>
 
-#### [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](https://arxiv.org/abs/2608.15110)
+#### [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](https://arxiv.org/abs/2608.15110) · [📄 Read](papers/2026/2608.15110.md)
 
 **Peng Jia, Li Dai, Zhen Xiao, Xueliang Liu et al.** · 2026-08-15
 
@@ -109,7 +120,7 @@ Emotional 3D talking head generation aims to synthesize expressive facial animat
 
 </details>
 
-#### [Separate First, Then Associate: A Two-Stage Approach for Real-World Audio-Visual Speech Enhancement](https://arxiv.org/abs/2608.14812)
+#### [Separate First, Then Associate: A Two-Stage Approach for Real-World Audio-Visual Speech Enhancement](https://arxiv.org/abs/2608.14812) · [📄 Read](papers/2026/2608.14812.md)
 
 **Tongtao Ling, Zhong-Qiu Wang** · 2026-08-14
 
@@ -164,7 +175,7 @@ Audio-visual speech enhancement under real-world conditions remains challenging 
 
 </details>
 
-#### [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](https://arxiv.org/abs/2608.14700)
+#### [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](https://arxiv.org/abs/2608.14700) · [📄 Read](papers/2026/2608.14700.md)
 
 **Chaolong Yang, Yinuo Guo, Kai Yao, Yuyao Yan et al.** · 2026-08-10
 
@@ -381,17 +392,6 @@ Articulated portrait mesh estimation is fundamental to 3D understanding, avatar 
 <summary>Abstract</summary>
 
 Recent advances in diffusion-based generative models have enabled real-time audio-driven avatar generation and unified audio-visual synthesis, providing a promising foundation for interactive avatar systems. However, extending these models to real-time interactive streaming remains challenging, as the generation horizon is unknown in advance and cross-modal identity consistency gradually degrades during long-term generation. To address these challenges, we propose OmniMate, a unified framework for open-ended real-time interactive audio-visual avatar generation. OmniMate jointly synthesizes visual content, speech, and audio effects in real time, enabling natural and immersive multi-turn interactions. To achieve adaptive response progression, we introduce a Generation Progress Controller (GPC) that explicitly models the generation progress of each streaming chunk, allowing the model to complete responses according to the desired progress and achieve seamless transitions between execution and listening states. To preserve long-term cross-modal identity consistency, we propose a Multi-Reference Conditioning Module (MRCM), which leverages multiple reference images and a reference speech segment to provide persistent visual and speaker identity cues throughout long-duration streaming interactions. Extensive experiments on an interaction-oriented adaptation of VerseBench demonstrate that OmniMate achieves high-quality, low-latency streaming generation while maintaining strong long-term audio-visual consistency. The results further show that OmniMate supports realistic, coherent, and responsive interactive avatar experiences over extended multi-turn conversations.
-
-</details>
-
-#### [ID-V2V: Identity-Preserving Video Restylization](https://arxiv.org/abs/2607.22830) · [📄 Read](papers/2026/2607.22830.md)
-
-**Yuancheng Xu, Mingming He, Pablo Salamanca, Li Ma et al.** · 2026-07-24
-
-<details>
-<summary>Abstract</summary>
-
-In visual storytelling, human performances are central to creative intent and narrative meaning. However, preserving human identity and performance while enabling flexible visual edits remains challenging for generative video models. We formalize this challenge as identity-preserving video restylization, which propagates scene, lighting, and style changes specified by an edited keyframe across a source video, while preserving facial likeness and performance, including expressions, eye gaze, and lip synchronization. A key obstacle is the absence of paired training data, as identity-preserving restylized video pairs are rare in real-world settings. To address this, we propose a decoupling of source-grounded identity preservation and edit-driven video synthesis. Our key insight is that facial appearance and expression should remain invariant, with illumination being the primary permissible variation. We therefore cast identity preservation as a video relighting problem, while modeling visual edit propagation as controlled video synthesis guided by the edited keyframe. Building on this formulation, we introduce ID-V2V, a video-to-video generative framework integrating complementary control signals: relit facial regions and facial normal maps tightly constrain facial likeness and performance, while edited keyframes and depth sequences enable flexible and temporally coherent generation. This design enables constructing training pairs from a single video, eliminating the need for scarce paired data. Extensive experiments demonstrate that ID-V2V significantly outperforms existing methods in preserving facial likeness and fine-grained facial performance, supports both single- and multi-subject scenarios, and delivers high visual quality, highlighting its potential as a human-centric tool for real-world content production. The code is available at: https://github.com/Eyeline-Labs/ID-V2V.
 
 </details>
 
