@@ -60,12 +60,23 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1131 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1132 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [DynaForcing: Overcoming Dynamic Collapse in Self-Forcing Distillation for Streaming Avatar Generation](https://arxiv.org/abs/2608.17707)
+#### [EfficientSync: Real-Time Lip Synchronization via Deformation-Based Reference Texture Mixing](https://arxiv.org/abs/2608.18832)
+
+**Fa-Ting Hong, Runzhen Liu, Luchuan Song, Hongmin Cai et al.** · 2026-08-19
+
+<details>
+<summary>Abstract</summary>
+
+Audio-driven lip synchronization manipulates the mouth region of a talking-face video to match the driving audio while preserving head pose, identity, and background. Although the task is inherently local editing, prevailing approaches reconstruct the entire lower face with heavy GAN- or diffusion-based decoders, incurring substantial latency and, more critically, hallucinating intra-oral details such as teeth and lip wrinkles instead of preserving authentic textures. We contend that the bottleneck in identity preservation is not the scarcity of reference frames, but the lack of a mechanism that faithfully transfers the genuine textures they already contain. We therefore present EfficientSync, a real-time deformation-based framework that retains reference textures rather than resynthesizing them. First, the Dynamic Texture Mixer reformulates multi-reference fusion as channel-wise selection, evaluating each spatially aligned reference in a global context and aggregating them by channel-wise weighted summation, preserving textural integrity at low cost. Second, Spatio-Temporal Shifted Adaptive Masking decomposes the source frame into lip-generation conditions and an independent background prior, suppressing lower-face leakage while blending the synthesized mouth seamlessly into the background. Third, STAR Sampling, a zero-overhead pre-processing step, retrieves the sharpest and most topologically diverse reference frames. Experiments on HDTF and VFHQ show state-of-the-art visual quality and identity preservation at 166 FPS on a single GPU. Video demos: https://alunaticat.github.io/EfficientSync/index.html.
+
+</details>
+
+#### [DynaForcing: Overcoming Dynamic Collapse in Self-Forcing Distillation for Streaming Avatar Generation](https://arxiv.org/abs/2608.17707) · [📄 Read](papers/2026/2608.17707.md)
 
 **Yubo Huang, Sirui Zhao, Xinchen Yao, Zhengye Zhang et al.** · 2026-08-18
 
@@ -381,17 +392,6 @@ Facial movement and expression are central to face-to-face communication, convey
 <summary>Abstract</summary>
 
 Articulated portrait mesh estimation is fundamental to 3D understanding, avatar generation, and immersive interaction. Existing approaches primarily rely on 3D Morphable Models (3DMMs). However, face-centric models suffer from the "floating head" assumption, conflating head pose with global rotation due to the lack of neck kinematics. Conversely, body-centric models lack high-fidelity facial expression capabilities. Furthermore, current methods struggle to disentangle jaw articulation from expression blendshapes, often over-relying on expressions for mouth opening. These limitations make monocular portrait recovery difficult across representation, supervision, and anatomical parameter estimation. To address these limitations, we introduce GRAPE(Graduated Routing for Articulated Portrait mesh Estimation). We build a Portrait Parametric Model (PPM) with an explicit torso-to-head kinematic chain and a canonical injection step to merge FLAME and the SMPL-X torso. We propose a Progressive Anatomical Alignment (PAA) network, which is composed of a pretrained portrait encoder, a Graduated-Mask Router, and coarse-to-fine experts that follow the portrait anatomical prior. We then train this network with multi-source supervision that combines sparse anatomical keypoints, feature distillation, foreground mask constraints, and relative geometry constraints. Experiments show that GRAPE improves portrait mesh recovery quality, pose alignment, and jaw--expression disentanglement over prior methods. We also demonstrate that our method can benefit the downstream tasks of audio-driven talking-head generation and 3D portrait generation.
-
-</details>
-
-#### [OmniMate: Open-Ended Real-Time Streaming Audio-Visual Generation for Interactive Avatars](https://arxiv.org/abs/2607.23023) · [📄 Read](papers/2026/2607.23023.md)
-
-**Quanyue Song, Yishan He, Yanbo Ding, Zhixiang He et al.** · 2026-07-25
-
-<details>
-<summary>Abstract</summary>
-
-Recent advances in diffusion-based generative models have enabled real-time audio-driven avatar generation and unified audio-visual synthesis, providing a promising foundation for interactive avatar systems. However, extending these models to real-time interactive streaming remains challenging, as the generation horizon is unknown in advance and cross-modal identity consistency gradually degrades during long-term generation. To address these challenges, we propose OmniMate, a unified framework for open-ended real-time interactive audio-visual avatar generation. OmniMate jointly synthesizes visual content, speech, and audio effects in real time, enabling natural and immersive multi-turn interactions. To achieve adaptive response progression, we introduce a Generation Progress Controller (GPC) that explicitly models the generation progress of each streaming chunk, allowing the model to complete responses according to the desired progress and achieve seamless transitions between execution and listening states. To preserve long-term cross-modal identity consistency, we propose a Multi-Reference Conditioning Module (MRCM), which leverages multiple reference images and a reference speech segment to provide persistent visual and speaker identity cues throughout long-duration streaming interactions. Extensive experiments on an interaction-oriented adaptation of VerseBench demonstrate that OmniMate achieves high-quality, low-latency streaming generation while maintaining strong long-term audio-visual consistency. The results further show that OmniMate supports realistic, coherent, and responsive interactive avatar experiences over extended multi-turn conversations.
 
 </details>
 
