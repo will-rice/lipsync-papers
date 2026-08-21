@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1132 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [EfficientSync: Real-Time Lip Synchronization via Deformation-Based Reference Texture Mixing](https://arxiv.org/abs/2608.18832)
+#### [EfficientSync: Real-Time Lip Synchronization via Deformation-Based Reference Texture Mixing](https://arxiv.org/abs/2608.18832) · [📄 Read](papers/2026/2608.18832.md)
 
 **Fa-Ting Hong, Runzhen Liu, Luchuan Song, Hongmin Cai et al.** · 2026-08-19
 
