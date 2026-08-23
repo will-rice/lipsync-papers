@@ -2,7 +2,7 @@
 
 Total papers: 1132
 
-_Generated: 2026-08-22_
+_Generated: 2026-08-23_
 
 - [2026](2026/) — 180 papers
 - [2025](2025/) — 336 papers
