@@ -60,12 +60,12 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1133 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1134 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [Long-Horizon Audio-Visual Generation for Persistent Stories and Interactive Worlds](https://arxiv.org/abs/2608.23383)
+#### [Long-Horizon Audio-Visual Generation for Persistent Stories and Interactive Worlds](https://arxiv.org/abs/2608.23383) · [📄 Read](papers/2026/2608.23383.md)
 
 **Nan Duan, Haoyang Huang, Weiyang Jin, Haoran Li et al.** · 2026-08-24
 
@@ -73,6 +73,17 @@ _Showing the last 30 papers (30 of 1133 total). The full list lives in [papers.c
 <summary>Abstract</summary>
 
 Video generation is progressing beyond isolated clips toward long-form narratives and interactive worlds, requiring models to preserve identities, follow user controls, and remain stable over extended rollouts. We present JoyAI-Echo-1.5, a unified audio-visual generation system with two purpose-built variants. The long-video variant introduces composable cross-shot memory that aggregates visual evidence across multiple prior shots and speaker cues derived from speech-filtered full-shot audio, enabling persistent character appearance and voice identity across flexible combinations of text, image, and memory conditioning. The world-model variant converts heterogeneous navigation inputs into calibrated metric 6-DoF camera trajectories and injects them through a geometry-aware conditioning pathway, enabling controller-agnostic interaction across flexible viewpoints. To support efficient long-horizon generation, we transform a bidirectional audio-visual backbone into a causal few-step generator using progressive teacher forcing and short- and long-horizon Self-Gradient Forcing on self-generated rollouts. Experiments demonstrate strong performance in both settings. JoyAI-Echo-1.5 achieves improvements over existing long-video baselines in cross-shot consistency, visual quality, text alignment, and speech fidelity. Its world-model variant ranks first on WBench, with an average score of 81.7, and achieves leading visual quality and long-horizon persistence on SANA-WM-Bench. Together, these results indicate that memory, geometric control, and rollout-aware training provide a practical foundation for generating coherent stories and continuously evolving interactive worlds. Project page: https://echo-team-joy-future-academy-jd.github.io/Echo-1.5-Page/.
+
+</details>
+
+#### [The ISCSLP 2026 Real-World Audio-Visual Speech Enhancement Challenge](https://arxiv.org/abs/2608.23759)
+
+**Challenge Organizers** · 2026-08-24
+
+<details>
+<summary>Abstract</summary>
+
+Audio-visual speech enhancement (AVSE) uses visual-speech cues from a target speaker to recover that speaker's speech from noisy or overlapping speech. Many widely used protocols construct mixed signals from separately recorded audio sources and assume reliable video, leaving their performance under natural overlap and visual failure insufficiently characterized. The Real-World AVSE Challenge evaluates two related settings. Track~1 comprises two scenarios: real-world mixtures recorded with two speakers speaking simultaneously, without a corresponding clean reference signal, and synthetic remixes obtained by manually mixing the separately recorded speech of two speakers, with a clean reference signal available; Track~2 reuses audio but pairs it with a degraded target video and contains additional 3-m far-field recordings. The speakers in the development and test sets are disjoint. Evaluation metrics include clean-waveform fidelity, learned quality estimates, transcription accuracy, and speaker identification. In the remix task on the development set, the baseline model achieved an SI-SDR of $-4.069$~dB and an STOI of $0.388$ on Track~1, and an SI-SDR of $-2.851$~dB and an STOI of $0.470$ on Track~2. We release the AV-ConvTasNet checkpoints, the offline evaluator, and the official baseline results on the development and test sets.
 
 </details>
 
@@ -381,17 +392,6 @@ We introduce ViDS, a Video Diffusion Shader that leverages 3D face tracking for 
 <summary>Abstract</summary>
 
 Production-ready audio-driven avatar generation requires efficient inference without sacrificing fidelity or motion expressiveness. However, existing acceleration methods often compromise quality through restrictive architectural choices, such as causal attention and short temporal horizons, or by reducing model capacity and resolution. Without such compromises, we propose AptAvatar, a 14B-parameter long-form audio-driven avatar generation framework that delivers fast and expressive inference. For efficiency in production-level applications, AptAvatar addresses the extreme two-step generation challenge. To bridge the gap between the multi-step teacher model and the two-step student model, we introduce Endpoint-Anchored Distribution Distillation. It augments vanilla distribution matching with a dedicated Anchor Score Estimator trained on the trajectory-endpoint distribution defined from a frozen pretrained 4-step bridge generator. This provides an attainable endpoint-level anchor for the evolving two-step student. To improve long-horizon consistency, we further introduce Self-Generated History Replay, which reuses cached outputs from earlier generator checkpoints as history conditions during chunk-wise training. This approximates inference-time conditioning on self-generated histories without costly online rollouts, mitigating quality degradation from accumulated history errors. Extensive experiments demonstrate that AptAvatar generates vivid 720p long-form avatar videos with only 2 NFEs, achieving a 60x speedup while preserving visual fidelity and long-horizon identity. Code is available at https://github.com/TaoLiveAIGC/AptAvatar
-
-</details>
-
-#### [STEER: Steerable Dyadic Head Avatars](https://arxiv.org/abs/2607.23840) · [📄 Read](papers/2026/2607.23840.md)
-
-**Kartik Teotia, Helge Rhodin, Hyeongwoo Kim, Marc Habermann et al.** · 2026-07-26
-
-<details>
-<summary>Abstract</summary>
-
-Facial movement and expression are central to face-to-face communication, conveying turn-taking, attention, agreement, and engagement alongside speech. While speech-driven facial animation has made strong progress in lip synchronization and audio-conditioned motion generation, most methods treat conversational behavior as an emergent byproduct of audio, or expose only coarse sequence-level affect control. As a result, key non-verbal channels such as gaze contact and aversion, rhythmic head motion, and emotion remain difficult to explicitly control. We present STEER, a controllable 3D dyadic motion prior for reactive conversational head avatars. STEER factorizes conversational behavior into explicit controls for gaze, head rhythm, and emotion, allowing users to steer how an avatar listens, reacts, and engages with a conversation partner. Since temporally aligned annotations for these behaviors are not available in public dyadic corpora, we introduce a tracking and annotation pipeline that recovers behavioral pseudo-labels from in-the-wild dyadic video. A causal flow-matching transformer then learns partner-aware target motion conditioned on audio, partner motion, emotion and the proposed behavioral controls. We further embed STEER in a photorealistic avatar pipeline by extending a Universal Gaussian Head-Avatar Prior with a learned mapping from tracked parametric motion into its avatar-driving space. This enables controllable animation of high-fidelity Gaussian head avatars without re-training the underlying avatar model. STEER outperforms recent dyadic motion baselines on motion quality, dynamics, and diversity, remains competitive on partner coupling, and enables gaze, head-rhythm, and emotion edits together with an interactive live deployment. We make our code and dataset annotations available at our webpage.
 
 </details>
 
