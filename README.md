@@ -60,10 +60,21 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1134 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1135 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [InteractGesture: Progressive Chunk Guidance for Continuous Streaming Co-Speech Gesture Control](https://arxiv.org/abs/2608.25734)
+
+**Ekkasit Pinyoanuntapong, Ajinkya Deogade, Paul Streli, Wenjing Zhang et al.** · 2026-08-26
+
+<details>
+<summary>Abstract</summary>
+
+Co-speech gesture generation has made significant progress toward realistic full-body motion from speaker audio, yet existing models lack fine-grained spatial controllability of individual joints. To address this, we introduce \emph{InteractGesture}, a model-agnostic, inference-time method for spatially controllable gesture generation. \emph{InteractGesture} guides target latent estimates of a diffusion sampler through a differentiable RVQ-VAE decoder, backpropagating spatial control gradients to adjust motion latents during sampling. A primary challenge in streaming co-speech generation is chunk-wise dependency: standard sequential inference freezes prior chunks, preventing spatial constraints in future chunks from adjusting preceding trajectories and causing boundary inconsistencies. To overcome this limitation, we propose \emph{Progressive Chunk Guidance}, a chunk-window strategy that maintains an active set of editable chunk latents with staggered delays, enabling spatial constraints to propagate gradients backward across chunk boundaries during streaming generation. Experiments on the BEAT2 dataset show that \emph{InteractGesture} improves multi-joint spatial control while preserving overall gesture quality. Furthermore, our approach supports diverse applications, including sparse joint positioning, dense joint trajectory control, and directional pointing. Our project page is available at https://exitudio.github.io/interactgesture-page .
+
+</details>
 
 #### [Long-Horizon Audio-Visual Generation for Persistent Stories and Interactive Worlds](https://arxiv.org/abs/2608.23383) · [📄 Read](papers/2026/2608.23383.md)
 
@@ -76,7 +87,7 @@ Video generation is progressing beyond isolated clips toward long-form narrative
 
 </details>
 
-#### [The ISCSLP 2026 Real-World Audio-Visual Speech Enhancement Challenge](https://arxiv.org/abs/2608.23759)
+#### [The ISCSLP 2026 Real-World Audio-Visual Speech Enhancement Challenge](https://arxiv.org/abs/2608.23759) · [📄 Read](papers/2026/2608.23759.md)
 
 **Challenge Organizers** · 2026-08-24
 
@@ -381,17 +392,6 @@ Long-form and real-time talking-head generation remains challenging due to a lat
 <summary>Abstract</summary>
 
 We introduce ViDS, a Video Diffusion Shader that leverages 3D face tracking for expressive and identity-preserving portrait animation. We first reconstruct the identity-specific 3DMM mesh from the reference image, and then animate it using expression and pose parameters from a driving video. Leveraging dense geometric cues from 3DMM normal maps, we employ a video diffusion model as a neural shader to synthesize lifelike portrait animations while preserving the appearance and identity of the reference image. We find that more accurate 3DMM tracking enables finer-grained expression control. We also introduce an autoregressive diffusion sampling process that extends generation beyond the model's native window while reducing discontinuities between adjacent clips. Compared with prior diffusion-based approaches for portrait animation that rely on landmark-based conditioning or implicit motion latents, our method achieves more detailed and consistent expression and pose control while faithfully preserving identity and appearance. Detailed ablation studies validate the effectiveness of our design choices. Project page: https://fusheng-ji.github.io/ViDS/
-
-</details>
-
-#### [AptAvatar: Fast and Vivid Long-Form Audio-Driven Video Generation for Production-Ready Avatars](https://arxiv.org/abs/2607.24013) · [📄 Read](papers/2026/2607.24013.md)
-
-**Hengyuan Zhang, Jingna Sun, Meiguang Jin, Junfeng Ma** · 2026-07-27
-
-<details>
-<summary>Abstract</summary>
-
-Production-ready audio-driven avatar generation requires efficient inference without sacrificing fidelity or motion expressiveness. However, existing acceleration methods often compromise quality through restrictive architectural choices, such as causal attention and short temporal horizons, or by reducing model capacity and resolution. Without such compromises, we propose AptAvatar, a 14B-parameter long-form audio-driven avatar generation framework that delivers fast and expressive inference. For efficiency in production-level applications, AptAvatar addresses the extreme two-step generation challenge. To bridge the gap between the multi-step teacher model and the two-step student model, we introduce Endpoint-Anchored Distribution Distillation. It augments vanilla distribution matching with a dedicated Anchor Score Estimator trained on the trajectory-endpoint distribution defined from a frozen pretrained 4-step bridge generator. This provides an attainable endpoint-level anchor for the evolving two-step student. To improve long-horizon consistency, we further introduce Self-Generated History Replay, which reuses cached outputs from earlier generator checkpoints as history conditions during chunk-wise training. This approximates inference-time conditioning on self-generated histories without costly online rollouts, mitigating quality degradation from accumulated history errors. Extensive experiments demonstrate that AptAvatar generates vivid 720p long-form avatar videos with only 2 NFEs, achieving a 60x speedup while preserving visual fidelity and long-horizon identity. Code is available at https://github.com/TaoLiveAIGC/AptAvatar
 
 </details>
 
