@@ -60,10 +60,32 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1135 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1137 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [Audio-Driven Adversarial Defense for 3D Talking Face Generation with totally Visual Fidelity Preservation](https://arxiv.org/abs/2608.30951)
+
+**Rui-Qing Sun, Chen-Hao Cui, Hui-Yang Zhao, Tian Lan et al.** · 2026-08-31
+
+<details>
+<summary>Abstract</summary>
+
+The rapid development of generative portrait models has raised growing concerns about privacy leakage and identity misuse. In particular, audio-driven 3D talking face generation can reconstruct a reusable 3D portrait of a target person from a monocular video and animate it with arbitrary speech, making realistic identity impersonation alarmingly practical. Existing proactive defenses mainly operate in the visual domain by injecting subtle perturbations into acial regions to disrupt identity acquisition. However, such perturbations often compromise visual quality due to the strong structural priors and social sensitivity of human faces, and are easily weakened by common real-world transformations such as resizing. To overcome these limitations, we propose an imperceptible audio defense for audio-driven 3D talking face generation by shifting protection from the visual modality to the audio modality. Specifically,we exploit psychoacoustic masking to hide protective perturbations within perceptually masked frequency regions of the speech signal, thereby reducing perceptual distortion while suppressing reliable facial animation. Extensive experiments demonstrate that the proposed method effectively degrades 3D talking face generation while preserving favorable perceptual quality. These findings highlight psychoacoustically guided audio perturbations as a practical and promising direction for privacy-preserving portrait protection.
+
+</details>
+
+#### [RoboGesture: Real-Time Semantic-aligned Co-Speech Gestures Generation for Humanoid Interaction](https://arxiv.org/abs/2608.28693)
+
+**Zifan Wang, Ziang Ren, Pengyang Shi, Zirui Wang et al.** · 2026-08-27
+
+<details>
+<summary>Abstract</summary>
+
+Enabling humanoid robots to respond to human speech with synchronized and semantically meaningful gestures is fundamental to natural human-robot interaction. However, this task faces three critical barriers: the scarcity of semantically rich datasets, the "modality eclipse" where models ignore audio cues in favor of kinematic inertia, and the sim-to-real gap regarding physical safety. We propose RoboGesture, a robot-centric framework that co-designs data, modeling, and control to power a complete interactive human-humanoid system in which the robot listens, responds, and gestures in real time. We first establish the RoboGesture dataset featuring over 300 gesture categories and develop an automated pipeline to synthesize large-scale collision-free, robot-specific audio-motion pairs. Our architecture features a Hierarchical Semantic-Acoustic Aligner that extracts multi-granular prosodic and semantic cues directly from raw audio tokens. These cues drive a Streaming Conditional Motion Generator based on a diffusion transformer with conditional flow matching. To ensure high responsiveness, we introduce Anti-Inertia CFG Masking, which prevents the model from collapsing into repetitive historical patterns by compelling it to proactively mine control signals from the audio modality. Finally, an MPC-based safety filter ensures real-time, collision-free execution on physical hardware. Experiments on a Unitree G1 humanoid demonstrate that RoboGesture generates safer, more rhythmic, and more semantically appropriate responses compared to state-of-the-art baselines.
+
+</details>
 
 #### [InteractGesture: Progressive Chunk Guidance for Continuous Streaming Co-Speech Gesture Control](https://arxiv.org/abs/2608.25734) · [📄 Read](papers/2026/2608.25734.md)
 
@@ -370,28 +392,6 @@ We present ReGenVC, an end-to-end generative video codec that compresses talking
 <summary>Abstract</summary>
 
 Modern face reenactment systems achieve impressive pose and expression transfer using geometry-driven representations. However, they largely ignore tongue dynamics, leading to anatomically inconsistent mouth interiors during speech and expressive motions. We introduce the first framework for cross-identity tongue dynamics transfer in face reenactment. We propose a foundation-model-assisted bootstrapping pipeline that produces a dedicated tongue segmentation model for in-the-wild reenactment without curated annotations. We further introduce a spatially constrained latent masked diffusion model for realistic tongue synthesis, with adaptive mask dilation for seamless mouth boundary transitions. Extensive experiments demonstrate improvements of more than two times over all baselines on every tongue-specific metric. We additionally propose a VLM-based evaluation protocol that replicates expert annotation at scale, confirming perceptual superiority across all ablation variants.
-
-</details>
-
-#### [LeapTalk: Breaking the Latency-Quality Trade-off in Talking Head Generation](https://arxiv.org/abs/2608.00079) · [📄 Read](papers/2026/2608.00079.md)
-
-**Rongxiang Zhang, Songhua Liu** · 2026-07-29
-
-<details>
-<summary>Abstract</summary>
-
-Long-form and real-time talking-head generation remains challenging due to a latency-quality trade-off: inefficient multi-step diffusion prohibits streaming generation, whereas real-time autoregressive approaches suffer from error accumulation and identity drift. To address this drawback, we propose LeapTalk, a novel framework that achieves stable and real-time talking-head generation with a single forward step, scaling to arbitrarily long videos. At the heart of our approach lies a single-step bridge distillation scheme. On the one hand, departing from the conventional noise-to-data paradigm, we introduce a data-to-data transport formulation based on a Brownian bridge. Anchored by a persistent reference, this strategy effectively mitigates identity drift and enhances long-term temporal stability. On the other hand, to enable smooth knowledge transfer from a pre-trained diffusion teacher to the student bridge model, we explore a heterogeneous distillation framework with an SNR-aligned time transformation $Φ(τ)$, which bridges the functional discrepancy between the two models. Moreover, we propose an audio-driven classifier-free guidance mechanism to maintain fine-grained lip synchronization under extreme step reduction. Extensive experiments demonstrate that our method achieves high-fidelity and temporally consistent video generation with only 1 step at up to 200 FPS, significantly outperforming existing approaches in both efficiency and stability. Project Page: https://zhangrongxiang.github.io/leaptalk-page/
-
-</details>
-
-#### [ViDS: Video Diffusion Shader using 3D Face Tracking](https://arxiv.org/abs/2607.24124) · [📄 Read](papers/2026/2607.24124.md)
-
-**Wenbo Ji, Davide Davoli, Zhe Chen, Liam Schoneveld et al.** · 2026-07-27
-
-<details>
-<summary>Abstract</summary>
-
-We introduce ViDS, a Video Diffusion Shader that leverages 3D face tracking for expressive and identity-preserving portrait animation. We first reconstruct the identity-specific 3DMM mesh from the reference image, and then animate it using expression and pose parameters from a driving video. Leveraging dense geometric cues from 3DMM normal maps, we employ a video diffusion model as a neural shader to synthesize lifelike portrait animations while preserving the appearance and identity of the reference image. We find that more accurate 3DMM tracking enables finer-grained expression control. We also introduce an autoregressive diffusion sampling process that extends generation beyond the model's native window while reducing discontinuities between adjacent clips. Compared with prior diffusion-based approaches for portrait animation that rely on landmark-based conditioning or implicit motion latents, our method achieves more detailed and consistent expression and pose control while faithfully preserving identity and appearance. Detailed ablation studies validate the effectiveness of our design choices. Project page: https://fusheng-ji.github.io/ViDS/
 
 </details>
 
