@@ -76,7 +76,7 @@ The rapid development of generative portrait models has raised growing concerns 
 
 </details>
 
-#### [Puppeteer: Object-Grounded Posture-Aware Co-Speech Gesture Generation](https://arxiv.org/abs/2609.00369)
+#### [Puppeteer: Object-Grounded Posture-Aware Co-Speech Gesture Generation](https://arxiv.org/abs/2609.00369) · [📄 Read](papers/2026/2609.00369.md)
 
 **Vida Adeli, Soroush Mehraban, Jacob Rommann, Harrison Sanborn et al.** · 2026-08-31
 
