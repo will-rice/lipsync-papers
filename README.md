@@ -60,10 +60,21 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1138 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1139 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [Alignment-Free Text-Audiobox for Voice Dubbing and Full-Duplex Dialogue Synthesis](https://arxiv.org/abs/2609.03992)
+
+**Sanyuan Chen, Min-Jae Hwang, Sho Inoue, Anna Sun et al.** · 2026-09-03
+
+<details>
+<summary>Abstract</summary>
+
+We present Alignment-Free Text-Audiobox (Text-AB), a unified framework for high-quality voice dubbing and full-duplex dialogue synthesis. Building on a Diffusion Transformer trained with a flow-matching objective, Text-AB departs from the Audiobox system along three dimensions. First, it operates in a latent diffusion framework using DAC-VAE features that encode 48 kHz waveforms into a 25 Hz latent sequence, giving over 10x higher compression than previous EnCodec representations while improving resynthesis quality. Second, Text-AB is alignment-free: it consumes raw text via an off-the-shelf text encoder and learns text-speech alignment through cross-attention, removing the need for forced alignment and explicit duration prediction. Third, we scale model and data substantially, pretraining a 3B-parameter model on 480k hours of monolingual speech, followed by supervised fine-tuning on three downstream tasks: cross-lingual voice dubbing, full-duplex dialogue synthesis, and emotional full-duplex dialogue synthesis. At inference, Text-AB supports one-shot generation for up to ~1 min of speech and arbitrarily long-form generation via a multi-diffusion scheme, plus a multi-stage reranking strategy that enhances quality based on automated metrics. On a real-world dubbing benchmark, Text-AB delivers a step-change improvement over the latest internal dubbing system, with large gains in prosody similarity, voice similarity, naturalness, and shareability. For full-duplex dialogue synthesis, it approaches human recordings on short-form conversations and substantially outperforms the latest internal model on long-form human-likeness and expressivity, while natively modeling turn-taking, back-channeling, and emotional dynamics. For emotional dialogue synthesis, emotion conditioning significantly improves emotion alignment and emotional interaction quality over the unconditioned baseline.
+
+</details>
 
 #### [Audio-Driven Adversarial Defense for 3D Talking Face Generation with totally Visual Fidelity Preservation](https://arxiv.org/abs/2608.30951) · [📄 Read](papers/2026/2608.30951.md)
 
@@ -381,17 +392,6 @@ Audio-driven 3D facial animation aims to synthesize realistic and temporally coh
 <summary>Abstract</summary>
 
 Audio-driven emotional talking face generation aims to synthesize realistic videos with expressive facial dynamics. However, existing methods struggle to balance controllability and visual fidelity. Although implicit representations capture rich semantics, they lack structural guidance, often resulting in averaged emotional expressions. In contrast, explicit geometric methods offer better control over facial expressions but tend to sacrifice high-frequency texture details. To address it, we propose GemTalk, a diffusion-based framework that combines the semantic richness of implicit representations with the structural precision of explicit geometric priors. We introduce a Vision-guided Audio Emotion Projection (V-AEP) module to extract implicit emotional lip and expression features. At the same time, a Diffusion-based Geometric Priors Generator (D-GPG) generates identity-aware blendshape coefficients as explicit structural priors. Crucially, our Geometry-guided Emotion Modulation (GEM) module leverages these geometric priors to recalibrate the magnitude of implicit features, enabling precise, continuous control over emotional expressions, especially emotion intensity, without sacrificing visual quality. Extensive experiments show GemTalk achieves superior performance in photo-realism, and facial emotional dynamics.
-
-</details>
-
-#### [ReGenVC: End-to-End Real-Time Generative Video Coding at Ultra-Low Bitrate](https://arxiv.org/abs/2607.28144) · [📄 Read](papers/2026/2607.28144.md)
-
-**Zheyuan Zhang, Johnson Wu** · 2026-07-30
-
-<details>
-<summary>Abstract</summary>
-
-We present ReGenVC, an end-to-end generative video codec that compresses talking-head video to an ultra-low bitrate and decodes it in real time. The encoder reduces a source clip to a compact bitstream -- a neurally compressed first frame, per-frame pose keypoints, and metadata -- totaling about 26 kB for a 77-frame sequence. The decoder is a four-step distilled diffusion transformer that reconstructs the video conditioned on the transmitted pose and reference frame. Compared with x264/x265, ReGenVC reduces the bitrate to roughly one tenth of that required by traditional codecs (about 26 kB vs. 250--280 kB for essentially artifact-free reconstruction); at a matched ultra-low bitrate, conventional codecs collapse into blocking artifacts while ReGenVC stays sharp by exploiting a strong generative prior. The central obstacle to deploying such a codec is decoder latency: multi-step sampling with transformer and VAE components is too slow for interactive use. We make the decoder real-time through four-step distillation and three model-preserving system techniques: (i) eight-GPU unified sequence parallelism (Ulysses & Ring), (ii) a spatially-split VAE, and (iii) a three-stage overlapped pipeline; an analytical timing model characterizes the real-time feasibility region. On an 8-GPU node, the system sustains 24 fps output (972 ms per 25-frame window, within the 1000 ms budget), enabling a live browser stream without observed frame underruns. A hybrid CPU-GPU deployment further runs the encoder on the CPU at 24 fps and offloads the decoder-side one-shot conditioning encoders to the CPU, reducing the per-GPU memory peak from 21.1 GB to about 7.7 GB. To our knowledge, ReGenVC is the first end-to-end generative video codec to combine ultra-low-bitrate encoding with real-time decoding on an 8-GPU system.
 
 </details>
 
