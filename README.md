@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1139 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [Alignment-Free Text-Audiobox for Voice Dubbing and Full-Duplex Dialogue Synthesis](https://arxiv.org/abs/2609.03992)
+#### [Alignment-Free Text-Audiobox for Voice Dubbing and Full-Duplex Dialogue Synthesis](https://arxiv.org/abs/2609.03992) · [📄 Read](papers/2026/2609.03992.md)
 
 **Sanyuan Chen, Min-Jae Hwang, Sho Inoue, Anna Sun et al.** · 2026-09-03
 
