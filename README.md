@@ -60,10 +60,32 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1139 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1141 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [Noise Adaptive Streaming Audio-Visual Speech Token Enhancement for Robust Full-Duplex Spoken Dialogue Models](https://arxiv.org/abs/2609.08390)
+
+**Bella Godiva, Yeonju Kim, Yong Man Ro** · 2026-09-08
+
+<details>
+<summary>Abstract</summary>
+
+Full-duplex spoken dialogue systems enable simultaneous listening and speaking, but their audio-only perception often fails under background noise and overlapping speech, leading to incoherent responses. Recent audio-visual dialogue approaches show that incorporating visual cues such as lip movements improve robustness under audio corruption. However, existing approaches often adapt the large speech dialogue model itself to process visual input, requiring costly multimodal training. We propose AV-STE, a modular streaming audio-visual front-end that restores corrupted semantic speech tokens from noisy audio and lip video before they reach the speech LLM. The downstream dialogue model remains entirely frozen, preserving its pretrained conversational capabilities. When integrated with frozen Moshi, AV-STE improves average GPT-4o-judged response coherence from 1.42 to 1.91 under same-dataset speaker interference while largely preserving turn-taking behavior. Gains also transfer to out-of-domain Seamless Interaction.
+
+</details>
+
+#### [TBDub: Production-Oriented Visual Dubbing](https://arxiv.org/abs/2609.06144)
+
+**Bihan Li, Xinyang Li, Zeran Xu, Meiguang Jin et al.** · 2026-09-05
+
+<details>
+<summary>Abstract</summary>
+
+Visual dubbing must synchronize mouth motion with replacement speech while preserving identity, appearance, and temporal consistency. Although X-Dub provides a strong mask-free video-editing baseline, its application to livestream and generated-video content reveals limitations in production-domain robustness, temporal and motion stability, identity and oral-detail preservation, and inference efficiency. We present \textbf{TBDub}, a production-oriented extension of X-Dub that combines task-adaptive post-training with task-aware few-step distillation. Post-training adapts the video DiT using production-domain data, production-specific conditioning and filtering, and enhanced audio features to obtain a 30-step Teacher. Distillation adapts DMD/DMD2 to conditional video editing and compresses the Teacher into a two-step Student. On 38 TalkVid clips, the Teacher improves all eight reported reconstruction, perceptual, identity, and synchronization metrics over X-Dub. In the MOS evaluation, it improves lip-sync consistency, identity consistency, and visual quality over X-Dub by 0.14, 0.95, and 0.90 points, while the Student achieves the highest lip-sync and visual-quality scores and remains close to the Teacher in identity consistency. In paired end-to-end generation timing from the first VAE encode through the final VAE decode on a single NVIDIA H20 GPU at $512\times512$, the Student reaches 7.13 effective FPS and reduces total latency by $13.93\times$; the DiT stage alone is accelerated by $42.49\times$. The Student largely retains the Teacher's generation quality and audiovisual synchronization. The code is available on GitHub at \https://github.com/TaoLiveAIGC/TBDub, and the 30-step Teacher and two-step Student weights are available on Hugging Face at https://huggingface.co/TaoLiveAIGC/TBDub.
+
+</details>
 
 #### [Alignment-Free Text-Audiobox for Voice Dubbing and Full-Duplex Dialogue Synthesis](https://arxiv.org/abs/2609.03992) · [📄 Read](papers/2026/2609.03992.md)
 
@@ -370,28 +392,6 @@ Real-time co-speech gesture generation must produce 3D motion clip by clip as sp
 <summary>Abstract</summary>
 
 Speech and audio generation is often needed in animation dubbing, audio drama, movies, advertising, games, podcasts, and short-video production. In these scenarios, creators may need to design voices without reference recordings, control speaker styles with natural language, support acoustic scenes with environments and audio effects, and later reuse the designed voices. Therefore, it is important to support multi-speaker speech and audio generation for both instruct and zero-shot tasks. The instruct task requires a caption of the environment, speaker styles, and fine-grained content, while the zero-shot task uses reference audio together with the same fine-grained content. We address these tasks from both the data and model sides. First, we propose SwanData-Caption, which cleans raw speech and audio data, adds targeted synthetic coverage, and annotates diverse and accurate multi-level captions. Then, we propose SwanTale, a multi-speaker expressive speech and audio generation model that supports both zero-shot and instruct tasks. We introduce SwanVAE to support high-quality multi-audio-modality generation. Then, we adopt reward-conditioned quality control and Engram conditioning, along with Unified MoE for multi-task and multi-audio-modality modeling. In addition, we use curriculum learning and GRPO post-training to let the model progressively learn and strengthen its capabilities. Experimental results show that SwanTale leads on multiple key zero-shot and instruct metrics, achieves the best expressiveness scores in both tasks, and supports complex instruct generation involving multi-speaker speech and audio. Demos can be found at https://swanaigc.github.io/\#swantale.
-
-</details>
-
-#### [SubtleTalk: Generating Controllable Weakly-correlated Facial Dynamics for 3D Talking Heads via Residual Flow Matching](https://arxiv.org/abs/2608.06408) · [📄 Read](papers/2026/2608.06408.md)
-
-**Chenyang Ding, Shuai Tan, Qunfen Lin, Xinwei Jiang et al.** · 2026-08-03
-
-<details>
-<summary>Abstract</summary>
-
-Audio-driven 3D facial animation aims to synthesize realistic and temporally coherent motions from speech. Despite notable progress in lip synchronization, weakly correlated dynamics, including eyebrow movements, eye blinks, and head motion, which are essential to photorealistic facial animation, remain difficult to model faithfully and often appear static or unnaturally repetitive. We attribute this limitation to three factors: (a) insufficient conditioning for weakly correlated dynamics; (b) the limited ability of deterministic regression to capture diverse motion patterns; (c) data bottlenecks from unreliable upper-face pseudo-labels and limited dataset diversity. To address these issues, we propose SubtleTalk, a framework for generating natural and controllable weakly correlated facial dynamics via multi-condition modeling and residual flow matching. First, to compensate for the limited guidance of speech alone, we introduce interpretable controls, including prosody, regional intensity, and Valence-Arousal signals, to explicitly capture the timing, magnitude, and affective variation of weakly correlated dynamics. Second, to overcome the limited expressiveness of deterministic regression, we build residual flow matching based on a stable speech-driven motion prior, allowing the model to capture stochastic deviations beyond deterministic prediction. Third, to alleviate the data bottleneck, we construct SubtleTalk-Face, a large-scale 3D facial animation dataset comprising about 3,900 identities and 74 hours of data, built via a simple and scalable pseudo-labeling pipeline and featuring improved upper-face tracking and frame-level VA annotations. Extensive experiments demonstrate that our method significantly improves the realism and diversity of weakly correlated facial dynamics while preserving accurate lip synchronization.
-
-</details>
-
-#### [Geometry-guided Emotion Modulation for Controllable and Photorealistic Emotional Talking Face Generation](https://arxiv.org/abs/2608.00663) · [📄 Read](papers/2026/2608.00663.md)
-
-**Chenggong Hu, Shaoyin Ma, Yi Wang, Li Sun et al.** · 2026-08-01
-
-<details>
-<summary>Abstract</summary>
-
-Audio-driven emotional talking face generation aims to synthesize realistic videos with expressive facial dynamics. However, existing methods struggle to balance controllability and visual fidelity. Although implicit representations capture rich semantics, they lack structural guidance, often resulting in averaged emotional expressions. In contrast, explicit geometric methods offer better control over facial expressions but tend to sacrifice high-frequency texture details. To address it, we propose GemTalk, a diffusion-based framework that combines the semantic richness of implicit representations with the structural precision of explicit geometric priors. We introduce a Vision-guided Audio Emotion Projection (V-AEP) module to extract implicit emotional lip and expression features. At the same time, a Diffusion-based Geometric Priors Generator (D-GPG) generates identity-aware blendshape coefficients as explicit structural priors. Crucially, our Geometry-guided Emotion Modulation (GEM) module leverages these geometric priors to recalibrate the magnitude of implicit features, enabling precise, continuous control over emotional expressions, especially emotion intensity, without sacrificing visual quality. Extensive experiments show GemTalk achieves superior performance in photo-realism, and facial emotional dynamics.
 
 </details>
 
