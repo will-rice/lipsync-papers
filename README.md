@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1142 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [Decoupled Self-Forcing Distillation for Streaming Talking Head Generation](https://arxiv.org/abs/2609.10317)
+#### [Decoupled Self-Forcing Distillation for Streaming Talking Head Generation](https://arxiv.org/abs/2609.10317) · [📄 Read](papers/2026/2609.10317.md)
 
 **Yanru An, Ruiyan Wang, Wenwu Wei, Rui Bu et al.** · 2026-09-09
 
