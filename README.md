@@ -60,10 +60,32 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1142 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1144 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [DiVA: Enabling Interactive Digital Life Simulation via Video Models](https://arxiv.org/abs/2609.13830)
+
+**Cheng Chen, Hao Ouyang, Qiuyu Wang, Ka Leong Cheng et al.** · 2026-09-12
+
+<details>
+<summary>Abstract</summary>
+
+We present DiVA, a deeply interactive digital life simulator pioneering a new paradigm for long-term, open-ended interactive experiences within digital character worlds. DiVA's architecture pairs a Multimodal Large Language Model (MLLM) as a router with a meticulously designed stacked video pipeline for seamless, multi-turn interactions with action and audio response. To maintain continuity and avoid degradation, we model generation as a three-part coupled system: waiting video, action video, and the transitions between them. These transitions are critically handled by our Anchored Video Continuation (AVC) module, which returns the character to stable states to prevent degradation. By encoding information from the preceding action video segment, AVC ensures smooth transitions, significantly reducing camera jitter and inconsistencies common in current video transition methods. This design also enables complex pose changes (e.g., sitting to standing) typically difficult for audio-driven models. These system designs together ensure high-fidelity identity, coherence, and dynamics for extended experiences. To validate our pipeline design, we comprehensively compare our system against alternatives by replacing our core generation module with mainstream long-video, continuation, and interpolation methods. We further analyze the necessity of the three-stage design, anchor-state selection, transition naturalness, spatial grounding, and the quality-latency trade-off, and we expand the comparison to additional long-form audio-driven avatar models. Results confirm DiVA is markedly superior in maintaining long-term visual quality and realism, validating its effectiveness as a sustainable, interactive simulation.
+
+</details>
+
+#### [Co-Speech with You: Training-Free Personalization of Robot Co-Speech Gestures](https://arxiv.org/abs/2609.13876)
+
+**Bosong Ding, Selma Ancel, Giacomo Spigler, Murat Kirtay** · 2026-09-12
+
+<details>
+<summary>Abstract</summary>
+
+Personal robots should adapt their co-speech gesture style to a new user without requiring model retraining. We present a training-free personalization pipeline that combines a frozen audio-conditioned diffusion prior with a gesture style encoder and lightweight conditioning adapters. The encoder is first trained to discriminate speaker identities and then jointly refined with the adapters using the diffusion objective, enabling a reusable style embedding to be extracted from approximately 10 seconds of enrollment motion through a single forward pass. To support this setting, we also release a Quest~3 capture application and a dataset of spontaneous co-speech motion from ten participants. We evaluate the system on held-out speakers using Style Recognition Accuracy (SRA) and Fr'echet Gesture Distance (FGD) to measure personalization and motion quality. Our approach improves SRA from 27.6\% for the frozen prior to 69.5\% while preserving motion quality (FGD 34.2 versus 34.8), and replacing the enrollment embedding with another person's reduces SRA to 11.4\%. The generated gestures are retargeted to a physical NAO robot, and this improvement also transfers to the robot deployment setting, where speech is synthesized using five TTS voices, retaining 67.3\% SRA.
+
+</details>
 
 #### [Decoupled Self-Forcing Distillation for Streaming Talking Head Generation](https://arxiv.org/abs/2609.10317) · [📄 Read](papers/2026/2609.10317.md)
 
@@ -370,28 +392,6 @@ While humans naturally gesture during speech, only a sparse subset of these co-s
 <summary>Abstract</summary>
 
 Generating expressive 3D talking heads solely from speech remains a significant challenge due to the scarcity of high-fidelity 3D data, which limits the modeling of complex emotional motion patterns. In this paper, we introduce \textbf{E}xpressive \textbf{T}alking \textbf{Head} (ETHead), a method for generating 3D facial and head motions that vividly align with the emotional content of input speech. To overcome the data limitations, we design a self-distillation framework that leverages large-scale 2D talking videos to pre-train a specialized speech encoder. By incorporating a novel emotion-modulated probabilistic masking mechanism, this framework aligns speech representations with expressive visual dynamics, allowing the encoder to extract features highly correlated with facial and head motions directly from audio. These features are then leveraged to guide 3D generation, enriching input cues and providing explicit supervision through a joint speech-motion latent space. Extensive experiments demonstrate that ETHead substantially outperforms state-of-the-art methods. Furthermore, our motion-aligned speech encoder can serve as a transferable module, offering a general solution for enhancing expressiveness in other 3D talking head animation frameworks. The project page is available at https://verdure-oss.github.io/ETHead.github.io/.
-
-</details>
-
-#### [Proxy Avatar Meets Low-Rank Caching: Real-Time One-Shot Emotion-Controllable Portrait Animation](https://arxiv.org/abs/2608.01978) · [📄 Read](papers/2026/2608.01978.md)
-
-**Haijie Yang, Jindi Bao, Yixuan Dong, Hongliang Zhang et al.** · 2026-08-03
-
-<details>
-<summary>Abstract</summary>
-
-Audio-driven portrait animation has advanced rapidly with diffusion-based generative models, yet real-time one-shot generation with expressive emotion control remains challenging. Existing methods often suffer from insufficient emotion-aware motion priors and expensive appearance computation during multi-step denoising. To address these issues, we propose Proxy Avatar Meets Low-Rank Caching, a cascaded framework for real-time one-shot emotion-controllable portrait animation. Instead of directly generating the target portrait from audio, our method uses a Gaussian-based emotion proxy avatar as a reusable motion generator, which is trained once on a single identity to produce expressive driving videos from audio and emotion labels. Since the proxy avatar only provides motion rather than target appearance or geometry, a large-scale one-shot retargeting model further extracts identity-independent motion from the proxy performance and adapts it to arbitrary target portraits. To improve inference efficiency, we introduce zero-shot appearance reuse with low-rank caching, which caches reference appearance features at the initial denoising step and models subsequent feature variations using lightweight low-rank adapters. Extensive experiments demonstrate that our method achieves stronger emotional expressiveness, better identity-preserving animation, and substantially reduced inference cost, enabling real-time one-shot portrait animation.
-
-</details>
-
-#### [StreamTalk: Streaming Co-Speech Gesture Generation with Key-Pose Anchoring](https://arxiv.org/abs/2608.01643) · [📄 Read](papers/2026/2608.01643.md)
-
-**Xiangyue Zhang, Jianfang Li, Jiaxu Zhang, Kaixing Yang et al.** · 2026-08-03
-
-<details>
-<summary>Abstract</summary>
-
-Real-time co-speech gesture generation must produce 3D motion clip by clip as speech arrives. Existing streaming methods are open-loop: each clip depends on past context, but the model cannot check or correct its trajectory. Small errors therefore accumulate and cause drift over long sequences. We observe that this failure is mainly caused by the lack of a forward constraint rather than poor short-clip quality. A plausible key pose at the end of each clip provides a destination anchor that limits drift. Based on this observation, we propose StreamTalk, a closed-loop framework with a periodic generate-retrieve-refine cycle. Streaming Pose-Guided Generation first predicts a coarse clip, retrieves a plausible tail pose from a speaker-specific motion database, and refines the clip using this pose before continuing to the next window. During training, Stochastic Anchor Masking randomly masks pose and translation frames, teaching the model to recover complete motion from sparse boundary conditions. A part-aware DiT separates hand, body, and translation streams to reduce interference between global displacement and local articulation. On BEAT2, StreamTalk achieves state-of-the-art FGD, reduces long-horizon drift relative to open-loop baselines, and runs in real time at 76 FPS. Project page: https://xiangyue-zhang.github.io/StreamTalk/.
 
 </details>
 
