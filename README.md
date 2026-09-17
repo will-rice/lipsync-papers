@@ -60,12 +60,23 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1144 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1145 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [DiVA: Enabling Interactive Digital Life Simulation via Video Models](https://arxiv.org/abs/2609.13830)
+#### [MSR: Multiple Subject Reference for Video Generation](https://arxiv.org/abs/2609.18393)
+
+**Guannan Li, Jiaji Chen, Jingyuan Liao, Yu Geng et al.** · 2026-09-16
+
+<details>
+<summary>Abstract</summary>
+
+Conditioning a video generator on multiple images requires preserving appearance while associating each reference with its intended role. We present MSR (Multiple Subject Reference), a slot-aware conditioning scheme for LTX-based video generation. Each reference image is independently encoded as a static clip and represented by a separate latent-token group. A compact Fourier-feature multilayer perceptron adds a numeric slot embedding, while slot-dependent temporal offsets modify the group's rotary coordinates. The reference groups are prepended to noisy target tokens and serve as clean context during target-only flow-matching training. We implement this scheme through low-rank adaptation and release the resulting weights and inference workflows. Qualitative examples demonstrate compositions containing distinct characters and referenced environments in realistic and stylized scenes. Development observations suggest reduced reference confusion relative to an earlier continuous-reference baseline, while similar clothing, complex garments, and viewpoint changes remain challenging. We describe the conditioning mechanism, the retained training configuration, and the observed strengths and limitations of the released system. A supplementary audio-reference experiment adds voice conditioning while keeping the visual parameters frozen.
+
+</details>
+
+#### [DiVA: Enabling Interactive Digital Life Simulation via Video Models](https://arxiv.org/abs/2609.13830) · [📄 Read](papers/2026/2609.13830.md)
 
 **Cheng Chen, Hao Ouyang, Qiuyu Wang, Ka Leong Cheng et al.** · 2026-09-12
 
@@ -76,7 +87,7 @@ We present DiVA, a deeply interactive digital life simulator pioneering a new pa
 
 </details>
 
-#### [Co-Speech with You: Training-Free Personalization of Robot Co-Speech Gestures](https://arxiv.org/abs/2609.13876)
+#### [Co-Speech with You: Training-Free Personalization of Robot Co-Speech Gestures](https://arxiv.org/abs/2609.13876) · [📄 Read](papers/2026/2609.13876.md)
 
 **Bosong Ding, Selma Ancel, Giacomo Spigler, Murat Kirtay** · 2026-09-12
 
@@ -381,17 +392,6 @@ While humans naturally gesture during speech, only a sparse subset of these co-s
 <summary>Abstract</summary>
 
 3D Gaussian Splatting (3DGS) enables fast, photorealistic talking-head rendering, yet accurate lip articulation remains elusive: mouth motion is often over-smoothed and may violate hard articulatory constraints such as bilabial closures, producing the notorious ``leaky mouth'' artifact. A key difficulty is that brief, discrete articulatory events are inferred from a continuous acoustic embedding under a regression objective, which biases predictions toward averaged mouth configurations. While modern self-supervised speech encoders provide rich prosodic and phonetic cues, they do not provide an explicit, frame-aligned linguistic target that reliably disambiguates closure-level events. We propose \textbf{Phoneme-Driven Gaussian Splatting (PD-GS)}, which augments a 3DGS talker with time-aligned phoneme tokens obtained from an automatic ASR and forced-alignment pipeline. Our core component, the \textbf{Linguistic Fusion Module (LFM)}, adaptively fuses continuous audio context with discrete phoneme embeddings through a learned gate, allowing the model to preserve smooth audio-driven dynamics while strengthening phoneme guidance on articulation-critical segments. PD-GS is trained purely from monocular video using image reconstruction and lip landmark supervision. On HDTF, PD-GS achieves the best lip geometry among the compared baselines (LMD 2.66) and qualitatively reduces closure violations in challenging phoneme sequences, yielding more linguistically faithful neural avatars.
-
-</details>
-
-#### [ETHead: Generating Expressive 3D Facial Animation and Head Movement from Speech](https://arxiv.org/abs/2608.01605) · [📄 Read](papers/2026/2608.01605.md)
-
-**Jiu-Cheng Xie, Jiwang Zheng, Yongkang Xia, Jian Xiong et al.** · 2026-08-03
-
-<details>
-<summary>Abstract</summary>
-
-Generating expressive 3D talking heads solely from speech remains a significant challenge due to the scarcity of high-fidelity 3D data, which limits the modeling of complex emotional motion patterns. In this paper, we introduce \textbf{E}xpressive \textbf{T}alking \textbf{Head} (ETHead), a method for generating 3D facial and head motions that vividly align with the emotional content of input speech. To overcome the data limitations, we design a self-distillation framework that leverages large-scale 2D talking videos to pre-train a specialized speech encoder. By incorporating a novel emotion-modulated probabilistic masking mechanism, this framework aligns speech representations with expressive visual dynamics, allowing the encoder to extract features highly correlated with facial and head motions directly from audio. These features are then leveraged to guide 3D generation, enriching input cues and providing explicit supervision through a joint speech-motion latent space. Extensive experiments demonstrate that ETHead substantially outperforms state-of-the-art methods. Furthermore, our motion-aligned speech encoder can serve as a transferable module, offering a general solution for enhancing expressiveness in other 3D talking head animation frameworks. The project page is available at https://verdure-oss.github.io/ETHead.github.io/.
 
 </details>
 
