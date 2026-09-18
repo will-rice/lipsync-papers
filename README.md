@@ -65,7 +65,7 @@ _Showing the last 30 papers (30 of 1145 total). The full list lives in [papers.c
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
 
-#### [MSR: Multiple Subject Reference for Video Generation](https://arxiv.org/abs/2609.18393)
+#### [MSR: Multiple Subject Reference for Video Generation](https://arxiv.org/abs/2609.18393) · [📄 Read](papers/2026/2609.18393.md)
 
 **Guannan Li, Jiaji Chen, Jingyuan Liao, Yu Geng et al.** · 2026-09-16
 
