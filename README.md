@@ -60,10 +60,21 @@ Select _full = true_ to back-fill from 2020 and rebuild all paper markdown, or l
 
 <!-- PAPERS_TABLE_START -->
 
-_Showing the last 30 papers (30 of 1145 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
+_Showing the last 30 papers (30 of 1146 total). The full list lives in [papers.csv](papers.csv); browse everything by year at [papers/README.md](papers/README.md)._
 
 <details open>
 <summary><h3>Last 30 Papers</h3></summary>
+
+#### [Omni Demand Understanding: A Benchmark for Contextual User-Intent Inference in Multimodal Interaction](https://arxiv.org/abs/2609.21392)
+
+**Qi Chen, Yunfei Chu, Haolin He, Yifan Yang et al.** · 2026-09-18
+
+<details>
+<summary>Abstract</summary>
+
+Natural audio-visual interaction is emerging as an important interface for AI assistants, allowing users to communicate through speech and vision rather than carefully composed text prompts. However, existing benchmarks of interactive capabilities still focus primarily on response quality, leaving a more fundamental question underexplored: can a model correctly infer the user's underlying demand from complex multimodal interaction? Real-world user demands are often underspecified in speech and must be inferred from multimodal cues and dialogue history. This inference is further complicated by ambiguous or disfluent expression and noisy acoustic environments. Conversely, request-like speech may not constitute a demand to the assistant, leading to false triggers. We establish Omni Demand Understanding (ODU) as a distinct multimodal contextual inference problem: given an interaction stream, a model must detect whether a user demand is present and infer intent from multimodal and conversational context. ODU evaluates this capability along five dimensions, covering both single-turn and multi-turn interactions. We construct ODU-Bench using a challenge-driven taxonomy, taxonomy-guided agentic video generation, and human-recorded interactions, followed by media-grounded annotation and human verification. We evaluate 14 native MLLMs. Even the strongest, Gemini 3.1 Pro, recovers only 44.7% of key information that must be inferred from visual, acoustic, or conversational context. Moreover, 11 of the 14 models exhibit false-trigger rates above 50% on non-demand scenarios. These results reveal a systematic capability gap in current MLLMs' ability to infer contextual user demands. We hope ODU can establish the evaluation of a previously underexplored yet essential capability in multimodal interaction: correctly understanding user demands before generating an appropriate response.
+
+</details>
 
 #### [MSR: Multiple Subject Reference for Video Generation](https://arxiv.org/abs/2609.18393) · [📄 Read](papers/2026/2609.18393.md)
 
@@ -381,17 +392,6 @@ Character image animation remains a foundational yet challenging task in compute
 <summary>Abstract</summary>
 
 While humans naturally gesture during speech, only a sparse subset of these co-speech gestures are visually depictive and semantically linked to specific spoken words. In this paper, we introduce a large-scale dataset -- Gesture Recognition in the Wild (GRW), comprising co-speech gestures corresponding to a diverse vocabulary of 155 words. GRW contains 140k manually annotated video clips where the word is spoken, with 17k instances of semantic co-speech gestures including their frame-level temporal boundaries. The video clips are collected 'in the wild' from public-facing discourse, including lectures, talk shows, and interviews, covering a diverse range of speakers and visual conditions. We also introduce video models to: (a) classify gestures as semantic or not; (b) recognize the word corresponding to a co-speech gesture; and (c) temporally localize the gesture. These models are trained and evaluated on the GRW dataset and compared against a range of strong baselines, establishing benchmark results for all three tasks. The dataset, annotations, and trained models are publicly available on the project website: https://www.robots.ox.ac.uk/~vgg/research/grw.
-
-</details>
-
-#### [PD-GS: Phoneme-Driven 3DGS for Audio-Driven Talking Heads](https://arxiv.org/abs/2608.05218) · [📄 Read](papers/2026/2608.05218.md)
-
-**Ao Fu, Yi Zhou** · 2026-08-05
-
-<details>
-<summary>Abstract</summary>
-
-3D Gaussian Splatting (3DGS) enables fast, photorealistic talking-head rendering, yet accurate lip articulation remains elusive: mouth motion is often over-smoothed and may violate hard articulatory constraints such as bilabial closures, producing the notorious ``leaky mouth'' artifact. A key difficulty is that brief, discrete articulatory events are inferred from a continuous acoustic embedding under a regression objective, which biases predictions toward averaged mouth configurations. While modern self-supervised speech encoders provide rich prosodic and phonetic cues, they do not provide an explicit, frame-aligned linguistic target that reliably disambiguates closure-level events. We propose \textbf{Phoneme-Driven Gaussian Splatting (PD-GS)}, which augments a 3DGS talker with time-aligned phoneme tokens obtained from an automatic ASR and forced-alignment pipeline. Our core component, the \textbf{Linguistic Fusion Module (LFM)}, adaptively fuses continuous audio context with discrete phoneme embeddings through a learned gate, allowing the model to preserve smooth audio-driven dynamics while strengthening phoneme guidance on articulation-critical segments. PD-GS is trained purely from monocular video using image reconstruction and lip landmark supervision. On HDTF, PD-GS achieves the best lip geometry among the compared baselines (LMD 2.66) and qualitatively reduces closure violations in challenging phoneme sequences, yielding more linguistically faithful neural avatars.
 
 </details>
 
