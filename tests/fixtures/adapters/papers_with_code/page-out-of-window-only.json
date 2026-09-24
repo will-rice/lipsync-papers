@@ -1,0 +1,16 @@
+{
+  "count": 1,
+  "next": "https://paperswithcode.com/api/v1/papers/?page=2",
+  "results": [
+    {
+      "id": "out-of-window-paper",
+      "arxiv_id": "2312.99999",
+      "title": "Out of Window Paper",
+      "abstract": "Recorded Papers With Code response outside the fetch window.",
+      "authors": ["Z. Author"],
+      "published": "2023-12-31T00:00:00Z",
+      "url_abs": "https://paperswithcode.com/paper/out-of-window-paper",
+      "url_pdf": "https://example.test/out-of-window.pdf"
+    }
+  ]
+}

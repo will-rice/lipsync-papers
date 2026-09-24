@@ -1,0 +1,123 @@
+name: Update papers template
+
+on:
+  schedule:
+    - cron: "43 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: template-update
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      base_branch: ${{ github.event.repository.default_branch }}
+      base_sha: ${{ steps.base.outputs.sha }}
+      updated: ${{ steps.update.outputs.updated }}
+    steps:
+      - name: Check out default branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        timeout-minutes: 2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Record immutable base
+        id: base
+        timeout-minutes: 1
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        timeout-minutes: 2
+        with:
+          python-version: "3.12"
+      - name: Install update tools
+        timeout-minutes: 2
+        run: python -m pip install uv==0.8.17 copier==9.10.2
+      - name: Resolve latest template release
+        id: release
+        timeout-minutes: 1
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TEMPLATE_REPOSITORY: will-rice/papers-template
+        run: |
+          ref="$(gh api "repos/$TEMPLATE_REPOSITORY/releases/latest" --jq .tag_name)"
+          printf 'ref=%s\n' "$ref" >> "$GITHUB_OUTPUT"
+      - name: Update and validate repository
+        id: update
+        timeout-minutes: 20
+        env:
+          TEMPLATE_REF: ${{ steps.release.outputs.ref }}
+        run: .github/scripts/template-update.sh
+      - name: Create validated update patch
+        if: steps.update.outputs.updated == 'true'
+        timeout-minutes: 2
+        run: |
+          git add --all
+          git diff --cached --binary --full-index > template-update.patch
+          test -s template-update.patch
+      - name: Upload validated update patch
+        if: steps.update.outputs.updated == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        timeout-minutes: 3
+        with:
+          name: template-update
+          path: template-update.patch
+          if-no-files-found: error
+
+  publish:
+    needs: validate
+    if: needs.validate.outputs.updated == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out validated base
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        timeout-minutes: 2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ needs.validate.outputs.base_sha }}
+      - name: Download validated update patch
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        timeout-minutes: 3
+        with:
+          name: template-update
+      - name: Apply validated update patch
+        timeout-minutes: 2
+        run: |
+          git apply --index --binary template-update.patch
+          rm -f template-update.patch
+      - name: Open update pull request
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676
+        timeout-minutes: 3
+        with:
+          token: ${{ github.token }}
+          base: ${{ needs.validate.outputs.base_branch }}
+          branch: automation/update-papers-template
+          delete-branch: true
+          title: "chore: update papers template"
+          body: "Automated Copier update. Schema, pre-commit, and the offline suite passed before this pull request was opened."
+          commit-message: "chore: update papers template"
+          add-paths: |
+            .github/**
+            .gitignore
+            .pre-commit-config.yaml
+            .copier-answers.yml
+            README.md
+            papers.schema.json
+            papers.yml
+            pyproject.toml
+            src/**
+            tests/**
+            topic_plugin.py
+            uv.lock

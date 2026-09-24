@@ -1,0 +1,12 @@
+{
+  "collection": [
+    {
+      "doi": "10.1101/2023.12.31.999999",
+      "title": "Out of Window Bioacoustics Paper",
+      "authors": "Z. Author",
+      "date": "2023-12-31",
+      "category": "bioinformatics",
+      "abstract": "Recorded bioRxiv response outside the fetch window."
+    }
+  ]
+}

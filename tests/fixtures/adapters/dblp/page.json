@@ -1,0 +1,20 @@
+{
+  "result": {
+    "hits": {
+      "@total": "1",
+      "hit": [
+        {
+          "info": {
+            "key": "conf/test/Fixture24",
+            "title": "Fixture Speech Paper",
+            "authors": {"author": [{"text": "A. Author"}]},
+            "year": "2024",
+            "doi": "10.1000/FIXTURE",
+            "ee": "https://example.test/fixture.html",
+            "url": "https://dblp.org/rec/conf/test/Fixture24"
+          }
+        }
+      ]
+    }
+  }
+}

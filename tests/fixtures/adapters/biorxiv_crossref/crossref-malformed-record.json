@@ -1,0 +1,30 @@
+{
+  "message": {
+    "items": [
+      {
+        "DOI": "10.1000/fixture",
+        "title": ["Fixture Journal Paper"],
+        "abstract": "Recorded Crossref response.",
+        "author": [{"given": "A.", "family": "Author"}],
+        "published": {"date-parts": [[2024, 1, 2]]},
+        "URL": "https://doi.org/10.1000/fixture",
+        "link": [
+          {
+            "URL": "https://example.test/fixture.html",
+            "content-type": "text/html"
+          }
+        ]
+      },
+      {
+        "DOI": "10.1000/broken",
+        "title": ["Broken Journal Paper"],
+        "abstract": "Missing full text link should isolate this record.",
+        "author": [{"given": "C.", "family": "Author"}],
+        "published": {"date-parts": [[2024, 1, 3]]},
+        "URL": "https://doi.org/10.1000/broken",
+        "link": []
+      }
+    ],
+    "next-cursor": "cursor-2"
+  }
+}

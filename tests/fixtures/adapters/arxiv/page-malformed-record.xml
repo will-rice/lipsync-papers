@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>https://arxiv.org/abs/2401.00001</id>
+    <published>2024-01-02T00:00:00Z</published>
+    <title>Fixture Speech Paper</title>
+    <summary>Recorded offline abstract.</summary>
+    <author><name>A. Author</name></author>
+    <category term="cs.CL"/>
+  </entry>
+  <entry>
+    <id>https://arxiv.org/abs/2401.99999</id>
+    <title>Broken Fixture</title>
+    <summary>Missing published timestamp.</summary>
+    <author><name>B. Author</name></author>
+  </entry>
+</feed>

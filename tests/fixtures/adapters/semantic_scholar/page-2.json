@@ -1,0 +1,17 @@
+{
+  "total": 2,
+  "offset": 1,
+  "next": 2,
+  "data": [
+    {
+      "paperId": "abc124",
+      "title": "Second Fixture Speech Paper",
+      "abstract": "Recorded continuation page.",
+      "authors": [{"name": "B. Author"}],
+      "publicationDate": "2024-01-03T12:00:00Z",
+      "url": "https://www.semanticscholar.org/paper/abc124",
+      "externalIds": {"DOI": "10.1000/FIXTURE-2"},
+      "openAccessPdf": {"url": "https://example.test/fixture-2.pdf"}
+    }
+  ]
+}

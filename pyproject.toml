@@ -1,28 +1,43 @@
 [project]
 name = "lipsync-papers"
 version = "0.1.0"
-description = "Curated lipsync papers + LLM-friendly markdown conversion."
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 dependencies = [
-    "marker-pdf>=1.2.0",
-    "anthropic>=0.46.0",
-    "pyyaml>=6.0",
-    "sentence-transformers>=5.6.0",
+  "httpx>=0.28,<0.29",
+  "httpx2>=2.5,<3",
+  "mcp>=2.2,<3",
+  "pydantic>=2.11,<3",
+  "PyYAML>=6.0,<7",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
-    "pytest>=8.0",
-    "pre-commit>=3.5",
-    "ruff>=0.6",
+  "pre-commit>=4.3,<5",
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1.1,<2",
+  "ruff>=0.12,<0.13",
+  "ty>=0.0.84,<0.1",
+  "types-PyYAML>=6.0.12,<7",
 ]
 
-[tool.ruff]
-line-length = 100
-target-version = "py312"
+[project.scripts]
+papers-pipeline = "papers_pipeline.cli:app"
 
 [tool.pytest.ini_options]
+addopts = "-q"
 testpaths = ["tests"]
-markers = [
-    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
-]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/papers_pipeline"]
+# Editable installs also expose the repository root so the topic plugin
+# (topic_plugin:accept_topic) imports when papers-pipeline runs.
+dev-mode-dirs = ["src", "."]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

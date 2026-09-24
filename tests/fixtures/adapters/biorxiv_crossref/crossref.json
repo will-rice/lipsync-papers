@@ -1,0 +1,28 @@
+{
+  "message": {
+    "items": [
+      {
+        "DOI": "10.1000/fixture",
+        "title": ["Fixture Journal Paper"],
+        "abstract": "Recorded Crossref response.",
+        "author": [
+          {"given": "A.", "family": "Author"},
+          {"family": "OnlyFamily"}
+        ],
+        "published": {"date-parts": [[2024, 1]]},
+        "URL": "https://doi.org/10.1000/fixture",
+        "link": [
+          {
+            "URL": "https://example.test/fixture.pdf",
+            "content-type": "application/pdf"
+          },
+          {
+            "URL": "https://example.test/fixture.html",
+            "content-type": "text/html"
+          }
+        ]
+      }
+    ],
+    "next-cursor": "cursor-2"
+  }
+}

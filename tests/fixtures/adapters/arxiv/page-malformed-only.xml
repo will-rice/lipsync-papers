@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>https://arxiv.org/abs/2401.99998</id>
+    <title>Broken Fixture Only</title>
+    <summary>Missing published timestamp.</summary>
+    <author><name>B. Author</name></author>
+  </entry>
+</feed>

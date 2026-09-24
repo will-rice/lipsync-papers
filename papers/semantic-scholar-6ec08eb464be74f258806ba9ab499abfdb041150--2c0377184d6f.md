@@ -1,0 +1,16 @@
+---
+identifier: semantic_scholar:6ec08eb464be74f258806ba9ab499abfdb041150
+title: Editing Audio-Driven Talking Head Based on Audio Information
+authors:
+- Rui Lang
+published: '2024-06-30T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/6ec08eb464be74f258806ba9ab499abfdb041150
+source: semantic_scholar
+doi: null
+arxiv_id: null
+categories: []
+---
+
+## Abstract
+
+Editing audio-driven talking head is a relatively new direction in the field of computer vision and still faces many challenges. First, the existing methods do not fully take into account the information contained in the driving audio, which can easily lead to the problem of mismatch between audio and video features (for example, the driving audio emotion is happy, but the corresponding facial emotion is calm). Second, existing face editing methods are often limited to one mode, and the variety they can produce is limited. Finally, we would like the final generated facial animation to be undistorted and to retain some of the identity of the original image. To address the above problems, this paper proposes a novel talking head editing method based on audio information. Specifically, we obtain comprehensive audio information by introducing multiple audio feature classifiers and use it to guide facial editing. We generate more diverse and detailed facial features by combining two different dimensional face editors. To ensure that the edited face retains as much of its original identity features as possible, we use a 3D head model to drive a single image, rather than introducing latent space or establishing complex cross-modal associations between audio and video frames, which can easily lead to facial distortion. Extensive experiments demonstrate the superiority of our method for audio-driven talking head editing. Please go to the link below to view detailed video results: https://drive.google.com/drive/folders/10T1nIktZciG6Cih_UEUOrg0YKXG6KM-C?usp=sharing

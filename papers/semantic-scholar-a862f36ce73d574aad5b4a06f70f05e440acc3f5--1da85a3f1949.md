@@ -1,0 +1,17 @@
+---
+identifier: semantic_scholar:a862f36ce73d574aad5b4a06f70f05e440acc3f5
+title: 'ConAvatar: Harnessing Facial Mesh for Controllable Avatar Animation'
+authors:
+- Zheng Tan
+- Wei Wei
+published: '2025-06-30T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/a862f36ce73d574aad5b4a06f70f05e440acc3f5
+source: semantic_scholar
+doi: null
+arxiv_id: null
+categories: []
+---
+
+## Abstract
+
+Recent advancements in talking head generation have focused on temporal consistency and lip-sync accuracy, but controlling the head pose remains a challenge. Existing methods often rely on reference videos or random generation, leading to unrealistic results. In this paper, we propose ConAvatar, a novel framework that enables precise control over head pose while generating realistic talking heads. Our approach consists of two stages: first, converting control information (Euler angles and position) into 3D facial meshes; second, using these structured information to guide a diffusion model for realistic video generation. This allows the talking head to move in sync with both speech and pose, ensuring natural, controlled head movements. Extensive experiments show that our method delivers high-quality results with improved temporal consistency, accurate lip-sync, and controllable head pose, effectively demonstrating the validity and effectiveness of our approach in realistic talking head synthesis.

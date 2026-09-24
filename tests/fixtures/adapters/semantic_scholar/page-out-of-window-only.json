@@ -1,0 +1,17 @@
+{
+  "total": 1,
+  "offset": 0,
+  "next": 1,
+  "data": [
+    {
+      "paperId": "old-abc123",
+      "title": "Out of Window Semantic Scholar Paper",
+      "abstract": "Excluded by date.",
+      "authors": [{"name": "Old Author"}],
+      "publicationDate": "2023-12-01",
+      "url": "https://www.semanticscholar.org/paper/old-abc123",
+      "externalIds": {"DOI": "10.1000/OLD"},
+      "openAccessPdf": {"url": "https://example.test/old.pdf"}
+    }
+  ]
+}

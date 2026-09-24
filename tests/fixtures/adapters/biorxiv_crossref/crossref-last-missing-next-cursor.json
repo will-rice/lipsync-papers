@@ -1,0 +1,20 @@
+{
+  "message": {
+    "items": [
+      {
+        "DOI": "10.1000/fixture-last-missing",
+        "title": ["Fixture Crossref Final Page Missing Cursor"],
+        "abstract": "Recorded final Crossref response without next-cursor.",
+        "author": [{"given": "C.", "family": "Author"}],
+        "published": {"date-parts": [[2024, 1, 4]]},
+        "URL": "https://doi.org/10.1000/fixture-last-missing",
+        "link": [
+          {
+            "URL": "https://example.test/crossref-last-missing.pdf",
+            "content-type": "application/pdf"
+          }
+        ]
+      }
+    ]
+  }
+}

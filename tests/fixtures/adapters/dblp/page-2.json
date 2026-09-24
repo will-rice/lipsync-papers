@@ -1,0 +1,23 @@
+{
+  "result": {
+    "hits": {
+      "@total": "2",
+      "hit": [
+        {
+          "info": {
+            "key": "journals/test/Fixture25",
+            "title": "Second Fixture Speech Paper",
+            "authors": {"author": {"text": "B. Author"}},
+            "year": 2024,
+            "doi": "10.1000/FIXTURE-2",
+            "ee": [
+              "https://example.test/fixture-2.html",
+              "https://doi.org/10.1000/FIXTURE-2"
+            ],
+            "url": "https://dblp.org/rec/journals/test/Fixture25"
+          }
+        }
+      ]
+    }
+  }
+}

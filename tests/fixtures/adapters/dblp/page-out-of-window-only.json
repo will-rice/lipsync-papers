@@ -1,0 +1,20 @@
+{
+  "result": {
+    "hits": {
+      "@total": "1",
+      "hit": [
+        {
+          "info": {
+            "key": "conf/test/OldFixture23",
+            "title": "Old Fixture Speech Paper",
+            "authors": {"author": [{"text": "Old Author"}]},
+            "year": "2023",
+            "doi": "10.1000/OLD",
+            "ee": "https://example.test/old-fixture.html",
+            "url": "https://dblp.org/rec/conf/test/OldFixture23"
+          }
+        }
+      ]
+    }
+  }
+}

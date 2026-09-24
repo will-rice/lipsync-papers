@@ -1,0 +1,18 @@
+{
+  "result": {
+    "hits": {
+      "@total": "1",
+      "hit": [
+        {
+          "info": {
+            "key": "conf/test/BrokenOnly24",
+            "title": "Broken Only DBLP Fixture",
+            "authors": {"author": [{"text": "C. Author"}]},
+            "year": "2024",
+            "doi": "10.1000/BROKEN-ONLY"
+          }
+        }
+      ]
+    }
+  }
+}

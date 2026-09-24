@@ -1,0 +1,31 @@
+{
+  "collection": [
+    {
+      "doi": "",
+      "title": "Malformed",
+      "date": "2024-01-02"
+    },
+    {
+      "doi": "10.1101/2024.01.02.000001",
+      "title": "First valid paper",
+      "date": "2024-01-02",
+      "authors": "A. Author",
+      "abstract": "First fixture",
+      "category": "bioinformatics"
+    },
+    {
+      "doi": "10.1101/2023.12.31.999999",
+      "title": "Outside the window",
+      "date": "2023-12-31",
+      "authors": "B. Author"
+    },
+    {
+      "doi": "10.1101/2024.01.03.000002",
+      "title": "Second valid paper",
+      "date": "2024-01-03",
+      "authors": "C. Author",
+      "abstract": "Second fixture",
+      "category": "neuroscience"
+    }
+  ]
+}

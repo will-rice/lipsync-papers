@@ -1,0 +1,21 @@
+---
+identifier: semantic_scholar:7f61d57df02bfeb59057f49944b79b14c1e0aea0
+title: Deep Learning Technique to generate lip-sync for live 2-D Animation
+authors:
+- Ashish Soni
+- Janhvi Deshmukh
+- Ayush Shende
+- R. Gawande
+- Priti Agatkar
+- Kshitija Chilbule
+published: '2023-02-18T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/7f61d57df02bfeb59057f49944b79b14c1e0aea0
+source: semantic_scholar
+doi: null
+arxiv_id: null
+categories: []
+---
+
+## Abstract
+
+Currently, there are a couple of major trends in live 2-D animation like Immersive User Experience, Next-Gen Software, Mobile 2D Animation, VR 2D Animation, AR/VR Live Action Animation, and Web 2D Animation that are getting a lot of attention. For the industries like advertisement, entertainment as well as education, this new technology has become very important as each of them needs to reach their target audience through it. With the help of live 2-D animation, these industries can now reach out to new audiences through something that has never been done before, creating original content that is something that has never been done before. This has now become possible due to the rise of social media. With the advent of social media, it is now possible for anyone in the world to communicate with people who have never been contacted by any advertising or marketing agency before. The solution we are proposing is a deep learning technique for creating animated characters that can make lips synchronized just the way humans do without any assistance and intervention. This can save many working hours that are needed to make an animated character feel real while dialog delivery. The main requirement here is the exact lip sync as that of the human performs while talking the lip movement should get exactly matched. This is possible with the help of LSTM model [5].

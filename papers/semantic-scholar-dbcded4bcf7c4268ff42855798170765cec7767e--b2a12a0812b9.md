@@ -1,0 +1,18 @@
+---
+identifier: semantic_scholar:dbcded4bcf7c4268ff42855798170765cec7767e
+title: Noise Aware Audio-Visual Speech Denoising
+authors:
+- Kranti K. Parida
+- Siddharth Srivastava
+- Gaurav Sharma
+published: '2026-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/dbcded4bcf7c4268ff42855798170765cec7767e
+source: semantic_scholar
+doi: null
+arxiv_id: null
+categories: []
+---
+
+## Abstract
+
+We address the problem of speech denoising where the goal is to extract clean speech signal from a noisy signal. Traditionally, the task of denoising has been performed using audio modality only. However, human speech perception is inherently multimodal where cues from visual modality are used to understand the speech better in a noisy environment. Similar observation has been made with computational denoising methods, i.e., performance of audio only model improves after adding visual modality. Inspired by these findings we propose a novel audio-visual network for adaptively combining both modalities for the task of speech audio denoising. We show that extracting noise from mixed audio and using it as a conditioning signal, improves speech denoising performance. To estimate the noise, we use both audio and visual modalities, i.e., lip region of the speaker, to extract the non-speech/silent regions from it. The silent regions enable us to estimate better noise profile to eliminate from the signal. Our proposed network uses self and cross attention framework between audio and video features, along the temporal dimension, to model correlations between the two modalities. We evaluate the proposed approach on a large scale audio-visual dataset VoxCeleb2 and obtain state-of-the-art results. We also demonstrate generalization to unseen speakers at test time.

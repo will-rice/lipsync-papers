@@ -1,0 +1,21 @@
+---
+identifier: semantic_scholar:2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0
+title: Emotional Synchronization for Audio-Driven Talking-Head Generation
+authors:
+- Zhao Zhang
+- Yan Luo
+- Zhichao Zuo
+- Richang Hong
+- Yi Yang
+- Meng Wang
+published: '2024-12-09T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0
+source: semantic_scholar
+doi: null
+arxiv_id: null
+categories: []
+---
+
+## Abstract
+
+Audio-driven talking-head synthesis has become a significant focus in the field of virtual human applications. However, existing methodologies face challenges in effectively synchronizing audio and video, especially in maintaining emotional consistency. Additionally, there is a notable inefficiency in leveraging emotional prompts to guide expression generation. To address these limitations, this paper introduces an Emotion Synchronized audio-driven Talking-head synthesis (EST) approach. The EST approach aims to enhance the emotion-agnostic talking-head models by enabling emotion control, and it incorporates a diffusion module to learn diverse latent rep-resentations. Furthermore, EST utilizes null-text embedding to align the latent code with emotional prompts. Additionally, a novel Sync Attention Block (SAB) is developed to broaden the spatial perceptual field, thus preventing the loss of critical information. Extensive experiments demonstrate the effectiveness of the EST method, showcasing state-of-the-art performance across widely-adopted datasets. Moreover, the EST approach exhibits exceptional generalization capabilities, even in scenarios where emotional training videos are unavailable.

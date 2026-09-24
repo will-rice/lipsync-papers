@@ -1,0 +1,19 @@
+[
+  {
+    "paper": {
+      "id": "2401.00001",
+      "title": "Fixture Speech Paper",
+      "summary": "Recorded offline abstract.",
+      "authors": [{"name": "A. Author"}],
+      "publishedAt": "2024-01-02T00:00:00Z"
+    }
+  },
+  {
+    "paper": {
+      "id": "2401.99999",
+      "title": "Broken Fixture",
+      "summary": "Missing published timestamp.",
+      "authors": [{"name": "B. Author"}]
+    }
+  }
+]
