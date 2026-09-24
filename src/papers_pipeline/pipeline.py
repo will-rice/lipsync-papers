@@ -1,13 +1,13 @@
 from collections.abc import Callable, Iterator, Mapping, Sequence
 from contextlib import contextmanager
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import UTC, datetime, time
 from pathlib import Path
 import shutil
 
 from papers_pipeline.adapters.base import Adapter
 from papers_pipeline.batching import expected_markdown, infer_backlog, select_batch
-from papers_pipeline.config import load_config
+from papers_pipeline.config import PipelineConfig, load_config
 from papers_pipeline.convert import (
     CommandRunner,
     InputMaterializer,
@@ -20,7 +20,7 @@ from papers_pipeline.git import GitOperations
 from papers_pipeline.http import Deadline, RequestClient
 from papers_pipeline.indexing import write_index
 from papers_pipeline.inventory import read_inventory, write_inventory
-from papers_pipeline.models import Paper
+from papers_pipeline.models import Paper, PipelineState
 from papers_pipeline.preflight import ToolLookup, validate_required_tools
 from papers_pipeline.normalize import deduplicate, normalize
 from papers_pipeline.state import load_state, save_state
@@ -240,6 +240,29 @@ async def run_nightly(
 
     write_actions_summary(paths.summary, summary)
     return summary
+
+
+def has_more_work(
+    config: PipelineConfig, state: PipelineState, summary: RunSummary
+) -> bool:
+    """Whether another run right away would make progress.
+
+    True while any backfill has not reached its start date, or while papers
+    remain pending and this run converted some; a run that converted nothing
+    will not convert more by running again.
+    """
+    for adapter in config.adapters:
+        if not adapter.enabled or adapter.backfill_start is None:
+            continue
+        progress = state.backfill.get(adapter.name)
+        limit = datetime.combine(adapter.backfill_start, time.min, tzinfo=UTC)
+        if (
+            progress is None
+            or progress.continuation is not None
+            or progress.covered_from > limit
+        ):
+            return True
+    return summary.pending > 0 and summary.succeeded > 0
 
 
 def _record_source_results(

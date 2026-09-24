@@ -1196,7 +1196,10 @@ stepping further into the past in `backfill_days` chunks (default 30) until the
 adapter's `max_pages` or `max_results` budget for the run is spent, resuming a
 capped chunk first, until it reaches `backfill_start`. Progress is kept in
 `.papers-state.yml`. New papers join the conversion backlog, so conversion
-budgets bound how fast history turns into markdown. dblp and Papers with Code
+budgets bound how fast history turns into markdown. While a backfill is
+unfinished, or papers remain pending and the run converted some, a successful
+nightly run dispatches the next one right away, so history is filled in back to
+back rather than once a night. dblp and Papers with Code
 cannot query past date ranges and reject `backfill_start`.
 
 Papers with an arXiv ID convert from arXiv's HTML rendering

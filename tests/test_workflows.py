@@ -97,11 +97,17 @@ def test_nightly_has_non_overlapping_mutation_concurrency() -> None:
         "group": "nightly-papers",
         "cancel-in-progress": False,
     }
-    assert data["permissions"] == {"contents": "write"}
-    run_step = data["jobs"]["update"]["steps"][-1]
+    assert data["permissions"] == {"actions": "write", "contents": "write"}
+    run_step, continue_step = data["jobs"]["update"]["steps"][-2:]
+    assert run_step["id"] == "run"
     assert run_step["env"] == {
         "SEMANTIC_SCHOLAR_API_KEY": "${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}"
     }
+    assert continue_step["if"] == "steps.run.outputs.more_work == 'true'"
+    assert (
+        continue_step["run"] == 'gh workflow run nightly.yml --ref "$GITHUB_REF_NAME"'
+    )
+    assert continue_step["env"] == {"GH_TOKEN": "${{ github.token }}"}
 
 
 def test_nightly_never_runs_a_complete_corpus_glob() -> None:

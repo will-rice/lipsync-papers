@@ -21,6 +21,7 @@ from papers_pipeline.http import RequestClient
 from papers_pipeline.models import SourceRecord
 from papers_pipeline.pipeline import Dependencies, PipelinePaths, run_nightly
 from papers_pipeline.state import load_state
+from papers_pipeline.summary import RunSummary
 
 NOW = datetime(2026, 9, 23, 12, tzinfo=timezone.utc)
 INITIAL_README = (
@@ -647,13 +648,36 @@ def test_nightly_cli_builds_real_dependency_graph(
     paths = make_paths(tmp_path)
     captured: list[Dependencies] = []
 
-    async def capture(_paths: PipelinePaths, deps: Dependencies) -> None:
+    async def capture(_paths: PipelinePaths, deps: Dependencies) -> RunSummary:
         captured.append(deps)
+        return RunSummary()
 
     monkeypatch.setattr(cli, "run_nightly", capture)
     monkeypatch.setattr(cli, "build_adapters", lambda *_args: {})
+    monkeypatch.delenv("GITHUB_OUTPUT", raising=False)
 
     assert cli.app(["nightly", "--config", str(paths.config)]) == 0
     assert isinstance(captured[0].git, GitRepository)
     assert isinstance(captured[0].runner, CommandRunner)
     assert captured[0].materializer.__class__.__name__ == "DownloadingMaterializer"
+
+
+@pytest.mark.parametrize(("succeeded", "expected"), [(1, "true"), (0, "false")])
+def test_nightly_cli_reports_whether_more_work_remains(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    succeeded: int,
+    expected: str,
+) -> None:
+    paths = make_paths(tmp_path)
+    output = tmp_path / "github-output"
+
+    async def run(_paths: PipelinePaths, _deps: Dependencies) -> RunSummary:
+        return RunSummary(pending=3, succeeded=succeeded)
+
+    monkeypatch.setattr(cli, "run_nightly", run)
+    monkeypatch.setattr(cli, "build_adapters", lambda *_args: {})
+    monkeypatch.setenv("GITHUB_OUTPUT", str(output))
+
+    assert cli.app(["nightly", "--config", str(paths.config)]) == 0
+    assert output.read_text(encoding="utf-8") == f"more_work={expected}\n"
