@@ -19,7 +19,13 @@ from papers_pipeline.front_matter import write_front_matter
 from papers_pipeline.inventory import read_inventory
 from papers_pipeline.git import GitRepository
 from papers_pipeline.http import RequestClient
-from papers_pipeline.pipeline import Dependencies, PipelinePaths, run_nightly
+from papers_pipeline.pipeline import (
+    Dependencies,
+    PipelinePaths,
+    has_more_work,
+    run_nightly,
+)
+from papers_pipeline.state import load_state
 from papers_pipeline.preflight import ToolLookup, validate_required_tools
 
 
@@ -79,18 +85,26 @@ def app(
             monotonic=time.monotonic,
             tool_lookup=tool_lookup,
         )
-        asyncio.run(
+        state_path = root / ".papers-state.yml"
+        summary = asyncio.run(
             run_nightly(
                 PipelinePaths(
                     root=root,
                     config=args.config,
-                    state=root / ".papers-state.yml",
+                    state=state_path,
                     inventory=root / "papers.csv",
                     summary=summary_path,
                 ),
                 dependencies,
             )
         )
+        # The nightly workflow dispatches the next run while this is true.
+        if "GITHUB_OUTPUT" in os.environ:
+            more_work = has_more_work(config, load_state(state_path), summary)
+            with Path(os.environ["GITHUB_OUTPUT"]).open(
+                "a", encoding="utf-8"
+            ) as output:
+                output.write(f"more_work={str(more_work).lower()}\n")
     elif args.command == "format-corpus":
         root = Path.cwd()
         selected = shard_paths(

@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -52,7 +53,16 @@ jobs:
           PY
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Run and publish bounded batches
+        id: run
         timeout-minutes: 330
         env:
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
         run: .github/scripts/nightly.sh
+      # Chain runs back to back while backfill or conversion is progressing;
+      # a failed run or one with nothing left to do ends the chain.
+      - name: Continue while work remains
+        if: steps.run.outputs.more_work == 'true'
+        timeout-minutes: 2
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run nightly.yml --ref "$GITHUB_REF_NAME"
