@@ -1,25 +1,21 @@
 ---
-arxiv_id: "2604.15857"
-title: "AHS: Adaptive Head Synthesis via Synthetic Data Augmentations"
+identifier: arxiv:2604.15857
+title: 'AHS: Adaptive Head Synthesis via Synthetic Data Augmentations'
 authors:
-  - Taewoong Kang
-  - Hyojin Jang
-  - Sohyun Jeong
-  - Seunggi Moon
-  - Gihwi Kim
-  - Hoon Jin Jung
-  - Jaegul choo
-submitted: "2026-04-17"
+- Taewoong Kang
+- Hyojin Jang
+- Sohyun Jeong
+- Seunggi Moon
+- Gihwi Kim
+- Hoon Jin Jung
+- Jaegul choo
+published: '2026-04-17T00:00:00+00:00'
+url: https://arxiv.org/abs/2604.15857
+source: arxiv
+doi: null
+arxiv_id: '2604.15857'
 categories:
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2604.15857
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:10:00+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.CV
 ---
 
 # AHS: Adaptive Head Synthesis via Synthetic Data Augmentations

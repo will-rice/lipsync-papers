@@ -1,37 +1,31 @@
 ---
-arxiv_id: "2512.13495"
-title:
-  "Soul: Breathe Life into Digital Human for High-fidelity Long-term Multimodal
-  Animation"
+identifier: arxiv:2512.13495
+title: 'Soul: Breathe Life into Digital Human for High-fidelity Long-term Multimodal Animation'
 authors:
-  - Jiangning Zhang
-  - Junwei Zhu
-  - Zhenye Gan
-  - Donghao Luo
-  - Chuming Lin
-  - Feifan Xu
-  - Xu Peng
-  - Jianlong Hu
-  - Yuansen Liu
-  - Yijia Hong
-  - Weijian Cao
-  - Han Feng
-  - Xu Chen
-  - Chencan Fu
-  - Keke He
-  - Xiaobin Hu
-  - Chengjie Wang
-submitted: "2025-12-15"
+- Jiangning Zhang
+- Junwei Zhu
+- Zhenye Gan
+- Donghao Luo
+- Chuming Lin
+- Feifan Xu
+- Xu Peng
+- Jianlong Hu
+- Yuansen Liu
+- Yijia Hong
+- Weijian Cao
+- Han Feng
+- Xu Chen
+- Chencan Fu
+- Keke He
+- Xiaobin Hu
+- Chengjie Wang
+published: '2025-12-15T00:00:00+00:00'
+url: https://arxiv.org/abs/2512.13495
+source: arxiv
+doi: null
+arxiv_id: '2512.13495'
 categories:
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2512.13495
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:55+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.CV
 ---
 
 \projectt

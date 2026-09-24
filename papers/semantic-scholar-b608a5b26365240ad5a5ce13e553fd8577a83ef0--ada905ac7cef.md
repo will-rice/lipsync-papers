@@ -1,27 +1,21 @@
 ---
-arxiv_id: s2:b608a5b26365240ad5a5ce13e553fd8577a83ef0
-title:
-  Explainable Children Autism Detection using Gaze Features in Audio-Visual Speech
-  Comprehension ETRA012
+identifier: semantic_scholar:b608a5b26365240ad5a5ce13e553fd8577a83ef0
+title: Explainable Children Autism Detection using Gaze Features in Audio-Visual Speech Comprehension ETRA012
 authors:
-  - Miguel Zaragozá-Portolés
-  - David Gimeno-Gómez
-  - V. Ávila
-  - Dr. Inmaculada Fajardo
-  - Dr. Antonio Ferrer
-  - N. Gómez-Merino
-  - Noemi Skrobiszewska
-  - Carlos-D. Martínez-Hinarejos
-submitted: "2026-05-28"
+- Miguel Zaragozá-Portolés
+- David Gimeno-Gómez
+- V. Ávila
+- Dr. Inmaculada Fajardo
+- Dr. Antonio Ferrer
+- N. Gómez-Merino
+- Noemi Skrobiszewska
+- Carlos-D. Martínez-Hinarejos
+published: '2026-05-28T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/b608a5b26365240ad5a5ce13e553fd8577a83ef0
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/b608a5b26365240ad5a5ce13e553fd8577a83ef0
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:09:14+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

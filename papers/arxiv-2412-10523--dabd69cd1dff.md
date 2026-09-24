@@ -1,28 +1,22 @@
 ---
-arxiv_id: "2412.10523"
-title:
-  "The Language of Motion: Unifying Verbal and Non-verbal Language of 3D Human
-  Motion"
+identifier: arxiv:2412.10523
+title: 'The Language of Motion: Unifying Verbal and Non-verbal Language of 3D Human Motion'
 authors:
-  - Changan Chen
-  - Juze Zhang
-  - Shrinidhi K. Lakshmikanth
-  - Yusu Fang
-  - Ruizhi Shao
-  - Gordon Wetzstein
-  - Li Fei-Fei
-  - Ehsan Adeli
-submitted: "2024-12-13"
+- Changan Chen
+- Juze Zhang
+- Shrinidhi K. Lakshmikanth
+- Yusu Fang
+- Ruizhi Shao
+- Gordon Wetzstein
+- Li Fei-Fei
+- Ehsan Adeli
+published: '2024-12-13T00:00:00+00:00'
+url: https://arxiv.org/abs/2412.10523
+source: arxiv
+doi: null
+arxiv_id: '2412.10523'
 categories:
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2412.10523
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/1
-citations_resolved_at: "2026-07-21T00:17:57+00:00"
-references_parsed: 1
-arxiv_version: ""
+- cs.CV
 ---
 
 The Language of Motion:\

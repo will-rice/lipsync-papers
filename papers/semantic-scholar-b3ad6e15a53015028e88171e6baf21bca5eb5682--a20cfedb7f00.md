@@ -1,20 +1,16 @@
 ---
-arxiv_id: s2:b3ad6e15a53015028e88171e6baf21bca5eb5682
-title: "Seeing the Sound: Multilingual Lip Sync for Real-Time Face-to-Face Translation"
+identifier: semantic_scholar:b3ad6e15a53015028e88171e6baf21bca5eb5682
+title: 'Seeing the Sound: Multilingual Lip Sync for Real-Time Face-to-Face Translation'
 authors:
-  - A. Oskooei
-  - Mehmet S. Aktas
-  - Mustafa Keles
-submitted: "2024-12-28"
+- A. Oskooei
+- Mehmet S. Aktas
+- Mustafa Keles
+published: '2024-12-28T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/b3ad6e15a53015028e88171e6baf21bca5eb5682
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/b3ad6e15a53015028e88171e6baf21bca5eb5682
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:17:33+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

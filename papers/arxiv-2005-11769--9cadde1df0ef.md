@@ -1,24 +1,20 @@
 ---
-arxiv_id: "2005.11769"
+identifier: arxiv:2005.11769
 title: Lite Audio-Visual Speech Enhancement
 authors:
-  - Shang-Yi Chuang
-  - Yu Tsao
-  - Chen-Chou Lo
-  - Hsin-Min Wang
-submitted: "2020-05-24"
+- Shang-Yi Chuang
+- Yu Tsao
+- Chen-Chou Lo
+- Hsin-Min Wang
+published: '2020-05-24T00:00:00+00:00'
+url: https://arxiv.org/abs/2005.11769
+source: arxiv
+doi: null
+arxiv_id: '2005.11769'
 categories:
-  - eess.AS
-  - cs.CL
-  - cs.SD
-arxiv_url: https://arxiv.org/abs/2005.11769
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:31:49+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.CL
+- cs.SD
+- eess.AS
 ---
 
 # Lite Audio-Visual Speech Enhancement

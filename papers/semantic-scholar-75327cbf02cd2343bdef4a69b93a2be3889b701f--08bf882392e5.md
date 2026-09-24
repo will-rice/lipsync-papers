@@ -1,20 +1,16 @@
 ---
-arxiv_id: s2:75327cbf02cd2343bdef4a69b93a2be3889b701f
+identifier: semantic_scholar:75327cbf02cd2343bdef4a69b93a2be3889b701f
 title: Audio–video syncing with lip movements using generative deep neural networks
 authors:
-  - Amal Mathew
-  - Aaryl Saldanha
-  - C. Babu
-submitted: "2024-03-11"
+- Amal Mathew
+- Aaryl Saldanha
+- C. Babu
+published: '2024-03-11T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/75327cbf02cd2343bdef4a69b93a2be3889b701f
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/75327cbf02cd2343bdef4a69b93a2be3889b701f
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:21:51+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

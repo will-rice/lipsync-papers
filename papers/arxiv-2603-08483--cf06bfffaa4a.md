@@ -1,23 +1,19 @@
 ---
-arxiv_id: "2603.08483"
-title: "X-AVDT: Audio-Visual Cross-Attention for Robust Deepfake Detection"
+identifier: arxiv:2603.08483
+title: 'X-AVDT: Audio-Visual Cross-Attention for Robust Deepfake Detection'
 authors:
-  - Youngseo Kim
-  - Kwan Yun
-  - Seokhyeon Hong
-  - Sihun Cha
-  - Colette Suhjung Koo
-  - Junyong Noh
-submitted: "2026-03-09"
+- Youngseo Kim
+- Kwan Yun
+- Seokhyeon Hong
+- Sihun Cha
+- Colette Suhjung Koo
+- Junyong Noh
+published: '2026-03-09T00:00:00+00:00'
+url: https://arxiv.org/abs/2603.08483
+source: arxiv
+doi: null
+arxiv_id: '2603.08483'
 categories: []
-arxiv_url: https://arxiv.org/abs/2603.08483
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:10:35+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 # X-AVDT: Audio-Visual Cross-Attention for Robust Deepfake Detection

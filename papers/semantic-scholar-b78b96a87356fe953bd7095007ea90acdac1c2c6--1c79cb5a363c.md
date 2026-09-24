@@ -1,25 +1,19 @@
 ---
-arxiv_id: s2:b78b96a87356fe953bd7095007ea90acdac1c2c6
-title:
-  Subjective Fidelity Assessment of Audio- and Video-Driven Talking Head Generation
-  Methods
+identifier: semantic_scholar:b78b96a87356fe953bd7095007ea90acdac1c2c6
+title: Subjective Fidelity Assessment of Audio- and Video-Driven Talking Head Generation Methods
 authors:
-  - Anthony Trioux
-  - Yusong Gao
-  - Jiarun Song
-  - Wenjie Wu
-  - Faming Ma
-  - Fuzheng Yang
-submitted: "2025-04-06"
+- Anthony Trioux
+- Yusong Gao
+- Jiarun Song
+- Wenjie Wu
+- Faming Ma
+- Fuzheng Yang
+published: '2025-04-06T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/b78b96a87356fe953bd7095007ea90acdac1c2c6
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/b78b96a87356fe953bd7095007ea90acdac1c2c6
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:15:52+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

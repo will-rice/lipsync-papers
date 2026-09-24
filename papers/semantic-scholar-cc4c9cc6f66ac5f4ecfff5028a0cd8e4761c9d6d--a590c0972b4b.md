@@ -1,26 +1,20 @@
 ---
-arxiv_id: s2:cc4c9cc6f66ac5f4ecfff5028a0cd8e4761c9d6d
-title:
-  "Multimodal AI in education: an avatar-based intelligent learning system for
-  the Kazakh language"
+identifier: semantic_scholar:cc4c9cc6f66ac5f4ecfff5028a0cd8e4761c9d6d
+title: 'Multimodal AI in education: an avatar-based intelligent learning system for the Kazakh language'
 authors:
-  - Aru Ukenova
-  - G. Bekmanova
-  - B. Yergesh
-  - Sadok Ben Yahia
-  - M. Altaibek
-  - A. Nazyrova
-  - Zhanar Lamasheva
-submitted: "2026-04-08"
+- Aru Ukenova
+- G. Bekmanova
+- B. Yergesh
+- Sadok Ben Yahia
+- M. Altaibek
+- A. Nazyrova
+- Zhanar Lamasheva
+published: '2026-04-08T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/cc4c9cc6f66ac5f4ecfff5028a0cd8e4761c9d6d
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/cc4c9cc6f66ac5f4ecfff5028a0cd8e4761c9d6d
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:10:04+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

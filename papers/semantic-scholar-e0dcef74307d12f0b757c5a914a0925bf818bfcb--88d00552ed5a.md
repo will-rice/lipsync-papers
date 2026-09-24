@@ -1,23 +1,17 @@
 ---
-arxiv_id: s2:e0dcef74307d12f0b757c5a914a0925bf818bfcb
-title:
-  A Simple and Efficient method for Dubbed Audio Sync Detection using Compressive
-  Sensing
+identifier: semantic_scholar:e0dcef74307d12f0b757c5a914a0925bf818bfcb
+title: A Simple and Efficient method for Dubbed Audio Sync Detection using Compressive Sensing
 authors:
-  - Avijit Vajpayee
-  - Zhikang Zhang
-  - Abhinav Jain
-  - Vimal Bhat
-submitted: "2023-01-01"
+- Avijit Vajpayee
+- Zhikang Zhang
+- Abhinav Jain
+- Vimal Bhat
+published: '2023-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/e0dcef74307d12f0b757c5a914a0925bf818bfcb
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/e0dcef74307d12f0b757c5a914a0925bf818bfcb
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:27:17+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

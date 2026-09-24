@@ -1,18 +1,14 @@
 ---
-arxiv_id: s2:ce8e958599c41760bb6a67995e1843d9dab66e4e
+identifier: semantic_scholar:ce8e958599c41760bb6a67995e1843d9dab66e4e
 title: Decoding Speech from Labial Movements
 authors:
-  - N. Lakshmi
-submitted: "2026-04-30"
+- N. Lakshmi
+published: '2026-04-30T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/ce8e958599c41760bb6a67995e1843d9dab66e4e
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/ce8e958599c41760bb6a67995e1843d9dab66e4e
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:09:38+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

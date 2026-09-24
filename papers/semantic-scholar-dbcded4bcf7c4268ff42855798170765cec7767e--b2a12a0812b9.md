@@ -1,20 +1,16 @@
 ---
-arxiv_id: s2:dbcded4bcf7c4268ff42855798170765cec7767e
+identifier: semantic_scholar:dbcded4bcf7c4268ff42855798170765cec7767e
 title: Noise Aware Audio-Visual Speech Denoising
 authors:
-  - Kranti K. Parida
-  - Siddharth Srivastava
-  - Gaurav Sharma
-submitted: "2026-01-01"
+- Kranti K. Parida
+- Siddharth Srivastava
+- Gaurav Sharma
+published: '2026-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/dbcded4bcf7c4268ff42855798170765cec7767e
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/dbcded4bcf7c4268ff42855798170765cec7767e
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:22+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

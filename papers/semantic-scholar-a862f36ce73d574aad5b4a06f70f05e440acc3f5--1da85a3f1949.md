@@ -1,19 +1,15 @@
 ---
-arxiv_id: s2:a862f36ce73d574aad5b4a06f70f05e440acc3f5
-title: "ConAvatar: Harnessing Facial Mesh for Controllable Avatar Animation"
+identifier: semantic_scholar:a862f36ce73d574aad5b4a06f70f05e440acc3f5
+title: 'ConAvatar: Harnessing Facial Mesh for Controllable Avatar Animation'
 authors:
-  - Zheng Tan
-  - Wei Wei
-submitted: "2025-06-30"
+- Zheng Tan
+- Wei Wei
+published: '2025-06-30T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/a862f36ce73d574aad5b4a06f70f05e440acc3f5
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/a862f36ce73d574aad5b4a06f70f05e440acc3f5
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:14:31+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

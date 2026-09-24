@@ -1,19 +1,15 @@
 ---
-arxiv_id: s2:8728bdcb4f6492c5cd9541df88d1b79ad351ded8
+identifier: semantic_scholar:8728bdcb4f6492c5cd9541df88d1b79ad351ded8
 title: Audio-driven single image talking face animation with transformers
 authors:
-  - Yixin Li
-  - Xizhong Shen
-submitted: "2026-01-19"
+- Yixin Li
+- Xizhong Shen
+published: '2026-01-19T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/8728bdcb4f6492c5cd9541df88d1b79ad351ded8
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/8728bdcb4f6492c5cd9541df88d1b79ad351ded8
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:08+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

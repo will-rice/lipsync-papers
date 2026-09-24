@@ -1,24 +1,18 @@
 ---
-arxiv_id: s2:eea6b50f30ec571eafc0cbea6aa04173cfb51201
-title:
-  "Gaussian-Face: Talking Head Generation with Hybrid Density via 3D Gaussian
-  Splatting"
+identifier: semantic_scholar:eea6b50f30ec571eafc0cbea6aa04173cfb51201
+title: 'Gaussian-Face: Talking Head Generation with Hybrid Density via 3D Gaussian Splatting'
 authors:
-  - Guanwen Feng
-  - Yilin Zhang
-  - Yunan Li
-  - Siyu Jin
-  - Qiguang Miao
-submitted: "2025-04-06"
+- Guanwen Feng
+- Yilin Zhang
+- Yunan Li
+- Siyu Jin
+- Qiguang Miao
+published: '2025-04-06T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/eea6b50f30ec571eafc0cbea6aa04173cfb51201
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/eea6b50f30ec571eafc0cbea6aa04173cfb51201
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:15:52+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

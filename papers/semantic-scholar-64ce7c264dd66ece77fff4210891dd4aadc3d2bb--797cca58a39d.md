@@ -1,22 +1,16 @@
 ---
-arxiv_id: s2:64ce7c264dd66ece77fff4210891dd4aadc3d2bb
-title:
-  Decoupled Two-Stage Talking Head Generation via Gaussian-Landmark-Based Neural
-  Radiance Fields
+identifier: semantic_scholar:64ce7c264dd66ece77fff4210891dd4aadc3d2bb
+title: Decoupled Two-Stage Talking Head Generation via Gaussian-Landmark-Based Neural Radiance Fields
 authors:
-  - Bo-Yao Ma
-  - Yuanping Cao
-  - Lei Zhang
-submitted: "2025-01-01"
+- Bo-Yao Ma
+- Yuanping Cao
+- Lei Zhang
+published: '2025-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/64ce7c264dd66ece77fff4210891dd4aadc3d2bb
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/64ce7c264dd66ece77fff4210891dd4aadc3d2bb
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:17:33+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

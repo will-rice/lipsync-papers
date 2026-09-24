@@ -1,24 +1,18 @@
 ---
-arxiv_id: s2:9e27ca01577afb9eba72b34aa9acfc6b61f93ee2
-title:
-  Multi-Level Feature Dynamic Fusion Neural Radiance Fields for Audio-Driven
-  Talking Head Generation
+identifier: semantic_scholar:9e27ca01577afb9eba72b34aa9acfc6b61f93ee2
+title: Multi-Level Feature Dynamic Fusion Neural Radiance Fields for Audio-Driven Talking Head Generation
 authors:
-  - Wenchao Song
-  - Qiong Liu
-  - Yanchao Liu
-  - Pengzhou Zhang
-  - Juan Cao
-submitted: "2025-01-06"
+- Wenchao Song
+- Qiong Liu
+- Yanchao Liu
+- Pengzhou Zhang
+- Juan Cao
+published: '2025-01-06T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/9e27ca01577afb9eba72b34aa9acfc6b61f93ee2
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/9e27ca01577afb9eba72b34aa9acfc6b61f93ee2
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:17:27+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

@@ -1,23 +1,17 @@
 ---
-arxiv_id: s2:397c803b91d9532db059720dac4e6500267cfccc
-title:
-  Deep Learning Framework for Detecting Deep Fake Media Using Lip Region Analysis
-  and Audio–Visual Synchronization
+identifier: semantic_scholar:397c803b91d9532db059720dac4e6500267cfccc
+title: Deep Learning Framework for Detecting Deep Fake Media Using Lip Region Analysis and Audio–Visual Synchronization
 authors:
-  - Hitashri M
-  - Deekshitha M
-  - Boreddy Sahastra Reddy
-  - Dr. Nagaraj Cholli
-submitted: "2026-05-11"
+- Hitashri M
+- Deekshitha M
+- Boreddy Sahastra Reddy
+- Dr. Nagaraj Cholli
+published: '2026-05-11T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/397c803b91d9532db059720dac4e6500267cfccc
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/397c803b91d9532db059720dac4e6500267cfccc
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-07T14:15:24+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

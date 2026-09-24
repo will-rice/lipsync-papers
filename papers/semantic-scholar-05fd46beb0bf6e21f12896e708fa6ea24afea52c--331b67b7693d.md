@@ -1,23 +1,17 @@
 ---
-arxiv_id: s2:05fd46beb0bf6e21f12896e708fa6ea24afea52c
-title:
-  "TalkPersonaDiff: High-Fidelity Speech-Driven 3D Facial Animation Generation
-  via Unified Multimodal Synergistic Encoding and Dual-Style Modulation"
+identifier: semantic_scholar:05fd46beb0bf6e21f12896e708fa6ea24afea52c
+title: 'TalkPersonaDiff: High-Fidelity Speech-Driven 3D Facial Animation Generation via Unified Multimodal Synergistic Encoding and Dual-Style Modulation'
 authors:
-  - Ouyang Peng
-  - Zhuoyuan Yu
-  - Tong Wu
-  - Zhiqiang Zhang
-submitted: "2025-12-19"
+- Ouyang Peng
+- Zhuoyuan Yu
+- Tong Wu
+- Zhiqiang Zhang
+published: '2025-12-19T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/05fd46beb0bf6e21f12896e708fa6ea24afea52c
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/05fd46beb0bf6e21f12896e708fa6ea24afea52c
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:38+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

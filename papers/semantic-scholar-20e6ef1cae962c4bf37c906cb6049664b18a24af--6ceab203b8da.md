@@ -1,20 +1,16 @@
 ---
-arxiv_id: s2:20e6ef1cae962c4bf37c906cb6049664b18a24af
+identifier: semantic_scholar:20e6ef1cae962c4bf37c906cb6049664b18a24af
 title: Lip Synchronization Model For Sinhala Language Using Machine Learning
 authors:
-  - Dilani Ranaweera
-  - R. Weerasinghe
-  - R. Dinalankara
-submitted: "2024-02-21"
+- Dilani Ranaweera
+- R. Weerasinghe
+- R. Dinalankara
+published: '2024-02-21T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/20e6ef1cae962c4bf37c906cb6049664b18a24af
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/20e6ef1cae962c4bf37c906cb6049664b18a24af
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:22:03+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

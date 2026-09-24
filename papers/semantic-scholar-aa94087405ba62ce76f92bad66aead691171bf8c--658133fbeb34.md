@@ -1,25 +1,19 @@
 ---
-arxiv_id: s2:aa94087405ba62ce76f92bad66aead691171bf8c
-title:
-  "HP-Gaussian: Head Prior-Guided Gaussian Splatting for Personalized Talking
-  Head Synthesis From Few-Second Video"
+identifier: semantic_scholar:aa94087405ba62ce76f92bad66aead691171bf8c
+title: 'HP-Gaussian: Head Prior-Guided Gaussian Splatting for Personalized Talking Head Synthesis From Few-Second Video'
 authors:
-  - Shuai Shen
-  - Wanhua Li
-  - Yunpeng Zhang
-  - Weipeng Hu
-  - Jiwen Lu
-  - Yap-Peng Tan
-submitted: "2026-01-01"
+- Shuai Shen
+- Wanhua Li
+- Yunpeng Zhang
+- Weipeng Hu
+- Jiwen Lu
+- Yap-Peng Tan
+published: '2026-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/aa94087405ba62ce76f92bad66aead691171bf8c
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/aa94087405ba62ce76f92bad66aead691171bf8c
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:22+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

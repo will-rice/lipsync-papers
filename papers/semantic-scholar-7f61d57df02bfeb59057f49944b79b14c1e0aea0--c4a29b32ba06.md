@@ -1,23 +1,19 @@
 ---
-arxiv_id: s2:7f61d57df02bfeb59057f49944b79b14c1e0aea0
+identifier: semantic_scholar:7f61d57df02bfeb59057f49944b79b14c1e0aea0
 title: Deep Learning Technique to generate lip-sync for live 2-D Animation
 authors:
-  - Ashish Soni
-  - Janhvi Deshmukh
-  - Ayush Shende
-  - R. Gawande
-  - Priti Agatkar
-  - Kshitija Chilbule
-submitted: "2023-02-18"
+- Ashish Soni
+- Janhvi Deshmukh
+- Ayush Shende
+- R. Gawande
+- Priti Agatkar
+- Kshitija Chilbule
+published: '2023-02-18T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/7f61d57df02bfeb59057f49944b79b14c1e0aea0
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/7f61d57df02bfeb59057f49944b79b14c1e0aea0
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:27:03+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

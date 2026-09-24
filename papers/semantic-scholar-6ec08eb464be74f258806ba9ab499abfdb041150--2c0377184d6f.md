@@ -1,18 +1,14 @@
 ---
-arxiv_id: s2:6ec08eb464be74f258806ba9ab499abfdb041150
+identifier: semantic_scholar:6ec08eb464be74f258806ba9ab499abfdb041150
 title: Editing Audio-Driven Talking Head Based on Audio Information
 authors:
-  - Rui Lang
-submitted: "2024-06-30"
+- Rui Lang
+published: '2024-06-30T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/6ec08eb464be74f258806ba9ab499abfdb041150
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/6ec08eb464be74f258806ba9ab499abfdb041150
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:20:17+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

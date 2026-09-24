@@ -1,20 +1,14 @@
 ---
-arxiv_id: s2:b2a9ada0ddddf56534fc4d6822f442ea1d93edea
-title:
-  Accelerating LatentSync Lip-Synchronization via OmniQuant-Inspired Post-Training
-  Quantization
+identifier: semantic_scholar:b2a9ada0ddddf56534fc4d6822f442ea1d93edea
+title: Accelerating LatentSync Lip-Synchronization via OmniQuant-Inspired Post-Training Quantization
 authors:
-  - Guolin Wang
-submitted: "2025-12-26"
+- Guolin Wang
+published: '2025-12-26T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/b2a9ada0ddddf56534fc4d6822f442ea1d93edea
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/b2a9ada0ddddf56534fc4d6822f442ea1d93edea
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:26+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

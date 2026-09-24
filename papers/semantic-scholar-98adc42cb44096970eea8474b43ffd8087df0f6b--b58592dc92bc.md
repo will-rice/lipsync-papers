@@ -1,23 +1,17 @@
 ---
-arxiv_id: s2:98adc42cb44096970eea8474b43ffd8087df0f6b
-title:
-  Precise Speech-driven Talking-Face Synthesis with Realistic Speaker-Emulated
-  Facil Expressions
+identifier: semantic_scholar:98adc42cb44096970eea8474b43ffd8087df0f6b
+title: Precise Speech-driven Talking-Face Synthesis with Realistic Speaker-Emulated Facil Expressions
 authors:
-  - Jhing-Fa Wang
-  - Din-Yuen Chan
-  - Shu-Yan Liou
-  - Hsin-Chun Tsai
-submitted: "2026-04-03"
+- Jhing-Fa Wang
+- Din-Yuen Chan
+- Shu-Yan Liou
+- Hsin-Chun Tsai
+published: '2026-04-03T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/98adc42cb44096970eea8474b43ffd8087df0f6b
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/98adc42cb44096970eea8474b43ffd8087df0f6b
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:10:05+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

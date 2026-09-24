@@ -1,22 +1,18 @@
 ---
-arxiv_id: s2:43826e0f83cfedf6806325e950e8cbecf833b892
+identifier: semantic_scholar:43826e0f83cfedf6806325e950e8cbecf833b892
 title: Audio-Semantic Enhanced Pose-Driven Talking Head Generation
 authors:
-  - Meng Liu
-  - Da Li
-  - Yongqiang Li
-  - Xuemeng Song
-  - Liqiang Nie
-submitted: "2024-11-01"
+- Meng Liu
+- Da Li
+- Yongqiang Li
+- Xuemeng Song
+- Liqiang Nie
+published: '2024-11-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/43826e0f83cfedf6806325e950e8cbecf833b892
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/43826e0f83cfedf6806325e950e8cbecf833b892
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:18:22+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

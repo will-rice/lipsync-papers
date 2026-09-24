@@ -1,26 +1,22 @@
 ---
-arxiv_id: s2:1c5597407caf0c273264e4ba1283cb9722cb3c54
-title: "EMTA: End-to-End Multi-Task Audio-Driven Talking-Head Animation"
+identifier: semantic_scholar:1c5597407caf0c273264e4ba1283cb9722cb3c54
+title: 'EMTA: End-to-End Multi-Task Audio-Driven Talking-Head Animation'
 authors:
-  - L. Venkatesan
-  - Divya Choudhary
-  - Sai G
-  - Subhajeet Lahiri
-  - Rahulraj R
-  - Rittik Panda
-  - D. Jayagopi
-  - Raj Tumuluri
-  - Magnus Revang
-submitted: "2026-01-01"
+- L. Venkatesan
+- Divya Choudhary
+- Sai G
+- Subhajeet Lahiri
+- Rahulraj R
+- Rittik Panda
+- D. Jayagopi
+- Raj Tumuluri
+- Magnus Revang
+published: '2026-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/1c5597407caf0c273264e4ba1283cb9722cb3c54
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/1c5597407caf0c273264e4ba1283cb9722cb3c54
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:22+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

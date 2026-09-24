@@ -1,22 +1,16 @@
 ---
-arxiv_id: s2:268dee604af0f25e9e5ad493fee603f6c39acde9
-title:
-  Lip-Sync Analyzer for Deepfake Detection and Peeking Behind the Black Box with
-  Explainable AI
+identifier: semantic_scholar:268dee604af0f25e9e5ad493fee603f6c39acde9
+title: Lip-Sync Analyzer for Deepfake Detection and Peeking Behind the Black Box with Explainable AI
 authors:
-  - S. Sakib
-  - S. Haque
-  - Atanu Shome
-submitted: "2025-10-23"
+- S. Sakib
+- S. Haque
+- Atanu Shome
+published: '2025-10-23T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/268dee604af0f25e9e5ad493fee603f6c39acde9
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/268dee604af0f25e9e5ad493fee603f6c39acde9
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:12:39+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

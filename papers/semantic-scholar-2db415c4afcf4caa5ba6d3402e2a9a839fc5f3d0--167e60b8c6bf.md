@@ -1,23 +1,19 @@
 ---
-arxiv_id: s2:2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0
+identifier: semantic_scholar:2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0
 title: Emotional Synchronization for Audio-Driven Talking-Head Generation
 authors:
-  - Zhao Zhang
-  - Yan Luo
-  - Zhichao Zuo
-  - Richang Hong
-  - Yi Yang
-  - Meng Wang
-submitted: "2024-12-09"
+- Zhao Zhang
+- Yan Luo
+- Zhichao Zuo
+- Richang Hong
+- Yi Yang
+- Meng Wang
+published: '2024-12-09T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/2db415c4afcf4caa5ba6d3402e2a9a839fc5f3d0
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:17:56+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

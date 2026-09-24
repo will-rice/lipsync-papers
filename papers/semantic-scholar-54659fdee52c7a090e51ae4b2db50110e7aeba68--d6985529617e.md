@@ -1,29 +1,23 @@
 ---
-arxiv_id: s2:54659fdee52c7a090e51ae4b2db50110e7aeba68
-title:
-  Audiovisual Inputs for Learning Robust, Real-time Facial Animation with Lip
-  Sync
+identifier: semantic_scholar:54659fdee52c7a090e51ae4b2db50110e7aeba68
+title: Audiovisual Inputs for Learning Robust, Real-time Facial Animation with Lip Sync
 authors:
-  - Iñaki Navarro
-  - Dario Kneubuehler
-  - Tijmen Verhulsdonck
-  - Eloi Du Bois
-  - William Welch
-  - Charles Shang
-  - I. Sachs
-  - Morgan Mcguire
-  - Victor Zordan
-  - Kiran Bhat
-submitted: "2023-11-15"
+- Iñaki Navarro
+- Dario Kneubuehler
+- Tijmen Verhulsdonck
+- Eloi Du Bois
+- William Welch
+- Charles Shang
+- I. Sachs
+- Morgan Mcguire
+- Victor Zordan
+- Kiran Bhat
+published: '2023-11-15T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/54659fdee52c7a090e51ae4b2db50110e7aeba68
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/54659fdee52c7a090e51ae4b2db50110e7aeba68
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:23:29+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

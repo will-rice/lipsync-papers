@@ -1,27 +1,21 @@
 ---
-arxiv_id: s2:e3d8c277a9a688d57ca1d33408ba36b2c3c4ec66
-title:
-  "Meta Talk: Learning To Data-Efficiently Generate Audio-Driven Lip-Synchronized
-  Talking Face With High Definition"
+identifier: semantic_scholar:e3d8c277a9a688d57ca1d33408ba36b2c3c4ec66
+title: 'Meta Talk: Learning To Data-Efficiently Generate Audio-Driven Lip-Synchronized Talking Face With High Definition'
 authors:
-  - Yuhan Zhang
-  - Weihua He
-  - Minglei Li
-  - Kun Tian
-  - Ziyang Zhang
-  - Jie Cheng
-  - Yaoyuan Wang
-  - Jianxing Liao
-submitted: "2022-05-23"
+- Yuhan Zhang
+- Weihua He
+- Minglei Li
+- Kun Tian
+- Ziyang Zhang
+- Jie Cheng
+- Yaoyuan Wang
+- Jianxing Liao
+published: '2022-05-23T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/e3d8c277a9a688d57ca1d33408ba36b2c3c4ec66
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/e3d8c277a9a688d57ca1d33408ba36b2c3c4ec66
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:28:54+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

@@ -1,20 +1,14 @@
 ---
-arxiv_id: s2:aca90d844d61baac040a8cf612d00a5532f33d4b
-title:
-  Wav2Lip-HQ High-Resolution Audio-Driven Lip Synchronization for Realistic Virtual
-  Avatars
+identifier: semantic_scholar:aca90d844d61baac040a8cf612d00a5532f33d4b
+title: Wav2Lip-HQ High-Resolution Audio-Driven Lip Synchronization for Realistic Virtual Avatars
 authors:
-  - Mallikarjuna G D
-submitted: "2025-07-31"
+- Mallikarjuna G D
+published: '2025-07-31T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/aca90d844d61baac040a8cf612d00a5532f33d4b
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/aca90d844d61baac040a8cf612d00a5532f33d4b
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:13:55+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

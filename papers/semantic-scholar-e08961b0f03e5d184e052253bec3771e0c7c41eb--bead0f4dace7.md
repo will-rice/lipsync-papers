@@ -1,21 +1,17 @@
 ---
-arxiv_id: s2:e08961b0f03e5d184e052253bec3771e0c7c41eb
-title: "Deep Face Gen: Speech-Driven Face Image Synthesis"
+identifier: semantic_scholar:e08961b0f03e5d184e052253bec3771e0c7c41eb
+title: 'Deep Face Gen: Speech-Driven Face Image Synthesis'
 authors:
-  - P. K. Thai
-  - P. Manisha
-  - L. Reddy
-  - M. Reddy
-submitted: "2025-02-25"
+- P. K. Thai
+- P. Manisha
+- L. Reddy
+- M. Reddy
+published: '2025-02-25T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/e08961b0f03e5d184e052253bec3771e0c7c41eb
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/e08961b0f03e5d184e052253bec3771e0c7c41eb
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:16:59+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

@@ -1,28 +1,24 @@
 ---
-arxiv_id: "2506.14381"
+identifier: arxiv:2506.14381
 title: Compressed Video Super-Resolution based on Hierarchical Encoding
 authors:
-  - Yuxuan Jiang
-  - Siyue Teng
-  - Qiang Zhu
-  - Chen Feng
-  - Chengxi Zeng
-  - Fan Zhang
-  - Shuyuan Zhu
-  - Bing Zeng
-  - David Bull
-submitted: "2025-06-17"
+- Yuxuan Jiang
+- Siyue Teng
+- Qiang Zhu
+- Chen Feng
+- Chengxi Zeng
+- Fan Zhang
+- Shuyuan Zhu
+- Bing Zeng
+- David Bull
+published: '2025-06-17T00:00:00+00:00'
+url: https://arxiv.org/abs/2506.14381
+source: arxiv
+doi: null
+arxiv_id: '2506.14381'
 categories:
-  - eess.IV
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2506.14381
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:14:50+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.CV
+- eess.IV
 ---
 
 # Compressed Video Super-Resolution based on Hierarchical Encoding

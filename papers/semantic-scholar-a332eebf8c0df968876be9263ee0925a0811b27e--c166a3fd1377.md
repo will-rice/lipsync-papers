@@ -1,18 +1,14 @@
 ---
-arxiv_id: s2:a332eebf8c0df968876be9263ee0925a0811b27e
-title: "Talking Head Anime 4: Distillation for Real-Time Performance"
+identifier: semantic_scholar:a332eebf8c0df968876be9263ee0925a0811b27e
+title: 'Talking Head Anime 4: Distillation for Real-Time Performance'
 authors:
-  - Pramook Khungurn
-submitted: "2025-02-26"
+- Pramook Khungurn
+published: '2025-02-26T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/a332eebf8c0df968876be9263ee0925a0811b27e
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/a332eebf8c0df968876be9263ee0925a0811b27e
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:16:57+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

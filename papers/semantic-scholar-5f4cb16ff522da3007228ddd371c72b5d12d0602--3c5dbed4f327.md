@@ -1,18 +1,14 @@
 ---
-arxiv_id: s2:5f4cb16ff522da3007228ddd371c72b5d12d0602
+identifier: semantic_scholar:5f4cb16ff522da3007228ddd371c72b5d12d0602
 title: Audio-driven Talking-face Synthesis based on 3D Gaussian
 authors:
-  - Botao Xiong
-submitted: "2025-02-21"
+- Botao Xiong
+published: '2025-02-21T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/5f4cb16ff522da3007228ddd371c72b5d12d0602
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/5f4cb16ff522da3007228ddd371c72b5d12d0602
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:17:02+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

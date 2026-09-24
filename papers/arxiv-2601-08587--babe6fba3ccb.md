@@ -1,24 +1,20 @@
 ---
-arxiv_id: "2601.08587"
+identifier: arxiv:2601.08587
 title: MoCha:End-to-End Video Character Replacement without Structural Guidance
 authors:
-  - Zhengbo Xu
-  - Jie Ma
-  - Ziheng Wang
-  - Zhan Peng
-  - Jun Liang
-  - Jing Li
-submitted: "2026-01-13"
+- Zhengbo Xu
+- Jie Ma
+- Ziheng Wang
+- Zhan Peng
+- Jun Liang
+- Jing Li
+published: '2026-01-13T00:00:00+00:00'
+url: https://arxiv.org/abs/2601.08587
+source: arxiv
+doi: null
+arxiv_id: '2601.08587'
 categories:
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2601.08587
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:11:21+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.CV
 ---
 
 # MoCha: End-to-End Video Character Replacement without Structural Guidance

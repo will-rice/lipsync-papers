@@ -1,20 +1,16 @@
 ---
-arxiv_id: s2:6e6d84175ff8896354892e3f0c20a196bde8a9ab
-title: "SynGauss: Real-Time 3D Gaussian Splatting for Audio-Driven Talking Head Synthesis"
+identifier: semantic_scholar:6e6d84175ff8896354892e3f0c20a196bde8a9ab
+title: 'SynGauss: Real-Time 3D Gaussian Splatting for Audio-Driven Talking Head Synthesis'
 authors:
-  - Zhanyi Zhou
-  - Quandong Feng
-  - Hongjun Li
-submitted: "2025-01-01"
+- Zhanyi Zhou
+- Quandong Feng
+- Hongjun Li
+published: '2025-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/6e6d84175ff8896354892e3f0c20a196bde8a9ab
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/6e6d84175ff8896354892e3f0c20a196bde8a9ab
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:17:33+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

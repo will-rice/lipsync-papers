@@ -1,24 +1,20 @@
 ---
-arxiv_id: s2:9fde057351c2841cfd3b47d3ed719e1b4f0012e2
+identifier: semantic_scholar:9fde057351c2841cfd3b47d3ed719e1b4f0012e2
 title: Audio-Driven Emotion-Aware 3D Talking Face Generation from Single Image
 authors:
-  - Chun-Shuo Qiu
-  - Feng-Lin Liu
-  - Hongbo Fu
-  - Fan Zhang
-  - Yan-Pei Cao
-  - Yu-Kun Lai
-  - Lin Gao
-submitted: "2025-06-30"
+- Chun-Shuo Qiu
+- Feng-Lin Liu
+- Hongbo Fu
+- Fan Zhang
+- Yan-Pei Cao
+- Yu-Kun Lai
+- Lin Gao
+published: '2025-06-30T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/9fde057351c2841cfd3b47d3ed719e1b4f0012e2
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/9fde057351c2841cfd3b47d3ed719e1b4f0012e2
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:14:32+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

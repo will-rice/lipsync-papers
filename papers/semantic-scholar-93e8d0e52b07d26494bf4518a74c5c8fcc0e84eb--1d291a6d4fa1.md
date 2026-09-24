@@ -1,24 +1,18 @@
 ---
-arxiv_id: s2:93e8d0e52b07d26494bf4518a74c5c8fcc0e84eb
-title:
-  "DFNeRF: Disentangled Facial Neural Radiance Fields for Text-based Editing
-  of Free-view Talking Head"
+identifier: semantic_scholar:93e8d0e52b07d26494bf4518a74c5c8fcc0e84eb
+title: 'DFNeRF: Disentangled Facial Neural Radiance Fields for Text-based Editing of Free-view Talking Head'
 authors:
-  - Benwang Chen
-  - Xiaoyu Li
-  - Xuan Wang
-  - Qi Zhang
-  - Haoqian Wang
-submitted: "2025-04-06"
+- Benwang Chen
+- Xiaoyu Li
+- Xuan Wang
+- Qi Zhang
+- Haoqian Wang
+published: '2025-04-06T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/93e8d0e52b07d26494bf4518a74c5c8fcc0e84eb
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/93e8d0e52b07d26494bf4518a74c5c8fcc0e84eb
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:15:52+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

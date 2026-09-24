@@ -1,25 +1,19 @@
 ---
-arxiv_id: "2511.22488"
-title:
-  AI killed the video star. Audio-driven diffusion model for expressive talking
-  head generation
+identifier: arxiv:2511.22488
+title: AI killed the video star. Audio-driven diffusion model for expressive talking head generation
 authors:
-  - Baptiste Chopin
-  - Tashvik Dhamija
-  - Pranav Balaji
-  - Yaohui Wang
-  - Antitza Dantcheva
-submitted: "2025-11-27"
+- Baptiste Chopin
+- Tashvik Dhamija
+- Pranav Balaji
+- Yaohui Wang
+- Antitza Dantcheva
+published: '2025-11-27T00:00:00+00:00'
+url: https://arxiv.org/abs/2511.22488
+source: arxiv
+doi: null
+arxiv_id: '2511.22488'
 categories:
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2511.22488
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:12:24+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.CV
 ---
 
 \[2\]\fnmYaohui \surWang

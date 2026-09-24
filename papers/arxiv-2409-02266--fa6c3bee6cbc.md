@@ -1,32 +1,26 @@
 ---
-arxiv_id: "2409.02266"
-title:
-  "LSTMSE-Net: Long Short Term Speech Enhancement Network for Audio-visual Speech
-  Enhancement"
+identifier: arxiv:2409.02266
+title: 'LSTMSE-Net: Long Short Term Speech Enhancement Network for Audio-visual Speech Enhancement'
 authors:
-  - Arnav Jain
-  - Jasmer Singh Sanjotra
-  - Harshvardhan Choudhary
-  - Krish Agrawal
-  - Rupal Shah
-  - Rohan Jha
-  - M. Sajid
-  - Amir Hussain
-  - M. Tanveer
-submitted: "2024-09-03"
+- Arnav Jain
+- Jasmer Singh Sanjotra
+- Harshvardhan Choudhary
+- Krish Agrawal
+- Rupal Shah
+- Rohan Jha
+- M. Sajid
+- Amir Hussain
+- M. Tanveer
+published: '2024-09-03T00:00:00+00:00'
+url: https://arxiv.org/abs/2409.02266
+source: arxiv
+doi: null
+arxiv_id: '2409.02266'
 categories:
-  - cs.SD
-  - cs.LG
-  - cs.MM
-  - eess.AS
-arxiv_url: https://arxiv.org/abs/2409.02266
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:19:27+00:00"
-references_parsed: 0
-arxiv_version: ""
+- cs.LG
+- cs.MM
+- cs.SD
+- eess.AS
 ---
 
 \interspeechcameraready\name

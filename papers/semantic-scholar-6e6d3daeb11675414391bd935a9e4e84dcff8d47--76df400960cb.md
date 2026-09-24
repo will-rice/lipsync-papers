@@ -1,21 +1,17 @@
 ---
-arxiv_id: s2:6e6d3daeb11675414391bd935a9e4e84dcff8d47
+identifier: semantic_scholar:6e6d3daeb11675414391bd935a9e4e84dcff8d47
 title: Audio-Driven Talking Head Video Generation with Diffusion Model
 authors:
-  - Yizhe Zhu
-  - Chunhui Zhang
-  - Qiong Liu
-  - Xi Zhou
-submitted: "2023-06-04"
+- Yizhe Zhu
+- Chunhui Zhang
+- Qiong Liu
+- Xi Zhou
+published: '2023-06-04T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/6e6d3daeb11675414391bd935a9e4e84dcff8d47
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/6e6d3daeb11675414391bd935a9e4e84dcff8d47
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:25:42+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

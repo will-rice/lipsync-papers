@@ -1,26 +1,22 @@
 ---
-arxiv_id: "2408.11518"
-title: "EmoFace: Emotion-Content Disentangled Speech-Driven 3D Talking Face Animation"
+identifier: arxiv:2408.11518
+title: 'EmoFace: Emotion-Content Disentangled Speech-Driven 3D Talking Face Animation'
 authors:
-  - Yihong Lin
-  - Liang Peng
-  - Zhaoxin Fan
-  - Xianjia Wu
-  - Jianqiao Hu
-  - Xiandong Li
-  - Wenxiong Kang
-  - Songju Lei
-submitted: "2024-08-21"
+- Yihong Lin
+- Liang Peng
+- Zhaoxin Fan
+- Xianjia Wu
+- Jianqiao Hu
+- Xiandong Li
+- Wenxiong Kang
+- Songju Lei
+published: '2024-08-21T00:00:00+00:00'
+url: https://arxiv.org/abs/2408.11518
+source: arxiv
+doi: null
+arxiv_id: '2408.11518'
 categories:
-  - cs.CV
-arxiv_url: https://arxiv.org/abs/2408.11518
-source: arxiv-html
-converter: pandoc
-llm_remediated: false
-citations_resolved: 0/1
-citations_resolved_at: "2026-07-21T00:19:39+00:00"
-references_parsed: 1
-arxiv_version: ""
+- cs.CV
 ---
 
 EmoFace: Emotion-Content Disentangled Speech-Driven\

@@ -1,20 +1,16 @@
 ---
-arxiv_id: s2:114f13f0af15e596b7e6828a35c827b51f9a0a5f
+identifier: semantic_scholar:114f13f0af15e596b7e6828a35c827b51f9a0a5f
 title: Speech to Lip Sync generation using Deep learning Algorithm
 authors:
-  - P. Hirishikesh
-  - Mvs Yaswanth
-  - H. A.
-submitted: "2023-12-13"
+- P. Hirishikesh
+- Mvs Yaswanth
+- H. A.
+published: '2023-12-13T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/114f13f0af15e596b7e6828a35c827b51f9a0a5f
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/114f13f0af15e596b7e6828a35c827b51f9a0a5f
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:22:46+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract

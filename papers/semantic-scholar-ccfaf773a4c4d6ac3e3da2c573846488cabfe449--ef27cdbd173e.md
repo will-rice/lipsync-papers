@@ -1,25 +1,19 @@
 ---
-arxiv_id: s2:ccfaf773a4c4d6ac3e3da2c573846488cabfe449
-title:
-  "DreamTalk: When Expressive Talking Head Generation Meets Diffusion Probabilistic
-  Models"
+identifier: semantic_scholar:ccfaf773a4c4d6ac3e3da2c573846488cabfe449
+title: 'DreamTalk: When Expressive Talking Head Generation Meets Diffusion Probabilistic Models'
 authors:
-  - Yifeng Ma
-  - Shiwei Zhang
-  - Jiayu Wang
-  - Xiang Wang
-  - Yingya Zhang
-  - Zhidong Deng
-submitted: "2023-01-01"
+- Yifeng Ma
+- Shiwei Zhang
+- Jiayu Wang
+- Xiang Wang
+- Yingya Zhang
+- Zhidong Deng
+published: '2023-01-01T00:00:00+00:00'
+url: https://www.semanticscholar.org/paper/ccfaf773a4c4d6ac3e3da2c573846488cabfe449
+source: semantic_scholar
+doi: null
+arxiv_id: null
 categories: []
-arxiv_url: https://www.semanticscholar.org/paper/ccfaf773a4c4d6ac3e3da2c573846488cabfe449
-source: metadata-only
-converter: none
-llm_remediated: false
-citations_resolved: 0/0
-citations_resolved_at: "2026-07-21T00:27:17+00:00"
-references_parsed: 0
-arxiv_version: ""
 ---
 
 ## Abstract
