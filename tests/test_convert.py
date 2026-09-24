@@ -362,7 +362,7 @@ async def test_downloading_materializer_maps_disk_errors_to_infrastructure_error
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("status_code", [400, 401, 403, 404, 410, 422])
+@pytest.mark.parametrize("status_code", [400, 401, 403, 404, 410, 422, 429])
 async def test_permanent_download_http_errors_are_paper_errors(
     status_code: int,
 ) -> None:
