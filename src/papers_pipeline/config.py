@@ -143,6 +143,9 @@ class ConversionConfig(StrictModel):
     max_papers: int = Field(ge=1, le=100)
     max_cost: int = Field(ge=1, le=1000)
     timeout_seconds: int = Field(default=1800, ge=60, le=3600)
+    # Stop starting batches after this long so the run still pushes its work
+    # before the workflow step's timeout kills it.
+    deadline_seconds: int = Field(default=10800, ge=600, le=18000)
     html_cost: int = Field(ge=1, le=100)
     latex_cost: int = Field(ge=1, le=100)
     pdf_cost: int = Field(ge=1, le=1000)

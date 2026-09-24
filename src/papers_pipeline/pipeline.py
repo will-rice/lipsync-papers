@@ -86,6 +86,7 @@ async def run_nightly(
     initial_state = load_state(paths.state)
     gate = build_topic_gate(config.topic)
     summary = RunSummary()
+    run_started = dependencies.monotonic()
 
     with report_infrastructure_failure(paths, summary):
         dependencies.git.assert_clean(_managed_paths(paths))
@@ -143,6 +144,14 @@ async def run_nightly(
         summary.generated = len(backlog.generated)
         summary.pending = len(backlog.pending)
         while backlog.pending and batch_number < config.conversion.max_batches_per_run:
+            if (
+                dependencies.monotonic() - run_started
+                >= config.conversion.deadline_seconds
+            ):
+                summary.events.append(
+                    f"conversion deadline reached after {batch_number} batches"
+                )
+                break
             eligible = tuple(
                 paper for paper in backlog.pending if paper.identifier not in attempted
             )

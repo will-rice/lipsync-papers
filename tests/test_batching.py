@@ -136,3 +136,20 @@ def test_select_batch_uses_stable_sorted_order_for_reversed_input(
         "arxiv:1/2",
         "arxiv:2",
     ]
+
+
+def test_arxiv_papers_cost_as_html_since_they_convert_from_arxiv_html() -> None:
+    config = ConversionConfig(
+        max_batches_per_run=1,
+        max_papers=10,
+        max_cost=10,
+        html_cost=1,
+        latex_cost=2,
+        pdf_cost=10,
+    )
+    on_arxiv = paper("arxiv:2401.00001").model_copy(update={"arxiv_id": "2401.00001"})
+
+    batch = select_batch([on_arxiv, paper("doi:10.1/x")], config)
+
+    assert batch.estimated_cost == 1
+    assert batch.papers == (on_arxiv,)

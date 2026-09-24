@@ -48,6 +48,16 @@ class _WindowFetch:
     complete: bool
     rejected: int
     error_events: list[str]
+    pages: int
+
+
+@dataclass(frozen=True)
+class _BackfillFetch:
+    records: list[SourceRecord]
+    progress: BackfillProgress
+    capped: bool
+    rejected: int
+    events: list[str]
 
 
 def _prefix_events(source: str, events: list[str]) -> tuple[str, ...]:
@@ -102,25 +112,25 @@ async def fetch_all(
             end=continuation.window_end if continuation else now,
         )
         starting_cursor = continuation.cursor if continuation else None
-        backfill_plan = _backfill_plan(
-            adapter_config, backfill.get(adapter.name), window.start
-        )
 
         async with client_factory(deadline) as client:
             forward = await _fetch_window(
-                adapter, config, adapter_index, window, starting_cursor, client
+                adapter,
+                config,
+                adapter_index,
+                window,
+                starting_cursor,
+                client,
+                max_pages=adapter_config.max_pages,
+                max_results=adapter_config.max_results,
             )
-            history = (
-                await _fetch_window(
-                    adapter,
-                    config,
-                    adapter_index,
-                    backfill_plan.window,
-                    backfill_plan.cursor,
-                    client,
-                )
-                if backfill_plan
-                else None
+            history = await _backfill(
+                adapter,
+                config,
+                adapter_index,
+                backfill.get(adapter.name),
+                window.start,
+                client,
             )
             events.extend(_prefix_events(adapter.name, client.events))
         events.extend(forward.error_events)
@@ -145,31 +155,9 @@ async def fetch_all(
 
         source_records = forward.records
         rejected = forward.rejected
-        if history is not None and backfill_plan is not None:
-            history_window = backfill_plan.window
-            events.extend(history.error_events)
-            if history.cursor is not None:
-                backfill[adapter.name] = BackfillProgress(
-                    covered_from=backfill_plan.covered_from,
-                    continuation=SourceContinuation(
-                        cursor=history.cursor,
-                        window_start=history_window.start,
-                        window_end=history_window.end,
-                    ),
-                )
-                events.append(
-                    f"{adapter.name}: backfill cap reached; continuation persisted"
-                )
-            else:
-                # A complete window, or one capped without a cursor, moves the
-                # history boundary back; the latter cannot be resumed.
-                backfill[adapter.name] = BackfillProgress(
-                    covered_from=history_window.start
-                )
-                events.append(
-                    f"{adapter.name}: backfilled to "
-                    f"{history_window.start.date().isoformat()}"
-                )
+        if history is not None:
+            backfill[adapter.name] = history.progress
+            events.extend(history.events)
             source_records = [*source_records, *history.records]
             rejected += history.rejected
 
@@ -228,6 +216,78 @@ def _backfill_plan(
     )
 
 
+async def _backfill(
+    adapter: Adapter,
+    config: PipelineConfig,
+    adapter_index: int,
+    progress: BackfillProgress | None,
+    forward_start: datetime,
+    client: RequestClient,
+) -> _BackfillFetch | None:
+    """Walk history chunk by chunk until this run's page or result budget is spent.
+
+    A chunk that hits the budget keeps its cursor and resumes next run; each
+    completed chunk moves the covered boundary back toward backfill_start.
+    """
+    adapter_config = config.adapters[adapter_index]
+    plan = _backfill_plan(adapter_config, progress, forward_start)
+    if plan is None:
+        return None
+    records: list[SourceRecord] = []
+    error_events: list[str] = []
+    rejected = 0
+    pages_left = adapter_config.max_pages
+    results_left = adapter_config.max_results
+    covered_from = plan.covered_from
+    continuation: SourceContinuation | None = None
+    while plan is not None and pages_left > 0 and results_left > 0:
+        chunk = await _fetch_window(
+            adapter,
+            config,
+            adapter_index,
+            plan.window,
+            plan.cursor,
+            client,
+            max_pages=pages_left,
+            max_results=results_left,
+        )
+        pages_left -= chunk.pages
+        results_left -= len(chunk.records)
+        records.extend(chunk.records)
+        rejected += chunk.rejected
+        error_events.extend(chunk.error_events)
+        if chunk.cursor is not None:
+            continuation = SourceContinuation(
+                cursor=chunk.cursor,
+                window_start=plan.window.start,
+                window_end=plan.window.end,
+            )
+            break
+        # A complete chunk, or one capped without a cursor, moves the boundary
+        # back; the latter cannot be resumed.
+        covered_from = plan.window.start
+        plan = _backfill_plan(
+            adapter_config, BackfillProgress(covered_from=covered_from), forward_start
+        )
+
+    covered = covered_from.date().isoformat()
+    if continuation is not None:
+        summary = (
+            f"{adapter.name}: backfill cap reached at {covered}; continuation persisted"
+        )
+    elif plan is None:
+        summary = f"{adapter.name}: backfill complete to {covered}"
+    else:
+        summary = f"{adapter.name}: backfilled to {covered}"
+    return _BackfillFetch(
+        records=records,
+        progress=BackfillProgress(covered_from=covered_from, continuation=continuation),
+        capped=continuation is not None,
+        rejected=rejected,
+        events=[*error_events, summary],
+    )
+
+
 async def _fetch_window(
     adapter: Adapter,
     config: PipelineConfig,
@@ -235,17 +295,19 @@ async def _fetch_window(
     window: FetchWindow,
     cursor: str | None,
     client: RequestClient,
+    *,
+    max_pages: int,
+    max_results: int,
 ) -> _WindowFetch:
-    """Page through one window within the adapter's page and result caps."""
-    adapter_config = config.adapters[adapter_index]
+    """Page through one window within the given page and result budget."""
     records: list[SourceRecord] = []
     rejected = 0
     error_events: list[str] = []
     capped = False
     complete = False
     pages_fetched = 0
-    while pages_fetched < adapter_config.max_pages:
-        remaining = adapter_config.max_results - len(records)
+    while pages_fetched < max_pages:
+        remaining = max_results - len(records)
         page = await adapter.fetch(
             window, cursor, client, _page_config(config, adapter_index, remaining)
         )
@@ -265,11 +327,7 @@ async def _fetch_window(
             complete = not page.capped
             capped = page.capped
             break
-        if (
-            page.capped
-            or len(records) >= adapter_config.max_results
-            or pages_fetched >= adapter_config.max_pages
-        ):
+        if page.capped or len(records) >= max_results or pages_fetched >= max_pages:
             capped = True
             break
     return _WindowFetch(
@@ -279,4 +337,5 @@ async def _fetch_window(
         complete=complete,
         rejected=rejected,
         error_events=error_events,
+        pages=pages_fetched,
     )

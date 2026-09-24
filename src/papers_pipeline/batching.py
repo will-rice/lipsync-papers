@@ -68,6 +68,9 @@ def select_batch(pending: Iterable[Paper], config: ConversionConfig) -> Batch:
 
 
 def _paper_cost(paper: Paper, config: ConversionConfig) -> int:
+    # Papers on arXiv convert from arXiv's HTML rendering.
+    if paper.arxiv_id is not None:
+        return config.html_cost
     return {
         "html": config.html_cost,
         "latex": config.latex_cost,

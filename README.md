@@ -40,13 +40,20 @@ with `secret_env: null` it runs unauthenticated at a shared, low rate limit.
 Other adapters use `secret_env: null`.
 
 To fill in a source's history, set `backfill_start` (a date) on an arXiv,
-Semantic Scholar, bioRxiv, or Hugging Face adapter. After its `lookback_days`
-window, each nightly run also fetches one `backfill_days` chunk (default 30)
-further into the past, resuming a capped chunk before moving on, until it
-reaches `backfill_start`. Progress is kept in `.papers-state.yml`. New papers
-join the conversion backlog, so conversion budgets bound how fast history turns
-into markdown. dblp and Papers with Code cannot query past date ranges and
-reject `backfill_start`.
+Semantic Scholar, bioRxiv, or Hugging Face adapter; set it to `1991-08-01` for
+the whole of arXiv. After its `lookback_days` window, each nightly run keeps
+stepping further into the past in `backfill_days` chunks (default 30) until the
+adapter's `max_pages` or `max_results` budget for the run is spent, resuming a
+capped chunk first, until it reaches `backfill_start`. Progress is kept in
+`.papers-state.yml`. New papers join the conversion backlog, so conversion
+budgets bound how fast history turns into markdown. dblp and Papers with Code
+cannot query past date ranges and reject `backfill_start`.
+
+Papers with an arXiv ID convert from arXiv's HTML rendering
+(`https://arxiv.org/html/<id>`): pandoc turns the LaTeXML article into markdown
+with TeX math in under a second, and they cost `html_cost` in batch budgets.
+Only when arXiv has no HTML for a paper does it fall back to its own input, for
+example a PDF through marker, which takes minutes per paper on a CPU runner.
 
 The supported `filters` are:
 
@@ -63,7 +70,7 @@ cannot express the repository rule; the plugin accepts `Paper` and returns
 
 Fetch request timeouts are 1-120 seconds, retries are 0-5, backoff is 0-30
 seconds, and the shared fetch deadline is 60-7200 seconds. Conversion allows
-1-20 batches per run, 1-100 papers per batch, and a total cost budget of 1-1000. Each converter may run for 60-3600 seconds
+1-20 batches per run, 1-100 papers per batch, and a total cost budget of 1-1000. A run stops starting batches after `deadline_seconds` (default 10800, 600-18000) so it always pushes before the nightly step's 330-minute timeout. Each converter may run for 60-3600 seconds
 before it is terminated. Per-paper HTML and LaTeX costs are 1-100; PDF cost is
 1-1000. HTML and LaTeX concurrency is 1-4.
 PDF concurrency is always exactly 1.

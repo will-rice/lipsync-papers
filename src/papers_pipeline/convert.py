@@ -9,7 +9,6 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Protocol
-from urllib.parse import urlsplit
 from uuid import uuid4
 
 from papers_pipeline.batching import Batch, expected_markdown
@@ -23,6 +22,10 @@ _DEFAULT_CONVERSION_TIMEOUT = 900.0
 _PROCESS_SHUTDOWN_TIMEOUT = 2.0
 _MARKER_TOOL = "marker_single"
 _PANDOC_TOOL = "pandoc"
+# arXiv renders most papers to HTML with LaTeXML. Converting that article with
+# pandoc takes under a second, versus minutes of CPU OCR per PDF with marker.
+_ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
+_LATEXML_ARTICLE = re.compile(r'<article class="ltx_document.*?</article>', re.DOTALL)
 _DOCUMENT_FAILURE_PATTERNS = (
     re.compile(
         r"\b(?:corrupt(?:ed)?|damaged|malformed)\s+"
@@ -167,7 +170,9 @@ class DownloadingMaterializer:
 
     async def materialize(self, paper: Paper, root: Path) -> Path:
         # The downloader validates the URL scheme, host and resolved addresses.
-        suffix = Path(urlsplit(paper.input_url).path).suffix or _default_suffix(paper)
+        # Name by format, not URL: an arXiv ID such as 1511.06841 would
+        # otherwise yield the suffix ".06841" and hide the format from tools.
+        suffix = _default_suffix(paper)
         target = (
             root / "inputs" / f"{_materialized_name(paper, paper.input_url)}{suffix}"
         )
@@ -211,7 +216,13 @@ class _PreparedConversion:
 
 def command_for(paper: Paper, input_path: Path, output: Path) -> list[str]:
     if paper.input_format in {"html", "latex"}:
-        return [_PANDOC_TOOL, str(input_path), "--to=gfm", f"--output={output}"]
+        return [
+            _PANDOC_TOOL,
+            str(input_path),
+            f"--from={paper.input_format}",
+            "--to=gfm-raw_html",
+            f"--output={output}",
+        ]
     return [_MARKER_TOOL, str(input_path), "--output_dir", str(output)]
 
 
@@ -236,10 +247,42 @@ async def convert_batch(
         "pdf": asyncio.Semaphore(1),
     }
 
+    async def convert_arxiv_html(paper: Paper, staged_output: Path) -> bool:
+        """Convert from arXiv's HTML rendering; False when arXiv has none."""
+        html_paper = paper.model_copy(
+            update={
+                "input_format": "html",
+                "input_url": _ARXIV_HTML_URL.format(arxiv_id=paper.arxiv_id),
+            }
+        )
+        try:
+            input_path = await materializer.materialize(html_paper, workspace)
+        except PaperError:
+            return False
+        article = _LATEXML_ARTICLE.search(
+            input_path.read_text(encoding="utf-8", errors="replace")
+        )
+        if article is None:
+            return False
+        # Drop arXiv's page chrome so only the paper reaches the markdown.
+        input_path.write_text(article.group(0), encoding="utf-8")
+        async with semaphores["html"]:
+            await runner.run(
+                command_for(html_paper, input_path, staged_output),
+                timeout=timeout_seconds,
+            )
+        return True
+
     async def convert_one(paper: Paper) -> _PreparedConversion:
         try:
-            input_path = await materializer.materialize(paper, workspace)
             staged_output = _staged_output_path(workspace, paper)
+            if paper.arxiv_id is not None and await convert_arxiv_html(
+                paper, staged_output
+            ):
+                return _PreparedConversion(
+                    paper=paper, staged_output=staged_output, error=None
+                )
+            input_path = await materializer.materialize(paper, workspace)
             async with semaphores[paper.input_format]:
                 if paper.input_format in {"html", "latex"}:
                     await runner.run(

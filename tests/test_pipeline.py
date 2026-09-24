@@ -135,7 +135,11 @@ class RecordingGit:
 
 
 def make_paths(
-    tmp_path: Path, *, max_batches: int = 1, max_papers: int = 2
+    tmp_path: Path,
+    *,
+    max_batches: int = 1,
+    max_papers: int = 2,
+    deadline_seconds: int = 10800,
 ) -> PipelinePaths:
     config = {
         "repository": {
@@ -169,6 +173,7 @@ def make_paths(
         "conversion": {
             "max_batches_per_run": max_batches,
             "max_papers": max_papers,
+            "deadline_seconds": deadline_seconds,
             "max_cost": 100,
             "html_cost": 1,
             "latex_cost": 2,
@@ -407,6 +412,28 @@ async def test_failed_paper_is_attempted_only_once_across_batches(
         "chore: convert paper batch 1",
         "chore: convert paper batch 2",
     ]
+
+
+@pytest.mark.asyncio
+async def test_conversion_stops_starting_batches_after_its_deadline(
+    tmp_path: Path,
+) -> None:
+    paths = make_paths(tmp_path, max_batches=3, max_papers=1, deadline_seconds=600)
+    git = RecordingGit()
+    runner = FakeRunner()
+    # Each conversion "takes" 10,000 seconds, far past the 600-second deadline.
+    deps = dataclasses.replace(
+        dependencies(FakeAdapter([record("a"), record("b")]), runner, git),
+        monotonic=lambda: 10_000.0 * len(runner.calls),
+    )
+
+    summary = await run_nightly(paths, deps)
+
+    assert [message for message in git.messages if "batch" in message] == [
+        "chore: convert paper batch 1"
+    ]
+    assert summary.pending == 1
+    assert "conversion deadline reached after 1 batches" in summary.events
 
 
 @pytest.mark.asyncio
