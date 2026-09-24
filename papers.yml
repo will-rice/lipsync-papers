@@ -1,0 +1,49 @@
+repository:
+  name: Lipsync Papers
+  slug: lipsync-papers
+  description: Papers related to lipsync.
+adapters:
+- name: arxiv
+  enabled: true
+  secret_env: null
+  lookback_days: 8
+  page_size: 100
+  max_pages: 5
+  max_results: 500
+  filters:
+    search_query: ti:"lip sync" OR abs:"lip sync" OR ti:"lip synchronization" OR abs:"lip synchronization" OR ti:"wav2lip" OR abs:"wav2lip" OR ti:"talking head" OR abs:"talking head" OR ti:"talking face" OR abs:"talking face" OR ti:"audio-driven face" OR abs:"audio-driven face" OR ti:"speech-driven face" OR abs:"speech-driven face" OR ti:"audio visual speech" OR abs:"audio visual speech" OR ti:"face reenactment" OR abs:"face reenactment" OR ti:"neural dubbing" OR abs:"neural dubbing" OR ti:"portrait animation" OR abs:"portrait animation" OR ti:"audio-driven avatar" OR abs:"audio-driven avatar" OR ti:"co-speech" OR abs:"co-speech" OR ti:"head synthesis" OR abs:"head synthesis"
+  backfill_start: '2020-01-01'
+  backfill_days: 90
+- name: huggingface
+  enabled: true
+  secret_env: null
+  lookback_days: 8
+  page_size: 100
+  max_pages: 5
+  max_results: 500
+  filters: {}
+  backfill_start: '2020-01-01'
+  backfill_days: 90
+topic:
+  include_any: []
+  include_all: []
+  exclude_any: []
+  categories: []
+  plugin: topic_plugin:accept_topic
+fetch:
+  request_timeout_seconds: 30
+  retries: 3
+  backoff_seconds: 1
+  total_deadline_seconds: 900
+conversion:
+  max_batches_per_run: 4
+  max_papers: 10
+  max_cost: 100
+  timeout_seconds: 1800
+  html_cost: 2
+  latex_cost: 4
+  pdf_cost: 20
+concurrency:
+  html: 4
+  latex: 2
+  pdf: 1
