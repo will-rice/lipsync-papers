@@ -1,0 +1,12 @@
+{
+  "collection": [
+    {
+      "doi": "10.1101/2024.01.02.123456",
+      "title": "Fixture Bioacoustics Paper",
+      "authors": "A. Author; B. Author",
+      "date": "2024-01-02",
+      "category": "bioinformatics",
+      "abstract": "Recorded bioRxiv response."
+    }
+  ]
+}

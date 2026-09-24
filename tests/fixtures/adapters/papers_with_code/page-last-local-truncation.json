@@ -1,0 +1,26 @@
+{
+  "count": 2,
+  "next": null,
+  "results": [
+    {
+      "id": "fixture-paper-local-1",
+      "arxiv_id": "2401.00005",
+      "title": "Fixture Papers With Code Local One",
+      "abstract": "Recorded local truncation page one.",
+      "authors": ["E. Author"],
+      "published": "2024-01-06T00:00:00Z",
+      "url_abs": "https://paperswithcode.com/paper/fixture-paper-local-1",
+      "url_pdf": "https://example.test/fixture-local-1.pdf"
+    },
+    {
+      "id": "fixture-paper-local-2",
+      "arxiv_id": "2401.00006",
+      "title": "Fixture Papers With Code Local Two",
+      "abstract": "Recorded local truncation page two.",
+      "authors": ["F. Author"],
+      "published": "2024-01-07T00:00:00Z",
+      "url_abs": "https://paperswithcode.com/paper/fixture-paper-local-2",
+      "url_pdf": "https://example.test/fixture-local-2.pdf"
+    }
+  ]
+}

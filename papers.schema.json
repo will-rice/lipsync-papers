@@ -1,0 +1,339 @@
+{
+  "$defs": {
+    "AdapterConfig": {
+      "additionalProperties": false,
+      "description": "Configuration for one paper source adapter.",
+      "properties": {
+        "backfill_days": {
+          "default": 30,
+          "maximum": 365,
+          "minimum": 1,
+          "title": "Backfill Days",
+          "type": "integer"
+        },
+        "backfill_start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Walk history back to this date, backfill_days per run.",
+          "title": "Backfill Start"
+        },
+        "enabled": {
+          "default": true,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "filters": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Filters",
+          "type": "object"
+        },
+        "lookback_days": {
+          "maximum": 365,
+          "minimum": 1,
+          "title": "Lookback Days",
+          "type": "integer"
+        },
+        "max_pages": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Max Pages",
+          "type": "integer"
+        },
+        "max_results": {
+          "maximum": 10000,
+          "minimum": 1,
+          "title": "Max Results",
+          "type": "integer"
+        },
+        "name": {
+          "enum": [
+            "arxiv",
+            "huggingface",
+            "semantic_scholar",
+            "dblp",
+            "biorxiv_crossref",
+            "papers_with_code"
+          ],
+          "title": "Name",
+          "type": "string"
+        },
+        "page_size": {
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Page Size",
+          "type": "integer"
+        },
+        "secret_env": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Secret Env"
+        }
+      },
+      "required": [
+        "name",
+        "lookback_days",
+        "page_size",
+        "max_pages",
+        "max_results"
+      ],
+      "title": "AdapterConfig",
+      "type": "object"
+    },
+    "ConcurrencyConfig": {
+      "additionalProperties": false,
+      "description": "Concurrency caps for each conversion type.",
+      "properties": {
+        "html": {
+          "maximum": 4,
+          "minimum": 1,
+          "title": "Html",
+          "type": "integer"
+        },
+        "latex": {
+          "maximum": 4,
+          "minimum": 1,
+          "title": "Latex",
+          "type": "integer"
+        },
+        "pdf": {
+          "const": 1,
+          "title": "Pdf",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "html",
+        "latex",
+        "pdf"
+      ],
+      "title": "ConcurrencyConfig",
+      "type": "object"
+    },
+    "ConversionConfig": {
+      "additionalProperties": false,
+      "description": "Conversion budget and batching limits.",
+      "properties": {
+        "html_cost": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Html Cost",
+          "type": "integer"
+        },
+        "latex_cost": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Latex Cost",
+          "type": "integer"
+        },
+        "max_batches_per_run": {
+          "maximum": 20,
+          "minimum": 1,
+          "title": "Max Batches Per Run",
+          "type": "integer"
+        },
+        "max_cost": {
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Max Cost",
+          "type": "integer"
+        },
+        "max_papers": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Max Papers",
+          "type": "integer"
+        },
+        "pdf_cost": {
+          "maximum": 1000,
+          "minimum": 1,
+          "title": "Pdf Cost",
+          "type": "integer"
+        },
+        "timeout_seconds": {
+          "default": 1800,
+          "maximum": 3600,
+          "minimum": 60,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_batches_per_run",
+        "max_papers",
+        "max_cost",
+        "html_cost",
+        "latex_cost",
+        "pdf_cost"
+      ],
+      "title": "ConversionConfig",
+      "type": "object"
+    },
+    "FetchConfig": {
+      "additionalProperties": false,
+      "description": "HTTP retry and deadline limits.",
+      "properties": {
+        "backoff_seconds": {
+          "maximum": 30,
+          "minimum": 0,
+          "title": "Backoff Seconds",
+          "type": "number"
+        },
+        "request_timeout_seconds": {
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Request Timeout Seconds",
+          "type": "number"
+        },
+        "retries": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Retries",
+          "type": "integer"
+        },
+        "total_deadline_seconds": {
+          "maximum": 7200,
+          "minimum": 60,
+          "title": "Total Deadline Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "request_timeout_seconds",
+        "retries",
+        "backoff_seconds",
+        "total_deadline_seconds"
+      ],
+      "title": "FetchConfig",
+      "type": "object"
+    },
+    "RepositoryConfig": {
+      "additionalProperties": false,
+      "description": "Repository metadata copied into the rendered template.",
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "slug": {
+          "pattern": "^[a-z0-9][a-z0-9-]*-papers$",
+          "title": "Slug",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "slug",
+        "description"
+      ],
+      "title": "RepositoryConfig",
+      "type": "object"
+    },
+    "TopicConfig": {
+      "additionalProperties": false,
+      "description": "Keyword and plugin selection for paper discovery.",
+      "properties": {
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Categories",
+          "type": "array"
+        },
+        "exclude_any": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Exclude Any",
+          "type": "array"
+        },
+        "include_all": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Include All",
+          "type": "array"
+        },
+        "include_any": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Include Any",
+          "type": "array"
+        },
+        "plugin": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Plugin"
+        }
+      },
+      "title": "TopicConfig",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Top-level rendered configuration.",
+  "properties": {
+    "adapters": {
+      "items": {
+        "$ref": "#/$defs/AdapterConfig"
+      },
+      "title": "Adapters",
+      "type": "array"
+    },
+    "concurrency": {
+      "$ref": "#/$defs/ConcurrencyConfig"
+    },
+    "conversion": {
+      "$ref": "#/$defs/ConversionConfig"
+    },
+    "fetch": {
+      "$ref": "#/$defs/FetchConfig"
+    },
+    "repository": {
+      "$ref": "#/$defs/RepositoryConfig"
+    },
+    "topic": {
+      "$ref": "#/$defs/TopicConfig"
+    }
+  },
+  "required": [
+    "repository",
+    "adapters",
+    "topic",
+    "fetch",
+    "conversion",
+    "concurrency"
+  ],
+  "title": "PipelineConfig",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>https://arxiv.org/abs/2312.12345</id>
+    <published>2023-12-15T00:00:00Z</published>
+    <title>Older Fixture</title>
+    <summary>Excluded by date window.</summary>
+    <author><name>Older Author</name></author>
+    <category term="cs.CL"/>
+  </entry>
+</feed>

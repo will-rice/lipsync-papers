@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <entry>
+    <id>https://arxiv.org/abs/2401.00002</id>
+    <published>2024-01-03T00:00:00Z</published>
+    <title>Second Fixture Speech Paper</title>
+    <summary>Recorded continuation page.</summary>
+    <author><name>C. Author</name></author>
+    <category term="cs.CL"/>
+  </entry>
+</feed>

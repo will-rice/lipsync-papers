@@ -1,0 +1,21 @@
+{
+  "message": {
+    "items": [
+      {
+        "DOI": "10.1000/fixture-2",
+        "title": ["Fixture Journal Paper Two"],
+        "abstract": "Recorded second Crossref response.",
+        "author": [{"given": "B.", "family": "Author"}],
+        "published": {"date-parts": [[2024]]},
+        "URL": "https://doi.org/10.1000/fixture-2",
+        "link": [
+          {
+            "URL": "https://example.test/fixture-2.pdf",
+            "content-type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "next-cursor": "cursor-3"
+  }
+}

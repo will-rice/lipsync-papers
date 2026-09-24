@@ -1,0 +1,16 @@
+{
+  "count": 1,
+  "next": "https://evil.test/api/v1/papers/?page=2",
+  "results": [
+    {
+      "id": "fixture-paper",
+      "arxiv_id": "2401.00001",
+      "title": "Fixture Machine Learning Paper",
+      "abstract": "Recorded Papers With Code response.",
+      "authors": ["A. Author"],
+      "published": "2024-01-02T00:00:00Z",
+      "url_abs": "https://paperswithcode.com/paper/fixture-paper",
+      "url_pdf": "https://example.test/fixture.pdf"
+    }
+  ]
+}

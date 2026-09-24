@@ -1,0 +1,21 @@
+{
+  "message": {
+    "items": [
+      {
+        "DOI": "10.1000/fixture-last-blank",
+        "title": ["Fixture Crossref Final Page Blank Cursor"],
+        "abstract": "Recorded final Crossref response with blank next-cursor.",
+        "author": [{"given": "D.", "family": "Author"}],
+        "published": {"date-parts": [[2024, 1, 5]]},
+        "URL": "https://doi.org/10.1000/fixture-last-blank",
+        "link": [
+          {
+            "URL": "https://example.test/crossref-last-blank.pdf",
+            "content-type": "application/pdf"
+          }
+        ]
+      }
+    ],
+    "next-cursor": "   "
+  }
+}

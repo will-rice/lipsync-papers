@@ -1,0 +1,16 @@
+{
+  "count": 1,
+  "next": null,
+  "results": [
+    {
+      "id": "fixture-paper-last",
+      "arxiv_id": "2401.00003",
+      "title": "Fixture Final Papers With Code Page",
+      "abstract": "Recorded final Papers With Code response.",
+      "authors": ["C. Author"],
+      "published": "2024-01-04T00:00:00Z",
+      "url_abs": "https://paperswithcode.com/paper/fixture-paper-last",
+      "url_pdf": "https://example.test/fixture-last.pdf"
+    }
+  ]
+}

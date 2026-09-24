@@ -1,28 +1,19 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
-      - id: trailing-whitespace
-        exclude: ^(papers/|tests/fixtures/)
-      - id: end-of-file-fixer
-        exclude: ^(papers/|tests/fixtures/)
-      - id: check-yaml
-      - id: check-added-large-files
-        args: ["--maxkb=2000"]
-
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.12
-    hooks:
-      - id: ruff
-        args: ["--fix"]
-      - id: ruff-format
-
   - repo: local
     hooks:
-      - id: prettier
-        name: prettier (markdown)
-        # Uses the repo-pinned Prettier from node_modules (run `npm ci` first),
-        # so pre-commit, CI, and the conversion pipeline all format identically.
-        entry: npx prettier --write
+      - id: ruff-check
+        name: ruff check
+        entry: ruff check --fix
         language: system
-        types: [markdown]
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        entry: ruff format
+        language: system
+        types: [python]
+      - id: ty
+        name: ty
+        entry: ty check
+        language: system
+        pass_filenames: false
+        types: [python]

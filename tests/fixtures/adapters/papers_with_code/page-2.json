@@ -1,0 +1,16 @@
+{
+  "count": 1,
+  "next": "https://paperswithcode.com/api/v1/papers/?page=3",
+  "results": [
+    {
+      "id": "fixture-paper-2",
+      "arxiv_id": "2401.00002",
+      "title": "Fixture Machine Learning Paper Two",
+      "abstract": "Recorded second Papers With Code response.",
+      "authors": ["B. Author"],
+      "published": "2024-01-03T00:00:00Z",
+      "url_abs": "https://paperswithcode.com/paper/fixture-paper-2",
+      "url_pdf": "https://example.test/fixture-2.pdf"
+    }
+  ]
+}

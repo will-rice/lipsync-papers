@@ -1,0 +1,11 @@
+[
+  {
+    "paper": {
+      "id": "2312.12345",
+      "title": "Older Fixture",
+      "summary": "Excluded by date window.",
+      "authors": [{"name": "Older Author"}],
+      "publishedAt": "2023-12-15T00:00:00Z"
+    }
+  }
+]
