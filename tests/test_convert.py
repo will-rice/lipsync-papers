@@ -107,6 +107,7 @@ class TrackingRunner(CommandRunner):
         self.delay = delay
         self.delays = dict(delays or {})
         self.timeouts: list[float] = []
+        self.inputs: list[bytes] = []
         self.active = {"html": 0, "latex": 0, "pdf": 0}
         self.maximum_active = {"html": 0, "latex": 0, "pdf": 0}
 
@@ -119,6 +120,7 @@ class TrackingRunner(CommandRunner):
         assert input_path.is_absolute()
         assert "://" not in argv[1]
         original_url = self.materializer.lookup(input_path)
+        self.inputs.append(input_path.read_bytes())
         behavior = self.behaviors.get(original_url, "success")
         self.active[kind] += 1
         self.maximum_active[kind] = max(self.maximum_active[kind], self.active[kind])
@@ -1127,3 +1129,80 @@ def _is_process_alive(pid: int) -> bool:
     except PermissionError:
         return True
     return True
+
+
+def arxiv_paper() -> Paper:
+    return paper("arxiv:2401.12345", input_format="pdf").model_copy(
+        update={"arxiv_id": "2401.12345"}
+    )
+
+
+ARXIV_HTML_URL = "https://arxiv.org/html/2401.12345"
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    ("html", "expected_kind"),
+    [
+        ("arxiv.html", "html"),
+        (None, "pdf"),  # arXiv has no HTML (404)
+        ("not-latexml.html", "pdf"),  # a page that is not a LaTeXML document
+    ],
+)
+async def test_arxiv_papers_convert_from_arxiv_html_before_their_input(
+    tmp_path: Path, state: PipelineState, html: str | None, expected_kind: str
+) -> None:
+    target = arxiv_paper()
+    fixtures = {target.input_url: fixture_for(target)}
+    if html is not None:
+        fixtures[ARXIV_HTML_URL] = FIXTURES / html
+    fake_materializer = FakeMaterializer(
+        fixtures=fixtures,
+        behaviors={} if html is not None else {ARXIV_HTML_URL: "paper_error"},
+    )
+    runner = TrackingRunner(materializer=fake_materializer)
+
+    result = await convert_batch(
+        Batch(papers=(target,), estimated_cost=1),
+        tmp_path,
+        state,
+        CONCURRENCY,
+        runner,
+        fake_materializer,
+        NOW,
+    )
+
+    assert result.succeeded[0].paper == target
+    assert runner.maximum_active[expected_kind] == 1
+    assert len(runner.inputs) == 1
+    if expected_kind == "html":
+        # Only the LaTeXML article reaches pandoc, not arXiv's page chrome.
+        assert runner.inputs[0].startswith(b'<article class="ltx_document')
+        assert b"Report GitHub Issue" not in runner.inputs[0]
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    ("input_format", "url", "suffix"),
+    [
+        ("pdf", "https://arxiv.org/pdf/1511.06841", ".pdf"),
+        ("html", "https://arxiv.org/html/1511.06841", ".html"),
+        ("latex", "https://example.test/paper", ".tex"),
+    ],
+)
+async def test_materialized_inputs_are_named_by_format_not_url(
+    tmp_path: Path, input_format: InputFormat, url: str, suffix: str
+) -> None:
+    # arXiv IDs contain a dot, so the URL "suffix" would be ".06841".
+    target = paper("arxiv:1511.06841", input_format=input_format).model_copy(
+        update={"input_url": url}
+    )
+
+    async def downloader(_url: str, _timeout: float) -> bytes:
+        return b"input"
+
+    result = await DownloadingMaterializer(downloader=downloader).materialize(
+        target, tmp_path
+    )
+
+    assert result.suffix == suffix

@@ -130,6 +130,13 @@
       "additionalProperties": false,
       "description": "Conversion budget and batching limits.",
       "properties": {
+        "deadline_seconds": {
+          "default": 10800,
+          "maximum": 18000,
+          "minimum": 600,
+          "title": "Deadline Seconds",
+          "type": "integer"
+        },
         "html_cost": {
           "maximum": 100,
           "minimum": 1,

@@ -15,7 +15,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # Hosted runners allow 6 hours; conversion stops starting batches at its
+    # deadline_seconds so the run pushes well before this.
+    timeout-minutes: 350
     steps:
       - name: Check out main
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -50,7 +52,7 @@ jobs:
           PY
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Run and publish bounded batches
-        timeout-minutes: 105
+        timeout-minutes: 330
         env:
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
         run: .github/scripts/nightly.sh
