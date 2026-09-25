@@ -237,9 +237,6 @@ async def test_huggingface_enumerates_each_utc_date_and_resumes_mid_range(
 ) -> None:
     transport = fixture_transport(
         {
-            "https://huggingface.co/api/daily_papers?date=2024-01-08&p=0&limit=2": {
-                "fixture": "adapters/huggingface/empty.json"
-            },
             "https://huggingface.co/api/daily_papers?date=2024-01-07&p=0&limit=2": {
                 "fixture": "adapters/huggingface/day-7.json"
             },
@@ -265,9 +262,9 @@ async def test_huggingface_enumerates_each_utc_date_and_resumes_mid_range(
         end=datetime(2024, 1, 8, tzinfo=timezone.utc),
     )
 
+    # The first day requested is the one before the window ends; the API
+    # rejects days it has not published yet.
     page = await adapter.fetch(window, None, client, huggingface_config)
-    assert page.records == ()
-    page = await adapter.fetch(window, page.next_cursor, client, huggingface_config)
     assert tuple(record.source_id for record in page.records) == ("2401.00007",)
     resume_cursor = page.next_cursor
 

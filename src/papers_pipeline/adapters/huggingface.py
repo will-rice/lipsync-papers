@@ -30,10 +30,14 @@ class HuggingFaceAdapter:
         config: AdapterConfig,
     ) -> FetchPage:
         state = _decode_cursor(cursor)
+        # The API rejects dates after its latest published day (HTTP 400), which
+        # lags "today" in UTC. Start the day before the window ends: the lookback
+        # windows overlap, so today's list is fetched by the next run, and a
+        # backfill chunk's end day is covered by the chunk after it.
         current_date = (
             date.fromisoformat(state["date"])
             if state["date"] is not None
-            else window.end.date()
+            else (window.end - timedelta(days=1)).date()
         )
         text = await client.get_text(
             "https://huggingface.co/api/daily_papers",
