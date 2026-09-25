@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Protocol, cast
 from urllib.parse import SplitResult, urljoin, urlsplit
 
-from papers_pipeline.errors import InfrastructureError, PaperError
+from papers_pipeline.errors import PaperError
 
 MAX_REDIRECTS = 5
 
@@ -144,6 +144,14 @@ class _PinnedHTTPSConnection(http.client.HTTPSConnection):
 
 
 class RemoteDownloader:
+    """Download one paper's conversion input from a validated public host.
+
+    Every failure here concerns a single paper's host (DNS, connection, any
+    HTTP error status), so it is a PaperError: the paper records a failure
+    (three strikes, then a fixme marker) and the batch and run continue.
+    Failures reset on success, so a transient outage costs one attempt.
+    """
+
     def __init__(
         self,
         *,
@@ -173,9 +181,7 @@ class RemoteDownloader:
             if addresses is None:
                 addresses = await self._resolver.resolve(host, port)
         except (OSError, ValueError) as error:
-            raise InfrastructureError(
-                f"conversion input resolution failed: {url}"
-            ) from error
+            raise PaperError(f"conversion input resolution failed: {url}") from error
 
         validated = _validate_addresses(addresses, url)
         # Stable preference avoids DNS-order-dependent behavior.
@@ -195,9 +201,7 @@ class RemoteDownloader:
                 timeout=timeout,
             )
         except (OSError, http.client.HTTPException) as error:
-            raise InfrastructureError(
-                f"conversion input network failure: {url}"
-            ) from error
+            raise PaperError(f"conversion input network failure: {url}") from error
 
 
 def _validate_origin(parts: SplitResult, url: str) -> tuple[str, int]:
@@ -231,13 +235,11 @@ def _validate_addresses(
     addresses: tuple[str, ...], url: str
 ) -> tuple[ipaddress.IPv4Address | ipaddress.IPv6Address, ...]:
     if not addresses:
-        raise InfrastructureError(
-            f"conversion input resolution returned no addresses: {url}"
-        )
+        raise PaperError(f"conversion input resolution returned no addresses: {url}")
     try:
         parsed = tuple(ipaddress.ip_address(address) for address in addresses)
     except ValueError as error:
-        raise InfrastructureError(
+        raise PaperError(
             f"conversion input resolution returned an invalid address: {url}"
         ) from error
     if any(
@@ -262,13 +264,6 @@ def _host_header(host: str, port: int, scheme: str) -> str:
 
 def _classify_response(response: HttpResponse, url: str) -> bytes:
     status = response.status_code
-    # A host refusing or rate-limiting one paper (paywall, bot check, 429) fails
-    # that paper; failures are counted per paper and reset on success, so a
-    # transient block costs one attempt instead of stalling every run.
-    if status == 408:
-        raise InfrastructureError(f"conversion input HTTP 408: {url}")
-    if 400 <= status < 500:
-        raise PaperError(f"conversion input HTTP {status}: {url}")
     if status >= 400:
-        raise InfrastructureError(f"conversion input HTTP {status}: {url}")
+        raise PaperError(f"conversion input HTTP {status}: {url}")
     return response.content
