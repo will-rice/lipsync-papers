@@ -22,6 +22,7 @@ class RunSummary:
     attempted: int = 0
     succeeded: int = 0
     failed: int = 0
+    deferred: int = 0
     promoted_to_fixme: int = 0
     timings: dict[str, float] = field(default_factory=dict)
     events: list[str] = field(default_factory=list)
@@ -67,6 +68,7 @@ class RunSummary:
                     f"- attempted: {self.attempted}",
                     f"- succeeded: {self.succeeded}",
                     f"- failed: {self.failed}",
+                    f"- deferred: {self.deferred}",
                     f"- promoted_to_fixme: {self.promoted_to_fixme}",
                     "",
                     "## Timings",

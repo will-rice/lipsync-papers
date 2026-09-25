@@ -20,7 +20,8 @@ from papers_pipeline.convert import (
     DownloadingMaterializer,
     convert_batch,
 )
-from papers_pipeline.errors import InfrastructureError, PaperError
+from papers_pipeline import convert
+from papers_pipeline.errors import InfrastructureError, PaperError, RateLimitedError
 from papers_pipeline.http import RequestClient
 from papers_pipeline.models import FailureAttempt, InputFormat, Paper, PipelineState
 from papers_pipeline.remote import HttpResponse, RemoteDownloader
@@ -362,7 +363,7 @@ async def test_downloading_materializer_maps_disk_errors_to_infrastructure_error
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("status_code", [400, 401, 403, 404, 410, 422, 429])
+@pytest.mark.parametrize("status_code", [400, 401, 403, 404, 410, 422])
 async def test_permanent_download_http_errors_are_paper_errors(
     status_code: int,
 ) -> None:
@@ -373,6 +374,96 @@ async def test_permanent_download_http_errors_are_paper_errors(
 
     with pytest.raises(PaperError, match=f"HTTP {status_code}"):
         await downloader.download("https://example.test/missing.pdf", 1)
+
+
+@pytest.mark.asyncio
+async def test_http_429_is_rate_limited() -> None:
+    downloader = RemoteDownloader(
+        resolver=FakeResolver(("8.8.8.8",)),
+        connector=FakeConnector(HttpResponse(status_code=429, content=b"")),
+    )
+
+    with pytest.raises(RateLimitedError, match="HTTP 429"):
+        await downloader.download("https://example.test/busy.pdf", 1)
+
+
+@pytest.mark.asyncio
+async def test_rate_limited_paper_is_deferred_without_a_strike(tmp_path: Path) -> None:
+    limited = paper("doi:limited", input_format="html")
+    successful = paper("doi:success", input_format="html")
+    earlier = [FailureAttempt(occurred_at=NOW.replace(day=22), error="HTTP 404")]
+    successful_materializer = FakeMaterializer(
+        fixtures={successful.input_url: fixture_for(successful)}
+    )
+
+    class LimitedMaterializer:
+        async def materialize(self, paper: Paper, root: Path) -> Path:
+            if paper == limited:
+                raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
+            return await successful_materializer.materialize(paper, root)
+
+    result = await convert_batch(
+        Batch(papers=(successful, limited), estimated_cost=2),
+        tmp_path,
+        PipelineState(failures={limited.identifier: earlier}),
+        CONCURRENCY,
+        TrackingRunner(materializer=successful_materializer),
+        LimitedMaterializer(),
+        NOW,
+    )
+
+    assert [item.paper for item in result.succeeded] == [successful]
+    assert result.failed == ()
+    assert [item.paper for item in result.deferred] == [limited]
+    assert result.state.failures == {limited.identifier: earlier}
+    assert infer_backlog([limited], tmp_path).pending == (limited,)
+
+
+@pytest.mark.asyncio
+async def test_materializer_stops_contacting_a_host_after_http_429(
+    tmp_path: Path,
+) -> None:
+    requested: list[str] = []
+
+    async def downloader(url: str, timeout: float) -> bytes:
+        requested.append(url)
+        if urlsplit(url).hostname == "busy.test":
+            raise RateLimitedError(f"conversion input HTTP 429: {url}")
+        return b"<html></html>"
+
+    materializer = DownloadingMaterializer(downloader=downloader)
+    for url in ("https://busy.test/1", "https://busy.test/2"):
+        with pytest.raises(RateLimitedError):
+            await materializer.download(url)
+    await materializer.download("https://calm.test/1")
+
+    assert requested == ["https://busy.test/1", "https://calm.test/1"]
+
+
+@pytest.mark.asyncio
+async def test_materializer_paces_listed_hosts(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(convert, "HOST_MIN_INTERVAL_SECONDS", {"slow.test": 0.2})
+    loop = asyncio.get_running_loop()
+    started: dict[str, float] = {}
+
+    async def downloader(url: str, timeout: float) -> bytes:
+        started[url] = loop.time()
+        return b"<html></html>"
+
+    materializer = DownloadingMaterializer(downloader=downloader)
+    await asyncio.gather(
+        *(
+            materializer.download(url)
+            for url in (
+                "https://slow.test/1",
+                "https://slow.test/2",
+                "https://fast.test/1",
+            )
+        )
+    )
+
+    assert started["https://slow.test/2"] - started["https://slow.test/1"] >= 0.2
+    assert started["https://fast.test/1"] - started["https://slow.test/1"] < 0.2
 
 
 class FakeResolver:

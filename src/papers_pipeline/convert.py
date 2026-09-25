@@ -9,11 +9,12 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Protocol
+from urllib.parse import urlsplit
 from uuid import uuid4
 
 from papers_pipeline.batching import Batch, expected_markdown
 from papers_pipeline.config import ConcurrencyConfig
-from papers_pipeline.errors import InfrastructureError, PaperError
+from papers_pipeline.errors import InfrastructureError, PaperError, RateLimitedError
 from papers_pipeline.front_matter import with_front_matter
 from papers_pipeline.models import FailureAttempt, Paper, PipelineState
 from papers_pipeline.remote import RemoteDownloader
@@ -25,6 +26,9 @@ _PANDOC_TOOL = "pandoc"
 # arXiv renders most papers to HTML with LaTeXML. Converting that article with
 # pandoc takes under a second, versus minutes of CPU OCR per PDF with marker.
 _ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
+# Hosts that block bursts of automated downloads get one request at a time,
+# spaced by this many seconds.
+HOST_MIN_INTERVAL_SECONDS = {"www.biorxiv.org": 10.0}
 _LATEXML_ARTICLE = re.compile(r'<article class="ltx_document.*?</article>', re.DOTALL)
 _DOCUMENT_FAILURE_PATTERNS = (
     re.compile(
@@ -164,11 +168,21 @@ def _is_document_failure(returncode: int, output: str) -> bool:
 
 
 class DownloadingMaterializer:
+    """Download conversion inputs, staying gentle with rate-limiting hosts.
+
+    One instance serves a whole run: once a host answers HTTP 429 it is not
+    contacted again this run, and hosts in HOST_MIN_INTERVAL_SECONDS are
+    paced. Papers on a rate-limited host are deferred to a later run.
+    """
+
     def __init__(
         self,
         downloader: Callable[[str, float], Awaitable[bytes]] | None = None,
     ) -> None:
         self._downloader = downloader or _download_bytes
+        self._host_locks: dict[str, asyncio.Lock] = {}
+        self._last_request: dict[str, float] = {}
+        self._rate_limited: set[str] = set()
 
     async def materialize(self, paper: Paper, root: Path) -> Path:
         # The downloader validates the URL scheme, host and resolved addresses.
@@ -178,7 +192,7 @@ class DownloadingMaterializer:
         target = (
             root / "inputs" / f"{_materialized_name(paper, paper.input_url)}{suffix}"
         )
-        payload = await self._downloader(paper.input_url, _DEFAULT_CONVERSION_TIMEOUT)
+        payload = await self.download(paper.input_url)
         # Links labelled PDF sometimes serve an HTML landing page; the PDF
         # header must appear within the first 1024 bytes.
         if paper.input_format == "pdf" and b"%PDF-" not in payload[:1024]:
@@ -192,6 +206,26 @@ class DownloadingMaterializer:
                 f"conversion input cache write failed: {paper.input_url}"
             ) from error
         return target
+
+    async def download(self, url: str) -> bytes:
+        host = urlsplit(url).hostname or ""
+        interval = HOST_MIN_INTERVAL_SECONDS.get(host, 0.0)
+        async with self._host_locks.setdefault(host, asyncio.Lock()):
+            if host in self._rate_limited:
+                raise RateLimitedError(
+                    f"conversion input host rate-limited this run: {url}"
+                )
+            loop = asyncio.get_running_loop()
+            wait = self._last_request.get(host, -interval) + interval - loop.time()
+            if wait > 0:
+                await asyncio.sleep(wait)
+            try:
+                return await self._downloader(url, _DEFAULT_CONVERSION_TIMEOUT)
+            except RateLimitedError:
+                self._rate_limited.add(host)
+                raise
+            finally:
+                self._last_request[host] = loop.time()
 
 
 class InputMaterializer(Protocol):
@@ -209,6 +243,7 @@ class PaperConversion:
 class ConversionResult:
     succeeded: tuple[PaperConversion, ...]
     failed: tuple[PaperConversion, ...]
+    deferred: tuple[PaperConversion, ...]
     promoted: tuple[Path, ...]
     state: PipelineState
 
@@ -218,6 +253,7 @@ class _PreparedConversion:
     paper: Paper
     staged_output: Path | None
     error: str | None
+    deferred: bool = False
 
 
 def command_for(paper: Paper, input_path: Path, output: Path) -> list[str]:
@@ -317,6 +353,10 @@ async def convert_batch(
             return _PreparedConversion(
                 paper=paper, staged_output=staged_output, error=None
             )
+        except RateLimitedError as error:
+            return _PreparedConversion(
+                paper=paper, staged_output=None, error=str(error), deferred=True
+            )
         except PaperError as error:
             return _PreparedConversion(
                 paper=paper, staged_output=None, error=str(error)
@@ -350,11 +390,19 @@ async def convert_batch(
             for identifier, attempts in state.failures.items()
         }
         failed: list[PaperConversion] = []
+        deferred: list[PaperConversion] = []
         promoted: list[Path] = []
 
         for result in results:
             if result.error is None:
                 failures.pop(result.paper.identifier, None)
+                continue
+            # A rate limit says nothing about the paper: leave it pending
+            # without a strike so a later run retries it.
+            if result.deferred:
+                deferred.append(
+                    PaperConversion(paper=result.paper, output=None, error=result.error)
+                )
                 continue
 
             failed.append(
@@ -381,6 +429,7 @@ async def convert_batch(
         return ConversionResult(
             succeeded=succeeded,
             failed=tuple(failed),
+            deferred=tuple(deferred),
             promoted=tuple(promoted),
             state=state.model_copy(update={"failures": failures}),
         )

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Protocol, cast
 from urllib.parse import SplitResult, urljoin, urlsplit
 
-from papers_pipeline.errors import PaperError
+from papers_pipeline.errors import PaperError, RateLimitedError
 
 MAX_REDIRECTS = 5
 
@@ -150,6 +150,8 @@ class RemoteDownloader:
     HTTP error status), so it is a PaperError: the paper records a failure
     (three strikes, then a fixme marker) and the batch and run continue.
     Failures reset on success, so a transient outage costs one attempt.
+    HTTP 429 is a RateLimitedError instead, which defers the paper without
+    recording a failure.
     """
 
     def __init__(
@@ -264,6 +266,8 @@ def _host_header(host: str, port: int, scheme: str) -> str:
 
 def _classify_response(response: HttpResponse, url: str) -> bytes:
     status = response.status_code
+    if status == 429:
+        raise RateLimitedError(f"conversion input HTTP 429: {url}")
     if status >= 400:
         raise PaperError(f"conversion input HTTP {status}: {url}")
     return response.content
