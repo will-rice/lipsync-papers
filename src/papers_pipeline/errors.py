@@ -19,3 +19,7 @@ class SourceUnavailableError(InfrastructureError):
 
 class PaperError(PipelineError):
     """One paper failed without invalidating unrelated work."""
+
+
+class RateLimitedError(PaperError):
+    """A paper's host refused the request (HTTP 429); retry in a later run."""

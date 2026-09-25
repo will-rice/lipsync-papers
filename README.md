@@ -1297,10 +1297,13 @@ deterministic batches.
 
 A paper failure does not stop peers. A third consecutive scheduled failure
 creates a colocated `.fixme.txt`; fix the input and remove the marker to retry.
-Permanent per-paper download failures (including HTTP 404/410 and invalid input
-URLs) count toward that paper's failure history without cancelling peers.
-Authentication, rate limits, outages, network/timeouts, disk failures, missing
-tools, and resource exhaustion fail the run explicitly.
+Any failure downloading one paper's input (HTTP errors, DNS, connection
+failures, timeouts, invalid URLs) counts toward that paper's failure history
+without cancelling peers. HTTP 429 is the exception: the paper is deferred
+without a strike, its host is not contacted again that run, and a later run
+retries it. Hosts known to block bursts (bioRxiv) are also paced to one request
+at a time. Source API failures skip that source for the run; disk failures,
+missing tools, and resource exhaustion fail the run explicitly.
 
 ## Formatting
 
@@ -1311,7 +1314,7 @@ corpus formatting runs only through the manual sharded workflow.
 
 The nightly Actions summary reports per-source fetched, accepted,
 deduplicated, and rejected counts; inventory, generated, pending, attempted,
-succeeded, failed, and fixme counts; timings; continuation, cap, retry, and
+succeeded, failed, deferred, and fixme counts; timings; continuation, cap, retry, and
 deadline events; and fixme paths.
 
 The weekly template workflow runs Copier against an explicit release,

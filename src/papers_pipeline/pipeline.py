@@ -192,6 +192,7 @@ async def run_nightly(
                 state = converted.state
                 summary.succeeded += len(converted.succeeded)
                 summary.failed += len(converted.failed)
+                summary.deferred += len(converted.deferred)
                 summary.promoted_to_fixme += len(converted.promoted)
                 summary.fixme_paths.extend(str(path) for path in converted.promoted)
                 summary.events.extend(
@@ -200,6 +201,10 @@ async def run_nightly(
                         f"{item.error or 'unknown error'}"
                     )
                     for item in converted.failed
+                )
+                summary.events.extend(
+                    f"conversion deferred: {item.paper.identifier}: {item.error}"
+                    for item in converted.deferred
                 )
 
                 index_before = _file_content(index_path)
