@@ -562,7 +562,7 @@ async def test_remote_downloader_rejects_every_non_public_address_class(
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize("failure", [OSError("DNS failed"), OSError("socket failed")])
-async def test_remote_downloader_maps_resolution_and_socket_errors_to_infrastructure(
+async def test_remote_downloader_maps_resolution_and_socket_errors_to_paper_errors(
     failure: OSError,
 ) -> None:
     if "DNS" in str(failure):
@@ -575,55 +575,45 @@ async def test_remote_downloader_maps_resolution_and_socket_errors_to_infrastruc
             connector=FakeConnector(error=failure),
         )
 
-    with pytest.raises(InfrastructureError):
+    with pytest.raises(PaperError):
         await downloader.download("https://papers.example/paper.pdf", 1)
 
 
 @pytest.mark.asyncio
-async def test_http_408_aborts_mixed_batch_without_mutating_failure_state(
-    tmp_path: Path,
+@pytest.mark.parametrize("status_code", [408, 500, 503])
+async def test_unavailable_input_host_fails_only_its_paper(
+    tmp_path: Path, status_code: int
 ) -> None:
-    timed_out = paper("arxiv:timeout", input_format="html")
+    unavailable = paper("arxiv:unavailable", input_format="html")
     successful = paper("arxiv:success", input_format="html")
-    prior_state = PipelineState(
-        failures={
-            timed_out.identifier: [
-                FailureAttempt(occurred_at=NOW.replace(day=21), error="old failure"),
-                FailureAttempt(occurred_at=NOW.replace(day=22), error="old failure"),
-            ]
-        }
+    remote = RemoteDownloader(
+        resolver=FakeResolver(("8.8.8.8",)),
+        connector=FakeConnector(HttpResponse(status_code=status_code, content=b"")),
     )
-    connector = FakeConnector(HttpResponse(status_code=408, content=b""))
-    remote = RemoteDownloader(resolver=FakeResolver(("8.8.8.8",)), connector=connector)
     successful_materializer = FakeMaterializer(
         fixtures={successful.input_url: fixture_for(successful)}
     )
 
     class MixedMaterializer:
         async def materialize(self, paper: Paper, root: Path) -> Path:
-            if paper == timed_out:
+            if paper == unavailable:
                 await remote.download(paper.input_url, 1)
-                raise AssertionError("408 download returned")
+                raise AssertionError(f"HTTP {status_code} download returned")
             return await successful_materializer.materialize(paper, root)
 
-    for _ in range(2):
-        with pytest.raises(InfrastructureError, match="HTTP 408"):
-            await convert_batch(
-                Batch(papers=(successful, timed_out), estimated_cost=2),
-                tmp_path,
-                prior_state,
-                CONCURRENCY,
-                TrackingRunner(materializer=successful_materializer),
-                MixedMaterializer(),
-                NOW,
-            )
-        assert prior_state.failures[timed_out.identifier][0].error == "old failure"
-        assert len(prior_state.failures[timed_out.identifier]) == 2
-        assert (
-            not expected_markdown(tmp_path, timed_out)
-            .with_suffix(".fixme.txt")
-            .exists()
-        )
+    result = await convert_batch(
+        Batch(papers=(successful, unavailable), estimated_cost=2),
+        tmp_path,
+        PipelineState(),
+        CONCURRENCY,
+        TrackingRunner(materializer=successful_materializer),
+        MixedMaterializer(),
+        NOW,
+    )
+
+    assert [item.paper for item in result.succeeded] == [successful]
+    assert [item.paper for item in result.failed] == [unavailable]
+    assert f"HTTP {status_code}" in (result.failed[0].error or "")
 
 
 @pytest.mark.asyncio
