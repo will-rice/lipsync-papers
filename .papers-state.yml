@@ -4,7 +4,7 @@ backfill:
     covered_from: '1991-08-01T00:00:00Z'
   huggingface:
     continuation:
-      cursor: eyJkYXRlIjoiMjAyNC0wNi0yNCIsInBhZ2UiOjEsInNvdXJjZV9jb25zdW1lZCI6ODI0fQ
+      cursor: eyJkYXRlIjoiMjAyNC0wNC0yMyIsInBhZ2UiOjEsInNvdXJjZV9jb25zdW1lZCI6MTI3MX0
       window_end: '2024-09-16T23:26:14.719220Z'
       window_start: '2023-09-17T23:26:14.719220Z'
     covered_from: '2024-09-16T23:26:14.719220Z'
