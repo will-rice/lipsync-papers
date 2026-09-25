@@ -360,14 +360,14 @@ def huggingface_client(
             _huggingface_route(
                 page=0,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page.json",
             },
             _huggingface_route(
                 page=1,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page-2.json",
             },
@@ -387,7 +387,7 @@ def huggingface_malformed_client(
             _huggingface_route(
                 page=0,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page-malformed-record.json",
             }
@@ -407,7 +407,7 @@ def huggingface_invalid_json_client(
             _huggingface_route(
                 page=0,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page-invalid.json",
             }
@@ -427,14 +427,14 @@ def huggingface_out_of_window_only_client(
             _huggingface_route(
                 page=0,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page-out-of-window-only.json",
             },
             _huggingface_route(
                 page=1,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page-2.json",
             },
@@ -454,7 +454,7 @@ def huggingface_malformed_only_client(
             _huggingface_route(
                 page=0,
                 page_size=huggingface_config.page_size,
-                date="2024-01-08",
+                date="2024-01-07",
             ): {
                 "fixture": "adapters/huggingface/page-malformed-only.json",
             }
