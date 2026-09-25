@@ -179,6 +179,10 @@ class DownloadingMaterializer:
             root / "inputs" / f"{_materialized_name(paper, paper.input_url)}{suffix}"
         )
         payload = await self._downloader(paper.input_url, _DEFAULT_CONVERSION_TIMEOUT)
+        # Links labelled PDF sometimes serve an HTML landing page; the PDF
+        # header must appear within the first 1024 bytes.
+        if paper.input_format == "pdf" and b"%PDF-" not in payload[:1024]:
+            raise PaperError(f"conversion input is not a PDF: {paper.input_url}")
         # root is the per-batch workspace, which is removed after the batch.
         try:
             target.parent.mkdir(parents=True, exist_ok=True)

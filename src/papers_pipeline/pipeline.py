@@ -243,14 +243,23 @@ async def run_nightly(
 
 
 def has_more_work(
-    config: PipelineConfig, state: PipelineState, summary: RunSummary
+    config: PipelineConfig,
+    before: PipelineState,
+    after: PipelineState,
+    summary: RunSummary,
 ) -> bool:
     """Whether another run right away would make progress.
 
-    True while any backfill has not reached its start date, or while papers
-    remain pending and this run converted some; a run that converted nothing
-    will not convert more by running again.
+    Work remains while any backfill has not reached its start date or papers
+    are pending. Another run is only worth it if this one moved: its backfill
+    advanced or it converted papers. A run stalled by an unavailable source or
+    a stuck backlog ends the chain; the schedule retries later.
     """
+    progressed = after.backfill != before.backfill or summary.succeeded > 0
+    return progressed and (summary.pending > 0 or _backfill_incomplete(config, after))
+
+
+def _backfill_incomplete(config: PipelineConfig, state: PipelineState) -> bool:
     for adapter in config.adapters:
         if not adapter.enabled or adapter.backfill_start is None:
             continue
@@ -262,7 +271,7 @@ def has_more_work(
             or progress.covered_from > limit
         ):
             return True
-    return summary.pending > 0 and summary.succeeded > 0
+    return False
 
 
 def _record_source_results(

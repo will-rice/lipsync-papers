@@ -86,6 +86,7 @@ def app(
             tool_lookup=tool_lookup,
         )
         state_path = root / ".papers-state.yml"
+        state_before = load_state(state_path)
         summary = asyncio.run(
             run_nightly(
                 PipelinePaths(
@@ -100,7 +101,9 @@ def app(
         )
         # The nightly workflow dispatches the next run while this is true.
         if "GITHUB_OUTPUT" in os.environ:
-            more_work = has_more_work(config, load_state(state_path), summary)
+            more_work = has_more_work(
+                config, state_before, load_state(state_path), summary
+            )
             with Path(os.environ["GITHUB_OUTPUT"]).open(
                 "a", encoding="utf-8"
             ) as output:

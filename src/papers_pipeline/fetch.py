@@ -6,7 +6,7 @@ from datetime import UTC, datetime, time, timedelta
 
 from papers_pipeline.adapters.base import Adapter, FetchPage, FetchWindow
 from papers_pipeline.config import AdapterConfig, PipelineConfig
-from papers_pipeline.errors import InfrastructureError
+from papers_pipeline.errors import InfrastructureError, SourceUnavailableError
 from papers_pipeline.http import Deadline, RequestClient
 from papers_pipeline.models import (
     BackfillProgress,
@@ -113,26 +113,41 @@ async def fetch_all(
         )
         starting_cursor = continuation.cursor if continuation else None
 
-        async with client_factory(deadline) as client:
-            forward = await _fetch_window(
-                adapter,
-                config,
-                adapter_index,
-                window,
-                starting_cursor,
-                client,
-                max_pages=adapter_config.max_pages,
-                max_results=adapter_config.max_results,
+        try:
+            async with client_factory(deadline) as client:
+                forward = await _fetch_window(
+                    adapter,
+                    config,
+                    adapter_index,
+                    window,
+                    starting_cursor,
+                    client,
+                    max_pages=adapter_config.max_pages,
+                    max_results=adapter_config.max_results,
+                )
+                history = await _backfill(
+                    adapter,
+                    config,
+                    adapter_index,
+                    backfill.get(adapter.name),
+                    window.start,
+                    client,
+                )
+                events.extend(_prefix_events(adapter.name, client.events))
+        except SourceUnavailableError as error:
+            # One source's outage should not stop the others or conversion;
+            # its cursor and backfill progress stay put for the next run.
+            events.append(f"{adapter.name}: source unavailable this run: {error}")
+            stats.append(
+                FetchStats(
+                    source=adapter.name,
+                    fetched=0,
+                    rejected=0,
+                    capped=False,
+                    complete=False,
+                )
             )
-            history = await _backfill(
-                adapter,
-                config,
-                adapter_index,
-                backfill.get(adapter.name),
-                window.start,
-                client,
-            )
-            events.extend(_prefix_events(adapter.name, client.events))
+            continue
         events.extend(forward.error_events)
 
         if forward.cursor is not None:

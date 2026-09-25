@@ -1197,10 +1197,24 @@ async def test_materialized_inputs_are_named_by_format_not_url(
     )
 
     async def downloader(_url: str, _timeout: float) -> bytes:
-        return b"input"
+        return b"%PDF-1.7 input"
 
     result = await DownloadingMaterializer(downloader=downloader).materialize(
         target, tmp_path
     )
 
     assert result.suffix == suffix
+
+
+@pytest.mark.asyncio
+async def test_pdf_inputs_that_are_not_pdfs_fail_the_paper(tmp_path: Path) -> None:
+    # e.g. an "open-access PDF" link that resolves to a publisher landing page.
+    target = paper("doi:10.1000/landing", input_format="pdf")
+
+    async def downloader(_url: str, _timeout: float) -> bytes:
+        return b"<!doctype html><html><body>Publisher page</body></html>"
+
+    with pytest.raises(PaperError, match="conversion input is not a PDF"):
+        await DownloadingMaterializer(downloader=downloader).materialize(
+            target, tmp_path
+        )
