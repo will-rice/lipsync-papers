@@ -13,3 +13,5 @@ failures:
   arxiv:9812006v1:
   - error: 'conversion input HTTP 404: https://arxiv.org/pdf/9812006v1'
     occurred_at: '2026-09-25T01:39:52.933581Z'
+  - error: 'conversion input HTTP 404: https://arxiv.org/pdf/9812006v1'
+    occurred_at: '2026-09-25T01:41:01.728135Z'
