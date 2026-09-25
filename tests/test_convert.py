@@ -189,10 +189,8 @@ async def test_command_runner_timeout_terminates_child_and_preserves_output(
     pid_file = tmp_path / "timeout.pid"
     child = _sleeping_child_script(pid_file)
 
-    with pytest.raises(
-        InfrastructureError,
-        match="conversion infrastructure timeout:",
-    ) as exc_info:
+    # One document outrunning the converter fails that paper, not the run.
+    with pytest.raises(PaperError, match="conversion timed out after 0s:") as exc_info:
         await CommandRunner().run([sys.executable, "-c", child], timeout=0.1)
 
     pid = int((await _wait_for_file(pid_file)).strip())

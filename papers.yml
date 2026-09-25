@@ -37,7 +37,7 @@ fetch:
   total_deadline_seconds: 900
 conversion:
   max_batches_per_run: 20
-  max_papers: 50
+  max_papers: 20
   max_cost: 1000
   timeout_seconds: 1800
   html_cost: 2

@@ -70,8 +70,10 @@ class CommandRunner:
                 stdout_task=stdout_task,
                 stderr_task=stderr_task,
             )
-            raise InfrastructureError(
-                f"conversion infrastructure timeout: {argv[0]}"
+            # A document the converter cannot finish in time fails that paper;
+            # failures count per paper, so the batch and the run continue.
+            raise PaperError(
+                f"conversion timed out after {timeout:.0f}s: {argv[0]}"
             ) from subprocess.TimeoutExpired(
                 cmd=list(argv),
                 timeout=timeout,
