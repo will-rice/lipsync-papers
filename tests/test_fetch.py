@@ -16,7 +16,7 @@ from papers_pipeline.config import (
     RepositoryConfig,
     TopicConfig,
 )
-from papers_pipeline.errors import InfrastructureError
+from papers_pipeline.errors import InfrastructureError, SourceUnavailableError
 from papers_pipeline.http import Deadline, RequestClient
 from papers_pipeline.models import (
     BackfillProgress,
@@ -421,20 +421,21 @@ async def test_fetch_enforces_page_cap_and_uses_configured_adapter_order_under_o
 
 
 @pytest.mark.asyncio
-async def test_infrastructure_failure_aborts_fetching_and_closes_current_client() -> (
-    None
-):
+async def test_unavailable_source_is_skipped_and_keeps_its_progress() -> None:
     config = pipeline_config(
         adapter_config("arxiv", lookback_days=7),
         adapter_config("dblp", lookback_days=3),
     )
+    continuation = SourceContinuation(
+        cursor="resume", window_start=NOW - timedelta(days=7), window_end=NOW
+    )
     failing = RecordingAdapter(
         "arxiv",
-        failure=InfrastructureError(
+        failure=SourceUnavailableError(
             "request retries exhausted: https://example.test/arxiv"
         ),
     )
-    skipped = RecordingAdapter(
+    healthy = RecordingAdapter(
         "dblp",
         pages=[
             FetchPage(
@@ -447,14 +448,25 @@ async def test_infrastructure_failure_aborts_fetching_and_closes_current_client(
     )
     factory, clients, _ = client_factory(config.fetch)
 
-    with pytest.raises(InfrastructureError, match="request retries exhausted"):
-        await fetch_all(
-            config, PipelineState(), {"arxiv": failing, "dblp": skipped}, factory, NOW
-        )
+    result = await fetch_all(
+        config,
+        PipelineState(continuations={"arxiv": continuation}),
+        {"arxiv": failing, "dblp": healthy},
+        factory,
+        NOW,
+    )
 
-    assert len(clients) == 1
-    assert clients[0].closed is True
-    assert skipped.windows == []
+    assert all(client.closed for client in clients)
+    assert [record.source_id for record in result.records] == ["dblp-1"]
+    assert result.state.continuations == {"arxiv": continuation}
+    assert (
+        "arxiv: source unavailable this run: request retries exhausted: "
+        "https://example.test/arxiv"
+    ) in result.events
+    assert [(item.source, item.fetched) for item in result.stats] == [
+        ("arxiv", 0),
+        ("dblp", 1),
+    ]
 
 
 @pytest.mark.asyncio

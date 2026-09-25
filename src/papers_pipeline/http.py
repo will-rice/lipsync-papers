@@ -9,7 +9,7 @@ from typing import Self
 import httpx
 
 from .config import FetchConfig
-from .errors import InfrastructureError
+from .errors import SourceUnavailableError
 
 _RETRYABLE_STATUS_CODES = frozenset({408, 429, 500, 502, 503, 504})
 _NON_RETRYABLE_REQUEST_ERROR_MESSAGE = "request failed"
@@ -29,7 +29,7 @@ class Deadline:
     def remaining(self) -> float:
         remaining = self.expires_at - self.clock()
         if remaining <= 0:
-            raise InfrastructureError("fetch deadline exceeded")
+            raise SourceUnavailableError("fetch deadline exceeded")
         return remaining
 
 
@@ -81,31 +81,31 @@ class RequestClient:
             except httpx.RequestError as error:
                 if self._is_retryable_request_error(error):
                     if attempt == self.config.retries:
-                        raise InfrastructureError(
+                        raise SourceUnavailableError(
                             f"request retries exhausted: {url}"
                         ) from error
                     self.events.append(
                         f"retry {attempt + 1}: network failure for {url}"
                     )
                 else:
-                    raise self._request_error_to_infrastructure_error(
-                        url, error
-                    ) from error
+                    raise self._request_error_to_source_error(url, error) from error
             else:
                 if response.status_code in {401, 403}:
-                    raise InfrastructureError(f"authentication failed: {url}")
+                    raise SourceUnavailableError(f"authentication failed: {url}")
                 if 300 <= response.status_code < 400:
-                    raise InfrastructureError(
+                    raise SourceUnavailableError(
                         f"redirect HTTP {response.status_code}: {url}"
                     )
                 if response.status_code in _RETRYABLE_STATUS_CODES:
                     if attempt == self.config.retries:
-                        raise InfrastructureError(f"request retries exhausted: {url}")
+                        raise SourceUnavailableError(
+                            f"request retries exhausted: {url}"
+                        )
                     self.events.append(
                         f"retry {attempt + 1}: HTTP {response.status_code} for {url}"
                     )
                 elif response.is_error:
-                    raise InfrastructureError(
+                    raise SourceUnavailableError(
                         f"permanent HTTP {response.status_code}: {url}"
                     )
                 else:
@@ -121,12 +121,12 @@ class RequestClient:
             (httpx.TimeoutException, httpx.NetworkError, httpx.ProtocolError),
         )
 
-    def _request_error_to_infrastructure_error(
+    def _request_error_to_source_error(
         self, url: str, error: httpx.RequestError
-    ) -> InfrastructureError:
+    ) -> SourceUnavailableError:
         if isinstance(error, httpx.TooManyRedirects):
-            return InfrastructureError(f"too many redirects: {url}")
-        return InfrastructureError(f"{_NON_RETRYABLE_REQUEST_ERROR_MESSAGE}: {url}")
+            return SourceUnavailableError(f"too many redirects: {url}")
+        return SourceUnavailableError(f"{_NON_RETRYABLE_REQUEST_ERROR_MESSAGE}: {url}")
 
     async def _sleep_with_deadline(self, url: str, attempt: int) -> None:
         delay = self.config.backoff_seconds * (2**attempt)
@@ -135,6 +135,6 @@ class RequestClient:
 
         remaining = self.deadline.remaining()
         if delay >= remaining:
-            raise InfrastructureError("fetch deadline exceeded")
+            raise SourceUnavailableError("fetch deadline exceeded")
 
         await self._sleep(delay)
