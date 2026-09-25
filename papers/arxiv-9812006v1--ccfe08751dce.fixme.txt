@@ -1,0 +1,5 @@
+paper: arxiv:9812006v1
+latest_error: conversion input HTTP 404: https://arxiv.org/pdf/9812006v1
+attempt: 2026-09-25T01:39:52.933581+00:00 conversion input HTTP 404: https://arxiv.org/pdf/9812006v1
+attempt: 2026-09-25T01:41:01.728135+00:00 conversion input HTTP 404: https://arxiv.org/pdf/9812006v1
+attempt: 2026-09-25T01:42:02.196511+00:00 conversion input HTTP 404: https://arxiv.org/pdf/9812006v1
