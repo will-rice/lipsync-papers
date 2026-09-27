@@ -1256,7 +1256,7 @@ cannot express the repository rule; the plugin accepts `Paper` and returns
 
 Fetch request timeouts are 1-120 seconds, retries are 0-5, backoff is 0-30
 seconds, and the shared fetch deadline is 60-7200 seconds. Conversion allows
-1-20 batches per run, 1-100 papers per batch, and a total cost budget of 1-1000. A run stops starting batches after `deadline_seconds` (default 10800, 600-18000) so it always pushes before the nightly step's 330-minute timeout. Each converter may run for 60-3600 seconds
+1-20 batches per run, 1-100 papers per batch, and a total cost budget of 1-1000. At `deadline_seconds` (default 10800, 600-18000) a run stops starting batches and cancels conversions still running, leaving those papers pending without a strike, so it always pushes before the nightly step's 330-minute timeout. Each converter may run for 60-3600 seconds
 before it is terminated. Per-paper HTML and LaTeX costs are 1-100; PDF cost is
 1-1000. HTML and LaTeX concurrency is 1-4.
 PDF concurrency is always exactly 1.

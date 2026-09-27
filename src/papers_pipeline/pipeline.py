@@ -140,10 +140,17 @@ async def run_nightly(
 
         attempted: set[str] = set()
         batch_number = 0
+        # Only batches that attempted a conversion count toward the budget: a
+        # batch of papers deferred by a rate-limited host costs nothing, and
+        # counting it would let one such host starve every other pending
+        # paper. Each paper is tried at most once, so the loop still ends.
+        working_batches = 0
         backlog = infer_backlog(inventory, paths.root)
         summary.generated = len(backlog.generated)
         summary.pending = len(backlog.pending)
-        while backlog.pending and batch_number < config.conversion.max_batches_per_run:
+        while (
+            backlog.pending and working_batches < config.conversion.max_batches_per_run
+        ):
             if (
                 dependencies.monotonic() - run_started
                 >= config.conversion.deadline_seconds
@@ -188,11 +195,18 @@ async def run_nightly(
                         dependencies.materializer,
                         dependencies.now(),
                         timeout_seconds=config.conversion.timeout_seconds,
+                        # The deadline also bounds a running batch: one batch
+                        # of slow PDFs could otherwise outlast the job timeout,
+                        # which discards every unpushed batch commit.
+                        time_budget_seconds=config.conversion.deadline_seconds
+                        - (dependencies.monotonic() - run_started),
                     )
                 state = converted.state
                 summary.succeeded += len(converted.succeeded)
                 summary.failed += len(converted.failed)
                 summary.deferred += len(converted.deferred)
+                if len(converted.deferred) < len(batch.papers):
+                    working_batches += 1
                 summary.promoted_to_fixme += len(converted.promoted)
                 summary.fixme_paths.extend(str(path) for path in converted.promoted)
                 summary.events.extend(
@@ -205,6 +219,10 @@ async def run_nightly(
                 summary.events.extend(
                     f"conversion deferred: {item.paper.identifier}: {item.error}"
                     for item in converted.deferred
+                )
+                summary.events.extend(
+                    f"conversion deadline interrupted: {paper.identifier}"
+                    for paper in converted.interrupted
                 )
 
                 index_before = _file_content(index_path)

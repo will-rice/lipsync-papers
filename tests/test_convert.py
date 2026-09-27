@@ -420,6 +420,36 @@ async def test_rate_limited_paper_is_deferred_without_a_strike(tmp_path: Path) -
 
 
 @pytest.mark.asyncio
+async def test_time_budget_interrupts_running_conversions_without_a_strike(
+    tmp_path: Path,
+) -> None:
+    fast = paper("doi:fast", input_format="html")
+    slow = paper("doi:slow", input_format="html")
+    materializer = FakeMaterializer(
+        fixtures={item.input_url: fixture_for(item) for item in (fast, slow)}
+    )
+    runner = TrackingRunner(materializer=materializer, delays={slow.input_url: 60})
+
+    result = await convert_batch(
+        Batch(papers=(fast, slow), estimated_cost=2),
+        tmp_path,
+        PipelineState(),
+        CONCURRENCY,
+        runner,
+        materializer,
+        NOW,
+        time_budget_seconds=0.5,
+    )
+
+    assert [item.paper for item in result.succeeded] == [fast]
+    assert result.interrupted == (slow,)
+    assert result.failed == ()
+    assert result.state.failures == {}
+    assert runner.active["html"] == 0
+    assert infer_backlog([fast, slow], tmp_path).pending == (slow,)
+
+
+@pytest.mark.asyncio
 async def test_materializer_stops_contacting_a_host_after_http_429(
     tmp_path: Path,
 ) -> None:

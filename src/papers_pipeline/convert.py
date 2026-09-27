@@ -244,6 +244,7 @@ class ConversionResult:
     succeeded: tuple[PaperConversion, ...]
     failed: tuple[PaperConversion, ...]
     deferred: tuple[PaperConversion, ...]
+    interrupted: tuple[Paper, ...]
     promoted: tuple[Path, ...]
     state: PipelineState
 
@@ -277,7 +278,13 @@ async def convert_batch(
     materializer: InputMaterializer | None,
     now: datetime,
     timeout_seconds: float = _DEFAULT_CONVERSION_TIMEOUT,
+    time_budget_seconds: float | None = None,
 ) -> ConversionResult:
+    """Convert one batch, stopping unfinished conversions at the time budget.
+
+    Conversions still running when time_budget_seconds elapses are cancelled
+    and reported as interrupted: they record no failure and stay pending.
+    """
     if concurrency.pdf != 1:
         raise InfrastructureError("PDF concurrency must equal 1")
 
@@ -362,16 +369,24 @@ async def convert_batch(
                 paper=paper, staged_output=None, error=str(error)
             )
 
-    tasks = [asyncio.create_task(convert_one(paper)) for paper in batch.papers]
+    tasks = {asyncio.create_task(convert_one(paper)): paper for paper in batch.papers}
     results: list[_PreparedConversion] = []
+    interrupted: list[Paper] = []
+    loop = asyncio.get_running_loop()
+    stop_at = None if time_budget_seconds is None else loop.time() + time_budget_seconds
 
     try:
         pending = set(tasks)
         while pending:
             done, pending = await asyncio.wait(
                 pending,
+                timeout=None if stop_at is None else max(0.0, stop_at - loop.time()),
                 return_when=asyncio.FIRST_COMPLETED,
             )
+            if not done:
+                interrupted.extend(tasks[task] for task in pending)
+                await _cancel_pending(pending)
+                break
             for task in done:
                 try:
                     results.append(task.result())
@@ -430,6 +445,7 @@ async def convert_batch(
             succeeded=succeeded,
             failed=tuple(failed),
             deferred=tuple(deferred),
+            interrupted=tuple(interrupted),
             promoted=tuple(promoted),
             state=state.model_copy(update={"failures": failures}),
         )

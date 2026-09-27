@@ -14,7 +14,12 @@ from papers_pipeline.convert import (
     CommandRunner,
     InputMaterializer,
 )
-from papers_pipeline.errors import ConfigError, InfrastructureError, PaperError
+from papers_pipeline.errors import (
+    ConfigError,
+    InfrastructureError,
+    PaperError,
+    RateLimitedError,
+)
 from papers_pipeline.git import GitRepository
 from papers_pipeline.config import FetchConfig
 from papers_pipeline.http import RequestClient
@@ -413,6 +418,38 @@ async def test_failed_paper_is_attempted_only_once_across_batches(
         "chore: convert paper batch 1",
         "chore: convert paper batch 2",
     ]
+
+
+@pytest.mark.asyncio
+async def test_deferred_batches_do_not_consume_the_batch_budget(
+    tmp_path: Path,
+) -> None:
+    paths = make_paths(tmp_path, max_batches=1, max_papers=1)
+    git = RecordingGit()
+    runner = FakeRunner()
+
+    class RateLimitedHostMaterializer(FakeMaterializer):
+        async def materialize(self, paper: Any, root: Path) -> Path:
+            if paper.identifier.endswith(":a"):
+                raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
+            return await super().materialize(paper, root)
+
+    deps = dataclasses.replace(
+        dependencies(FakeAdapter([record("a"), record("b"), record("c")]), runner, git),
+        materializer=RateLimitedHostMaterializer(),
+    )
+
+    summary = await run_nightly(paths, deps)
+
+    conversion_inputs = [
+        Path(call[1]).stem.split(":", 1)[-1]
+        for call in runner.calls
+        if call[0] == "pandoc"
+    ]
+    assert conversion_inputs == ["b"]
+    assert summary.deferred == 1
+    assert summary.succeeded == 1
+    assert git.messages[-1] == "chore: convert paper batch 2"
 
 
 @pytest.mark.asyncio
