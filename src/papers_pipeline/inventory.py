@@ -22,6 +22,11 @@ INVENTORY_FIELDS: tuple[str, ...] = (
 )
 
 
+def inventory_order(paper: Paper) -> tuple[datetime, str]:
+    """Chronological order, so the inventory's tail is the newest papers."""
+    return (paper.published, paper.identifier)
+
+
 def write_inventory(path: Path, papers: Sequence[Paper]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
@@ -31,7 +36,7 @@ def write_inventory(path: Path, papers: Sequence[Paper]) -> None:
             lineterminator="\n",
         )
         writer.writeheader()
-        for paper in sorted(papers, key=lambda item: item.identifier):
+        for paper in sorted(papers, key=inventory_order):
             writer.writerow(_paper_row(paper))
 
 

@@ -15,13 +15,16 @@ from papers_pipeline.models import (
 from papers_pipeline.state import load_state, save_state
 
 
-def paper(identifier: str = "arxiv:2401.00001") -> Paper:
+def paper(
+    identifier: str = "arxiv:2401.00001",
+    published: datetime = datetime(2024, 1, 2, tzinfo=timezone.utc),
+) -> Paper:
     return Paper(
         identifier=identifier,
         title="A Paper",
         abstract="An abstract",
         authors=("A. Author",),
-        published=datetime(2024, 1, 2, tzinfo=timezone.utc),
+        published=published,
         url="https://example.test/paper",
         source="arxiv",
         input_format="pdf",
@@ -30,11 +33,16 @@ def paper(identifier: str = "arxiv:2401.00001") -> Paper:
     )
 
 
-def test_inventory_round_trip_is_sorted(tmp_path: Path) -> None:
+def test_inventory_round_trip_is_chronological(tmp_path: Path) -> None:
     path = tmp_path / "papers.csv"
-    write_inventory(path, [paper("ss:2"), paper("arxiv:1")])
+    newer = datetime(2025, 1, 1, tzinfo=timezone.utc)
+    write_inventory(path, [paper("ss:2"), paper("arxiv:0", newer), paper("arxiv:1")])
 
-    assert [item.identifier for item in read_inventory(path)] == ["arxiv:1", "ss:2"]
+    assert [item.identifier for item in read_inventory(path)] == [
+        "arxiv:1",
+        "ss:2",
+        "arxiv:0",
+    ]
 
 
 def test_inventory_handles_empty_csv(tmp_path: Path) -> None:

@@ -3,10 +3,13 @@ from pathlib import Path
 
 from papers_pipeline.batching import expected_markdown
 from papers_pipeline.errors import InfrastructureError
+from papers_pipeline.inventory import inventory_order
 from papers_pipeline.models import Paper
 
 _START_MARKER = b"<!-- papers-index:start -->"
 _END_MARKER = b"<!-- papers-index:end -->"
+# The README lists only the tail of papers.csv; the CSV and papers/ hold all.
+RECENT_PAPERS = 30
 
 
 def write_index(root: Path, papers: Sequence[Paper]) -> Path:
@@ -43,13 +46,18 @@ def _unique_marker_offset(content: bytes, marker: bytes, name: str) -> int:
 
 
 def _render_index(root: Path, papers: Sequence[Paper]) -> str:
+    recent = sorted(papers, key=inventory_order)[-RECENT_PAPERS:]
     rows = [
         "# Papers",
+        "",
+        f"The {len(recent)} most recent of {len(papers)} papers. Every paper is"
+        " listed in [papers.csv](papers.csv) and converted under"
+        " [papers/](papers/).",
         "",
         "| Published | Identifier | Title | Source |",
         "| --- | --- | --- | --- |",
     ]
-    for paper in sorted(papers, key=_paper_sort_key, reverse=True):
+    for paper in reversed(recent):
         rows.append(
             "| "
             + " | ".join(
@@ -69,10 +77,6 @@ def _link(root: Path, paper: Paper) -> str:
     """Link to the paper's markdown once generated, so the corpus is browsable."""
     markdown = expected_markdown(root, paper)
     return markdown.relative_to(root).as_posix() if markdown.exists() else paper.url
-
-
-def _paper_sort_key(paper: Paper) -> tuple[object, ...]:
-    return (paper.published, paper.identifier)
 
 
 def _escape_cell(value: str) -> str:
