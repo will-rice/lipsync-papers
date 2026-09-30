@@ -13,3 +13,6 @@ failures:
   arxiv:2502.20803:
   - error: 'conversion input HTTP 404: https://arxiv.org/pdf/2502.20803'
     occurred_at: '2026-09-30T19:59:33.052658Z'
+  arxiv:2508.19730:
+  - error: 'conversion input HTTP 404: https://arxiv.org/pdf/2508.19730'
+    occurred_at: '2026-09-30T20:28:02.956148Z'
