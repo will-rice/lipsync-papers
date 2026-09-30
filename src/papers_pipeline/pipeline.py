@@ -6,7 +6,12 @@ from pathlib import Path
 import shutil
 
 from papers_pipeline.adapters.base import Adapter
-from papers_pipeline.batching import expected_markdown, infer_backlog, select_batch
+from papers_pipeline.batching import (
+    expected_figures,
+    expected_markdown,
+    infer_backlog,
+    select_batch,
+)
 from papers_pipeline.config import PipelineConfig, load_config
 from papers_pipeline.convert import (
     CommandRunner,
@@ -184,6 +189,12 @@ async def run_nightly(
                 ),
             ]
             batch_before = _snapshot_files(batch_paths)
+            # Pending papers have no figures yet, so rolling back a batch means
+            # removing the figure directories it created.
+            batch_figures = [
+                expected_figures(paths.root, paper) for paper in batch.papers
+            ]
+            figures_before = {path for path in batch_figures if path.exists()}
             try:
                 with _timed(summary, "conversion", dependencies.monotonic):
                     converted = await convert_batch(
@@ -239,7 +250,14 @@ async def run_nightly(
                 with _timed(summary, "format", dependencies.monotonic):
                     await format_changed(changed_paths, dependencies.runner)
 
-                commit_paths = [*changed_paths, *converted.promoted]
+                commit_paths = [
+                    *changed_paths,
+                    *converted.promoted,
+                    *(
+                        expected_figures(paths.root, item.paper)
+                        for item in converted.succeeded
+                    ),
+                ]
                 with _timed(summary, "persist_batch", dependencies.monotonic):
                     if state != state_before_batch:
                         save_state(paths.state, state)
@@ -250,7 +268,12 @@ async def run_nightly(
                             f"chore: convert paper batch {batch_number}",
                         )
             except BaseException:
-                _rollback_files(batch_before, batch_paths, dependencies.git)
+                for path in batch_figures:
+                    if path not in figures_before:
+                        shutil.rmtree(path, ignore_errors=True)
+                _rollback_files(
+                    batch_before, [*batch_paths, *batch_figures], dependencies.git
+                )
                 raise
             backlog = infer_backlog(inventory, paths.root)
             summary.generated = len(backlog.generated)

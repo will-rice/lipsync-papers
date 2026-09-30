@@ -4,15 +4,18 @@ import locale
 import re
 import shutil
 import subprocess
+from io import BytesIO
 from collections.abc import Awaitable, Callable, Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Protocol
-from urllib.parse import urlsplit
+from urllib.parse import urljoin, urlsplit
 from uuid import uuid4
 
-from papers_pipeline.batching import Batch, expected_markdown
+from PIL import Image, UnidentifiedImageError
+
+from papers_pipeline.batching import Batch, expected_figures, expected_markdown
 from papers_pipeline.config import ConcurrencyConfig
 from papers_pipeline.errors import InfrastructureError, PaperError, RateLimitedError
 from papers_pipeline.front_matter import with_front_matter
@@ -30,6 +33,14 @@ _ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
 # spaced by this many seconds.
 HOST_MIN_INTERVAL_SECONDS = {"www.biorxiv.org": 10.0}
 _LATEXML_ARTICLE = re.compile(r'<article class="ltx_document.*?</article>', re.DOTALL)
+_ARXIV_LUA_FILTER = Path(__file__).with_name("arxiv_html.lua")
+_HTML_IMAGE = re.compile(r"<img\b[^>]*>")
+_HTML_IMAGE_SOURCE = re.compile(r'\ssrc="([^"]*)"')
+# Figures live next to each paper, so they survive changes to their source.
+# Downscaled WebP keeps a corpus of thousands of papers small enough for git.
+FIGURE_MAX_PIXELS = 1280
+FIGURE_WEBP_QUALITY = 80
+_MARKER_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 _DOCUMENT_FAILURE_PATTERNS = (
     re.compile(
         r"\b(?:corrupt(?:ed)?|damaged|malformed)\s+"
@@ -231,6 +242,8 @@ class DownloadingMaterializer:
 class InputMaterializer(Protocol):
     async def materialize(self, paper: Paper, root: Path) -> Path: ...
 
+    async def download(self, url: str) -> bytes: ...
+
 
 @dataclass(frozen=True)
 class PaperConversion:
@@ -314,13 +327,59 @@ async def convert_batch(
         if article is None:
             return False
         # Drop arXiv's page chrome so only the paper reaches the markdown.
-        input_path.write_text(article.group(0), encoding="utf-8")
+        input_path.write_text(
+            await localize_html_figures(
+                article.group(0),
+                html_paper.input_url,
+                staged_output.with_suffix(".figures"),
+            ),
+            encoding="utf-8",
+        )
         async with semaphores["html"]:
             await runner.run(
-                command_for(html_paper, input_path, staged_output),
+                [
+                    *command_for(html_paper, input_path, staged_output),
+                    f"--lua-filter={_ARXIV_LUA_FILTER}",
+                ],
                 timeout=timeout_seconds,
             )
         return True
+
+    async def localize_html_figures(html: str, page_url: str, figures: Path) -> str:
+        """Save each image as a local figure and point the HTML at it.
+
+        Images that cannot be downloaded or decoded are dropped rather than
+        linked remotely; their captions remain.
+        """
+        local: dict[str, str | None] = {}
+        for tag in _HTML_IMAGE.findall(html):
+            source = _HTML_IMAGE_SOURCE.search(tag)
+            if source is None or source.group(1) in local:
+                continue
+            target = figures / f"figure-{len(local) + 1}.webp"
+            try:
+                payload = await materializer.download(
+                    urljoin(page_url, source.group(1))
+                )
+            except RateLimitedError:
+                raise
+            except PaperError:
+                local[source.group(1)] = None
+                continue
+            local[source.group(1)] = (
+                f"{figures.name}/{target.name}"
+                if write_figure(payload, target)
+                else None
+            )
+
+        def replace(match: re.Match[str]) -> str:
+            source = _HTML_IMAGE_SOURCE.search(match.group(0))
+            path = local.get(source.group(1)) if source else None
+            if path is None:
+                return ""
+            return _HTML_IMAGE_SOURCE.sub(f' src="{path}"', match.group(0), count=1)
+
+        return _HTML_IMAGE.sub(replace, html)
 
     async def convert_one(paper: Paper) -> _PreparedConversion:
         try:
@@ -351,6 +410,9 @@ async def convert_batch(
                         raise InfrastructureError(
                             f"converter reported success without output: {paper.identifier}"
                         )
+                    localize_marker_figures(
+                        produced_markdown, staged_output.with_suffix(".figures")
+                    )
                     _atomic_move(produced_markdown, staged_output)
 
             if not staged_output.exists():
@@ -493,6 +555,73 @@ def _marker_markdown_path(output_dir: Path, input_path: Path) -> Path:
     return output_dir / input_path.stem / f"{input_path.stem}.md"
 
 
+# Signs of a conversion made before figures were stored locally and arXiv
+# equation tables were rewritten: a math fence wrapped in a table, or an image
+# linked outside the paper's figures directory.
+_OUTDATED_CONVERSION = (
+    re.compile(r"````math"),
+    re.compile(r"!\[[^\]]*\]\((?![^)\s]*\.figures/)[^)]*\)"),
+)
+
+
+def requeue_outdated_conversions(root: Path, papers: Sequence[Paper]) -> list[Path]:
+    """Delete outdated conversions so the next nightly run redoes them.
+
+    Args:
+        root: Repository root.
+        papers: Inventory papers.
+
+    Returns:
+        Markdown files removed; their figure directories are removed too.
+    """
+    removed: list[Path] = []
+    for paper in papers:
+        markdown = expected_markdown(root, paper)
+        if not markdown.exists():
+            continue
+        text = markdown.read_text(encoding="utf-8")
+        if any(pattern.search(text) for pattern in _OUTDATED_CONVERSION):
+            markdown.unlink()
+            shutil.rmtree(expected_figures(root, paper), ignore_errors=True)
+            removed.append(markdown)
+    return removed
+
+
+def write_figure(payload: bytes, path: Path) -> bool:
+    """Save an image as downscaled WebP; False when it is not a raster image."""
+    try:
+        with Image.open(BytesIO(payload)) as image:
+            image.thumbnail((FIGURE_MAX_PIXELS, FIGURE_MAX_PIXELS))
+            path.parent.mkdir(parents=True, exist_ok=True)
+            image.convert("RGBA" if "A" in image.getbands() else "RGB").save(
+                path, "WEBP", quality=FIGURE_WEBP_QUALITY
+            )
+    except (UnidentifiedImageError, Image.DecompressionBombError):
+        return False
+    return True
+
+
+def localize_marker_figures(markdown: Path, figures: Path) -> None:
+    """Move marker's extracted images into figures and relink the markdown.
+
+    Images that cannot be decoded are dropped along with their links.
+    """
+    text = markdown.read_text(encoding="utf-8")
+    images = sorted(
+        path
+        for path in markdown.parent.iterdir()
+        if path.suffix.lower() in _MARKER_IMAGE_SUFFIXES
+    )
+    for index, image in enumerate(images, start=1):
+        target = figures / f"figure-{index}.webp"
+        link = re.compile(rf"(!\[[^\]]*\]\(){re.escape(image.name)}\)")
+        if write_figure(image.read_bytes(), target):
+            text = link.sub(rf"\g<1>{figures.name}/{target.name})", text)
+        else:
+            text = link.sub("", text)
+    markdown.write_text(text, encoding="utf-8")
+
+
 def _promote_successes(
     results: Sequence[_PreparedConversion], root: Path
 ) -> tuple[PaperConversion, ...]:
@@ -508,6 +637,12 @@ def _promote_successes(
             encoding="utf-8",
         )
         _atomic_move(result.staged_output, output)
+        # A conversion replaces the paper's figures, including stale ones.
+        figures = expected_figures(root, result.paper)
+        shutil.rmtree(figures, ignore_errors=True)
+        staged_figures = result.staged_output.with_suffix(".figures")
+        if staged_figures.exists():
+            staged_figures.replace(figures)
         succeeded.append(PaperConversion(paper=result.paper, output=output, error=None))
     return tuple(succeeded)
 
