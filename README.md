@@ -31,15 +31,15 @@ The 30 most recent of 1180 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-18T00:00:00+00:00 | arxiv:2608.17707   | [DynaForcing: Overcoming Dynamic Collapse in Self-Forcing Distillation for Streaming Avatar Generation](https://arxiv.org/abs/2608.17707)                 | arxiv  |
 | 2026-08-17T00:00:00+00:00 | arxiv:2608.16220   | [SingDance: Compositional Zero-Shot Singing-and-Dancing Video Generation with Role-Aware Audio Conditioning](https://arxiv.org/abs/2608.16220)            | arxiv  |
 | 2026-08-17T00:00:00+00:00 | arxiv:2608.16143   | [AnyTalk: Speech Animation for Arbitrary Characters Leveraging a Video Generation Model](https://arxiv.org/abs/2608.16143)                                | arxiv  |
-| 2026-08-16T00:00:00+00:00 | arxiv:2608.15734   | [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](https://arxiv.org/abs/2608.15734)                      | arxiv  |
-| 2026-08-15T00:00:00+00:00 | arxiv:2608.15110   | [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](https://arxiv.org/abs/2608.15110)                                | arxiv  |
-| 2026-08-14T00:00:00+00:00 | arxiv:2608.14812   | [Separate First, Then Associate: A Two-Stage Approach for Real-World Audio-Visual Speech Enhancement](https://arxiv.org/abs/2608.14812)                   | arxiv  |
-| 2026-08-13T00:00:00+00:00 | arxiv:2608.11752   | [UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos](https://arxiv.org/abs/2608.11752)                                                  | arxiv  |
-| 2026-08-13T00:00:00+00:00 | arxiv:2608.11745   | [LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time](https://arxiv.org/abs/2608.11745)                                                  | arxiv  |
+| 2026-08-16T00:00:00+00:00 | arxiv:2608.15734   | [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](papers/arxiv-2608-15734--a582a65f4159.md)              | arxiv  |
+| 2026-08-15T00:00:00+00:00 | arxiv:2608.15110   | [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](papers/arxiv-2608-15110--cc3ba8a6497f.md)                        | arxiv  |
+| 2026-08-14T00:00:00+00:00 | arxiv:2608.14812   | [Separate First, Then Associate: A Two-Stage Approach for Real-World Audio-Visual Speech Enhancement](papers/arxiv-2608-14812--b4db464da533.md)           | arxiv  |
+| 2026-08-13T00:00:00+00:00 | arxiv:2608.11752   | [UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos](papers/arxiv-2608-11752--1e062e3bdcfb.md)                                          | arxiv  |
+| 2026-08-13T00:00:00+00:00 | arxiv:2608.11745   | [LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time](papers/arxiv-2608-11745--e3146949e839.md)                                          | arxiv  |
 | 2026-08-12T00:00:00+00:00 | arxiv:2608.12107   | [Avatar-Forever: Decoupled Parallel Training for High-Quality Real-Time Infinite Avatars](papers/arxiv-2608-12107--7795ca6b8165.md)                       | arxiv  |
-| 2026-08-10T00:00:00+00:00 | arxiv:2608.14700   | [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](https://arxiv.org/abs/2608.14700)                                   | arxiv  |
+| 2026-08-10T00:00:00+00:00 | arxiv:2608.14700   | [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](papers/arxiv-2608-14700--e90e2d4d050f.md)                           | arxiv  |
 | 2026-08-10T00:00:00+00:00 | arxiv:2608.09288   | [DAVE: A Decoupled Audio-Visual Enhancement Framework for Real-World Speech Separation](papers/arxiv-2608-09288--27aa252e7c87.md)                         | arxiv  |
-| 2026-08-07T00:00:00+00:00 | arxiv:2608.06865   | [Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection](https://arxiv.org/abs/2608.06865)                                             | arxiv  |
+| 2026-08-07T00:00:00+00:00 | arxiv:2608.06865   | [Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection](papers/arxiv-2608-06865--95a04d7e9c8c.md)                                     | arxiv  |
 
 <!-- papers-index:end -->
 
