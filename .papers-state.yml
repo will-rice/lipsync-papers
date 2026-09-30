@@ -22,3 +22,6 @@ failures:
     occurred_at: '2026-09-30T20:28:02.956148Z'
   - error: 'conversion input HTTP 404: https://arxiv.org/pdf/2508.19730'
     occurred_at: '2026-09-30T20:39:07.724295Z'
+  arxiv:2604.02941:
+  - error: 'conversion input HTTP 404: https://arxiv.org/pdf/2604.02941'
+    occurred_at: '2026-09-30T20:55:11.242334Z'
