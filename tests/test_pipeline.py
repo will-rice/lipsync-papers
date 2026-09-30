@@ -85,6 +85,9 @@ class FakeMaterializer(InputMaterializer):
         path.write_text("<p>paper</p>", encoding="utf-8")
         return path
 
+    async def download(self, url: str) -> bytes:
+        raise PaperError(f"conversion input HTTP 404: {url}")
+
 
 class FakeRunner(CommandRunner):
     def __init__(

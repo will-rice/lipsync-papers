@@ -1,4 +1,5 @@
 import asyncio
+import io
 import os
 import subprocess
 import sys
@@ -7,10 +8,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
+import pypandoc
 import pytest
+from PIL import Image
 
 
-from papers_pipeline.batching import Batch, expected_markdown, infer_backlog
+from papers_pipeline.batching import (
+    Batch,
+    expected_figures,
+    expected_markdown,
+    infer_backlog,
+)
 from papers_pipeline.front_matter import with_front_matter
 from papers_pipeline.adapters.arxiv import ArxivAdapter
 from papers_pipeline.adapters.base import FetchWindow
@@ -19,6 +27,8 @@ from papers_pipeline.convert import (
     CommandRunner,
     DownloadingMaterializer,
     convert_batch,
+    localize_marker_figures,
+    requeue_outdated_conversions,
 )
 from papers_pipeline import convert
 from papers_pipeline.errors import InfrastructureError, PaperError, RateLimitedError
@@ -61,10 +71,17 @@ class FakeMaterializer:
         *,
         fixtures: Mapping[str, Path],
         behaviors: Mapping[str, str] | None = None,
+        downloads: Mapping[str, bytes] | None = None,
     ) -> None:
         self.fixtures = dict(fixtures)
         self.behaviors = dict(behaviors or {})
+        self.downloads = dict(downloads or {})
         self.materialized_urls: dict[Path, str] = {}
+
+    async def download(self, url: str) -> bytes:
+        if url not in self.downloads:
+            raise PaperError(f"conversion input HTTP 404: {url}")
+        return self.downloads[url]
 
     async def materialize(self, paper: Paper, root: Path) -> Path:
         behavior = self.behaviors.get(paper.input_url, "success")
@@ -397,6 +414,9 @@ async def test_rate_limited_paper_is_deferred_without_a_strike(tmp_path: Path) -
     )
 
     class LimitedMaterializer:
+        async def download(self, url: str) -> bytes:
+            return await successful_materializer.download(url)
+
         async def materialize(self, paper: Paper, root: Path) -> Path:
             if paper == limited:
                 raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
@@ -716,6 +736,9 @@ async def test_unavailable_input_host_fails_only_its_paper(
     )
 
     class MixedMaterializer:
+        async def download(self, url: str) -> bytes:
+            return await successful_materializer.download(url)
+
         async def materialize(self, paper: Paper, root: Path) -> Path:
             if paper == unavailable:
                 await remote.download(paper.input_url, 1)
@@ -1288,6 +1311,115 @@ async def test_arxiv_papers_convert_from_arxiv_html_before_their_input(
         # Only the LaTeXML article reaches pandoc, not arXiv's page chrome.
         assert runner.inputs[0].startswith(b'<article class="ltx_document')
         assert b"Report GitHub Issue" not in runner.inputs[0]
+
+
+def png(width: int, height: int) -> bytes:
+    buffer = io.BytesIO()
+    Image.new("RGB", (width, height), "white").save(buffer, "PNG")
+    return buffer.getvalue()
+
+
+@pytest.mark.asyncio
+async def test_arxiv_html_figures_are_stored_next_to_the_paper_as_webp(
+    tmp_path: Path, state: PipelineState
+) -> None:
+    target = arxiv_paper()
+    fake_materializer = FakeMaterializer(
+        fixtures={ARXIV_HTML_URL: FIXTURES / "arxiv_figures.html"},
+        downloads={"https://arxiv.org/html/2401.12345/x1.png": png(2560, 1280)},
+    )
+    runner = TrackingRunner(materializer=fake_materializer)
+
+    result = await convert_batch(
+        Batch(papers=(target,), estimated_cost=1),
+        tmp_path,
+        state,
+        CONCURRENCY,
+        runner,
+        fake_materializer,
+        NOW,
+    )
+
+    figures = expected_figures(tmp_path, target)
+    assert result.succeeded[0].paper == target
+    assert sorted(path.name for path in figures.iterdir()) == ["figure-1.webp"]
+    with Image.open(figures / "figure-1.webp") as figure:
+        assert (figure.format, figure.size) == ("WEBP", (1280, 640))
+    # pandoc reads the local figure; the undownloadable one is dropped.
+    assert f'src="{figures.name}/figure-1.webp"'.encode() in runner.inputs[0]
+    assert b"missing.png" not in runner.inputs[0]
+
+
+def test_arxiv_lua_filter_writes_equations_as_display_math(tmp_path: Path) -> None:
+    html = FIXTURES / "arxiv_figures.html"
+    markdown = subprocess.run(
+        [
+            pypandoc.get_pandoc_path(),
+            str(html),
+            "--from=html",
+            "--to=gfm-raw_html",
+            f"--lua-filter={Path(convert.__file__).with_name('arxiv_html.lua')}",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
+
+    assert "``` math\na=b+c \\tag{1}\n```" in markdown
+    assert "|" not in markdown
+    # In-page anchors and arXiv's breadcrumb titles are gone.
+    assert "See Figure 1." in markdown
+    assert "‣" not in markdown
+    assert "Refer to caption" not in markdown
+
+
+def test_marker_figures_move_next_to_the_paper_and_are_relinked(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "marker" / "paper.md"
+    output.parent.mkdir(parents=True)
+    (output.parent / "_page_0_Picture_1.jpeg").write_bytes(png(40, 20))
+    (output.parent / "_page_1_Picture_2.png").write_bytes(b"not an image")
+    output.write_text(
+        "![](_page_0_Picture_1.jpeg)\n\ntext\n\n![](_page_1_Picture_2.png)\n",
+        encoding="utf-8",
+    )
+    figures = tmp_path / "paper.figures"
+
+    localize_marker_figures(output, figures)
+
+    assert output.read_text(encoding="utf-8") == (
+        "![](paper.figures/figure-1.webp)\n\ntext\n\n\n"
+    )
+    assert sorted(path.name for path in figures.iterdir()) == ["figure-1.webp"]
+
+
+def test_requeue_outdated_conversions_removes_only_outdated_papers(
+    tmp_path: Path,
+) -> None:
+    table_math = paper("arxiv:1", input_format="html")
+    remote_image = paper("arxiv:2", input_format="html")
+    current = paper("arxiv:3", input_format="html")
+    pending = paper("arxiv:4", input_format="html")
+    for item, body in [
+        (table_math, "| a |\n\n````math\nx\n``` | (1) |\n"),
+        (remote_image, "![Refer to caption](2401.12345/x1.png)\n"),
+        (current, f"![a]({expected_figures(tmp_path, current).name}/figure-1.webp)\n"),
+    ]:
+        expected_markdown(tmp_path, item).parent.mkdir(parents=True, exist_ok=True)
+        expected_markdown(tmp_path, item).write_text(body, encoding="utf-8")
+    expected_figures(tmp_path, table_math).mkdir()
+
+    removed = requeue_outdated_conversions(
+        tmp_path, [table_math, remote_image, current, pending]
+    )
+
+    assert removed == [
+        expected_markdown(tmp_path, table_math),
+        expected_markdown(tmp_path, remote_image),
+    ]
+    assert not expected_figures(tmp_path, table_math).exists()
+    assert expected_markdown(tmp_path, current).exists()
 
 
 @pytest.mark.asyncio

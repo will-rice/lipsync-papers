@@ -58,6 +58,13 @@ publication order, and the index below shows its 30 most recent, linking each
 converted paper to its local markdown file. Run `papers-pipeline front-matter`
 to refresh the front matter of every converted paper from `papers.csv`.
 
+Figures are stored next to each paper in `<paper>.figures/`, downscaled to
+1280 px and recompressed as WebP, so the corpus never links to a source that
+could change. arXiv papers convert from arXiv's HTML with a pandoc filter that
+writes numbered equations as display math. Run
+`papers-pipeline requeue-outdated` to delete conversions made before figures
+and equations were handled this way; the next nightly runs reconvert them.
+
 ## Configuration
 
 `papers.yml` defines repository identity, enabled adapters, topic gates, fetch

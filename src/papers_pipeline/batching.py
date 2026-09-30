@@ -32,6 +32,11 @@ def expected_markdown(root: Path, paper: Paper) -> Path:
     )
 
 
+def expected_figures(root: Path, paper: Paper) -> Path:
+    """Directory holding a paper's figures, next to its markdown."""
+    return expected_markdown(root, paper).with_suffix(".figures")
+
+
 def infer_backlog(papers: Iterable[Paper], root: Path) -> Backlog:
     generated: list[Paper] = []
     blocked: list[Paper] = []
