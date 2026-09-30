@@ -6,7 +6,4 @@ backfill:
     continuation: null
     covered_from: '2023-05-04T00:00:00Z'
 continuations: {}
-failures:
-  arxiv:2309.07125:
-  - error: 'conversion input network failure: https://arxiv.org/pdf/2309.07125'
-    occurred_at: '2026-09-30T18:08:33.270565Z'
+failures: {}
