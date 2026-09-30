@@ -13,7 +13,7 @@ from typing import Protocol
 from urllib.parse import urljoin, urlsplit
 from uuid import uuid4
 
-from PIL import Image, UnidentifiedImageError
+from PIL import Image
 
 from papers_pipeline.batching import Batch, expected_figures, expected_markdown
 from papers_pipeline.config import ConcurrencyConfig
@@ -588,16 +588,24 @@ def requeue_outdated_conversions(root: Path, papers: Sequence[Paper]) -> list[Pa
 
 
 def write_figure(payload: bytes, path: Path) -> bool:
-    """Save an image as downscaled WebP; False when it is not a raster image."""
+    """Save an image as downscaled WebP; False when it cannot be decoded.
+
+    Decoding is forced up front so an unsupported, truncated or oversized
+    image drops only that figure, while failing to write the WebP still
+    stops the run.
+    """
     try:
-        with Image.open(BytesIO(payload)) as image:
-            image.thumbnail((FIGURE_MAX_PIXELS, FIGURE_MAX_PIXELS))
-            path.parent.mkdir(parents=True, exist_ok=True)
-            image.convert("RGBA" if "A" in image.getbands() else "RGB").save(
-                path, "WEBP", quality=FIGURE_WEBP_QUALITY
-            )
-    except (UnidentifiedImageError, Image.DecompressionBombError):
+        image = Image.open(BytesIO(payload))
+        image.load()
+    # UnidentifiedImageError and truncation are both OSErrors.
+    except (OSError, Image.DecompressionBombError):
         return False
+    with image:
+        image.thumbnail((FIGURE_MAX_PIXELS, FIGURE_MAX_PIXELS))
+        path.parent.mkdir(parents=True, exist_ok=True)
+        image.convert("RGBA" if "A" in image.getbands() else "RGB").save(
+            path, "WEBP", quality=FIGURE_WEBP_QUALITY
+        )
     return True
 
 
