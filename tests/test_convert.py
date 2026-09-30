@@ -29,6 +29,7 @@ from papers_pipeline.convert import (
     convert_batch,
     localize_marker_figures,
     requeue_outdated_conversions,
+    write_figure,
 )
 from papers_pipeline import convert
 from papers_pipeline.errors import InfrastructureError, PaperError, RateLimitedError
@@ -1371,6 +1372,21 @@ def test_arxiv_lua_filter_writes_equations_as_display_math(tmp_path: Path) -> No
     assert "See Figure 1." in markdown
     assert "‣" not in markdown
     assert "Refer to caption" not in markdown
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        b"<svg xmlns='http://www.w3.org/2000/svg'/>",  # not a raster image
+        png(64, 64)[:-40],  # truncated download
+    ],
+    ids=["svg", "truncated"],
+)
+def test_undecodable_figures_are_skipped(tmp_path: Path, payload: bytes) -> None:
+    target = tmp_path / "paper.figures" / "figure-1.webp"
+
+    assert not write_figure(payload, target)
+    assert not target.exists()
 
 
 def test_marker_figures_move_next_to_the_paper_and_are_relinked(
