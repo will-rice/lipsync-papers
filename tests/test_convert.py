@@ -1,4 +1,5 @@
 import asyncio
+import base64
 import io
 import os
 import subprocess
@@ -27,6 +28,7 @@ from papers_pipeline.convert import (
     CommandRunner,
     DownloadingMaterializer,
     convert_batch,
+    localize_inline_figures,
     localize_marker_figures,
     requeue_outdated_conversions,
     write_figure,
@@ -1345,7 +1347,7 @@ async def test_arxiv_html_figures_are_stored_next_to_the_paper_as_webp(
     assert result.succeeded[0].paper == target
     assert sorted(path.name for path in figures.iterdir()) == ["figure-1.webp"]
     with Image.open(figures / "figure-1.webp") as figure:
-        assert (figure.format, figure.size) == ("WEBP", (1280, 640))
+        assert (figure.format, figure.size) == ("WEBP", (1024, 512))
     # pandoc reads the local figure; the undownloadable one is dropped.
     assert f'src="{figures.name}/figure-1.webp"'.encode() in runner.inputs[0]
     assert b"missing.png" not in runner.inputs[0]
@@ -1387,6 +1389,25 @@ def test_undecodable_figures_are_skipped(tmp_path: Path, payload: bytes) -> None
 
     assert not write_figure(payload, target)
     assert not target.exists()
+
+
+def test_inline_data_figures_are_written_next_to_the_paper(tmp_path: Path) -> None:
+    svg = b"<svg xmlns='http://www.w3.org/2000/svg'/>"
+    markdown = tmp_path / "paper.md"
+    markdown.write_text(
+        f"![logo](data:image/svg+xml;base64,{base64.b64encode(svg).decode()})\n"
+        f"![](data:image/png;base64,{base64.b64encode(png(8, 8)).decode()})\n"
+        "![](data:image/png;base64,AAAA)\n",
+        encoding="utf-8",
+    )
+    figures = tmp_path / "paper.figures"
+
+    localize_inline_figures(markdown, figures)
+
+    assert markdown.read_text(encoding="utf-8") == (
+        "![logo](paper.figures/inline-1.svg)\n![](paper.figures/inline-2.webp)\n\n"
+    )
+    assert (figures / "inline-1.svg").read_bytes() == svg
 
 
 def test_marker_figures_move_next_to_the_paper_and_are_relinked(

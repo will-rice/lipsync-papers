@@ -1,4 +1,6 @@
 import asyncio
+import base64
+import binascii
 import hashlib
 import locale
 import re
@@ -38,9 +40,12 @@ _HTML_IMAGE = re.compile(r"<img\b[^>]*>")
 _HTML_IMAGE_SOURCE = re.compile(r'\ssrc="([^"]*)"')
 # Figures live next to each paper, so they survive changes to their source.
 # Downscaled WebP keeps a corpus of thousands of papers small enough for git.
-FIGURE_MAX_PIXELS = 1280
-FIGURE_WEBP_QUALITY = 80
+FIGURE_MAX_PIXELS = 1024
+FIGURE_WEBP_QUALITY = 70
 _MARKER_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
+_DATA_IMAGE = re.compile(
+    r"!\[([^\]]*)\]\(data:image/([\w.+-]+);base64,([A-Za-z0-9+/=]+)\)"
+)
 _DOCUMENT_FAILURE_PATTERNS = (
     re.compile(
         r"\b(?:corrupt(?:ed)?|damaged|malformed)\s+"
@@ -343,6 +348,7 @@ async def convert_batch(
                 ],
                 timeout=timeout_seconds,
             )
+        localize_inline_figures(staged_output, staged_output.with_suffix(".figures"))
         return True
 
     async def localize_html_figures(html: str, page_url: str, figures: Path) -> str:
@@ -607,6 +613,36 @@ def write_figure(payload: bytes, path: Path) -> bool:
             path, "WEBP", quality=FIGURE_WEBP_QUALITY
         )
     return True
+
+
+def localize_inline_figures(markdown: Path, figures: Path) -> None:
+    """Write images embedded as data URIs to figures and relink the markdown.
+
+    arXiv inlines some pictures (TikZ drawings, logos) as SVG, which pandoc
+    writes as data URIs that GitHub does not display. SVG is kept as is,
+    raster images are recompressed, and undecodable ones are dropped.
+    """
+    count = 0
+
+    def replace(match: re.Match[str]) -> str:
+        nonlocal count
+        count += 1
+        try:
+            payload = base64.b64decode(match.group(3), validate=True)
+        except binascii.Error:
+            return ""
+        if match.group(2) == "svg+xml":
+            target = figures / f"inline-{count}.svg"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+        else:
+            target = figures / f"inline-{count}.webp"
+            if not write_figure(payload, target):
+                return ""
+        return f"![{match.group(1)}]({figures.name}/{target.name})"
+
+    text = markdown.read_text(encoding="utf-8")
+    markdown.write_text(_DATA_IMAGE.sub(replace, text), encoding="utf-8")
 
 
 def localize_marker_figures(markdown: Path, figures: Path) -> None:
