@@ -6,10 +6,11 @@ Standalone paper discovery and conversion for Papers related to lipsync..
 
 # Papers
 
-The 30 most recent of 1180 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1181 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                             | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-09-30T17:53:47+00:00 | arxiv:2609.40317v1 | [GLARE: Generating Listening Heads with Appropriate Reactions](papers/arxiv-2609-40317v1--a54eb08f7aac.md)                                                        | arxiv  |
 | 2026-09-25T08:15:11+00:00 | arxiv:2609.30963v1 | [Where and When to Force: Routed Forcing for Streaming Avatars](papers/arxiv-2609-30963v1--b3eb952efdfe.md)                                                       | arxiv  |
 | 2026-09-24T08:43:45+00:00 | arxiv:2609.29238v1 | [Exploring a Single Autoregressive LLM for Unified Target Speech Extraction across Synchronous and Asynchronous Cues](papers/arxiv-2609-29238v1--3456e010c407.md) | arxiv  |
 | 2026-09-24T08:33:21+00:00 | arxiv:2609.29225v1 | [ComplexSync: High-Fidelity and Real-Time Lip Sync in Complex Scenarios](papers/arxiv-2609-29225v1--006bb3350744.md)                                              | arxiv  |
@@ -39,7 +40,6 @@ The 30 most recent of 1180 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-12T00:00:00+00:00 | arxiv:2608.12107   | [Avatar-Forever: Decoupled Parallel Training for High-Quality Real-Time Infinite Avatars](papers/arxiv-2608-12107--7795ca6b8165.md)                               | arxiv  |
 | 2026-08-10T00:00:00+00:00 | arxiv:2608.14700   | [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](papers/arxiv-2608-14700--e90e2d4d050f.md)                                   | arxiv  |
 | 2026-08-10T00:00:00+00:00 | arxiv:2608.09288   | [DAVE: A Decoupled Audio-Visual Enhancement Framework for Real-World Speech Separation](papers/arxiv-2608-09288--27aa252e7c87.md)                                 | arxiv  |
-| 2026-08-07T00:00:00+00:00 | arxiv:2608.06865   | [Multi-Agent Forensic Reasoning for Generalizable Deepfake Video Detection](papers/arxiv-2608-06865--95a04d7e9c8c.md)                                             | arxiv  |
 
 <!-- papers-index:end -->
 
