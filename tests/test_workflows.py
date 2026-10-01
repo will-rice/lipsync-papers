@@ -219,6 +219,7 @@ def _nightly_scenario(
     *,
     dirty_path: str | None,
     concurrent_push: bool = False,
+    rejected_pushes: int = 0,
 ) -> tuple[int, int]:
     origin = tmp_path / "origin.git"
     work = tmp_path / "work"
@@ -235,6 +236,18 @@ def _nightly_scenario(
     _git(work, "commit", "-q", "-m", "initial")
     _git(work, "remote", "add", "origin", str(origin))
     _git(work, "push", "-q", "-u", "origin", "main")
+    # Reject the next pushes the way a brief GitHub outage does.
+    hook = origin / "hooks" / "pre-receive"
+    hook.write_text(
+        "#!/usr/bin/env bash\n"
+        # Builtins only: the script under test runs with a minimal PATH.
+        "count=0\n"
+        f'if [[ -f "{origin}/attempts" ]]; then read -r count < "{origin}/attempts"; fi\n'
+        f'echo "$((count + 1))" > "{origin}/attempts"\n'
+        f'if ((count < {rejected_pushes})); then echo "Internal Server Error" >&2; exit 1; fi\n',
+        encoding="utf-8",
+    )
+    hook.chmod(hook.stat().st_mode | stat.S_IXUSR)
 
     concurrent_command = ""
     if concurrent_push:
@@ -272,6 +285,10 @@ def _nightly_scenario(
         encoding="utf-8",
     )
     uv.chmod(uv.stat().st_mode | stat.S_IXUSR)
+    # Retries wait between attempts; the test does not need to.
+    sleep = fake_bin / "sleep"
+    sleep.write_text("#!/usr/bin/env bash\n", encoding="utf-8")
+    sleep.chmod(sleep.stat().st_mode | stat.S_IXUSR)
     script = SCRIPTS / "nightly.sh"
     git_executable = shutil.which("git")
     bash_executable = shutil.which("bash")
@@ -317,6 +334,29 @@ def test_nightly_pushes_consistent_commits_with_clean_or_ignored_cache(
     status, remote_count = _nightly_scenario(tmp_path, dirty_path=dirty_path)
     assert status != 0
     assert remote_count == 2
+
+
+@pytest.mark.parametrize(
+    ("rejected_pushes", "expected_commits"),
+    [
+        (2, 2),  # a short outage: a later attempt publishes the batch
+        (99, 1),  # the remote never recovers: the run fails without publishing
+    ],
+)
+def test_nightly_retries_a_rejected_push(
+    tmp_path: Path, rejected_pushes: int, expected_commits: int
+) -> None:
+    status, remote_count = _nightly_scenario(
+        tmp_path, dirty_path=None, rejected_pushes=rejected_pushes
+    )
+    assert status != 0
+    assert remote_count == expected_commits
+
+
+def test_nightly_script_publishes_every_batch_and_retries_the_final_push() -> None:
+    script = (SCRIPTS / "nightly.sh").read_text(encoding="utf-8")
+    assert "papers-pipeline nightly --config papers.yml --publish" in script
+    assert "PUSH_ATTEMPTS=5" in script
 
 
 def test_nightly_script_is_executable() -> None:
