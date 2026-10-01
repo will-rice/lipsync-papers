@@ -53,6 +53,8 @@ class Dependencies:
     monotonic: Callable[[], float]
     materializer: InputMaterializer | None = None
     tool_lookup: ToolLookup | None = None
+    # Pushes the commits made so far; called after every batch when set.
+    publish: Callable[[], bool] | None = None
 
 
 @contextmanager
@@ -287,6 +289,14 @@ async def run_nightly(
                             commit_paths,
                             f"chore: convert paper batch {batch_number}",
                         )
+                        if (
+                            dependencies.publish is not None
+                            and not dependencies.publish()
+                        ):
+                            summary.events.append(
+                                f"publish failed after batch {batch_number}; "
+                                "a later push includes it"
+                            )
             except BaseException:
                 for path in batch_figures:
                     if path not in figures_before:

@@ -47,6 +47,7 @@ def app(
     validate.add_argument("--config-only", action="store_true")
     nightly = subparsers.add_parser("nightly")
     nightly.add_argument("--config", type=Path, default=Path("papers.yml"))
+    nightly.add_argument("--publish", action="store_true")
     format_corpus = subparsers.add_parser("format-corpus")
     format_corpus.add_argument("--shard-index", type=int, required=True)
     format_corpus.add_argument("--shard-count", type=int, required=True)
@@ -89,6 +90,7 @@ def app(
             now=lambda: datetime.now(timezone.utc),
             monotonic=time.monotonic,
             tool_lookup=tool_lookup,
+            publish=GitRepository(root).publish if args.publish else None,
         )
         state_path = root / ".papers-state.yml"
         state_before = load_state(state_path)

@@ -176,6 +176,12 @@ corpus formatting runs only through the manual sharded workflow.
 
 ## Automation and summaries
 
+The nightly workflow pushes every batch as soon as it is committed
+(`papers-pipeline nightly --publish`), so a run that fails or is cut off keeps
+all but its newest batch. A refused push is retried with the next batch, and
+the final push retries five times a minute apart. Without `--publish` the
+command only commits locally.
+
 The nightly Actions summary reports per-source fetched, accepted,
 deduplicated, and rejected counts; inventory, generated, pending, attempted,
 succeeded, failed, deferred, and fixme counts; timings; continuation, cap, retry, and

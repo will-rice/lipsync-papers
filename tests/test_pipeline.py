@@ -456,6 +456,35 @@ async def test_deferred_batches_do_not_consume_the_batch_budget(
 
 
 @pytest.mark.asyncio
+async def test_each_batch_is_published_and_a_failed_publish_does_not_stop_the_run(
+    tmp_path: Path,
+) -> None:
+    paths = make_paths(tmp_path, max_batches=2, max_papers=1)
+    git = RecordingGit()
+    published_after: list[str] = []
+
+    def publish() -> bool:
+        published_after.append(git.messages[-1])
+        return len(published_after) > 1  # the first push is refused
+
+    deps = dataclasses.replace(
+        dependencies(FakeAdapter([record("a"), record("b")]), FakeRunner(), git),
+        publish=publish,
+    )
+
+    summary = await run_nightly(paths, deps)
+
+    assert published_after == [
+        "chore: convert paper batch 1",
+        "chore: convert paper batch 2",
+    ]
+    assert summary.succeeded == 2
+    assert [event for event in summary.events if "publish" in event] == [
+        "publish failed after batch 1; a later push includes it"
+    ]
+
+
+@pytest.mark.asyncio
 async def test_pandoc_papers_convert_before_papers_that_need_marker(
     tmp_path: Path,
 ) -> None:
@@ -722,6 +751,10 @@ def test_nightly_cli_builds_real_dependency_graph(
     assert isinstance(captured[0].git, GitRepository)
     assert isinstance(captured[0].runner, CommandRunner)
     assert captured[0].materializer.__class__.__name__ == "DownloadingMaterializer"
+    # Pushing is opt-in: only the nightly workflow passes --publish.
+    assert captured[0].publish is None
+    assert cli.app(["nightly", "--config", str(paths.config), "--publish"]) == 0
+    assert captured[1].publish is not None
 
 
 @pytest.mark.parametrize(("succeeded", "expected"), [(1, "true"), (0, "false")])
