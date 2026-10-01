@@ -456,6 +456,28 @@ async def test_deferred_batches_do_not_consume_the_batch_budget(
 
 
 @pytest.mark.asyncio
+async def test_pandoc_papers_convert_before_papers_that_need_marker(
+    tmp_path: Path,
+) -> None:
+    paths = make_paths(tmp_path, max_batches=1, max_papers=1)
+    git = RecordingGit()
+    runner = FakeRunner()
+    # "a" sorts first but needs marker; the single budgeted batch goes to "b".
+    pdf = record("a").model_copy(
+        update={"input_format": "pdf", "input_url": "https://example.test/a.pdf"}
+    )
+
+    summary = await run_nightly(
+        paths, dependencies(FakeAdapter([pdf, record("b")]), runner, git)
+    )
+
+    assert [call[0] for call in runner.calls if call[0] != "prettier"] == ["pandoc"]
+    assert Path(next(c for c in runner.calls if c[0] == "pandoc")[1]).stem == "arxiv:b"
+    assert summary.succeeded == 1
+    assert summary.pending == 1
+
+
+@pytest.mark.asyncio
 async def test_conversion_stops_starting_batches_after_its_deadline(
     tmp_path: Path,
 ) -> None:

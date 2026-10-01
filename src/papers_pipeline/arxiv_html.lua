@@ -33,11 +33,15 @@ function Table(table_)
   return equations
 end
 
--- Anchors inside the arXiv page do not exist in the markdown, and titles
--- carry arXiv's section breadcrumbs.
+-- Anchors inside the arXiv page do not exist in the markdown, titles carry
+-- arXiv's section breadcrumbs, and data links are "download this listing"
+-- buttons that repeat the listing's text.
 function Link(link)
   if link.target:sub(1, 1) == "#" then
     return link.content
+  end
+  if link.target:sub(1, 5) == "data:" then
+    return {}
   end
   link.title = ""
   return link
