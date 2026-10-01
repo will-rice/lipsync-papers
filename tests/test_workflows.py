@@ -352,6 +352,17 @@ def test_template_update_opens_pr_and_never_pushes_main() -> None:
     assert publish["if"] == "needs.validate.outputs.updated == 'true'"
 
 
+def test_template_update_runs_copier_without_the_corpus() -> None:
+    # Copier passes every skip-if-exists file to one git command; with the
+    # corpus in the tree that overflows and drops the repository's changes.
+    script = (SCRIPTS / "template-update.sh").read_text(encoding="utf-8")
+    remove = script.index("git rm -r --quiet --cached papers")
+    update = script.index("uv run copier update")
+    restore = script.index("restore_corpus\ntrap - EXIT")
+    assert remove < update < restore
+    assert "trap restore_corpus EXIT" in script[:update]
+
+
 def test_pr_workflows_remove_downloaded_patches_and_constrain_staging() -> None:
     template_update = workflow("template-update.yml")["jobs"]["publish"]["steps"]
     update_pr = template_update[-1]

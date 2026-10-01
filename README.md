@@ -154,7 +154,10 @@ the exact UTC window start/end and consecutive failure attempts. A capped run
 reuses that window until enumeration completes; only the following run creates
 a fresh lookback window. Legacy cursor-only state is discarded rather than
 being resumed against a different window. Count and cost budgets select
-deterministic batches.
+deterministic batches. Each run first converts every pending paper that pandoc
+can handle, setting aside those that need marker, then spends its remaining
+batches on marker; a batch counts toward `max_batches_per_run` only when it
+converted or failed a paper.
 
 A paper failure does not stop peers. A third consecutive scheduled failure
 creates a colocated `.fixme.txt`; fix the input and remove the marker to retry.

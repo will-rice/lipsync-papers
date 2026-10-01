@@ -263,6 +263,7 @@ class ConversionResult:
     failed: tuple[PaperConversion, ...]
     deferred: tuple[PaperConversion, ...]
     interrupted: tuple[Paper, ...]
+    needs_marker: tuple[Paper, ...]
     promoted: tuple[Path, ...]
     state: PipelineState
 
@@ -273,6 +274,7 @@ class _PreparedConversion:
     staged_output: Path | None
     error: str | None
     deferred: bool = False
+    needs_marker: bool = False
 
 
 def command_for(paper: Paper, input_path: Path, output: Path) -> list[str]:
@@ -297,11 +299,15 @@ async def convert_batch(
     now: datetime,
     timeout_seconds: float = _DEFAULT_CONVERSION_TIMEOUT,
     time_budget_seconds: float | None = None,
+    allow_marker: bool = True,
 ) -> ConversionResult:
     """Convert one batch, stopping unfinished conversions at the time budget.
 
     Conversions still running when time_budget_seconds elapses are cancelled
     and reported as interrupted: they record no failure and stay pending.
+    With allow_marker false only pandoc runs, and papers that need marker are
+    reported as needs_marker and stay pending, so minutes-long PDF conversions
+    never hold up papers that convert in seconds.
     """
     if concurrency.pdf != 1:
         raise InfrastructureError("PDF concurrency must equal 1")
@@ -396,6 +402,10 @@ async def convert_batch(
                 return _PreparedConversion(
                     paper=paper, staged_output=staged_output, error=None
                 )
+            if paper.input_format == "pdf" and not allow_marker:
+                return _PreparedConversion(
+                    paper=paper, staged_output=None, error=None, needs_marker=True
+                )
             input_path = await materializer.materialize(paper, workspace)
             async with semaphores[paper.input_format]:
                 if paper.input_format in {"html", "latex"}:
@@ -477,6 +487,8 @@ async def convert_batch(
         promoted: list[Path] = []
 
         for result in results:
+            if result.needs_marker:
+                continue
             if result.error is None:
                 failures.pop(result.paper.identifier, None)
                 continue
@@ -514,6 +526,9 @@ async def convert_batch(
             failed=tuple(failed),
             deferred=tuple(deferred),
             interrupted=tuple(interrupted),
+            needs_marker=tuple(
+                result.paper for result in results if result.needs_marker
+            ),
             promoted=tuple(promoted),
             state=state.model_copy(update={"failures": failures}),
         )

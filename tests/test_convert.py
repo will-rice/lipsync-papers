@@ -443,6 +443,38 @@ async def test_rate_limited_paper_is_deferred_without_a_strike(tmp_path: Path) -
 
 
 @pytest.mark.asyncio
+async def test_papers_that_need_marker_wait_when_marker_is_not_allowed(
+    tmp_path: Path,
+) -> None:
+    fast = paper("doi:fast", input_format="html")
+    slow = paper("doi:slow", input_format="pdf")
+    earlier = [FailureAttempt(occurred_at=NOW.replace(day=22), error="HTTP 404")]
+    materializer = FakeMaterializer(
+        fixtures={item.input_url: fixture_for(item) for item in (fast, slow)}
+    )
+    runner = TrackingRunner(materializer=materializer)
+
+    result = await convert_batch(
+        Batch(papers=(fast, slow), estimated_cost=11),
+        tmp_path,
+        PipelineState(failures={slow.identifier: earlier}),
+        CONCURRENCY,
+        runner,
+        materializer,
+        NOW,
+        allow_marker=False,
+    )
+
+    assert [item.paper for item in result.succeeded] == [fast]
+    assert result.needs_marker == (slow,)
+    assert result.failed == ()
+    # The PDF is neither downloaded nor converted, and its history is kept.
+    assert runner.maximum_active["pdf"] == 0
+    assert result.state.failures == {slow.identifier: earlier}
+    assert infer_backlog([fast, slow], tmp_path).pending == (slow,)
+
+
+@pytest.mark.asyncio
 async def test_time_budget_interrupts_running_conversions_without_a_strike(
     tmp_path: Path,
 ) -> None:
@@ -1374,6 +1406,7 @@ def test_arxiv_lua_filter_writes_equations_as_display_math(tmp_path: Path) -> No
     assert "See Figure 1." in markdown
     assert "‣" not in markdown
     assert "Refer to caption" not in markdown
+    assert "data:" not in markdown
 
 
 @pytest.mark.parametrize(
