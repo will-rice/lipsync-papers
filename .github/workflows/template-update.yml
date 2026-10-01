@@ -39,7 +39,7 @@ jobs:
           python-version: "3.12"
       - name: Install update tools
         timeout-minutes: 2
-        run: python -m pip install uv==0.8.17 copier==9.10.2
+        run: python -m pip install uv==0.11.8 copier==9.10.2
       - name: Resolve latest template release
         id: release
         timeout-minutes: 1
