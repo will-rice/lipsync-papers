@@ -6,10 +6,11 @@ Standalone paper discovery and conversion for Papers related to lipsync..
 
 # Papers
 
-The 30 most recent of 1182 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1183 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                             | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-10-02T03:29:56+00:00 | arxiv:2610.02752v1 | [GAANet: Global-guided Asymmetric Attention Network for Audio-Visual Speech Separation](papers/arxiv-2610-02752v1--2624bb6d446a.md)                               | arxiv  |
 | 2026-09-30T23:35:37+00:00 | arxiv:2610.00825v1 | [Align Then Reason: A Multimodal Lip-Sync Judge for Dubbing](papers/arxiv-2610-00825v1--f158abcbaab6.md)                                                          | arxiv  |
 | 2026-09-30T17:53:47+00:00 | arxiv:2609.40317v1 | [GLARE: Generating Listening Heads with Appropriate Reactions](papers/arxiv-2609-40317v1--a54eb08f7aac.md)                                                        | arxiv  |
 | 2026-09-25T08:15:11+00:00 | arxiv:2609.30963v1 | [Where and When to Force: Routed Forcing for Streaming Avatars](papers/arxiv-2609-30963v1--b3eb952efdfe.md)                                                       | arxiv  |
@@ -39,7 +40,6 @@ The 30 most recent of 1182 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-13T00:00:00+00:00 | arxiv:2608.11752   | [UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos](papers/arxiv-2608-11752--1e062e3bdcfb.md)                                                  | arxiv  |
 | 2026-08-13T00:00:00+00:00 | arxiv:2608.11745   | [LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time](papers/arxiv-2608-11745--e3146949e839.md)                                                  | arxiv  |
 | 2026-08-12T00:00:00+00:00 | arxiv:2608.12107   | [Avatar-Forever: Decoupled Parallel Training for High-Quality Real-Time Infinite Avatars](papers/arxiv-2608-12107--7795ca6b8165.md)                               | arxiv  |
-| 2026-08-10T00:00:00+00:00 | arxiv:2608.14700   | [Xemo-Talker: Unlock Emotions Explicitly for Audio-Driven Talking Portrait Synthesis](papers/arxiv-2608-14700--e90e2d4d050f.md)                                   | arxiv  |
 
 <!-- papers-index:end -->
 
