@@ -23,7 +23,12 @@ from papers_pipeline.fetch import FetchResult, fetch_all
 from papers_pipeline.formatting import format_changed
 from papers_pipeline.git import GitOperations
 from papers_pipeline.http import Deadline, RequestClient
-from papers_pipeline.indexing import write_index
+from papers_pipeline.indexing import (
+    TITLE_INDEX_DIRECTORY,
+    title_index_paths,
+    write_index,
+    write_title_index,
+)
 from papers_pipeline.inventory import read_inventory, write_inventory
 from papers_pipeline.models import Paper, PipelineState
 from papers_pipeline.preflight import ToolLookup, validate_required_tools
@@ -190,8 +195,10 @@ async def run_nightly(
             summary.attempted = len(attempted)
             state_before_batch = state
             index_path = paths.root / "README.md"
+            title_paths = title_index_paths(paths.root, inventory)
             batch_paths = [
                 index_path,
+                *title_paths,
                 paths.state,
                 *(
                     path
@@ -257,6 +264,7 @@ async def run_nightly(
                 index_before = _file_content(index_path)
                 with _timed(summary, "index", dependencies.monotonic):
                     index = write_index(paths.root, inventory)
+                    write_title_index(paths.root, inventory)
                 changed_paths = [
                     item.output
                     for item in converted.succeeded
@@ -264,6 +272,11 @@ async def run_nightly(
                 ]
                 if _file_content(index) != index_before:
                     changed_paths.append(index)
+                changed_paths.extend(
+                    path
+                    for path in title_paths
+                    if _file_content(path) != batch_before[path]
+                )
 
                 with _timed(summary, "format", dependencies.monotonic):
                     await format_changed(changed_paths, dependencies.runner)
@@ -403,6 +416,7 @@ def _managed_paths(paths: PipelinePaths) -> list[Path]:
         paths.inventory,
         paths.state,
         paths.root / "README.md",
+        paths.root / TITLE_INDEX_DIRECTORY,
         paths.root / "papers",
     ]
 

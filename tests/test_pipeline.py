@@ -483,6 +483,24 @@ async def test_each_batch_is_published_and_a_failed_publish_does_not_stop_the_ru
 
 
 @pytest.mark.asyncio
+async def test_title_index_is_committed_with_the_batch_that_changes_it(
+    tmp_path: Path,
+) -> None:
+    paths = make_paths(tmp_path)
+    git = RecordingGit()
+
+    await run_nightly(
+        paths, dependencies(FakeAdapter([record("a")]), FakeRunner(), git)
+    )
+
+    overview = tmp_path / "index" / "README.md"
+    year = tmp_path / "index" / f"{NOW.year}.md"
+    assert "(../papers/" in year.read_text(encoding="utf-8")
+    batch_paths = git.paths[git.messages.index("chore: convert paper batch 1")]
+    assert {overview, year} <= set(batch_paths)
+
+
+@pytest.mark.asyncio
 async def test_pandoc_papers_convert_before_papers_that_need_docling(
     tmp_path: Path,
 ) -> None:
@@ -542,6 +560,8 @@ async def test_formats_only_outputs_and_index_changed_by_batch(
     prettier_call = next(call for call in runner.calls if call[0] == "prettier")
     assert set(prettier_call[2:]) == {
         str(tmp_path / "README.md"),
+        str(tmp_path / "index" / "README.md"),
+        str(tmp_path / "index" / f"{NOW.year}.md"),
         str(next((tmp_path / "papers").glob("*.md"))),
     }
     assert str(paths.inventory) not in prettier_call
