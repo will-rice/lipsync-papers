@@ -20,7 +20,7 @@ def required_tools(config: PipelineConfig) -> tuple[str, ...]:
     enabled = {adapter.name for adapter in config.adapters if adapter.enabled}
     tools: set[str] = {"prettier"}
     if enabled & _PDF_ADAPTERS:
-        tools.add("marker_single")
+        tools.add("docling")
     if enabled & _PANDOC_ADAPTERS:
         tools.add("pandoc")
     return tuple(sorted(tools))

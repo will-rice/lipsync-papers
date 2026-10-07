@@ -63,7 +63,10 @@ to refresh the front matter of every converted paper from `papers.csv`.
 Figures are stored next to each paper in `<paper>.figures/`, downscaled to
 1024 px and recompressed as WebP, so the corpus never links to a source that
 could change. arXiv papers convert from arXiv's HTML with a pandoc filter that
-writes numbered equations as display math. Run
+writes numbered equations as display math. Every other PDF converts with
+docling, with OCR on so scanned papers work and formula recognition off because
+it takes over a minute per equation on a CPU: display equations in those papers
+appear as `<!-- formula-not-decoded -->`. Run
 `papers-pipeline requeue-outdated` to delete conversions made before figures
 and equations were handled this way; the next nightly runs reconvert them.
 
@@ -126,7 +129,7 @@ PDF concurrency is always exactly 1.
 
 ```bash
 uv sync --locked --extra dev
-uv tool install marker-pdf==1.10.1
+uv tool install docling==2.135.0
 uv pip install --no-deps pypandoc-binary==1.15
 mkdir -p "$HOME/.local/bin"
 ln -sf "$(uv run python -c 'import pypandoc; print(pypandoc.get_pandoc_path())')" \
@@ -155,8 +158,8 @@ reuses that window until enumeration completes; only the following run creates
 a fresh lookback window. Legacy cursor-only state is discarded rather than
 being resumed against a different window. Count and cost budgets select
 deterministic batches. Each run first converts every pending paper that pandoc
-can handle, setting aside those that need marker, then spends its remaining
-batches on marker; a batch counts toward `max_batches_per_run` only when it
+can handle, setting aside those that need docling, then spends its remaining
+batches on docling; a batch counts toward `max_batches_per_run` only when it
 converted or failed a paper.
 
 A paper failure does not stop peers. A third consecutive scheduled failure

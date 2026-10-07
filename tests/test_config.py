@@ -260,12 +260,12 @@ def test_validate_command_reports_missing_runtime_tool(
 ) -> None:
     exit_code = app(
         ["validate", "--config", str(valid_config)],
-        tool_lookup=lambda name: None if name == "marker_single" else f"/tools/{name}",
+        tool_lookup=lambda name: None if name == "docling" else f"/tools/{name}",
     )
 
     captured = capsys.readouterr()
     assert exit_code == 2
-    assert captured.err == "error: missing required tools: marker_single\n"
+    assert captured.err == "error: missing required tools: docling\n"
 
 
 def test_validate_command_reports_invalid_config_without_traceback(

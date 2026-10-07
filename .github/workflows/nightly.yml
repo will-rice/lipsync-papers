@@ -44,7 +44,11 @@ jobs:
           # otherwise times out mid-download and stops the run.
           UV_HTTP_TIMEOUT: "300"
         run: |
-          uv tool install marker-pdf==1.10.1 --torch-backend cpu
+          uv tool install docling==2.135.0 --torch-backend cpu
+          # Fetch docling's models now, so a failed download stops the job
+          # here instead of failing a paper in the middle of a run.
+          docling-tools models download layout tableformer rapidocr
+          echo "DOCLING_ARTIFACTS_PATH=$HOME/.cache/docling/models" >> "$GITHUB_ENV"
           uv pip install --no-deps pypandoc-binary==1.15
           npm install --global prettier@3.6.2
           mkdir -p "$HOME/.local/bin"

@@ -82,12 +82,14 @@ def test_all_python_workflows_use_locked_dependencies() -> None:
 
 def test_nightly_provisions_pinned_conversion_and_formatting_tools() -> None:
     text = (WORKFLOWS / "nightly.yml").read_text(encoding="utf-8")
-    assert "marker-pdf==1.10.1" in text
+    assert "docling==2.135.0 --torch-backend cpu" in text
+    assert "docling-tools models download layout tableformer rapidocr" in text
+    assert "DOCLING_ARTIFACTS_PATH=" in text
     assert "pypandoc-binary==1.15" in text
     assert "prettier@3.6.2" in text
     assert "pypandoc.get_pandoc_path()" in text
     assert '"$HOME/.local/bin" >> "$GITHUB_PATH"' in text
-    assert text.index("marker-pdf==1.10.1") < text.index("nightly.sh")
+    assert text.index("docling==2.135.0") < text.index("nightly.sh")
 
 
 def test_nightly_has_non_overlapping_mutation_concurrency() -> None:
