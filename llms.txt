@@ -1,0 +1,17 @@
+# Lipsync Papers
+
+> Papers related to lipsync.: research papers converted to Markdown so that people and LLMs can read them straight from this repository.
+
+## Finding a paper
+
+- [Title index](index/README.md): one file per publication year, one line per paper with its date, title and a link to its Markdown. Start here.
+- [papers.csv](papers.csv): every paper with its identifier, title, abstract, authors, publication date, URL, source, DOI, arXiv ID and categories, oldest first. It is large; search it rather than reading it whole.
+- [README.md](README.md): the 30 most recent papers.
+
+## Reading a paper
+
+- Each paper is one file, `papers/<name>.md`, where `<name>` is the paper's identifier as a slug plus a short hash, for example `papers/arxiv-2111-05095v1--62e4caaf9baf.md`.
+- Every file starts with YAML front matter: `identifier`, `title`, `authors`, `published`, `url`, `source`, `doi`, `arxiv_id` and `categories`.
+- Figures are stored next to the paper in `papers/<name>.figures/` and linked with relative paths.
+- Math is LaTeX. Papers converted from arXiv HTML have inline math as ``$`...`$`` and display equations in `math` code blocks. Papers converted from PDF have display equations as `$$...$$`, or `<!-- formula-not-decoded -->` where an equation was not recognized, and their inline math is plain text.
+- `papers/<name>.fixme.txt` means the paper could not be converted; the file holds the error. Such papers, and papers still waiting to be converted, link to their source URL in the title index.

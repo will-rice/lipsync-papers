@@ -53,7 +53,10 @@ stage. Source continuations retain an opaque cursor and its exact UTC fetch
 window across bounded runs under one shared deadline. Conversion failures are
 isolated by paper; infrastructure failures stop the run.
 
-The corpus is built to be browsed by people and LLMs. Every paper in `papers/`
+The corpus is built to be browsed by people and LLMs. [llms.txt](llms.txt)
+describes the layout, and [index/](index/README.md) lists every paper by title,
+one small file per publication year, regenerated with each converted batch so a
+reader never has to load `papers.csv` to find a paper. Every paper in `papers/`
 starts with YAML front matter (identifier, title, authors, published date, URL,
 source, DOI, arXiv ID, and categories). `papers.csv` lists every paper in
 publication order, and the index below shows its 30 most recent, linking each

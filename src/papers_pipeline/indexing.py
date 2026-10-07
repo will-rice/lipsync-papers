@@ -10,6 +10,9 @@ _START_MARKER = b"<!-- papers-index:start -->"
 _END_MARKER = b"<!-- papers-index:end -->"
 # The README lists only the tail of papers.csv; the CSV and papers/ hold all.
 RECENT_PAPERS = 30
+# One small file per publication year, so a reader (or an LLM) can find any
+# paper by title without loading papers.csv, which carries every abstract.
+TITLE_INDEX_DIRECTORY = "index"
 
 
 def write_index(root: Path, papers: Sequence[Paper]) -> Path:
@@ -32,6 +35,50 @@ def write_index(root: Path, papers: Sequence[Paper]) -> Path:
 
     path.write_bytes(content)
     return path
+
+
+def title_index_paths(root: Path, papers: Sequence[Paper]) -> list[Path]:
+    """Files of the title index: an overview and one file per publication year."""
+    directory = root / TITLE_INDEX_DIRECTORY
+    years = sorted({paper.published.year for paper in papers}, reverse=True)
+    return [directory / "README.md", *(directory / f"{year}.md" for year in years)]
+
+
+def write_title_index(root: Path, papers: Sequence[Paper]) -> None:
+    """Write the title index: every paper, one line each, grouped by year.
+
+    A line holds the publication date, the title and a link to the paper's
+    markdown, or to its source while it is not converted.
+    """
+    directory = root / TITLE_INDEX_DIRECTORY
+    directory.mkdir(exist_ok=True)
+    by_year: dict[int, list[Paper]] = {}
+    for paper in sorted(papers, key=inventory_order, reverse=True):
+        by_year.setdefault(paper.published.year, []).append(paper)
+    overview = [
+        "# Title index",
+        "",
+        f"{len(papers)} papers by publication year, newest first. Each year lists"
+        " one paper per line: date, title, and a link to its markdown, or to its"
+        " source when it is not converted.",
+        "",
+    ]
+    for year, year_papers in by_year.items():
+        count = f"{len(year_papers)} paper{'' if len(year_papers) == 1 else 's'}"
+        overview.append(f"- [{year}]({year}.md): {count}")
+        lines = [f"# {year}", ""]
+        for paper in year_papers:
+            markdown = expected_markdown(root, paper)
+            link = f"../papers/{markdown.name}" if markdown.exists() else paper.url
+            title = (
+                paper.title.replace("\\", "\\\\")
+                .replace("[", "\\[")
+                .replace("]", "\\]")
+                .replace("\n", " ")
+            )
+            lines.append(f"- {paper.published.date().isoformat()} [{title}]({link})")
+        (directory / f"{year}.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (directory / "README.md").write_text("\n".join(overview) + "\n", encoding="utf-8")
 
 
 def _unique_marker_offset(content: bytes, marker: bytes, name: str) -> int:
