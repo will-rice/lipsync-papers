@@ -63,7 +63,8 @@ to refresh the front matter of every converted paper from `papers.csv`.
 Figures are stored next to each paper in `<paper>.figures/`, downscaled to
 1024 px and recompressed as WebP, so the corpus never links to a source that
 could change. arXiv papers convert from arXiv's HTML with a pandoc filter that
-writes numbered equations as display math. Every other PDF converts with
+writes numbered equations as display math; when arXiv has no HTML, ar5iv's
+rendering is used unless ar5iv grades it fatal. Every other PDF converts with
 docling, with OCR on so scanned papers work and formula recognition off because
 it takes over a minute per equation on a CPU: display equations in those papers
 appear as `<!-- formula-not-decoded -->`. Run

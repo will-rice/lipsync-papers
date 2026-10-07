@@ -1305,6 +1305,7 @@ def arxiv_paper() -> Paper:
 
 
 ARXIV_HTML_URL = "https://arxiv.org/html/2401.12345"
+AR5IV_HTML_URL = "https://ar5iv.labs.arxiv.org/html/2401.12345"
 
 
 @pytest.mark.asyncio
@@ -1321,12 +1322,12 @@ async def test_arxiv_papers_convert_from_arxiv_html_before_their_input(
 ) -> None:
     target = arxiv_paper()
     fixtures = {target.input_url: fixture_for(target)}
+    behaviors = {AR5IV_HTML_URL: "paper_error"}
     if html is not None:
         fixtures[ARXIV_HTML_URL] = FIXTURES / html
-    fake_materializer = FakeMaterializer(
-        fixtures=fixtures,
-        behaviors={} if html is not None else {ARXIV_HTML_URL: "paper_error"},
-    )
+    else:
+        behaviors[ARXIV_HTML_URL] = "paper_error"
+    fake_materializer = FakeMaterializer(fixtures=fixtures, behaviors=behaviors)
     runner = TrackingRunner(materializer=fake_materializer)
 
     result = await convert_batch(
@@ -1346,6 +1347,73 @@ async def test_arxiv_papers_convert_from_arxiv_html_before_their_input(
         # Only the LaTeXML article reaches pandoc, not arXiv's page chrome.
         assert runner.inputs[0].startswith(b'<article class="ltx_document')
         assert b"Report GitHub Issue" not in runner.inputs[0]
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    ("ar5iv", "expected_kind"),
+    [
+        ("ar5iv.html", "html"),
+        ("ar5iv-fatal.html", "pdf"),  # ar5iv marks empty or truncated pages fatal
+    ],
+)
+async def test_arxiv_papers_without_arxiv_html_convert_from_ar5iv(
+    tmp_path: Path, state: PipelineState, ar5iv: str, expected_kind: str
+) -> None:
+    # arXiv stores a version, ar5iv only the latest: its URL has no "v2".
+    target = arxiv_paper().model_copy(update={"arxiv_id": "2401.12345v2"})
+    fake_materializer = FakeMaterializer(
+        fixtures={
+            target.input_url: fixture_for(target),
+            AR5IV_HTML_URL: FIXTURES / ar5iv,
+        },
+        behaviors={f"{ARXIV_HTML_URL}v2": "paper_error"},
+    )
+    runner = TrackingRunner(materializer=fake_materializer)
+
+    result = await convert_batch(
+        Batch(papers=(target,), estimated_cost=1),
+        tmp_path,
+        state,
+        CONCURRENCY,
+        runner,
+        fake_materializer,
+        NOW,
+    )
+
+    assert result.succeeded[0].paper == target
+    assert runner.maximum_active[expected_kind] == 1
+    assert len(runner.inputs) == 1
+    if expected_kind == "html":
+        assert b"Offline ar5iv HTML." in runner.inputs[0]
+
+
+@pytest.mark.asyncio
+async def test_rate_limited_arxiv_html_defers_the_paper_instead_of_falling_back(
+    tmp_path: Path, state: PipelineState
+) -> None:
+    target = arxiv_paper()
+
+    class LimitedMaterializer:
+        async def download(self, url: str) -> bytes:
+            raise AssertionError(url)
+
+        async def materialize(self, paper: Paper, root: Path) -> Path:
+            assert paper.input_url == ARXIV_HTML_URL
+            raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
+
+    result = await convert_batch(
+        Batch(papers=(target,), estimated_cost=1),
+        tmp_path,
+        state,
+        CONCURRENCY,
+        CommandRunner(),
+        LimitedMaterializer(),
+        NOW,
+    )
+
+    assert [item.paper for item in result.deferred] == [target]
+    assert result.failed == ()
 
 
 def png(width: int, height: int) -> bytes:
