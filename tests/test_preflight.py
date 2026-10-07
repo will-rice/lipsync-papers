@@ -46,7 +46,7 @@ def _config() -> PipelineConfig:
 def test_required_tools_follow_enabled_adapter_formats() -> None:
     config = _config()
 
-    assert required_tools(config) == ("marker_single", "pandoc", "prettier")
+    assert required_tools(config) == ("docling", "pandoc", "prettier")
 
 
 def test_preflight_reports_missing_tools_concisely() -> None:
@@ -54,7 +54,7 @@ def test_preflight_reports_missing_tools_concisely() -> None:
 
     with pytest.raises(
         InfrastructureError,
-        match=r"^missing required tools: marker_single, prettier$",
+        match=r"^missing required tools: docling, prettier$",
     ):
         validate_required_tools(
             config,

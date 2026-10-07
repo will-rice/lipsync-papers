@@ -26,10 +26,11 @@ from papers_pipeline.remote import RemoteDownloader
 
 _DEFAULT_CONVERSION_TIMEOUT = 900.0
 _PROCESS_SHUTDOWN_TIMEOUT = 2.0
-_MARKER_TOOL = "marker_single"
+_DOCLING_TOOL = "docling"
 _PANDOC_TOOL = "pandoc"
 # arXiv renders most papers to HTML with LaTeXML. Converting that article with
-# pandoc takes under a second, versus minutes of CPU OCR per PDF with marker.
+# pandoc takes under a second, while docling spends the better part of a minute
+# on layout analysis and OCR per PDF.
 _ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
 # Hosts that block bursts of automated downloads get one request at a time,
 # spaced by this many seconds.
@@ -42,7 +43,6 @@ _HTML_IMAGE_SOURCE = re.compile(r'\ssrc="([^"]*)"')
 # Downscaled WebP keeps a corpus of thousands of papers small enough for git.
 FIGURE_MAX_PIXELS = 1024
 FIGURE_WEBP_QUALITY = 70
-_MARKER_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 _DATA_IMAGE = re.compile(
     r"!\[([^\]]*)\]\(data:image/([\w.+-]+);base64,([A-Za-z0-9+/=]+)\)"
 )
@@ -263,7 +263,7 @@ class ConversionResult:
     failed: tuple[PaperConversion, ...]
     deferred: tuple[PaperConversion, ...]
     interrupted: tuple[Paper, ...]
-    needs_marker: tuple[Paper, ...]
+    needs_pdf: tuple[Paper, ...]
     promoted: tuple[Path, ...]
     state: PipelineState
 
@@ -274,7 +274,7 @@ class _PreparedConversion:
     staged_output: Path | None
     error: str | None
     deferred: bool = False
-    needs_marker: bool = False
+    needs_pdf: bool = False
 
 
 def command_for(paper: Paper, input_path: Path, output: Path) -> list[str]:
@@ -286,7 +286,19 @@ def command_for(paper: Paper, input_path: Path, output: Path) -> list[str]:
             "--to=gfm-raw_html",
             f"--output={output}",
         ]
-    return [_MARKER_TOOL, str(input_path), "--output_dir", str(output)]
+    # OCR stays on (docling's default) so scanned PDFs convert too. Formula
+    # recognition stays off: it takes over a minute per equation on a CPU.
+    return [
+        _DOCLING_TOOL,
+        "convert",
+        str(input_path),
+        "--to",
+        "md",
+        "--image-export-mode",
+        "referenced",
+        "--output",
+        str(output),
+    ]
 
 
 async def convert_batch(
@@ -299,15 +311,15 @@ async def convert_batch(
     now: datetime,
     timeout_seconds: float = _DEFAULT_CONVERSION_TIMEOUT,
     time_budget_seconds: float | None = None,
-    allow_marker: bool = True,
+    allow_pdf: bool = True,
 ) -> ConversionResult:
     """Convert one batch, stopping unfinished conversions at the time budget.
 
     Conversions still running when time_budget_seconds elapses are cancelled
     and reported as interrupted: they record no failure and stay pending.
-    With allow_marker false only pandoc runs, and papers that need marker are
-    reported as needs_marker and stay pending, so minutes-long PDF conversions
-    never hold up papers that convert in seconds.
+    With allow_pdf false only pandoc runs, and papers that need docling are
+    reported as needs_pdf and stay pending, so PDF conversions, which run one
+    at a time, never hold up papers that convert in seconds.
     """
     if concurrency.pdf != 1:
         raise InfrastructureError("PDF concurrency must equal 1")
@@ -402,9 +414,9 @@ async def convert_batch(
                 return _PreparedConversion(
                     paper=paper, staged_output=staged_output, error=None
                 )
-            if paper.input_format == "pdf" and not allow_marker:
+            if paper.input_format == "pdf" and not allow_pdf:
                 return _PreparedConversion(
-                    paper=paper, staged_output=None, error=None, needs_marker=True
+                    paper=paper, staged_output=None, error=None, needs_pdf=True
                 )
             input_path = await materializer.materialize(paper, workspace)
             async with semaphores[paper.input_format]:
@@ -414,19 +426,17 @@ async def convert_batch(
                         timeout=timeout_seconds,
                     )
                 else:
-                    marker_output_dir = _marker_output_dir(workspace, paper)
+                    pdf_output_dir = _pdf_output_dir(workspace, paper)
                     await runner.run(
-                        command_for(paper, input_path, marker_output_dir),
+                        command_for(paper, input_path, pdf_output_dir),
                         timeout=timeout_seconds,
                     )
-                    produced_markdown = _marker_markdown_path(
-                        marker_output_dir, input_path
-                    )
+                    produced_markdown = pdf_output_dir / f"{input_path.stem}.md"
                     if not produced_markdown.exists():
                         raise InfrastructureError(
                             f"converter reported success without output: {paper.identifier}"
                         )
-                    localize_marker_figures(
+                    localize_pdf_figures(
                         produced_markdown, staged_output.with_suffix(".figures")
                     )
                     _atomic_move(produced_markdown, staged_output)
@@ -487,7 +497,7 @@ async def convert_batch(
         promoted: list[Path] = []
 
         for result in results:
-            if result.needs_marker:
+            if result.needs_pdf:
                 continue
             if result.error is None:
                 failures.pop(result.paper.identifier, None)
@@ -526,9 +536,7 @@ async def convert_batch(
             failed=tuple(failed),
             deferred=tuple(deferred),
             interrupted=tuple(interrupted),
-            needs_marker=tuple(
-                result.paper for result in results if result.needs_marker
-            ),
+            needs_pdf=tuple(result.paper for result in results if result.needs_pdf),
             promoted=tuple(promoted),
             state=state.model_copy(update={"failures": failures}),
         )
@@ -566,14 +574,10 @@ def _staged_output_path(workspace: Path, paper: Paper) -> Path:
     return path
 
 
-def _marker_output_dir(workspace: Path, paper: Paper) -> Path:
-    path = workspace / "marker" / expected_markdown(workspace, paper).stem
+def _pdf_output_dir(workspace: Path, paper: Paper) -> Path:
+    path = workspace / "docling" / expected_markdown(workspace, paper).stem
     path.mkdir(parents=True, exist_ok=True)
     return path
-
-
-def _marker_markdown_path(output_dir: Path, input_path: Path) -> Path:
-    return output_dir / input_path.stem / f"{input_path.stem}.md"
 
 
 # Signs of a conversion made before figures were stored locally and arXiv
@@ -660,20 +664,18 @@ def localize_inline_figures(markdown: Path, figures: Path) -> None:
     markdown.write_text(_DATA_IMAGE.sub(replace, text), encoding="utf-8")
 
 
-def localize_marker_figures(markdown: Path, figures: Path) -> None:
-    """Move marker's extracted images into figures and relink the markdown.
+def localize_pdf_figures(markdown: Path, figures: Path) -> None:
+    """Move docling's exported images into figures and relink the markdown.
 
-    Images that cannot be decoded are dropped along with their links.
+    Docling writes images to "<name>_artifacts" beside the markdown and links
+    them by absolute path. Images that cannot be decoded are dropped along
+    with their links.
     """
     text = markdown.read_text(encoding="utf-8")
-    images = sorted(
-        path
-        for path in markdown.parent.iterdir()
-        if path.suffix.lower() in _MARKER_IMAGE_SUFFIXES
-    )
-    for index, image in enumerate(images, start=1):
+    artifacts = markdown.with_name(f"{markdown.stem}_artifacts")
+    for index, image in enumerate(sorted(artifacts.glob("*")), start=1):
         target = figures / f"figure-{index}.webp"
-        link = re.compile(rf"(!\[[^\]]*\]\(){re.escape(image.name)}\)")
+        link = re.compile(rf"(!\[[^\]]*\]\()[^)]*{re.escape(image.name)}\)")
         if write_figure(image.read_bytes(), target):
             text = link.sub(rf"\g<1>{figures.name}/{target.name})", text)
         else:

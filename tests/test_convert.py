@@ -29,7 +29,7 @@ from papers_pipeline.convert import (
     DownloadingMaterializer,
     convert_batch,
     localize_inline_figures,
-    localize_marker_figures,
+    localize_pdf_figures,
     requeue_outdated_conversions,
     write_figure,
 )
@@ -137,7 +137,8 @@ class TrackingRunner(CommandRunner):
     ) -> subprocess.CompletedProcess[str]:
         self.timeouts.append(timeout)
         kind = _kind_for(argv)
-        input_path = Path(argv[1])
+        # docling takes its input after the "convert" subcommand.
+        input_path = Path(argv[2] if argv[0] == "docling" else argv[1])
         assert input_path.is_absolute()
         assert "://" not in argv[1]
         original_url = self.materializer.lookup(input_path)
@@ -443,7 +444,7 @@ async def test_rate_limited_paper_is_deferred_without_a_strike(tmp_path: Path) -
 
 
 @pytest.mark.asyncio
-async def test_papers_that_need_marker_wait_when_marker_is_not_allowed(
+async def test_papers_that_need_docling_wait_when_pdfs_are_not_allowed(
     tmp_path: Path,
 ) -> None:
     fast = paper("doi:fast", input_format="html")
@@ -462,11 +463,11 @@ async def test_papers_that_need_marker_wait_when_marker_is_not_allowed(
         runner,
         materializer,
         NOW,
-        allow_marker=False,
+        allow_pdf=False,
     )
 
     assert [item.paper for item in result.succeeded] == [fast]
-    assert result.needs_marker == (slow,)
+    assert result.needs_pdf == (slow,)
     assert result.failed == ()
     # The PDF is neither downloaded nor converted, and its history is kept.
     assert runner.maximum_active["pdf"] == 0
@@ -1133,7 +1134,7 @@ async def test_converter_must_materialize_output(
 
 
 @pytest.mark.asyncio
-async def test_marker_output_is_moved_from_marker_contract_location(
+async def test_docling_output_is_moved_from_its_output_directory(
     tmp_path: Path, state: PipelineState
 ) -> None:
     target = paper("ss:2", input_format="pdf")
@@ -1238,7 +1239,7 @@ async def test_unexpected_task_failure_is_wrapped_as_infrastructure_error(
 
 
 def _kind_for(argv: Sequence[str]) -> str:
-    if argv[0] == "marker_single":
+    if argv[0] == "docling":
         return "pdf"
     if Path(urlsplit(argv[1]).path).suffix == ".html":
         return "html"
@@ -1246,9 +1247,8 @@ def _kind_for(argv: Sequence[str]) -> str:
 
 
 def _write_converter_output(argv: Sequence[str], input_path: Path) -> None:
-    if argv[0] == "marker_single":
-        output_dir = Path(argv[3])
-        output = output_dir / input_path.stem / f"{input_path.stem}.md"
+    if argv[0] == "docling":
+        output = Path(argv[argv.index("--output") + 1]) / f"{input_path.stem}.md"
     else:
         output = Path(
             next(
@@ -1443,23 +1443,26 @@ def test_inline_data_figures_are_written_next_to_the_paper(tmp_path: Path) -> No
     assert (figures / "inline-1.svg").read_bytes() == svg
 
 
-def test_marker_figures_move_next_to_the_paper_and_are_relinked(
+def test_docling_figures_move_next_to_the_paper_and_are_relinked(
     tmp_path: Path,
 ) -> None:
-    output = tmp_path / "marker" / "paper.md"
-    output.parent.mkdir(parents=True)
-    (output.parent / "_page_0_Picture_1.jpeg").write_bytes(png(40, 20))
-    (output.parent / "_page_1_Picture_2.png").write_bytes(b"not an image")
+    # Docling's layout: images in "<name>_artifacts", linked by absolute path.
+    output = tmp_path / "docling" / "paper.md"
+    artifacts = output.with_name("paper_artifacts")
+    artifacts.mkdir(parents=True)
+    (artifacts / "image_000000_aa.png").write_bytes(png(40, 20))
+    (artifacts / "image_000001_bb.png").write_bytes(b"not an image")
     output.write_text(
-        "![](_page_0_Picture_1.jpeg)\n\ntext\n\n![](_page_1_Picture_2.png)\n",
+        f"![Image]({artifacts}/image_000000_aa.png)\n\ntext\n\n"
+        f"![Image]({artifacts}/image_000001_bb.png)\n",
         encoding="utf-8",
     )
     figures = tmp_path / "paper.figures"
 
-    localize_marker_figures(output, figures)
+    localize_pdf_figures(output, figures)
 
     assert output.read_text(encoding="utf-8") == (
-        "![](paper.figures/figure-1.webp)\n\ntext\n\n\n"
+        "![Image](paper.figures/figure-1.webp)\n\ntext\n\n\n"
     )
     assert sorted(path.name for path in figures.iterdir()) == ["figure-1.webp"]
 

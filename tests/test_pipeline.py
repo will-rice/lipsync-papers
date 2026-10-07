@@ -233,12 +233,10 @@ async def test_preflight_fails_before_fetch_or_mutation(tmp_path: Path) -> None:
     git = RecordingGit()
     deps = dependencies(adapter, FakeRunner(), git)
     deps = dataclasses.replace(
-        deps, tool_lookup=lambda name: None if name == "marker_single" else name
+        deps, tool_lookup=lambda name: None if name == "docling" else name
     )
 
-    with pytest.raises(
-        InfrastructureError, match="missing required tools: marker_single"
-    ):
+    with pytest.raises(InfrastructureError, match="missing required tools: docling"):
         await run_nightly(paths, deps)
 
     assert adapter.calls == 0
@@ -485,13 +483,13 @@ async def test_each_batch_is_published_and_a_failed_publish_does_not_stop_the_ru
 
 
 @pytest.mark.asyncio
-async def test_pandoc_papers_convert_before_papers_that_need_marker(
+async def test_pandoc_papers_convert_before_papers_that_need_docling(
     tmp_path: Path,
 ) -> None:
     paths = make_paths(tmp_path, max_batches=1, max_papers=1)
     git = RecordingGit()
     runner = FakeRunner()
-    # "a" sorts first but needs marker; the single budgeted batch goes to "b".
+    # "a" sorts first but needs docling; the single budgeted batch goes to "b".
     pdf = record("a").model_copy(
         update={"input_format": "pdf", "input_url": "https://example.test/a.pdf"}
     )

@@ -146,14 +146,14 @@ async def run_nightly(
                 raise
 
         attempted: set[str] = set()
-        # Papers the fast pass found to need marker; converted once no
-        # untried paper is left, so PDFs that take minutes each never hold up
-        # papers that pandoc converts in seconds.
-        needs_marker: set[str] = set()
+        # Papers the fast pass found to need docling; converted once no
+        # untried paper is left, so PDFs, which convert one at a time, never hold
+        # up papers that pandoc converts in seconds.
+        needs_pdf: set[str] = set()
         batch_number = 0
         # Only batches that converted or failed a paper count toward the
         # budget: a batch of papers deferred by a rate-limited host, or set
-        # aside for marker, costs nothing, and counting it would let such
+        # aside for docling, costs nothing, and counting it would let such
         # papers starve every other pending paper. Each paper is tried at most
         # once per pass, so the loop still ends.
         working_batches = 0
@@ -177,9 +177,7 @@ async def run_nightly(
             batch = select_batch(
                 untried
                 or tuple(
-                    paper
-                    for paper in backlog.pending
-                    if paper.identifier in needs_marker
+                    paper for paper in backlog.pending if paper.identifier in needs_pdf
                 ),
                 config.conversion,
             )
@@ -188,7 +186,7 @@ async def run_nightly(
 
             batch_number += 1
             attempted.update(paper.identifier for paper in batch.papers)
-            needs_marker.difference_update(paper.identifier for paper in batch.papers)
+            needs_pdf.difference_update(paper.identifier for paper in batch.papers)
             summary.attempted = len(attempted)
             state_before_batch = state
             index_path = paths.root / "README.md"
@@ -227,16 +225,14 @@ async def run_nightly(
                         # which discards every unpushed batch commit.
                         time_budget_seconds=config.conversion.deadline_seconds
                         - (dependencies.monotonic() - run_started),
-                        allow_marker=not untried,
+                        allow_pdf=not untried,
                     )
-                needs_marker.update(
-                    paper.identifier for paper in converted.needs_marker
-                )
+                needs_pdf.update(paper.identifier for paper in converted.needs_pdf)
                 state = converted.state
                 summary.succeeded += len(converted.succeeded)
                 summary.failed += len(converted.failed)
                 summary.deferred += len(converted.deferred)
-                if len(converted.deferred) + len(converted.needs_marker) < len(
+                if len(converted.deferred) + len(converted.needs_pdf) < len(
                     batch.papers
                 ):
                     working_batches += 1
