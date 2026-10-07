@@ -31,10 +31,18 @@ _PANDOC_TOOL = "pandoc"
 # arXiv renders most papers to HTML with LaTeXML. Converting that article with
 # pandoc takes under a second, while docling spends the better part of a minute
 # on layout analysis and OCR per PDF.
-_ARXIV_HTML_URL = "https://arxiv.org/html/{arxiv_id}"
-# Hosts that block bursts of automated downloads get one request at a time,
-# spaced by this many seconds.
-HOST_MIN_INTERVAL_SECONDS = {"www.biorxiv.org": 10.0}
+# arXiv's own rendering first. ar5iv, which renders the latest version of older
+# submissions with the same LaTeXML, has some papers arXiv lacks.
+_ARXIV_HTML_URLS = (
+    "https://arxiv.org/html/{arxiv_id}",
+    "https://ar5iv.labs.arxiv.org/html/{versionless_id}",
+)
+# ar5iv serves a page even when its conversion failed; the ones it grades
+# fatal are empty or truncated.
+_AR5IV_FATAL = "ar5iv-severity-fatal"
+# Hosts that block bursts of automated downloads, or are run by volunteers, get
+# one request at a time, spaced by this many seconds.
+HOST_MIN_INTERVAL_SECONDS = {"www.biorxiv.org": 10.0, "ar5iv.labs.arxiv.org": 1.0}
 _LATEXML_ARTICLE = re.compile(r'<article class="ltx_document.*?</article>', re.DOTALL)
 _ARXIV_LUA_FILTER = Path(__file__).with_name("arxiv_html.lua")
 _HTML_IMAGE = re.compile(r"<img\b[^>]*>")
@@ -333,41 +341,54 @@ async def convert_batch(
     }
 
     async def convert_arxiv_html(paper: Paper, staged_output: Path) -> bool:
-        """Convert from arXiv's HTML rendering; False when arXiv has none."""
-        html_paper = paper.model_copy(
-            update={
-                "input_format": "html",
-                "input_url": _ARXIV_HTML_URL.format(arxiv_id=paper.arxiv_id),
-            }
-        )
-        try:
-            input_path = await materializer.materialize(html_paper, workspace)
-        except PaperError:
-            return False
-        article = _LATEXML_ARTICLE.search(
-            input_path.read_text(encoding="utf-8", errors="replace")
-        )
-        if article is None:
-            return False
-        # Drop arXiv's page chrome so only the paper reaches the markdown.
-        input_path.write_text(
-            await localize_html_figures(
-                article.group(0),
-                html_paper.input_url,
-                staged_output.with_suffix(".figures"),
-            ),
-            encoding="utf-8",
-        )
-        async with semaphores["html"]:
-            await runner.run(
-                [
-                    *command_for(html_paper, input_path, staged_output),
-                    f"--lua-filter={_ARXIV_LUA_FILTER}",
-                ],
-                timeout=timeout_seconds,
+        """Convert from a LaTeXML rendering of the paper; False when none exists.
+
+        A rate-limited host defers the paper: waiting for its HTML, which
+        carries the paper's own LaTeX, beats converting the PDF now.
+        """
+        assert paper.arxiv_id is not None
+        for url in _ARXIV_HTML_URLS:
+            html_paper = paper.model_copy(
+                update={
+                    "input_format": "html",
+                    "input_url": url.format(
+                        arxiv_id=paper.arxiv_id,
+                        versionless_id=re.sub(r"v\d+$", "", paper.arxiv_id),
+                    ),
+                }
             )
-        localize_inline_figures(staged_output, staged_output.with_suffix(".figures"))
-        return True
+            try:
+                input_path = await materializer.materialize(html_paper, workspace)
+            except RateLimitedError:
+                raise
+            except PaperError:
+                continue
+            page = input_path.read_text(encoding="utf-8", errors="replace")
+            article = _LATEXML_ARTICLE.search(page)
+            if article is None or _AR5IV_FATAL in page:
+                continue
+            # Drop the page chrome so only the paper reaches the markdown.
+            input_path.write_text(
+                await localize_html_figures(
+                    article.group(0),
+                    html_paper.input_url,
+                    staged_output.with_suffix(".figures"),
+                ),
+                encoding="utf-8",
+            )
+            async with semaphores["html"]:
+                await runner.run(
+                    [
+                        *command_for(html_paper, input_path, staged_output),
+                        f"--lua-filter={_ARXIV_LUA_FILTER}",
+                    ],
+                    timeout=timeout_seconds,
+                )
+            localize_inline_figures(
+                staged_output, staged_output.with_suffix(".figures")
+            )
+            return True
+        return False
 
     async def localize_html_figures(html: str, page_url: str, figures: Path) -> str:
         """Save each image as a local figure and point the HTML at it.
