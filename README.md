@@ -6,10 +6,11 @@ Standalone paper discovery and conversion for Papers related to lipsync..
 
 # Papers
 
-The 30 most recent of 1185 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1186 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                                   | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-10-07T15:36:56+00:00 | arxiv:2610.10264v1 | [CrossEdit: Cross-Modal Training Enables Rich Audio-Visual Editing](papers/arxiv-2610-10264v1--7ca7f27696fc.md)                                                         | arxiv  |
 | 2026-10-05T11:28:11+00:00 | arxiv:2610.06153v1 | [Talk, Render, Act: Integrating Social Gesture and Digital Face with Synchronized Speech for Conversational Humanoid Robot](papers/arxiv-2610-06153v1--ec339180b365.md) | arxiv  |
 | 2026-10-05T07:49:18+00:00 | arxiv:2610.05932v1 | [UltraDub: Towards Authentic Dubbing by Unifying Visually-Steered Flow Learning and Trajectory Guidance](papers/arxiv-2610-05932v1--80d868f806b5.md)                    | arxiv  |
 | 2026-10-02T03:29:56+00:00 | arxiv:2610.02752v1 | [GAANet: Global-guided Asymmetric Attention Network for Audio-Visual Speech Separation](papers/arxiv-2610-02752v1--2624bb6d446a.md)                                     | arxiv  |
@@ -39,7 +40,6 @@ The 30 most recent of 1185 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-16T00:00:00+00:00 | arxiv:2608.15734   | [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](papers/arxiv-2608-15734--a582a65f4159.md)                            | arxiv  |
 | 2026-08-15T00:00:00+00:00 | arxiv:2608.15110   | [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](papers/arxiv-2608-15110--cc3ba8a6497f.md)                                      | arxiv  |
 | 2026-08-14T00:00:00+00:00 | arxiv:2608.14812   | [Separate First, Then Associate: A Two-Stage Approach for Real-World Audio-Visual Speech Enhancement](papers/arxiv-2608-14812--b4db464da533.md)                         | arxiv  |
-| 2026-08-13T00:00:00+00:00 | arxiv:2608.11752   | [UniSwap: Streaming Audio-Visual Identity Swapping for Talking Videos](papers/arxiv-2608-11752--1e062e3bdcfb.md)                                                        | arxiv  |
 
 <!-- papers-index:end -->
 
