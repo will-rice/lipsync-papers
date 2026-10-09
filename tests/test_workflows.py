@@ -77,19 +77,39 @@ def test_all_python_workflows_use_locked_dependencies() -> None:
     for name in ("ci.yml", "nightly.yml", "format-corpus.yml"):
         text = (WORKFLOWS / name).read_text(encoding="utf-8")
         assert "uv==" in text
-        assert "uv sync --locked" in text
+        assert "uv sync --locked" in text or "setup-conversion.sh" in text
+        assert "uv tool install" not in text
+        assert "uv pip install" not in text
 
 
-def test_nightly_provisions_pinned_conversion_and_formatting_tools() -> None:
-    text = (WORKFLOWS / "nightly.yml").read_text(encoding="utf-8")
-    assert "docling==2.135.0 --torch-backend cpu" in text
-    assert "docling-tools models download layout tableformer rapidocr" in text
-    assert "DOCLING_ARTIFACTS_PATH=" in text
-    assert "pypandoc-binary==1.15" in text
-    assert "prettier@3.6.2" in text
-    assert "pypandoc.get_pandoc_path()" in text
-    assert '"$HOME/.local/bin" >> "$GITHUB_PATH"' in text
-    assert text.index("docling==2.135.0") < text.index("nightly.sh")
+def test_conversion_environment_comes_from_the_lock() -> None:
+    # docling and pandoc are locked dependencies: an install that resolves
+    # anything at run time can break overnight when a dependency releases.
+    script = (SCRIPTS / "setup-conversion.sh").read_text(encoding="utf-8")
+    assert 'uv sync --locked --extra convert "$@"' in script
+    assert "uv tool install" not in script
+    assert "uv pip install" not in script
+    assert "uv run docling-tools models download layout tableformer rapidocr" in script
+    assert "DOCLING_ARTIFACTS_PATH=" in script
+    assert "prettier@3.6.2" in script
+    assert "pypandoc.get_pandoc_path()" in script
+    assert '"$HOME/.local/bin" >> "$GITHUB_PATH"' in script
+    assert (SCRIPTS / "setup-conversion.sh").stat().st_mode & stat.S_IXUSR
+
+
+def test_ci_proves_the_nightly_conversion_environment() -> None:
+    # The nightly and CI build the environment with the same script, and CI
+    # then converts real fixtures with it.
+    nightly = workflow("nightly.yml")["jobs"]["update"]["steps"]
+    conversion = workflow("ci.yml")["jobs"]["conversion"]["steps"]
+    setup = ".github/scripts/setup-conversion.sh"
+    nightly_runs = [step.get("run", "") for step in nightly]
+    assert setup in nightly_runs
+    assert nightly_runs.index(setup) < nightly_runs.index(".github/scripts/nightly.sh")
+    assert [step.get("run", "") for step in conversion][-2:] == [
+        f"{setup} --extra dev",
+        "uv run pytest -m conversion",
+    ]
 
 
 def test_nightly_has_non_overlapping_mutation_concurrency() -> None:

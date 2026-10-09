@@ -1416,6 +1416,43 @@ async def test_rate_limited_arxiv_html_defers_the_paper_instead_of_falling_back(
     assert result.failed == ()
 
 
+@pytest.mark.conversion
+@pytest.mark.asyncio
+async def test_real_converters_turn_a_pdf_and_arxiv_html_into_markdown(
+    tmp_path: Path, state: PipelineState
+) -> None:
+    # No fakes: docling and pandoc run for real, from the locked environment
+    # the nightly uses, so a broken converter install fails here first.
+    from_pdf = paper("doi:pdf", input_format="pdf")
+    from_html = arxiv_paper()
+    real_materializer = FakeMaterializer(
+        fixtures={
+            from_pdf.input_url: FIXTURES / "text.pdf",
+            ARXIV_HTML_URL: FIXTURES / "arxiv_figures.html",
+        },
+        downloads={"https://arxiv.org/html/2401.12345/x1.png": png(64, 32)},
+    )
+
+    result = await convert_batch(
+        Batch(papers=(from_pdf, from_html), estimated_cost=2),
+        tmp_path,
+        state,
+        CONCURRENCY,
+        CommandRunner(),
+        real_materializer,
+        NOW,
+    )
+
+    assert result.failed == ()
+    pdf_markdown = expected_markdown(tmp_path, from_pdf).read_text(encoding="utf-8")
+    assert "Conversion Smoke Test" in pdf_markdown
+    html_markdown = expected_markdown(tmp_path, from_html).read_text(encoding="utf-8")
+    assert "a=b+c \\tag{1}" in html_markdown
+    assert (
+        f"{expected_figures(tmp_path, from_html).name}/figure-1.webp" in html_markdown
+    )
+
+
 def png(width: int, height: int) -> bytes:
     buffer = io.BytesIO()
     Image.new("RGB", (width, height), "white").save(buffer, "PNG")

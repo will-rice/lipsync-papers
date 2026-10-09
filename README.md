@@ -132,9 +132,7 @@ PDF concurrency is always exactly 1.
 ## Run locally
 
 ```bash
-uv sync --locked --extra dev
-uv tool install docling==2.135.0
-uv pip install --no-deps pypandoc-binary==1.15
+uv sync --locked --extra dev --extra convert
 mkdir -p "$HOME/.local/bin"
 ln -sf "$(uv run python -c 'import pypandoc; print(pypandoc.get_pandoc_path())')" \
   "$HOME/.local/bin/pandoc"
@@ -180,6 +178,15 @@ missing tools, and resource exhaustion fail the run explicitly.
 
 Nightly formatting receives only changed paper files and indexes. Complete
 corpus formatting runs only through the manual sharded workflow.
+
+## Conversion environment
+
+docling and pandoc are locked dependencies in the `convert` extra, so
+`uv.lock` fixes every package a run installs; add or change them with
+`uv add --optional convert`. `.github/scripts/setup-conversion.sh` builds the
+environment for both the nightly and CI's `conversion` job, which then converts
+real fixtures (`uv run pytest -m conversion`). A change that breaks the
+converter therefore fails its pull request, not the next nightly run.
 
 ## Automation and summaries
 
