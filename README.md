@@ -6,10 +6,11 @@ Standalone paper discovery and conversion for Papers related to lipsync..
 
 # Papers
 
-The 30 most recent of 1187 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1188 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                                   | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-10-08T23:03:32+00:00 | arxiv:2610.12796v1 | [Efficient Audio-Visual Speech Enhancement via Reinforcement Learning-Based Neural Architecture Search](papers/arxiv-2610-12796v1--06c72696efd3.md)                     | arxiv  |
 | 2026-10-08T01:30:35+00:00 | arxiv:2610.11070v1 | [No Distillation Needed: Single-Pass Real-Time Talking Heads via Acausal Noise Shaping](papers/arxiv-2610-11070v1--e5a909b02b00.md)                                     | arxiv  |
 | 2026-10-07T15:36:56+00:00 | arxiv:2610.10264v1 | [CrossEdit: Cross-Modal Training Enables Rich Audio-Visual Editing](papers/arxiv-2610-10264v1--7ca7f27696fc.md)                                                         | arxiv  |
 | 2026-10-05T11:28:11+00:00 | arxiv:2610.06153v1 | [Talk, Render, Act: Integrating Social Gesture and Digital Face with Synchronized Speech for Conversational Humanoid Robot](papers/arxiv-2610-06153v1--ec339180b365.md) | arxiv  |
@@ -39,7 +40,6 @@ The 30 most recent of 1187 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-17T00:00:00+00:00 | arxiv:2608.16220   | [SingDance: Compositional Zero-Shot Singing-and-Dancing Video Generation with Role-Aware Audio Conditioning](papers/arxiv-2608-16220--f2aa9381e2a2.md)                  | arxiv  |
 | 2026-08-17T00:00:00+00:00 | arxiv:2608.16143   | [AnyTalk: Speech Animation for Arbitrary Characters Leveraging a Video Generation Model](papers/arxiv-2608-16143--6270d1430749.md)                                      | arxiv  |
 | 2026-08-16T00:00:00+00:00 | arxiv:2608.15734   | [CineDub: Scaling End-to-End Video Dubbing to Multi-Speaker Dialogues with Coherent Sound Effects](papers/arxiv-2608-15734--a582a65f4159.md)                            | arxiv  |
-| 2026-08-15T00:00:00+00:00 | arxiv:2608.15110   | [CETalk: Continuous Valence-Arousal Control for Audio-Driven 3D Talking Head Generation](papers/arxiv-2608-15110--cc3ba8a6497f.md)                                      | arxiv  |
 
 <!-- papers-index:end -->
 
