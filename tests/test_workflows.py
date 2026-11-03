@@ -462,15 +462,17 @@ def test_template_update_withholds_write_credentials_until_pr_step() -> None:
     )
 
     publish = data["jobs"]["publish"]
-    assert publish["permissions"] == {
-        "contents": "write",
-        "pull-requests": "write",
+    assert publish["permissions"] == {"contents": "read"}
+    token_check = publish["steps"][0]
+    assert token_check["env"] == {
+        "TEMPLATE_UPDATE_TOKEN": "${{ secrets.TEMPLATE_UPDATE_TOKEN }}"
     }
+    assert "exit 1" in token_check["run"]
     pull_request_step = publish["steps"][-1]
-    assert pull_request_step["with"]["token"] == "${{ github.token }}"
+    assert pull_request_step["with"]["token"] == "${{ secrets.TEMPLATE_UPDATE_TOKEN }}"
     assert all(
         "GH_TOKEN" not in step.get("env", {}) and "token" not in step.get("with", {})
-        for step in publish["steps"][:-1]
+        for step in publish["steps"][1:-1]
     )
 
     checkout_steps = [
