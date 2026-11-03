@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Check out default branch
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        timeout-minutes: 2
+        timeout-minutes: 10
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -75,14 +75,14 @@ jobs:
     needs: validate
     if: needs.validate.outputs.updated == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     permissions:
       contents: write
       pull-requests: write
     steps:
       - name: Check out validated base
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        timeout-minutes: 2
+        timeout-minutes: 10
         with:
           fetch-depth: 0
           persist-credentials: false

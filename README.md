@@ -171,7 +171,9 @@ failures, timeouts, invalid URLs) counts toward that paper's failure history
 without cancelling peers. HTTP 429 is the exception: the paper is deferred
 without a strike, its host is not contacted again that run, and a later run
 retries it. Hosts known to block bursts (bioRxiv) are also paced to one request
-at a time. Source API failures skip that source for the run; disk failures,
+at a time. bioRxiv refuses most automated requests at any pace, so a 429 there
+is retried from the refused redirect hop, up to 40 paced attempts per paper,
+before the host is skipped. Source API failures skip that source for the run; disk failures,
 missing tools, and resource exhaustion fail the run explicitly.
 
 ## Formatting

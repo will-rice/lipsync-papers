@@ -267,7 +267,7 @@ def _host_header(host: str, port: int, scheme: str) -> str:
 def _classify_response(response: HttpResponse, url: str) -> bytes:
     status = response.status_code
     if status == 429:
-        raise RateLimitedError(f"conversion input HTTP 429: {url}")
+        raise RateLimitedError(f"conversion input HTTP 429: {url}", url=url)
     if status >= 400:
         raise PaperError(f"conversion input HTTP {status}: {url}")
     return response.content
