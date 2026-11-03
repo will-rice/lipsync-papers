@@ -1,6 +1,7 @@
 import asyncio
 import base64
 import io
+import itertools
 import os
 import subprocess
 import sys
@@ -423,7 +424,10 @@ async def test_rate_limited_paper_is_deferred_without_a_strike(tmp_path: Path) -
 
         async def materialize(self, paper: Paper, root: Path) -> Path:
             if paper == limited:
-                raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
+                raise RateLimitedError(
+                    f"conversion input HTTP 429: {paper.input_url}",
+                    url=paper.input_url,
+                )
             return await successful_materializer.materialize(paper, root)
 
     result = await convert_batch(
@@ -514,7 +518,7 @@ async def test_materializer_stops_contacting_a_host_after_http_429(
     async def downloader(url: str, timeout: float) -> bytes:
         requested.append(url)
         if urlsplit(url).hostname == "busy.test":
-            raise RateLimitedError(f"conversion input HTTP 429: {url}")
+            raise RateLimitedError(f"conversion input HTTP 429: {url}", url=url)
         return b"<html></html>"
 
     materializer = DownloadingMaterializer(downloader=downloader)
@@ -527,8 +531,7 @@ async def test_materializer_stops_contacting_a_host_after_http_429(
 
 
 @pytest.mark.asyncio
-async def test_materializer_paces_listed_hosts(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(convert, "HOST_MIN_INTERVAL_SECONDS", {"slow.test": 0.2})
+async def test_materializer_paces_listed_hosts() -> None:
     loop = asyncio.get_running_loop()
     started: dict[str, float] = {}
 
@@ -536,7 +539,9 @@ async def test_materializer_paces_listed_hosts(monkeypatch: pytest.MonkeyPatch) 
         started[url] = loop.time()
         return b"<html></html>"
 
-    materializer = DownloadingMaterializer(downloader=downloader)
+    materializer = DownloadingMaterializer(
+        downloader=downloader, min_interval_seconds={"slow.test": 0.2}
+    )
     await asyncio.gather(
         *(
             materializer.download(url)
@@ -550,6 +555,59 @@ async def test_materializer_paces_listed_hosts(monkeypatch: pytest.MonkeyPatch) 
 
     assert started["https://slow.test/2"] - started["https://slow.test/1"] >= 0.2
     assert started["https://fast.test/1"] - started["https://slow.test/1"] < 0.2
+
+
+@pytest.mark.asyncio
+async def test_materializer_retries_a_rate_limited_host_from_the_refused_hop() -> None:
+    connector = FakeConnector(
+        HttpResponse(status_code=302, content=b"", location="/paper.v1.pdf"),
+        HttpResponse(status_code=429, content=b""),
+        HttpResponse(status_code=429, content=b""),
+        HttpResponse(status_code=200, content=b"%PDF-1.7"),
+    )
+    downloader = RemoteDownloader(
+        resolver=FakeResolver(("8.8.8.8",)), connector=connector
+    )
+    materializer = DownloadingMaterializer(
+        downloader=downloader.download,
+        min_interval_seconds={"busy.test": 0.05},
+        rate_limit_attempts={"busy.test": 3},
+    )
+
+    payload = await materializer.download("https://busy.test/paper.pdf")
+
+    assert payload == b"%PDF-1.7"
+    assert [call["target"] for call in connector.calls] == [
+        "/paper.pdf",
+        "/paper.v1.pdf",
+        "/paper.v1.pdf",
+        "/paper.v1.pdf",
+    ]
+
+
+@pytest.mark.asyncio
+async def test_materializer_skips_a_host_after_its_rate_limit_attempts() -> None:
+    loop = asyncio.get_running_loop()
+    started: list[float] = []
+
+    async def downloader(url: str, timeout: float) -> bytes:
+        started.append(loop.time())
+        raise RateLimitedError(f"conversion input HTTP 429: {url}", url=url)
+
+    materializer = DownloadingMaterializer(
+        downloader=downloader,
+        min_interval_seconds={"busy.test": 0.05},
+        rate_limit_attempts={"busy.test": 3},
+    )
+    with pytest.raises(RateLimitedError, match="HTTP 429"):
+        await materializer.download("https://busy.test/1")
+    with pytest.raises(RateLimitedError, match="rate-limited this run"):
+        await materializer.download("https://busy.test/2")
+
+    assert len(started) == 3
+    assert all(
+        later - earlier >= 0.05 for earlier, later in itertools.pairwise(started)
+    )
 
 
 class FakeResolver:
@@ -1400,7 +1458,10 @@ async def test_rate_limited_arxiv_html_defers_the_paper_instead_of_falling_back(
 
         async def materialize(self, paper: Paper, root: Path) -> Path:
             assert paper.input_url == ARXIV_HTML_URL
-            raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
+            raise RateLimitedError(
+                f"conversion input HTTP 429: {paper.input_url}",
+                url=paper.input_url,
+            )
 
     result = await convert_batch(
         Batch(papers=(target,), estimated_cost=1),

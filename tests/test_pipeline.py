@@ -432,7 +432,10 @@ async def test_deferred_batches_do_not_consume_the_batch_budget(
     class RateLimitedHostMaterializer(FakeMaterializer):
         async def materialize(self, paper: Any, root: Path) -> Path:
             if paper.identifier.endswith(":a"):
-                raise RateLimitedError(f"conversion input HTTP 429: {paper.input_url}")
+                raise RateLimitedError(
+                    f"conversion input HTTP 429: {paper.input_url}",
+                    url=paper.input_url,
+                )
             return await super().materialize(paper, root)
 
     deps = dataclasses.replace(

@@ -7,7 +7,7 @@ import re
 import shutil
 import subprocess
 from io import BytesIO
-from collections.abc import Awaitable, Callable, Sequence
+from collections.abc import Awaitable, Callable, Mapping, Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -43,6 +43,11 @@ _AR5IV_FATAL = "ar5iv-severity-fatal"
 # Hosts that block bursts of automated downloads, or are run by volunteers, get
 # one request at a time, spaced by this many seconds.
 HOST_MIN_INTERVAL_SECONDS = {"www.biorxiv.org": 10.0, "ar5iv.labs.arxiv.org": 1.0}
+# Hosts that refuse most automated requests at any pace get this many paced
+# attempts per paper before the host is skipped for the run. bioRxiv answered
+# about one request in five with HTTP 429 at both 12 and 60 second spacing,
+# and its PDF links redirect twice, so a paper needs about 15 attempts.
+HOST_RATE_LIMIT_ATTEMPTS = {"www.biorxiv.org": 40}
 _LATEXML_ARTICLE = re.compile(r'<article class="ltx_document.*?</article>', re.DOTALL)
 _ARXIV_LUA_FILTER = Path(__file__).with_name("arxiv_html.lua")
 _HTML_IMAGE = re.compile(r"<img\b[^>]*>")
@@ -194,16 +199,23 @@ def _is_document_failure(returncode: int, output: str) -> bool:
 class DownloadingMaterializer:
     """Download conversion inputs, staying gentle with rate-limiting hosts.
 
-    One instance serves a whole run: once a host answers HTTP 429 it is not
-    contacted again this run, and hosts in HOST_MIN_INTERVAL_SECONDS are
-    paced. Papers on a rate-limited host are deferred to a later run.
+    One instance serves a whole run. Hosts in HOST_MIN_INTERVAL_SECONDS are
+    paced. A host answering HTTP 429 is retried from the refused URL (often a
+    redirect hop) up to its HOST_RATE_LIMIT_ATTEMPTS, once by default; after
+    that it is not contacted again this run, and papers on it are deferred to
+    a later run.
     """
 
     def __init__(
         self,
         downloader: Callable[[str, float], Awaitable[bytes]] | None = None,
+        *,
+        min_interval_seconds: Mapping[str, float] = HOST_MIN_INTERVAL_SECONDS,
+        rate_limit_attempts: Mapping[str, int] = HOST_RATE_LIMIT_ATTEMPTS,
     ) -> None:
         self._downloader = downloader or _download_bytes
+        self._min_interval_seconds = min_interval_seconds
+        self._rate_limit_attempts = rate_limit_attempts
         self._host_locks: dict[str, asyncio.Lock] = {}
         self._last_request: dict[str, float] = {}
         self._rate_limited: set[str] = set()
@@ -233,23 +245,33 @@ class DownloadingMaterializer:
 
     async def download(self, url: str) -> bytes:
         host = urlsplit(url).hostname or ""
-        interval = HOST_MIN_INTERVAL_SECONDS.get(host, 0.0)
+        interval = self._min_interval_seconds.get(host, 0.0)
+        attempts = self._rate_limit_attempts.get(host, 1)
         async with self._host_locks.setdefault(host, asyncio.Lock()):
             if host in self._rate_limited:
                 raise RateLimitedError(
-                    f"conversion input host rate-limited this run: {url}"
+                    f"conversion input host rate-limited this run: {url}", url=url
                 )
             loop = asyncio.get_running_loop()
-            wait = self._last_request.get(host, -interval) + interval - loop.time()
-            if wait > 0:
-                await asyncio.sleep(wait)
-            try:
-                return await self._downloader(url, _DEFAULT_CONVERSION_TIMEOUT)
-            except RateLimitedError:
-                self._rate_limited.add(host)
-                raise
-            finally:
-                self._last_request[host] = loop.time()
+            requested = url
+            for attempt in range(1, attempts + 1):
+                wait = self._last_request.get(host, -interval) + interval - loop.time()
+                if wait > 0:
+                    await asyncio.sleep(wait)
+                try:
+                    return await self._downloader(
+                        requested, _DEFAULT_CONVERSION_TIMEOUT
+                    )
+                except RateLimitedError as error:
+                    if attempt == attempts:
+                        self._rate_limited.add(host)
+                        raise
+                    # Resume at the refused hop: restarting the redirect chain
+                    # would need every hop to get through again.
+                    requested = error.url
+                finally:
+                    self._last_request[host] = loop.time()
+        raise AssertionError("unreachable: the last attempt returns or raises")
 
 
 class InputMaterializer(Protocol):

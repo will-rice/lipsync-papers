@@ -22,4 +22,13 @@ class PaperError(PipelineError):
 
 
 class RateLimitedError(PaperError):
-    """A paper's host refused the request (HTTP 429); retry in a later run."""
+    """A paper's host refused the request (HTTP 429); retry in a later run.
+
+    Attributes:
+        url: The URL that was refused, which may be a redirect hop rather than
+            the paper's own link, so a retry can resume from it.
+    """
+
+    def __init__(self, message: str, *, url: str) -> None:
+        super().__init__(message)
+        self.url = url

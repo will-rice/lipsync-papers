@@ -25,6 +25,7 @@ for first_character in "OoYyNn":
     ]
 
 WORKFLOWS = Path(".github/workflows")
+CHECKOUT_TIMEOUT_MINUTES = 10
 SCRIPTS = Path(".github/scripts")
 PINNED_ACTION = re.compile(r"^[^@\s]+@[0-9a-f]{40}$")
 DIRTY_PATHS = (
@@ -62,6 +63,10 @@ def test_actions_are_sha_pinned_and_jobs_and_steps_have_timeouts() -> None:
                 assert isinstance(step.get("timeout-minutes"), int)
                 if "uses" in step:
                     assert PINNED_ACTION.fullmatch(step["uses"])
+                # A full-history clone of a large corpus can take minutes.
+                if step.get("uses", "").startswith("actions/checkout@"):
+                    assert step["timeout-minutes"] == CHECKOUT_TIMEOUT_MINUTES
+                    assert job["timeout-minutes"] > CHECKOUT_TIMEOUT_MINUTES
 
 
 def test_ci_triggers_and_permissions_are_read_only() -> None:
