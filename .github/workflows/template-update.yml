@@ -76,10 +76,21 @@ jobs:
     if: needs.validate.outputs.updated == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # The pull request is opened with TEMPLATE_UPDATE_TOKEN, not the job token:
+    # GitHub refuses workflow-file changes pushed with the job token, and pull
+    # requests it opens do not trigger CI.
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
     steps:
+      - name: Require the update token
+        timeout-minutes: 1
+        env:
+          TEMPLATE_UPDATE_TOKEN: ${{ secrets.TEMPLATE_UPDATE_TOKEN }}
+        run: |
+          if [[ -z "$TEMPLATE_UPDATE_TOKEN" ]]; then
+            echo "::error::Set the TEMPLATE_UPDATE_TOKEN secret: a fine-grained token with Contents, Pull requests and Workflows read and write on this repository."
+            exit 1
+          fi
       - name: Check out validated base
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         timeout-minutes: 10
@@ -101,7 +112,7 @@ jobs:
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676
         timeout-minutes: 3
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.TEMPLATE_UPDATE_TOKEN }}
           base: ${{ needs.validate.outputs.base_branch }}
           branch: automation/update-papers-template
           delete-branch: true

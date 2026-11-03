@@ -228,7 +228,11 @@ removed.
 Run the weekly workflow, or wait for its schedule. It resolves an immutable
 release from `will-rice/papers-template`, runs Copier, refreshes the lock,
 validates configuration, runs pre-commit and the offline test suite, and opens
-an update pull request for review. Resolve any `.rej` file as a failed update;
+an update pull request for review. It opens the pull request with the
+`TEMPLATE_UPDATE_TOKEN` Actions secret, a fine-grained personal access token
+with Contents, Pull requests and Workflows read and write access to this
+repository. The job token cannot push workflow-file changes, and pull requests
+it opens do not run CI; the workflow fails while the secret is unset. Resolve any `.rej` file as a failed update;
 never bypass validation or push an update directly to `main`.
 
 ## Ownership boundary
