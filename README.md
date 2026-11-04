@@ -6,10 +6,11 @@ Standalone paper discovery and conversion for Papers related to lipsync..
 
 # Papers
 
-The 30 most recent of 1191 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1192 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                                   | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-11-02T16:29:25+00:00 | arxiv:2611.03393v2 | [TaoMate-FVSR: Audio-Guided Facial Video Restoration](papers/arxiv-2611-03393v2--3505d5012fd6.md)                                                                       | arxiv  |
 | 2026-10-29T04:33:29+00:00 | arxiv:2610.39344v1 | [PicturePerfect: Diffusion-based Same-identity Facial Replacement](papers/arxiv-2610-39344v1--99fe426e5015.md)                                                          | arxiv  |
 | 2026-10-16T14:46:38+00:00 | arxiv:2610.23558v1 | [LiveSync: Iterative Self-Training for Lip-Sync Generation](papers/arxiv-2610-23558v1--d30926fb867e.md)                                                                 | arxiv  |
 | 2026-10-15T18:00:41+00:00 | arxiv:2610.22499v1 | [JAVIS: Joint Audio-Visual Interaction and Streaming for Real-Time Conversational Agents](papers/arxiv-2610-22499v1--bfc23763e1cd.md)                                   | arxiv  |
@@ -39,7 +40,6 @@ The 30 most recent of 1191 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-24T00:00:00+00:00 | arxiv:2608.23759   | [The ISCSLP 2026 Real-World Audio-Visual Speech Enhancement Challenge](papers/arxiv-2608-23759--2a3bfe04f914.md)                                                        | arxiv  |
 | 2026-08-24T00:00:00+00:00 | arxiv:2608.23383   | [Long-Horizon Audio-Visual Generation for Persistent Stories and Interactive Worlds](papers/arxiv-2608-23383--a1351d96dc86.md)                                          | arxiv  |
 | 2026-08-19T00:00:00+00:00 | arxiv:2608.18832   | [EfficientSync: Real-Time Lip Synchronization via Deformation-Based Reference Texture Mixing](papers/arxiv-2608-18832--544e18b1d243.md)                                 | arxiv  |
-| 2026-08-18T00:00:00+00:00 | arxiv:2608.17707   | [DynaForcing: Overcoming Dynamic Collapse in Self-Forcing Distillation for Streaming Avatar Generation](papers/arxiv-2608-17707--691c73b12974.md)                       | arxiv  |
 
 <!-- papers-index:end -->
 
