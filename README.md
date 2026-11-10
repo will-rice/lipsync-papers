@@ -6,10 +6,11 @@ Standalone paper discovery and conversion for Papers related to lipsync..
 
 # Papers
 
-The 30 most recent of 1192 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1193 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                                   | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-11-06T07:01:35+00:00 | arxiv:2611.09074v1 | [Emo-LiveSync: Real-Time Universal Lip Synchronization with Explicit Emotion Control](papers/arxiv-2611-09074v1--1bbb9cb7a17c.md)                                       | arxiv  |
 | 2026-11-02T16:29:25+00:00 | arxiv:2611.03393v2 | [TaoMate-FVSR: Audio-Guided Facial Video Restoration](papers/arxiv-2611-03393v2--3505d5012fd6.md)                                                                       | arxiv  |
 | 2026-10-29T04:33:29+00:00 | arxiv:2610.39344v1 | [PicturePerfect: Diffusion-based Same-identity Facial Replacement](papers/arxiv-2610-39344v1--99fe426e5015.md)                                                          | arxiv  |
 | 2026-10-16T14:46:38+00:00 | arxiv:2610.23558v1 | [LiveSync: Iterative Self-Training for Lip-Sync Generation](papers/arxiv-2610-23558v1--d30926fb867e.md)                                                                 | arxiv  |
@@ -39,7 +40,6 @@ The 30 most recent of 1192 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-26T00:00:00+00:00 | arxiv:2608.25734   | [InteractGesture: Progressive Chunk Guidance for Continuous Streaming Co-Speech Gesture Control](papers/arxiv-2608-25734--0bad569cf211.md)                              | arxiv  |
 | 2026-08-24T00:00:00+00:00 | arxiv:2608.23759   | [The ISCSLP 2026 Real-World Audio-Visual Speech Enhancement Challenge](papers/arxiv-2608-23759--2a3bfe04f914.md)                                                        | arxiv  |
 | 2026-08-24T00:00:00+00:00 | arxiv:2608.23383   | [Long-Horizon Audio-Visual Generation for Persistent Stories and Interactive Worlds](papers/arxiv-2608-23383--a1351d96dc86.md)                                          | arxiv  |
-| 2026-08-19T00:00:00+00:00 | arxiv:2608.18832   | [EfficientSync: Real-Time Lip Synchronization via Deformation-Based Reference Texture Mixing](papers/arxiv-2608-18832--544e18b1d243.md)                                 | arxiv  |
 
 <!-- papers-index:end -->
 
