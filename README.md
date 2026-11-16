@@ -2,6 +2,9 @@
 
 Standalone paper discovery and conversion for Papers related to lipsync..
 
+Browse the collection on alphaXiv:
+https://www.alphaxiv.org/shared/folder/019f564f-9833-7a27-b1ea-aec52fe9ef9f
+
 <!-- papers-index:start -->
 
 # Papers

@@ -45,21 +45,58 @@ fi
 # re-applies this repository's own changes, which resets papers.yml and
 # topic_plugin.py to the template defaults. Update against a commit without
 # the corpus, then restore the corpus and the original commit.
+#
+# The README section between the papers-index markers is regenerated from
+# papers.csv, so it is not a change Copier should merge: its diff against the
+# old template conflicts with any template edit near the markers. Update with
+# the section the old release rendered, then put the generated one back.
 base_commit="$(git rev-parse HEAD)"
-corpus_backup="$(git rev-parse --absolute-git-dir)/template-update-corpus"
+git_dir="$(git rev-parse --absolute-git-dir)"
+corpus_backup="$git_dir/template-update-corpus"
+generated_readme="$git_dir/template-update-readme"
+old_render="$git_dir/template-update-old-render"
+git show "$base_commit:README.md" > "$generated_readme"
+
+splice_index() {
+  awk -v start='<!-- papers-index:start -->' -v end='<!-- papers-index:end -->' '
+    NR == FNR {
+      if ($0 == start) inside = 1
+      else if ($0 == end) inside = 0
+      else if (inside) section = section $0 "\n"
+      next
+    }
+    $0 == start { print; printf "%s", section; skipping = 1; next }
+    $0 == end { skipping = 0 }
+    !skipping { print }
+  ' "$1" README.md > README.md.spliced
+  mv README.md.spliced README.md
+}
+
 restore_corpus() {
   if [[ -d "$corpus_backup" ]]; then
     mv "$corpus_backup" papers
   fi
+  splice_index "$generated_readme"
+  rm -rf "$old_render" "$generated_readme"
   git reset --quiet --mixed "$base_commit"
 }
 trap restore_corpus EXIT
+
+src_path="$(
+  awk '$1 == "_src_path:" { value=$2; gsub(/^["'\''"]|["'\''"]$/, "", value); print value; exit }' \
+    "$answers_file"
+)"
+uv run copier copy --vcs-ref "$current_ref" --data-file "$answers_file" \
+  --defaults --quiet "$src_path" "$old_render"
+splice_index "$old_render/README.md"
+git add README.md
 if [[ -d papers ]]; then
   mv papers "$corpus_backup"
   git rm -r --quiet --cached papers
-  git -c user.name=template-update -c user.email=template-update@localhost \
-    commit --quiet --no-verify -m "temp: update template without the corpus"
 fi
+git -c user.name=template-update -c user.email=template-update@localhost \
+  commit --quiet --no-verify --allow-empty \
+  -m "temp: update template without the corpus or generated index"
 
 uv run copier update \
   --answers-file .copier-answers.yml \
