@@ -156,6 +156,8 @@ def test_alphaxiv_sync_is_read_only_and_configured() -> None:
     }
     assert data["permissions"] == {"contents": "read"}
     assert data["jobs"]["sync"]["if"] == "vars.ALPHAXIV_COLLECTION != ''"
+    # Dropped papers are found in the inventory's history.
+    assert data["jobs"]["sync"]["steps"][0]["with"]["fetch-depth"] == 0
 
     sync_step = data["jobs"]["sync"]["steps"][-1]
     assert sync_step["run"] == "uv run python -m papers_pipeline.alphaxiv_sync"

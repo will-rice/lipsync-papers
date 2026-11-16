@@ -209,8 +209,8 @@ directly.
 
 ## alphaXiv collection
 
-The `Sync alphaXiv collection` workflow adds arXiv papers from `papers.csv` to
-an existing alphaXiv collection through the official alphaXiv MCP server
+The `Sync alphaXiv collection` workflow keeps an existing alphaXiv collection
+in step with the arXiv papers in `papers.csv` through the official alphaXiv MCP server
 (`https://api.alphaxiv.org/mcp/v1`). Configure the `ALPHAXIV_API_KEY` Actions
 secret with an API key from alphaXiv Settings > API Keys and the
 `ALPHAXIV_COLLECTION` repository variable with the exact folder name. The
@@ -219,9 +219,10 @@ the initial population.
 
 The workflow also runs after every completed `Nightly papers` workflow,
 including safe partial runs that commit inventory before a later conversion
-failure. Synchronization is additive and idempotent: existing papers and
-manually managed collection entries are preserved, and no remote paper is
-removed.
+failure. It saves every inventory paper and removes every paper that was once
+in `papers.csv` but has since been dropped, found in the file's git history.
+Both steps are idempotent. Papers added to the collection by hand, which were
+never in the inventory, are left alone.
 
 ## Updating from the template
 
