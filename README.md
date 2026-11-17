@@ -9,10 +9,11 @@ https://www.alphaxiv.org/shared/folder/019f564f-9833-7a27-b1ea-aec52fe9ef9f
 
 # Papers
 
-The 30 most recent of 1194 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
+The 30 most recent of 1195 papers. Every paper is listed in [papers.csv](papers.csv) and converted under [papers/](papers/).
 
 | Published                 | Identifier         | Title                                                                                                                                                                   | Source |
 | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 2026-11-13T19:13:17+00:00 | arxiv:2611.18866v1 | [Découpage: Directorial Audio-Visual Control for Long Multi-Shot Video Generation](papers/arxiv-2611-18866v1--4cf2499f07e8.md)                                          | arxiv  |
 | 2026-11-09T07:16:57+00:00 | arxiv:2611.11989v1 | [MUTE: Multi-Level Alignment Uncoupling Against Talking-Head Exploitation for Voice Protection](papers/arxiv-2611-11989v1--057de8ad4a74.md)                             | arxiv  |
 | 2026-11-06T07:01:35+00:00 | arxiv:2611.09074v1 | [Emo-LiveSync: Real-Time Universal Lip Synchronization with Explicit Emotion Control](papers/arxiv-2611-09074v1--1bbb9cb7a17c.md)                                       | arxiv  |
 | 2026-11-02T16:29:25+00:00 | arxiv:2611.03393v2 | [TaoMate-FVSR: Audio-Guided Facial Video Restoration](papers/arxiv-2611-03393v2--3505d5012fd6.md)                                                                       | arxiv  |
@@ -42,7 +43,6 @@ The 30 most recent of 1194 papers. Every paper is listed in [papers.csv](papers.
 | 2026-08-31T00:00:00+00:00 | arxiv:2608.30951   | [Audio-Driven Adversarial Defense for 3D Talking Face Generation with totally Visual Fidelity Preservation](papers/arxiv-2608-30951--4f87c4d7f36f.md)                   | arxiv  |
 | 2026-08-27T00:00:00+00:00 | arxiv:2608.28693   | [RoboGesture: Real-Time Semantic-aligned Co-Speech Gestures Generation for Humanoid Interaction](papers/arxiv-2608-28693--cd4334028727.md)                              | arxiv  |
 | 2026-08-26T00:00:00+00:00 | arxiv:2608.25734   | [InteractGesture: Progressive Chunk Guidance for Continuous Streaming Co-Speech Gesture Control](papers/arxiv-2608-25734--0bad569cf211.md)                              | arxiv  |
-| 2026-08-24T00:00:00+00:00 | arxiv:2608.23759   | [The ISCSLP 2026 Real-World Audio-Visual Speech Enhancement Challenge](papers/arxiv-2608-23759--2a3bfe04f914.md)                                                        | arxiv  |
 
 <!-- papers-index:end -->
 
