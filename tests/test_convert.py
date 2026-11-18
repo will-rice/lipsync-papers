@@ -227,6 +227,30 @@ async def test_command_runner_timeout_terminates_child_and_preserves_output(
 
 
 @pytest.mark.asyncio
+async def test_command_runner_fails_paper_that_exceeds_memory_limit(
+    tmp_path: Path,
+) -> None:
+    pid_file = tmp_path / "memory.pid"
+    # Writing every byte makes the pages resident, so they count toward RSS.
+    child = (
+        "from pathlib import Path; "
+        "import os, time; "
+        f"Path({str(pid_file)!r}).write_text(str(os.getpid()), encoding='utf-8'); "
+        "data = b'x' * (512 * 1024 * 1024); "
+        "time.sleep(30)"
+    )
+
+    # A document the converter cannot fit in memory fails that paper; left
+    # alone it exhausts the runner, which then dies without recording anything.
+    with pytest.raises(PaperError, match="exceeded the 256 MiB memory limit"):
+        await CommandRunner(memory_limit_bytes=256 * 1024 * 1024).run(
+            [sys.executable, "-c", child], timeout=20
+        )
+
+    await _assert_process_gone(int((await _wait_for_file(pid_file)).strip()))
+
+
+@pytest.mark.asyncio
 async def test_command_runner_cancellation_terminates_child(
     tmp_path: Path,
 ) -> None:

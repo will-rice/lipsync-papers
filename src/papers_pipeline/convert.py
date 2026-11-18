@@ -15,6 +15,7 @@ from typing import Protocol
 from urllib.parse import urljoin, urlsplit
 from uuid import uuid4
 
+import psutil
 from PIL import Image
 
 from papers_pipeline.batching import Batch, expected_figures, expected_markdown
@@ -26,6 +27,13 @@ from papers_pipeline.remote import RemoteDownloader
 
 _DEFAULT_CONVERSION_TIMEOUT = 900.0
 _PROCESS_SHUTDOWN_TIMEOUT = 2.0
+# A standard GitHub runner has 16 GB of memory. A converter that outgrows it
+# gets the runner shut down mid-batch, so the paper is never recorded as failed
+# and every run retries it. Sampled every 0.1 s, docling's process tree peaked
+# at 10.5 GiB on the PDF that did this and at 5.2 GiB on a 158-page paper.
+# Capping the tree fails just the outlier, leaving room for the pipeline.
+CONVERSION_MEMORY_LIMIT_BYTES = 8 * 1024**3
+MEMORY_SAMPLE_SECONDS = 1.0
 _DOCLING_TOOL = "docling"
 _PANDOC_TOOL = "pandoc"
 # arXiv renders most papers to HTML with LaTeXML. Converting that article with
@@ -80,6 +88,9 @@ _DOCUMENT_FAILURE_PATTERNS = (
 
 
 class CommandRunner:
+    def __init__(self, memory_limit_bytes: int = CONVERSION_MEMORY_LIMIT_BYTES) -> None:
+        self.memory_limit_bytes = memory_limit_bytes
+
     async def run(
         self, argv: Sequence[str], timeout: float
     ) -> subprocess.CompletedProcess[str]:
@@ -96,7 +107,10 @@ class CommandRunner:
         stderr_task = asyncio.create_task(_read_stream(process.stderr))
 
         try:
-            await asyncio.wait_for(process.wait(), timeout=timeout)
+            exceeded_memory = await asyncio.wait_for(
+                _wait_within_memory(process, self.memory_limit_bytes),
+                timeout=timeout,
+            )
         except asyncio.TimeoutError:
             stdout, stderr = await _terminate_process(
                 process,
@@ -122,6 +136,17 @@ class CommandRunner:
                 )
             )
             raise
+
+        if exceeded_memory:
+            await _terminate_process(
+                process,
+                stdout_task=stdout_task,
+                stderr_task=stderr_task,
+            )
+            raise PaperError(
+                f"conversion exceeded the {self.memory_limit_bytes // 1024**2} MiB"
+                f" memory limit: {argv[0]}"
+            )
 
         stdout = _decode_output(await stdout_task)
         stderr = _decode_output(await stderr_task)
@@ -152,6 +177,44 @@ class CommandRunner:
                 f"conversion infrastructure failure: {message}"
             ) from process_error
         return completed
+
+
+async def _wait_within_memory(
+    process: asyncio.subprocess.Process, limit_bytes: int
+) -> bool:
+    """Wait for a process to exit while its process tree stays within a limit.
+
+    Args:
+        process: Running converter.
+        limit_bytes: Largest resident memory the process and its children may
+            use together.
+
+    Returns:
+        True if the tree exceeded the limit before the process exited.
+    """
+    exited = asyncio.ensure_future(process.wait())
+    try:
+        while True:
+            done, _ = await asyncio.wait({exited}, timeout=MEMORY_SAMPLE_SECONDS)
+            if done:
+                return False
+            try:
+                root = psutil.Process(process.pid)
+                tree = [root, *root.children(recursive=True)]
+            except psutil.NoSuchProcess:
+                # The process exited between the wait and the sample.
+                continue
+            resident = 0
+            for member in tree:
+                try:
+                    resident += member.memory_info().rss
+                except psutil.NoSuchProcess:
+                    # A child exited after it was listed; it holds no memory.
+                    continue
+            if resident > limit_bytes:
+                return True
+    finally:
+        exited.cancel()
 
 
 async def _read_stream(stream: asyncio.StreamReader | None) -> bytes:
