@@ -169,6 +169,8 @@ converted or failed a paper.
 
 A paper failure does not stop peers. A third consecutive scheduled failure
 creates a colocated `.fixme.txt`; fix the input and remove the marker to retry.
+A converter whose process tree grows past 8 GiB of resident memory is stopped
+and fails that paper, so one oversized document cannot exhaust the runner.
 Any failure downloading one paper's input (HTTP errors, DNS, connection
 failures, timeouts, invalid URLs) counts toward that paper's failure history
 without cancelling peers. HTTP 429 is the exception: the paper is deferred
