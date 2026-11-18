@@ -426,7 +426,7 @@ def test_template_update_runs_copier_without_the_corpus() -> None:
     # corpus in the tree that overflows and drops the repository's changes.
     script = (SCRIPTS / "template-update.sh").read_text(encoding="utf-8")
     remove = script.index("git rm -r --quiet --cached papers")
-    update = script.index("uv run copier update")
+    update = script.index("uv run --no-project copier update")
     restore = script.index("restore_corpus\ntrap - EXIT")
     assert remove < update < restore
     assert "trap restore_corpus EXIT" in script[:update]
@@ -503,7 +503,7 @@ def test_template_update_validates_release_and_handles_noop_and_conflicts() -> N
     assert "updated=true" in text
     assert "newer than current release" in text
     assert "Copier update left conflicts" in text
-    assert "uv run copier update" in text
+    assert "uv run --no-project copier update" in text
     assert '--vcs-ref "$template_ref"' in text
     assert "--answers-file .copier-answers.yml" in text
     assert "uv lock" in text
